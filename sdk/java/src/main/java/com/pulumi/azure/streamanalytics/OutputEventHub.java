@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,48 +52,48 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;rg-example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("rg-example")
+ *             .location("West Europe")
  *             .build());
  * 
  *         final var example = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
- *             .name(&#34;example-job&#34;)
+ *             .name("example-job")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleEventHubNamespace = new EventHubNamespace(&#34;exampleEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
- *             .name(&#34;example-ehnamespace&#34;)
+ *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()        
+ *             .name("example-ehnamespace")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .sku(&#34;Standard&#34;)
+ *             .sku("Standard")
  *             .capacity(1)
  *             .build());
  * 
- *         var exampleEventHub = new EventHub(&#34;exampleEventHub&#34;, EventHubArgs.builder()        
- *             .name(&#34;example-eventhub&#34;)
+ *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()        
+ *             .name("example-eventhub")
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .partitionCount(2)
  *             .messageRetention(1)
  *             .build());
  * 
- *         var exampleOutputEventHub = new OutputEventHub(&#34;exampleOutputEventHub&#34;, OutputEventHubArgs.builder()        
- *             .name(&#34;output-to-eventhub&#34;)
- *             .streamAnalyticsJobName(example.applyValue(getJobResult -&gt; getJobResult).applyValue(example -&gt; example.applyValue(getJobResult -&gt; getJobResult.name())))
- *             .resourceGroupName(example.applyValue(getJobResult -&gt; getJobResult).applyValue(example -&gt; example.applyValue(getJobResult -&gt; getJobResult.resourceGroupName())))
+ *         var exampleOutputEventHub = new OutputEventHub("exampleOutputEventHub", OutputEventHubArgs.builder()        
+ *             .name("output-to-eventhub")
+ *             .streamAnalyticsJobName(example.applyValue(getJobResult -> getJobResult).applyValue(example -> example.applyValue(getJobResult -> getJobResult.name())))
+ *             .resourceGroupName(example.applyValue(getJobResult -> getJobResult).applyValue(example -> example.applyValue(getJobResult -> getJobResult.resourceGroupName())))
  *             .eventhubName(exampleEventHub.name())
  *             .servicebusNamespace(exampleEventHubNamespace.name())
  *             .sharedAccessPolicyKey(exampleEventHubNamespace.defaultPrimaryKey())
- *             .sharedAccessPolicyName(&#34;RootManageSharedAccessKey&#34;)
+ *             .sharedAccessPolicyName("RootManageSharedAccessKey")
  *             .serialization(OutputEventHubSerializationArgs.builder()
- *                 .type(&#34;Avro&#34;)
+ *                 .type("Avro")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

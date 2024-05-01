@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,24 +54,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;rg-example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("rg-example")
+ *             .location("West Europe")
  *             .build());
  * 
  *         final var example = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
- *             .name(&#34;example-job&#34;)
+ *             .name("example-job")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;exampledb&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("exampledb")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
- *             .offerType(&#34;Standard&#34;)
- *             .kind(&#34;GlobalDocumentDB&#34;)
+ *             .offerType("Standard")
+ *             .kind("GlobalDocumentDB")
  *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
- *                 .consistencyLevel(&#34;BoundedStaleness&#34;)
+ *                 .consistencyLevel("BoundedStaleness")
  *                 .maxIntervalInSeconds(10)
  *                 .maxStalenessPrefix(200)
  *                 .build())
@@ -81,33 +81,33 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleSqlDatabase = new SqlDatabase(&#34;exampleSqlDatabase&#34;, SqlDatabaseArgs.builder()        
- *             .name(&#34;cosmos-sql-db&#34;)
+ *         var exampleSqlDatabase = new SqlDatabase("exampleSqlDatabase", SqlDatabaseArgs.builder()        
+ *             .name("cosmos-sql-db")
  *             .resourceGroupName(exampleAccount.resourceGroupName())
  *             .accountName(exampleAccount.name())
  *             .throughput(400)
  *             .build());
  * 
- *         var exampleSqlContainer = new SqlContainer(&#34;exampleSqlContainer&#34;, SqlContainerArgs.builder()        
- *             .name(&#34;examplecontainer&#34;)
+ *         var exampleSqlContainer = new SqlContainer("exampleSqlContainer", SqlContainerArgs.builder()        
+ *             .name("examplecontainer")
  *             .resourceGroupName(exampleAccount.resourceGroupName())
  *             .accountName(exampleAccount.name())
  *             .databaseName(exampleSqlDatabase.name())
- *             .partitionKeyPath(&#34;foo&#34;)
+ *             .partitionKeyPath("foo")
  *             .build());
  * 
- *         var exampleOutputCosmosdb = new OutputCosmosdb(&#34;exampleOutputCosmosdb&#34;, OutputCosmosdbArgs.builder()        
- *             .name(&#34;output-to-cosmosdb&#34;)
- *             .streamAnalyticsJobId(example.applyValue(getJobResult -&gt; getJobResult).applyValue(example -&gt; example.applyValue(getJobResult -&gt; getJobResult.id())))
+ *         var exampleOutputCosmosdb = new OutputCosmosdb("exampleOutputCosmosdb", OutputCosmosdbArgs.builder()        
+ *             .name("output-to-cosmosdb")
+ *             .streamAnalyticsJobId(example.applyValue(getJobResult -> getJobResult).applyValue(example -> example.applyValue(getJobResult -> getJobResult.id())))
  *             .cosmosdbAccountKey(exampleAccount.primaryKey())
  *             .cosmosdbSqlDatabaseId(exampleSqlDatabase.id())
  *             .containerName(exampleSqlContainer.name())
- *             .documentId(&#34;exampledocumentid&#34;)
+ *             .documentId("exampledocumentid")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

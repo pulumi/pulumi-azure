@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,65 +49,65 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = ManagementFunctions.getGroup(GetGroupArgs.builder()
- *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
+ *             .name("00000000-0000-0000-0000-000000000000")
  *             .build());
  * 
- *         var exampleGroupTemplateDeployment = new GroupTemplateDeployment(&#34;exampleGroupTemplateDeployment&#34;, GroupTemplateDeploymentArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;West Europe&#34;)
- *             .managementGroupId(example.applyValue(getGroupResult -&gt; getGroupResult.id()))
- *             .templateContent(&#34;&#34;&#34;
+ *         var exampleGroupTemplateDeployment = new GroupTemplateDeployment("exampleGroupTemplateDeployment", GroupTemplateDeploymentArgs.builder()        
+ *             .name("example")
+ *             .location("West Europe")
+ *             .managementGroupId(example.applyValue(getGroupResult -> getGroupResult.id()))
+ *             .templateContent("""
  * {
- *   &#34;$schema&#34;: &#34;https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#&#34;,
- *   &#34;contentVersion&#34;: &#34;1.0.0.0&#34;,
- *   &#34;parameters&#34;: {
- *     &#34;policyAssignmentName&#34;: {
- *       &#34;type&#34;: &#34;string&#34;,
- *       &#34;defaultValue&#34;: &#34;[guid(parameters(&#39;policyDefinitionID&#39;), resourceGroup().name)]&#34;,
- *       &#34;metadata&#34;: {
- *         &#34;description&#34;: &#34;Specifies the name of the policy assignment, can be used defined or an idempotent name as the defaultValue provides.&#34;
+ *   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+ *   "contentVersion": "1.0.0.0",
+ *   "parameters": {
+ *     "policyAssignmentName": {
+ *       "type": "string",
+ *       "defaultValue": "[guid(parameters('policyDefinitionID'), resourceGroup().name)]",
+ *       "metadata": {
+ *         "description": "Specifies the name of the policy assignment, can be used defined or an idempotent name as the defaultValue provides."
  *       }
  *     },
- *     &#34;policyDefinitionID&#34;: {
- *       &#34;type&#34;: &#34;string&#34;,
- *       &#34;metadata&#34;: {
- *         &#34;description&#34;: &#34;Specifies the ID of the policy definition or policy set definition being assigned.&#34;
+ *     "policyDefinitionID": {
+ *       "type": "string",
+ *       "metadata": {
+ *         "description": "Specifies the ID of the policy definition or policy set definition being assigned."
  *       }
  *     }
  *   },
- *   &#34;resources&#34;: [
+ *   "resources": [
  *     {
- *       &#34;type&#34;: &#34;Microsoft.Authorization/policyAssignments&#34;,
- *       &#34;name&#34;: &#34;[parameters(&#39;policyAssignmentName&#39;)]&#34;,
- *       &#34;apiVersion&#34;: &#34;2019-09-01&#34;,
- *       &#34;properties&#34;: {
- *         &#34;scope&#34;: &#34;[subscriptionResourceId(&#39;Microsoft.Resources/resourceGroups&#39;, resourceGroup().name)]&#34;,
- *         &#34;policyDefinitionId&#34;: &#34;[parameters(&#39;policyDefinitionID&#39;)]&#34;
+ *       "type": "Microsoft.Authorization/policyAssignments",
+ *       "name": "[parameters('policyAssignmentName')]",
+ *       "apiVersion": "2019-09-01",
+ *       "properties": {
+ *         "scope": "[subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)]",
+ *         "policyDefinitionId": "[parameters('policyDefinitionID')]"
  *       }
  *     }
  *   ]
  * }
- *             &#34;&#34;&#34;)
- *             .parametersContent(&#34;&#34;&#34;
+ *             """)
+ *             .parametersContent("""
  * {
- *   &#34;$schema&#34;: &#34;https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#&#34;,
- *   &#34;contentVersion&#34;: &#34;1.0.0.0&#34;,
- *   &#34;parameters&#34;: {
- *     &#34;policyDefinitionID&#34;: {
- *       &#34;value&#34;: &#34;/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-b460-a2d36003525a&#34;
+ *   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+ *   "contentVersion": "1.0.0.0",
+ *   "parameters": {
+ *     "policyDefinitionID": {
+ *       "value": "/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-b460-a2d36003525a"
  *     }
  *   }
  * }
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -131,28 +131,28 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = ManagementFunctions.getGroup(GetGroupArgs.builder()
- *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
+ *             .name("00000000-0000-0000-0000-000000000000")
  *             .build());
  * 
- *         var exampleGroupTemplateDeployment = new GroupTemplateDeployment(&#34;exampleGroupTemplateDeployment&#34;, GroupTemplateDeploymentArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;West Europe&#34;)
- *             .managementGroupId(example.applyValue(getGroupResult -&gt; getGroupResult.id()))
+ *         var exampleGroupTemplateDeployment = new GroupTemplateDeployment("exampleGroupTemplateDeployment", GroupTemplateDeploymentArgs.builder()        
+ *             .name("example")
+ *             .location("West Europe")
+ *             .managementGroupId(example.applyValue(getGroupResult -> getGroupResult.id()))
  *             .templateContent(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;templates/example-deploy-template.json&#34;)
+ *                 .input("templates/example-deploy-template.json")
  *                 .build()).result())
  *             .parametersContent(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;templates/example-deploy-params.json&#34;)
+ *                 .input("templates/example-deploy-params.json")
  *                 .build()).result())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -178,25 +178,25 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = ManagementFunctions.getGroup(GetGroupArgs.builder()
- *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
+ *             .name("00000000-0000-0000-0000-000000000000")
  *             .build());
  * 
  *         final var exampleGetTemplateSpecVersion = CoreFunctions.getTemplateSpecVersion(GetTemplateSpecVersionArgs.builder()
- *             .name(&#34;exampleTemplateForManagementGroup&#34;)
- *             .resourceGroupName(&#34;exampleResourceGroup&#34;)
- *             .version(&#34;v1.0.9&#34;)
+ *             .name("exampleTemplateForManagementGroup")
+ *             .resourceGroupName("exampleResourceGroup")
+ *             .version("v1.0.9")
  *             .build());
  * 
- *         var exampleGroupTemplateDeployment = new GroupTemplateDeployment(&#34;exampleGroupTemplateDeployment&#34;, GroupTemplateDeploymentArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;West Europe&#34;)
- *             .managementGroupId(example.applyValue(getGroupResult -&gt; getGroupResult.id()))
- *             .templateSpecVersionId(exampleGetTemplateSpecVersion.applyValue(getTemplateSpecVersionResult -&gt; getTemplateSpecVersionResult.id()))
+ *         var exampleGroupTemplateDeployment = new GroupTemplateDeployment("exampleGroupTemplateDeployment", GroupTemplateDeploymentArgs.builder()        
+ *             .name("example")
+ *             .location("West Europe")
+ *             .managementGroupId(example.applyValue(getGroupResult -> getGroupResult.id()))
+ *             .templateSpecVersionId(exampleGetTemplateSpecVersion.applyValue(getTemplateSpecVersionResult -> getTemplateSpecVersionResult.id()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

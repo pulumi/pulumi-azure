@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,29 +48,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
- *             .name(&#34;exampleworkspace&#34;)
+ *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()        
+ *             .name("exampleworkspace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;PerGB2018&#34;)
+ *             .sku("PerGB2018")
  *             .retentionInDays(30)
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;examplestoracc&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("examplestoracc")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleStorageInsights = new StorageInsights(&#34;exampleStorageInsights&#34;, StorageInsightsArgs.builder()        
- *             .name(&#34;example-storageinsightconfig&#34;)
+ *         var exampleStorageInsights = new StorageInsights("exampleStorageInsights", StorageInsightsArgs.builder()        
+ *             .name("example-storageinsightconfig")
  *             .resourceGroupName(example.name())
  *             .workspaceId(exampleAnalyticsWorkspace.id())
  *             .storageAccountId(exampleAccount.id())
@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

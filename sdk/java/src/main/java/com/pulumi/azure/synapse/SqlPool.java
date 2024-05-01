@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,48 +53,48 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;examplestorageacc&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("examplestorageacc")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
- *             .accountKind(&#34;BlobStorage&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
+ *             .accountKind("BlobStorage")
  *             .build());
  * 
- *         var exampleDataLakeGen2Filesystem = new DataLakeGen2Filesystem(&#34;exampleDataLakeGen2Filesystem&#34;, DataLakeGen2FilesystemArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleDataLakeGen2Filesystem = new DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", DataLakeGen2FilesystemArgs.builder()        
+ *             .name("example")
  *             .storageAccountId(exampleAccount.id())
  *             .build());
  * 
- *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .storageDataLakeGen2FilesystemId(exampleDataLakeGen2Filesystem.id())
- *             .sqlAdministratorLogin(&#34;sqladminuser&#34;)
- *             .sqlAdministratorLoginPassword(&#34;H@Sh1CoR3!&#34;)
+ *             .sqlAdministratorLogin("sqladminuser")
+ *             .sqlAdministratorLoginPassword("H@Sh1CoR3!")
  *             .identity(WorkspaceIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
- *         var exampleSqlPool = new SqlPool(&#34;exampleSqlPool&#34;, SqlPoolArgs.builder()        
- *             .name(&#34;examplesqlpool&#34;)
+ *         var exampleSqlPool = new SqlPool("exampleSqlPool", SqlPoolArgs.builder()        
+ *             .name("examplesqlpool")
  *             .synapseWorkspaceId(exampleWorkspace.id())
- *             .skuName(&#34;DW100c&#34;)
- *             .createMode(&#34;Default&#34;)
- *             .storageAccountType(&#34;GRS&#34;)
+ *             .skuName("DW100c")
+ *             .createMode("Default")
+ *             .storageAccountType("GRS")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

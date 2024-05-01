@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,44 +52,44 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
- *             .name(&#34;example-uai&#34;)
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()        
+ *             .name("example-uai")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleResourceDeploymentScriptPowerShell = new ResourceDeploymentScriptPowerShell(&#34;exampleResourceDeploymentScriptPowerShell&#34;, ResourceDeploymentScriptPowerShellArgs.builder()        
- *             .name(&#34;example-rdsaps&#34;)
+ *         var exampleResourceDeploymentScriptPowerShell = new ResourceDeploymentScriptPowerShell("exampleResourceDeploymentScriptPowerShell", ResourceDeploymentScriptPowerShellArgs.builder()        
+ *             .name("example-rdsaps")
  *             .resourceGroupName(example.name())
- *             .location(&#34;West Europe&#34;)
- *             .version(&#34;8.3&#34;)
- *             .retentionInterval(&#34;P1D&#34;)
- *             .commandLine(&#34;-name \&#34;John Dole\&#34;&#34;)
- *             .cleanupPreference(&#34;OnSuccess&#34;)
- *             .forceUpdateTag(&#34;1&#34;)
- *             .timeout(&#34;PT30M&#34;)
- *             .scriptContent(&#34;&#34;&#34;
+ *             .location("West Europe")
+ *             .version("8.3")
+ *             .retentionInterval("P1D")
+ *             .commandLine("-name \"John Dole\"")
+ *             .cleanupPreference("OnSuccess")
+ *             .forceUpdateTag("1")
+ *             .timeout("PT30M")
+ *             .scriptContent("""
  *           param([string] $name)
- *             $output = &#39;Hello {0}.&#39; -f $name
+ *             $output = 'Hello {0}.' -f $name
  *             Write-Output $output
  *             $DeploymentScriptOutputs = @{}
- *             $DeploymentScriptOutputs[&#39;text&#39;] = $output
- *             &#34;&#34;&#34;)
+ *             $DeploymentScriptOutputs['text'] = $output
+ *             """)
  *             .identity(ResourceDeploymentScriptPowerShellIdentityArgs.builder()
- *                 .type(&#34;UserAssigned&#34;)
+ *                 .type("UserAssigned")
  *                 .identityIds(exampleUserAssignedIdentity.id())
  *                 .build())
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .tags(Map.of("key", "value"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

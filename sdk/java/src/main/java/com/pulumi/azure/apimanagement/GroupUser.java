@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,21 +43,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = ApimanagementFunctions.getUser(GetUserArgs.builder()
- *             .userId(&#34;my-user&#34;)
- *             .apiManagementName(&#34;example-apim&#34;)
- *             .resourceGroupName(&#34;search-service&#34;)
+ *             .userId("my-user")
+ *             .apiManagementName("example-apim")
+ *             .resourceGroupName("search-service")
  *             .build());
  * 
- *         var exampleGroupUser = new GroupUser(&#34;exampleGroupUser&#34;, GroupUserArgs.builder()        
- *             .userId(example.applyValue(getUserResult -&gt; getUserResult.id()))
- *             .groupName(&#34;example-group&#34;)
- *             .resourceGroupName(example.applyValue(getUserResult -&gt; getUserResult.resourceGroupName()))
- *             .apiManagementName(example.applyValue(getUserResult -&gt; getUserResult.apiManagementName()))
+ *         var exampleGroupUser = new GroupUser("exampleGroupUser", GroupUserArgs.builder()        
+ *             .userId(example.applyValue(getUserResult -> getUserResult.id()))
+ *             .groupName("example-group")
+ *             .resourceGroupName(example.applyValue(getUserResult -> getUserResult.resourceGroupName()))
+ *             .apiManagementName(example.applyValue(getUserResult -> getUserResult.apiManagementName()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

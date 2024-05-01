@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,48 +52,48 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resource-group&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resource-group")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleRegistry = new Registry(&#34;exampleRegistry&#34;, RegistryArgs.builder()        
- *             .name(&#34;example-registry&#34;)
+ *         var exampleRegistry = new Registry("exampleRegistry", RegistryArgs.builder()        
+ *             .name("example-registry")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .sku(&#34;Premium&#34;)
+ *             .sku("Premium")
  *             .adminEnabled(false)
  *             .georeplicationLocations(            
- *                 &#34;East US&#34;,
- *                 &#34;West Europe&#34;)
+ *                 "East US",
+ *                 "West Europe")
  *             .build());
  * 
- *         var exampleRegistryScopeMap = new RegistryScopeMap(&#34;exampleRegistryScopeMap&#34;, RegistryScopeMapArgs.builder()        
- *             .name(&#34;example-scope-map&#34;)
+ *         var exampleRegistryScopeMap = new RegistryScopeMap("exampleRegistryScopeMap", RegistryScopeMapArgs.builder()        
+ *             .name("example-scope-map")
  *             .containerRegistryName(exampleRegistry.name())
  *             .resourceGroupName(example.name())
  *             .actions(            
- *                 &#34;repositories/repo1/content/read&#34;,
- *                 &#34;repositories/repo1/content/write&#34;)
+ *                 "repositories/repo1/content/read",
+ *                 "repositories/repo1/content/write")
  *             .build());
  * 
- *         var exampleRegistryToken = new RegistryToken(&#34;exampleRegistryToken&#34;, RegistryTokenArgs.builder()        
- *             .name(&#34;exampletoken&#34;)
+ *         var exampleRegistryToken = new RegistryToken("exampleRegistryToken", RegistryTokenArgs.builder()        
+ *             .name("exampletoken")
  *             .containerRegistryName(exampleRegistry.name())
  *             .resourceGroupName(example.name())
  *             .scopeMapId(exampleRegistryScopeMap.id())
  *             .build());
  * 
- *         var exampleTokenPassword = new TokenPassword(&#34;exampleTokenPassword&#34;, TokenPasswordArgs.builder()        
+ *         var exampleTokenPassword = new TokenPassword("exampleTokenPassword", TokenPasswordArgs.builder()        
  *             .containerRegistryTokenId(exampleRegistryToken.id())
  *             .password1(TokenPasswordPassword1Args.builder()
- *                 .expiry(&#34;2023-03-22T17:57:36+08:00&#34;)
+ *                 .expiry("2023-03-22T17:57:36+08:00")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

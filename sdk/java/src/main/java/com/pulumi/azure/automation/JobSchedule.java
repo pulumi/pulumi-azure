@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * This is an example of just the Job Schedule.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,20 +44,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new JobSchedule(&#34;example&#34;, JobScheduleArgs.builder()        
- *             .resourceGroupName(&#34;tf-rgr-automation&#34;)
- *             .automationAccountName(&#34;tf-automation-account&#34;)
- *             .scheduleName(&#34;hour&#34;)
- *             .runbookName(&#34;Get-VirtualMachine&#34;)
+ *         var example = new JobSchedule("example", JobScheduleArgs.builder()        
+ *             .resourceGroupName("tf-rgr-automation")
+ *             .automationAccountName("tf-automation-account")
+ *             .scheduleName("hour")
+ *             .runbookName("Get-VirtualMachine")
  *             .parameters(Map.ofEntries(
- *                 Map.entry(&#34;resourcegroup&#34;, &#34;tf-rgr-vm&#34;),
- *                 Map.entry(&#34;vmname&#34;, &#34;TF-VM-01&#34;)
+ *                 Map.entry("resourcegroup", "tf-rgr-vm"),
+ *                 Map.entry("vmname", "TF-VM-01")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

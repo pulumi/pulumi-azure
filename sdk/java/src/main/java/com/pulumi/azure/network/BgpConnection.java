@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,59 +54,59 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualHub = new VirtualHub(&#34;exampleVirtualHub&#34;, VirtualHubArgs.builder()        
- *             .name(&#34;example-vhub&#34;)
+ *         var exampleVirtualHub = new VirtualHub("exampleVirtualHub", VirtualHubArgs.builder()        
+ *             .name("example-vhub")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .sku(&#34;Standard&#34;)
+ *             .sku("Standard")
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
- *             .name(&#34;example-pip&#34;)
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *             .name("example-pip")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .allocationMethod(&#34;Static&#34;)
- *             .sku(&#34;Standard&#34;)
+ *             .allocationMethod("Static")
+ *             .sku("Standard")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-vnet&#34;)
- *             .addressSpaces(&#34;10.5.0.0/16&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example-vnet")
+ *             .addressSpaces("10.5.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;RouteServerSubnet&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("RouteServerSubnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.5.1.0/24&#34;)
+ *             .addressPrefixes("10.5.1.0/24")
  *             .build());
  * 
- *         var exampleVirtualHubIp = new VirtualHubIp(&#34;exampleVirtualHubIp&#34;, VirtualHubIpArgs.builder()        
- *             .name(&#34;example-vhubip&#34;)
+ *         var exampleVirtualHubIp = new VirtualHubIp("exampleVirtualHubIp", VirtualHubIpArgs.builder()        
+ *             .name("example-vhubip")
  *             .virtualHubId(exampleVirtualHub.id())
- *             .privateIpAddress(&#34;10.5.1.18&#34;)
- *             .privateIpAllocationMethod(&#34;Static&#34;)
+ *             .privateIpAddress("10.5.1.18")
+ *             .privateIpAllocationMethod("Static")
  *             .publicIpAddressId(examplePublicIp.id())
  *             .subnetId(exampleSubnet.id())
  *             .build());
  * 
- *         var exampleBgpConnection = new BgpConnection(&#34;exampleBgpConnection&#34;, BgpConnectionArgs.builder()        
- *             .name(&#34;example-vhub-bgpconnection&#34;)
+ *         var exampleBgpConnection = new BgpConnection("exampleBgpConnection", BgpConnectionArgs.builder()        
+ *             .name("example-vhub-bgpconnection")
  *             .virtualHubId(exampleVirtualHub.id())
  *             .peerAsn(65514)
- *             .peerIp(&#34;169.254.21.5&#34;)
+ *             .peerIp("169.254.21.5")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

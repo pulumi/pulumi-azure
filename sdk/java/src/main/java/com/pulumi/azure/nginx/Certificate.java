@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -61,47 +61,47 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .allocationMethod(&#34;Static&#34;)
- *             .sku(&#34;Standard&#34;)
- *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *             .allocationMethod("Static")
+ *             .sku("Standard")
+ *             .tags(Map.of("environment", "Production"))
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-vnet&#34;)
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example-vnet")
+ *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;example-subnet&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("example-subnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
+ *             .addressPrefixes("10.0.2.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;delegation&#34;)
+ *                 .name("delegation")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .name(&#34;NGINX.NGINXPLUS/nginxDeployments&#34;)
- *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/join/action&#34;)
+ *                     .name("NGINX.NGINXPLUS/nginxDeployments")
+ *                     .actions("Microsoft.Network/virtualNetworks/subnets/join/action")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleDeployment = new Deployment(&#34;exampleDeployment&#34;, DeploymentArgs.builder()        
- *             .name(&#34;example-nginx&#34;)
+ *         var exampleDeployment = new Deployment("exampleDeployment", DeploymentArgs.builder()        
+ *             .name("example-nginx")
  *             .resourceGroupName(example.name())
- *             .sku(&#34;publicpreview_Monthly_gmz7xq9ge3py&#34;)
+ *             .sku("publicpreview_Monthly_gmz7xq9ge3py")
  *             .location(example.location())
- *             .managedResourceGroup(&#34;example&#34;)
+ *             .managedResourceGroup("example")
  *             .diagnoseSupportEnabled(true)
  *             .frontendPublic(DeploymentFrontendPublicArgs.builder()
  *                 .ipAddresses(examplePublicIp.id())
@@ -113,53 +113,53 @@ import javax.annotation.Nullable;
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;examplekeyvault&#34;)
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("examplekeyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .skuName(&#34;premium&#34;)
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .skuName("premium")
  *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
- *                 .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *                 .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *                 .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *                 .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *                 .certificatePermissions(                
- *                     &#34;Create&#34;,
- *                     &#34;Delete&#34;,
- *                     &#34;DeleteIssuers&#34;,
- *                     &#34;Get&#34;,
- *                     &#34;GetIssuers&#34;,
- *                     &#34;Import&#34;,
- *                     &#34;List&#34;,
- *                     &#34;ListIssuers&#34;,
- *                     &#34;ManageContacts&#34;,
- *                     &#34;ManageIssuers&#34;,
- *                     &#34;SetIssuers&#34;,
- *                     &#34;Update&#34;)
+ *                     "Create",
+ *                     "Delete",
+ *                     "DeleteIssuers",
+ *                     "Get",
+ *                     "GetIssuers",
+ *                     "Import",
+ *                     "List",
+ *                     "ListIssuers",
+ *                     "ManageContacts",
+ *                     "ManageIssuers",
+ *                     "SetIssuers",
+ *                     "Update")
  *                 .build())
  *             .build());
  * 
- *         var exampleCertificate = new Certificate(&#34;exampleCertificate&#34;, CertificateArgs.builder()        
- *             .name(&#34;imported-cert&#34;)
+ *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()        
+ *             .name("imported-cert")
  *             .keyVaultId(exampleKeyVault.id())
  *             .certificate(CertificateCertificateArgs.builder()
  *                 .contents(StdFunctions.filebase64(Filebase64Args.builder()
- *                     .input(&#34;certificate-to-import.pfx&#34;)
+ *                     .input("certificate-to-import.pfx")
  *                     .build()).result())
- *                 .password(&#34;&#34;)
+ *                 .password("")
  *                 .build())
  *             .build());
  * 
- *         var exampleCertificate2 = new Certificate(&#34;exampleCertificate2&#34;, CertificateArgs.builder()        
- *             .name(&#34;examplecert&#34;)
+ *         var exampleCertificate2 = new Certificate("exampleCertificate2", CertificateArgs.builder()        
+ *             .name("examplecert")
  *             .nginxDeploymentId(exampleDeployment.id())
- *             .keyVirtualPath(&#34;/src/cert/soservermekey.key&#34;)
- *             .certificateVirtualPath(&#34;/src/cert/server.cert&#34;)
+ *             .keyVirtualPath("/src/cert/soservermekey.key")
+ *             .certificateVirtualPath("/src/cert/server.cert")
  *             .keyVaultSecretId(exampleCertificate.secretId())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

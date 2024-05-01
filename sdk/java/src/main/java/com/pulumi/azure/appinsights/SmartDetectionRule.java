@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,27 +47,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;tf-test&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("tf-test")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleInsights = new Insights(&#34;exampleInsights&#34;, InsightsArgs.builder()        
- *             .name(&#34;tf-test-appinsights&#34;)
+ *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()        
+ *             .name("tf-test-appinsights")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .applicationType(&#34;web&#34;)
+ *             .applicationType("web")
  *             .build());
  * 
- *         var exampleSmartDetectionRule = new SmartDetectionRule(&#34;exampleSmartDetectionRule&#34;, SmartDetectionRuleArgs.builder()        
- *             .name(&#34;Slow server response time&#34;)
+ *         var exampleSmartDetectionRule = new SmartDetectionRule("exampleSmartDetectionRule", SmartDetectionRuleArgs.builder()        
+ *             .name("Slow server response time")
  *             .applicationInsightsId(exampleInsights.id())
  *             .enabled(false)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

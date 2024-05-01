@@ -20,7 +20,7 @@ public final class PortalFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -42,14 +42,14 @@ public final class PortalFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PortalFunctions.getDashboard(GetDashboardArgs.builder()
-     *             .name(&#34;existing-dashboard&#34;)
-     *             .resourceGroupName(&#34;dashboard-rg&#34;)
+     *             .name("existing-dashboard")
+     *             .resourceGroupName("dashboard-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleAzurermDashboard.id());
+     *         ctx.export("id", exampleAzurermDashboard.id());
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -62,7 +62,7 @@ public final class PortalFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -84,14 +84,14 @@ public final class PortalFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PortalFunctions.getDashboard(GetDashboardArgs.builder()
-     *             .name(&#34;existing-dashboard&#34;)
-     *             .resourceGroupName(&#34;dashboard-rg&#34;)
+     *             .name("existing-dashboard")
+     *             .resourceGroupName("dashboard-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleAzurermDashboard.id());
+     *         ctx.export("id", exampleAzurermDashboard.id());
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -104,7 +104,7 @@ public final class PortalFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -126,14 +126,14 @@ public final class PortalFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PortalFunctions.getDashboard(GetDashboardArgs.builder()
-     *             .name(&#34;existing-dashboard&#34;)
-     *             .resourceGroupName(&#34;dashboard-rg&#34;)
+     *             .name("existing-dashboard")
+     *             .resourceGroupName("dashboard-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleAzurermDashboard.id());
+     *         ctx.export("id", exampleAzurermDashboard.id());
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -146,7 +146,7 @@ public final class PortalFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -168,14 +168,14 @@ public final class PortalFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PortalFunctions.getDashboard(GetDashboardArgs.builder()
-     *             .name(&#34;existing-dashboard&#34;)
-     *             .resourceGroupName(&#34;dashboard-rg&#34;)
+     *             .name("existing-dashboard")
+     *             .resourceGroupName("dashboard-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleAzurermDashboard.id());
+     *         ctx.export("id", exampleAzurermDashboard.id());
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

@@ -27,7 +27,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,29 +52,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new ResourceGroup(&#34;test&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;testrg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var test = new ResourceGroup("test", ResourceGroupArgs.builder()        
+ *             .name("testrg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var testManagedDisk = new ManagedDisk(&#34;testManagedDisk&#34;, ManagedDiskArgs.builder()        
- *             .name(&#34;tst-disk-export&#34;)
+ *         var testManagedDisk = new ManagedDisk("testManagedDisk", ManagedDiskArgs.builder()        
+ *             .name("tst-disk-export")
  *             .location(test.location())
  *             .resourceGroupName(test.name())
- *             .storageAccountType(&#34;Standard_LRS&#34;)
- *             .createOption(&#34;Empty&#34;)
- *             .diskSizeGb(&#34;1&#34;)
+ *             .storageAccountType("Standard_LRS")
+ *             .createOption("Empty")
+ *             .diskSizeGb("1")
  *             .build());
  * 
- *         var testManagedDiskSasToken = new ManagedDiskSasToken(&#34;testManagedDiskSasToken&#34;, ManagedDiskSasTokenArgs.builder()        
+ *         var testManagedDiskSasToken = new ManagedDiskSasToken("testManagedDiskSasToken", ManagedDiskSasTokenArgs.builder()        
  *             .managedDiskId(testManagedDisk.id())
  *             .durationInSeconds(300)
- *             .accessLevel(&#34;Read&#34;)
+ *             .accessLevel("Read")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

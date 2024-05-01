@@ -29,7 +29,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,21 +52,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleTopic = new Topic(&#34;exampleTopic&#34;, TopicArgs.builder()        
- *             .name(&#34;my-eventgrid-topic&#34;)
+ *         var exampleTopic = new Topic("exampleTopic", TopicArgs.builder()        
+ *             .name("my-eventgrid-topic")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *             .tags(Map.of("environment", "Production"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

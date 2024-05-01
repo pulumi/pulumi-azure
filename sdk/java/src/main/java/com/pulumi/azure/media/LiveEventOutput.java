@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,21 +54,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;media-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("media-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;examplestoracc&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("examplestoracc")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;GRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("GRS")
  *             .build());
  * 
- *         var exampleServiceAccount = new ServiceAccount(&#34;exampleServiceAccount&#34;, ServiceAccountArgs.builder()        
- *             .name(&#34;examplemediaacc&#34;)
+ *         var exampleServiceAccount = new ServiceAccount("exampleServiceAccount", ServiceAccountArgs.builder()        
+ *             .name("examplemediaacc")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .storageAccounts(ServiceAccountStorageAccountArgs.builder()
@@ -77,44 +77,44 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleAsset = new Asset(&#34;exampleAsset&#34;, AssetArgs.builder()        
- *             .name(&#34;inputAsset&#34;)
+ *         var exampleAsset = new Asset("exampleAsset", AssetArgs.builder()        
+ *             .name("inputAsset")
  *             .resourceGroupName(example.name())
  *             .mediaServicesAccountName(exampleServiceAccount.name())
  *             .build());
  * 
- *         var exampleLiveEvent = new LiveEvent(&#34;exampleLiveEvent&#34;, LiveEventArgs.builder()        
- *             .name(&#34;exampleevent&#34;)
+ *         var exampleLiveEvent = new LiveEvent("exampleLiveEvent", LiveEventArgs.builder()        
+ *             .name("exampleevent")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .mediaServicesAccountName(exampleServiceAccount.name())
- *             .description(&#34;My Event Description&#34;)
+ *             .description("My Event Description")
  *             .input(LiveEventInputArgs.builder()
- *                 .streamingProtocol(&#34;RTMP&#34;)
- *                 .keyFrameIntervalDuration(&#34;PT6S&#34;)
+ *                 .streamingProtocol("RTMP")
+ *                 .keyFrameIntervalDuration("PT6S")
  *                 .ipAccessControlAllows(LiveEventInputIpAccessControlAllowArgs.builder()
- *                     .name(&#34;AllowAll&#34;)
- *                     .address(&#34;0.0.0.0&#34;)
+ *                     .name("AllowAll")
+ *                     .address("0.0.0.0")
  *                     .subnetPrefixLength(0)
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleLiveEventOutput = new LiveEventOutput(&#34;exampleLiveEventOutput&#34;, LiveEventOutputArgs.builder()        
- *             .name(&#34;exampleoutput&#34;)
+ *         var exampleLiveEventOutput = new LiveEventOutput("exampleLiveEventOutput", LiveEventOutputArgs.builder()        
+ *             .name("exampleoutput")
  *             .liveEventId(exampleLiveEvent.id())
- *             .archiveWindowDuration(&#34;PT5M&#34;)
+ *             .archiveWindowDuration("PT5M")
  *             .assetName(exampleAsset.name())
- *             .description(&#34;Test live output 1&#34;)
- *             .manifestName(&#34;testmanifest&#34;)
+ *             .description("Test live output 1")
+ *             .manifestName("testmanifest")
  *             .outputSnapTimeInSeconds(0)
  *             .hlsFragmentsPerTsSegment(5)
- *             .rewindWindowDuration(&#34;PT5M&#34;)
+ *             .rewindWindowDuration("PT5M")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

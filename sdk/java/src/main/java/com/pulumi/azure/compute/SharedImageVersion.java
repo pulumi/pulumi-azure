@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,33 +50,33 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var existing = ComputeFunctions.getImage(GetImageArgs.builder()
- *             .name(&#34;search-api&#34;)
- *             .resourceGroupName(&#34;packerimages&#34;)
+ *             .name("search-api")
+ *             .resourceGroupName("packerimages")
  *             .build());
  * 
  *         final var existingGetSharedImage = ComputeFunctions.getSharedImage(GetSharedImageArgs.builder()
- *             .name(&#34;existing-image&#34;)
- *             .galleryName(&#34;existing_gallery&#34;)
- *             .resourceGroupName(&#34;existing-resources&#34;)
+ *             .name("existing-image")
+ *             .galleryName("existing_gallery")
+ *             .resourceGroupName("existing-resources")
  *             .build());
  * 
- *         var example = new SharedImageVersion(&#34;example&#34;, SharedImageVersionArgs.builder()        
- *             .name(&#34;0.0.1&#34;)
- *             .galleryName(existingGetSharedImage.applyValue(getSharedImageResult -&gt; getSharedImageResult.galleryName()))
- *             .imageName(existingGetSharedImage.applyValue(getSharedImageResult -&gt; getSharedImageResult.name()))
- *             .resourceGroupName(existingGetSharedImage.applyValue(getSharedImageResult -&gt; getSharedImageResult.resourceGroupName()))
- *             .location(existingGetSharedImage.applyValue(getSharedImageResult -&gt; getSharedImageResult.location()))
- *             .managedImageId(existing.applyValue(getImageResult -&gt; getImageResult.id()))
+ *         var example = new SharedImageVersion("example", SharedImageVersionArgs.builder()        
+ *             .name("0.0.1")
+ *             .galleryName(existingGetSharedImage.applyValue(getSharedImageResult -> getSharedImageResult.galleryName()))
+ *             .imageName(existingGetSharedImage.applyValue(getSharedImageResult -> getSharedImageResult.name()))
+ *             .resourceGroupName(existingGetSharedImage.applyValue(getSharedImageResult -> getSharedImageResult.resourceGroupName()))
+ *             .location(existingGetSharedImage.applyValue(getSharedImageResult -> getSharedImageResult.location()))
+ *             .managedImageId(existing.applyValue(getImageResult -> getImageResult.id()))
  *             .targetRegions(SharedImageVersionTargetRegionArgs.builder()
- *                 .name(existingGetSharedImage.applyValue(getSharedImageResult -&gt; getSharedImageResult.location()))
+ *                 .name(existingGetSharedImage.applyValue(getSharedImageResult -> getSharedImageResult.location()))
  *                 .regionalReplicaCount(5)
- *                 .storageAccountType(&#34;Standard_LRS&#34;)
+ *                 .storageAccountType("Standard_LRS")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

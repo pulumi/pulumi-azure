@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -63,116 +63,116 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;examplevn&#34;)
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("examplevn")
+ *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleHpc = new Subnet(&#34;exampleHpc&#34;, SubnetArgs.builder()        
- *             .name(&#34;examplesubnethpc&#34;)
+ *         var exampleHpc = new Subnet("exampleHpc", SubnetArgs.builder()        
+ *             .name("examplesubnethpc")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.1.0/24&#34;)
+ *             .addressPrefixes("10.0.1.0/24")
  *             .build());
  * 
- *         var exampleCache = new Cache(&#34;exampleCache&#34;, CacheArgs.builder()        
- *             .name(&#34;examplehpccache&#34;)
+ *         var exampleCache = new Cache("exampleCache", CacheArgs.builder()        
+ *             .name("examplehpccache")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .cacheSizeInGb(3072)
  *             .subnetId(exampleHpc.id())
- *             .skuName(&#34;Standard_2G&#34;)
+ *             .skuName("Standard_2G")
  *             .build());
  * 
- *         var exampleVm = new Subnet(&#34;exampleVm&#34;, SubnetArgs.builder()        
- *             .name(&#34;examplesubnetvm&#34;)
+ *         var exampleVm = new Subnet("exampleVm", SubnetArgs.builder()        
+ *             .name("examplesubnetvm")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
+ *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
- *         var exampleNetworkInterface = new NetworkInterface(&#34;exampleNetworkInterface&#34;, NetworkInterfaceArgs.builder()        
- *             .name(&#34;examplenic&#34;)
+ *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()        
+ *             .name("examplenic")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
- *                 .name(&#34;internal&#34;)
+ *                 .name("internal")
  *                 .subnetId(exampleVm.id())
- *                 .privateIpAddressAllocation(&#34;Dynamic&#34;)
+ *                 .privateIpAddressAllocation("Dynamic")
  *                 .build())
  *             .build());
  * 
- *         final var customData = &#34;&#34;&#34;
+ *         final var customData = """
  * #!/bin/bash
  * sudo -i 
  * apt-get install -y nfs-kernel-server
  * mkdir -p /export/a/1
  * mkdir -p /export/a/2
  * mkdir -p /export/b
- * cat &lt;&lt; EOF &gt; /etc/exports
+ * cat << EOF > /etc/exports
  * /export/a *(rw,fsid=0,insecure,no_subtree_check,async)
  * /export/b *(rw,fsid=0,insecure,no_subtree_check,async)
  * EOF
  * systemctl start nfs-server
  * exportfs -arv
- *         &#34;&#34;&#34;;
+ *         """;
  * 
- *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine(&#34;exampleLinuxVirtualMachine&#34;, LinuxVirtualMachineArgs.builder()        
- *             .name(&#34;examplevm&#34;)
+ *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine("exampleLinuxVirtualMachine", LinuxVirtualMachineArgs.builder()        
+ *             .name("examplevm")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .size(&#34;Standard_F2&#34;)
- *             .adminUsername(&#34;adminuser&#34;)
+ *             .size("Standard_F2")
+ *             .adminUsername("adminuser")
  *             .networkInterfaceIds(exampleNetworkInterface.id())
  *             .adminSshKeys(LinuxVirtualMachineAdminSshKeyArgs.builder()
- *                 .username(&#34;adminuser&#34;)
+ *                 .username("adminuser")
  *                 .publicKey(StdFunctions.file(FileArgs.builder()
- *                     .input(&#34;~/.ssh/id_rsa.pub&#34;)
+ *                     .input("~/.ssh/id_rsa.pub")
  *                     .build()).result())
  *                 .build())
  *             .osDisk(LinuxVirtualMachineOsDiskArgs.builder()
- *                 .caching(&#34;ReadWrite&#34;)
- *                 .storageAccountType(&#34;Standard_LRS&#34;)
+ *                 .caching("ReadWrite")
+ *                 .storageAccountType("Standard_LRS")
  *                 .build())
  *             .sourceImageReference(LinuxVirtualMachineSourceImageReferenceArgs.builder()
- *                 .publisher(&#34;Canonical&#34;)
- *                 .offer(&#34;0001-com-ubuntu-server-jammy&#34;)
- *                 .sku(&#34;22_04-lts&#34;)
- *                 .version(&#34;latest&#34;)
+ *                 .publisher("Canonical")
+ *                 .offer("0001-com-ubuntu-server-jammy")
+ *                 .sku("22_04-lts")
+ *                 .version("latest")
  *                 .build())
  *             .customData(StdFunctions.base64encode(Base64encodeArgs.builder()
  *                 .input(customData)
  *                 .build()).result())
  *             .build());
  * 
- *         var exampleCacheNfsTarget = new CacheNfsTarget(&#34;exampleCacheNfsTarget&#34;, CacheNfsTargetArgs.builder()        
- *             .name(&#34;examplehpcnfstarget&#34;)
+ *         var exampleCacheNfsTarget = new CacheNfsTarget("exampleCacheNfsTarget", CacheNfsTargetArgs.builder()        
+ *             .name("examplehpcnfstarget")
  *             .resourceGroupName(example.name())
  *             .cacheName(exampleCache.name())
  *             .targetHostName(exampleLinuxVirtualMachine.privateIpAddress())
- *             .usageModel(&#34;READ_HEAVY_INFREQ&#34;)
+ *             .usageModel("READ_HEAVY_INFREQ")
  *             .namespaceJunctions(            
  *                 CacheNfsTargetNamespaceJunctionArgs.builder()
- *                     .namespacePath(&#34;/nfs/a1&#34;)
- *                     .nfsExport(&#34;/export/a&#34;)
- *                     .targetPath(&#34;1&#34;)
+ *                     .namespacePath("/nfs/a1")
+ *                     .nfsExport("/export/a")
+ *                     .targetPath("1")
  *                     .build(),
  *                 CacheNfsTargetNamespaceJunctionArgs.builder()
- *                     .namespacePath(&#34;/nfs/b&#34;)
- *                     .nfsExport(&#34;/export/b&#34;)
+ *                     .namespacePath("/nfs/b")
+ *                     .nfsExport("/export/b")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

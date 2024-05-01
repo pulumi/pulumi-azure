@@ -20,7 +20,7 @@ public final class HdinsightFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -42,14 +42,14 @@ public final class HdinsightFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = HdinsightFunctions.getCluster(GetClusterArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;httpsEndpoint&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.httpsEndpoint()));
+     *         ctx.export("httpsEndpoint", example.applyValue(getClusterResult -> getClusterResult.httpsEndpoint()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -62,7 +62,7 @@ public final class HdinsightFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -84,14 +84,14 @@ public final class HdinsightFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = HdinsightFunctions.getCluster(GetClusterArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;httpsEndpoint&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.httpsEndpoint()));
+     *         ctx.export("httpsEndpoint", example.applyValue(getClusterResult -> getClusterResult.httpsEndpoint()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -104,7 +104,7 @@ public final class HdinsightFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -126,14 +126,14 @@ public final class HdinsightFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = HdinsightFunctions.getCluster(GetClusterArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;httpsEndpoint&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.httpsEndpoint()));
+     *         ctx.export("httpsEndpoint", example.applyValue(getClusterResult -> getClusterResult.httpsEndpoint()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -146,7 +146,7 @@ public final class HdinsightFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -168,14 +168,14 @@ public final class HdinsightFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = HdinsightFunctions.getCluster(GetClusterArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;httpsEndpoint&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.httpsEndpoint()));
+     *         ctx.export("httpsEndpoint", example.applyValue(getClusterResult -> getClusterResult.httpsEndpoint()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

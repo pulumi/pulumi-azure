@@ -20,7 +20,7 @@ public final class DigitaltwinsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -42,14 +42,14 @@ public final class DigitaltwinsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DigitaltwinsFunctions.getInstance(GetInstanceArgs.builder()
-     *             .name(&#34;existing-digital-twins&#34;)
-     *             .resourceGroupName(&#34;existing-resgroup&#34;)
+     *             .name("existing-digital-twins")
+     *             .resourceGroupName("existing-resgroup")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getInstanceResult -&gt; getInstanceResult.id()));
+     *         ctx.export("id", example.applyValue(getInstanceResult -> getInstanceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -62,7 +62,7 @@ public final class DigitaltwinsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -84,14 +84,14 @@ public final class DigitaltwinsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DigitaltwinsFunctions.getInstance(GetInstanceArgs.builder()
-     *             .name(&#34;existing-digital-twins&#34;)
-     *             .resourceGroupName(&#34;existing-resgroup&#34;)
+     *             .name("existing-digital-twins")
+     *             .resourceGroupName("existing-resgroup")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getInstanceResult -&gt; getInstanceResult.id()));
+     *         ctx.export("id", example.applyValue(getInstanceResult -> getInstanceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -104,7 +104,7 @@ public final class DigitaltwinsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -126,14 +126,14 @@ public final class DigitaltwinsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DigitaltwinsFunctions.getInstance(GetInstanceArgs.builder()
-     *             .name(&#34;existing-digital-twins&#34;)
-     *             .resourceGroupName(&#34;existing-resgroup&#34;)
+     *             .name("existing-digital-twins")
+     *             .resourceGroupName("existing-resgroup")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getInstanceResult -&gt; getInstanceResult.id()));
+     *         ctx.export("id", example.applyValue(getInstanceResult -> getInstanceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -146,7 +146,7 @@ public final class DigitaltwinsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -168,14 +168,14 @@ public final class DigitaltwinsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DigitaltwinsFunctions.getInstance(GetInstanceArgs.builder()
-     *             .name(&#34;existing-digital-twins&#34;)
-     *             .resourceGroupName(&#34;existing-resgroup&#34;)
+     *             .name("existing-digital-twins")
+     *             .resourceGroupName("existing-resgroup")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getInstanceResult -&gt; getInstanceResult.id()));
+     *         ctx.export("id", example.applyValue(getInstanceResult -> getInstanceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

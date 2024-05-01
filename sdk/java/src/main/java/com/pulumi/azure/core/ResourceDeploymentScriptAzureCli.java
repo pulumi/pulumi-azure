@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,40 +52,40 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
- *             .name(&#34;example-uai&#34;)
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()        
+ *             .name("example-uai")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleResourceDeploymentScriptAzureCli = new ResourceDeploymentScriptAzureCli(&#34;exampleResourceDeploymentScriptAzureCli&#34;, ResourceDeploymentScriptAzureCliArgs.builder()        
- *             .name(&#34;example-rdsac&#34;)
+ *         var exampleResourceDeploymentScriptAzureCli = new ResourceDeploymentScriptAzureCli("exampleResourceDeploymentScriptAzureCli", ResourceDeploymentScriptAzureCliArgs.builder()        
+ *             .name("example-rdsac")
  *             .resourceGroupName(example.name())
- *             .location(&#34;West Europe&#34;)
- *             .version(&#34;2.40.0&#34;)
- *             .retentionInterval(&#34;P1D&#34;)
- *             .commandLine(&#34;&#39;foo&#39; &#39;bar&#39;&#34;)
- *             .cleanupPreference(&#34;OnSuccess&#34;)
- *             .forceUpdateTag(&#34;1&#34;)
- *             .timeout(&#34;PT30M&#34;)
- *             .scriptContent(&#34;&#34;&#34;
- *             echo &#34;{\&#34;name\&#34;:{\&#34;displayName\&#34;:\&#34;$1 $2\&#34;}}&#34; &gt; $AZ_SCRIPTS_OUTPUT_PATH
- *             &#34;&#34;&#34;)
+ *             .location("West Europe")
+ *             .version("2.40.0")
+ *             .retentionInterval("P1D")
+ *             .commandLine("'foo' 'bar'")
+ *             .cleanupPreference("OnSuccess")
+ *             .forceUpdateTag("1")
+ *             .timeout("PT30M")
+ *             .scriptContent("""
+ *             echo "{\"name\":{\"displayName\":\"$1 $2\"}}" > $AZ_SCRIPTS_OUTPUT_PATH
+ *             """)
  *             .identity(ResourceDeploymentScriptAzureCliIdentityArgs.builder()
- *                 .type(&#34;UserAssigned&#34;)
+ *                 .type("UserAssigned")
  *                 .identityIds(exampleUserAssignedIdentity.id())
  *                 .build())
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .tags(Map.of("key", "value"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

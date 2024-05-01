@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,17 +49,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var server = new RandomId(&#34;server&#34;);
+ *         var server = new RandomId("server");
  * 
- *         var example = new ResourceGroup(&#34;example&#34;);
+ *         var example = new ResourceGroup("example");
  * 
- *         var examplePlan = new Plan(&#34;examplePlan&#34;);
+ *         var examplePlan = new Plan("examplePlan");
  * 
- *         var exampleAppService = new AppService(&#34;exampleAppService&#34;);
+ *         var exampleAppService = new AppService("exampleAppService");
  * 
- *         var exampleSlot = new Slot(&#34;exampleSlot&#34;);
+ *         var exampleSlot = new Slot("exampleSlot");
  * 
- *         var exampleActiveSlot = new ActiveSlot(&#34;exampleActiveSlot&#34;, ActiveSlotArgs.builder()        
+ *         var exampleActiveSlot = new ActiveSlot("exampleActiveSlot", ActiveSlotArgs.builder()        
  *             .resourceGroupName(example.name())
  *             .appServiceName(exampleAppService.name())
  *             .appServiceSlotName(exampleSlot.name())
@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

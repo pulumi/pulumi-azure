@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,61 +49,61 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleBackupVault = new BackupVault(&#34;exampleBackupVault&#34;, BackupVaultArgs.builder()        
- *             .name(&#34;example-backup-vault&#34;)
+ *         var exampleBackupVault = new BackupVault("exampleBackupVault", BackupVaultArgs.builder()        
+ *             .name("example-backup-vault")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .datastoreType(&#34;VaultStore&#34;)
- *             .redundancy(&#34;LocallyRedundant&#34;)
+ *             .datastoreType("VaultStore")
+ *             .redundancy("LocallyRedundant")
  *             .build());
  * 
- *         var exampleBackupPolicyPostgresql = new BackupPolicyPostgresql(&#34;exampleBackupPolicyPostgresql&#34;, BackupPolicyPostgresqlArgs.builder()        
- *             .name(&#34;example-backup-policy&#34;)
+ *         var exampleBackupPolicyPostgresql = new BackupPolicyPostgresql("exampleBackupPolicyPostgresql", BackupPolicyPostgresqlArgs.builder()        
+ *             .name("example-backup-policy")
  *             .resourceGroupName(example.name())
  *             .vaultName(exampleBackupVault.name())
- *             .backupRepeatingTimeIntervals(&#34;R/2021-05-23T02:30:00+00:00/P1W&#34;)
- *             .timeZone(&#34;India Standard Time&#34;)
- *             .defaultRetentionDuration(&#34;P4M&#34;)
+ *             .backupRepeatingTimeIntervals("R/2021-05-23T02:30:00+00:00/P1W")
+ *             .timeZone("India Standard Time")
+ *             .defaultRetentionDuration("P4M")
  *             .retentionRules(            
  *                 BackupPolicyPostgresqlRetentionRuleArgs.builder()
- *                     .name(&#34;weekly&#34;)
- *                     .duration(&#34;P6M&#34;)
+ *                     .name("weekly")
+ *                     .duration("P6M")
  *                     .priority(20)
  *                     .criteria(BackupPolicyPostgresqlRetentionRuleCriteriaArgs.builder()
- *                         .absoluteCriteria(&#34;FirstOfWeek&#34;)
+ *                         .absoluteCriteria("FirstOfWeek")
  *                         .build())
  *                     .build(),
  *                 BackupPolicyPostgresqlRetentionRuleArgs.builder()
- *                     .name(&#34;thursday&#34;)
- *                     .duration(&#34;P1W&#34;)
+ *                     .name("thursday")
+ *                     .duration("P1W")
  *                     .priority(25)
  *                     .criteria(BackupPolicyPostgresqlRetentionRuleCriteriaArgs.builder()
- *                         .daysOfWeeks(&#34;Thursday&#34;)
- *                         .scheduledBackupTimes(&#34;2021-05-23T02:30:00Z&#34;)
+ *                         .daysOfWeeks("Thursday")
+ *                         .scheduledBackupTimes("2021-05-23T02:30:00Z")
  *                         .build())
  *                     .build(),
  *                 BackupPolicyPostgresqlRetentionRuleArgs.builder()
- *                     .name(&#34;monthly&#34;)
- *                     .duration(&#34;P1D&#34;)
+ *                     .name("monthly")
+ *                     .duration("P1D")
  *                     .priority(15)
  *                     .criteria(BackupPolicyPostgresqlRetentionRuleCriteriaArgs.builder()
  *                         .weeksOfMonths(                        
- *                             &#34;First&#34;,
- *                             &#34;Last&#34;)
- *                         .daysOfWeeks(&#34;Tuesday&#34;)
- *                         .scheduledBackupTimes(&#34;2021-05-23T02:30:00Z&#34;)
+ *                             "First",
+ *                             "Last")
+ *                         .daysOfWeeks("Tuesday")
+ *                         .scheduledBackupTimes("2021-05-23T02:30:00Z")
  *                         .build())
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

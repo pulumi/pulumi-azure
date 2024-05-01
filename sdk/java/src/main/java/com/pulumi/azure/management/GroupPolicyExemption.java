@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,34 +49,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
- *             .displayName(&#34;Example MgmtGroup&#34;)
+ *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+ *             .displayName("Example MgmtGroup")
  *             .build());
  * 
  *         final var example = PolicyFunctions.getPolicySetDefinition(GetPolicySetDefinitionArgs.builder()
- *             .displayName(&#34;Audit machines with insecure password security settings&#34;)
+ *             .displayName("Audit machines with insecure password security settings")
  *             .build());
  * 
- *         var exampleGroupPolicyAssignment = new GroupPolicyAssignment(&#34;exampleGroupPolicyAssignment&#34;, GroupPolicyAssignmentArgs.builder()        
- *             .name(&#34;assignment1&#34;)
+ *         var exampleGroupPolicyAssignment = new GroupPolicyAssignment("exampleGroupPolicyAssignment", GroupPolicyAssignmentArgs.builder()        
+ *             .name("assignment1")
  *             .managementGroupId(exampleGroup.id())
- *             .policyDefinitionId(example.applyValue(getPolicySetDefinitionResult -&gt; getPolicySetDefinitionResult.id()))
- *             .location(&#34;westus&#34;)
+ *             .policyDefinitionId(example.applyValue(getPolicySetDefinitionResult -> getPolicySetDefinitionResult.id()))
+ *             .location("westus")
  *             .identity(GroupPolicyAssignmentIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
- *         var exampleGroupPolicyExemption = new GroupPolicyExemption(&#34;exampleGroupPolicyExemption&#34;, GroupPolicyExemptionArgs.builder()        
- *             .name(&#34;exemption1&#34;)
+ *         var exampleGroupPolicyExemption = new GroupPolicyExemption("exampleGroupPolicyExemption", GroupPolicyExemptionArgs.builder()        
+ *             .name("exemption1")
  *             .managementGroupId(exampleGroup.id())
  *             .policyAssignmentId(exampleGroupPolicyAssignment.id())
- *             .exemptionCategory(&#34;Mitigated&#34;)
+ *             .exemptionCategory("Mitigated")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

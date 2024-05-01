@@ -27,7 +27,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,13 +48,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PortalTenantConfiguration(&#34;example&#34;, PortalTenantConfigurationArgs.builder()        
+ *         var example = new PortalTenantConfiguration("example", PortalTenantConfigurationArgs.builder()        
  *             .privateMarkdownStorageEnforced(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

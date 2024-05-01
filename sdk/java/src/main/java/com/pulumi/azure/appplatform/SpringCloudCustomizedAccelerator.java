@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,42 +50,42 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;west europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("west europe")
  *             .build());
  * 
- *         var exampleSpringCloudService = new SpringCloudService(&#34;exampleSpringCloudService&#34;, SpringCloudServiceArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;E0&#34;)
+ *             .skuName("E0")
  *             .build());
  * 
- *         var exampleSpringCloudAccelerator = new SpringCloudAccelerator(&#34;exampleSpringCloudAccelerator&#34;, SpringCloudAcceleratorArgs.builder()        
- *             .name(&#34;default&#34;)
+ *         var exampleSpringCloudAccelerator = new SpringCloudAccelerator("exampleSpringCloudAccelerator", SpringCloudAcceleratorArgs.builder()        
+ *             .name("default")
  *             .springCloudServiceId(exampleSpringCloudService.id())
  *             .build());
  * 
- *         var exampleSpringCloudCustomizedAccelerator = new SpringCloudCustomizedAccelerator(&#34;exampleSpringCloudCustomizedAccelerator&#34;, SpringCloudCustomizedAcceleratorArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleSpringCloudCustomizedAccelerator = new SpringCloudCustomizedAccelerator("exampleSpringCloudCustomizedAccelerator", SpringCloudCustomizedAcceleratorArgs.builder()        
+ *             .name("example")
  *             .springCloudAcceleratorId(exampleSpringCloudAccelerator.id())
  *             .gitRepository(SpringCloudCustomizedAcceleratorGitRepositoryArgs.builder()
- *                 .url(&#34;https://github.com/Azure-Samples/piggymetrics&#34;)
- *                 .gitTag(&#34;spring.version.2.0.3&#34;)
+ *                 .url("https://github.com/Azure-Samples/piggymetrics")
+ *                 .gitTag("spring.version.2.0.3")
  *                 .intervalInSeconds(100)
  *                 .build())
  *             .acceleratorTags(            
- *                 &#34;tag-a&#34;,
- *                 &#34;tag-b&#34;)
- *             .description(&#34;example description&#34;)
- *             .displayName(&#34;example name&#34;)
- *             .iconUrl(&#34;https://images.freecreatives.com/wp-content/uploads/2015/05/smiley-559124_640.jpg&#34;)
+ *                 "tag-a",
+ *                 "tag-b")
+ *             .description("example description")
+ *             .displayName("example name")
+ *             .iconUrl("https://images.freecreatives.com/wp-content/uploads/2015/05/smiley-559124_640.jpg")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

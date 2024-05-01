@@ -32,7 +32,7 @@ public final class PolicyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -54,14 +54,14 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getPolicyAssignment(GetPolicyAssignmentArgs.builder()
-     *             .name(&#34;existing&#34;)
+     *             .name("existing")
      *             .scopeId(exampleAzurermResourceGroup.id())
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicyAssignmentResult -&gt; getPolicyAssignmentResult.id()));
+     *         ctx.export("id", example.applyValue(getPolicyAssignmentResult -> getPolicyAssignmentResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -74,7 +74,7 @@ public final class PolicyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -96,14 +96,14 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getPolicyAssignment(GetPolicyAssignmentArgs.builder()
-     *             .name(&#34;existing&#34;)
+     *             .name("existing")
      *             .scopeId(exampleAzurermResourceGroup.id())
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicyAssignmentResult -&gt; getPolicyAssignmentResult.id()));
+     *         ctx.export("id", example.applyValue(getPolicyAssignmentResult -> getPolicyAssignmentResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -116,7 +116,7 @@ public final class PolicyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -138,14 +138,14 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getPolicyAssignment(GetPolicyAssignmentArgs.builder()
-     *             .name(&#34;existing&#34;)
+     *             .name("existing")
      *             .scopeId(exampleAzurermResourceGroup.id())
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicyAssignmentResult -&gt; getPolicyAssignmentResult.id()));
+     *         ctx.export("id", example.applyValue(getPolicyAssignmentResult -> getPolicyAssignmentResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -158,7 +158,7 @@ public final class PolicyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -180,14 +180,14 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getPolicyAssignment(GetPolicyAssignmentArgs.builder()
-     *             .name(&#34;existing&#34;)
+     *             .name("existing")
      *             .scopeId(exampleAzurermResourceGroup.id())
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicyAssignmentResult -&gt; getPolicyAssignmentResult.id()));
+     *         ctx.export("id", example.applyValue(getPolicyAssignmentResult -> getPolicyAssignmentResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -200,7 +200,7 @@ public final class PolicyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -222,13 +222,13 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getPolicyDefintion(GetPolicyDefintionArgs.builder()
-     *             .displayName(&#34;Allowed resource types&#34;)
+     *             .displayName("Allowed resource types")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicyDefintionResult -&gt; getPolicyDefintionResult.id()));
+     *         ctx.export("id", example.applyValue(getPolicyDefintionResult -> getPolicyDefintionResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -241,7 +241,7 @@ public final class PolicyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -263,13 +263,13 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getPolicyDefintion(GetPolicyDefintionArgs.builder()
-     *             .displayName(&#34;Allowed resource types&#34;)
+     *             .displayName("Allowed resource types")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicyDefintionResult -&gt; getPolicyDefintionResult.id()));
+     *         ctx.export("id", example.applyValue(getPolicyDefintionResult -> getPolicyDefintionResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -282,7 +282,7 @@ public final class PolicyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -304,13 +304,13 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getPolicyDefintion(GetPolicyDefintionArgs.builder()
-     *             .displayName(&#34;Allowed resource types&#34;)
+     *             .displayName("Allowed resource types")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicyDefintionResult -&gt; getPolicyDefintionResult.id()));
+     *         ctx.export("id", example.applyValue(getPolicyDefintionResult -> getPolicyDefintionResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -323,7 +323,7 @@ public final class PolicyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -345,13 +345,13 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getPolicyDefintion(GetPolicyDefintionArgs.builder()
-     *             .displayName(&#34;Allowed resource types&#34;)
+     *             .displayName("Allowed resource types")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicyDefintionResult -&gt; getPolicyDefintionResult.id()));
+     *         ctx.export("id", example.applyValue(getPolicyDefintionResult -> getPolicyDefintionResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -364,7 +364,7 @@ public final class PolicyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -386,13 +386,13 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getPolicyDefintion(GetPolicyDefintionArgs.builder()
-     *             .displayName(&#34;Allowed resource types&#34;)
+     *             .displayName("Allowed resource types")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicyDefintionResult -&gt; getPolicyDefintionResult.id()));
+     *         ctx.export("id", example.applyValue(getPolicyDefintionResult -> getPolicyDefintionResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -405,7 +405,7 @@ public final class PolicyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -427,13 +427,13 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getPolicyDefintion(GetPolicyDefintionArgs.builder()
-     *             .displayName(&#34;Allowed resource types&#34;)
+     *             .displayName("Allowed resource types")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicyDefintionResult -&gt; getPolicyDefintionResult.id()));
+     *         ctx.export("id", example.applyValue(getPolicyDefintionResult -> getPolicyDefintionResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -446,7 +446,7 @@ public final class PolicyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -468,13 +468,13 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getPolicyDefintionBuiltIn(GetPolicyDefintionBuiltInArgs.builder()
-     *             .displayName(&#34;Allowed resource types&#34;)
+     *             .displayName("Allowed resource types")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicyDefintionBuiltInResult -&gt; getPolicyDefintionBuiltInResult.id()));
+     *         ctx.export("id", example.applyValue(getPolicyDefintionBuiltInResult -> getPolicyDefintionBuiltInResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -487,7 +487,7 @@ public final class PolicyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -509,13 +509,13 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getPolicyDefintionBuiltIn(GetPolicyDefintionBuiltInArgs.builder()
-     *             .displayName(&#34;Allowed resource types&#34;)
+     *             .displayName("Allowed resource types")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicyDefintionBuiltInResult -&gt; getPolicyDefintionBuiltInResult.id()));
+     *         ctx.export("id", example.applyValue(getPolicyDefintionBuiltInResult -> getPolicyDefintionBuiltInResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -528,7 +528,7 @@ public final class PolicyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -550,13 +550,13 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getPolicyDefintionBuiltIn(GetPolicyDefintionBuiltInArgs.builder()
-     *             .displayName(&#34;Allowed resource types&#34;)
+     *             .displayName("Allowed resource types")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicyDefintionBuiltInResult -&gt; getPolicyDefintionBuiltInResult.id()));
+     *         ctx.export("id", example.applyValue(getPolicyDefintionBuiltInResult -> getPolicyDefintionBuiltInResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -569,7 +569,7 @@ public final class PolicyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -591,13 +591,13 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getPolicyDefintionBuiltIn(GetPolicyDefintionBuiltInArgs.builder()
-     *             .displayName(&#34;Allowed resource types&#34;)
+     *             .displayName("Allowed resource types")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicyDefintionBuiltInResult -&gt; getPolicyDefintionBuiltInResult.id()));
+     *         ctx.export("id", example.applyValue(getPolicyDefintionBuiltInResult -> getPolicyDefintionBuiltInResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -610,7 +610,7 @@ public final class PolicyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -632,13 +632,13 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getPolicyDefintionBuiltIn(GetPolicyDefintionBuiltInArgs.builder()
-     *             .displayName(&#34;Allowed resource types&#34;)
+     *             .displayName("Allowed resource types")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicyDefintionBuiltInResult -&gt; getPolicyDefintionBuiltInResult.id()));
+     *         ctx.export("id", example.applyValue(getPolicyDefintionBuiltInResult -> getPolicyDefintionBuiltInResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -651,7 +651,7 @@ public final class PolicyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -673,13 +673,13 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getPolicyDefintionBuiltIn(GetPolicyDefintionBuiltInArgs.builder()
-     *             .displayName(&#34;Allowed resource types&#34;)
+     *             .displayName("Allowed resource types")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicyDefintionBuiltInResult -&gt; getPolicyDefintionBuiltInResult.id()));
+     *         ctx.export("id", example.applyValue(getPolicyDefintionBuiltInResult -> getPolicyDefintionBuiltInResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -692,7 +692,7 @@ public final class PolicyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -714,13 +714,13 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getPolicySetDefinition(GetPolicySetDefinitionArgs.builder()
-     *             .displayName(&#34;Policy Set Definition Example&#34;)
+     *             .displayName("Policy Set Definition Example")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicySetDefinitionResult -&gt; getPolicySetDefinitionResult.id()));
+     *         ctx.export("id", example.applyValue(getPolicySetDefinitionResult -> getPolicySetDefinitionResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -733,7 +733,7 @@ public final class PolicyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -755,13 +755,13 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getPolicySetDefinition(GetPolicySetDefinitionArgs.builder()
-     *             .displayName(&#34;Policy Set Definition Example&#34;)
+     *             .displayName("Policy Set Definition Example")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicySetDefinitionResult -&gt; getPolicySetDefinitionResult.id()));
+     *         ctx.export("id", example.applyValue(getPolicySetDefinitionResult -> getPolicySetDefinitionResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -774,7 +774,7 @@ public final class PolicyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -796,13 +796,13 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getPolicySetDefinition(GetPolicySetDefinitionArgs.builder()
-     *             .displayName(&#34;Policy Set Definition Example&#34;)
+     *             .displayName("Policy Set Definition Example")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicySetDefinitionResult -&gt; getPolicySetDefinitionResult.id()));
+     *         ctx.export("id", example.applyValue(getPolicySetDefinitionResult -> getPolicySetDefinitionResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -815,7 +815,7 @@ public final class PolicyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -837,13 +837,13 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getPolicySetDefinition(GetPolicySetDefinitionArgs.builder()
-     *             .displayName(&#34;Policy Set Definition Example&#34;)
+     *             .displayName("Policy Set Definition Example")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicySetDefinitionResult -&gt; getPolicySetDefinitionResult.id()));
+     *         ctx.export("id", example.applyValue(getPolicySetDefinitionResult -> getPolicySetDefinitionResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -856,7 +856,7 @@ public final class PolicyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -878,13 +878,13 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getPolicySetDefinition(GetPolicySetDefinitionArgs.builder()
-     *             .displayName(&#34;Policy Set Definition Example&#34;)
+     *             .displayName("Policy Set Definition Example")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicySetDefinitionResult -&gt; getPolicySetDefinitionResult.id()));
+     *         ctx.export("id", example.applyValue(getPolicySetDefinitionResult -> getPolicySetDefinitionResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -897,7 +897,7 @@ public final class PolicyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -919,13 +919,13 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getPolicySetDefinition(GetPolicySetDefinitionArgs.builder()
-     *             .displayName(&#34;Policy Set Definition Example&#34;)
+     *             .displayName("Policy Set Definition Example")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicySetDefinitionResult -&gt; getPolicySetDefinitionResult.id()));
+     *         ctx.export("id", example.applyValue(getPolicySetDefinitionResult -> getPolicySetDefinitionResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -938,7 +938,7 @@ public final class PolicyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -960,15 +960,15 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getVirtualMachineConfigurationAssignment(GetVirtualMachineConfigurationAssignmentArgs.builder()
-     *             .name(&#34;AzureWindowsBaseline&#34;)
-     *             .resourceGroupName(&#34;example-RG&#34;)
-     *             .virtualMachineName(&#34;example-vm&#34;)
+     *             .name("AzureWindowsBaseline")
+     *             .resourceGroupName("example-RG")
+     *             .virtualMachineName("example-vm")
      *             .build());
      * 
-     *         ctx.export(&#34;complianceStatus&#34;, example.applyValue(getVirtualMachineConfigurationAssignmentResult -&gt; getVirtualMachineConfigurationAssignmentResult.complianceStatus()));
+     *         ctx.export("complianceStatus", example.applyValue(getVirtualMachineConfigurationAssignmentResult -> getVirtualMachineConfigurationAssignmentResult.complianceStatus()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -981,7 +981,7 @@ public final class PolicyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1003,15 +1003,15 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getVirtualMachineConfigurationAssignment(GetVirtualMachineConfigurationAssignmentArgs.builder()
-     *             .name(&#34;AzureWindowsBaseline&#34;)
-     *             .resourceGroupName(&#34;example-RG&#34;)
-     *             .virtualMachineName(&#34;example-vm&#34;)
+     *             .name("AzureWindowsBaseline")
+     *             .resourceGroupName("example-RG")
+     *             .virtualMachineName("example-vm")
      *             .build());
      * 
-     *         ctx.export(&#34;complianceStatus&#34;, example.applyValue(getVirtualMachineConfigurationAssignmentResult -&gt; getVirtualMachineConfigurationAssignmentResult.complianceStatus()));
+     *         ctx.export("complianceStatus", example.applyValue(getVirtualMachineConfigurationAssignmentResult -> getVirtualMachineConfigurationAssignmentResult.complianceStatus()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1024,7 +1024,7 @@ public final class PolicyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1046,15 +1046,15 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getVirtualMachineConfigurationAssignment(GetVirtualMachineConfigurationAssignmentArgs.builder()
-     *             .name(&#34;AzureWindowsBaseline&#34;)
-     *             .resourceGroupName(&#34;example-RG&#34;)
-     *             .virtualMachineName(&#34;example-vm&#34;)
+     *             .name("AzureWindowsBaseline")
+     *             .resourceGroupName("example-RG")
+     *             .virtualMachineName("example-vm")
      *             .build());
      * 
-     *         ctx.export(&#34;complianceStatus&#34;, example.applyValue(getVirtualMachineConfigurationAssignmentResult -&gt; getVirtualMachineConfigurationAssignmentResult.complianceStatus()));
+     *         ctx.export("complianceStatus", example.applyValue(getVirtualMachineConfigurationAssignmentResult -> getVirtualMachineConfigurationAssignmentResult.complianceStatus()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1067,7 +1067,7 @@ public final class PolicyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1089,15 +1089,15 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getVirtualMachineConfigurationAssignment(GetVirtualMachineConfigurationAssignmentArgs.builder()
-     *             .name(&#34;AzureWindowsBaseline&#34;)
-     *             .resourceGroupName(&#34;example-RG&#34;)
-     *             .virtualMachineName(&#34;example-vm&#34;)
+     *             .name("AzureWindowsBaseline")
+     *             .resourceGroupName("example-RG")
+     *             .virtualMachineName("example-vm")
      *             .build());
      * 
-     *         ctx.export(&#34;complianceStatus&#34;, example.applyValue(getVirtualMachineConfigurationAssignmentResult -&gt; getVirtualMachineConfigurationAssignmentResult.complianceStatus()));
+     *         ctx.export("complianceStatus", example.applyValue(getVirtualMachineConfigurationAssignmentResult -> getVirtualMachineConfigurationAssignmentResult.complianceStatus()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

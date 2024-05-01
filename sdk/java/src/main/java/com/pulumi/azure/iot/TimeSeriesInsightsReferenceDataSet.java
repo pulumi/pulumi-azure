@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,32 +49,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleTimeSeriesInsightsStandardEnvironment = new TimeSeriesInsightsStandardEnvironment(&#34;exampleTimeSeriesInsightsStandardEnvironment&#34;, TimeSeriesInsightsStandardEnvironmentArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleTimeSeriesInsightsStandardEnvironment = new TimeSeriesInsightsStandardEnvironment("exampleTimeSeriesInsightsStandardEnvironment", TimeSeriesInsightsStandardEnvironmentArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;S1_1&#34;)
- *             .dataRetentionTime(&#34;P30D&#34;)
+ *             .skuName("S1_1")
+ *             .dataRetentionTime("P30D")
  *             .build());
  * 
- *         var exampleTimeSeriesInsightsReferenceDataSet = new TimeSeriesInsightsReferenceDataSet(&#34;exampleTimeSeriesInsightsReferenceDataSet&#34;, TimeSeriesInsightsReferenceDataSetArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleTimeSeriesInsightsReferenceDataSet = new TimeSeriesInsightsReferenceDataSet("exampleTimeSeriesInsightsReferenceDataSet", TimeSeriesInsightsReferenceDataSetArgs.builder()        
+ *             .name("example")
  *             .timeSeriesInsightsEnvironmentId(exampleTimeSeriesInsightsStandardEnvironment.id())
  *             .location(example.location())
  *             .keyProperties(TimeSeriesInsightsReferenceDataSetKeyPropertyArgs.builder()
- *                 .name(&#34;keyProperty1&#34;)
- *                 .type(&#34;String&#34;)
+ *                 .name("keyProperty1")
+ *                 .type("String")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

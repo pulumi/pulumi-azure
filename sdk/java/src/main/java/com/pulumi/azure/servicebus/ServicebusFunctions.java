@@ -41,7 +41,7 @@ public final class ServicebusFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -63,14 +63,14 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .name(&#34;examplenamespace&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("examplenamespace")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;location&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.location()));
+     *         ctx.export("location", example.applyValue(getNamespaceResult -> getNamespaceResult.location()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -83,7 +83,7 @@ public final class ServicebusFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -105,14 +105,14 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .name(&#34;examplenamespace&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("examplenamespace")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;location&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.location()));
+     *         ctx.export("location", example.applyValue(getNamespaceResult -> getNamespaceResult.location()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -125,7 +125,7 @@ public final class ServicebusFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -147,14 +147,14 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .name(&#34;examplenamespace&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("examplenamespace")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;location&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.location()));
+     *         ctx.export("location", example.applyValue(getNamespaceResult -> getNamespaceResult.location()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -167,7 +167,7 @@ public final class ServicebusFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -189,14 +189,14 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .name(&#34;examplenamespace&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("examplenamespace")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;location&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.location()));
+     *         ctx.export("location", example.applyValue(getNamespaceResult -> getNamespaceResult.location()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -209,7 +209,7 @@ public final class ServicebusFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -231,14 +231,14 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs.builder()
-     *             .name(&#34;examplerule&#34;)
-     *             .namespaceId(&#34;examplenamespace&#34;)
+     *             .name("examplerule")
+     *             .namespaceId("examplenamespace")
      *             .build());
      * 
-     *         ctx.export(&#34;ruleId&#34;, example.applyValue(getNamespaceAuthorizationRuleResult -&gt; getNamespaceAuthorizationRuleResult.id()));
+     *         ctx.export("ruleId", example.applyValue(getNamespaceAuthorizationRuleResult -> getNamespaceAuthorizationRuleResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -251,7 +251,7 @@ public final class ServicebusFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -273,14 +273,14 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs.builder()
-     *             .name(&#34;examplerule&#34;)
-     *             .namespaceId(&#34;examplenamespace&#34;)
+     *             .name("examplerule")
+     *             .namespaceId("examplenamespace")
      *             .build());
      * 
-     *         ctx.export(&#34;ruleId&#34;, example.applyValue(getNamespaceAuthorizationRuleResult -&gt; getNamespaceAuthorizationRuleResult.id()));
+     *         ctx.export("ruleId", example.applyValue(getNamespaceAuthorizationRuleResult -> getNamespaceAuthorizationRuleResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -293,7 +293,7 @@ public final class ServicebusFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -315,14 +315,14 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs.builder()
-     *             .name(&#34;examplerule&#34;)
-     *             .namespaceId(&#34;examplenamespace&#34;)
+     *             .name("examplerule")
+     *             .namespaceId("examplenamespace")
      *             .build());
      * 
-     *         ctx.export(&#34;ruleId&#34;, example.applyValue(getNamespaceAuthorizationRuleResult -&gt; getNamespaceAuthorizationRuleResult.id()));
+     *         ctx.export("ruleId", example.applyValue(getNamespaceAuthorizationRuleResult -> getNamespaceAuthorizationRuleResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -335,7 +335,7 @@ public final class ServicebusFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -357,14 +357,14 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs.builder()
-     *             .name(&#34;examplerule&#34;)
-     *             .namespaceId(&#34;examplenamespace&#34;)
+     *             .name("examplerule")
+     *             .namespaceId("examplenamespace")
      *             .build());
      * 
-     *         ctx.export(&#34;ruleId&#34;, example.applyValue(getNamespaceAuthorizationRuleResult -&gt; getNamespaceAuthorizationRuleResult.id()));
+     *         ctx.export("ruleId", example.applyValue(getNamespaceAuthorizationRuleResult -> getNamespaceAuthorizationRuleResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -389,7 +389,7 @@ public final class ServicebusFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -411,14 +411,14 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getQueue(GetQueueArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .namespaceId(&#34;existing&#34;)
+     *             .name("existing")
+     *             .namespaceId("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getQueueResult -&gt; getQueueResult.id()));
+     *         ctx.export("id", example.applyValue(getQueueResult -> getQueueResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -431,7 +431,7 @@ public final class ServicebusFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -453,14 +453,14 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getQueue(GetQueueArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .namespaceId(&#34;existing&#34;)
+     *             .name("existing")
+     *             .namespaceId("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getQueueResult -&gt; getQueueResult.id()));
+     *         ctx.export("id", example.applyValue(getQueueResult -> getQueueResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -473,7 +473,7 @@ public final class ServicebusFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -495,14 +495,14 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getQueue(GetQueueArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .namespaceId(&#34;existing&#34;)
+     *             .name("existing")
+     *             .namespaceId("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getQueueResult -&gt; getQueueResult.id()));
+     *         ctx.export("id", example.applyValue(getQueueResult -> getQueueResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -515,7 +515,7 @@ public final class ServicebusFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -537,14 +537,14 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getQueue(GetQueueArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .namespaceId(&#34;existing&#34;)
+     *             .name("existing")
+     *             .namespaceId("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getQueueResult -&gt; getQueueResult.id()));
+     *         ctx.export("id", example.applyValue(getQueueResult -> getQueueResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -557,7 +557,7 @@ public final class ServicebusFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -579,16 +579,16 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getQueueAuthorizationRule(GetQueueAuthorizationRuleArgs.builder()
-     *             .name(&#34;example-tfex_name&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .queueName(&#34;example-servicebus_queue&#34;)
-     *             .namespaceName(&#34;example-namespace&#34;)
+     *             .name("example-tfex_name")
+     *             .resourceGroupName("example-resources")
+     *             .queueName("example-servicebus_queue")
+     *             .namespaceName("example-namespace")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getQueueAuthorizationRuleResult -&gt; getQueueAuthorizationRuleResult.id()));
+     *         ctx.export("id", example.applyValue(getQueueAuthorizationRuleResult -> getQueueAuthorizationRuleResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -601,7 +601,7 @@ public final class ServicebusFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -623,16 +623,16 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getQueueAuthorizationRule(GetQueueAuthorizationRuleArgs.builder()
-     *             .name(&#34;example-tfex_name&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .queueName(&#34;example-servicebus_queue&#34;)
-     *             .namespaceName(&#34;example-namespace&#34;)
+     *             .name("example-tfex_name")
+     *             .resourceGroupName("example-resources")
+     *             .queueName("example-servicebus_queue")
+     *             .namespaceName("example-namespace")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getQueueAuthorizationRuleResult -&gt; getQueueAuthorizationRuleResult.id()));
+     *         ctx.export("id", example.applyValue(getQueueAuthorizationRuleResult -> getQueueAuthorizationRuleResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -645,7 +645,7 @@ public final class ServicebusFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -667,16 +667,16 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getQueueAuthorizationRule(GetQueueAuthorizationRuleArgs.builder()
-     *             .name(&#34;example-tfex_name&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .queueName(&#34;example-servicebus_queue&#34;)
-     *             .namespaceName(&#34;example-namespace&#34;)
+     *             .name("example-tfex_name")
+     *             .resourceGroupName("example-resources")
+     *             .queueName("example-servicebus_queue")
+     *             .namespaceName("example-namespace")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getQueueAuthorizationRuleResult -&gt; getQueueAuthorizationRuleResult.id()));
+     *         ctx.export("id", example.applyValue(getQueueAuthorizationRuleResult -> getQueueAuthorizationRuleResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -689,7 +689,7 @@ public final class ServicebusFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -711,16 +711,16 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getQueueAuthorizationRule(GetQueueAuthorizationRuleArgs.builder()
-     *             .name(&#34;example-tfex_name&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .queueName(&#34;example-servicebus_queue&#34;)
-     *             .namespaceName(&#34;example-namespace&#34;)
+     *             .name("example-tfex_name")
+     *             .resourceGroupName("example-resources")
+     *             .queueName("example-servicebus_queue")
+     *             .namespaceName("example-namespace")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getQueueAuthorizationRuleResult -&gt; getQueueAuthorizationRuleResult.id()));
+     *         ctx.export("id", example.applyValue(getQueueAuthorizationRuleResult -> getQueueAuthorizationRuleResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -733,7 +733,7 @@ public final class ServicebusFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -755,14 +755,14 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getSubscription(GetSubscriptionArgs.builder()
-     *             .name(&#34;examplesubscription&#34;)
-     *             .topicId(&#34;exampletopic&#34;)
+     *             .name("examplesubscription")
+     *             .topicId("exampletopic")
      *             .build());
      * 
-     *         ctx.export(&#34;servicebusSubscription&#34;, exampleAzurermServicebusNamespace);
+     *         ctx.export("servicebusSubscription", exampleAzurermServicebusNamespace);
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -775,7 +775,7 @@ public final class ServicebusFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -797,14 +797,14 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getSubscription(GetSubscriptionArgs.builder()
-     *             .name(&#34;examplesubscription&#34;)
-     *             .topicId(&#34;exampletopic&#34;)
+     *             .name("examplesubscription")
+     *             .topicId("exampletopic")
      *             .build());
      * 
-     *         ctx.export(&#34;servicebusSubscription&#34;, exampleAzurermServicebusNamespace);
+     *         ctx.export("servicebusSubscription", exampleAzurermServicebusNamespace);
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -817,7 +817,7 @@ public final class ServicebusFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -839,14 +839,14 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getSubscription(GetSubscriptionArgs.builder()
-     *             .name(&#34;examplesubscription&#34;)
-     *             .topicId(&#34;exampletopic&#34;)
+     *             .name("examplesubscription")
+     *             .topicId("exampletopic")
      *             .build());
      * 
-     *         ctx.export(&#34;servicebusSubscription&#34;, exampleAzurermServicebusNamespace);
+     *         ctx.export("servicebusSubscription", exampleAzurermServicebusNamespace);
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -859,7 +859,7 @@ public final class ServicebusFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -881,14 +881,14 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getSubscription(GetSubscriptionArgs.builder()
-     *             .name(&#34;examplesubscription&#34;)
-     *             .topicId(&#34;exampletopic&#34;)
+     *             .name("examplesubscription")
+     *             .topicId("exampletopic")
      *             .build());
      * 
-     *         ctx.export(&#34;servicebusSubscription&#34;, exampleAzurermServicebusNamespace);
+     *         ctx.export("servicebusSubscription", exampleAzurermServicebusNamespace);
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -901,7 +901,7 @@ public final class ServicebusFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -923,14 +923,14 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getTopic(GetTopicArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .namespaceId(&#34;existing&#34;)
+     *             .name("existing")
+     *             .namespaceId("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getTopicResult -&gt; getTopicResult.id()));
+     *         ctx.export("id", example.applyValue(getTopicResult -> getTopicResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -943,7 +943,7 @@ public final class ServicebusFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -965,14 +965,14 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getTopic(GetTopicArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .namespaceId(&#34;existing&#34;)
+     *             .name("existing")
+     *             .namespaceId("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getTopicResult -&gt; getTopicResult.id()));
+     *         ctx.export("id", example.applyValue(getTopicResult -> getTopicResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -985,7 +985,7 @@ public final class ServicebusFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1007,14 +1007,14 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getTopic(GetTopicArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .namespaceId(&#34;existing&#34;)
+     *             .name("existing")
+     *             .namespaceId("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getTopicResult -&gt; getTopicResult.id()));
+     *         ctx.export("id", example.applyValue(getTopicResult -> getTopicResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1027,7 +1027,7 @@ public final class ServicebusFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1049,14 +1049,14 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getTopic(GetTopicArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .namespaceId(&#34;existing&#34;)
+     *             .name("existing")
+     *             .namespaceId("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getTopicResult -&gt; getTopicResult.id()));
+     *         ctx.export("id", example.applyValue(getTopicResult -> getTopicResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1069,7 +1069,7 @@ public final class ServicebusFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1091,16 +1091,16 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getTopicAuthorizationRule(GetTopicAuthorizationRuleArgs.builder()
-     *             .name(&#34;example-tfex_name&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .namespaceName(&#34;example-namespace&#34;)
-     *             .topicName(&#34;example-servicebus_topic&#34;)
+     *             .name("example-tfex_name")
+     *             .resourceGroupName("example-resources")
+     *             .namespaceName("example-namespace")
+     *             .topicName("example-servicebus_topic")
      *             .build());
      * 
-     *         ctx.export(&#34;servicebusAuthorizationRuleId&#34;, exampleAzuremServicebusTopicAuthorizationRule.id());
+     *         ctx.export("servicebusAuthorizationRuleId", exampleAzuremServicebusTopicAuthorizationRule.id());
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1113,7 +1113,7 @@ public final class ServicebusFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1135,16 +1135,16 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getTopicAuthorizationRule(GetTopicAuthorizationRuleArgs.builder()
-     *             .name(&#34;example-tfex_name&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .namespaceName(&#34;example-namespace&#34;)
-     *             .topicName(&#34;example-servicebus_topic&#34;)
+     *             .name("example-tfex_name")
+     *             .resourceGroupName("example-resources")
+     *             .namespaceName("example-namespace")
+     *             .topicName("example-servicebus_topic")
      *             .build());
      * 
-     *         ctx.export(&#34;servicebusAuthorizationRuleId&#34;, exampleAzuremServicebusTopicAuthorizationRule.id());
+     *         ctx.export("servicebusAuthorizationRuleId", exampleAzuremServicebusTopicAuthorizationRule.id());
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1157,7 +1157,7 @@ public final class ServicebusFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1179,16 +1179,16 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getTopicAuthorizationRule(GetTopicAuthorizationRuleArgs.builder()
-     *             .name(&#34;example-tfex_name&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .namespaceName(&#34;example-namespace&#34;)
-     *             .topicName(&#34;example-servicebus_topic&#34;)
+     *             .name("example-tfex_name")
+     *             .resourceGroupName("example-resources")
+     *             .namespaceName("example-namespace")
+     *             .topicName("example-servicebus_topic")
      *             .build());
      * 
-     *         ctx.export(&#34;servicebusAuthorizationRuleId&#34;, exampleAzuremServicebusTopicAuthorizationRule.id());
+     *         ctx.export("servicebusAuthorizationRuleId", exampleAzuremServicebusTopicAuthorizationRule.id());
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1201,7 +1201,7 @@ public final class ServicebusFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1223,16 +1223,16 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getTopicAuthorizationRule(GetTopicAuthorizationRuleArgs.builder()
-     *             .name(&#34;example-tfex_name&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .namespaceName(&#34;example-namespace&#34;)
-     *             .topicName(&#34;example-servicebus_topic&#34;)
+     *             .name("example-tfex_name")
+     *             .resourceGroupName("example-resources")
+     *             .namespaceName("example-namespace")
+     *             .topicName("example-servicebus_topic")
      *             .build());
      * 
-     *         ctx.export(&#34;servicebusAuthorizationRuleId&#34;, exampleAzuremServicebusTopicAuthorizationRule.id());
+     *         ctx.export("servicebusAuthorizationRuleId", exampleAzuremServicebusTopicAuthorizationRule.id());
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

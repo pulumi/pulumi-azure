@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,20 +46,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = CosmosdbFunctions.getAccount(GetAccountArgs.builder()
- *             .name(&#34;tfex-cosmosdb-account&#34;)
- *             .resourceGroupName(&#34;tfex-cosmosdb-account-rg&#34;)
+ *             .name("tfex-cosmosdb-account")
+ *             .resourceGroupName("tfex-cosmosdb-account-rg")
  *             .build());
  * 
- *         var exampleSqlDatabase = new SqlDatabase(&#34;exampleSqlDatabase&#34;, SqlDatabaseArgs.builder()        
- *             .name(&#34;tfex-cosmos-sql-db&#34;)
- *             .resourceGroupName(example.applyValue(getAccountResult -&gt; getAccountResult.resourceGroupName()))
- *             .accountName(example.applyValue(getAccountResult -&gt; getAccountResult.name()))
+ *         var exampleSqlDatabase = new SqlDatabase("exampleSqlDatabase", SqlDatabaseArgs.builder()        
+ *             .name("tfex-cosmos-sql-db")
+ *             .resourceGroupName(example.applyValue(getAccountResult -> getAccountResult.resourceGroupName()))
+ *             .accountName(example.applyValue(getAccountResult -> getAccountResult.name()))
  *             .throughput(400)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

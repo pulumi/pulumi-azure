@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,48 +54,48 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;west europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example")
+ *             .location("west europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountKind(&#34;BlobStorage&#34;)
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountKind("BlobStorage")
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleDataLakeGen2Filesystem = new DataLakeGen2Filesystem(&#34;exampleDataLakeGen2Filesystem&#34;, DataLakeGen2FilesystemArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleDataLakeGen2Filesystem = new DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", DataLakeGen2FilesystemArgs.builder()        
+ *             .name("example")
  *             .storageAccountId(exampleAccount.id())
  *             .build());
  * 
- *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .storageDataLakeGen2FilesystemId(exampleDataLakeGen2Filesystem.id())
- *             .sqlAdministratorLogin(&#34;sqladminuser&#34;)
- *             .sqlAdministratorLoginPassword(&#34;H@Sh1CoR3!&#34;)
+ *             .sqlAdministratorLogin("sqladminuser")
+ *             .sqlAdministratorLoginPassword("H@Sh1CoR3!")
  *             .identity(WorkspaceIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
- *         var exampleSqlPool = new SqlPool(&#34;exampleSqlPool&#34;, SqlPoolArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleSqlPool = new SqlPool("exampleSqlPool", SqlPoolArgs.builder()        
+ *             .name("example")
  *             .synapseWorkspaceId(exampleWorkspace.id())
- *             .skuName(&#34;DW100c&#34;)
- *             .createMode(&#34;Default&#34;)
+ *             .skuName("DW100c")
+ *             .createMode("Default")
  *             .build());
  * 
- *         var exampleSqlPoolWorkloadGroup = new SqlPoolWorkloadGroup(&#34;exampleSqlPoolWorkloadGroup&#34;, SqlPoolWorkloadGroupArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleSqlPoolWorkloadGroup = new SqlPoolWorkloadGroup("exampleSqlPoolWorkloadGroup", SqlPoolWorkloadGroupArgs.builder()        
+ *             .name("example")
  *             .sqlPoolId(exampleSqlPool.id())
- *             .importance(&#34;normal&#34;)
+ *             .importance("normal")
  *             .maxResourcePercent(100)
  *             .minResourcePercent(0)
  *             .maxResourcePercentPerRequest(3)
@@ -105,7 +105,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

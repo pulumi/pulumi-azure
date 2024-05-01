@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,30 +45,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .name(&#34;example-apim&#34;)
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *             .name("example-apim")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .publisherName(&#34;My Company&#34;)
- *             .publisherEmail(&#34;company@mycompany.io&#34;)
- *             .skuName(&#34;Developer_1&#34;)
+ *             .publisherName("My Company")
+ *             .publisherEmail("company@mycompany.io")
+ *             .skuName("Developer_1")
  *             .build());
  * 
- *         var exampleIdentityProviderGoogle = new IdentityProviderGoogle(&#34;exampleIdentityProviderGoogle&#34;, IdentityProviderGoogleArgs.builder()        
+ *         var exampleIdentityProviderGoogle = new IdentityProviderGoogle("exampleIdentityProviderGoogle", IdentityProviderGoogleArgs.builder()        
  *             .resourceGroupName(example.name())
  *             .apiManagementName(exampleService.name())
- *             .clientId(&#34;00000000.apps.googleusercontent.com&#34;)
- *             .clientSecret(&#34;00000000000000000000000000000000&#34;)
+ *             .clientId("00000000.apps.googleusercontent.com")
+ *             .clientSecret("00000000000000000000000000000000")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

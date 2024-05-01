@@ -23,7 +23,7 @@ public final class MysqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -45,14 +45,14 @@ public final class MysqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MysqlFunctions.getFlexibleServer(GetFlexibleServerArgs.builder()
-     *             .name(&#34;existingMySqlFlexibleServer&#34;)
-     *             .resourceGroupName(&#34;existingResGroup&#34;)
+     *             .name("existingMySqlFlexibleServer")
+     *             .resourceGroupName("existingResGroup")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getFlexibleServerResult -&gt; getFlexibleServerResult.id()));
+     *         ctx.export("id", example.applyValue(getFlexibleServerResult -> getFlexibleServerResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -65,7 +65,7 @@ public final class MysqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -87,14 +87,14 @@ public final class MysqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MysqlFunctions.getFlexibleServer(GetFlexibleServerArgs.builder()
-     *             .name(&#34;existingMySqlFlexibleServer&#34;)
-     *             .resourceGroupName(&#34;existingResGroup&#34;)
+     *             .name("existingMySqlFlexibleServer")
+     *             .resourceGroupName("existingResGroup")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getFlexibleServerResult -&gt; getFlexibleServerResult.id()));
+     *         ctx.export("id", example.applyValue(getFlexibleServerResult -> getFlexibleServerResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -107,7 +107,7 @@ public final class MysqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -129,14 +129,14 @@ public final class MysqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MysqlFunctions.getFlexibleServer(GetFlexibleServerArgs.builder()
-     *             .name(&#34;existingMySqlFlexibleServer&#34;)
-     *             .resourceGroupName(&#34;existingResGroup&#34;)
+     *             .name("existingMySqlFlexibleServer")
+     *             .resourceGroupName("existingResGroup")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getFlexibleServerResult -&gt; getFlexibleServerResult.id()));
+     *         ctx.export("id", example.applyValue(getFlexibleServerResult -> getFlexibleServerResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -149,7 +149,7 @@ public final class MysqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -171,14 +171,14 @@ public final class MysqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MysqlFunctions.getFlexibleServer(GetFlexibleServerArgs.builder()
-     *             .name(&#34;existingMySqlFlexibleServer&#34;)
-     *             .resourceGroupName(&#34;existingResGroup&#34;)
+     *             .name("existingMySqlFlexibleServer")
+     *             .resourceGroupName("existingResGroup")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getFlexibleServerResult -&gt; getFlexibleServerResult.id()));
+     *         ctx.export("id", example.applyValue(getFlexibleServerResult -> getFlexibleServerResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -193,7 +193,7 @@ public final class MysqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -215,14 +215,14 @@ public final class MysqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MysqlFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;existingMySqlServer&#34;)
-     *             .resourceGroupName(&#34;existingResGroup&#34;)
+     *             .name("existingMySqlServer")
+     *             .resourceGroupName("existingResGroup")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getServerResult -&gt; getServerResult.id()));
+     *         ctx.export("id", example.applyValue(getServerResult -> getServerResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -237,7 +237,7 @@ public final class MysqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -259,14 +259,14 @@ public final class MysqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MysqlFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;existingMySqlServer&#34;)
-     *             .resourceGroupName(&#34;existingResGroup&#34;)
+     *             .name("existingMySqlServer")
+     *             .resourceGroupName("existingResGroup")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getServerResult -&gt; getServerResult.id()));
+     *         ctx.export("id", example.applyValue(getServerResult -> getServerResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -281,7 +281,7 @@ public final class MysqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -303,14 +303,14 @@ public final class MysqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MysqlFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;existingMySqlServer&#34;)
-     *             .resourceGroupName(&#34;existingResGroup&#34;)
+     *             .name("existingMySqlServer")
+     *             .resourceGroupName("existingResGroup")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getServerResult -&gt; getServerResult.id()));
+     *         ctx.export("id", example.applyValue(getServerResult -> getServerResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -325,7 +325,7 @@ public final class MysqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -347,14 +347,14 @@ public final class MysqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MysqlFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;existingMySqlServer&#34;)
-     *             .resourceGroupName(&#34;existingResGroup&#34;)
+     *             .name("existingMySqlServer")
+     *             .resourceGroupName("existingResGroup")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getServerResult -&gt; getServerResult.id()));
+     *         ctx.export("id", example.applyValue(getServerResult -> getServerResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

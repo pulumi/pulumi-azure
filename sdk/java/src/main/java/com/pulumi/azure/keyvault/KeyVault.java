@@ -33,7 +33,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -60,32 +60,32 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;examplekeyvault&#34;)
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("examplekeyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .enabledForDiskEncryption(true)
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
  *             .softDeleteRetentionDays(7)
  *             .purgeProtectionEnabled(false)
- *             .skuName(&#34;standard&#34;)
+ *             .skuName("standard")
  *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
- *                 .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *                 .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
- *                 .keyPermissions(&#34;Get&#34;)
- *                 .secretPermissions(&#34;Get&#34;)
- *                 .storagePermissions(&#34;Get&#34;)
+ *                 .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *                 .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *                 .keyPermissions("Get")
+ *                 .secretPermissions("Get")
+ *                 .storagePermissions("Get")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

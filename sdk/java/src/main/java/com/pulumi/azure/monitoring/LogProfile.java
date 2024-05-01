@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,37 +54,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;logprofiletest-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("logprofiletest-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;afscsdfytw&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("afscsdfytw")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;GRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("GRS")
  *             .build());
  * 
- *         var exampleEventHubNamespace = new EventHubNamespace(&#34;exampleEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
- *             .name(&#34;logprofileeventhub&#34;)
+ *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()        
+ *             .name("logprofileeventhub")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;Standard&#34;)
+ *             .sku("Standard")
  *             .capacity(2)
  *             .build());
  * 
- *         var exampleLogProfile = new LogProfile(&#34;exampleLogProfile&#34;, LogProfileArgs.builder()        
- *             .name(&#34;default&#34;)
+ *         var exampleLogProfile = new LogProfile("exampleLogProfile", LogProfileArgs.builder()        
+ *             .name("default")
  *             .categories(            
- *                 &#34;Action&#34;,
- *                 &#34;Delete&#34;,
- *                 &#34;Write&#34;)
+ *                 "Action",
+ *                 "Delete",
+ *                 "Write")
  *             .locations(            
- *                 &#34;westus&#34;,
- *                 &#34;global&#34;)
- *             .servicebusRuleId(exampleEventHubNamespace.id().applyValue(id -&gt; String.format(&#34;%s/authorizationrules/RootManageSharedAccessKey&#34;, id)))
+ *                 "westus",
+ *                 "global")
+ *             .servicebusRuleId(exampleEventHubNamespace.id().applyValue(id -> String.format("%s/authorizationrules/RootManageSharedAccessKey", id)))
  *             .storageAccountId(exampleAccount.id())
  *             .retentionPolicy(LogProfileRetentionPolicyArgs.builder()
  *                 .enabled(true)
@@ -94,7 +94,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

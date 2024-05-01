@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,48 +53,48 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleSpringCloudService = new SpringCloudService(&#34;exampleSpringCloudService&#34;, SpringCloudServiceArgs.builder()        
- *             .name(&#34;example-springcloud&#34;)
+ *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()        
+ *             .name("example-springcloud")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .skuName(&#34;E0&#34;)
+ *             .skuName("E0")
  *             .build());
  * 
- *         var exampleSpringCloudBuilder = new SpringCloudBuilder(&#34;exampleSpringCloudBuilder&#34;, SpringCloudBuilderArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleSpringCloudBuilder = new SpringCloudBuilder("exampleSpringCloudBuilder", SpringCloudBuilderArgs.builder()        
+ *             .name("example")
  *             .springCloudServiceId(exampleSpringCloudService.id())
  *             .buildPackGroups(SpringCloudBuilderBuildPackGroupArgs.builder()
- *                 .name(&#34;mix&#34;)
- *                 .buildPackIds(&#34;tanzu-Build Packs/java-azure&#34;)
+ *                 .name("mix")
+ *                 .buildPackIds("tanzu-Build Packs/java-azure")
  *                 .build())
  *             .stack(SpringCloudBuilderStackArgs.builder()
- *                 .id(&#34;io.Build Packs.stacks.bionic&#34;)
- *                 .version(&#34;base&#34;)
+ *                 .id("io.Build Packs.stacks.bionic")
+ *                 .version("base")
  *                 .build())
  *             .build());
  * 
- *         var exampleSpringCloudBuildPackBinding = new SpringCloudBuildPackBinding(&#34;exampleSpringCloudBuildPackBinding&#34;, SpringCloudBuildPackBindingArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleSpringCloudBuildPackBinding = new SpringCloudBuildPackBinding("exampleSpringCloudBuildPackBinding", SpringCloudBuildPackBindingArgs.builder()        
+ *             .name("example")
  *             .springCloudBuilderId(exampleSpringCloudBuilder.id())
- *             .bindingType(&#34;ApplicationInsights&#34;)
+ *             .bindingType("ApplicationInsights")
  *             .launch(SpringCloudBuildPackBindingLaunchArgs.builder()
  *                 .properties(Map.ofEntries(
- *                     Map.entry(&#34;abc&#34;, &#34;def&#34;),
- *                     Map.entry(&#34;any-string&#34;, &#34;any-string&#34;),
- *                     Map.entry(&#34;sampling-rate&#34;, &#34;12.0&#34;)
+ *                     Map.entry("abc", "def"),
+ *                     Map.entry("any-string", "any-string"),
+ *                     Map.entry("sampling-rate", "12.0")
  *                 ))
- *                 .secrets(Map.of(&#34;connection-string&#34;, &#34;XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXX;XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXXXXXXXX&#34;))
+ *                 .secrets(Map.of("connection-string", "XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXX;XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXXXXXXXX"))
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

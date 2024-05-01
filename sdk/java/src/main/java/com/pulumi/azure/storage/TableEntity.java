@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,34 +47,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;azureexample&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("azureexample")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;azureexamplestorage1&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("azureexamplestorage1")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleTable = new Table(&#34;exampleTable&#34;, TableArgs.builder()        
- *             .name(&#34;myexampletable&#34;)
+ *         var exampleTable = new Table("exampleTable", TableArgs.builder()        
+ *             .name("myexampletable")
  *             .storageAccountName(exampleAccount.name())
  *             .build());
  * 
- *         var exampleTableEntity = new TableEntity(&#34;exampleTableEntity&#34;, TableEntityArgs.builder()        
+ *         var exampleTableEntity = new TableEntity("exampleTableEntity", TableEntityArgs.builder()        
  *             .storageTableId(exampleTable.id())
- *             .partitionKey(&#34;examplepartition&#34;)
- *             .rowKey(&#34;examplerow&#34;)
- *             .entity(Map.of(&#34;example&#34;, &#34;example&#34;))
+ *             .partitionKey("examplepartition")
+ *             .rowKey("examplerow")
+ *             .entity(Map.of("example", "example"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

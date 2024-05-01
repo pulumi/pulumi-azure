@@ -27,7 +27,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,36 +53,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleActionRuleSuppression = new ActionRuleSuppression(&#34;exampleActionRuleSuppression&#34;, ActionRuleSuppressionArgs.builder()        
- *             .name(&#34;example-amar&#34;)
+ *         var exampleActionRuleSuppression = new ActionRuleSuppression("exampleActionRuleSuppression", ActionRuleSuppressionArgs.builder()        
+ *             .name("example-amar")
  *             .resourceGroupName(example.name())
  *             .scope(ActionRuleSuppressionScopeArgs.builder()
- *                 .type(&#34;ResourceGroup&#34;)
+ *                 .type("ResourceGroup")
  *                 .resourceIds(example.id())
  *                 .build())
  *             .suppression(ActionRuleSuppressionSuppressionArgs.builder()
- *                 .recurrenceType(&#34;Weekly&#34;)
+ *                 .recurrenceType("Weekly")
  *                 .schedule(ActionRuleSuppressionSuppressionScheduleArgs.builder()
- *                     .startDateUtc(&#34;2019-01-01T01:02:03Z&#34;)
- *                     .endDateUtc(&#34;2019-01-03T15:02:07Z&#34;)
+ *                     .startDateUtc("2019-01-01T01:02:03Z")
+ *                     .endDateUtc("2019-01-03T15:02:07Z")
  *                     .recurrenceWeeklies(                    
- *                         &#34;Sunday&#34;,
- *                         &#34;Monday&#34;,
- *                         &#34;Friday&#34;,
- *                         &#34;Saturday&#34;)
+ *                         "Sunday",
+ *                         "Monday",
+ *                         "Friday",
+ *                         "Saturday")
  *                     .build())
  *                 .build())
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

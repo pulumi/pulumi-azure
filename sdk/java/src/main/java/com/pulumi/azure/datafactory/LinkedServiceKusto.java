@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,59 +56,59 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFactory = new Factory(&#34;exampleFactory&#34;, FactoryArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .identity(FactoryIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
- *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
- *             .name(&#34;kustocluster&#34;)
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()        
+ *             .name("kustocluster")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku(ClusterSkuArgs.builder()
- *                 .name(&#34;Standard_D13_v2&#34;)
+ *                 .name("Standard_D13_v2")
  *                 .capacity(2)
  *                 .build())
  *             .build());
  * 
- *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
- *             .name(&#34;my-kusto-database&#34;)
+ *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()        
+ *             .name("my-kusto-database")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .clusterName(exampleCluster.name())
  *             .build());
  * 
- *         var exampleLinkedServiceKusto = new LinkedServiceKusto(&#34;exampleLinkedServiceKusto&#34;, LinkedServiceKustoArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleLinkedServiceKusto = new LinkedServiceKusto("exampleLinkedServiceKusto", LinkedServiceKustoArgs.builder()        
+ *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .kustoEndpoint(exampleCluster.uri())
  *             .kustoDatabaseName(exampleDatabase.name())
  *             .useManagedIdentity(true)
  *             .build());
  * 
- *         var exampleDatabasePrincipalAssignment = new DatabasePrincipalAssignment(&#34;exampleDatabasePrincipalAssignment&#34;, DatabasePrincipalAssignmentArgs.builder()        
- *             .name(&#34;KustoPrincipalAssignment&#34;)
+ *         var exampleDatabasePrincipalAssignment = new DatabasePrincipalAssignment("exampleDatabasePrincipalAssignment", DatabasePrincipalAssignmentArgs.builder()        
+ *             .name("KustoPrincipalAssignment")
  *             .resourceGroupName(example.name())
  *             .clusterName(exampleCluster.name())
  *             .databaseName(exampleDatabase.name())
- *             .tenantId(exampleFactory.identity().applyValue(identity -&gt; identity.tenantId()))
- *             .principalId(exampleFactory.identity().applyValue(identity -&gt; identity.principalId()))
- *             .principalType(&#34;App&#34;)
- *             .role(&#34;Viewer&#34;)
+ *             .tenantId(exampleFactory.identity().applyValue(identity -> identity.tenantId()))
+ *             .principalId(exampleFactory.identity().applyValue(identity -> identity.principalId()))
+ *             .principalType("App")
+ *             .role("Viewer")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

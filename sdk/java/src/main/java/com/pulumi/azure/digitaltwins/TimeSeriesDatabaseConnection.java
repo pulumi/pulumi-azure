@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -61,98 +61,98 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleInstance = new Instance(&#34;exampleInstance&#34;, InstanceArgs.builder()        
- *             .name(&#34;example-DT&#34;)
+ *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()        
+ *             .name("example-DT")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .identity(InstanceIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
- *         var exampleEventHubNamespace = new EventHubNamespace(&#34;exampleEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
- *             .name(&#34;exampleEventHubNamespace&#34;)
+ *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()        
+ *             .name("exampleEventHubNamespace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;Standard&#34;)
+ *             .sku("Standard")
  *             .build());
  * 
- *         var exampleEventHub = new EventHub(&#34;exampleEventHub&#34;, EventHubArgs.builder()        
- *             .name(&#34;exampleEventHub&#34;)
+ *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()        
+ *             .name("exampleEventHub")
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .resourceGroupName(example.name())
  *             .partitionCount(2)
  *             .messageRetention(7)
  *             .build());
  * 
- *         var exampleConsumerGroup = new ConsumerGroup(&#34;exampleConsumerGroup&#34;, ConsumerGroupArgs.builder()        
- *             .name(&#34;example-consumergroup&#34;)
+ *         var exampleConsumerGroup = new ConsumerGroup("exampleConsumerGroup", ConsumerGroupArgs.builder()        
+ *             .name("example-consumergroup")
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .eventhubName(exampleEventHub.name())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
- *             .name(&#34;examplekc&#34;)
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()        
+ *             .name("examplekc")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku(ClusterSkuArgs.builder()
- *                 .name(&#34;Dev(No SLA)_Standard_D11_v2&#34;)
+ *                 .name("Dev(No SLA)_Standard_D11_v2")
  *                 .capacity(1)
  *                 .build())
  *             .build());
  * 
- *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
- *             .name(&#34;example-kusto-database&#34;)
+ *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()        
+ *             .name("example-kusto-database")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .clusterName(exampleCluster.name())
  *             .build());
  * 
- *         var databaseContributor = new Assignment(&#34;databaseContributor&#34;, AssignmentArgs.builder()        
+ *         var databaseContributor = new Assignment("databaseContributor", AssignmentArgs.builder()        
  *             .scope(exampleDatabase.id())
- *             .principalId(exampleInstance.identity().applyValue(identity -&gt; identity.principalId()))
- *             .roleDefinitionName(&#34;Contributor&#34;)
+ *             .principalId(exampleInstance.identity().applyValue(identity -> identity.principalId()))
+ *             .roleDefinitionName("Contributor")
  *             .build());
  * 
- *         var eventhubDataOwner = new Assignment(&#34;eventhubDataOwner&#34;, AssignmentArgs.builder()        
+ *         var eventhubDataOwner = new Assignment("eventhubDataOwner", AssignmentArgs.builder()        
  *             .scope(exampleEventHub.id())
- *             .principalId(exampleInstance.identity().applyValue(identity -&gt; identity.principalId()))
- *             .roleDefinitionName(&#34;Azure Event Hubs Data Owner&#34;)
+ *             .principalId(exampleInstance.identity().applyValue(identity -> identity.principalId()))
+ *             .roleDefinitionName("Azure Event Hubs Data Owner")
  *             .build());
  * 
- *         var exampleDatabasePrincipalAssignment = new DatabasePrincipalAssignment(&#34;exampleDatabasePrincipalAssignment&#34;, DatabasePrincipalAssignmentArgs.builder()        
- *             .name(&#34;dataadmin&#34;)
+ *         var exampleDatabasePrincipalAssignment = new DatabasePrincipalAssignment("exampleDatabasePrincipalAssignment", DatabasePrincipalAssignmentArgs.builder()        
+ *             .name("dataadmin")
  *             .resourceGroupName(example.name())
  *             .clusterName(exampleCluster.name())
  *             .databaseName(exampleDatabase.name())
- *             .tenantId(exampleInstance.identity().applyValue(identity -&gt; identity.tenantId()))
- *             .principalId(exampleInstance.identity().applyValue(identity -&gt; identity.principalId()))
- *             .principalType(&#34;App&#34;)
- *             .role(&#34;Admin&#34;)
+ *             .tenantId(exampleInstance.identity().applyValue(identity -> identity.tenantId()))
+ *             .principalId(exampleInstance.identity().applyValue(identity -> identity.principalId()))
+ *             .principalType("App")
+ *             .role("Admin")
  *             .build());
  * 
- *         var exampleTimeSeriesDatabaseConnection = new TimeSeriesDatabaseConnection(&#34;exampleTimeSeriesDatabaseConnection&#34;, TimeSeriesDatabaseConnectionArgs.builder()        
- *             .name(&#34;example-connection&#34;)
+ *         var exampleTimeSeriesDatabaseConnection = new TimeSeriesDatabaseConnection("exampleTimeSeriesDatabaseConnection", TimeSeriesDatabaseConnectionArgs.builder()        
+ *             .name("example-connection")
  *             .digitalTwinsId(exampleInstance.id())
  *             .eventhubName(exampleEventHub.name())
  *             .eventhubNamespaceId(exampleEventHubNamespace.id())
- *             .eventhubNamespaceEndpointUri(exampleEventHubNamespace.name().applyValue(name -&gt; String.format(&#34;sb://%s.servicebus.windows.net&#34;, name)))
+ *             .eventhubNamespaceEndpointUri(exampleEventHubNamespace.name().applyValue(name -> String.format("sb://%s.servicebus.windows.net", name)))
  *             .eventhubConsumerGroupName(exampleConsumerGroup.name())
  *             .kustoClusterId(exampleCluster.id())
  *             .kustoClusterUri(exampleCluster.uri())
  *             .kustoDatabaseName(exampleDatabase.name())
- *             .kustoTableName(&#34;exampleTable&#34;)
+ *             .kustoTableName("exampleTable")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

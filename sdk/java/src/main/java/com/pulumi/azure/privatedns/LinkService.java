@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -59,37 +59,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-network&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example-network")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .addressSpaces(&#34;10.5.0.0/16&#34;)
+ *             .addressSpaces("10.5.0.0/16")
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;example-subnet&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("example-subnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.5.1.0/24&#34;)
+ *             .addressPrefixes("10.5.1.0/24")
  *             .enforcePrivateLinkServiceNetworkPolicies(true)
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
- *             .name(&#34;example-api&#34;)
- *             .sku(&#34;Standard&#34;)
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *             .name("example-api")
+ *             .sku("Standard")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .allocationMethod(&#34;Static&#34;)
+ *             .allocationMethod("Static")
  *             .build());
  * 
- *         var exampleLoadBalancer = new LoadBalancer(&#34;exampleLoadBalancer&#34;, LoadBalancerArgs.builder()        
- *             .name(&#34;example-lb&#34;)
- *             .sku(&#34;Standard&#34;)
+ *         var exampleLoadBalancer = new LoadBalancer("exampleLoadBalancer", LoadBalancerArgs.builder()        
+ *             .name("example-lb")
+ *             .sku("Standard")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .frontendIpConfigurations(LoadBalancerFrontendIpConfigurationArgs.builder()
@@ -98,25 +98,25 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleLinkService = new LinkService(&#34;exampleLinkService&#34;, LinkServiceArgs.builder()        
- *             .name(&#34;example-privatelink&#34;)
+ *         var exampleLinkService = new LinkService("exampleLinkService", LinkServiceArgs.builder()        
+ *             .name("example-privatelink")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .autoApprovalSubscriptionIds(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .visibilitySubscriptionIds(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .loadBalancerFrontendIpConfigurationIds(exampleLoadBalancer.frontendIpConfigurations().applyValue(frontendIpConfigurations -&gt; frontendIpConfigurations[0].id()))
+ *             .autoApprovalSubscriptionIds("00000000-0000-0000-0000-000000000000")
+ *             .visibilitySubscriptionIds("00000000-0000-0000-0000-000000000000")
+ *             .loadBalancerFrontendIpConfigurationIds(exampleLoadBalancer.frontendIpConfigurations().applyValue(frontendIpConfigurations -> frontendIpConfigurations[0].id()))
  *             .natIpConfigurations(            
  *                 LinkServiceNatIpConfigurationArgs.builder()
- *                     .name(&#34;primary&#34;)
- *                     .privateIpAddress(&#34;10.5.1.17&#34;)
- *                     .privateIpAddressVersion(&#34;IPv4&#34;)
+ *                     .name("primary")
+ *                     .privateIpAddress("10.5.1.17")
+ *                     .privateIpAddressVersion("IPv4")
  *                     .subnetId(exampleSubnet.id())
  *                     .primary(true)
  *                     .build(),
  *                 LinkServiceNatIpConfigurationArgs.builder()
- *                     .name(&#34;secondary&#34;)
- *                     .privateIpAddress(&#34;10.5.1.18&#34;)
- *                     .privateIpAddressVersion(&#34;IPv4&#34;)
+ *                     .name("secondary")
+ *                     .privateIpAddress("10.5.1.18")
+ *                     .privateIpAddressVersion("IPv4")
  *                     .subnetId(exampleSubnet.id())
  *                     .primary(false)
  *                     .build())
@@ -124,7 +124,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

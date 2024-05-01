@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,28 +46,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Central US&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Central US")
  *             .build());
  * 
- *         var exampleServicesCommunicationsGateway = new ServicesCommunicationsGateway(&#34;exampleServicesCommunicationsGateway&#34;, ServicesCommunicationsGatewayArgs.builder()        
- *             .name(&#34;example-vcg&#34;)
+ *         var exampleServicesCommunicationsGateway = new ServicesCommunicationsGateway("exampleServicesCommunicationsGateway", ServicesCommunicationsGatewayArgs.builder()        
+ *             .name("example-vcg")
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleServicesCommunicationsGatewayTestLine = new ServicesCommunicationsGatewayTestLine(&#34;exampleServicesCommunicationsGatewayTestLine&#34;, ServicesCommunicationsGatewayTestLineArgs.builder()        
- *             .name(&#34;example-vtl&#34;)
- *             .location(&#34;West Central US&#34;)
+ *         var exampleServicesCommunicationsGatewayTestLine = new ServicesCommunicationsGatewayTestLine("exampleServicesCommunicationsGatewayTestLine", ServicesCommunicationsGatewayTestLineArgs.builder()        
+ *             .name("example-vtl")
+ *             .location("West Central US")
  *             .voiceServicesCommunicationsGatewayId(exampleServicesCommunicationsGateway.id())
- *             .phoneNumber(&#34;123456789&#34;)
- *             .purpose(&#34;Automated&#34;)
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .phoneNumber("123456789")
+ *             .purpose("Automated")
+ *             .tags(Map.of("key", "value"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

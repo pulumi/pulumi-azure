@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,64 +48,64 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary = new ResourceGroup(&#34;primary&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;tfex-network-mapping-primary&#34;)
- *             .location(&#34;West US&#34;)
+ *         var primary = new ResourceGroup("primary", ResourceGroupArgs.builder()        
+ *             .name("tfex-network-mapping-primary")
+ *             .location("West US")
  *             .build());
  * 
- *         var secondary = new ResourceGroup(&#34;secondary&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;tfex-network-mapping-secondary&#34;)
- *             .location(&#34;East US&#34;)
+ *         var secondary = new ResourceGroup("secondary", ResourceGroupArgs.builder()        
+ *             .name("tfex-network-mapping-secondary")
+ *             .location("East US")
  *             .build());
  * 
- *         var vault = new Vault(&#34;vault&#34;, VaultArgs.builder()        
- *             .name(&#34;example-recovery-vault&#34;)
+ *         var vault = new Vault("vault", VaultArgs.builder()        
+ *             .name("example-recovery-vault")
  *             .location(secondary.location())
  *             .resourceGroupName(secondary.name())
- *             .sku(&#34;Standard&#34;)
+ *             .sku("Standard")
  *             .build());
  * 
- *         var primaryFabric = new Fabric(&#34;primaryFabric&#34;, FabricArgs.builder()        
- *             .name(&#34;primary-fabric&#34;)
+ *         var primaryFabric = new Fabric("primaryFabric", FabricArgs.builder()        
+ *             .name("primary-fabric")
  *             .resourceGroupName(secondary.name())
  *             .recoveryVaultName(vault.name())
  *             .location(primary.location())
  *             .build());
  * 
- *         var secondaryFabric = new Fabric(&#34;secondaryFabric&#34;, FabricArgs.builder()        
- *             .name(&#34;secondary-fabric&#34;)
+ *         var secondaryFabric = new Fabric("secondaryFabric", FabricArgs.builder()        
+ *             .name("secondary-fabric")
  *             .resourceGroupName(secondary.name())
  *             .recoveryVaultName(vault.name())
  *             .location(secondary.location())
  *             .build());
  * 
- *         var primaryVirtualNetwork = new VirtualNetwork(&#34;primaryVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;network1&#34;)
+ *         var primaryVirtualNetwork = new VirtualNetwork("primaryVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("network1")
  *             .resourceGroupName(primary.name())
- *             .addressSpaces(&#34;192.168.1.0/24&#34;)
+ *             .addressSpaces("192.168.1.0/24")
  *             .location(primary.location())
  *             .build());
  * 
- *         var secondaryVirtualNetwork = new VirtualNetwork(&#34;secondaryVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;network2&#34;)
+ *         var secondaryVirtualNetwork = new VirtualNetwork("secondaryVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("network2")
  *             .resourceGroupName(secondary.name())
- *             .addressSpaces(&#34;192.168.2.0/24&#34;)
+ *             .addressSpaces("192.168.2.0/24")
  *             .location(secondary.location())
  *             .build());
  * 
- *         var recovery_mapping = new NetworkMapping(&#34;recovery-mapping&#34;, NetworkMappingArgs.builder()        
- *             .name(&#34;recovery-network-mapping-1&#34;)
+ *         var recovery_mapping = new NetworkMapping("recovery-mapping", NetworkMappingArgs.builder()        
+ *             .name("recovery-network-mapping-1")
  *             .resourceGroupName(secondary.name())
  *             .recoveryVaultName(vault.name())
- *             .sourceRecoveryFabricName(&#34;primary-fabric&#34;)
- *             .targetRecoveryFabricName(&#34;secondary-fabric&#34;)
+ *             .sourceRecoveryFabricName("primary-fabric")
+ *             .targetRecoveryFabricName("secondary-fabric")
  *             .sourceNetworkId(primaryVirtualNetwork.id())
  *             .targetNetworkId(secondaryVirtualNetwork.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

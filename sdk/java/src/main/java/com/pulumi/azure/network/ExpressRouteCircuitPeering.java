@@ -27,7 +27,7 @@ import javax.annotation.Nullable;
  * ### Creating A Microsoft Peering)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,57 +56,57 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;exprtTest&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("exprtTest")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleExpressRouteCircuit = new ExpressRouteCircuit(&#34;exampleExpressRouteCircuit&#34;, ExpressRouteCircuitArgs.builder()        
- *             .name(&#34;expressRoute1&#34;)
+ *         var exampleExpressRouteCircuit = new ExpressRouteCircuit("exampleExpressRouteCircuit", ExpressRouteCircuitArgs.builder()        
+ *             .name("expressRoute1")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .serviceProviderName(&#34;Equinix&#34;)
- *             .peeringLocation(&#34;Silicon Valley&#34;)
+ *             .serviceProviderName("Equinix")
+ *             .peeringLocation("Silicon Valley")
  *             .bandwidthInMbps(50)
  *             .sku(ExpressRouteCircuitSkuArgs.builder()
- *                 .tier(&#34;Standard&#34;)
- *                 .family(&#34;MeteredData&#34;)
+ *                 .tier("Standard")
+ *                 .family("MeteredData")
  *                 .build())
  *             .allowClassicOperations(false)
- *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *             .tags(Map.of("environment", "Production"))
  *             .build());
  * 
- *         var exampleExpressRouteCircuitPeering = new ExpressRouteCircuitPeering(&#34;exampleExpressRouteCircuitPeering&#34;, ExpressRouteCircuitPeeringArgs.builder()        
- *             .peeringType(&#34;MicrosoftPeering&#34;)
+ *         var exampleExpressRouteCircuitPeering = new ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering", ExpressRouteCircuitPeeringArgs.builder()        
+ *             .peeringType("MicrosoftPeering")
  *             .expressRouteCircuitName(exampleExpressRouteCircuit.name())
  *             .resourceGroupName(example.name())
  *             .peerAsn(100)
- *             .primaryPeerAddressPrefix(&#34;123.0.0.0/30&#34;)
- *             .secondaryPeerAddressPrefix(&#34;123.0.0.4/30&#34;)
+ *             .primaryPeerAddressPrefix("123.0.0.0/30")
+ *             .secondaryPeerAddressPrefix("123.0.0.4/30")
  *             .ipv4Enabled(true)
  *             .vlanId(300)
  *             .microsoftPeeringConfig(ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs.builder()
- *                 .advertisedPublicPrefixes(&#34;123.1.0.0/24&#34;)
+ *                 .advertisedPublicPrefixes("123.1.0.0/24")
  *                 .build())
  *             .ipv6(ExpressRouteCircuitPeeringIpv6Args.builder()
- *                 .primaryPeerAddressPrefix(&#34;2002:db01::/126&#34;)
- *                 .secondaryPeerAddressPrefix(&#34;2003:db01::/126&#34;)
+ *                 .primaryPeerAddressPrefix("2002:db01::/126")
+ *                 .secondaryPeerAddressPrefix("2003:db01::/126")
  *                 .enabled(true)
  *                 .microsoftPeering(ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs.builder()
- *                     .advertisedPublicPrefixes(&#34;2002:db01::/126&#34;)
+ *                     .advertisedPublicPrefixes("2002:db01::/126")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Creating Azure Private Peering)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -133,45 +133,45 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;exprtTest&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("exprtTest")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleExpressRouteCircuit = new ExpressRouteCircuit(&#34;exampleExpressRouteCircuit&#34;, ExpressRouteCircuitArgs.builder()        
- *             .name(&#34;expressRoute1&#34;)
+ *         var exampleExpressRouteCircuit = new ExpressRouteCircuit("exampleExpressRouteCircuit", ExpressRouteCircuitArgs.builder()        
+ *             .name("expressRoute1")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .serviceProviderName(&#34;Equinix&#34;)
- *             .peeringLocation(&#34;Silicon Valley&#34;)
+ *             .serviceProviderName("Equinix")
+ *             .peeringLocation("Silicon Valley")
  *             .bandwidthInMbps(50)
  *             .sku(ExpressRouteCircuitSkuArgs.builder()
- *                 .tier(&#34;Standard&#34;)
- *                 .family(&#34;MeteredData&#34;)
+ *                 .tier("Standard")
+ *                 .family("MeteredData")
  *                 .build())
  *             .allowClassicOperations(false)
- *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *             .tags(Map.of("environment", "Production"))
  *             .build());
  * 
- *         var exampleExpressRouteCircuitPeering = new ExpressRouteCircuitPeering(&#34;exampleExpressRouteCircuitPeering&#34;, ExpressRouteCircuitPeeringArgs.builder()        
- *             .peeringType(&#34;AzurePrivatePeering&#34;)
+ *         var exampleExpressRouteCircuitPeering = new ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering", ExpressRouteCircuitPeeringArgs.builder()        
+ *             .peeringType("AzurePrivatePeering")
  *             .expressRouteCircuitName(exampleExpressRouteCircuit.name())
  *             .resourceGroupName(example.name())
  *             .peerAsn(100)
- *             .primaryPeerAddressPrefix(&#34;123.0.0.0/30&#34;)
- *             .secondaryPeerAddressPrefix(&#34;123.0.0.4/30&#34;)
+ *             .primaryPeerAddressPrefix("123.0.0.0/30")
+ *             .secondaryPeerAddressPrefix("123.0.0.4/30")
  *             .ipv4Enabled(true)
  *             .vlanId(300)
  *             .ipv6(ExpressRouteCircuitPeeringIpv6Args.builder()
- *                 .primaryPeerAddressPrefix(&#34;2002:db01::/126&#34;)
- *                 .secondaryPeerAddressPrefix(&#34;2003:db01::/126&#34;)
+ *                 .primaryPeerAddressPrefix("2002:db01::/126")
+ *                 .secondaryPeerAddressPrefix("2003:db01::/126")
  *                 .enabled(true)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

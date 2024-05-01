@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,31 +49,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleResourceGroupCostManagementView = new ResourceGroupCostManagementView(&#34;exampleResourceGroupCostManagementView&#34;, ResourceGroupCostManagementViewArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .displayName(&#34;Cost View per Month&#34;)
- *             .chartType(&#34;StackedColumn&#34;)
+ *         var exampleResourceGroupCostManagementView = new ResourceGroupCostManagementView("exampleResourceGroupCostManagementView", ResourceGroupCostManagementViewArgs.builder()        
+ *             .name("example")
+ *             .displayName("Cost View per Month")
+ *             .chartType("StackedColumn")
  *             .accumulated(false)
  *             .resourceGroupId(example.id())
- *             .reportType(&#34;Usage&#34;)
- *             .timeframe(&#34;MonthToDate&#34;)
+ *             .reportType("Usage")
+ *             .timeframe("MonthToDate")
  *             .dataset(ResourceGroupCostManagementViewDatasetArgs.builder()
- *                 .granularity(&#34;Monthly&#34;)
+ *                 .granularity("Monthly")
  *                 .aggregations(ResourceGroupCostManagementViewDatasetAggregationArgs.builder()
- *                     .name(&#34;totalCost&#34;)
- *                     .columnName(&#34;Cost&#34;)
+ *                     .name("totalCost")
+ *                     .columnName("Cost")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

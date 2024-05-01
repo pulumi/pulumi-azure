@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -68,161 +68,161 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleFactory = new Factory(&#34;exampleFactory&#34;, FactoryArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleLinkedCustomService = new LinkedCustomService(&#34;exampleLinkedCustomService&#34;, LinkedCustomServiceArgs.builder()        
- *             .name(&#34;linked_service&#34;)
+ *         var exampleLinkedCustomService = new LinkedCustomService("exampleLinkedCustomService", LinkedCustomServiceArgs.builder()        
+ *             .name("linked_service")
  *             .dataFactoryId(exampleFactory.id())
- *             .type(&#34;AzureBlobStorage&#34;)
- *             .typePropertiesJson(exampleAccount.primaryConnectionString().applyValue(primaryConnectionString -&gt; &#34;&#34;&#34;
+ *             .type("AzureBlobStorage")
+ *             .typePropertiesJson(exampleAccount.primaryConnectionString().applyValue(primaryConnectionString -> """
  * {
- *   &#34;connectionString&#34;: &#34;%s&#34;
+ *   "connectionString": "%s"
  * }
- * &#34;, primaryConnectionString)))
+ * ", primaryConnectionString)))
  *             .build());
  * 
- *         var example1 = new DatasetJson(&#34;example1&#34;, DatasetJsonArgs.builder()        
- *             .name(&#34;dataset1&#34;)
+ *         var example1 = new DatasetJson("example1", DatasetJsonArgs.builder()        
+ *             .name("dataset1")
  *             .dataFactoryId(exampleFactory.id())
  *             .linkedServiceName(exampleLinkedCustomService.name())
  *             .azureBlobStorageLocation(DatasetJsonAzureBlobStorageLocationArgs.builder()
- *                 .container(&#34;container&#34;)
- *                 .path(&#34;foo/bar/&#34;)
- *                 .filename(&#34;foo.txt&#34;)
+ *                 .container("container")
+ *                 .path("foo/bar/")
+ *                 .filename("foo.txt")
  *                 .build())
- *             .encoding(&#34;UTF-8&#34;)
+ *             .encoding("UTF-8")
  *             .build());
  * 
- *         var example2 = new DatasetJson(&#34;example2&#34;, DatasetJsonArgs.builder()        
- *             .name(&#34;dataset2&#34;)
+ *         var example2 = new DatasetJson("example2", DatasetJsonArgs.builder()        
+ *             .name("dataset2")
  *             .dataFactoryId(exampleFactory.id())
  *             .linkedServiceName(exampleLinkedCustomService.name())
  *             .azureBlobStorageLocation(DatasetJsonAzureBlobStorageLocationArgs.builder()
- *                 .container(&#34;container&#34;)
- *                 .path(&#34;foo/bar/&#34;)
- *                 .filename(&#34;bar.txt&#34;)
+ *                 .container("container")
+ *                 .path("foo/bar/")
+ *                 .filename("bar.txt")
  *                 .build())
- *             .encoding(&#34;UTF-8&#34;)
+ *             .encoding("UTF-8")
  *             .build());
  * 
- *         var example1FlowletDataFlow = new FlowletDataFlow(&#34;example1FlowletDataFlow&#34;, FlowletDataFlowArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example1FlowletDataFlow = new FlowletDataFlow("example1FlowletDataFlow", FlowletDataFlowArgs.builder()        
+ *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .sources(FlowletDataFlowSourceArgs.builder()
- *                 .name(&#34;source1&#34;)
+ *                 .name("source1")
  *                 .linkedService(FlowletDataFlowSourceLinkedServiceArgs.builder()
  *                     .name(exampleLinkedCustomService.name())
  *                     .build())
  *                 .build())
  *             .sinks(FlowletDataFlowSinkArgs.builder()
- *                 .name(&#34;sink1&#34;)
+ *                 .name("sink1")
  *                 .linkedService(FlowletDataFlowSinkLinkedServiceArgs.builder()
  *                     .name(exampleLinkedCustomService.name())
  *                     .build())
  *                 .build())
- *             .script(&#34;&#34;&#34;
+ *             .script("""
  * source(
  *   allowSchemaDrift: true, 
  *   validateSchema: false, 
  *   limit: 100, 
  *   ignoreNoFilesFound: false, 
- *   documentForm: &#39;documentPerLine&#39;) ~&gt; source1 
+ *   documentForm: 'documentPerLine') ~> source1 
  * source1 sink(
  *   allowSchemaDrift: true, 
  *   validateSchema: false, 
  *   skipDuplicateMapInputs: true, 
- *   skipDuplicateMapOutputs: true) ~&gt; sink1
- *             &#34;&#34;&#34;)
+ *   skipDuplicateMapOutputs: true) ~> sink1
+ *             """)
  *             .build());
  * 
- *         var example2FlowletDataFlow = new FlowletDataFlow(&#34;example2FlowletDataFlow&#34;, FlowletDataFlowArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example2FlowletDataFlow = new FlowletDataFlow("example2FlowletDataFlow", FlowletDataFlowArgs.builder()        
+ *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .sources(FlowletDataFlowSourceArgs.builder()
- *                 .name(&#34;source1&#34;)
+ *                 .name("source1")
  *                 .linkedService(FlowletDataFlowSourceLinkedServiceArgs.builder()
  *                     .name(exampleLinkedCustomService.name())
  *                     .build())
  *                 .build())
  *             .sinks(FlowletDataFlowSinkArgs.builder()
- *                 .name(&#34;sink1&#34;)
+ *                 .name("sink1")
  *                 .linkedService(FlowletDataFlowSinkLinkedServiceArgs.builder()
  *                     .name(exampleLinkedCustomService.name())
  *                     .build())
  *                 .build())
- *             .script(&#34;&#34;&#34;
+ *             .script("""
  * source(
  *   allowSchemaDrift: true, 
  *   validateSchema: false, 
  *   limit: 100, 
  *   ignoreNoFilesFound: false, 
- *   documentForm: &#39;documentPerLine&#39;) ~&gt; source1 
+ *   documentForm: 'documentPerLine') ~> source1 
  * source1 sink(
  *   allowSchemaDrift: true, 
  *   validateSchema: false, 
  *   skipDuplicateMapInputs: true, 
- *   skipDuplicateMapOutputs: true) ~&gt; sink1
- *             &#34;&#34;&#34;)
+ *   skipDuplicateMapOutputs: true) ~> sink1
+ *             """)
  *             .build());
  * 
- *         var exampleDataFlow = new DataFlow(&#34;exampleDataFlow&#34;, DataFlowArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleDataFlow = new DataFlow("exampleDataFlow", DataFlowArgs.builder()        
+ *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .sources(DataFlowSourceArgs.builder()
- *                 .name(&#34;source1&#34;)
+ *                 .name("source1")
  *                 .flowlet(DataFlowSourceFlowletArgs.builder()
  *                     .name(example1FlowletDataFlow.name())
- *                     .parameters(Map.of(&#34;Key1&#34;, &#34;value1&#34;))
+ *                     .parameters(Map.of("Key1", "value1"))
  *                     .build())
  *                 .dataset(DataFlowSourceDatasetArgs.builder()
  *                     .name(example1.name())
  *                     .build())
  *                 .build())
  *             .sinks(DataFlowSinkArgs.builder()
- *                 .name(&#34;sink1&#34;)
+ *                 .name("sink1")
  *                 .flowlet(DataFlowSinkFlowletArgs.builder()
  *                     .name(example2FlowletDataFlow.name())
- *                     .parameters(Map.of(&#34;Key1&#34;, &#34;value1&#34;))
+ *                     .parameters(Map.of("Key1", "value1"))
  *                     .build())
  *                 .dataset(DataFlowSinkDatasetArgs.builder()
  *                     .name(example2.name())
  *                     .build())
  *                 .build())
- *             .script(&#34;&#34;&#34;
+ *             .script("""
  * source(
  *   allowSchemaDrift: true, 
  *   validateSchema: false, 
  *   limit: 100, 
  *   ignoreNoFilesFound: false, 
- *   documentForm: &#39;documentPerLine&#39;) ~&gt; source1 
+ *   documentForm: 'documentPerLine') ~> source1 
  * source1 sink(
  *   allowSchemaDrift: true, 
  *   validateSchema: false, 
  *   skipDuplicateMapInputs: true, 
- *   skipDuplicateMapOutputs: true) ~&gt; sink1
- *             &#34;&#34;&#34;)
+ *   skipDuplicateMapOutputs: true) ~> sink1
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

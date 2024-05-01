@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,27 +44,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
- *             .name(&#34;my-eventgrid-domain&#34;)
+ *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()        
+ *             .name("my-eventgrid-domain")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *             .tags(Map.of("environment", "Production"))
  *             .build());
  * 
- *         var exampleDomainTopic = new DomainTopic(&#34;exampleDomainTopic&#34;, DomainTopicArgs.builder()        
- *             .name(&#34;my-eventgrid-domain-topic&#34;)
+ *         var exampleDomainTopic = new DomainTopic("exampleDomainTopic", DomainTopicArgs.builder()        
+ *             .name("my-eventgrid-domain-topic")
  *             .domainName(exampleDomain.name())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

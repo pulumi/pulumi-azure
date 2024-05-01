@@ -28,7 +28,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -57,46 +57,46 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-vnet&#34;)
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example-vnet")
+ *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;example-subnet&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("example-subnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
- *             .serviceEndpoints(&#34;Microsoft.Storage&#34;)
+ *             .addressPrefixes("10.0.2.0/24")
+ *             .serviceEndpoints("Microsoft.Storage")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;storageaccountname&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("storageaccountname")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;GRS&#34;)
- *             .tags(Map.of(&#34;environment&#34;, &#34;staging&#34;))
+ *             .accountTier("Standard")
+ *             .accountReplicationType("GRS")
+ *             .tags(Map.of("environment", "staging"))
  *             .build());
  * 
- *         var exampleAccountNetworkRules = new AccountNetworkRules(&#34;exampleAccountNetworkRules&#34;, AccountNetworkRulesArgs.builder()        
+ *         var exampleAccountNetworkRules = new AccountNetworkRules("exampleAccountNetworkRules", AccountNetworkRulesArgs.builder()        
  *             .storageAccountId(exampleAccount.id())
- *             .defaultAction(&#34;Allow&#34;)
- *             .ipRules(&#34;127.0.0.1&#34;)
+ *             .defaultAction("Allow")
+ *             .ipRules("127.0.0.1")
  *             .virtualNetworkSubnetIds(exampleSubnet.id())
- *             .bypasses(&#34;Metrics&#34;)
+ *             .bypasses("Metrics")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

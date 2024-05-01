@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,31 +46,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleIntegrationAccount = new IntegrationAccount(&#34;exampleIntegrationAccount&#34;, IntegrationAccountArgs.builder()        
- *             .name(&#34;example-ia&#34;)
+ *         var exampleIntegrationAccount = new IntegrationAccount("exampleIntegrationAccount", IntegrationAccountArgs.builder()        
+ *             .name("example-ia")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;Basic&#34;)
+ *             .skuName("Basic")
  *             .build());
  * 
- *         var exampleIntegrationAccountAssembly = new IntegrationAccountAssembly(&#34;exampleIntegrationAccountAssembly&#34;, IntegrationAccountAssemblyArgs.builder()        
- *             .name(&#34;example-assembly&#34;)
+ *         var exampleIntegrationAccountAssembly = new IntegrationAccountAssembly("exampleIntegrationAccountAssembly", IntegrationAccountAssemblyArgs.builder()        
+ *             .name("example-assembly")
  *             .resourceGroupName(example.name())
  *             .integrationAccountName(exampleIntegrationAccount.name())
- *             .assemblyName(&#34;TestAssembly&#34;)
+ *             .assemblyName("TestAssembly")
  *             .content(StdFunctions.filebase64(Filebase64Args.builder()
- *                 .input(&#34;testdata/log4net.dll&#34;)
+ *                 .input("testdata/log4net.dll")
  *                 .build()).result())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

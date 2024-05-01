@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,31 +45,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .name(&#34;example-apim&#34;)
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *             .name("example-apim")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .publisherName(&#34;pub1&#34;)
- *             .publisherEmail(&#34;pub1@email.com&#34;)
- *             .skuName(&#34;Developer_1&#34;)
+ *             .publisherName("pub1")
+ *             .publisherEmail("pub1@email.com")
+ *             .skuName("Developer_1")
  *             .build());
  * 
- *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
- *             .name(&#34;example-apimg&#34;)
+ *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+ *             .name("example-apimg")
  *             .resourceGroupName(example.name())
  *             .apiManagementName(exampleService.name())
- *             .displayName(&#34;Example Group&#34;)
- *             .description(&#34;This is an example API management group.&#34;)
+ *             .displayName("Example Group")
+ *             .description("This is an example API management group.")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -23,7 +23,7 @@ public final class NotificationhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -45,15 +45,15 @@ public final class NotificationhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NotificationhubFunctions.getHub(GetHubArgs.builder()
-     *             .name(&#34;notification-hub&#34;)
-     *             .namespaceName(&#34;namespace-name&#34;)
-     *             .resourceGroupName(&#34;resource-group-name&#34;)
+     *             .name("notification-hub")
+     *             .namespaceName("namespace-name")
+     *             .resourceGroupName("resource-group-name")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getHubResult -&gt; getHubResult.id()));
+     *         ctx.export("id", example.applyValue(getHubResult -> getHubResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -66,7 +66,7 @@ public final class NotificationhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -88,15 +88,15 @@ public final class NotificationhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NotificationhubFunctions.getHub(GetHubArgs.builder()
-     *             .name(&#34;notification-hub&#34;)
-     *             .namespaceName(&#34;namespace-name&#34;)
-     *             .resourceGroupName(&#34;resource-group-name&#34;)
+     *             .name("notification-hub")
+     *             .namespaceName("namespace-name")
+     *             .resourceGroupName("resource-group-name")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getHubResult -&gt; getHubResult.id()));
+     *         ctx.export("id", example.applyValue(getHubResult -> getHubResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -109,7 +109,7 @@ public final class NotificationhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -131,15 +131,15 @@ public final class NotificationhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NotificationhubFunctions.getHub(GetHubArgs.builder()
-     *             .name(&#34;notification-hub&#34;)
-     *             .namespaceName(&#34;namespace-name&#34;)
-     *             .resourceGroupName(&#34;resource-group-name&#34;)
+     *             .name("notification-hub")
+     *             .namespaceName("namespace-name")
+     *             .resourceGroupName("resource-group-name")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getHubResult -&gt; getHubResult.id()));
+     *         ctx.export("id", example.applyValue(getHubResult -> getHubResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -152,7 +152,7 @@ public final class NotificationhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -174,15 +174,15 @@ public final class NotificationhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NotificationhubFunctions.getHub(GetHubArgs.builder()
-     *             .name(&#34;notification-hub&#34;)
-     *             .namespaceName(&#34;namespace-name&#34;)
-     *             .resourceGroupName(&#34;resource-group-name&#34;)
+     *             .name("notification-hub")
+     *             .namespaceName("namespace-name")
+     *             .resourceGroupName("resource-group-name")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getHubResult -&gt; getHubResult.id()));
+     *         ctx.export("id", example.applyValue(getHubResult -> getHubResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -195,7 +195,7 @@ public final class NotificationhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -217,14 +217,14 @@ public final class NotificationhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NotificationhubFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .name(&#34;my-namespace&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
+     *             .name("my-namespace")
+     *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;servicebusEndpoint&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.servicebusEndpoint()));
+     *         ctx.export("servicebusEndpoint", example.applyValue(getNamespaceResult -> getNamespaceResult.servicebusEndpoint()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -237,7 +237,7 @@ public final class NotificationhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -259,14 +259,14 @@ public final class NotificationhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NotificationhubFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .name(&#34;my-namespace&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
+     *             .name("my-namespace")
+     *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;servicebusEndpoint&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.servicebusEndpoint()));
+     *         ctx.export("servicebusEndpoint", example.applyValue(getNamespaceResult -> getNamespaceResult.servicebusEndpoint()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -279,7 +279,7 @@ public final class NotificationhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -301,14 +301,14 @@ public final class NotificationhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NotificationhubFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .name(&#34;my-namespace&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
+     *             .name("my-namespace")
+     *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;servicebusEndpoint&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.servicebusEndpoint()));
+     *         ctx.export("servicebusEndpoint", example.applyValue(getNamespaceResult -> getNamespaceResult.servicebusEndpoint()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -321,7 +321,7 @@ public final class NotificationhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -343,14 +343,14 @@ public final class NotificationhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NotificationhubFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .name(&#34;my-namespace&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
+     *             .name("my-namespace")
+     *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;servicebusEndpoint&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.servicebusEndpoint()));
+     *         ctx.export("servicebusEndpoint", example.applyValue(getNamespaceResult -> getNamespaceResult.servicebusEndpoint()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,47 +54,47 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = CosmosdbFunctions.getAccount(GetAccountArgs.builder()
- *             .name(&#34;tfex-cosmosdb-account&#34;)
- *             .resourceGroupName(&#34;tfex-cosmosdb-account-rg&#34;)
+ *             .name("tfex-cosmosdb-account")
+ *             .resourceGroupName("tfex-cosmosdb-account-rg")
  *             .build());
  * 
- *         var exampleSqlDatabase = new SqlDatabase(&#34;exampleSqlDatabase&#34;, SqlDatabaseArgs.builder()        
- *             .name(&#34;example-acsd&#34;)
- *             .resourceGroupName(example.applyValue(getAccountResult -&gt; getAccountResult.resourceGroupName()))
- *             .accountName(example.applyValue(getAccountResult -&gt; getAccountResult.name()))
+ *         var exampleSqlDatabase = new SqlDatabase("exampleSqlDatabase", SqlDatabaseArgs.builder()        
+ *             .name("example-acsd")
+ *             .resourceGroupName(example.applyValue(getAccountResult -> getAccountResult.resourceGroupName()))
+ *             .accountName(example.applyValue(getAccountResult -> getAccountResult.name()))
  *             .build());
  * 
- *         var exampleSqlContainer = new SqlContainer(&#34;exampleSqlContainer&#34;, SqlContainerArgs.builder()        
- *             .name(&#34;example-container&#34;)
- *             .resourceGroupName(example.applyValue(getAccountResult -&gt; getAccountResult.resourceGroupName()))
- *             .accountName(example.applyValue(getAccountResult -&gt; getAccountResult.name()))
+ *         var exampleSqlContainer = new SqlContainer("exampleSqlContainer", SqlContainerArgs.builder()        
+ *             .name("example-container")
+ *             .resourceGroupName(example.applyValue(getAccountResult -> getAccountResult.resourceGroupName()))
+ *             .accountName(example.applyValue(getAccountResult -> getAccountResult.name()))
  *             .databaseName(exampleSqlDatabase.name())
- *             .partitionKeyPath(&#34;/definition/id&#34;)
+ *             .partitionKeyPath("/definition/id")
  *             .partitionKeyVersion(1)
  *             .throughput(400)
  *             .indexingPolicy(SqlContainerIndexingPolicyArgs.builder()
- *                 .indexingMode(&#34;consistent&#34;)
+ *                 .indexingMode("consistent")
  *                 .includedPaths(                
  *                     SqlContainerIndexingPolicyIncludedPathArgs.builder()
- *                         .path(&#34;/*&#34;)
+ *                         .path("/*")
  *                         .build(),
  *                     SqlContainerIndexingPolicyIncludedPathArgs.builder()
- *                         .path(&#34;/included/?&#34;)
+ *                         .path("/included/?")
  *                         .build())
  *                 .excludedPaths(SqlContainerIndexingPolicyExcludedPathArgs.builder()
- *                     .path(&#34;/excluded/?&#34;)
+ *                     .path("/excluded/?")
  *                     .build())
  *                 .build())
  *             .uniqueKeys(SqlContainerUniqueKeyArgs.builder()
  *                 .paths(                
- *                     &#34;/definition/idlong&#34;,
- *                     &#34;/definition/idshort&#34;)
+ *                     "/definition/idlong",
+ *                     "/definition/idshort")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

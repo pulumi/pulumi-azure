@@ -41,7 +41,7 @@ public final class ApimanagementFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -63,16 +63,16 @@ public final class ApimanagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApimanagementFunctions.getApi(GetApiArgs.builder()
-     *             .name(&#34;search-api&#34;)
-     *             .apiManagementName(&#34;search-api-management&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .revision(&#34;2&#34;)
+     *             .name("search-api")
+     *             .apiManagementName("search-api-management")
+     *             .resourceGroupName("search-service")
+     *             .revision("2")
      *             .build());
      * 
-     *         ctx.export(&#34;apiManagementApiId&#34;, example.applyValue(getApiResult -&gt; getApiResult.id()));
+     *         ctx.export("apiManagementApiId", example.applyValue(getApiResult -> getApiResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -85,7 +85,7 @@ public final class ApimanagementFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -107,16 +107,16 @@ public final class ApimanagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApimanagementFunctions.getApi(GetApiArgs.builder()
-     *             .name(&#34;search-api&#34;)
-     *             .apiManagementName(&#34;search-api-management&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .revision(&#34;2&#34;)
+     *             .name("search-api")
+     *             .apiManagementName("search-api-management")
+     *             .resourceGroupName("search-service")
+     *             .revision("2")
      *             .build());
      * 
-     *         ctx.export(&#34;apiManagementApiId&#34;, example.applyValue(getApiResult -&gt; getApiResult.id()));
+     *         ctx.export("apiManagementApiId", example.applyValue(getApiResult -> getApiResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -129,7 +129,7 @@ public final class ApimanagementFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -151,16 +151,16 @@ public final class ApimanagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApimanagementFunctions.getApi(GetApiArgs.builder()
-     *             .name(&#34;search-api&#34;)
-     *             .apiManagementName(&#34;search-api-management&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .revision(&#34;2&#34;)
+     *             .name("search-api")
+     *             .apiManagementName("search-api-management")
+     *             .resourceGroupName("search-service")
+     *             .revision("2")
      *             .build());
      * 
-     *         ctx.export(&#34;apiManagementApiId&#34;, example.applyValue(getApiResult -&gt; getApiResult.id()));
+     *         ctx.export("apiManagementApiId", example.applyValue(getApiResult -> getApiResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -173,7 +173,7 @@ public final class ApimanagementFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -195,16 +195,16 @@ public final class ApimanagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApimanagementFunctions.getApi(GetApiArgs.builder()
-     *             .name(&#34;search-api&#34;)
-     *             .apiManagementName(&#34;search-api-management&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .revision(&#34;2&#34;)
+     *             .name("search-api")
+     *             .apiManagementName("search-api-management")
+     *             .resourceGroupName("search-service")
+     *             .revision("2")
      *             .build());
      * 
-     *         ctx.export(&#34;apiManagementApiId&#34;, example.applyValue(getApiResult -&gt; getApiResult.id()));
+     *         ctx.export("apiManagementApiId", example.applyValue(getApiResult -> getApiResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -217,7 +217,7 @@ public final class ApimanagementFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -239,15 +239,15 @@ public final class ApimanagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApimanagementFunctions.getApiVersionSet(GetApiVersionSetArgs.builder()
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .apiManagementName(&#34;example-api&#34;)
-     *             .name(&#34;example-api-version-set&#34;)
+     *             .resourceGroupName("example-resources")
+     *             .apiManagementName("example-api")
+     *             .name("example-api-version-set")
      *             .build());
      * 
-     *         ctx.export(&#34;apiManagementApiVersionSetId&#34;, example.applyValue(getApiVersionSetResult -&gt; getApiVersionSetResult.id()));
+     *         ctx.export("apiManagementApiVersionSetId", example.applyValue(getApiVersionSetResult -> getApiVersionSetResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -260,7 +260,7 @@ public final class ApimanagementFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -282,15 +282,15 @@ public final class ApimanagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApimanagementFunctions.getApiVersionSet(GetApiVersionSetArgs.builder()
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .apiManagementName(&#34;example-api&#34;)
-     *             .name(&#34;example-api-version-set&#34;)
+     *             .resourceGroupName("example-resources")
+     *             .apiManagementName("example-api")
+     *             .name("example-api-version-set")
      *             .build());
      * 
-     *         ctx.export(&#34;apiManagementApiVersionSetId&#34;, example.applyValue(getApiVersionSetResult -&gt; getApiVersionSetResult.id()));
+     *         ctx.export("apiManagementApiVersionSetId", example.applyValue(getApiVersionSetResult -> getApiVersionSetResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -303,7 +303,7 @@ public final class ApimanagementFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -325,15 +325,15 @@ public final class ApimanagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApimanagementFunctions.getApiVersionSet(GetApiVersionSetArgs.builder()
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .apiManagementName(&#34;example-api&#34;)
-     *             .name(&#34;example-api-version-set&#34;)
+     *             .resourceGroupName("example-resources")
+     *             .apiManagementName("example-api")
+     *             .name("example-api-version-set")
      *             .build());
      * 
-     *         ctx.export(&#34;apiManagementApiVersionSetId&#34;, example.applyValue(getApiVersionSetResult -&gt; getApiVersionSetResult.id()));
+     *         ctx.export("apiManagementApiVersionSetId", example.applyValue(getApiVersionSetResult -> getApiVersionSetResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -346,7 +346,7 @@ public final class ApimanagementFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -368,15 +368,15 @@ public final class ApimanagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApimanagementFunctions.getApiVersionSet(GetApiVersionSetArgs.builder()
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .apiManagementName(&#34;example-api&#34;)
-     *             .name(&#34;example-api-version-set&#34;)
+     *             .resourceGroupName("example-resources")
+     *             .apiManagementName("example-api")
+     *             .name("example-api-version-set")
      *             .build());
      * 
-     *         ctx.export(&#34;apiManagementApiVersionSetId&#34;, example.applyValue(getApiVersionSetResult -&gt; getApiVersionSetResult.id()));
+     *         ctx.export("apiManagementApiVersionSetId", example.applyValue(getApiVersionSetResult -> getApiVersionSetResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -389,7 +389,7 @@ public final class ApimanagementFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -412,18 +412,18 @@ public final class ApimanagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example-apim&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-apim")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
      *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
-     *             .name(&#34;example-api-gateway&#34;)
-     *             .apiManagementId(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .name("example-api-gateway")
+     *             .apiManagementId(example.applyValue(getServiceResult -> getServiceResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -436,7 +436,7 @@ public final class ApimanagementFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -459,18 +459,18 @@ public final class ApimanagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example-apim&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-apim")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
      *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
-     *             .name(&#34;example-api-gateway&#34;)
-     *             .apiManagementId(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .name("example-api-gateway")
+     *             .apiManagementId(example.applyValue(getServiceResult -> getServiceResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -483,7 +483,7 @@ public final class ApimanagementFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -506,18 +506,18 @@ public final class ApimanagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example-apim&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-apim")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
      *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
-     *             .name(&#34;example-api-gateway&#34;)
-     *             .apiManagementId(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .name("example-api-gateway")
+     *             .apiManagementId(example.applyValue(getServiceResult -> getServiceResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -530,7 +530,7 @@ public final class ApimanagementFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -553,18 +553,18 @@ public final class ApimanagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example-apim&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-apim")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
      *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
-     *             .name(&#34;example-api-gateway&#34;)
-     *             .apiManagementId(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .name("example-api-gateway")
+     *             .apiManagementId(example.applyValue(getServiceResult -> getServiceResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -577,7 +577,7 @@ public final class ApimanagementFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -601,25 +601,25 @@ public final class ApimanagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example-apim&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-apim")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
-     *             .name(&#34;example-gateway&#34;)
+     *             .name("example-gateway")
      *             .apiManagementId(main.id())
      *             .build());
      * 
      *         final var exampleGetGatewayHostNameConfiguration = ApimanagementFunctions.getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs.builder()
-     *             .name(&#34;example-host-configuration&#34;)
-     *             .apiManagementId(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
-     *             .gatewayName(exampleGetGateway.applyValue(getGatewayResult -&gt; getGatewayResult.name()))
+     *             .name("example-host-configuration")
+     *             .apiManagementId(example.applyValue(getServiceResult -> getServiceResult.id()))
+     *             .gatewayName(exampleGetGateway.applyValue(getGatewayResult -> getGatewayResult.name()))
      *             .build());
      * 
-     *         ctx.export(&#34;hostName&#34;, exampleGetGatewayHostNameConfiguration.applyValue(getGatewayHostNameConfigurationResult -&gt; getGatewayHostNameConfigurationResult.hostName()));
+     *         ctx.export("hostName", exampleGetGatewayHostNameConfiguration.applyValue(getGatewayHostNameConfigurationResult -> getGatewayHostNameConfigurationResult.hostName()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -632,7 +632,7 @@ public final class ApimanagementFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -656,25 +656,25 @@ public final class ApimanagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example-apim&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-apim")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
-     *             .name(&#34;example-gateway&#34;)
+     *             .name("example-gateway")
      *             .apiManagementId(main.id())
      *             .build());
      * 
      *         final var exampleGetGatewayHostNameConfiguration = ApimanagementFunctions.getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs.builder()
-     *             .name(&#34;example-host-configuration&#34;)
-     *             .apiManagementId(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
-     *             .gatewayName(exampleGetGateway.applyValue(getGatewayResult -&gt; getGatewayResult.name()))
+     *             .name("example-host-configuration")
+     *             .apiManagementId(example.applyValue(getServiceResult -> getServiceResult.id()))
+     *             .gatewayName(exampleGetGateway.applyValue(getGatewayResult -> getGatewayResult.name()))
      *             .build());
      * 
-     *         ctx.export(&#34;hostName&#34;, exampleGetGatewayHostNameConfiguration.applyValue(getGatewayHostNameConfigurationResult -&gt; getGatewayHostNameConfigurationResult.hostName()));
+     *         ctx.export("hostName", exampleGetGatewayHostNameConfiguration.applyValue(getGatewayHostNameConfigurationResult -> getGatewayHostNameConfigurationResult.hostName()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -687,7 +687,7 @@ public final class ApimanagementFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -711,25 +711,25 @@ public final class ApimanagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example-apim&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-apim")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
-     *             .name(&#34;example-gateway&#34;)
+     *             .name("example-gateway")
      *             .apiManagementId(main.id())
      *             .build());
      * 
      *         final var exampleGetGatewayHostNameConfiguration = ApimanagementFunctions.getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs.builder()
-     *             .name(&#34;example-host-configuration&#34;)
-     *             .apiManagementId(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
-     *             .gatewayName(exampleGetGateway.applyValue(getGatewayResult -&gt; getGatewayResult.name()))
+     *             .name("example-host-configuration")
+     *             .apiManagementId(example.applyValue(getServiceResult -> getServiceResult.id()))
+     *             .gatewayName(exampleGetGateway.applyValue(getGatewayResult -> getGatewayResult.name()))
      *             .build());
      * 
-     *         ctx.export(&#34;hostName&#34;, exampleGetGatewayHostNameConfiguration.applyValue(getGatewayHostNameConfigurationResult -&gt; getGatewayHostNameConfigurationResult.hostName()));
+     *         ctx.export("hostName", exampleGetGatewayHostNameConfiguration.applyValue(getGatewayHostNameConfigurationResult -> getGatewayHostNameConfigurationResult.hostName()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -742,7 +742,7 @@ public final class ApimanagementFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -766,25 +766,25 @@ public final class ApimanagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example-apim&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-apim")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
-     *             .name(&#34;example-gateway&#34;)
+     *             .name("example-gateway")
      *             .apiManagementId(main.id())
      *             .build());
      * 
      *         final var exampleGetGatewayHostNameConfiguration = ApimanagementFunctions.getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs.builder()
-     *             .name(&#34;example-host-configuration&#34;)
-     *             .apiManagementId(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
-     *             .gatewayName(exampleGetGateway.applyValue(getGatewayResult -&gt; getGatewayResult.name()))
+     *             .name("example-host-configuration")
+     *             .apiManagementId(example.applyValue(getServiceResult -> getServiceResult.id()))
+     *             .gatewayName(exampleGetGateway.applyValue(getGatewayResult -> getGatewayResult.name()))
      *             .build());
      * 
-     *         ctx.export(&#34;hostName&#34;, exampleGetGatewayHostNameConfiguration.applyValue(getGatewayHostNameConfigurationResult -&gt; getGatewayHostNameConfigurationResult.hostName()));
+     *         ctx.export("hostName", exampleGetGatewayHostNameConfiguration.applyValue(getGatewayHostNameConfigurationResult -> getGatewayHostNameConfigurationResult.hostName()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -797,7 +797,7 @@ public final class ApimanagementFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -819,15 +819,15 @@ public final class ApimanagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApimanagementFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;my-group&#34;)
-     *             .apiManagementName(&#34;example-apim&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
+     *             .name("my-group")
+     *             .apiManagementName("example-apim")
+     *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export(&#34;groupType&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.type()));
+     *         ctx.export("groupType", example.applyValue(getGroupResult -> getGroupResult.type()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -840,7 +840,7 @@ public final class ApimanagementFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -862,15 +862,15 @@ public final class ApimanagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApimanagementFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;my-group&#34;)
-     *             .apiManagementName(&#34;example-apim&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
+     *             .name("my-group")
+     *             .apiManagementName("example-apim")
+     *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export(&#34;groupType&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.type()));
+     *         ctx.export("groupType", example.applyValue(getGroupResult -> getGroupResult.type()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -883,7 +883,7 @@ public final class ApimanagementFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -905,15 +905,15 @@ public final class ApimanagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApimanagementFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;my-group&#34;)
-     *             .apiManagementName(&#34;example-apim&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
+     *             .name("my-group")
+     *             .apiManagementName("example-apim")
+     *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export(&#34;groupType&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.type()));
+     *         ctx.export("groupType", example.applyValue(getGroupResult -> getGroupResult.type()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -926,7 +926,7 @@ public final class ApimanagementFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -948,15 +948,15 @@ public final class ApimanagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApimanagementFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;my-group&#34;)
-     *             .apiManagementName(&#34;example-apim&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
+     *             .name("my-group")
+     *             .apiManagementName("example-apim")
+     *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export(&#34;groupType&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.type()));
+     *         ctx.export("groupType", example.applyValue(getGroupResult -> getGroupResult.type()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -969,7 +969,7 @@ public final class ApimanagementFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -991,15 +991,15 @@ public final class ApimanagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApimanagementFunctions.getProduct(GetProductArgs.builder()
-     *             .productId(&#34;my-product&#34;)
-     *             .apiManagementName(&#34;example-apim&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
+     *             .productId("my-product")
+     *             .apiManagementName("example-apim")
+     *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export(&#34;productTerms&#34;, example.applyValue(getProductResult -&gt; getProductResult.terms()));
+     *         ctx.export("productTerms", example.applyValue(getProductResult -> getProductResult.terms()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1012,7 +1012,7 @@ public final class ApimanagementFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1034,15 +1034,15 @@ public final class ApimanagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApimanagementFunctions.getProduct(GetProductArgs.builder()
-     *             .productId(&#34;my-product&#34;)
-     *             .apiManagementName(&#34;example-apim&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
+     *             .productId("my-product")
+     *             .apiManagementName("example-apim")
+     *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export(&#34;productTerms&#34;, example.applyValue(getProductResult -&gt; getProductResult.terms()));
+     *         ctx.export("productTerms", example.applyValue(getProductResult -> getProductResult.terms()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1055,7 +1055,7 @@ public final class ApimanagementFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1077,15 +1077,15 @@ public final class ApimanagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApimanagementFunctions.getProduct(GetProductArgs.builder()
-     *             .productId(&#34;my-product&#34;)
-     *             .apiManagementName(&#34;example-apim&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
+     *             .productId("my-product")
+     *             .apiManagementName("example-apim")
+     *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export(&#34;productTerms&#34;, example.applyValue(getProductResult -&gt; getProductResult.terms()));
+     *         ctx.export("productTerms", example.applyValue(getProductResult -> getProductResult.terms()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1098,7 +1098,7 @@ public final class ApimanagementFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1120,15 +1120,15 @@ public final class ApimanagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApimanagementFunctions.getProduct(GetProductArgs.builder()
-     *             .productId(&#34;my-product&#34;)
-     *             .apiManagementName(&#34;example-apim&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
+     *             .productId("my-product")
+     *             .apiManagementName("example-apim")
+     *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export(&#34;productTerms&#34;, example.applyValue(getProductResult -&gt; getProductResult.terms()));
+     *         ctx.export("productTerms", example.applyValue(getProductResult -> getProductResult.terms()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1141,7 +1141,7 @@ public final class ApimanagementFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1163,14 +1163,14 @@ public final class ApimanagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;search-api&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
+     *             .name("search-api")
+     *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export(&#34;apiManagementId&#34;, example.applyValue(getServiceResult -&gt; getServiceResult.id()));
+     *         ctx.export("apiManagementId", example.applyValue(getServiceResult -> getServiceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1183,7 +1183,7 @@ public final class ApimanagementFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1205,14 +1205,14 @@ public final class ApimanagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;search-api&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
+     *             .name("search-api")
+     *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export(&#34;apiManagementId&#34;, example.applyValue(getServiceResult -&gt; getServiceResult.id()));
+     *         ctx.export("apiManagementId", example.applyValue(getServiceResult -> getServiceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1225,7 +1225,7 @@ public final class ApimanagementFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1247,14 +1247,14 @@ public final class ApimanagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;search-api&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
+     *             .name("search-api")
+     *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export(&#34;apiManagementId&#34;, example.applyValue(getServiceResult -&gt; getServiceResult.id()));
+     *         ctx.export("apiManagementId", example.applyValue(getServiceResult -> getServiceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1267,7 +1267,7 @@ public final class ApimanagementFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1289,14 +1289,14 @@ public final class ApimanagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;search-api&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
+     *             .name("search-api")
+     *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export(&#34;apiManagementId&#34;, example.applyValue(getServiceResult -&gt; getServiceResult.id()));
+     *         ctx.export("apiManagementId", example.applyValue(getServiceResult -> getServiceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

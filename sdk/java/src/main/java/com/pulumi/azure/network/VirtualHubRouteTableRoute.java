@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -63,58 +63,58 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-vnet&#34;)
- *             .addressSpaces(&#34;10.5.0.0/16&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example-vnet")
+ *             .addressSpaces("10.5.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleNetworkSecurityGroup = new NetworkSecurityGroup(&#34;exampleNetworkSecurityGroup&#34;, NetworkSecurityGroupArgs.builder()        
- *             .name(&#34;example-nsg&#34;)
+ *         var exampleNetworkSecurityGroup = new NetworkSecurityGroup("exampleNetworkSecurityGroup", NetworkSecurityGroupArgs.builder()        
+ *             .name("example-nsg")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;examplesubnet&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("examplesubnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.5.1.0/24&#34;)
+ *             .addressPrefixes("10.5.1.0/24")
  *             .build());
  * 
- *         var exampleSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation(&#34;exampleSubnetNetworkSecurityGroupAssociation&#34;, SubnetNetworkSecurityGroupAssociationArgs.builder()        
+ *         var exampleSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation("exampleSubnetNetworkSecurityGroupAssociation", SubnetNetworkSecurityGroupAssociationArgs.builder()        
  *             .subnetId(exampleSubnet.id())
  *             .networkSecurityGroupId(exampleNetworkSecurityGroup.id())
  *             .build());
  * 
- *         var exampleVirtualWan = new VirtualWan(&#34;exampleVirtualWan&#34;, VirtualWanArgs.builder()        
- *             .name(&#34;example-vwan&#34;)
+ *         var exampleVirtualWan = new VirtualWan("exampleVirtualWan", VirtualWanArgs.builder()        
+ *             .name("example-vwan")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleVirtualHub = new VirtualHub(&#34;exampleVirtualHub&#34;, VirtualHubArgs.builder()        
- *             .name(&#34;example-vhub&#34;)
+ *         var exampleVirtualHub = new VirtualHub("exampleVirtualHub", VirtualHubArgs.builder()        
+ *             .name("example-vhub")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .virtualWanId(exampleVirtualWan.id())
- *             .addressPrefix(&#34;10.0.2.0/24&#34;)
+ *             .addressPrefix("10.0.2.0/24")
  *             .build());
  * 
- *         var exampleVirtualHubRouteTable = new VirtualHubRouteTable(&#34;exampleVirtualHubRouteTable&#34;, VirtualHubRouteTableArgs.builder()        
- *             .name(&#34;example-vhubroutetable&#34;)
+ *         var exampleVirtualHubRouteTable = new VirtualHubRouteTable("exampleVirtualHubRouteTable", VirtualHubRouteTableArgs.builder()        
+ *             .name("example-vhubroutetable")
  *             .virtualHubId(exampleVirtualHub.id())
- *             .labels(&#34;label1&#34;)
+ *             .labels("label1")
  *             .build());
  * 
- *         var exampleVirtualHubConnection = new VirtualHubConnection(&#34;exampleVirtualHubConnection&#34;, VirtualHubConnectionArgs.builder()        
- *             .name(&#34;example-vhubconn&#34;)
+ *         var exampleVirtualHubConnection = new VirtualHubConnection("exampleVirtualHubConnection", VirtualHubConnectionArgs.builder()        
+ *             .name("example-vhubconn")
  *             .virtualHubId(exampleVirtualHub.id())
  *             .remoteVirtualNetworkId(exampleVirtualNetwork.id())
  *             .routing(VirtualHubConnectionRoutingArgs.builder()
@@ -122,18 +122,18 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleVirtualHubRouteTableRoute = new VirtualHubRouteTableRoute(&#34;exampleVirtualHubRouteTableRoute&#34;, VirtualHubRouteTableRouteArgs.builder()        
+ *         var exampleVirtualHubRouteTableRoute = new VirtualHubRouteTableRoute("exampleVirtualHubRouteTableRoute", VirtualHubRouteTableRouteArgs.builder()        
  *             .routeTableId(exampleVirtualHubRouteTable.id())
- *             .name(&#34;example-route&#34;)
- *             .destinationsType(&#34;CIDR&#34;)
- *             .destinations(&#34;10.0.0.0/16&#34;)
- *             .nextHopType(&#34;ResourceId&#34;)
+ *             .name("example-route")
+ *             .destinationsType("CIDR")
+ *             .destinations("10.0.0.0/16")
+ *             .nextHopType("ResourceId")
  *             .nextHop(exampleVirtualHubConnection.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

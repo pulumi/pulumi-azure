@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,35 +46,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;exprtTest&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("exprtTest")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleExpressRouteCircuit = new ExpressRouteCircuit(&#34;exampleExpressRouteCircuit&#34;, ExpressRouteCircuitArgs.builder()        
- *             .name(&#34;expressRoute1&#34;)
+ *         var exampleExpressRouteCircuit = new ExpressRouteCircuit("exampleExpressRouteCircuit", ExpressRouteCircuitArgs.builder()        
+ *             .name("expressRoute1")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .serviceProviderName(&#34;Equinix&#34;)
- *             .peeringLocation(&#34;Silicon Valley&#34;)
+ *             .serviceProviderName("Equinix")
+ *             .peeringLocation("Silicon Valley")
  *             .bandwidthInMbps(50)
  *             .sku(ExpressRouteCircuitSkuArgs.builder()
- *                 .tier(&#34;Standard&#34;)
- *                 .family(&#34;MeteredData&#34;)
+ *                 .tier("Standard")
+ *                 .family("MeteredData")
  *                 .build())
  *             .allowClassicOperations(false)
- *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *             .tags(Map.of("environment", "Production"))
  *             .build());
  * 
- *         var exampleExpressRouteCircuitAuthorization = new ExpressRouteCircuitAuthorization(&#34;exampleExpressRouteCircuitAuthorization&#34;, ExpressRouteCircuitAuthorizationArgs.builder()        
- *             .name(&#34;exampleERCAuth&#34;)
+ *         var exampleExpressRouteCircuitAuthorization = new ExpressRouteCircuitAuthorization("exampleExpressRouteCircuitAuthorization", ExpressRouteCircuitAuthorizationArgs.builder()        
+ *             .name("exampleERCAuth")
  *             .expressRouteCircuitName(exampleExpressRouteCircuit.name())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

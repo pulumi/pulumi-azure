@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,46 +53,46 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;rg-example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("rg-example")
+ *             .location("West Europe")
  *             .build());
  * 
  *         final var example = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
- *             .name(&#34;example-job&#34;)
+ *             .name("example-job")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleNamespace = new Namespace(&#34;exampleNamespace&#34;, NamespaceArgs.builder()        
- *             .name(&#34;example-namespace&#34;)
+ *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()        
+ *             .name("example-namespace")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .sku(&#34;Standard&#34;)
+ *             .sku("Standard")
  *             .build());
  * 
- *         var exampleQueue = new Queue(&#34;exampleQueue&#34;, QueueArgs.builder()        
- *             .name(&#34;example-queue&#34;)
+ *         var exampleQueue = new Queue("exampleQueue", QueueArgs.builder()        
+ *             .name("example-queue")
  *             .namespaceId(exampleNamespace.id())
  *             .enablePartitioning(true)
  *             .build());
  * 
- *         var exampleOutputServiceBusQueue = new OutputServiceBusQueue(&#34;exampleOutputServiceBusQueue&#34;, OutputServiceBusQueueArgs.builder()        
- *             .name(&#34;blob-storage-output&#34;)
- *             .streamAnalyticsJobName(example.applyValue(getJobResult -&gt; getJobResult).applyValue(example -&gt; example.applyValue(getJobResult -&gt; getJobResult.name())))
- *             .resourceGroupName(example.applyValue(getJobResult -&gt; getJobResult).applyValue(example -&gt; example.applyValue(getJobResult -&gt; getJobResult.resourceGroupName())))
+ *         var exampleOutputServiceBusQueue = new OutputServiceBusQueue("exampleOutputServiceBusQueue", OutputServiceBusQueueArgs.builder()        
+ *             .name("blob-storage-output")
+ *             .streamAnalyticsJobName(example.applyValue(getJobResult -> getJobResult).applyValue(example -> example.applyValue(getJobResult -> getJobResult.name())))
+ *             .resourceGroupName(example.applyValue(getJobResult -> getJobResult).applyValue(example -> example.applyValue(getJobResult -> getJobResult.resourceGroupName())))
  *             .queueName(exampleQueue.name())
  *             .servicebusNamespace(exampleNamespace.name())
  *             .sharedAccessPolicyKey(exampleNamespace.defaultPrimaryKey())
- *             .sharedAccessPolicyName(&#34;RootManageSharedAccessKey&#34;)
+ *             .sharedAccessPolicyName("RootManageSharedAccessKey")
  *             .serialization(OutputServiceBusQueueSerializationArgs.builder()
- *                 .type(&#34;Csv&#34;)
- *                 .format(&#34;Array&#34;)
+ *                 .type("Csv")
+ *                 .format("Array")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,32 +46,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;resourceGroup-example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("resourceGroup-example")
+ *             .location("West Europe")
  *             .build());
  * 
  *         final var example = CoreFunctions.getClientConfig();
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;account-example&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("account-example")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .skuName(&#34;Basic&#34;)
+ *             .skuName("Basic")
  *             .build());
  * 
- *         var exampleConnectionClassicCertificate = new ConnectionClassicCertificate(&#34;exampleConnectionClassicCertificate&#34;, ConnectionClassicCertificateArgs.builder()        
- *             .name(&#34;connection-example&#34;)
+ *         var exampleConnectionClassicCertificate = new ConnectionClassicCertificate("exampleConnectionClassicCertificate", ConnectionClassicCertificateArgs.builder()        
+ *             .name("connection-example")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .automationAccountName(exampleAccount.name())
- *             .certificateAssetName(&#34;cert1&#34;)
- *             .subscriptionName(&#34;subs1&#34;)
- *             .subscriptionId(example.applyValue(getClientConfigResult -&gt; getClientConfigResult.subscriptionId()))
+ *             .certificateAssetName("cert1")
+ *             .subscriptionName("subs1")
+ *             .subscriptionId(example.applyValue(getClientConfigResult -> getClientConfigResult.subscriptionId()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

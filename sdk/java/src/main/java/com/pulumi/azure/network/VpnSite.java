@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,32 +50,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualWan = new VirtualWan(&#34;exampleVirtualWan&#34;, VirtualWanArgs.builder()        
- *             .name(&#34;example-vwan&#34;)
+ *         var exampleVirtualWan = new VirtualWan("exampleVirtualWan", VirtualWanArgs.builder()        
+ *             .name("example-vwan")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleVpnSite = new VpnSite(&#34;exampleVpnSite&#34;, VpnSiteArgs.builder()        
- *             .name(&#34;site1&#34;)
+ *         var exampleVpnSite = new VpnSite("exampleVpnSite", VpnSiteArgs.builder()        
+ *             .name("site1")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .virtualWanId(exampleVirtualWan.id())
- *             .addressCidrs(&#34;10.0.0.0/24&#34;)
+ *             .addressCidrs("10.0.0.0/24")
  *             .links(VpnSiteLinkArgs.builder()
- *                 .name(&#34;link1&#34;)
- *                 .ipAddress(&#34;10.0.0.1&#34;)
+ *                 .name("link1")
+ *                 .ipAddress("10.0.0.1")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

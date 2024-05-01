@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -60,93 +60,93 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;des-example-keyvault&#34;)
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("des-example-keyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .skuName(&#34;premium&#34;)
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .skuName("premium")
  *             .enabledForDiskEncryption(true)
  *             .purgeProtectionEnabled(true)
  *             .build());
  * 
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
- *             .name(&#34;des-example-key&#34;)
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *             .name("des-example-key")
  *             .keyVaultId(exampleKeyVault.id())
- *             .keyType(&#34;RSA&#34;)
+ *             .keyType("RSA")
  *             .keySize(2048)
  *             .keyOpts(            
- *                 &#34;decrypt&#34;,
- *                 &#34;encrypt&#34;,
- *                 &#34;sign&#34;,
- *                 &#34;unwrapKey&#34;,
- *                 &#34;verify&#34;,
- *                 &#34;wrapKey&#34;)
+ *                 "decrypt",
+ *                 "encrypt",
+ *                 "sign",
+ *                 "unwrapKey",
+ *                 "verify",
+ *                 "wrapKey")
  *             .build());
  * 
- *         var exampleDiskEncryptionSet = new DiskEncryptionSet(&#34;exampleDiskEncryptionSet&#34;, DiskEncryptionSetArgs.builder()        
- *             .name(&#34;des&#34;)
+ *         var exampleDiskEncryptionSet = new DiskEncryptionSet("exampleDiskEncryptionSet", DiskEncryptionSetArgs.builder()        
+ *             .name("des")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .keyVaultKeyId(exampleKey.id())
  *             .identity(DiskEncryptionSetIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
- *         var example_disk = new AccessPolicy(&#34;example-disk&#34;, AccessPolicyArgs.builder()        
+ *         var example_disk = new AccessPolicy("example-disk", AccessPolicyArgs.builder()        
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(exampleDiskEncryptionSet.identity().applyValue(identity -&gt; identity.tenantId()))
- *             .objectId(exampleDiskEncryptionSet.identity().applyValue(identity -&gt; identity.principalId()))
+ *             .tenantId(exampleDiskEncryptionSet.identity().applyValue(identity -> identity.tenantId()))
+ *             .objectId(exampleDiskEncryptionSet.identity().applyValue(identity -> identity.principalId()))
  *             .keyPermissions(            
- *                 &#34;Create&#34;,
- *                 &#34;Delete&#34;,
- *                 &#34;Get&#34;,
- *                 &#34;Purge&#34;,
- *                 &#34;Recover&#34;,
- *                 &#34;Update&#34;,
- *                 &#34;List&#34;,
- *                 &#34;Decrypt&#34;,
- *                 &#34;Sign&#34;)
+ *                 "Create",
+ *                 "Delete",
+ *                 "Get",
+ *                 "Purge",
+ *                 "Recover",
+ *                 "Update",
+ *                 "List",
+ *                 "Decrypt",
+ *                 "Sign")
  *             .build());
  * 
- *         var example_user = new AccessPolicy(&#34;example-user&#34;, AccessPolicyArgs.builder()        
+ *         var example_user = new AccessPolicy("example-user", AccessPolicyArgs.builder()        
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *             .keyPermissions(            
- *                 &#34;Create&#34;,
- *                 &#34;Delete&#34;,
- *                 &#34;Get&#34;,
- *                 &#34;Purge&#34;,
- *                 &#34;Recover&#34;,
- *                 &#34;Update&#34;,
- *                 &#34;List&#34;,
- *                 &#34;Decrypt&#34;,
- *                 &#34;Sign&#34;,
- *                 &#34;GetRotationPolicy&#34;)
+ *                 "Create",
+ *                 "Delete",
+ *                 "Get",
+ *                 "Purge",
+ *                 "Recover",
+ *                 "Update",
+ *                 "List",
+ *                 "Decrypt",
+ *                 "Sign",
+ *                 "GetRotationPolicy")
  *             .build());
  * 
- *         var example_diskAssignment = new Assignment(&#34;example-diskAssignment&#34;, AssignmentArgs.builder()        
+ *         var example_diskAssignment = new Assignment("example-diskAssignment", AssignmentArgs.builder()        
  *             .scope(exampleKeyVault.id())
- *             .roleDefinitionName(&#34;Key Vault Crypto Service Encryption User&#34;)
- *             .principalId(exampleDiskEncryptionSet.identity().applyValue(identity -&gt; identity.principalId()))
+ *             .roleDefinitionName("Key Vault Crypto Service Encryption User")
+ *             .principalId(exampleDiskEncryptionSet.identity().applyValue(identity -> identity.principalId()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Automatic Key Rotation Enabled
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -181,88 +181,88 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;des-example-keyvault&#34;)
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("des-example-keyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .skuName(&#34;premium&#34;)
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .skuName("premium")
  *             .enabledForDiskEncryption(true)
  *             .purgeProtectionEnabled(true)
  *             .build());
  * 
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
- *             .name(&#34;des-example-key&#34;)
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *             .name("des-example-key")
  *             .keyVaultId(exampleKeyVault.id())
- *             .keyType(&#34;RSA&#34;)
+ *             .keyType("RSA")
  *             .keySize(2048)
  *             .keyOpts(            
- *                 &#34;decrypt&#34;,
- *                 &#34;encrypt&#34;,
- *                 &#34;sign&#34;,
- *                 &#34;unwrapKey&#34;,
- *                 &#34;verify&#34;,
- *                 &#34;wrapKey&#34;)
+ *                 "decrypt",
+ *                 "encrypt",
+ *                 "sign",
+ *                 "unwrapKey",
+ *                 "verify",
+ *                 "wrapKey")
  *             .build());
  * 
- *         var exampleDiskEncryptionSet = new DiskEncryptionSet(&#34;exampleDiskEncryptionSet&#34;, DiskEncryptionSetArgs.builder()        
- *             .name(&#34;des&#34;)
+ *         var exampleDiskEncryptionSet = new DiskEncryptionSet("exampleDiskEncryptionSet", DiskEncryptionSetArgs.builder()        
+ *             .name("des")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .keyVaultKeyId(exampleKey.versionlessId())
  *             .autoKeyRotationEnabled(true)
  *             .identity(DiskEncryptionSetIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
- *         var example_disk = new AccessPolicy(&#34;example-disk&#34;, AccessPolicyArgs.builder()        
+ *         var example_disk = new AccessPolicy("example-disk", AccessPolicyArgs.builder()        
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(exampleDiskEncryptionSet.identity().applyValue(identity -&gt; identity.tenantId()))
- *             .objectId(exampleDiskEncryptionSet.identity().applyValue(identity -&gt; identity.principalId()))
+ *             .tenantId(exampleDiskEncryptionSet.identity().applyValue(identity -> identity.tenantId()))
+ *             .objectId(exampleDiskEncryptionSet.identity().applyValue(identity -> identity.principalId()))
  *             .keyPermissions(            
- *                 &#34;Create&#34;,
- *                 &#34;Delete&#34;,
- *                 &#34;Get&#34;,
- *                 &#34;Purge&#34;,
- *                 &#34;Recover&#34;,
- *                 &#34;Update&#34;,
- *                 &#34;List&#34;,
- *                 &#34;Decrypt&#34;,
- *                 &#34;Sign&#34;)
+ *                 "Create",
+ *                 "Delete",
+ *                 "Get",
+ *                 "Purge",
+ *                 "Recover",
+ *                 "Update",
+ *                 "List",
+ *                 "Decrypt",
+ *                 "Sign")
  *             .build());
  * 
- *         var example_user = new AccessPolicy(&#34;example-user&#34;, AccessPolicyArgs.builder()        
+ *         var example_user = new AccessPolicy("example-user", AccessPolicyArgs.builder()        
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *             .keyPermissions(            
- *                 &#34;Create&#34;,
- *                 &#34;Delete&#34;,
- *                 &#34;Get&#34;,
- *                 &#34;Purge&#34;,
- *                 &#34;Recover&#34;,
- *                 &#34;Update&#34;,
- *                 &#34;List&#34;,
- *                 &#34;Decrypt&#34;,
- *                 &#34;Sign&#34;,
- *                 &#34;GetRotationPolicy&#34;)
+ *                 "Create",
+ *                 "Delete",
+ *                 "Get",
+ *                 "Purge",
+ *                 "Recover",
+ *                 "Update",
+ *                 "List",
+ *                 "Decrypt",
+ *                 "Sign",
+ *                 "GetRotationPolicy")
  *             .build());
  * 
- *         var example_diskAssignment = new Assignment(&#34;example-diskAssignment&#34;, AssignmentArgs.builder()        
+ *         var example_diskAssignment = new Assignment("example-diskAssignment", AssignmentArgs.builder()        
  *             .scope(exampleKeyVault.id())
- *             .roleDefinitionName(&#34;Key Vault Crypto Service Encryption User&#34;)
- *             .principalId(exampleDiskEncryptionSet.identity().applyValue(identity -&gt; identity.principalId()))
+ *             .roleDefinitionName("Key Vault Crypto Service Encryption User")
+ *             .principalId(exampleDiskEncryptionSet.identity().applyValue(identity -> identity.principalId()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

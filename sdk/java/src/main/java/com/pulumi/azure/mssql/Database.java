@@ -27,7 +27,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,49 +54,49 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;examplesa&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("examplesa")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
- *             .name(&#34;example-sqlserver&#34;)
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+ *             .name("example-sqlserver")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .version(&#34;12.0&#34;)
- *             .administratorLogin(&#34;4dm1n157r470r&#34;)
- *             .administratorLoginPassword(&#34;4-v3ry-53cr37-p455w0rd&#34;)
+ *             .version("12.0")
+ *             .administratorLogin("4dm1n157r470r")
+ *             .administratorLoginPassword("4-v3ry-53cr37-p455w0rd")
  *             .build());
  * 
- *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
- *             .name(&#34;example-db&#34;)
+ *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()        
+ *             .name("example-db")
  *             .serverId(exampleServer.id())
- *             .collation(&#34;SQL_Latin1_General_CP1_CI_AS&#34;)
- *             .licenseType(&#34;LicenseIncluded&#34;)
+ *             .collation("SQL_Latin1_General_CP1_CI_AS")
+ *             .licenseType("LicenseIncluded")
  *             .maxSizeGb(4)
  *             .readScale(true)
- *             .skuName(&#34;S0&#34;)
+ *             .skuName("S0")
  *             .zoneRedundant(true)
- *             .enclaveType(&#34;VBS&#34;)
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .enclaveType("VBS")
+ *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Transparent Data Encryption(TDE) With A Customer Managed Key(CMK) During Create
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -131,91 +131,91 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
- *             .name(&#34;example-admin&#34;)
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()        
+ *             .name("example-admin")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;examplesa&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("examplesa")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
- *             .name(&#34;example-sqlserver&#34;)
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+ *             .name("example-sqlserver")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .version(&#34;12.0&#34;)
- *             .administratorLogin(&#34;4dm1n157r470r&#34;)
- *             .administratorLoginPassword(&#34;4-v3ry-53cr37-p455w0rd&#34;)
+ *             .version("12.0")
+ *             .administratorLogin("4dm1n157r470r")
+ *             .administratorLoginPassword("4-v3ry-53cr37-p455w0rd")
  *             .build());
  * 
  *         // Create a key vault with access policies which allow for the current user to get, list, create, delete, update, recover, purge and getRotationPolicy for the key vault key and also add a key vault access policy for the Microsoft Sql Server instance User Managed Identity to get, wrap, and unwrap key(s)
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;mssqltdeexample&#34;)
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("mssqltdeexample")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .enabledForDiskEncryption(true)
  *             .tenantId(exampleUserAssignedIdentity.tenantId())
  *             .softDeleteRetentionDays(7)
  *             .purgeProtectionEnabled(true)
- *             .skuName(&#34;standard&#34;)
+ *             .skuName("standard")
  *             .accessPolicies(            
  *                 KeyVaultAccessPolicyArgs.builder()
  *                     .tenantId(current.tenantId())
  *                     .objectId(current.objectId())
  *                     .keyPermissions(                    
- *                         &#34;Get&#34;,
- *                         &#34;List&#34;,
- *                         &#34;Create&#34;,
- *                         &#34;Delete&#34;,
- *                         &#34;Update&#34;,
- *                         &#34;Recover&#34;,
- *                         &#34;Purge&#34;,
- *                         &#34;GetRotationPolicy&#34;)
+ *                         "Get",
+ *                         "List",
+ *                         "Create",
+ *                         "Delete",
+ *                         "Update",
+ *                         "Recover",
+ *                         "Purge",
+ *                         "GetRotationPolicy")
  *                     .build(),
  *                 KeyVaultAccessPolicyArgs.builder()
  *                     .tenantId(exampleUserAssignedIdentity.tenantId())
  *                     .objectId(exampleUserAssignedIdentity.principalId())
  *                     .keyPermissions(                    
- *                         &#34;Get&#34;,
- *                         &#34;WrapKey&#34;,
- *                         &#34;UnwrapKey&#34;)
+ *                         "Get",
+ *                         "WrapKey",
+ *                         "UnwrapKey")
  *                     .build())
  *             .build());
  * 
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
- *             .name(&#34;example-key&#34;)
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *             .name("example-key")
  *             .keyVaultId(exampleKeyVault.id())
- *             .keyType(&#34;RSA&#34;)
+ *             .keyType("RSA")
  *             .keySize(2048)
  *             .keyOpts(            
- *                 &#34;unwrapKey&#34;,
- *                 &#34;wrapKey&#34;)
+ *                 "unwrapKey",
+ *                 "wrapKey")
  *             .build());
  * 
- *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
- *             .name(&#34;example-db&#34;)
+ *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()        
+ *             .name("example-db")
  *             .serverId(exampleServer.id())
- *             .collation(&#34;SQL_Latin1_General_CP1_CI_AS&#34;)
- *             .licenseType(&#34;LicenseIncluded&#34;)
+ *             .collation("SQL_Latin1_General_CP1_CI_AS")
+ *             .licenseType("LicenseIncluded")
  *             .maxSizeGb(4)
  *             .readScale(true)
- *             .skuName(&#34;S0&#34;)
+ *             .skuName("S0")
  *             .zoneRedundant(true)
- *             .enclaveType(&#34;VBS&#34;)
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .enclaveType("VBS")
+ *             .tags(Map.of("foo", "bar"))
  *             .identity(DatabaseIdentityArgs.builder()
- *                 .type(&#34;UserAssigned&#34;)
+ *                 .type("UserAssigned")
  *                 .identityIds(exampleUserAssignedIdentity.id())
  *                 .build())
  *             .transparentDataEncryptionKeyVaultKeyId(exampleKey.id())
@@ -223,7 +223,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

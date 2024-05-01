@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -60,46 +60,46 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleNetwork = new Network(&#34;exampleNetwork&#34;, NetworkArgs.builder()        
- *             .name(&#34;example-mn&#34;)
+ *         var exampleNetwork = new Network("exampleNetwork", NetworkArgs.builder()        
+ *             .name("example-mn")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .mobileCountryCode(&#34;001&#34;)
- *             .mobileNetworkCode(&#34;01&#34;)
+ *             .mobileCountryCode("001")
+ *             .mobileNetworkCode("01")
  *             .build());
  * 
- *         var exampleNetworkDataNetwork = new NetworkDataNetwork(&#34;exampleNetworkDataNetwork&#34;, NetworkDataNetworkArgs.builder()        
- *             .name(&#34;example-mndn&#34;)
+ *         var exampleNetworkDataNetwork = new NetworkDataNetwork("exampleNetworkDataNetwork", NetworkDataNetworkArgs.builder()        
+ *             .name("example-mndn")
  *             .mobileNetworkId(exampleNetwork.id())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleNetworkService = new NetworkService(&#34;exampleNetworkService&#34;, NetworkServiceArgs.builder()        
- *             .name(&#34;example-mns&#34;)
+ *         var exampleNetworkService = new NetworkService("exampleNetworkService", NetworkServiceArgs.builder()        
+ *             .name("example-mns")
  *             .mobileNetworkId(exampleNetwork.id())
  *             .location(example.location())
  *             .servicePrecedence(0)
  *             .pccRules(NetworkServicePccRuleArgs.builder()
- *                 .name(&#34;default-rule&#34;)
+ *                 .name("default-rule")
  *                 .precedence(1)
  *                 .trafficControlEnabled(true)
  *                 .serviceDataFlowTemplates(NetworkServicePccRuleServiceDataFlowTemplateArgs.builder()
- *                     .direction(&#34;Uplink&#34;)
- *                     .name(&#34;IP-to-server&#34;)
+ *                     .direction("Uplink")
+ *                     .name("IP-to-server")
  *                     .ports()
- *                     .protocols(&#34;ip&#34;)
- *                     .remoteIpLists(&#34;10.3.4.0/24&#34;)
+ *                     .protocols("ip")
+ *                     .remoteIpLists("10.3.4.0/24")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleNetworkSlice = new NetworkSlice(&#34;exampleNetworkSlice&#34;, NetworkSliceArgs.builder()        
- *             .name(&#34;example-mns&#34;)
+ *         var exampleNetworkSlice = new NetworkSlice("exampleNetworkSlice", NetworkSliceArgs.builder()        
+ *             .name("example-mns")
  *             .mobileNetworkId(exampleNetwork.id())
  *             .location(example.location())
  *             .singleNetworkSliceSelectionAssistanceInformation(NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs.builder()
@@ -107,8 +107,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleNetworkSimPolicy = new NetworkSimPolicy(&#34;exampleNetworkSimPolicy&#34;, NetworkSimPolicyArgs.builder()        
- *             .name(&#34;example-mnsp&#34;)
+ *         var exampleNetworkSimPolicy = new NetworkSimPolicy("exampleNetworkSimPolicy", NetworkSimPolicyArgs.builder()        
+ *             .name("example-mnsp")
  *             .mobileNetworkId(exampleNetwork.id())
  *             .location(example.location())
  *             .registrationTimerInSeconds(3240)
@@ -119,27 +119,27 @@ import javax.annotation.Nullable;
  *                 .dataNetworks(NetworkSimPolicySliceDataNetworkArgs.builder()
  *                     .dataNetworkId(exampleNetworkDataNetwork.id())
  *                     .allocationAndRetentionPriorityLevel(9)
- *                     .defaultSessionType(&#34;IPv4&#34;)
+ *                     .defaultSessionType("IPv4")
  *                     .qosIndicator(9)
- *                     .preemptionCapability(&#34;NotPreempt&#34;)
- *                     .preemptionVulnerability(&#34;Preemptable&#34;)
+ *                     .preemptionCapability("NotPreempt")
+ *                     .preemptionVulnerability("Preemptable")
  *                     .allowedServicesIds(exampleNetworkService.id())
  *                     .sessionAggregateMaximumBitRate(NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs.builder()
- *                         .downlink(&#34;1 Gbps&#34;)
- *                         .uplink(&#34;500 Mbps&#34;)
+ *                         .downlink("1 Gbps")
+ *                         .uplink("500 Mbps")
  *                         .build())
  *                     .build())
  *                 .build())
  *             .userEquipmentAggregateMaximumBitRate(NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs.builder()
- *                 .downlink(&#34;1 Gbps&#34;)
- *                 .uplink(&#34;500 Mbps&#34;)
+ *                 .downlink("1 Gbps")
+ *                 .uplink("500 Mbps")
  *                 .build())
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .tags(Map.of("key", "value"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

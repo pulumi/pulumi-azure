@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,20 +45,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-rg&#34;)
- *             .location(&#34;East US&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-rg")
+ *             .location("East US")
  *             .build());
  * 
- *         var vault = new Vault(&#34;vault&#34;, VaultArgs.builder()        
- *             .name(&#34;example-recovery-vault&#34;)
+ *         var vault = new Vault("vault", VaultArgs.builder()        
+ *             .name("example-recovery-vault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;Standard&#34;)
+ *             .sku("Standard")
  *             .build());
  * 
- *         var policy = new HyperVReplicationPolicy(&#34;policy&#34;, HyperVReplicationPolicyArgs.builder()        
- *             .name(&#34;policy&#34;)
+ *         var policy = new HyperVReplicationPolicy("policy", HyperVReplicationPolicyArgs.builder()        
+ *             .name("policy")
  *             .recoveryVaultId(vault.id())
  *             .recoveryPointRetentionInHours(2)
  *             .applicationConsistentSnapshotFrequencyInHours(1)
@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

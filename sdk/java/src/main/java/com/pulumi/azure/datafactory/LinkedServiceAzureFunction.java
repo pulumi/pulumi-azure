@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,32 +50,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
  *         final var example = AppserviceFunctions.getFunctionApp(GetFunctionAppArgs.builder()
- *             .name(&#34;test-azure-functions&#34;)
+ *             .name("test-azure-functions")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleFactory = new Factory(&#34;exampleFactory&#34;, FactoryArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *             .name("example")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleLinkedServiceAzureFunction = new LinkedServiceAzureFunction(&#34;exampleLinkedServiceAzureFunction&#34;, LinkedServiceAzureFunctionArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleLinkedServiceAzureFunction = new LinkedServiceAzureFunction("exampleLinkedServiceAzureFunction", LinkedServiceAzureFunctionArgs.builder()        
+ *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
- *             .url(example.applyValue(getFunctionAppResult -&gt; getFunctionAppResult).applyValue(example -&gt; String.format(&#34;https://%s&#34;, example.applyValue(getFunctionAppResult -&gt; getFunctionAppResult.defaultHostname()))))
- *             .key(&#34;foo&#34;)
+ *             .url(example.applyValue(getFunctionAppResult -> getFunctionAppResult).applyValue(example -> String.format("https://%s", example.applyValue(getFunctionAppResult -> getFunctionAppResult.defaultHostname()))))
+ *             .key("foo")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

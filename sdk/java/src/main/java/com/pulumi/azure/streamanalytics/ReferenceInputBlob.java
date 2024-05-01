@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,49 +52,49 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
  *         final var example = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
- *             .name(&#34;example-job&#34;)
+ *             .name("example-job")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;examplestoracc&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("examplestoracc")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleContainer = new Container(&#34;exampleContainer&#34;, ContainerArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()        
+ *             .name("example")
  *             .storageAccountName(exampleAccount.name())
- *             .containerAccessType(&#34;private&#34;)
+ *             .containerAccessType("private")
  *             .build());
  * 
- *         var test = new ReferenceInputBlob(&#34;test&#34;, ReferenceInputBlobArgs.builder()        
- *             .name(&#34;blob-reference-input&#34;)
- *             .streamAnalyticsJobName(example.applyValue(getJobResult -&gt; getJobResult).applyValue(example -&gt; example.applyValue(getJobResult -&gt; getJobResult.name())))
- *             .resourceGroupName(example.applyValue(getJobResult -&gt; getJobResult).applyValue(example -&gt; example.applyValue(getJobResult -&gt; getJobResult.resourceGroupName())))
+ *         var test = new ReferenceInputBlob("test", ReferenceInputBlobArgs.builder()        
+ *             .name("blob-reference-input")
+ *             .streamAnalyticsJobName(example.applyValue(getJobResult -> getJobResult).applyValue(example -> example.applyValue(getJobResult -> getJobResult.name())))
+ *             .resourceGroupName(example.applyValue(getJobResult -> getJobResult).applyValue(example -> example.applyValue(getJobResult -> getJobResult.resourceGroupName())))
  *             .storageAccountName(exampleAccount.name())
  *             .storageAccountKey(exampleAccount.primaryAccessKey())
  *             .storageContainerName(exampleContainer.name())
- *             .pathPattern(&#34;some-random-pattern&#34;)
- *             .dateFormat(&#34;yyyy/MM/dd&#34;)
- *             .timeFormat(&#34;HH&#34;)
+ *             .pathPattern("some-random-pattern")
+ *             .dateFormat("yyyy/MM/dd")
+ *             .timeFormat("HH")
  *             .serialization(ReferenceInputBlobSerializationArgs.builder()
- *                 .type(&#34;Json&#34;)
- *                 .encoding(&#34;UTF8&#34;)
+ *                 .type("Json")
+ *                 .encoding("UTF8")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

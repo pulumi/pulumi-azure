@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,18 +42,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Directory(&#34;example&#34;, DirectoryArgs.builder()        
- *             .countryCode(&#34;US&#34;)
- *             .dataResidencyLocation(&#34;United States&#34;)
- *             .displayName(&#34;example-b2c-tenant&#34;)
- *             .domainName(&#34;exampleb2ctenant.onmicrosoft.com&#34;)
- *             .resourceGroupName(&#34;example-rg&#34;)
- *             .skuName(&#34;PremiumP1&#34;)
+ *         var example = new Directory("example", DirectoryArgs.builder()        
+ *             .countryCode("US")
+ *             .dataResidencyLocation("United States")
+ *             .displayName("example-b2c-tenant")
+ *             .domainName("exampleb2ctenant.onmicrosoft.com")
+ *             .resourceGroupName("example-rg")
+ *             .skuName("PremiumP1")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

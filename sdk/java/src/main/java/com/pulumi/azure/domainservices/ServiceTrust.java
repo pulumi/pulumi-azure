@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,23 +44,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = DomainservicesFunctions.getService(GetServiceArgs.builder()
- *             .name(&#34;example-ds&#34;)
- *             .resourceGroupName(&#34;example-rg&#34;)
+ *             .name("example-ds")
+ *             .resourceGroupName("example-rg")
  *             .build());
  * 
- *         var exampleServiceTrust = new ServiceTrust(&#34;exampleServiceTrust&#34;, ServiceTrustArgs.builder()        
- *             .name(&#34;example-trust&#34;)
- *             .domainServiceId(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
- *             .trustedDomainFqdn(&#34;example.com&#34;)
+ *         var exampleServiceTrust = new ServiceTrust("exampleServiceTrust", ServiceTrustArgs.builder()        
+ *             .name("example-trust")
+ *             .domainServiceId(example.applyValue(getServiceResult -> getServiceResult.id()))
+ *             .trustedDomainFqdn("example.com")
  *             .trustedDomainDnsIps(            
- *                 &#34;10.1.0.3&#34;,
- *                 &#34;10.1.0.4&#34;)
- *             .password(&#34;Password123&#34;)
+ *                 "10.1.0.3",
+ *                 "10.1.0.4")
+ *             .password("Password123")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,46 +50,46 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *             .addressSpaces("10.0.0.0/16")
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
+ *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
- *         var exampleManagedInstance = new ManagedInstance(&#34;exampleManagedInstance&#34;, ManagedInstanceArgs.builder()        
- *             .name(&#34;managedsqlinstance&#34;)
+ *         var exampleManagedInstance = new ManagedInstance("exampleManagedInstance", ManagedInstanceArgs.builder()        
+ *             .name("managedsqlinstance")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .licenseType(&#34;BasePrice&#34;)
- *             .skuName(&#34;GP_Gen5&#34;)
+ *             .licenseType("BasePrice")
+ *             .skuName("GP_Gen5")
  *             .storageSizeInGb(32)
  *             .subnetId(exampleSubnet.id())
  *             .vcores(4)
- *             .administratorLogin(&#34;msadministrator&#34;)
- *             .administratorLoginPassword(&#34;thisIsDog11&#34;)
+ *             .administratorLogin("msadministrator")
+ *             .administratorLoginPassword("thisIsDog11")
  *             .build());
  * 
- *         var exampleManagedDatabase = new ManagedDatabase(&#34;exampleManagedDatabase&#34;, ManagedDatabaseArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleManagedDatabase = new ManagedDatabase("exampleManagedDatabase", ManagedDatabaseArgs.builder()        
+ *             .name("example")
  *             .managedInstanceId(exampleManagedInstance.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

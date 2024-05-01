@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,42 +53,42 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-logz&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-logz")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleLogzMonitor = new LogzMonitor(&#34;exampleLogzMonitor&#34;, LogzMonitorArgs.builder()        
- *             .name(&#34;example-monitor&#34;)
+ *         var exampleLogzMonitor = new LogzMonitor("exampleLogzMonitor", LogzMonitorArgs.builder()        
+ *             .name("example-monitor")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .plan(LogzMonitorPlanArgs.builder()
- *                 .billingCycle(&#34;MONTHLY&#34;)
- *                 .effectiveDate(&#34;2022-06-06T00:00:00Z&#34;)
- *                 .usageType(&#34;COMMITTED&#34;)
+ *                 .billingCycle("MONTHLY")
+ *                 .effectiveDate("2022-06-06T00:00:00Z")
+ *                 .usageType("COMMITTED")
  *                 .build())
  *             .user(LogzMonitorUserArgs.builder()
- *                 .email(&#34;user@example.com&#34;)
- *                 .firstName(&#34;Example&#34;)
- *                 .lastName(&#34;User&#34;)
- *                 .phoneNumber(&#34;+12313803556&#34;)
+ *                 .email("user@example.com")
+ *                 .firstName("Example")
+ *                 .lastName("User")
+ *                 .phoneNumber("+12313803556")
  *                 .build())
  *             .build());
  * 
- *         var exampleLogzSubAccount = new LogzSubAccount(&#34;exampleLogzSubAccount&#34;, LogzSubAccountArgs.builder()        
- *             .name(&#34;example-subaccount&#34;)
+ *         var exampleLogzSubAccount = new LogzSubAccount("exampleLogzSubAccount", LogzSubAccountArgs.builder()        
+ *             .name("example-subaccount")
  *             .logzMonitorId(exampleLogzMonitor.id())
  *             .user(LogzSubAccountUserArgs.builder()
- *                 .email(exampleLogzMonitor.user().applyValue(user -&gt; user.email()))
- *                 .firstName(exampleLogzMonitor.user().applyValue(user -&gt; user.firstName()))
- *                 .lastName(exampleLogzMonitor.user().applyValue(user -&gt; user.lastName()))
- *                 .phoneNumber(exampleLogzMonitor.user().applyValue(user -&gt; user.phoneNumber()))
+ *                 .email(exampleLogzMonitor.user().applyValue(user -> user.email()))
+ *                 .firstName(exampleLogzMonitor.user().applyValue(user -> user.firstName()))
+ *                 .lastName(exampleLogzMonitor.user().applyValue(user -> user.lastName()))
+ *                 .phoneNumber(exampleLogzMonitor.user().applyValue(user -> user.phoneNumber()))
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

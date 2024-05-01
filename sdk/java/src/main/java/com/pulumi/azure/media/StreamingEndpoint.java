@@ -27,7 +27,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,21 +55,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;media-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("media-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;examplestoracc&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("examplestoracc")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;GRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("GRS")
  *             .build());
  * 
- *         var exampleServiceAccount = new ServiceAccount(&#34;exampleServiceAccount&#34;, ServiceAccountArgs.builder()        
- *             .name(&#34;examplemediaacc&#34;)
+ *         var exampleServiceAccount = new ServiceAccount("exampleServiceAccount", ServiceAccountArgs.builder()        
+ *             .name("examplemediaacc")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .storageAccounts(ServiceAccountStorageAccountArgs.builder()
@@ -78,8 +78,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleStreamingEndpoint = new StreamingEndpoint(&#34;exampleStreamingEndpoint&#34;, StreamingEndpointArgs.builder()        
- *             .name(&#34;endpoint1&#34;)
+ *         var exampleStreamingEndpoint = new StreamingEndpoint("exampleStreamingEndpoint", StreamingEndpointArgs.builder()        
+ *             .name("endpoint1")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .mediaServicesAccountName(exampleServiceAccount.name())
@@ -88,13 +88,13 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Access Control
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -123,21 +123,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;media-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("media-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;examplestoracc&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("examplestoracc")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;GRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("GRS")
  *             .build());
  * 
- *         var exampleServiceAccount = new ServiceAccount(&#34;exampleServiceAccount&#34;, ServiceAccountArgs.builder()        
- *             .name(&#34;examplemediaacc&#34;)
+ *         var exampleServiceAccount = new ServiceAccount("exampleServiceAccount", ServiceAccountArgs.builder()        
+ *             .name("examplemediaacc")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .storageAccounts(ServiceAccountStorageAccountArgs.builder()
@@ -146,8 +146,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleStreamingEndpoint = new StreamingEndpoint(&#34;exampleStreamingEndpoint&#34;, StreamingEndpointArgs.builder()        
- *             .name(&#34;endpoint1&#34;)
+ *         var exampleStreamingEndpoint = new StreamingEndpoint("exampleStreamingEndpoint", StreamingEndpointArgs.builder()        
+ *             .name("endpoint1")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .mediaServicesAccountName(exampleServiceAccount.name())
@@ -155,30 +155,30 @@ import javax.annotation.Nullable;
  *             .accessControl(StreamingEndpointAccessControlArgs.builder()
  *                 .ipAllows(                
  *                     StreamingEndpointAccessControlIpAllowArgs.builder()
- *                         .name(&#34;AllowedIP&#34;)
- *                         .address(&#34;192.168.1.1&#34;)
+ *                         .name("AllowedIP")
+ *                         .address("192.168.1.1")
  *                         .build(),
  *                     StreamingEndpointAccessControlIpAllowArgs.builder()
- *                         .name(&#34;AnotherIp&#34;)
- *                         .address(&#34;192.168.1.2&#34;)
+ *                         .name("AnotherIp")
+ *                         .address("192.168.1.2")
  *                         .build())
  *                 .akamaiSignatureHeaderAuthenticationKeys(                
  *                     StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs.builder()
- *                         .identifier(&#34;id1&#34;)
- *                         .expiration(&#34;2030-12-31T16:00:00Z&#34;)
- *                         .base64Key(&#34;dGVzdGlkMQ==&#34;)
+ *                         .identifier("id1")
+ *                         .expiration("2030-12-31T16:00:00Z")
+ *                         .base64Key("dGVzdGlkMQ==")
  *                         .build(),
  *                     StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs.builder()
- *                         .identifier(&#34;id2&#34;)
- *                         .expiration(&#34;2032-01-28T16:00:00Z&#34;)
- *                         .base64Key(&#34;dGVzdGlkMQ==&#34;)
+ *                         .identifier("id2")
+ *                         .expiration("2032-01-28T16:00:00Z")
+ *                         .base64Key("dGVzdGlkMQ==")
  *                         .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

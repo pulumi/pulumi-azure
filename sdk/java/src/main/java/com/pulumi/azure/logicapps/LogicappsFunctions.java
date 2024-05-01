@@ -26,7 +26,7 @@ public final class LogicappsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -48,14 +48,14 @@ public final class LogicappsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LogicappsFunctions.getIntegrationAccount(GetIntegrationAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
+     *             .name("example-account")
+     *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getIntegrationAccountResult -&gt; getIntegrationAccountResult.id()));
+     *         ctx.export("id", example.applyValue(getIntegrationAccountResult -> getIntegrationAccountResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -68,7 +68,7 @@ public final class LogicappsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -90,14 +90,14 @@ public final class LogicappsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LogicappsFunctions.getIntegrationAccount(GetIntegrationAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
+     *             .name("example-account")
+     *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getIntegrationAccountResult -&gt; getIntegrationAccountResult.id()));
+     *         ctx.export("id", example.applyValue(getIntegrationAccountResult -> getIntegrationAccountResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -110,7 +110,7 @@ public final class LogicappsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -132,14 +132,14 @@ public final class LogicappsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LogicappsFunctions.getIntegrationAccount(GetIntegrationAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
+     *             .name("example-account")
+     *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getIntegrationAccountResult -&gt; getIntegrationAccountResult.id()));
+     *         ctx.export("id", example.applyValue(getIntegrationAccountResult -> getIntegrationAccountResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -152,7 +152,7 @@ public final class LogicappsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -174,14 +174,14 @@ public final class LogicappsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LogicappsFunctions.getIntegrationAccount(GetIntegrationAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
+     *             .name("example-account")
+     *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getIntegrationAccountResult -&gt; getIntegrationAccountResult.id()));
+     *         ctx.export("id", example.applyValue(getIntegrationAccountResult -> getIntegrationAccountResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -194,7 +194,7 @@ public final class LogicappsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -216,14 +216,14 @@ public final class LogicappsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LogicappsFunctions.getStandard(GetStandardArgs.builder()
-     *             .name(&#34;logicappstd&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("logicappstd")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getStandardResult -&gt; getStandardResult.id()));
+     *         ctx.export("id", example.applyValue(getStandardResult -> getStandardResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -236,7 +236,7 @@ public final class LogicappsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -258,14 +258,14 @@ public final class LogicappsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LogicappsFunctions.getStandard(GetStandardArgs.builder()
-     *             .name(&#34;logicappstd&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("logicappstd")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getStandardResult -&gt; getStandardResult.id()));
+     *         ctx.export("id", example.applyValue(getStandardResult -> getStandardResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -278,7 +278,7 @@ public final class LogicappsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -300,14 +300,14 @@ public final class LogicappsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LogicappsFunctions.getStandard(GetStandardArgs.builder()
-     *             .name(&#34;logicappstd&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("logicappstd")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getStandardResult -&gt; getStandardResult.id()));
+     *         ctx.export("id", example.applyValue(getStandardResult -> getStandardResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -320,7 +320,7 @@ public final class LogicappsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -342,14 +342,14 @@ public final class LogicappsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LogicappsFunctions.getStandard(GetStandardArgs.builder()
-     *             .name(&#34;logicappstd&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("logicappstd")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getStandardResult -&gt; getStandardResult.id()));
+     *         ctx.export("id", example.applyValue(getStandardResult -> getStandardResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -362,7 +362,7 @@ public final class LogicappsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -384,14 +384,14 @@ public final class LogicappsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LogicappsFunctions.getWorkflow(GetWorkflowArgs.builder()
-     *             .name(&#34;workflow1&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
+     *             .name("workflow1")
+     *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;accessEndpoint&#34;, example.applyValue(getWorkflowResult -&gt; getWorkflowResult.accessEndpoint()));
+     *         ctx.export("accessEndpoint", example.applyValue(getWorkflowResult -> getWorkflowResult.accessEndpoint()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -404,7 +404,7 @@ public final class LogicappsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -426,14 +426,14 @@ public final class LogicappsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LogicappsFunctions.getWorkflow(GetWorkflowArgs.builder()
-     *             .name(&#34;workflow1&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
+     *             .name("workflow1")
+     *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;accessEndpoint&#34;, example.applyValue(getWorkflowResult -&gt; getWorkflowResult.accessEndpoint()));
+     *         ctx.export("accessEndpoint", example.applyValue(getWorkflowResult -> getWorkflowResult.accessEndpoint()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -446,7 +446,7 @@ public final class LogicappsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -468,14 +468,14 @@ public final class LogicappsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LogicappsFunctions.getWorkflow(GetWorkflowArgs.builder()
-     *             .name(&#34;workflow1&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
+     *             .name("workflow1")
+     *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;accessEndpoint&#34;, example.applyValue(getWorkflowResult -&gt; getWorkflowResult.accessEndpoint()));
+     *         ctx.export("accessEndpoint", example.applyValue(getWorkflowResult -> getWorkflowResult.accessEndpoint()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -488,7 +488,7 @@ public final class LogicappsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -510,14 +510,14 @@ public final class LogicappsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LogicappsFunctions.getWorkflow(GetWorkflowArgs.builder()
-     *             .name(&#34;workflow1&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
+     *             .name("workflow1")
+     *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;accessEndpoint&#34;, example.applyValue(getWorkflowResult -&gt; getWorkflowResult.accessEndpoint()));
+     *         ctx.export("accessEndpoint", example.applyValue(getWorkflowResult -> getWorkflowResult.accessEndpoint()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

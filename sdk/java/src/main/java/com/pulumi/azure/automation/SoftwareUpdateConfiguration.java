@@ -27,7 +27,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,54 +56,54 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-rg&#34;)
- *             .location(&#34;East US&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-rg")
+ *             .location("East US")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;Basic&#34;)
+ *             .skuName("Basic")
  *             .build());
  * 
- *         var exampleRunBook = new RunBook(&#34;exampleRunBook&#34;, RunBookArgs.builder()        
- *             .name(&#34;Get-AzureVMTutorial&#34;)
+ *         var exampleRunBook = new RunBook("exampleRunBook", RunBookArgs.builder()        
+ *             .name("Get-AzureVMTutorial")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .automationAccountName(exampleAccount.name())
- *             .logVerbose(&#34;true&#34;)
- *             .logProgress(&#34;true&#34;)
- *             .description(&#34;This is a example runbook for terraform acceptance example&#34;)
- *             .runbookType(&#34;Python3&#34;)
- *             .content(&#34;&#34;&#34;
+ *             .logVerbose("true")
+ *             .logProgress("true")
+ *             .description("This is a example runbook for terraform acceptance example")
+ *             .runbookType("Python3")
+ *             .content("""
  * # Some example content
  * # for Terraform acceptance example
- *             &#34;&#34;&#34;)
- *             .tags(Map.of(&#34;ENV&#34;, &#34;runbook_test&#34;))
+ *             """)
+ *             .tags(Map.of("ENV", "runbook_test"))
  *             .build());
  * 
- *         var exampleSoftwareUpdateConfiguration = new SoftwareUpdateConfiguration(&#34;exampleSoftwareUpdateConfiguration&#34;, SoftwareUpdateConfigurationArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleSoftwareUpdateConfiguration = new SoftwareUpdateConfiguration("exampleSoftwareUpdateConfiguration", SoftwareUpdateConfigurationArgs.builder()        
+ *             .name("example")
  *             .automationAccountId(exampleAccount.id())
- *             .operatingSystem(&#34;Linux&#34;)
+ *             .operatingSystem("Linux")
  *             .linuxes(SoftwareUpdateConfigurationLinuxArgs.builder()
- *                 .classificationIncluded(&#34;Security&#34;)
- *                 .excludedPackages(&#34;apt&#34;)
- *                 .includedPackages(&#34;vim&#34;)
- *                 .reboot(&#34;IfRequired&#34;)
+ *                 .classificationIncluded("Security")
+ *                 .excludedPackages("apt")
+ *                 .includedPackages("vim")
+ *                 .reboot("IfRequired")
  *                 .build())
  *             .preTasks(SoftwareUpdateConfigurationPreTaskArgs.builder()
  *                 .source(exampleRunBook.name())
- *                 .parameters(Map.of(&#34;COMPUTER_NAME&#34;, &#34;Foo&#34;))
+ *                 .parameters(Map.of("COMPUTER_NAME", "Foo"))
  *                 .build())
- *             .duration(&#34;PT2H2M2S&#34;)
+ *             .duration("PT2H2M2S")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,47 +52,47 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-rg&#34;)
- *             .location(&#34;west europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-rg")
+ *             .location("west europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;examplestorageaccount&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("examplestorageaccount")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountKind(&#34;StorageV2&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountKind("StorageV2")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleAadDiagnosticSetting = new AadDiagnosticSetting(&#34;exampleAadDiagnosticSetting&#34;, AadDiagnosticSettingArgs.builder()        
- *             .name(&#34;setting1&#34;)
+ *         var exampleAadDiagnosticSetting = new AadDiagnosticSetting("exampleAadDiagnosticSetting", AadDiagnosticSettingArgs.builder()        
+ *             .name("setting1")
  *             .storageAccountId(exampleAccount.id())
  *             .enabledLogs(            
  *                 AadDiagnosticSettingEnabledLogArgs.builder()
- *                     .category(&#34;SignInLogs&#34;)
+ *                     .category("SignInLogs")
  *                     .retentionPolicy(AadDiagnosticSettingEnabledLogRetentionPolicyArgs.builder()
  *                         .enabled(true)
  *                         .days(1)
  *                         .build())
  *                     .build(),
  *                 AadDiagnosticSettingEnabledLogArgs.builder()
- *                     .category(&#34;AuditLogs&#34;)
+ *                     .category("AuditLogs")
  *                     .retentionPolicy(AadDiagnosticSettingEnabledLogRetentionPolicyArgs.builder()
  *                         .enabled(true)
  *                         .days(1)
  *                         .build())
  *                     .build(),
  *                 AadDiagnosticSettingEnabledLogArgs.builder()
- *                     .category(&#34;NonInteractiveUserSignInLogs&#34;)
+ *                     .category("NonInteractiveUserSignInLogs")
  *                     .retentionPolicy(AadDiagnosticSettingEnabledLogRetentionPolicyArgs.builder()
  *                         .enabled(true)
  *                         .days(1)
  *                         .build())
  *                     .build(),
  *                 AadDiagnosticSettingEnabledLogArgs.builder()
- *                     .category(&#34;ServicePrincipalSignInLogs&#34;)
+ *                     .category("ServicePrincipalSignInLogs")
  *                     .retentionPolicy(AadDiagnosticSettingEnabledLogRetentionPolicyArgs.builder()
  *                         .enabled(true)
  *                         .days(1)
@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

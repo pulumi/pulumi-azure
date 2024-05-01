@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * ### Single IP Address)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,37 +46,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;api-rg-pro&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("api-rg-pro")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
- *             .name(&#34;example-postgre-server&#34;)
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+ *             .name("example-postgre-server")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;GP_Gen5_2&#34;)
- *             .version(&#34;11&#34;)
+ *             .skuName("GP_Gen5_2")
+ *             .version("11")
  *             .sslEnforcementEnabled(true)
  *             .build());
  * 
- *         var exampleFirewallRule = new FirewallRule(&#34;exampleFirewallRule&#34;, FirewallRuleArgs.builder()        
- *             .name(&#34;office&#34;)
+ *         var exampleFirewallRule = new FirewallRule("exampleFirewallRule", FirewallRuleArgs.builder()        
+ *             .name("office")
  *             .resourceGroupName(example.name())
  *             .serverName(exampleServer.name())
- *             .startIpAddress(&#34;40.112.8.12&#34;)
- *             .endIpAddress(&#34;40.112.8.12&#34;)
+ *             .startIpAddress("40.112.8.12")
+ *             .endIpAddress("40.112.8.12")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### IP Range)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -100,24 +100,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;api-rg-pro&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("api-rg-pro")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleServer = new Server(&#34;exampleServer&#34;);
+ *         var exampleServer = new Server("exampleServer");
  * 
- *         var exampleFirewallRule = new FirewallRule(&#34;exampleFirewallRule&#34;, FirewallRuleArgs.builder()        
- *             .name(&#34;office&#34;)
+ *         var exampleFirewallRule = new FirewallRule("exampleFirewallRule", FirewallRuleArgs.builder()        
+ *             .name("office")
  *             .resourceGroupName(example.name())
  *             .serverName(exampleServer.name())
- *             .startIpAddress(&#34;40.112.0.0&#34;)
- *             .endIpAddress(&#34;40.112.255.255&#34;)
+ *             .startIpAddress("40.112.0.0")
+ *             .endIpAddress("40.112.255.255")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

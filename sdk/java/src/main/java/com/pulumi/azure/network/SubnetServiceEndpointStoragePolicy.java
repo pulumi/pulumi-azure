@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,40 +48,40 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleSubnetServiceEndpointStoragePolicy = new SubnetServiceEndpointStoragePolicy(&#34;exampleSubnetServiceEndpointStoragePolicy&#34;, SubnetServiceEndpointStoragePolicyArgs.builder()        
- *             .name(&#34;example-policy&#34;)
+ *         var exampleSubnetServiceEndpointStoragePolicy = new SubnetServiceEndpointStoragePolicy("exampleSubnetServiceEndpointStoragePolicy", SubnetServiceEndpointStoragePolicyArgs.builder()        
+ *             .name("example-policy")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .definition(SubnetServiceEndpointStoragePolicyDefinitionArgs.builder()
- *                 .name(&#34;name2&#34;)
- *                 .description(&#34;definition2&#34;)
- *                 .service(&#34;Global&#34;)
+ *                 .name("name2")
+ *                 .description("definition2")
+ *                 .service("Global")
  *                 .serviceResources(                
- *                     &#34;/services/Azure&#34;,
- *                     &#34;/services/Azure/Batch&#34;,
- *                     &#34;/services/Azure/DataFactory&#34;,
- *                     &#34;/services/Azure/MachineLearning&#34;,
- *                     &#34;/services/Azure/ManagedInstance&#34;,
- *                     &#34;/services/Azure/WebPI&#34;)
+ *                     "/services/Azure",
+ *                     "/services/Azure/Batch",
+ *                     "/services/Azure/DataFactory",
+ *                     "/services/Azure/MachineLearning",
+ *                     "/services/Azure/ManagedInstance",
+ *                     "/services/Azure/WebPI")
  *                 .build())
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;examplestorageacct&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("examplestorageacct")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;GRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("GRS")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

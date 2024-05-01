@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -64,84 +64,84 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var example = new Insights(&#34;example&#34;, InsightsArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Insights("example", InsightsArgs.builder()        
+ *             .name("example")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .applicationType(&#34;example-value&#34;)
+ *             .applicationType("example-value")
  *             .build());
  * 
  *         final var test = CoreFunctions.getClientConfig();
  * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("example")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .tenantId(exampleAzurermClientConfig.tenantId())
- *             .skuName(&#34;example-value&#34;)
- *             .softDeleteRetentionDays(&#34;example-value&#34;)
+ *             .skuName("example-value")
+ *             .softDeleteRetentionDays("example-value")
  *             .build());
  * 
- *         var exampleAccessPolicy = new AccessPolicy(&#34;exampleAccessPolicy&#34;, AccessPolicyArgs.builder()        
+ *         var exampleAccessPolicy = new AccessPolicy("exampleAccessPolicy", AccessPolicyArgs.builder()        
  *             .keyVaultId(exampleKeyVault.id())
  *             .tenantId(exampleAzurermClientConfig.tenantId())
  *             .objectId(exampleAzurermClientConfig.objectId())
- *             .keyPermissions(&#34;example-value&#34;)
+ *             .keyPermissions("example-value")
  *             .build());
  * 
- *         var exampleKubernetesCluster = new KubernetesCluster(&#34;exampleKubernetesCluster&#34;, KubernetesClusterArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleKubernetesCluster = new KubernetesCluster("exampleKubernetesCluster", KubernetesClusterArgs.builder()        
+ *             .name("example")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .dnsPrefix(&#34;acctestaksexample&#34;)
+ *             .dnsPrefix("acctestaksexample")
  *             .defaultNodePool(KubernetesClusterDefaultNodePoolArgs.builder()
- *                 .name(&#34;example-value&#34;)
- *                 .nodeCount(&#34;example-value&#34;)
- *                 .vmSize(&#34;example-value&#34;)
+ *                 .name("example-value")
+ *                 .nodeCount("example-value")
+ *                 .vmSize("example-value")
  *                 .upgradeSettings(KubernetesClusterDefaultNodePoolUpgradeSettingsArgs.builder()
- *                     .maxSurge(&#34;example-value&#34;)
+ *                     .maxSurge("example-value")
  *                     .build())
  *                 .build())
  *             .identity(KubernetesClusterIdentityArgs.builder()
- *                 .type(&#34;example-value&#34;)
+ *                 .type("example-value")
  *                 .build())
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("example")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .accountTier(&#34;example-value&#34;)
- *             .accountReplicationType(&#34;example-value&#34;)
+ *             .accountTier("example-value")
+ *             .accountReplicationType("example-value")
  *             .build());
  * 
- *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()        
+ *             .name("example")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .keyVaultId(exampleKeyVault.id())
  *             .storageAccountId(exampleAccount.id())
  *             .applicationInsightsId(example.id())
  *             .identity(WorkspaceIdentityArgs.builder()
- *                 .type(&#34;example-value&#34;)
+ *                 .type("example-value")
  *                 .build())
  *             .build());
  * 
- *         var exampleClusterTrustedAccessRoleBinding = new ClusterTrustedAccessRoleBinding(&#34;exampleClusterTrustedAccessRoleBinding&#34;, ClusterTrustedAccessRoleBindingArgs.builder()        
+ *         var exampleClusterTrustedAccessRoleBinding = new ClusterTrustedAccessRoleBinding("exampleClusterTrustedAccessRoleBinding", ClusterTrustedAccessRoleBindingArgs.builder()        
  *             .kubernetesClusterId(exampleKubernetesCluster.id())
- *             .name(&#34;example&#34;)
- *             .roles(&#34;example-value&#34;)
+ *             .name("example")
+ *             .roles("example-value")
  *             .sourceResourceId(exampleWorkspace.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

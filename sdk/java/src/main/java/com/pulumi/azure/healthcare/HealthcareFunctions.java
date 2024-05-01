@@ -32,7 +32,7 @@ public final class HealthcareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -54,14 +54,14 @@ public final class HealthcareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = HealthcareFunctions.getDicomService(GetDicomServiceArgs.builder()
-     *             .name(&#34;example-healthcare_dicom_service&#34;)
+     *             .name("example-healthcare_dicom_service")
      *             .workspaceId(exampleAzurermHealthcareWorkspace.id())
      *             .build());
      * 
-     *         ctx.export(&#34;azurermHealthcareDicomService&#34;, example.applyValue(getDicomServiceResult -&gt; getDicomServiceResult.id()));
+     *         ctx.export("azurermHealthcareDicomService", example.applyValue(getDicomServiceResult -> getDicomServiceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -74,7 +74,7 @@ public final class HealthcareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -96,14 +96,14 @@ public final class HealthcareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = HealthcareFunctions.getDicomService(GetDicomServiceArgs.builder()
-     *             .name(&#34;example-healthcare_dicom_service&#34;)
+     *             .name("example-healthcare_dicom_service")
      *             .workspaceId(exampleAzurermHealthcareWorkspace.id())
      *             .build());
      * 
-     *         ctx.export(&#34;azurermHealthcareDicomService&#34;, example.applyValue(getDicomServiceResult -&gt; getDicomServiceResult.id()));
+     *         ctx.export("azurermHealthcareDicomService", example.applyValue(getDicomServiceResult -> getDicomServiceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -116,7 +116,7 @@ public final class HealthcareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -138,14 +138,14 @@ public final class HealthcareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = HealthcareFunctions.getDicomService(GetDicomServiceArgs.builder()
-     *             .name(&#34;example-healthcare_dicom_service&#34;)
+     *             .name("example-healthcare_dicom_service")
      *             .workspaceId(exampleAzurermHealthcareWorkspace.id())
      *             .build());
      * 
-     *         ctx.export(&#34;azurermHealthcareDicomService&#34;, example.applyValue(getDicomServiceResult -&gt; getDicomServiceResult.id()));
+     *         ctx.export("azurermHealthcareDicomService", example.applyValue(getDicomServiceResult -> getDicomServiceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -158,7 +158,7 @@ public final class HealthcareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -180,14 +180,14 @@ public final class HealthcareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = HealthcareFunctions.getDicomService(GetDicomServiceArgs.builder()
-     *             .name(&#34;example-healthcare_dicom_service&#34;)
+     *             .name("example-healthcare_dicom_service")
      *             .workspaceId(exampleAzurermHealthcareWorkspace.id())
      *             .build());
      * 
-     *         ctx.export(&#34;azurermHealthcareDicomService&#34;, example.applyValue(getDicomServiceResult -&gt; getDicomServiceResult.id()));
+     *         ctx.export("azurermHealthcareDicomService", example.applyValue(getDicomServiceResult -> getDicomServiceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -228,7 +228,7 @@ public final class HealthcareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -250,14 +250,14 @@ public final class HealthcareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = HealthcareFunctions.getMedtechService(GetMedtechServiceArgs.builder()
-     *             .name(&#34;tfexmedtech&#34;)
-     *             .workspaceId(&#34;tfexwks&#34;)
+     *             .name("tfexmedtech")
+     *             .workspaceId("tfexwks")
      *             .build());
      * 
-     *         ctx.export(&#34;azurermHealthcareMedtechServiceId&#34;, example.applyValue(getMedtechServiceResult -&gt; getMedtechServiceResult.id()));
+     *         ctx.export("azurermHealthcareMedtechServiceId", example.applyValue(getMedtechServiceResult -> getMedtechServiceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -270,7 +270,7 @@ public final class HealthcareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -292,14 +292,14 @@ public final class HealthcareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = HealthcareFunctions.getMedtechService(GetMedtechServiceArgs.builder()
-     *             .name(&#34;tfexmedtech&#34;)
-     *             .workspaceId(&#34;tfexwks&#34;)
+     *             .name("tfexmedtech")
+     *             .workspaceId("tfexwks")
      *             .build());
      * 
-     *         ctx.export(&#34;azurermHealthcareMedtechServiceId&#34;, example.applyValue(getMedtechServiceResult -&gt; getMedtechServiceResult.id()));
+     *         ctx.export("azurermHealthcareMedtechServiceId", example.applyValue(getMedtechServiceResult -> getMedtechServiceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -312,7 +312,7 @@ public final class HealthcareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -334,14 +334,14 @@ public final class HealthcareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = HealthcareFunctions.getMedtechService(GetMedtechServiceArgs.builder()
-     *             .name(&#34;tfexmedtech&#34;)
-     *             .workspaceId(&#34;tfexwks&#34;)
+     *             .name("tfexmedtech")
+     *             .workspaceId("tfexwks")
      *             .build());
      * 
-     *         ctx.export(&#34;azurermHealthcareMedtechServiceId&#34;, example.applyValue(getMedtechServiceResult -&gt; getMedtechServiceResult.id()));
+     *         ctx.export("azurermHealthcareMedtechServiceId", example.applyValue(getMedtechServiceResult -> getMedtechServiceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -354,7 +354,7 @@ public final class HealthcareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -376,14 +376,14 @@ public final class HealthcareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = HealthcareFunctions.getMedtechService(GetMedtechServiceArgs.builder()
-     *             .name(&#34;tfexmedtech&#34;)
-     *             .workspaceId(&#34;tfexwks&#34;)
+     *             .name("tfexmedtech")
+     *             .workspaceId("tfexwks")
      *             .build());
      * 
-     *         ctx.export(&#34;azurermHealthcareMedtechServiceId&#34;, example.applyValue(getMedtechServiceResult -&gt; getMedtechServiceResult.id()));
+     *         ctx.export("azurermHealthcareMedtechServiceId", example.applyValue(getMedtechServiceResult -> getMedtechServiceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -396,7 +396,7 @@ public final class HealthcareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -418,15 +418,15 @@ public final class HealthcareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = HealthcareFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example-healthcare_service&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .location(&#34;westus2&#34;)
+     *             .name("example-healthcare_service")
+     *             .resourceGroupName("example-resources")
+     *             .location("westus2")
      *             .build());
      * 
-     *         ctx.export(&#34;healthcareServiceId&#34;, example.applyValue(getServiceResult -&gt; getServiceResult.id()));
+     *         ctx.export("healthcareServiceId", example.applyValue(getServiceResult -> getServiceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -439,7 +439,7 @@ public final class HealthcareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -461,15 +461,15 @@ public final class HealthcareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = HealthcareFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example-healthcare_service&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .location(&#34;westus2&#34;)
+     *             .name("example-healthcare_service")
+     *             .resourceGroupName("example-resources")
+     *             .location("westus2")
      *             .build());
      * 
-     *         ctx.export(&#34;healthcareServiceId&#34;, example.applyValue(getServiceResult -&gt; getServiceResult.id()));
+     *         ctx.export("healthcareServiceId", example.applyValue(getServiceResult -> getServiceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -482,7 +482,7 @@ public final class HealthcareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -504,15 +504,15 @@ public final class HealthcareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = HealthcareFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example-healthcare_service&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .location(&#34;westus2&#34;)
+     *             .name("example-healthcare_service")
+     *             .resourceGroupName("example-resources")
+     *             .location("westus2")
      *             .build());
      * 
-     *         ctx.export(&#34;healthcareServiceId&#34;, example.applyValue(getServiceResult -&gt; getServiceResult.id()));
+     *         ctx.export("healthcareServiceId", example.applyValue(getServiceResult -> getServiceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -525,7 +525,7 @@ public final class HealthcareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -547,15 +547,15 @@ public final class HealthcareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = HealthcareFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example-healthcare_service&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .location(&#34;westus2&#34;)
+     *             .name("example-healthcare_service")
+     *             .resourceGroupName("example-resources")
+     *             .location("westus2")
      *             .build());
      * 
-     *         ctx.export(&#34;healthcareServiceId&#34;, example.applyValue(getServiceResult -&gt; getServiceResult.id()));
+     *         ctx.export("healthcareServiceId", example.applyValue(getServiceResult -> getServiceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -568,7 +568,7 @@ public final class HealthcareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -590,14 +590,14 @@ public final class HealthcareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = HealthcareFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name(&#34;example-healthcare_service&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-healthcare_service")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;healthcareWorkspaceId&#34;, example.applyValue(getWorkspaceResult -&gt; getWorkspaceResult.id()));
+     *         ctx.export("healthcareWorkspaceId", example.applyValue(getWorkspaceResult -> getWorkspaceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -610,7 +610,7 @@ public final class HealthcareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -632,14 +632,14 @@ public final class HealthcareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = HealthcareFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name(&#34;example-healthcare_service&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-healthcare_service")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;healthcareWorkspaceId&#34;, example.applyValue(getWorkspaceResult -&gt; getWorkspaceResult.id()));
+     *         ctx.export("healthcareWorkspaceId", example.applyValue(getWorkspaceResult -> getWorkspaceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -652,7 +652,7 @@ public final class HealthcareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -674,14 +674,14 @@ public final class HealthcareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = HealthcareFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name(&#34;example-healthcare_service&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-healthcare_service")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;healthcareWorkspaceId&#34;, example.applyValue(getWorkspaceResult -&gt; getWorkspaceResult.id()));
+     *         ctx.export("healthcareWorkspaceId", example.applyValue(getWorkspaceResult -> getWorkspaceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -694,7 +694,7 @@ public final class HealthcareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -716,14 +716,14 @@ public final class HealthcareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = HealthcareFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name(&#34;example-healthcare_service&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-healthcare_service")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;healthcareWorkspaceId&#34;, example.applyValue(getWorkspaceResult -&gt; getWorkspaceResult.id()));
+     *         ctx.export("healthcareWorkspaceId", example.applyValue(getWorkspaceResult -> getWorkspaceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

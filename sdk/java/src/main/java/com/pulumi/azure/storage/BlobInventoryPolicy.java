@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,45 +50,45 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;examplestoracc&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("examplestoracc")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .blobProperties(AccountBlobPropertiesArgs.builder()
  *                 .versioningEnabled(true)
  *                 .build())
  *             .build());
  * 
- *         var exampleContainer = new Container(&#34;exampleContainer&#34;, ContainerArgs.builder()        
- *             .name(&#34;examplecontainer&#34;)
+ *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()        
+ *             .name("examplecontainer")
  *             .storageAccountName(exampleAccount.name())
- *             .containerAccessType(&#34;private&#34;)
+ *             .containerAccessType("private")
  *             .build());
  * 
- *         var exampleBlobInventoryPolicy = new BlobInventoryPolicy(&#34;exampleBlobInventoryPolicy&#34;, BlobInventoryPolicyArgs.builder()        
+ *         var exampleBlobInventoryPolicy = new BlobInventoryPolicy("exampleBlobInventoryPolicy", BlobInventoryPolicyArgs.builder()        
  *             .storageAccountId(exampleAccount.id())
  *             .rules(BlobInventoryPolicyRuleArgs.builder()
- *                 .name(&#34;rule1&#34;)
+ *                 .name("rule1")
  *                 .storageContainerName(exampleContainer.name())
- *                 .format(&#34;Csv&#34;)
- *                 .schedule(&#34;Daily&#34;)
- *                 .scope(&#34;Container&#34;)
+ *                 .format("Csv")
+ *                 .schedule("Daily")
+ *                 .scope("Container")
  *                 .schemaFields(                
- *                     &#34;Name&#34;,
- *                     &#34;Last-Modified&#34;)
+ *                     "Name",
+ *                     "Last-Modified")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

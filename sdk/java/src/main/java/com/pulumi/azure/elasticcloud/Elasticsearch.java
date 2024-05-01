@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,22 +46,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new ResourceGroup(&#34;test&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var test = new ResourceGroup("test", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var testElasticsearch = new Elasticsearch(&#34;testElasticsearch&#34;, ElasticsearchArgs.builder()        
- *             .name(&#34;example-elasticsearch&#34;)
+ *         var testElasticsearch = new Elasticsearch("testElasticsearch", ElasticsearchArgs.builder()        
+ *             .name("example-elasticsearch")
  *             .resourceGroupName(test.name())
  *             .location(test.location())
- *             .skuName(&#34;ess-consumption-2024_Monthly&#34;)
- *             .elasticCloudEmailAddress(&#34;user@example.com&#34;)
+ *             .skuName("ess-consumption-2024_Monthly")
+ *             .elasticCloudEmailAddress("user@example.com")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

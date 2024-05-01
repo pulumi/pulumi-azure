@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,28 +50,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleSpringCloudService = new SpringCloudService(&#34;exampleSpringCloudService&#34;, SpringCloudServiceArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;E0&#34;)
+ *             .skuName("E0")
  *             .build());
  * 
- *         var exampleSpringCloudAppDynamicsApplicationPerformanceMonitoring = new SpringCloudAppDynamicsApplicationPerformanceMonitoring(&#34;exampleSpringCloudAppDynamicsApplicationPerformanceMonitoring&#34;, SpringCloudAppDynamicsApplicationPerformanceMonitoringArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleSpringCloudAppDynamicsApplicationPerformanceMonitoring = new SpringCloudAppDynamicsApplicationPerformanceMonitoring("exampleSpringCloudAppDynamicsApplicationPerformanceMonitoring", SpringCloudAppDynamicsApplicationPerformanceMonitoringArgs.builder()        
+ *             .name("example")
  *             .springCloudServiceId(exampleSpringCloudService.id())
- *             .agentAccountName(&#34;example-agent-account-name&#34;)
- *             .agentAccountAccessKey(&#34;example-agent-account-access-key&#34;)
- *             .controllerHostName(&#34;example-controller-host-name&#34;)
- *             .agentApplicationName(&#34;example-agent-application-name&#34;)
- *             .agentTierName(&#34;example-agent-tier-name&#34;)
- *             .agentNodeName(&#34;example-agent-node-name&#34;)
- *             .agentUniqueHostId(&#34;example-agent-unique-host-id&#34;)
+ *             .agentAccountName("example-agent-account-name")
+ *             .agentAccountAccessKey("example-agent-account-access-key")
+ *             .controllerHostName("example-controller-host-name")
+ *             .agentApplicationName("example-agent-application-name")
+ *             .agentTierName("example-agent-tier-name")
+ *             .agentNodeName("example-agent-node-name")
+ *             .agentUniqueHostId("example-agent-unique-host-id")
  *             .controllerSslEnabled(true)
  *             .controllerPort(8080)
  *             .globallyEnabled(true)
@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

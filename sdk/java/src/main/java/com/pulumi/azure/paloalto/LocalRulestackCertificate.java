@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,26 +46,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;rg-example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("rg-example")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleLocalRulestack = new LocalRulestack(&#34;exampleLocalRulestack&#34;, LocalRulestackArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleLocalRulestack = new LocalRulestack("exampleLocalRulestack", LocalRulestackArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleLocalRulestackCertificate = new LocalRulestackCertificate(&#34;exampleLocalRulestackCertificate&#34;, LocalRulestackCertificateArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleLocalRulestackCertificate = new LocalRulestackCertificate("exampleLocalRulestackCertificate", LocalRulestackCertificateArgs.builder()        
+ *             .name("example")
  *             .rulestackId(exampleLocalRulestack.id())
  *             .selfSigned(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

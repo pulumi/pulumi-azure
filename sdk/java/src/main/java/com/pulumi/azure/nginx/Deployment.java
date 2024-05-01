@@ -31,7 +31,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -65,83 +65,83 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .allocationMethod(&#34;Static&#34;)
- *             .sku(&#34;Standard&#34;)
- *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *             .allocationMethod("Static")
+ *             .sku("Standard")
+ *             .tags(Map.of("environment", "Production"))
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-vnet&#34;)
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example-vnet")
+ *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;example-subnet&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("example-subnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
+ *             .addressPrefixes("10.0.2.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;delegation&#34;)
+ *                 .name("delegation")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .name(&#34;NGINX.NGINXPLUS/nginxDeployments&#34;)
- *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/join/action&#34;)
+ *                     .name("NGINX.NGINXPLUS/nginxDeployments")
+ *                     .actions("Microsoft.Network/virtualNetworks/subnets/join/action")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *         final var configContent = StdFunctions.base64encode(Base64encodeArgs.builder()
- *             .input(&#34;&#34;&#34;
+ *             .input("""
  * http {
  *     server {
  *         listen 80;
  *         location / {
- *             auth_basic &#34;Protected Area&#34;;
+ *             auth_basic "Protected Area";
  *             auth_basic_user_file /opt/.htpasswd;
  *             default_type text/html;
  *         }
  *         include site/*.conf;
  *     }
  * }
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build()).result();
  * 
  *         final var protectedContent = StdFunctions.base64encode(Base64encodeArgs.builder()
- *             .input(&#34;&#34;&#34;
+ *             .input("""
  * user:$apr1$VeUA5kt.$IjjRk//8miRxDsZvD4daF1
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build()).result();
  * 
  *         final var subConfigContent = StdFunctions.base64encode(Base64encodeArgs.builder()
- *             .input(&#34;&#34;&#34;
+ *             .input("""
  * location /bbb {
  * 	default_type text/html;
- * 	return 200 &#39;&lt;!doctype html&gt;&lt;html lang=&#34;en&#34;&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;
- * 		&lt;div&gt;this one will be updated&lt;/div&gt;
- * 		&lt;div&gt;at 10:38 am&lt;/div&gt;
- * 	&lt;/body&gt;&lt;/html&gt;&#39;;
+ * 	return 200 '<!doctype html><html lang="en"><head></head><body>
+ * 		<div>this one will be updated</div>
+ * 		<div>at 10:38 am</div>
+ * 	</body></html>';
  * }
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build()).result();
  * 
- *         var exampleDeployment = new Deployment(&#34;exampleDeployment&#34;, DeploymentArgs.builder()        
- *             .name(&#34;example-nginx&#34;)
+ *         var exampleDeployment = new Deployment("exampleDeployment", DeploymentArgs.builder()        
+ *             .name("example-nginx")
  *             .resourceGroupName(example.name())
- *             .sku(&#34;publicpreview_Monthly_gmz7xq9ge3py&#34;)
+ *             .sku("publicpreview_Monthly_gmz7xq9ge3py")
  *             .location(example.location())
- *             .managedResourceGroup(&#34;example&#34;)
+ *             .managedResourceGroup("example")
  *             .diagnoseSupportEnabled(true)
- *             .automaticUpgradeChannel(&#34;stable&#34;)
+ *             .automaticUpgradeChannel("stable")
  *             .frontendPublic(DeploymentFrontendPublicArgs.builder()
  *                 .ipAddresses(examplePublicIp.id())
  *                 .build())
@@ -149,28 +149,28 @@ import javax.annotation.Nullable;
  *                 .subnetId(exampleSubnet.id())
  *                 .build())
  *             .capacity(20)
- *             .email(&#34;user@test.com&#34;)
+ *             .email("user@test.com")
  *             .configuration(DeploymentConfigurationArgs.builder()
- *                 .rootFile(&#34;/etc/nginx/nginx.conf&#34;)
+ *                 .rootFile("/etc/nginx/nginx.conf")
  *                 .configFiles(                
  *                     DeploymentConfigurationConfigFileArgs.builder()
  *                         .content(configContent)
- *                         .virtualPath(&#34;/etc/nginx/nginx.conf&#34;)
+ *                         .virtualPath("/etc/nginx/nginx.conf")
  *                         .build(),
  *                     DeploymentConfigurationConfigFileArgs.builder()
  *                         .content(subConfigContent)
- *                         .virtualPath(&#34;/etc/nginx/site/b.conf&#34;)
+ *                         .virtualPath("/etc/nginx/site/b.conf")
  *                         .build())
  *                 .protectedFiles(DeploymentConfigurationProtectedFileArgs.builder()
  *                     .content(protectedContent)
- *                     .virtualPath(&#34;/opt/.htpasswd&#34;)
+ *                     .virtualPath("/opt/.htpasswd")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

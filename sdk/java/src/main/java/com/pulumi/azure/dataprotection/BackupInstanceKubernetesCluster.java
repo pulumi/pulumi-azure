@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -70,169 +70,169 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var snap = new ResourceGroup(&#34;snap&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-snap&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var snap = new ResourceGroup("snap", ResourceGroupArgs.builder()        
+ *             .name("example-snap")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleBackupVault = new BackupVault(&#34;exampleBackupVault&#34;, BackupVaultArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleBackupVault = new BackupVault("exampleBackupVault", BackupVaultArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .datastoreType(&#34;VaultStore&#34;)
- *             .redundancy(&#34;LocallyRedundant&#34;)
+ *             .datastoreType("VaultStore")
+ *             .redundancy("LocallyRedundant")
  *             .identity(BackupVaultIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
- *         var exampleKubernetesCluster = new KubernetesCluster(&#34;exampleKubernetesCluster&#34;, KubernetesClusterArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleKubernetesCluster = new KubernetesCluster("exampleKubernetesCluster", KubernetesClusterArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .dnsPrefix(&#34;dns&#34;)
+ *             .dnsPrefix("dns")
  *             .defaultNodePool(KubernetesClusterDefaultNodePoolArgs.builder()
- *                 .name(&#34;default&#34;)
+ *                 .name("default")
  *                 .nodeCount(1)
- *                 .vmSize(&#34;Standard_DS2_v2&#34;)
+ *                 .vmSize("Standard_DS2_v2")
  *                 .enableHostEncryption(true)
  *                 .build())
  *             .identity(KubernetesClusterIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
- *         var aksClusterTrustedAccess = new ClusterTrustedAccessRoleBinding(&#34;aksClusterTrustedAccess&#34;, ClusterTrustedAccessRoleBindingArgs.builder()        
+ *         var aksClusterTrustedAccess = new ClusterTrustedAccessRoleBinding("aksClusterTrustedAccess", ClusterTrustedAccessRoleBindingArgs.builder()        
  *             .kubernetesClusterId(exampleKubernetesCluster.id())
- *             .name(&#34;example&#34;)
- *             .roles(&#34;Microsoft.DataProtection/backupVaults/backup-operator&#34;)
+ *             .name("example")
+ *             .roles("Microsoft.DataProtection/backupVaults/backup-operator")
  *             .sourceResourceId(exampleBackupVault.id())
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleContainer = new Container(&#34;exampleContainer&#34;, ContainerArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()        
+ *             .name("example")
  *             .storageAccountName(exampleAccount.name())
- *             .containerAccessType(&#34;private&#34;)
+ *             .containerAccessType("private")
  *             .build());
  * 
- *         var exampleKubernetesClusterExtension = new KubernetesClusterExtension(&#34;exampleKubernetesClusterExtension&#34;, KubernetesClusterExtensionArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleKubernetesClusterExtension = new KubernetesClusterExtension("exampleKubernetesClusterExtension", KubernetesClusterExtensionArgs.builder()        
+ *             .name("example")
  *             .clusterId(exampleKubernetesCluster.id())
- *             .extensionType(&#34;Microsoft.DataProtection.Kubernetes&#34;)
- *             .releaseTrain(&#34;stable&#34;)
- *             .releaseNamespace(&#34;dataprotection-microsoft&#34;)
+ *             .extensionType("Microsoft.DataProtection.Kubernetes")
+ *             .releaseTrain("stable")
+ *             .releaseNamespace("dataprotection-microsoft")
  *             .configurationSettings(Map.ofEntries(
- *                 Map.entry(&#34;configuration.backupStorageLocation.bucket&#34;, exampleContainer.name()),
- *                 Map.entry(&#34;configuration.backupStorageLocation.config.resourceGroup&#34;, example.name()),
- *                 Map.entry(&#34;configuration.backupStorageLocation.config.storageAccount&#34;, exampleAccount.name()),
- *                 Map.entry(&#34;configuration.backupStorageLocation.config.subscriptionId&#34;, current.applyValue(getClientConfigResult -&gt; getClientConfigResult.subscriptionId())),
- *                 Map.entry(&#34;credentials.tenantId&#34;, current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *                 Map.entry("configuration.backupStorageLocation.bucket", exampleContainer.name()),
+ *                 Map.entry("configuration.backupStorageLocation.config.resourceGroup", example.name()),
+ *                 Map.entry("configuration.backupStorageLocation.config.storageAccount", exampleAccount.name()),
+ *                 Map.entry("configuration.backupStorageLocation.config.subscriptionId", current.applyValue(getClientConfigResult -> getClientConfigResult.subscriptionId())),
+ *                 Map.entry("credentials.tenantId", current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
  *             ))
  *             .build());
  * 
- *         var extensionAndStorageAccountPermission = new Assignment(&#34;extensionAndStorageAccountPermission&#34;, AssignmentArgs.builder()        
+ *         var extensionAndStorageAccountPermission = new Assignment("extensionAndStorageAccountPermission", AssignmentArgs.builder()        
  *             .scope(exampleAccount.id())
- *             .roleDefinitionName(&#34;Storage Account Contributor&#34;)
- *             .principalId(exampleKubernetesClusterExtension.aksAssignedIdentities().applyValue(aksAssignedIdentities -&gt; aksAssignedIdentities[0].principalId()))
+ *             .roleDefinitionName("Storage Account Contributor")
+ *             .principalId(exampleKubernetesClusterExtension.aksAssignedIdentities().applyValue(aksAssignedIdentities -> aksAssignedIdentities[0].principalId()))
  *             .build());
  * 
- *         var vaultMsiReadOnCluster = new Assignment(&#34;vaultMsiReadOnCluster&#34;, AssignmentArgs.builder()        
+ *         var vaultMsiReadOnCluster = new Assignment("vaultMsiReadOnCluster", AssignmentArgs.builder()        
  *             .scope(exampleKubernetesCluster.id())
- *             .roleDefinitionName(&#34;Reader&#34;)
- *             .principalId(exampleBackupVault.identity().applyValue(identity -&gt; identity.principalId()))
+ *             .roleDefinitionName("Reader")
+ *             .principalId(exampleBackupVault.identity().applyValue(identity -> identity.principalId()))
  *             .build());
  * 
- *         var vaultMsiReadOnSnapRg = new Assignment(&#34;vaultMsiReadOnSnapRg&#34;, AssignmentArgs.builder()        
+ *         var vaultMsiReadOnSnapRg = new Assignment("vaultMsiReadOnSnapRg", AssignmentArgs.builder()        
  *             .scope(snap.id())
- *             .roleDefinitionName(&#34;Reader&#34;)
- *             .principalId(exampleBackupVault.identity().applyValue(identity -&gt; identity.principalId()))
+ *             .roleDefinitionName("Reader")
+ *             .principalId(exampleBackupVault.identity().applyValue(identity -> identity.principalId()))
  *             .build());
  * 
- *         var testVaultMsiSnapshotContributorOnSnapRg = new Assignment(&#34;testVaultMsiSnapshotContributorOnSnapRg&#34;, AssignmentArgs.builder()        
+ *         var testVaultMsiSnapshotContributorOnSnapRg = new Assignment("testVaultMsiSnapshotContributorOnSnapRg", AssignmentArgs.builder()        
  *             .scope(snap.id())
- *             .roleDefinitionName(&#34;Disk Snapshot Contributor&#34;)
+ *             .roleDefinitionName("Disk Snapshot Contributor")
  *             .principalId(test.identity()[0].principalId())
  *             .build());
  * 
- *         var testVaultDataOperatorOnSnapRg = new Assignment(&#34;testVaultDataOperatorOnSnapRg&#34;, AssignmentArgs.builder()        
+ *         var testVaultDataOperatorOnSnapRg = new Assignment("testVaultDataOperatorOnSnapRg", AssignmentArgs.builder()        
  *             .scope(snap.id())
- *             .roleDefinitionName(&#34;Data Operator for Managed Disks&#34;)
+ *             .roleDefinitionName("Data Operator for Managed Disks")
  *             .principalId(test.identity()[0].principalId())
  *             .build());
  * 
- *         var testVaultDataContributorOnStorage = new Assignment(&#34;testVaultDataContributorOnStorage&#34;, AssignmentArgs.builder()        
+ *         var testVaultDataContributorOnStorage = new Assignment("testVaultDataContributorOnStorage", AssignmentArgs.builder()        
  *             .scope(testAzurermStorageAccount.id())
- *             .roleDefinitionName(&#34;Storage Blob Data Contributor&#34;)
+ *             .roleDefinitionName("Storage Blob Data Contributor")
  *             .principalId(test.identity()[0].principalId())
  *             .build());
  * 
- *         var clusterMsiContributorOnSnapRg = new Assignment(&#34;clusterMsiContributorOnSnapRg&#34;, AssignmentArgs.builder()        
+ *         var clusterMsiContributorOnSnapRg = new Assignment("clusterMsiContributorOnSnapRg", AssignmentArgs.builder()        
  *             .scope(snap.id())
- *             .roleDefinitionName(&#34;Contributor&#34;)
- *             .principalId(exampleKubernetesCluster.identity().applyValue(identity -&gt; identity.principalId()))
+ *             .roleDefinitionName("Contributor")
+ *             .principalId(exampleKubernetesCluster.identity().applyValue(identity -> identity.principalId()))
  *             .build());
  * 
- *         var exampleBackupPolicyKubernetesCluster = new BackupPolicyKubernetesCluster(&#34;exampleBackupPolicyKubernetesCluster&#34;, BackupPolicyKubernetesClusterArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleBackupPolicyKubernetesCluster = new BackupPolicyKubernetesCluster("exampleBackupPolicyKubernetesCluster", BackupPolicyKubernetesClusterArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .vaultName(exampleBackupVault.name())
- *             .backupRepeatingTimeIntervals(&#34;R/2023-05-23T02:30:00+00:00/P1W&#34;)
+ *             .backupRepeatingTimeIntervals("R/2023-05-23T02:30:00+00:00/P1W")
  *             .retentionRules(BackupPolicyKubernetesClusterRetentionRuleArgs.builder()
- *                 .name(&#34;Daily&#34;)
+ *                 .name("Daily")
  *                 .priority(25)
  *                 .lifeCycles(BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs.builder()
- *                     .duration(&#34;P84D&#34;)
- *                     .dataStoreType(&#34;OperationalStore&#34;)
+ *                     .duration("P84D")
+ *                     .dataStoreType("OperationalStore")
  *                     .build())
  *                 .criteria(BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs.builder()
- *                     .daysOfWeeks(&#34;Thursday&#34;)
- *                     .monthsOfYears(&#34;November&#34;)
- *                     .weeksOfMonths(&#34;First&#34;)
- *                     .scheduledBackupTimes(&#34;2023-05-23T02:30:00Z&#34;)
+ *                     .daysOfWeeks("Thursday")
+ *                     .monthsOfYears("November")
+ *                     .weeksOfMonths("First")
+ *                     .scheduledBackupTimes("2023-05-23T02:30:00Z")
  *                     .build())
  *                 .build())
  *             .defaultRetentionRule(BackupPolicyKubernetesClusterDefaultRetentionRuleArgs.builder()
  *                 .lifeCycles(BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs.builder()
- *                     .duration(&#34;P14D&#34;)
- *                     .dataStoreType(&#34;OperationalStore&#34;)
+ *                     .duration("P14D")
+ *                     .dataStoreType("OperationalStore")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleBackupInstanceKubernetesCluster = new BackupInstanceKubernetesCluster(&#34;exampleBackupInstanceKubernetesCluster&#34;, BackupInstanceKubernetesClusterArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleBackupInstanceKubernetesCluster = new BackupInstanceKubernetesCluster("exampleBackupInstanceKubernetesCluster", BackupInstanceKubernetesClusterArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .vaultId(exampleBackupVault.id())
  *             .kubernetesClusterId(exampleKubernetesCluster.id())
  *             .snapshotResourceGroupName(snap.name())
  *             .backupPolicyId(exampleBackupPolicyKubernetesCluster.id())
  *             .backupDatasourceParameters(BackupInstanceKubernetesClusterBackupDatasourceParametersArgs.builder()
- *                 .excludedNamespaces(&#34;test-excluded-namespaces&#34;)
- *                 .excludedResourceTypes(&#34;exvolumesnapshotcontents.snapshot.storage.k8s.io&#34;)
+ *                 .excludedNamespaces("test-excluded-namespaces")
+ *                 .excludedResourceTypes("exvolumesnapshotcontents.snapshot.storage.k8s.io")
  *                 .clusterScopedResourcesEnabled(true)
- *                 .includedNamespaces(&#34;test-included-namespaces&#34;)
- *                 .includedResourceTypes(&#34;involumesnapshotcontents.snapshot.storage.k8s.io&#34;)
- *                 .labelSelectors(&#34;kubernetes.io/metadata.name:test&#34;)
+ *                 .includedNamespaces("test-included-namespaces")
+ *                 .includedResourceTypes("involumesnapshotcontents.snapshot.storage.k8s.io")
+ *                 .labelSelectors("kubernetes.io/metadata.name:test")
  *                 .volumeSnapshotEnabled(true)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

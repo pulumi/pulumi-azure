@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,15 +42,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PrivateLinkHub(&#34;example&#34;, PrivateLinkHubArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .resourceGroupName(&#34;example-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new PrivateLinkHub("example", PrivateLinkHubArgs.builder()        
+ *             .name("example")
+ *             .resourceGroupName("example-rg")
+ *             .location("West Europe")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

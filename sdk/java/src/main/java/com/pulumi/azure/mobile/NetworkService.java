@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,66 +56,66 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;east us&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("east us")
  *             .build());
  * 
- *         var exampleNetwork = new Network(&#34;exampleNetwork&#34;, NetworkArgs.builder()        
- *             .name(&#34;example-mn&#34;)
+ *         var exampleNetwork = new Network("exampleNetwork", NetworkArgs.builder()        
+ *             .name("example-mn")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .mobileCountryCode(&#34;001&#34;)
- *             .mobileNetworkCode(&#34;01&#34;)
+ *             .mobileCountryCode("001")
+ *             .mobileNetworkCode("01")
  *             .build());
  * 
- *         var exampleNetworkService = new NetworkService(&#34;exampleNetworkService&#34;, NetworkServiceArgs.builder()        
- *             .name(&#34;example-mns&#34;)
+ *         var exampleNetworkService = new NetworkService("exampleNetworkService", NetworkServiceArgs.builder()        
+ *             .name("example-mns")
  *             .mobileNetworkId(exampleNetwork.id())
  *             .location(example.location())
  *             .servicePrecedence(0)
  *             .pccRules(NetworkServicePccRuleArgs.builder()
- *                 .name(&#34;default-rule&#34;)
+ *                 .name("default-rule")
  *                 .precedence(1)
  *                 .trafficControlEnabled(true)
  *                 .qosPolicy(NetworkServicePccRuleQosPolicyArgs.builder()
  *                     .allocationAndRetentionPriorityLevel(9)
  *                     .qosIndicator(9)
- *                     .preemptionCapability(&#34;NotPreempt&#34;)
- *                     .preemptionVulnerability(&#34;Preemptable&#34;)
+ *                     .preemptionCapability("NotPreempt")
+ *                     .preemptionVulnerability("Preemptable")
  *                     .guaranteedBitRate(NetworkServicePccRuleQosPolicyGuaranteedBitRateArgs.builder()
- *                         .downlink(&#34;100 Mbps&#34;)
- *                         .uplink(&#34;10 Mbps&#34;)
+ *                         .downlink("100 Mbps")
+ *                         .uplink("10 Mbps")
  *                         .build())
  *                     .maximumBitRate(NetworkServicePccRuleQosPolicyMaximumBitRateArgs.builder()
- *                         .downlink(&#34;1 Gbps&#34;)
- *                         .uplink(&#34;100 Mbps&#34;)
+ *                         .downlink("1 Gbps")
+ *                         .uplink("100 Mbps")
  *                         .build())
  *                     .build())
  *                 .serviceDataFlowTemplates(NetworkServicePccRuleServiceDataFlowTemplateArgs.builder()
- *                     .direction(&#34;Uplink&#34;)
- *                     .name(&#34;IP-to-server&#34;)
+ *                     .direction("Uplink")
+ *                     .name("IP-to-server")
  *                     .ports()
- *                     .protocols(&#34;ip&#34;)
- *                     .remoteIpLists(&#34;10.3.4.0/24&#34;)
+ *                     .protocols("ip")
+ *                     .remoteIpLists("10.3.4.0/24")
  *                     .build())
  *                 .build())
  *             .serviceQosPolicy(NetworkServiceServiceQosPolicyArgs.builder()
  *                 .allocationAndRetentionPriorityLevel(9)
  *                 .qosIndicator(9)
- *                 .preemptionCapability(&#34;NotPreempt&#34;)
- *                 .preemptionVulnerability(&#34;Preemptable&#34;)
+ *                 .preemptionCapability("NotPreempt")
+ *                 .preemptionVulnerability("Preemptable")
  *                 .maximumBitRate(NetworkServiceServiceQosPolicyMaximumBitRateArgs.builder()
- *                     .downlink(&#34;1 Gbps&#34;)
- *                     .uplink(&#34;100 Mbps&#34;)
+ *                     .downlink("1 Gbps")
+ *                     .uplink("100 Mbps")
  *                     .build())
  *                 .build())
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .tags(Map.of("key", "value"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

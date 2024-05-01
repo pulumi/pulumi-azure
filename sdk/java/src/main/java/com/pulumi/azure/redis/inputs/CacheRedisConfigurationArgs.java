@@ -281,7 +281,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
      * The ID of the Subscription containing the Storage Account.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -302,13 +302,13 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new Cache(&#34;example&#34;, CacheArgs.builder()        
+     *         var example = new Cache("example", CacheArgs.builder()        
      *             .ignoreChanges(redisConfiguration[0].rdbStorageConnectionString())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -319,7 +319,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
      * @return The ID of the Subscription containing the Storage Account.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -340,13 +340,13 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new Cache(&#34;example&#34;, CacheArgs.builder()        
+     *         var example = new Cache("example", CacheArgs.builder()        
      *             .ignoreChanges(redisConfiguration[0].rdbStorageConnectionString())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -754,7 +754,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
          * @param storageAccountSubscriptionId The ID of the Subscription containing the Storage Account.
          * 
          * &lt;!--Start PulumiCodeChooser --&gt;
-         * ```java
+         * {@code
          * package generated_program;
          * 
          * import com.pulumi.Context;
@@ -775,13 +775,13 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
          *     }
          * 
          *     public static void stack(Context ctx) {
-         *         var example = new Cache(&#34;example&#34;, CacheArgs.builder()        
+         *         var example = new Cache("example", CacheArgs.builder()        
          *             .ignoreChanges(redisConfiguration[0].rdbStorageConnectionString())
          *             .build());
          * 
          *     }
          * }
-         * ```
+         * }
          * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
@@ -796,7 +796,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
          * @param storageAccountSubscriptionId The ID of the Subscription containing the Storage Account.
          * 
          * &lt;!--Start PulumiCodeChooser --&gt;
-         * ```java
+         * {@code
          * package generated_program;
          * 
          * import com.pulumi.Context;
@@ -817,13 +817,13 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
          *     }
          * 
          *     public static void stack(Context ctx) {
-         *         var example = new Cache(&#34;example&#34;, CacheArgs.builder()        
+         *         var example = new Cache("example", CacheArgs.builder()        
          *             .ignoreChanges(redisConfiguration[0].rdbStorageConnectionString())
          *             .build());
          * 
          *     }
          * }
-         * ```
+         * }
          * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder

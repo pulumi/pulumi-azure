@@ -113,7 +113,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -135,14 +135,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getApplicationGateway(GetApplicationGatewayArgs.builder()
-     *             .name(&#34;existing-app-gateway&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
+     *             .name("existing-app-gateway")
+     *             .resourceGroupName("existing-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getApplicationGatewayResult -&gt; getApplicationGatewayResult.id()));
+     *         ctx.export("id", example.applyValue(getApplicationGatewayResult -> getApplicationGatewayResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -155,7 +155,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -177,14 +177,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getApplicationGateway(GetApplicationGatewayArgs.builder()
-     *             .name(&#34;existing-app-gateway&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
+     *             .name("existing-app-gateway")
+     *             .resourceGroupName("existing-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getApplicationGatewayResult -&gt; getApplicationGatewayResult.id()));
+     *         ctx.export("id", example.applyValue(getApplicationGatewayResult -> getApplicationGatewayResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -197,7 +197,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -219,14 +219,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getApplicationGateway(GetApplicationGatewayArgs.builder()
-     *             .name(&#34;existing-app-gateway&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
+     *             .name("existing-app-gateway")
+     *             .resourceGroupName("existing-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getApplicationGatewayResult -&gt; getApplicationGatewayResult.id()));
+     *         ctx.export("id", example.applyValue(getApplicationGatewayResult -> getApplicationGatewayResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -239,7 +239,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -261,14 +261,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getApplicationGateway(GetApplicationGatewayArgs.builder()
-     *             .name(&#34;existing-app-gateway&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
+     *             .name("existing-app-gateway")
+     *             .resourceGroupName("existing-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getApplicationGatewayResult -&gt; getApplicationGatewayResult.id()));
+     *         ctx.export("id", example.applyValue(getApplicationGatewayResult -> getApplicationGatewayResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -281,7 +281,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -303,14 +303,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getApplicationSecurityGroup(GetApplicationSecurityGroupArgs.builder()
-     *             .name(&#34;tf-appsecuritygroup&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
+     *             .name("tf-appsecuritygroup")
+     *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;applicationSecurityGroupId&#34;, example.applyValue(getApplicationSecurityGroupResult -&gt; getApplicationSecurityGroupResult.id()));
+     *         ctx.export("applicationSecurityGroupId", example.applyValue(getApplicationSecurityGroupResult -> getApplicationSecurityGroupResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -323,7 +323,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -345,14 +345,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getApplicationSecurityGroup(GetApplicationSecurityGroupArgs.builder()
-     *             .name(&#34;tf-appsecuritygroup&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
+     *             .name("tf-appsecuritygroup")
+     *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;applicationSecurityGroupId&#34;, example.applyValue(getApplicationSecurityGroupResult -&gt; getApplicationSecurityGroupResult.id()));
+     *         ctx.export("applicationSecurityGroupId", example.applyValue(getApplicationSecurityGroupResult -> getApplicationSecurityGroupResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -365,7 +365,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -387,14 +387,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getApplicationSecurityGroup(GetApplicationSecurityGroupArgs.builder()
-     *             .name(&#34;tf-appsecuritygroup&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
+     *             .name("tf-appsecuritygroup")
+     *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;applicationSecurityGroupId&#34;, example.applyValue(getApplicationSecurityGroupResult -&gt; getApplicationSecurityGroupResult.id()));
+     *         ctx.export("applicationSecurityGroupId", example.applyValue(getApplicationSecurityGroupResult -> getApplicationSecurityGroupResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -407,7 +407,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -429,14 +429,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getApplicationSecurityGroup(GetApplicationSecurityGroupArgs.builder()
-     *             .name(&#34;tf-appsecuritygroup&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
+     *             .name("tf-appsecuritygroup")
+     *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;applicationSecurityGroupId&#34;, example.applyValue(getApplicationSecurityGroupResult -&gt; getApplicationSecurityGroupResult.id()));
+     *         ctx.export("applicationSecurityGroupId", example.applyValue(getApplicationSecurityGroupResult -> getApplicationSecurityGroupResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -449,7 +449,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -475,11 +475,11 @@ public final class NetworkFunctions {
      *             .name(exampleAzurermExpressRouteCircuit.name())
      *             .build());
      * 
-     *         ctx.export(&#34;expressRouteCircuitId&#34;, example.applyValue(getExpressRouteCircuitResult -&gt; getExpressRouteCircuitResult.id()));
-     *         ctx.export(&#34;serviceKey&#34;, example.applyValue(getExpressRouteCircuitResult -&gt; getExpressRouteCircuitResult.serviceKey()));
+     *         ctx.export("expressRouteCircuitId", example.applyValue(getExpressRouteCircuitResult -> getExpressRouteCircuitResult.id()));
+     *         ctx.export("serviceKey", example.applyValue(getExpressRouteCircuitResult -> getExpressRouteCircuitResult.serviceKey()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -492,7 +492,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -518,11 +518,11 @@ public final class NetworkFunctions {
      *             .name(exampleAzurermExpressRouteCircuit.name())
      *             .build());
      * 
-     *         ctx.export(&#34;expressRouteCircuitId&#34;, example.applyValue(getExpressRouteCircuitResult -&gt; getExpressRouteCircuitResult.id()));
-     *         ctx.export(&#34;serviceKey&#34;, example.applyValue(getExpressRouteCircuitResult -&gt; getExpressRouteCircuitResult.serviceKey()));
+     *         ctx.export("expressRouteCircuitId", example.applyValue(getExpressRouteCircuitResult -> getExpressRouteCircuitResult.id()));
+     *         ctx.export("serviceKey", example.applyValue(getExpressRouteCircuitResult -> getExpressRouteCircuitResult.serviceKey()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -535,7 +535,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -561,11 +561,11 @@ public final class NetworkFunctions {
      *             .name(exampleAzurermExpressRouteCircuit.name())
      *             .build());
      * 
-     *         ctx.export(&#34;expressRouteCircuitId&#34;, example.applyValue(getExpressRouteCircuitResult -&gt; getExpressRouteCircuitResult.id()));
-     *         ctx.export(&#34;serviceKey&#34;, example.applyValue(getExpressRouteCircuitResult -&gt; getExpressRouteCircuitResult.serviceKey()));
+     *         ctx.export("expressRouteCircuitId", example.applyValue(getExpressRouteCircuitResult -> getExpressRouteCircuitResult.id()));
+     *         ctx.export("serviceKey", example.applyValue(getExpressRouteCircuitResult -> getExpressRouteCircuitResult.serviceKey()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -578,7 +578,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -604,11 +604,11 @@ public final class NetworkFunctions {
      *             .name(exampleAzurermExpressRouteCircuit.name())
      *             .build());
      * 
-     *         ctx.export(&#34;expressRouteCircuitId&#34;, example.applyValue(getExpressRouteCircuitResult -&gt; getExpressRouteCircuitResult.id()));
-     *         ctx.export(&#34;serviceKey&#34;, example.applyValue(getExpressRouteCircuitResult -&gt; getExpressRouteCircuitResult.serviceKey()));
+     *         ctx.export("expressRouteCircuitId", example.applyValue(getExpressRouteCircuitResult -> getExpressRouteCircuitResult.id()));
+     *         ctx.export("serviceKey", example.applyValue(getExpressRouteCircuitResult -> getExpressRouteCircuitResult.serviceKey()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -621,7 +621,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -643,14 +643,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .name(&#34;firewall1&#34;)
-     *             .resourceGroupName(&#34;firewall-RG&#34;)
+     *             .name("firewall1")
+     *             .resourceGroupName("firewall-RG")
      *             .build());
      * 
-     *         ctx.export(&#34;firewallPrivateIp&#34;, example.applyValue(getFirewallResult -&gt; getFirewallResult.ipConfigurations()[0].privateIpAddress()));
+     *         ctx.export("firewallPrivateIp", example.applyValue(getFirewallResult -> getFirewallResult.ipConfigurations()[0].privateIpAddress()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -663,7 +663,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -685,14 +685,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .name(&#34;firewall1&#34;)
-     *             .resourceGroupName(&#34;firewall-RG&#34;)
+     *             .name("firewall1")
+     *             .resourceGroupName("firewall-RG")
      *             .build());
      * 
-     *         ctx.export(&#34;firewallPrivateIp&#34;, example.applyValue(getFirewallResult -&gt; getFirewallResult.ipConfigurations()[0].privateIpAddress()));
+     *         ctx.export("firewallPrivateIp", example.applyValue(getFirewallResult -> getFirewallResult.ipConfigurations()[0].privateIpAddress()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -705,7 +705,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -727,14 +727,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .name(&#34;firewall1&#34;)
-     *             .resourceGroupName(&#34;firewall-RG&#34;)
+     *             .name("firewall1")
+     *             .resourceGroupName("firewall-RG")
      *             .build());
      * 
-     *         ctx.export(&#34;firewallPrivateIp&#34;, example.applyValue(getFirewallResult -&gt; getFirewallResult.ipConfigurations()[0].privateIpAddress()));
+     *         ctx.export("firewallPrivateIp", example.applyValue(getFirewallResult -> getFirewallResult.ipConfigurations()[0].privateIpAddress()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -747,7 +747,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -769,14 +769,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .name(&#34;firewall1&#34;)
-     *             .resourceGroupName(&#34;firewall-RG&#34;)
+     *             .name("firewall1")
+     *             .resourceGroupName("firewall-RG")
      *             .build());
      * 
-     *         ctx.export(&#34;firewallPrivateIp&#34;, example.applyValue(getFirewallResult -&gt; getFirewallResult.ipConfigurations()[0].privateIpAddress()));
+     *         ctx.export("firewallPrivateIp", example.applyValue(getFirewallResult -> getFirewallResult.ipConfigurations()[0].privateIpAddress()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -789,7 +789,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -811,14 +811,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getFirewallPolicyResult -&gt; getFirewallPolicyResult.id()));
+     *         ctx.export("id", example.applyValue(getFirewallPolicyResult -> getFirewallPolicyResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -831,7 +831,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -853,14 +853,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getFirewallPolicyResult -&gt; getFirewallPolicyResult.id()));
+     *         ctx.export("id", example.applyValue(getFirewallPolicyResult -> getFirewallPolicyResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -873,7 +873,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -895,14 +895,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getFirewallPolicyResult -&gt; getFirewallPolicyResult.id()));
+     *         ctx.export("id", example.applyValue(getFirewallPolicyResult -> getFirewallPolicyResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -915,7 +915,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -937,14 +937,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getFirewallPolicyResult -&gt; getFirewallPolicyResult.id()));
+     *         ctx.export("id", example.applyValue(getFirewallPolicyResult -> getFirewallPolicyResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -957,7 +957,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -979,14 +979,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getGatewayConnection(GetGatewayConnectionArgs.builder()
-     *             .name(&#34;production&#34;)
-     *             .resourceGroupName(&#34;networking&#34;)
+     *             .name("production")
+     *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export(&#34;virtualNetworkGatewayConnectionId&#34;, example.applyValue(getGatewayConnectionResult -&gt; getGatewayConnectionResult.id()));
+     *         ctx.export("virtualNetworkGatewayConnectionId", example.applyValue(getGatewayConnectionResult -> getGatewayConnectionResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -999,7 +999,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1021,14 +1021,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getGatewayConnection(GetGatewayConnectionArgs.builder()
-     *             .name(&#34;production&#34;)
-     *             .resourceGroupName(&#34;networking&#34;)
+     *             .name("production")
+     *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export(&#34;virtualNetworkGatewayConnectionId&#34;, example.applyValue(getGatewayConnectionResult -&gt; getGatewayConnectionResult.id()));
+     *         ctx.export("virtualNetworkGatewayConnectionId", example.applyValue(getGatewayConnectionResult -> getGatewayConnectionResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1041,7 +1041,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1063,14 +1063,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getGatewayConnection(GetGatewayConnectionArgs.builder()
-     *             .name(&#34;production&#34;)
-     *             .resourceGroupName(&#34;networking&#34;)
+     *             .name("production")
+     *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export(&#34;virtualNetworkGatewayConnectionId&#34;, example.applyValue(getGatewayConnectionResult -&gt; getGatewayConnectionResult.id()));
+     *         ctx.export("virtualNetworkGatewayConnectionId", example.applyValue(getGatewayConnectionResult -> getGatewayConnectionResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1083,7 +1083,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1105,14 +1105,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getGatewayConnection(GetGatewayConnectionArgs.builder()
-     *             .name(&#34;production&#34;)
-     *             .resourceGroupName(&#34;networking&#34;)
+     *             .name("production")
+     *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export(&#34;virtualNetworkGatewayConnectionId&#34;, example.applyValue(getGatewayConnectionResult -&gt; getGatewayConnectionResult.id()));
+     *         ctx.export("virtualNetworkGatewayConnectionId", example.applyValue(getGatewayConnectionResult -> getGatewayConnectionResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1125,7 +1125,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1147,14 +1147,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getIpGroup(GetIpGroupArgs.builder()
-     *             .name(&#34;example1-ipgroup&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example1-ipgroup")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;cidrs&#34;, example.applyValue(getIpGroupResult -&gt; getIpGroupResult.cidrs()));
+     *         ctx.export("cidrs", example.applyValue(getIpGroupResult -> getIpGroupResult.cidrs()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1167,7 +1167,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1189,14 +1189,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getIpGroup(GetIpGroupArgs.builder()
-     *             .name(&#34;example1-ipgroup&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example1-ipgroup")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;cidrs&#34;, example.applyValue(getIpGroupResult -&gt; getIpGroupResult.cidrs()));
+     *         ctx.export("cidrs", example.applyValue(getIpGroupResult -> getIpGroupResult.cidrs()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1209,7 +1209,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1231,14 +1231,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getIpGroup(GetIpGroupArgs.builder()
-     *             .name(&#34;example1-ipgroup&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example1-ipgroup")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;cidrs&#34;, example.applyValue(getIpGroupResult -&gt; getIpGroupResult.cidrs()));
+     *         ctx.export("cidrs", example.applyValue(getIpGroupResult -> getIpGroupResult.cidrs()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1251,7 +1251,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1273,14 +1273,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getIpGroup(GetIpGroupArgs.builder()
-     *             .name(&#34;example1-ipgroup&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example1-ipgroup")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;cidrs&#34;, example.applyValue(getIpGroupResult -&gt; getIpGroupResult.cidrs()));
+     *         ctx.export("cidrs", example.applyValue(getIpGroupResult -> getIpGroupResult.cidrs()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1293,7 +1293,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1315,14 +1315,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getIpGroups(GetIpGroupsArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;ids&#34;, example.applyValue(getIpGroupsResult -&gt; getIpGroupsResult.ids()));
+     *         ctx.export("ids", example.applyValue(getIpGroupsResult -> getIpGroupsResult.ids()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1335,7 +1335,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1357,14 +1357,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getIpGroups(GetIpGroupsArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;ids&#34;, example.applyValue(getIpGroupsResult -&gt; getIpGroupsResult.ids()));
+     *         ctx.export("ids", example.applyValue(getIpGroupsResult -> getIpGroupsResult.ids()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1377,7 +1377,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1399,14 +1399,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getIpGroups(GetIpGroupsArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;ids&#34;, example.applyValue(getIpGroupsResult -&gt; getIpGroupsResult.ids()));
+     *         ctx.export("ids", example.applyValue(getIpGroupsResult -> getIpGroupsResult.ids()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1419,7 +1419,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1441,14 +1441,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getIpGroups(GetIpGroupsArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;ids&#34;, example.applyValue(getIpGroupsResult -&gt; getIpGroupsResult.ids()));
+     *         ctx.export("ids", example.applyValue(getIpGroupsResult -> getIpGroupsResult.ids()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1461,7 +1461,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1483,14 +1483,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getLocalNetworkGateway(GetLocalNetworkGatewayArgs.builder()
-     *             .name(&#34;existing-local-network-gateway&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
+     *             .name("existing-local-network-gateway")
+     *             .resourceGroupName("existing-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getLocalNetworkGatewayResult -&gt; getLocalNetworkGatewayResult.id()));
+     *         ctx.export("id", example.applyValue(getLocalNetworkGatewayResult -> getLocalNetworkGatewayResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1503,7 +1503,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1525,14 +1525,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getLocalNetworkGateway(GetLocalNetworkGatewayArgs.builder()
-     *             .name(&#34;existing-local-network-gateway&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
+     *             .name("existing-local-network-gateway")
+     *             .resourceGroupName("existing-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getLocalNetworkGatewayResult -&gt; getLocalNetworkGatewayResult.id()));
+     *         ctx.export("id", example.applyValue(getLocalNetworkGatewayResult -> getLocalNetworkGatewayResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1545,7 +1545,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1567,14 +1567,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getLocalNetworkGateway(GetLocalNetworkGatewayArgs.builder()
-     *             .name(&#34;existing-local-network-gateway&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
+     *             .name("existing-local-network-gateway")
+     *             .resourceGroupName("existing-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getLocalNetworkGatewayResult -&gt; getLocalNetworkGatewayResult.id()));
+     *         ctx.export("id", example.applyValue(getLocalNetworkGatewayResult -> getLocalNetworkGatewayResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1587,7 +1587,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1609,14 +1609,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getLocalNetworkGateway(GetLocalNetworkGatewayArgs.builder()
-     *             .name(&#34;existing-local-network-gateway&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
+     *             .name("existing-local-network-gateway")
+     *             .resourceGroupName("existing-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getLocalNetworkGatewayResult -&gt; getLocalNetworkGatewayResult.id()));
+     *         ctx.export("id", example.applyValue(getLocalNetworkGatewayResult -> getLocalNetworkGatewayResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1657,7 +1657,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1683,10 +1683,10 @@ public final class NetworkFunctions {
      *             .resourceGroupName(exampleAzurermNetworkDdosProtectionPlan.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export(&#34;ddosProtectionPlanId&#34;, example.applyValue(getNetworkDdosProtectionPlanResult -&gt; getNetworkDdosProtectionPlanResult.id()));
+     *         ctx.export("ddosProtectionPlanId", example.applyValue(getNetworkDdosProtectionPlanResult -> getNetworkDdosProtectionPlanResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1699,7 +1699,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1725,10 +1725,10 @@ public final class NetworkFunctions {
      *             .resourceGroupName(exampleAzurermNetworkDdosProtectionPlan.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export(&#34;ddosProtectionPlanId&#34;, example.applyValue(getNetworkDdosProtectionPlanResult -&gt; getNetworkDdosProtectionPlanResult.id()));
+     *         ctx.export("ddosProtectionPlanId", example.applyValue(getNetworkDdosProtectionPlanResult -> getNetworkDdosProtectionPlanResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1741,7 +1741,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1767,10 +1767,10 @@ public final class NetworkFunctions {
      *             .resourceGroupName(exampleAzurermNetworkDdosProtectionPlan.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export(&#34;ddosProtectionPlanId&#34;, example.applyValue(getNetworkDdosProtectionPlanResult -&gt; getNetworkDdosProtectionPlanResult.id()));
+     *         ctx.export("ddosProtectionPlanId", example.applyValue(getNetworkDdosProtectionPlanResult -> getNetworkDdosProtectionPlanResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1783,7 +1783,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1809,10 +1809,10 @@ public final class NetworkFunctions {
      *             .resourceGroupName(exampleAzurermNetworkDdosProtectionPlan.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export(&#34;ddosProtectionPlanId&#34;, example.applyValue(getNetworkDdosProtectionPlanResult -&gt; getNetworkDdosProtectionPlanResult.id()));
+     *         ctx.export("ddosProtectionPlanId", example.applyValue(getNetworkDdosProtectionPlanResult -> getNetworkDdosProtectionPlanResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1825,7 +1825,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1847,14 +1847,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
-     *             .name(&#34;acctest-nic&#34;)
-     *             .resourceGroupName(&#34;networking&#34;)
+     *             .name("acctest-nic")
+     *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export(&#34;networkInterfaceId&#34;, example.applyValue(getNetworkInterfaceResult -&gt; getNetworkInterfaceResult.id()));
+     *         ctx.export("networkInterfaceId", example.applyValue(getNetworkInterfaceResult -> getNetworkInterfaceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1867,7 +1867,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1889,14 +1889,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
-     *             .name(&#34;acctest-nic&#34;)
-     *             .resourceGroupName(&#34;networking&#34;)
+     *             .name("acctest-nic")
+     *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export(&#34;networkInterfaceId&#34;, example.applyValue(getNetworkInterfaceResult -&gt; getNetworkInterfaceResult.id()));
+     *         ctx.export("networkInterfaceId", example.applyValue(getNetworkInterfaceResult -> getNetworkInterfaceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1909,7 +1909,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1931,14 +1931,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
-     *             .name(&#34;acctest-nic&#34;)
-     *             .resourceGroupName(&#34;networking&#34;)
+     *             .name("acctest-nic")
+     *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export(&#34;networkInterfaceId&#34;, example.applyValue(getNetworkInterfaceResult -&gt; getNetworkInterfaceResult.id()));
+     *         ctx.export("networkInterfaceId", example.applyValue(getNetworkInterfaceResult -> getNetworkInterfaceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1951,7 +1951,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1973,14 +1973,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
-     *             .name(&#34;acctest-nic&#34;)
-     *             .resourceGroupName(&#34;networking&#34;)
+     *             .name("acctest-nic")
+     *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export(&#34;networkInterfaceId&#34;, example.applyValue(getNetworkInterfaceResult -&gt; getNetworkInterfaceResult.id()));
+     *         ctx.export("networkInterfaceId", example.applyValue(getNetworkInterfaceResult -> getNetworkInterfaceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1993,7 +1993,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2021,24 +2021,24 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *             .name("example-resources")
+     *             .location("West Europe")
      *             .build());
      * 
      *         final var current = CoreFunctions.getSubscription();
      * 
-     *         var exampleNetworkManager = new NetworkManager(&#34;exampleNetworkManager&#34;, NetworkManagerArgs.builder()        
-     *             .name(&#34;example-network-manager&#34;)
+     *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()        
+     *             .name("example-network-manager")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .scope(NetworkManagerScopeArgs.builder()
-     *                 .subscriptionIds(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+     *                 .subscriptionIds(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
      *                 .build())
      *             .scopeAccesses(            
-     *                 &#34;Connectivity&#34;,
-     *                 &#34;SecurityAdmin&#34;)
-     *             .description(&#34;example network manager&#34;)
+     *                 "Connectivity",
+     *                 "SecurityAdmin")
+     *             .description("example network manager")
      *             .build());
      * 
      *         final var example = NetworkFunctions.getNetworkManager(GetNetworkManagerArgs.builder()
@@ -2048,7 +2048,7 @@ public final class NetworkFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2061,7 +2061,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2089,24 +2089,24 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *             .name("example-resources")
+     *             .location("West Europe")
      *             .build());
      * 
      *         final var current = CoreFunctions.getSubscription();
      * 
-     *         var exampleNetworkManager = new NetworkManager(&#34;exampleNetworkManager&#34;, NetworkManagerArgs.builder()        
-     *             .name(&#34;example-network-manager&#34;)
+     *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()        
+     *             .name("example-network-manager")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .scope(NetworkManagerScopeArgs.builder()
-     *                 .subscriptionIds(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+     *                 .subscriptionIds(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
      *                 .build())
      *             .scopeAccesses(            
-     *                 &#34;Connectivity&#34;,
-     *                 &#34;SecurityAdmin&#34;)
-     *             .description(&#34;example network manager&#34;)
+     *                 "Connectivity",
+     *                 "SecurityAdmin")
+     *             .description("example network manager")
      *             .build());
      * 
      *         final var example = NetworkFunctions.getNetworkManager(GetNetworkManagerArgs.builder()
@@ -2116,7 +2116,7 @@ public final class NetworkFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2129,7 +2129,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2157,24 +2157,24 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *             .name("example-resources")
+     *             .location("West Europe")
      *             .build());
      * 
      *         final var current = CoreFunctions.getSubscription();
      * 
-     *         var exampleNetworkManager = new NetworkManager(&#34;exampleNetworkManager&#34;, NetworkManagerArgs.builder()        
-     *             .name(&#34;example-network-manager&#34;)
+     *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()        
+     *             .name("example-network-manager")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .scope(NetworkManagerScopeArgs.builder()
-     *                 .subscriptionIds(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+     *                 .subscriptionIds(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
      *                 .build())
      *             .scopeAccesses(            
-     *                 &#34;Connectivity&#34;,
-     *                 &#34;SecurityAdmin&#34;)
-     *             .description(&#34;example network manager&#34;)
+     *                 "Connectivity",
+     *                 "SecurityAdmin")
+     *             .description("example network manager")
      *             .build());
      * 
      *         final var example = NetworkFunctions.getNetworkManager(GetNetworkManagerArgs.builder()
@@ -2184,7 +2184,7 @@ public final class NetworkFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2197,7 +2197,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2225,24 +2225,24 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *             .name("example-resources")
+     *             .location("West Europe")
      *             .build());
      * 
      *         final var current = CoreFunctions.getSubscription();
      * 
-     *         var exampleNetworkManager = new NetworkManager(&#34;exampleNetworkManager&#34;, NetworkManagerArgs.builder()        
-     *             .name(&#34;example-network-manager&#34;)
+     *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()        
+     *             .name("example-network-manager")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .scope(NetworkManagerScopeArgs.builder()
-     *                 .subscriptionIds(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+     *                 .subscriptionIds(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
      *                 .build())
      *             .scopeAccesses(            
-     *                 &#34;Connectivity&#34;,
-     *                 &#34;SecurityAdmin&#34;)
-     *             .description(&#34;example network manager&#34;)
+     *                 "Connectivity",
+     *                 "SecurityAdmin")
+     *             .description("example network manager")
      *             .build());
      * 
      *         final var example = NetworkFunctions.getNetworkManager(GetNetworkManagerArgs.builder()
@@ -2252,7 +2252,7 @@ public final class NetworkFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2265,7 +2265,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2295,28 +2295,28 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *             .name("example-resources")
+     *             .location("West Europe")
      *             .build());
      * 
      *         final var current = CoreFunctions.getSubscription();
      * 
-     *         var exampleNetworkManager = new NetworkManager(&#34;exampleNetworkManager&#34;, NetworkManagerArgs.builder()        
-     *             .name(&#34;example-network-manager&#34;)
+     *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()        
+     *             .name("example-network-manager")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .scope(NetworkManagerScopeArgs.builder()
-     *                 .subscriptionIds(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+     *                 .subscriptionIds(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
      *                 .build())
      *             .scopeAccesses(            
-     *                 &#34;Connectivity&#34;,
-     *                 &#34;SecurityAdmin&#34;)
-     *             .description(&#34;example network manager&#34;)
+     *                 "Connectivity",
+     *                 "SecurityAdmin")
+     *             .description("example network manager")
      *             .build());
      * 
-     *         var exampleNetworkManagerNetworkGroup = new NetworkManagerNetworkGroup(&#34;exampleNetworkManagerNetworkGroup&#34;, NetworkManagerNetworkGroupArgs.builder()        
-     *             .name(&#34;example-group&#34;)
+     *         var exampleNetworkManagerNetworkGroup = new NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", NetworkManagerNetworkGroupArgs.builder()        
+     *             .name("example-group")
      *             .networkManagerId(exampleNetworkManager.id())
      *             .build());
      * 
@@ -2327,7 +2327,7 @@ public final class NetworkFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2340,7 +2340,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2370,28 +2370,28 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *             .name("example-resources")
+     *             .location("West Europe")
      *             .build());
      * 
      *         final var current = CoreFunctions.getSubscription();
      * 
-     *         var exampleNetworkManager = new NetworkManager(&#34;exampleNetworkManager&#34;, NetworkManagerArgs.builder()        
-     *             .name(&#34;example-network-manager&#34;)
+     *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()        
+     *             .name("example-network-manager")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .scope(NetworkManagerScopeArgs.builder()
-     *                 .subscriptionIds(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+     *                 .subscriptionIds(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
      *                 .build())
      *             .scopeAccesses(            
-     *                 &#34;Connectivity&#34;,
-     *                 &#34;SecurityAdmin&#34;)
-     *             .description(&#34;example network manager&#34;)
+     *                 "Connectivity",
+     *                 "SecurityAdmin")
+     *             .description("example network manager")
      *             .build());
      * 
-     *         var exampleNetworkManagerNetworkGroup = new NetworkManagerNetworkGroup(&#34;exampleNetworkManagerNetworkGroup&#34;, NetworkManagerNetworkGroupArgs.builder()        
-     *             .name(&#34;example-group&#34;)
+     *         var exampleNetworkManagerNetworkGroup = new NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", NetworkManagerNetworkGroupArgs.builder()        
+     *             .name("example-group")
      *             .networkManagerId(exampleNetworkManager.id())
      *             .build());
      * 
@@ -2402,7 +2402,7 @@ public final class NetworkFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2415,7 +2415,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2445,28 +2445,28 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *             .name("example-resources")
+     *             .location("West Europe")
      *             .build());
      * 
      *         final var current = CoreFunctions.getSubscription();
      * 
-     *         var exampleNetworkManager = new NetworkManager(&#34;exampleNetworkManager&#34;, NetworkManagerArgs.builder()        
-     *             .name(&#34;example-network-manager&#34;)
+     *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()        
+     *             .name("example-network-manager")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .scope(NetworkManagerScopeArgs.builder()
-     *                 .subscriptionIds(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+     *                 .subscriptionIds(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
      *                 .build())
      *             .scopeAccesses(            
-     *                 &#34;Connectivity&#34;,
-     *                 &#34;SecurityAdmin&#34;)
-     *             .description(&#34;example network manager&#34;)
+     *                 "Connectivity",
+     *                 "SecurityAdmin")
+     *             .description("example network manager")
      *             .build());
      * 
-     *         var exampleNetworkManagerNetworkGroup = new NetworkManagerNetworkGroup(&#34;exampleNetworkManagerNetworkGroup&#34;, NetworkManagerNetworkGroupArgs.builder()        
-     *             .name(&#34;example-group&#34;)
+     *         var exampleNetworkManagerNetworkGroup = new NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", NetworkManagerNetworkGroupArgs.builder()        
+     *             .name("example-group")
      *             .networkManagerId(exampleNetworkManager.id())
      *             .build());
      * 
@@ -2477,7 +2477,7 @@ public final class NetworkFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2490,7 +2490,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2520,28 +2520,28 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *             .name("example-resources")
+     *             .location("West Europe")
      *             .build());
      * 
      *         final var current = CoreFunctions.getSubscription();
      * 
-     *         var exampleNetworkManager = new NetworkManager(&#34;exampleNetworkManager&#34;, NetworkManagerArgs.builder()        
-     *             .name(&#34;example-network-manager&#34;)
+     *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()        
+     *             .name("example-network-manager")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .scope(NetworkManagerScopeArgs.builder()
-     *                 .subscriptionIds(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+     *                 .subscriptionIds(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
      *                 .build())
      *             .scopeAccesses(            
-     *                 &#34;Connectivity&#34;,
-     *                 &#34;SecurityAdmin&#34;)
-     *             .description(&#34;example network manager&#34;)
+     *                 "Connectivity",
+     *                 "SecurityAdmin")
+     *             .description("example network manager")
      *             .build());
      * 
-     *         var exampleNetworkManagerNetworkGroup = new NetworkManagerNetworkGroup(&#34;exampleNetworkManagerNetworkGroup&#34;, NetworkManagerNetworkGroupArgs.builder()        
-     *             .name(&#34;example-group&#34;)
+     *         var exampleNetworkManagerNetworkGroup = new NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", NetworkManagerNetworkGroupArgs.builder()        
+     *             .name("example-group")
      *             .networkManagerId(exampleNetworkManager.id())
      *             .build());
      * 
@@ -2552,7 +2552,7 @@ public final class NetworkFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2565,7 +2565,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2587,14 +2587,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkSecurityGroup(GetNetworkSecurityGroupArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export(&#34;location&#34;, example.applyValue(getNetworkSecurityGroupResult -&gt; getNetworkSecurityGroupResult.location()));
+     *         ctx.export("location", example.applyValue(getNetworkSecurityGroupResult -> getNetworkSecurityGroupResult.location()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2607,7 +2607,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2629,14 +2629,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkSecurityGroup(GetNetworkSecurityGroupArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export(&#34;location&#34;, example.applyValue(getNetworkSecurityGroupResult -&gt; getNetworkSecurityGroupResult.location()));
+     *         ctx.export("location", example.applyValue(getNetworkSecurityGroupResult -> getNetworkSecurityGroupResult.location()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2649,7 +2649,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2671,14 +2671,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkSecurityGroup(GetNetworkSecurityGroupArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export(&#34;location&#34;, example.applyValue(getNetworkSecurityGroupResult -&gt; getNetworkSecurityGroupResult.location()));
+     *         ctx.export("location", example.applyValue(getNetworkSecurityGroupResult -> getNetworkSecurityGroupResult.location()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2691,7 +2691,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2713,14 +2713,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkSecurityGroup(GetNetworkSecurityGroupArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export(&#34;location&#34;, example.applyValue(getNetworkSecurityGroupResult -&gt; getNetworkSecurityGroupResult.location()));
+     *         ctx.export("location", example.applyValue(getNetworkSecurityGroupResult -> getNetworkSecurityGroupResult.location()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2733,7 +2733,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2759,10 +2759,10 @@ public final class NetworkFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export(&#34;networkWatcherId&#34;, example.applyValue(getNetworkWatcherResult -&gt; getNetworkWatcherResult.id()));
+     *         ctx.export("networkWatcherId", example.applyValue(getNetworkWatcherResult -> getNetworkWatcherResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2775,7 +2775,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2801,10 +2801,10 @@ public final class NetworkFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export(&#34;networkWatcherId&#34;, example.applyValue(getNetworkWatcherResult -&gt; getNetworkWatcherResult.id()));
+     *         ctx.export("networkWatcherId", example.applyValue(getNetworkWatcherResult -> getNetworkWatcherResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2817,7 +2817,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2843,10 +2843,10 @@ public final class NetworkFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export(&#34;networkWatcherId&#34;, example.applyValue(getNetworkWatcherResult -&gt; getNetworkWatcherResult.id()));
+     *         ctx.export("networkWatcherId", example.applyValue(getNetworkWatcherResult -> getNetworkWatcherResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2859,7 +2859,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2885,10 +2885,10 @@ public final class NetworkFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export(&#34;networkWatcherId&#34;, example.applyValue(getNetworkWatcherResult -&gt; getNetworkWatcherResult.id()));
+     *         ctx.export("networkWatcherId", example.applyValue(getNetworkWatcherResult -> getNetworkWatcherResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2903,7 +2903,7 @@ public final class NetworkFunctions {
      * ### Reference An Existing)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2925,21 +2925,21 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getPublicIP(GetPublicIPArgs.builder()
-     *             .name(&#34;name_of_public_ip&#34;)
-     *             .resourceGroupName(&#34;name_of_resource_group&#34;)
+     *             .name("name_of_public_ip")
+     *             .resourceGroupName("name_of_resource_group")
      *             .build());
      * 
-     *         ctx.export(&#34;domainNameLabel&#34;, example.applyValue(getPublicIPResult -&gt; getPublicIPResult.domainNameLabel()));
-     *         ctx.export(&#34;publicIpAddress&#34;, example.applyValue(getPublicIPResult -&gt; getPublicIPResult.ipAddress()));
+     *         ctx.export("domainNameLabel", example.applyValue(getPublicIPResult -> getPublicIPResult.domainNameLabel()));
+     *         ctx.export("publicIpAddress", example.applyValue(getPublicIPResult -> getPublicIPResult.ipAddress()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Retrieve The Dynamic Public IP Of A New VM)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2973,49 +2973,49 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;test-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *             .name("test-resources")
+     *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
-     *             .name(&#34;test-network&#34;)
-     *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+     *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+     *             .name("test-network")
+     *             .addressSpaces("10.0.0.0/16")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
      * 
-     *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
-     *             .name(&#34;acctsub&#34;)
+     *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+     *             .name("acctsub")
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .virtualNetworkName(exampleVirtualNetwork.name())
-     *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
+     *             .addressPrefixes("10.0.2.0/24")
      *             .build());
      * 
-     *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
-     *             .name(&#34;test-pip&#34;)
+     *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+     *             .name("test-pip")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
-     *             .allocationMethod(&#34;Dynamic&#34;)
+     *             .allocationMethod("Dynamic")
      *             .idleTimeoutInMinutes(30)
-     *             .tags(Map.of(&#34;environment&#34;, &#34;test&#34;))
+     *             .tags(Map.of("environment", "test"))
      *             .build());
      * 
-     *         var exampleNetworkInterface = new NetworkInterface(&#34;exampleNetworkInterface&#34;, NetworkInterfaceArgs.builder()        
-     *             .name(&#34;test-nic&#34;)
+     *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()        
+     *             .name("test-nic")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
-     *                 .name(&#34;testconfiguration1&#34;)
+     *                 .name("testconfiguration1")
      *                 .subnetId(exampleSubnet.id())
-     *                 .privateIpAddressAllocation(&#34;Static&#34;)
-     *                 .privateIpAddress(&#34;10.0.2.5&#34;)
+     *                 .privateIpAddressAllocation("Static")
+     *                 .privateIpAddress("10.0.2.5")
      *                 .publicIpAddressId(examplePublicIp.id())
      *                 .build())
      *             .build());
      * 
-     *         var exampleVirtualMachine = new VirtualMachine(&#34;exampleVirtualMachine&#34;, VirtualMachineArgs.builder()        
-     *             .name(&#34;test-vm&#34;)
+     *         var exampleVirtualMachine = new VirtualMachine("exampleVirtualMachine", VirtualMachineArgs.builder()        
+     *             .name("test-vm")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .networkInterfaceIds(exampleNetworkInterface.id())
@@ -3026,10 +3026,10 @@ public final class NetworkFunctions {
      *             .resourceGroupName(exampleVirtualMachine.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export(&#34;publicIpAddress&#34;, example.applyValue(getPublicIPResult -&gt; getPublicIPResult).applyValue(example -&gt; example.applyValue(getPublicIPResult -&gt; getPublicIPResult.ipAddress())));
+     *         ctx.export("publicIpAddress", example.applyValue(getPublicIPResult -> getPublicIPResult).applyValue(example -> example.applyValue(getPublicIPResult -> getPublicIPResult.ipAddress())));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3044,7 +3044,7 @@ public final class NetworkFunctions {
      * ### Reference An Existing)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3066,21 +3066,21 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getPublicIP(GetPublicIPArgs.builder()
-     *             .name(&#34;name_of_public_ip&#34;)
-     *             .resourceGroupName(&#34;name_of_resource_group&#34;)
+     *             .name("name_of_public_ip")
+     *             .resourceGroupName("name_of_resource_group")
      *             .build());
      * 
-     *         ctx.export(&#34;domainNameLabel&#34;, example.applyValue(getPublicIPResult -&gt; getPublicIPResult.domainNameLabel()));
-     *         ctx.export(&#34;publicIpAddress&#34;, example.applyValue(getPublicIPResult -&gt; getPublicIPResult.ipAddress()));
+     *         ctx.export("domainNameLabel", example.applyValue(getPublicIPResult -> getPublicIPResult.domainNameLabel()));
+     *         ctx.export("publicIpAddress", example.applyValue(getPublicIPResult -> getPublicIPResult.ipAddress()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Retrieve The Dynamic Public IP Of A New VM)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3114,49 +3114,49 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;test-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *             .name("test-resources")
+     *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
-     *             .name(&#34;test-network&#34;)
-     *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+     *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+     *             .name("test-network")
+     *             .addressSpaces("10.0.0.0/16")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
      * 
-     *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
-     *             .name(&#34;acctsub&#34;)
+     *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+     *             .name("acctsub")
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .virtualNetworkName(exampleVirtualNetwork.name())
-     *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
+     *             .addressPrefixes("10.0.2.0/24")
      *             .build());
      * 
-     *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
-     *             .name(&#34;test-pip&#34;)
+     *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+     *             .name("test-pip")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
-     *             .allocationMethod(&#34;Dynamic&#34;)
+     *             .allocationMethod("Dynamic")
      *             .idleTimeoutInMinutes(30)
-     *             .tags(Map.of(&#34;environment&#34;, &#34;test&#34;))
+     *             .tags(Map.of("environment", "test"))
      *             .build());
      * 
-     *         var exampleNetworkInterface = new NetworkInterface(&#34;exampleNetworkInterface&#34;, NetworkInterfaceArgs.builder()        
-     *             .name(&#34;test-nic&#34;)
+     *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()        
+     *             .name("test-nic")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
-     *                 .name(&#34;testconfiguration1&#34;)
+     *                 .name("testconfiguration1")
      *                 .subnetId(exampleSubnet.id())
-     *                 .privateIpAddressAllocation(&#34;Static&#34;)
-     *                 .privateIpAddress(&#34;10.0.2.5&#34;)
+     *                 .privateIpAddressAllocation("Static")
+     *                 .privateIpAddress("10.0.2.5")
      *                 .publicIpAddressId(examplePublicIp.id())
      *                 .build())
      *             .build());
      * 
-     *         var exampleVirtualMachine = new VirtualMachine(&#34;exampleVirtualMachine&#34;, VirtualMachineArgs.builder()        
-     *             .name(&#34;test-vm&#34;)
+     *         var exampleVirtualMachine = new VirtualMachine("exampleVirtualMachine", VirtualMachineArgs.builder()        
+     *             .name("test-vm")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .networkInterfaceIds(exampleNetworkInterface.id())
@@ -3167,10 +3167,10 @@ public final class NetworkFunctions {
      *             .resourceGroupName(exampleVirtualMachine.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export(&#34;publicIpAddress&#34;, example.applyValue(getPublicIPResult -&gt; getPublicIPResult).applyValue(example -&gt; example.applyValue(getPublicIPResult -&gt; getPublicIPResult.ipAddress())));
+     *         ctx.export("publicIpAddress", example.applyValue(getPublicIPResult -> getPublicIPResult).applyValue(example -> example.applyValue(getPublicIPResult -> getPublicIPResult.ipAddress())));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3185,7 +3185,7 @@ public final class NetworkFunctions {
      * ### Reference An Existing)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3207,21 +3207,21 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getPublicIP(GetPublicIPArgs.builder()
-     *             .name(&#34;name_of_public_ip&#34;)
-     *             .resourceGroupName(&#34;name_of_resource_group&#34;)
+     *             .name("name_of_public_ip")
+     *             .resourceGroupName("name_of_resource_group")
      *             .build());
      * 
-     *         ctx.export(&#34;domainNameLabel&#34;, example.applyValue(getPublicIPResult -&gt; getPublicIPResult.domainNameLabel()));
-     *         ctx.export(&#34;publicIpAddress&#34;, example.applyValue(getPublicIPResult -&gt; getPublicIPResult.ipAddress()));
+     *         ctx.export("domainNameLabel", example.applyValue(getPublicIPResult -> getPublicIPResult.domainNameLabel()));
+     *         ctx.export("publicIpAddress", example.applyValue(getPublicIPResult -> getPublicIPResult.ipAddress()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Retrieve The Dynamic Public IP Of A New VM)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3255,49 +3255,49 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;test-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *             .name("test-resources")
+     *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
-     *             .name(&#34;test-network&#34;)
-     *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+     *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+     *             .name("test-network")
+     *             .addressSpaces("10.0.0.0/16")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
      * 
-     *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
-     *             .name(&#34;acctsub&#34;)
+     *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+     *             .name("acctsub")
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .virtualNetworkName(exampleVirtualNetwork.name())
-     *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
+     *             .addressPrefixes("10.0.2.0/24")
      *             .build());
      * 
-     *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
-     *             .name(&#34;test-pip&#34;)
+     *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+     *             .name("test-pip")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
-     *             .allocationMethod(&#34;Dynamic&#34;)
+     *             .allocationMethod("Dynamic")
      *             .idleTimeoutInMinutes(30)
-     *             .tags(Map.of(&#34;environment&#34;, &#34;test&#34;))
+     *             .tags(Map.of("environment", "test"))
      *             .build());
      * 
-     *         var exampleNetworkInterface = new NetworkInterface(&#34;exampleNetworkInterface&#34;, NetworkInterfaceArgs.builder()        
-     *             .name(&#34;test-nic&#34;)
+     *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()        
+     *             .name("test-nic")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
-     *                 .name(&#34;testconfiguration1&#34;)
+     *                 .name("testconfiguration1")
      *                 .subnetId(exampleSubnet.id())
-     *                 .privateIpAddressAllocation(&#34;Static&#34;)
-     *                 .privateIpAddress(&#34;10.0.2.5&#34;)
+     *                 .privateIpAddressAllocation("Static")
+     *                 .privateIpAddress("10.0.2.5")
      *                 .publicIpAddressId(examplePublicIp.id())
      *                 .build())
      *             .build());
      * 
-     *         var exampleVirtualMachine = new VirtualMachine(&#34;exampleVirtualMachine&#34;, VirtualMachineArgs.builder()        
-     *             .name(&#34;test-vm&#34;)
+     *         var exampleVirtualMachine = new VirtualMachine("exampleVirtualMachine", VirtualMachineArgs.builder()        
+     *             .name("test-vm")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .networkInterfaceIds(exampleNetworkInterface.id())
@@ -3308,10 +3308,10 @@ public final class NetworkFunctions {
      *             .resourceGroupName(exampleVirtualMachine.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export(&#34;publicIpAddress&#34;, example.applyValue(getPublicIPResult -&gt; getPublicIPResult).applyValue(example -&gt; example.applyValue(getPublicIPResult -&gt; getPublicIPResult.ipAddress())));
+     *         ctx.export("publicIpAddress", example.applyValue(getPublicIPResult -> getPublicIPResult).applyValue(example -> example.applyValue(getPublicIPResult -> getPublicIPResult.ipAddress())));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3326,7 +3326,7 @@ public final class NetworkFunctions {
      * ### Reference An Existing)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3348,21 +3348,21 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getPublicIP(GetPublicIPArgs.builder()
-     *             .name(&#34;name_of_public_ip&#34;)
-     *             .resourceGroupName(&#34;name_of_resource_group&#34;)
+     *             .name("name_of_public_ip")
+     *             .resourceGroupName("name_of_resource_group")
      *             .build());
      * 
-     *         ctx.export(&#34;domainNameLabel&#34;, example.applyValue(getPublicIPResult -&gt; getPublicIPResult.domainNameLabel()));
-     *         ctx.export(&#34;publicIpAddress&#34;, example.applyValue(getPublicIPResult -&gt; getPublicIPResult.ipAddress()));
+     *         ctx.export("domainNameLabel", example.applyValue(getPublicIPResult -> getPublicIPResult.domainNameLabel()));
+     *         ctx.export("publicIpAddress", example.applyValue(getPublicIPResult -> getPublicIPResult.ipAddress()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Retrieve The Dynamic Public IP Of A New VM)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3396,49 +3396,49 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;test-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *             .name("test-resources")
+     *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
-     *             .name(&#34;test-network&#34;)
-     *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+     *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+     *             .name("test-network")
+     *             .addressSpaces("10.0.0.0/16")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
      * 
-     *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
-     *             .name(&#34;acctsub&#34;)
+     *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+     *             .name("acctsub")
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .virtualNetworkName(exampleVirtualNetwork.name())
-     *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
+     *             .addressPrefixes("10.0.2.0/24")
      *             .build());
      * 
-     *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
-     *             .name(&#34;test-pip&#34;)
+     *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+     *             .name("test-pip")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
-     *             .allocationMethod(&#34;Dynamic&#34;)
+     *             .allocationMethod("Dynamic")
      *             .idleTimeoutInMinutes(30)
-     *             .tags(Map.of(&#34;environment&#34;, &#34;test&#34;))
+     *             .tags(Map.of("environment", "test"))
      *             .build());
      * 
-     *         var exampleNetworkInterface = new NetworkInterface(&#34;exampleNetworkInterface&#34;, NetworkInterfaceArgs.builder()        
-     *             .name(&#34;test-nic&#34;)
+     *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()        
+     *             .name("test-nic")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
-     *                 .name(&#34;testconfiguration1&#34;)
+     *                 .name("testconfiguration1")
      *                 .subnetId(exampleSubnet.id())
-     *                 .privateIpAddressAllocation(&#34;Static&#34;)
-     *                 .privateIpAddress(&#34;10.0.2.5&#34;)
+     *                 .privateIpAddressAllocation("Static")
+     *                 .privateIpAddress("10.0.2.5")
      *                 .publicIpAddressId(examplePublicIp.id())
      *                 .build())
      *             .build());
      * 
-     *         var exampleVirtualMachine = new VirtualMachine(&#34;exampleVirtualMachine&#34;, VirtualMachineArgs.builder()        
-     *             .name(&#34;test-vm&#34;)
+     *         var exampleVirtualMachine = new VirtualMachine("exampleVirtualMachine", VirtualMachineArgs.builder()        
+     *             .name("test-vm")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .networkInterfaceIds(exampleNetworkInterface.id())
@@ -3449,10 +3449,10 @@ public final class NetworkFunctions {
      *             .resourceGroupName(exampleVirtualMachine.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export(&#34;publicIpAddress&#34;, example.applyValue(getPublicIPResult -&gt; getPublicIPResult).applyValue(example -&gt; example.applyValue(getPublicIPResult -&gt; getPublicIPResult.ipAddress())));
+     *         ctx.export("publicIpAddress", example.applyValue(getPublicIPResult -> getPublicIPResult).applyValue(example -> example.applyValue(getPublicIPResult -> getPublicIPResult.ipAddress())));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3465,7 +3465,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3487,13 +3487,13 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getPublicIPs(GetPublicIPsArgs.builder()
-     *             .resourceGroupName(&#34;pip-test&#34;)
-     *             .attachmentStatus(&#34;Attached&#34;)
+     *             .resourceGroupName("pip-test")
+     *             .attachmentStatus("Attached")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3506,7 +3506,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3528,13 +3528,13 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getPublicIPs(GetPublicIPsArgs.builder()
-     *             .resourceGroupName(&#34;pip-test&#34;)
-     *             .attachmentStatus(&#34;Attached&#34;)
+     *             .resourceGroupName("pip-test")
+     *             .attachmentStatus("Attached")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3547,7 +3547,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3569,13 +3569,13 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getPublicIPs(GetPublicIPsArgs.builder()
-     *             .resourceGroupName(&#34;pip-test&#34;)
-     *             .attachmentStatus(&#34;Attached&#34;)
+     *             .resourceGroupName("pip-test")
+     *             .attachmentStatus("Attached")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3588,7 +3588,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3610,13 +3610,13 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getPublicIPs(GetPublicIPsArgs.builder()
-     *             .resourceGroupName(&#34;pip-test&#34;)
-     *             .attachmentStatus(&#34;Attached&#34;)
+     *             .resourceGroupName("pip-test")
+     *             .attachmentStatus("Attached")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3631,7 +3631,7 @@ public final class NetworkFunctions {
      * ### Reference An Existing)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3653,14 +3653,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getPublicIpPrefix(GetPublicIpPrefixArgs.builder()
-     *             .name(&#34;name_of_public_ip&#34;)
-     *             .resourceGroupName(&#34;name_of_resource_group&#34;)
+     *             .name("name_of_public_ip")
+     *             .resourceGroupName("name_of_resource_group")
      *             .build());
      * 
-     *         ctx.export(&#34;publicIpPrefix&#34;, example.applyValue(getPublicIpPrefixResult -&gt; getPublicIpPrefixResult.ipPrefix()));
+     *         ctx.export("publicIpPrefix", example.applyValue(getPublicIpPrefixResult -> getPublicIpPrefixResult.ipPrefix()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3675,7 +3675,7 @@ public final class NetworkFunctions {
      * ### Reference An Existing)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3697,14 +3697,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getPublicIpPrefix(GetPublicIpPrefixArgs.builder()
-     *             .name(&#34;name_of_public_ip&#34;)
-     *             .resourceGroupName(&#34;name_of_resource_group&#34;)
+     *             .name("name_of_public_ip")
+     *             .resourceGroupName("name_of_resource_group")
      *             .build());
      * 
-     *         ctx.export(&#34;publicIpPrefix&#34;, example.applyValue(getPublicIpPrefixResult -&gt; getPublicIpPrefixResult.ipPrefix()));
+     *         ctx.export("publicIpPrefix", example.applyValue(getPublicIpPrefixResult -> getPublicIpPrefixResult.ipPrefix()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3719,7 +3719,7 @@ public final class NetworkFunctions {
      * ### Reference An Existing)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3741,14 +3741,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getPublicIpPrefix(GetPublicIpPrefixArgs.builder()
-     *             .name(&#34;name_of_public_ip&#34;)
-     *             .resourceGroupName(&#34;name_of_resource_group&#34;)
+     *             .name("name_of_public_ip")
+     *             .resourceGroupName("name_of_resource_group")
      *             .build());
      * 
-     *         ctx.export(&#34;publicIpPrefix&#34;, example.applyValue(getPublicIpPrefixResult -&gt; getPublicIpPrefixResult.ipPrefix()));
+     *         ctx.export("publicIpPrefix", example.applyValue(getPublicIpPrefixResult -> getPublicIpPrefixResult.ipPrefix()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3763,7 +3763,7 @@ public final class NetworkFunctions {
      * ### Reference An Existing)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3785,14 +3785,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getPublicIpPrefix(GetPublicIpPrefixArgs.builder()
-     *             .name(&#34;name_of_public_ip&#34;)
-     *             .resourceGroupName(&#34;name_of_resource_group&#34;)
+     *             .name("name_of_public_ip")
+     *             .resourceGroupName("name_of_resource_group")
      *             .build());
      * 
-     *         ctx.export(&#34;publicIpPrefix&#34;, example.applyValue(getPublicIpPrefixResult -&gt; getPublicIpPrefixResult.ipPrefix()));
+     *         ctx.export("publicIpPrefix", example.applyValue(getPublicIpPrefixResult -> getPublicIpPrefixResult.ipPrefix()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3805,7 +3805,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3827,14 +3827,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getRouteFilter(GetRouteFilterArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getRouteFilterResult -&gt; getRouteFilterResult.id()));
+     *         ctx.export("id", example.applyValue(getRouteFilterResult -> getRouteFilterResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3847,7 +3847,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3869,14 +3869,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getRouteFilter(GetRouteFilterArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getRouteFilterResult -&gt; getRouteFilterResult.id()));
+     *         ctx.export("id", example.applyValue(getRouteFilterResult -> getRouteFilterResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3889,7 +3889,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3911,14 +3911,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getRouteFilter(GetRouteFilterArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getRouteFilterResult -&gt; getRouteFilterResult.id()));
+     *         ctx.export("id", example.applyValue(getRouteFilterResult -> getRouteFilterResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3931,7 +3931,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3953,14 +3953,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getRouteFilter(GetRouteFilterArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getRouteFilterResult -&gt; getRouteFilterResult.id()));
+     *         ctx.export("id", example.applyValue(getRouteFilterResult -> getRouteFilterResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3973,7 +3973,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3995,13 +3995,13 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getRouteTable(GetRouteTableArgs.builder()
-     *             .name(&#34;myroutetable&#34;)
-     *             .resourceGroupName(&#34;some-resource-group&#34;)
+     *             .name("myroutetable")
+     *             .resourceGroupName("some-resource-group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4014,7 +4014,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4036,13 +4036,13 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getRouteTable(GetRouteTableArgs.builder()
-     *             .name(&#34;myroutetable&#34;)
-     *             .resourceGroupName(&#34;some-resource-group&#34;)
+     *             .name("myroutetable")
+     *             .resourceGroupName("some-resource-group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4055,7 +4055,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4077,13 +4077,13 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getRouteTable(GetRouteTableArgs.builder()
-     *             .name(&#34;myroutetable&#34;)
-     *             .resourceGroupName(&#34;some-resource-group&#34;)
+     *             .name("myroutetable")
+     *             .resourceGroupName("some-resource-group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4096,7 +4096,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4118,13 +4118,13 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getRouteTable(GetRouteTableArgs.builder()
-     *             .name(&#34;myroutetable&#34;)
-     *             .resourceGroupName(&#34;some-resource-group&#34;)
+     *             .name("myroutetable")
+     *             .resourceGroupName("some-resource-group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4137,7 +4137,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4159,16 +4159,16 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getServiceTags(GetServiceTagsArgs.builder()
-     *             .location(&#34;westcentralus&#34;)
-     *             .service(&#34;AzureKeyVault&#34;)
-     *             .locationFilter(&#34;northeurope&#34;)
+     *             .location("westcentralus")
+     *             .service("AzureKeyVault")
+     *             .locationFilter("northeurope")
      *             .build());
      * 
-     *         ctx.export(&#34;addressPrefixes&#34;, example.applyValue(getServiceTagsResult -&gt; getServiceTagsResult.addressPrefixes()));
-     *         ctx.export(&#34;ipv4Cidrs&#34;, example.applyValue(getServiceTagsResult -&gt; getServiceTagsResult.ipv4Cidrs()));
+     *         ctx.export("addressPrefixes", example.applyValue(getServiceTagsResult -> getServiceTagsResult.addressPrefixes()));
+     *         ctx.export("ipv4Cidrs", example.applyValue(getServiceTagsResult -> getServiceTagsResult.ipv4Cidrs()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4181,7 +4181,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4203,16 +4203,16 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getServiceTags(GetServiceTagsArgs.builder()
-     *             .location(&#34;westcentralus&#34;)
-     *             .service(&#34;AzureKeyVault&#34;)
-     *             .locationFilter(&#34;northeurope&#34;)
+     *             .location("westcentralus")
+     *             .service("AzureKeyVault")
+     *             .locationFilter("northeurope")
      *             .build());
      * 
-     *         ctx.export(&#34;addressPrefixes&#34;, example.applyValue(getServiceTagsResult -&gt; getServiceTagsResult.addressPrefixes()));
-     *         ctx.export(&#34;ipv4Cidrs&#34;, example.applyValue(getServiceTagsResult -&gt; getServiceTagsResult.ipv4Cidrs()));
+     *         ctx.export("addressPrefixes", example.applyValue(getServiceTagsResult -> getServiceTagsResult.addressPrefixes()));
+     *         ctx.export("ipv4Cidrs", example.applyValue(getServiceTagsResult -> getServiceTagsResult.ipv4Cidrs()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4225,7 +4225,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4247,16 +4247,16 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getServiceTags(GetServiceTagsArgs.builder()
-     *             .location(&#34;westcentralus&#34;)
-     *             .service(&#34;AzureKeyVault&#34;)
-     *             .locationFilter(&#34;northeurope&#34;)
+     *             .location("westcentralus")
+     *             .service("AzureKeyVault")
+     *             .locationFilter("northeurope")
      *             .build());
      * 
-     *         ctx.export(&#34;addressPrefixes&#34;, example.applyValue(getServiceTagsResult -&gt; getServiceTagsResult.addressPrefixes()));
-     *         ctx.export(&#34;ipv4Cidrs&#34;, example.applyValue(getServiceTagsResult -&gt; getServiceTagsResult.ipv4Cidrs()));
+     *         ctx.export("addressPrefixes", example.applyValue(getServiceTagsResult -> getServiceTagsResult.addressPrefixes()));
+     *         ctx.export("ipv4Cidrs", example.applyValue(getServiceTagsResult -> getServiceTagsResult.ipv4Cidrs()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4269,7 +4269,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4291,16 +4291,16 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getServiceTags(GetServiceTagsArgs.builder()
-     *             .location(&#34;westcentralus&#34;)
-     *             .service(&#34;AzureKeyVault&#34;)
-     *             .locationFilter(&#34;northeurope&#34;)
+     *             .location("westcentralus")
+     *             .service("AzureKeyVault")
+     *             .locationFilter("northeurope")
      *             .build());
      * 
-     *         ctx.export(&#34;addressPrefixes&#34;, example.applyValue(getServiceTagsResult -&gt; getServiceTagsResult.addressPrefixes()));
-     *         ctx.export(&#34;ipv4Cidrs&#34;, example.applyValue(getServiceTagsResult -&gt; getServiceTagsResult.ipv4Cidrs()));
+     *         ctx.export("addressPrefixes", example.applyValue(getServiceTagsResult -> getServiceTagsResult.addressPrefixes()));
+     *         ctx.export("ipv4Cidrs", example.applyValue(getServiceTagsResult -> getServiceTagsResult.ipv4Cidrs()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4313,7 +4313,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4335,15 +4335,15 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getSubnet(GetSubnetArgs.builder()
-     *             .name(&#34;backend&#34;)
-     *             .virtualNetworkName(&#34;production&#34;)
-     *             .resourceGroupName(&#34;networking&#34;)
+     *             .name("backend")
+     *             .virtualNetworkName("production")
+     *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export(&#34;subnetId&#34;, example.applyValue(getSubnetResult -&gt; getSubnetResult.id()));
+     *         ctx.export("subnetId", example.applyValue(getSubnetResult -> getSubnetResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4356,7 +4356,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4378,15 +4378,15 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getSubnet(GetSubnetArgs.builder()
-     *             .name(&#34;backend&#34;)
-     *             .virtualNetworkName(&#34;production&#34;)
-     *             .resourceGroupName(&#34;networking&#34;)
+     *             .name("backend")
+     *             .virtualNetworkName("production")
+     *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export(&#34;subnetId&#34;, example.applyValue(getSubnetResult -&gt; getSubnetResult.id()));
+     *         ctx.export("subnetId", example.applyValue(getSubnetResult -> getSubnetResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4399,7 +4399,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4421,15 +4421,15 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getSubnet(GetSubnetArgs.builder()
-     *             .name(&#34;backend&#34;)
-     *             .virtualNetworkName(&#34;production&#34;)
-     *             .resourceGroupName(&#34;networking&#34;)
+     *             .name("backend")
+     *             .virtualNetworkName("production")
+     *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export(&#34;subnetId&#34;, example.applyValue(getSubnetResult -&gt; getSubnetResult.id()));
+     *         ctx.export("subnetId", example.applyValue(getSubnetResult -> getSubnetResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4442,7 +4442,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4464,15 +4464,15 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getSubnet(GetSubnetArgs.builder()
-     *             .name(&#34;backend&#34;)
-     *             .virtualNetworkName(&#34;production&#34;)
-     *             .resourceGroupName(&#34;networking&#34;)
+     *             .name("backend")
+     *             .virtualNetworkName("production")
+     *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export(&#34;subnetId&#34;, example.applyValue(getSubnetResult -&gt; getSubnetResult.id()));
+     *         ctx.export("subnetId", example.applyValue(getSubnetResult -> getSubnetResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4487,7 +4487,7 @@ public final class NetworkFunctions {
      * ### World)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4509,13 +4509,13 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getTrafficManager(GetTrafficManagerArgs.builder()
-     *             .name(&#34;World&#34;)
+     *             .name("World")
      *             .build());
      * 
-     *         ctx.export(&#34;locationCode&#34;, example.applyValue(getTrafficManagerResult -&gt; getTrafficManagerResult.id()));
+     *         ctx.export("locationCode", example.applyValue(getTrafficManagerResult -> getTrafficManagerResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4530,7 +4530,7 @@ public final class NetworkFunctions {
      * ### World)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4552,13 +4552,13 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getTrafficManager(GetTrafficManagerArgs.builder()
-     *             .name(&#34;World&#34;)
+     *             .name("World")
      *             .build());
      * 
-     *         ctx.export(&#34;locationCode&#34;, example.applyValue(getTrafficManagerResult -&gt; getTrafficManagerResult.id()));
+     *         ctx.export("locationCode", example.applyValue(getTrafficManagerResult -> getTrafficManagerResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4573,7 +4573,7 @@ public final class NetworkFunctions {
      * ### World)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4595,13 +4595,13 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getTrafficManager(GetTrafficManagerArgs.builder()
-     *             .name(&#34;World&#34;)
+     *             .name("World")
      *             .build());
      * 
-     *         ctx.export(&#34;locationCode&#34;, example.applyValue(getTrafficManagerResult -&gt; getTrafficManagerResult.id()));
+     *         ctx.export("locationCode", example.applyValue(getTrafficManagerResult -> getTrafficManagerResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4616,7 +4616,7 @@ public final class NetworkFunctions {
      * ### World)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4638,13 +4638,13 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getTrafficManager(GetTrafficManagerArgs.builder()
-     *             .name(&#34;World&#34;)
+     *             .name("World")
      *             .build());
      * 
-     *         ctx.export(&#34;locationCode&#34;, example.applyValue(getTrafficManagerResult -&gt; getTrafficManagerResult.id()));
+     *         ctx.export("locationCode", example.applyValue(getTrafficManagerResult -> getTrafficManagerResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4657,7 +4657,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4679,14 +4679,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getTrafficManagerProfile(GetTrafficManagerProfileArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .resourceGroupName(&#34;test&#34;)
+     *             .name("test")
+     *             .resourceGroupName("test")
      *             .build());
      * 
-     *         ctx.export(&#34;trafficRoutingMethod&#34;, example.applyValue(getTrafficManagerProfileResult -&gt; getTrafficManagerProfileResult.trafficRoutingMethod()));
+     *         ctx.export("trafficRoutingMethod", example.applyValue(getTrafficManagerProfileResult -> getTrafficManagerProfileResult.trafficRoutingMethod()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4699,7 +4699,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4721,14 +4721,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getTrafficManagerProfile(GetTrafficManagerProfileArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .resourceGroupName(&#34;test&#34;)
+     *             .name("test")
+     *             .resourceGroupName("test")
      *             .build());
      * 
-     *         ctx.export(&#34;trafficRoutingMethod&#34;, example.applyValue(getTrafficManagerProfileResult -&gt; getTrafficManagerProfileResult.trafficRoutingMethod()));
+     *         ctx.export("trafficRoutingMethod", example.applyValue(getTrafficManagerProfileResult -> getTrafficManagerProfileResult.trafficRoutingMethod()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4741,7 +4741,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4763,14 +4763,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getTrafficManagerProfile(GetTrafficManagerProfileArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .resourceGroupName(&#34;test&#34;)
+     *             .name("test")
+     *             .resourceGroupName("test")
      *             .build());
      * 
-     *         ctx.export(&#34;trafficRoutingMethod&#34;, example.applyValue(getTrafficManagerProfileResult -&gt; getTrafficManagerProfileResult.trafficRoutingMethod()));
+     *         ctx.export("trafficRoutingMethod", example.applyValue(getTrafficManagerProfileResult -> getTrafficManagerProfileResult.trafficRoutingMethod()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4783,7 +4783,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4805,14 +4805,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getTrafficManagerProfile(GetTrafficManagerProfileArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .resourceGroupName(&#34;test&#34;)
+     *             .name("test")
+     *             .resourceGroupName("test")
      *             .build());
      * 
-     *         ctx.export(&#34;trafficRoutingMethod&#34;, example.applyValue(getTrafficManagerProfileResult -&gt; getTrafficManagerProfileResult.trafficRoutingMethod()));
+     *         ctx.export("trafficRoutingMethod", example.applyValue(getTrafficManagerProfileResult -> getTrafficManagerProfileResult.trafficRoutingMethod()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4825,7 +4825,7 @@ public final class NetworkFunctions {
      * ## Virtual Hub Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4847,14 +4847,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVirtualHub(GetVirtualHubArgs.builder()
-     *             .name(&#34;example-hub&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-hub")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;virtualHubId&#34;, example.applyValue(getVirtualHubResult -&gt; getVirtualHubResult.id()));
+     *         ctx.export("virtualHubId", example.applyValue(getVirtualHubResult -> getVirtualHubResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4867,7 +4867,7 @@ public final class NetworkFunctions {
      * ## Virtual Hub Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4889,14 +4889,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVirtualHub(GetVirtualHubArgs.builder()
-     *             .name(&#34;example-hub&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-hub")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;virtualHubId&#34;, example.applyValue(getVirtualHubResult -&gt; getVirtualHubResult.id()));
+     *         ctx.export("virtualHubId", example.applyValue(getVirtualHubResult -> getVirtualHubResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4909,7 +4909,7 @@ public final class NetworkFunctions {
      * ## Virtual Hub Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4931,14 +4931,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVirtualHub(GetVirtualHubArgs.builder()
-     *             .name(&#34;example-hub&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-hub")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;virtualHubId&#34;, example.applyValue(getVirtualHubResult -&gt; getVirtualHubResult.id()));
+     *         ctx.export("virtualHubId", example.applyValue(getVirtualHubResult -> getVirtualHubResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4951,7 +4951,7 @@ public final class NetworkFunctions {
      * ## Virtual Hub Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4973,14 +4973,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVirtualHub(GetVirtualHubArgs.builder()
-     *             .name(&#34;example-hub&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-hub")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;virtualHubId&#34;, example.applyValue(getVirtualHubResult -&gt; getVirtualHubResult.id()));
+     *         ctx.export("virtualHubId", example.applyValue(getVirtualHubResult -> getVirtualHubResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4993,7 +4993,7 @@ public final class NetworkFunctions {
      * ## Virtual Hub Connection Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5015,15 +5015,15 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVirtualHubConnection(GetVirtualHubConnectionArgs.builder()
-     *             .name(&#34;example-connection&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .virtualHubName(&#34;example-hub-name&#34;)
+     *             .name("example-connection")
+     *             .resourceGroupName("example-resources")
+     *             .virtualHubName("example-hub-name")
      *             .build());
      * 
-     *         ctx.export(&#34;virtualHubConnectionId&#34;, example.applyValue(getVirtualHubConnectionResult -&gt; getVirtualHubConnectionResult.id()));
+     *         ctx.export("virtualHubConnectionId", example.applyValue(getVirtualHubConnectionResult -> getVirtualHubConnectionResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5036,7 +5036,7 @@ public final class NetworkFunctions {
      * ## Virtual Hub Connection Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5058,15 +5058,15 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVirtualHubConnection(GetVirtualHubConnectionArgs.builder()
-     *             .name(&#34;example-connection&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .virtualHubName(&#34;example-hub-name&#34;)
+     *             .name("example-connection")
+     *             .resourceGroupName("example-resources")
+     *             .virtualHubName("example-hub-name")
      *             .build());
      * 
-     *         ctx.export(&#34;virtualHubConnectionId&#34;, example.applyValue(getVirtualHubConnectionResult -&gt; getVirtualHubConnectionResult.id()));
+     *         ctx.export("virtualHubConnectionId", example.applyValue(getVirtualHubConnectionResult -> getVirtualHubConnectionResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5079,7 +5079,7 @@ public final class NetworkFunctions {
      * ## Virtual Hub Connection Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5101,15 +5101,15 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVirtualHubConnection(GetVirtualHubConnectionArgs.builder()
-     *             .name(&#34;example-connection&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .virtualHubName(&#34;example-hub-name&#34;)
+     *             .name("example-connection")
+     *             .resourceGroupName("example-resources")
+     *             .virtualHubName("example-hub-name")
      *             .build());
      * 
-     *         ctx.export(&#34;virtualHubConnectionId&#34;, example.applyValue(getVirtualHubConnectionResult -&gt; getVirtualHubConnectionResult.id()));
+     *         ctx.export("virtualHubConnectionId", example.applyValue(getVirtualHubConnectionResult -> getVirtualHubConnectionResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5122,7 +5122,7 @@ public final class NetworkFunctions {
      * ## Virtual Hub Connection Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5144,15 +5144,15 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVirtualHubConnection(GetVirtualHubConnectionArgs.builder()
-     *             .name(&#34;example-connection&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .virtualHubName(&#34;example-hub-name&#34;)
+     *             .name("example-connection")
+     *             .resourceGroupName("example-resources")
+     *             .virtualHubName("example-hub-name")
      *             .build());
      * 
-     *         ctx.export(&#34;virtualHubConnectionId&#34;, example.applyValue(getVirtualHubConnectionResult -&gt; getVirtualHubConnectionResult.id()));
+     *         ctx.export("virtualHubConnectionId", example.applyValue(getVirtualHubConnectionResult -> getVirtualHubConnectionResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5165,7 +5165,7 @@ public final class NetworkFunctions {
      * ## Virtual Hub Route Table Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5187,15 +5187,15 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVirtualHubRouteTable(GetVirtualHubRouteTableArgs.builder()
-     *             .name(&#34;example-hub-route-table&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .virtualHubName(&#34;example-hub-name&#34;)
+     *             .name("example-hub-route-table")
+     *             .resourceGroupName("example-resources")
+     *             .virtualHubName("example-hub-name")
      *             .build());
      * 
-     *         ctx.export(&#34;virtualHubRouteTableId&#34;, example.applyValue(getVirtualHubRouteTableResult -&gt; getVirtualHubRouteTableResult.id()));
+     *         ctx.export("virtualHubRouteTableId", example.applyValue(getVirtualHubRouteTableResult -> getVirtualHubRouteTableResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5208,7 +5208,7 @@ public final class NetworkFunctions {
      * ## Virtual Hub Route Table Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5230,15 +5230,15 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVirtualHubRouteTable(GetVirtualHubRouteTableArgs.builder()
-     *             .name(&#34;example-hub-route-table&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .virtualHubName(&#34;example-hub-name&#34;)
+     *             .name("example-hub-route-table")
+     *             .resourceGroupName("example-resources")
+     *             .virtualHubName("example-hub-name")
      *             .build());
      * 
-     *         ctx.export(&#34;virtualHubRouteTableId&#34;, example.applyValue(getVirtualHubRouteTableResult -&gt; getVirtualHubRouteTableResult.id()));
+     *         ctx.export("virtualHubRouteTableId", example.applyValue(getVirtualHubRouteTableResult -> getVirtualHubRouteTableResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5251,7 +5251,7 @@ public final class NetworkFunctions {
      * ## Virtual Hub Route Table Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5273,15 +5273,15 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVirtualHubRouteTable(GetVirtualHubRouteTableArgs.builder()
-     *             .name(&#34;example-hub-route-table&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .virtualHubName(&#34;example-hub-name&#34;)
+     *             .name("example-hub-route-table")
+     *             .resourceGroupName("example-resources")
+     *             .virtualHubName("example-hub-name")
      *             .build());
      * 
-     *         ctx.export(&#34;virtualHubRouteTableId&#34;, example.applyValue(getVirtualHubRouteTableResult -&gt; getVirtualHubRouteTableResult.id()));
+     *         ctx.export("virtualHubRouteTableId", example.applyValue(getVirtualHubRouteTableResult -> getVirtualHubRouteTableResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5294,7 +5294,7 @@ public final class NetworkFunctions {
      * ## Virtual Hub Route Table Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5316,15 +5316,15 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVirtualHubRouteTable(GetVirtualHubRouteTableArgs.builder()
-     *             .name(&#34;example-hub-route-table&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .virtualHubName(&#34;example-hub-name&#34;)
+     *             .name("example-hub-route-table")
+     *             .resourceGroupName("example-resources")
+     *             .virtualHubName("example-hub-name")
      *             .build());
      * 
-     *         ctx.export(&#34;virtualHubRouteTableId&#34;, example.applyValue(getVirtualHubRouteTableResult -&gt; getVirtualHubRouteTableResult.id()));
+     *         ctx.export("virtualHubRouteTableId", example.applyValue(getVirtualHubRouteTableResult -> getVirtualHubRouteTableResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5337,7 +5337,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5359,14 +5359,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
-     *             .name(&#34;production&#34;)
-     *             .resourceGroupName(&#34;networking&#34;)
+     *             .name("production")
+     *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export(&#34;virtualNetworkId&#34;, example.applyValue(getVirtualNetworkResult -&gt; getVirtualNetworkResult.id()));
+     *         ctx.export("virtualNetworkId", example.applyValue(getVirtualNetworkResult -> getVirtualNetworkResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5379,7 +5379,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5401,14 +5401,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
-     *             .name(&#34;production&#34;)
-     *             .resourceGroupName(&#34;networking&#34;)
+     *             .name("production")
+     *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export(&#34;virtualNetworkId&#34;, example.applyValue(getVirtualNetworkResult -&gt; getVirtualNetworkResult.id()));
+     *         ctx.export("virtualNetworkId", example.applyValue(getVirtualNetworkResult -> getVirtualNetworkResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5421,7 +5421,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5443,14 +5443,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
-     *             .name(&#34;production&#34;)
-     *             .resourceGroupName(&#34;networking&#34;)
+     *             .name("production")
+     *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export(&#34;virtualNetworkId&#34;, example.applyValue(getVirtualNetworkResult -&gt; getVirtualNetworkResult.id()));
+     *         ctx.export("virtualNetworkId", example.applyValue(getVirtualNetworkResult -> getVirtualNetworkResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5463,7 +5463,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5485,14 +5485,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
-     *             .name(&#34;production&#34;)
-     *             .resourceGroupName(&#34;networking&#34;)
+     *             .name("production")
+     *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export(&#34;virtualNetworkId&#34;, example.applyValue(getVirtualNetworkResult -&gt; getVirtualNetworkResult.id()));
+     *         ctx.export("virtualNetworkId", example.applyValue(getVirtualNetworkResult -> getVirtualNetworkResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5505,7 +5505,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5527,14 +5527,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVirtualNetworkGateway(GetVirtualNetworkGatewayArgs.builder()
-     *             .name(&#34;production&#34;)
-     *             .resourceGroupName(&#34;networking&#34;)
+     *             .name("production")
+     *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export(&#34;virtualNetworkGatewayId&#34;, example.applyValue(getVirtualNetworkGatewayResult -&gt; getVirtualNetworkGatewayResult.id()));
+     *         ctx.export("virtualNetworkGatewayId", example.applyValue(getVirtualNetworkGatewayResult -> getVirtualNetworkGatewayResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5547,7 +5547,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5569,14 +5569,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVirtualNetworkGateway(GetVirtualNetworkGatewayArgs.builder()
-     *             .name(&#34;production&#34;)
-     *             .resourceGroupName(&#34;networking&#34;)
+     *             .name("production")
+     *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export(&#34;virtualNetworkGatewayId&#34;, example.applyValue(getVirtualNetworkGatewayResult -&gt; getVirtualNetworkGatewayResult.id()));
+     *         ctx.export("virtualNetworkGatewayId", example.applyValue(getVirtualNetworkGatewayResult -> getVirtualNetworkGatewayResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5589,7 +5589,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5611,14 +5611,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVirtualNetworkGateway(GetVirtualNetworkGatewayArgs.builder()
-     *             .name(&#34;production&#34;)
-     *             .resourceGroupName(&#34;networking&#34;)
+     *             .name("production")
+     *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export(&#34;virtualNetworkGatewayId&#34;, example.applyValue(getVirtualNetworkGatewayResult -&gt; getVirtualNetworkGatewayResult.id()));
+     *         ctx.export("virtualNetworkGatewayId", example.applyValue(getVirtualNetworkGatewayResult -> getVirtualNetworkGatewayResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5631,7 +5631,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5653,14 +5653,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVirtualNetworkGateway(GetVirtualNetworkGatewayArgs.builder()
-     *             .name(&#34;production&#34;)
-     *             .resourceGroupName(&#34;networking&#34;)
+     *             .name("production")
+     *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export(&#34;virtualNetworkGatewayId&#34;, example.applyValue(getVirtualNetworkGatewayResult -&gt; getVirtualNetworkGatewayResult.id()));
+     *         ctx.export("virtualNetworkGatewayId", example.applyValue(getVirtualNetworkGatewayResult -> getVirtualNetworkGatewayResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5701,7 +5701,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5723,14 +5723,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVpnGateway(GetVpnGatewayArgs.builder()
-     *             .name(&#34;existing-local-vpn_gateway&#34;)
-     *             .resourceGroupName(&#34;existing-vpn_gateway&#34;)
+     *             .name("existing-local-vpn_gateway")
+     *             .resourceGroupName("existing-vpn_gateway")
      *             .build());
      * 
-     *         ctx.export(&#34;azurermVpnGatewayId&#34;, example.applyValue(getVpnGatewayResult -&gt; getVpnGatewayResult.id()));
+     *         ctx.export("azurermVpnGatewayId", example.applyValue(getVpnGatewayResult -> getVpnGatewayResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5743,7 +5743,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5765,14 +5765,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVpnGateway(GetVpnGatewayArgs.builder()
-     *             .name(&#34;existing-local-vpn_gateway&#34;)
-     *             .resourceGroupName(&#34;existing-vpn_gateway&#34;)
+     *             .name("existing-local-vpn_gateway")
+     *             .resourceGroupName("existing-vpn_gateway")
      *             .build());
      * 
-     *         ctx.export(&#34;azurermVpnGatewayId&#34;, example.applyValue(getVpnGatewayResult -&gt; getVpnGatewayResult.id()));
+     *         ctx.export("azurermVpnGatewayId", example.applyValue(getVpnGatewayResult -> getVpnGatewayResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5785,7 +5785,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5807,14 +5807,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVpnGateway(GetVpnGatewayArgs.builder()
-     *             .name(&#34;existing-local-vpn_gateway&#34;)
-     *             .resourceGroupName(&#34;existing-vpn_gateway&#34;)
+     *             .name("existing-local-vpn_gateway")
+     *             .resourceGroupName("existing-vpn_gateway")
      *             .build());
      * 
-     *         ctx.export(&#34;azurermVpnGatewayId&#34;, example.applyValue(getVpnGatewayResult -&gt; getVpnGatewayResult.id()));
+     *         ctx.export("azurermVpnGatewayId", example.applyValue(getVpnGatewayResult -> getVpnGatewayResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5827,7 +5827,7 @@ public final class NetworkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5849,14 +5849,14 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVpnGateway(GetVpnGatewayArgs.builder()
-     *             .name(&#34;existing-local-vpn_gateway&#34;)
-     *             .resourceGroupName(&#34;existing-vpn_gateway&#34;)
+     *             .name("existing-local-vpn_gateway")
+     *             .resourceGroupName("existing-vpn_gateway")
      *             .build());
      * 
-     *         ctx.export(&#34;azurermVpnGatewayId&#34;, example.applyValue(getVpnGatewayResult -&gt; getVpnGatewayResult.id()));
+     *         ctx.export("azurermVpnGatewayId", example.applyValue(getVpnGatewayResult -> getVpnGatewayResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

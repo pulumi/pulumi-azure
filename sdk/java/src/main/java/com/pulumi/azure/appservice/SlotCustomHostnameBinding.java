@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,44 +49,44 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;some-resource-group&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("some-resource-group")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var examplePlan = new Plan(&#34;examplePlan&#34;, PlanArgs.builder()        
- *             .name(&#34;some-app-service-plan&#34;)
+ *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()        
+ *             .name("some-app-service-plan")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku(PlanSkuArgs.builder()
- *                 .tier(&#34;Standard&#34;)
- *                 .size(&#34;S1&#34;)
+ *                 .tier("Standard")
+ *                 .size("S1")
  *                 .build())
  *             .build());
  * 
- *         var exampleAppService = new AppService(&#34;exampleAppService&#34;, AppServiceArgs.builder()        
- *             .name(&#34;some-app-service&#34;)
+ *         var exampleAppService = new AppService("exampleAppService", AppServiceArgs.builder()        
+ *             .name("some-app-service")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
  *             .build());
  * 
- *         var exampleSlot = new Slot(&#34;exampleSlot&#34;, SlotArgs.builder()        
- *             .name(&#34;staging&#34;)
+ *         var exampleSlot = new Slot("exampleSlot", SlotArgs.builder()        
+ *             .name("staging")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .appServiceName(exampleAppService.name())
  *             .appServicePlanId(examplePlan.id())
  *             .build());
  * 
- *         var exampleSlotCustomHostnameBinding = new SlotCustomHostnameBinding(&#34;exampleSlotCustomHostnameBinding&#34;, SlotCustomHostnameBindingArgs.builder()        
+ *         var exampleSlotCustomHostnameBinding = new SlotCustomHostnameBinding("exampleSlotCustomHostnameBinding", SlotCustomHostnameBindingArgs.builder()        
  *             .appServiceSlotId(exampleSlot.id())
- *             .hostname(&#34;www.mywebsite.com&#34;)
+ *             .hostname("www.mywebsite.com")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

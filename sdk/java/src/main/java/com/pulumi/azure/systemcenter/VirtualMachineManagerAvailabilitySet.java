@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,23 +46,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualMachineManagerServer = new VirtualMachineManagerServer(&#34;exampleVirtualMachineManagerServer&#34;, VirtualMachineManagerServerArgs.builder()        
- *             .name(&#34;example-scvmmms&#34;)
+ *         var exampleVirtualMachineManagerServer = new VirtualMachineManagerServer("exampleVirtualMachineManagerServer", VirtualMachineManagerServerArgs.builder()        
+ *             .name("example-scvmmms")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .customLocationId(&#34;/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.ExtendedLocation/customLocations/customLocation1&#34;)
- *             .fqdn(&#34;example.labtest&#34;)
- *             .username(&#34;testUser&#34;)
- *             .password(&#34;H@Sh1CoR3!&#34;)
+ *             .customLocationId("/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.ExtendedLocation/customLocations/customLocation1")
+ *             .fqdn("example.labtest")
+ *             .username("testUser")
+ *             .password("H@Sh1CoR3!")
  *             .build());
  * 
- *         var exampleVirtualMachineManagerAvailabilitySet = new VirtualMachineManagerAvailabilitySet(&#34;exampleVirtualMachineManagerAvailabilitySet&#34;, VirtualMachineManagerAvailabilitySetArgs.builder()        
- *             .name(&#34;example-scvmmas&#34;)
+ *         var exampleVirtualMachineManagerAvailabilitySet = new VirtualMachineManagerAvailabilitySet("exampleVirtualMachineManagerAvailabilitySet", VirtualMachineManagerAvailabilitySetArgs.builder()        
+ *             .name("example-scvmmas")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .customLocationId(exampleVirtualMachineManagerServer.customLocationId())
@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

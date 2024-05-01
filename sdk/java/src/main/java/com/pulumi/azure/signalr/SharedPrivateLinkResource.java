@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,47 +52,47 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;terraform-signalr&#34;)
- *             .location(&#34;east us&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("terraform-signalr")
+ *             .location("east us")
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;examplekeyvault&#34;)
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("examplekeyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .skuName(&#34;standard&#34;)
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .skuName("standard")
  *             .softDeleteRetentionDays(7)
  *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
- *                 .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *                 .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
- *                 .certificatePermissions(&#34;ManageContacts&#34;)
- *                 .keyPermissions(&#34;Create&#34;)
- *                 .secretPermissions(&#34;Set&#34;)
+ *                 .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *                 .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *                 .certificatePermissions("ManageContacts")
+ *                 .keyPermissions("Create")
+ *                 .secretPermissions("Set")
  *                 .build())
  *             .build());
  * 
- *         var test = new Service(&#34;test&#34;, ServiceArgs.builder()        
- *             .name(&#34;tfex-signalr&#34;)
+ *         var test = new Service("test", ServiceArgs.builder()        
+ *             .name("tfex-signalr")
  *             .location(testAzurermResourceGroup.location())
  *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .sku(ServiceSkuArgs.builder()
- *                 .name(&#34;Standard_S1&#34;)
+ *                 .name("Standard_S1")
  *                 .capacity(1)
  *                 .build())
  *             .build());
  * 
- *         var exampleSharedPrivateLinkResource = new SharedPrivateLinkResource(&#34;exampleSharedPrivateLinkResource&#34;, SharedPrivateLinkResourceArgs.builder()        
- *             .name(&#34;tfex-signalr-splr&#34;)
+ *         var exampleSharedPrivateLinkResource = new SharedPrivateLinkResource("exampleSharedPrivateLinkResource", SharedPrivateLinkResourceArgs.builder()        
+ *             .name("tfex-signalr-splr")
  *             .signalrServiceId(exampleAzurermSignalrService.id())
- *             .subResourceName(&#34;vault&#34;)
+ *             .subResourceName("vault")
  *             .targetResourceId(exampleKeyVault.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

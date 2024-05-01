@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,34 +46,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var examplePublicIpPrefix = new PublicIpPrefix(&#34;examplePublicIpPrefix&#34;, PublicIpPrefixArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var examplePublicIpPrefix = new PublicIpPrefix("examplePublicIpPrefix", PublicIpPrefixArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .prefixLength(30)
- *             .zones(&#34;1&#34;)
+ *             .zones("1")
  *             .build());
  * 
- *         var exampleNatGateway = new NatGateway(&#34;exampleNatGateway&#34;, NatGatewayArgs.builder()        
- *             .name(&#34;example-NatGateway&#34;)
+ *         var exampleNatGateway = new NatGateway("exampleNatGateway", NatGatewayArgs.builder()        
+ *             .name("example-NatGateway")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;Standard&#34;)
+ *             .skuName("Standard")
  *             .build());
  * 
- *         var exampleNatGatewayPublicIpPrefixAssociation = new NatGatewayPublicIpPrefixAssociation(&#34;exampleNatGatewayPublicIpPrefixAssociation&#34;, NatGatewayPublicIpPrefixAssociationArgs.builder()        
+ *         var exampleNatGatewayPublicIpPrefixAssociation = new NatGatewayPublicIpPrefixAssociation("exampleNatGatewayPublicIpPrefixAssociation", NatGatewayPublicIpPrefixAssociationArgs.builder()        
  *             .natGatewayId(exampleNatGateway.id())
  *             .publicIpPrefixId(examplePublicIpPrefix.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

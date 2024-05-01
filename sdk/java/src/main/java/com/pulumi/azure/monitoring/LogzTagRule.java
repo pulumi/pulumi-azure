@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,40 +53,40 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-logz&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-logz")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleLogzMonitor = new LogzMonitor(&#34;exampleLogzMonitor&#34;, LogzMonitorArgs.builder()        
- *             .name(&#34;example-monitor&#34;)
+ *         var exampleLogzMonitor = new LogzMonitor("exampleLogzMonitor", LogzMonitorArgs.builder()        
+ *             .name("example-monitor")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .plan(LogzMonitorPlanArgs.builder()
- *                 .billingCycle(&#34;MONTHLY&#34;)
- *                 .effectiveDate(&#34;2022-06-06T00:00:00Z&#34;)
- *                 .usageType(&#34;COMMITTED&#34;)
+ *                 .billingCycle("MONTHLY")
+ *                 .effectiveDate("2022-06-06T00:00:00Z")
+ *                 .usageType("COMMITTED")
  *                 .build())
  *             .user(LogzMonitorUserArgs.builder()
- *                 .email(&#34;user@example.com&#34;)
- *                 .firstName(&#34;Example&#34;)
- *                 .lastName(&#34;User&#34;)
- *                 .phoneNumber(&#34;+12313803556&#34;)
+ *                 .email("user@example.com")
+ *                 .firstName("Example")
+ *                 .lastName("User")
+ *                 .phoneNumber("+12313803556")
  *                 .build())
  *             .build());
  * 
- *         var exampleLogzTagRule = new LogzTagRule(&#34;exampleLogzTagRule&#34;, LogzTagRuleArgs.builder()        
+ *         var exampleLogzTagRule = new LogzTagRule("exampleLogzTagRule", LogzTagRuleArgs.builder()        
  *             .logzMonitorId(exampleLogzMonitor.id())
  *             .tagFilters(            
  *                 LogzTagRuleTagFilterArgs.builder()
- *                     .name(&#34;name1&#34;)
- *                     .action(&#34;Include&#34;)
- *                     .value(&#34;value1&#34;)
+ *                     .name("name1")
+ *                     .action("Include")
+ *                     .value("value1")
  *                     .build(),
  *                 LogzTagRuleTagFilterArgs.builder()
- *                     .name(&#34;name2&#34;)
- *                     .action(&#34;Exclude&#34;)
- *                     .value(&#34;value2&#34;)
+ *                     .name("name2")
+ *                     .action("Exclude")
+ *                     .value("value2")
  *                     .build())
  *             .sendAadLogs(true)
  *             .sendActivityLogs(true)
@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

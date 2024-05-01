@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,36 +50,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
- *             .name(&#34;contoso.com&#34;)
+ *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()        
+ *             .name("contoso.com")
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleMxRecord = new MxRecord(&#34;exampleMxRecord&#34;, MxRecordArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleMxRecord = new MxRecord("exampleMxRecord", MxRecordArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .zoneName(exampleZone.name())
  *             .ttl(300)
  *             .records(            
  *                 MxRecordRecordArgs.builder()
  *                     .preference(10)
- *                     .exchange(&#34;mx1.contoso.com&#34;)
+ *                     .exchange("mx1.contoso.com")
  *                     .build(),
  *                 MxRecordRecordArgs.builder()
  *                     .preference(20)
- *                     .exchange(&#34;backupmx.contoso.com&#34;)
+ *                     .exchange("backupmx.contoso.com")
  *                     .build())
- *             .tags(Map.of(&#34;Environment&#34;, &#34;Production&#34;))
+ *             .tags(Map.of("Environment", "Production"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  * Private DNS MX Records can be imported using the `resource id`, e.g.
  * 
  * ```sh
- * $ pulumi import azure:privatedns/mxRecord:MxRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/contoso.com/MX/@
+ * $ pulumi import azure:privatedns/mxRecord:MxRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/contoso.com/MX/{@literal @}
  * ```
  * 
  */
@@ -108,14 +108,14 @@ public class MxRecord extends com.pulumi.resources.CustomResource {
         return this.fqdn;
     }
     /**
-     * The name of the DNS MX Record. Changing this forces a new resource to be created. Default to &#39;@&#39; for root zone entry.
+     * The name of the DNS MX Record. Changing this forces a new resource to be created. Default to &#39;{@literal @}&#39; for root zone entry.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the DNS MX Record. Changing this forces a new resource to be created. Default to &#39;@&#39; for root zone entry.
+     * @return The name of the DNS MX Record. Changing this forces a new resource to be created. Default to &#39;{@literal @}&#39; for root zone entry.
      * 
      */
     public Output<String> name() {

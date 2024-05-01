@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  * This example provisions a basic Windows Virtual Machine Scale Set on an internal network.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -85,49 +85,49 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-network&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example-network")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *             .addressSpaces("10.0.0.0/16")
  *             .build());
  * 
- *         var internal = new Subnet(&#34;internal&#34;, SubnetArgs.builder()        
- *             .name(&#34;internal&#34;)
+ *         var internal = new Subnet("internal", SubnetArgs.builder()        
+ *             .name("internal")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
+ *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
- *         var exampleWindowsVirtualMachineScaleSet = new WindowsVirtualMachineScaleSet(&#34;exampleWindowsVirtualMachineScaleSet&#34;, WindowsVirtualMachineScaleSetArgs.builder()        
- *             .name(&#34;example-vmss&#34;)
+ *         var exampleWindowsVirtualMachineScaleSet = new WindowsVirtualMachineScaleSet("exampleWindowsVirtualMachineScaleSet", WindowsVirtualMachineScaleSetArgs.builder()        
+ *             .name("example-vmss")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .sku(&#34;Standard_F2&#34;)
+ *             .sku("Standard_F2")
  *             .instances(1)
- *             .adminPassword(&#34;P@55w0rd1234!&#34;)
- *             .adminUsername(&#34;adminuser&#34;)
- *             .computerNamePrefix(&#34;vm-&#34;)
+ *             .adminPassword("P@55w0rd1234!")
+ *             .adminUsername("adminuser")
+ *             .computerNamePrefix("vm-")
  *             .sourceImageReference(WindowsVirtualMachineScaleSetSourceImageReferenceArgs.builder()
- *                 .publisher(&#34;MicrosoftWindowsServer&#34;)
- *                 .offer(&#34;WindowsServer&#34;)
- *                 .sku(&#34;2016-Datacenter-Server-Core&#34;)
- *                 .version(&#34;latest&#34;)
+ *                 .publisher("MicrosoftWindowsServer")
+ *                 .offer("WindowsServer")
+ *                 .sku("2016-Datacenter-Server-Core")
+ *                 .version("latest")
  *                 .build())
  *             .osDisk(WindowsVirtualMachineScaleSetOsDiskArgs.builder()
- *                 .storageAccountType(&#34;Standard_LRS&#34;)
- *                 .caching(&#34;ReadWrite&#34;)
+ *                 .storageAccountType("Standard_LRS")
+ *                 .caching("ReadWrite")
  *                 .build())
  *             .networkInterfaces(WindowsVirtualMachineScaleSetNetworkInterfaceArgs.builder()
- *                 .name(&#34;example&#34;)
+ *                 .name("example")
  *                 .primary(true)
  *                 .ipConfigurations(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs.builder()
- *                     .name(&#34;internal&#34;)
+ *                     .name("internal")
  *                     .primary(true)
  *                     .subnetId(internal.id())
  *                     .build())
@@ -136,7 +136,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

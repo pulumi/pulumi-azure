@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -58,49 +58,49 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
- *             .name(&#34;contoso.com&#34;)
+ *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()        
+ *             .name("contoso.com")
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;PerGB2018&#34;)
+ *             .sku("PerGB2018")
  *             .retentionInDays(30)
  *             .build());
  * 
- *         var exampleEnvironment = new Environment(&#34;exampleEnvironment&#34;, EnvironmentArgs.builder()        
- *             .name(&#34;Example-Environment&#34;)
+ *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()        
+ *             .name("Example-Environment")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .logAnalyticsWorkspaceId(exampleAnalyticsWorkspace.id())
  *             .build());
  * 
- *         var exampleApp = new App(&#34;exampleApp&#34;, AppArgs.builder()        
- *             .name(&#34;example-app&#34;)
+ *         var exampleApp = new App("exampleApp", AppArgs.builder()        
+ *             .name("example-app")
  *             .containerAppEnvironmentId(exampleEnvironment.id())
  *             .resourceGroupName(example.name())
- *             .revisionMode(&#34;Single&#34;)
+ *             .revisionMode("Single")
  *             .template(AppTemplateArgs.builder()
  *                 .containers(AppTemplateContainerArgs.builder()
- *                     .name(&#34;examplecontainerapp&#34;)
- *                     .image(&#34;mcr.microsoft.com/azuredocs/containerapps-helloworld:latest&#34;)
+ *                     .name("examplecontainerapp")
+ *                     .image("mcr.microsoft.com/azuredocs/containerapps-helloworld:latest")
  *                     .cpu(0.25)
- *                     .memory(&#34;0.5Gi&#34;)
+ *                     .memory("0.5Gi")
  *                     .build())
  *                 .build())
  *             .ingress(AppIngressArgs.builder()
  *                 .allowInsecureConnections(false)
  *                 .externalEnabled(true)
  *                 .targetPort(5000)
- *                 .transport(&#34;http&#34;)
+ *                 .transport("http")
  *                 .trafficWeights(AppIngressTrafficWeightArgs.builder()
  *                     .latestRevision(true)
  *                     .percentage(100)
@@ -108,8 +108,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleTxtRecord = new TxtRecord(&#34;exampleTxtRecord&#34;, TxtRecordArgs.builder()        
- *             .name(&#34;asuid.example&#34;)
+ *         var exampleTxtRecord = new TxtRecord("exampleTxtRecord", TxtRecordArgs.builder()        
+ *             .name("asuid.example")
  *             .resourceGroupName(exampleZone.resourceGroupName())
  *             .zoneName(exampleZone.name())
  *             .ttl(300)
@@ -118,31 +118,31 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleEnvironmentCertificate = new EnvironmentCertificate(&#34;exampleEnvironmentCertificate&#34;, EnvironmentCertificateArgs.builder()        
- *             .name(&#34;myfriendlyname&#34;)
+ *         var exampleEnvironmentCertificate = new EnvironmentCertificate("exampleEnvironmentCertificate", EnvironmentCertificateArgs.builder()        
+ *             .name("myfriendlyname")
  *             .containerAppEnvironmentId(exampleEnvironment.id())
  *             .certificateBlob(StdFunctions.filebase64(Filebase64Args.builder()
- *                 .input(&#34;path/to/certificate_file.pfx&#34;)
+ *                 .input("path/to/certificate_file.pfx")
  *                 .build()).result())
- *             .certificatePassword(&#34;$3cretSqu1rreL&#34;)
+ *             .certificatePassword("$3cretSqu1rreL")
  *             .build());
  * 
- *         var exampleCustomDomain = new CustomDomain(&#34;exampleCustomDomain&#34;, CustomDomainArgs.builder()        
- *             .name(StdFunctions.trimprefix().applyValue(invoke -&gt; invoke.result()))
+ *         var exampleCustomDomain = new CustomDomain("exampleCustomDomain", CustomDomainArgs.builder()        
+ *             .name(StdFunctions.trimprefix().applyValue(invoke -> invoke.result()))
  *             .containerAppId(exampleApp.id())
  *             .containerAppEnvironmentCertificateId(exampleEnvironmentCertificate.id())
- *             .certificateBindingType(&#34;SniEnabled&#34;)
+ *             .certificateBindingType("SniEnabled")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Managed Certificate
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -163,17 +163,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CustomDomain(&#34;example&#34;, CustomDomainArgs.builder()        
+ *         var example = new CustomDomain("example", CustomDomainArgs.builder()        
  *             .name(StdFunctions.trimprefix(TrimprefixArgs.builder()
  *                 .input(exampleAzurermDnsTxtRecord.fqdn())
- *                 .prefix(&#34;asuid.&#34;)
+ *                 .prefix("asuid.")
  *                 .build()).result())
  *             .containerAppId(exampleAzurermContainerApp.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,25 +46,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resource&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resource")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleApplication = new Application(&#34;exampleApplication&#34;, ApplicationArgs.builder()        
- *             .name(&#34;example-iotcentral-app&#34;)
+ *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()        
+ *             .name("example-iotcentral-app")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .subDomain(&#34;example-iotcentral-app-subdomain&#34;)
- *             .displayName(&#34;example-iotcentral-app-display-name&#34;)
- *             .sku(&#34;ST1&#34;)
- *             .template(&#34;iotc-default@1.0.0&#34;)
- *             .tags(Map.of(&#34;Foo&#34;, &#34;Bar&#34;))
+ *             .subDomain("example-iotcentral-app-subdomain")
+ *             .displayName("example-iotcentral-app-display-name")
+ *             .sku("ST1")
+ *             .template("iotc-default@1.0.0")
+ *             .tags(Map.of("Foo", "Bar"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

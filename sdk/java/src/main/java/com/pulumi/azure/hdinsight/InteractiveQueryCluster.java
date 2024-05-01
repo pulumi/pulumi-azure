@@ -36,7 +36,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -70,37 +70,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;hdinsightstor&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("hdinsightstor")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleContainer = new Container(&#34;exampleContainer&#34;, ContainerArgs.builder()        
- *             .name(&#34;hdinsight&#34;)
+ *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()        
+ *             .name("hdinsight")
  *             .storageAccountName(exampleAccount.name())
- *             .containerAccessType(&#34;private&#34;)
+ *             .containerAccessType("private")
  *             .build());
  * 
- *         var exampleInteractiveQueryCluster = new InteractiveQueryCluster(&#34;exampleInteractiveQueryCluster&#34;, InteractiveQueryClusterArgs.builder()        
- *             .name(&#34;example-hdicluster&#34;)
+ *         var exampleInteractiveQueryCluster = new InteractiveQueryCluster("exampleInteractiveQueryCluster", InteractiveQueryClusterArgs.builder()        
+ *             .name("example-hdicluster")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .clusterVersion(&#34;3.6&#34;)
- *             .tier(&#34;Standard&#34;)
+ *             .clusterVersion("3.6")
+ *             .tier("Standard")
  *             .componentVersion(InteractiveQueryClusterComponentVersionArgs.builder()
- *                 .interactiveHive(&#34;2.1&#34;)
+ *                 .interactiveHive("2.1")
  *                 .build())
  *             .gateway(InteractiveQueryClusterGatewayArgs.builder()
- *                 .username(&#34;acctestusrgw&#34;)
- *                 .password(&#34;Password!&#34;)
+ *                 .username("acctestusrgw")
+ *                 .password("Password!")
  *                 .build())
  *             .storageAccounts(InteractiveQueryClusterStorageAccountArgs.builder()
  *                 .storageContainerId(exampleContainer.id())
@@ -109,27 +109,27 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .roles(InteractiveQueryClusterRolesArgs.builder()
  *                 .headNode(InteractiveQueryClusterRolesHeadNodeArgs.builder()
- *                     .vmSize(&#34;Standard_D13_V2&#34;)
- *                     .username(&#34;acctestusrvm&#34;)
- *                     .password(&#34;AccTestvdSC4daf986!&#34;)
+ *                     .vmSize("Standard_D13_V2")
+ *                     .username("acctestusrvm")
+ *                     .password("AccTestvdSC4daf986!")
  *                     .build())
  *                 .workerNode(InteractiveQueryClusterRolesWorkerNodeArgs.builder()
- *                     .vmSize(&#34;Standard_D14_V2&#34;)
- *                     .username(&#34;acctestusrvm&#34;)
- *                     .password(&#34;AccTestvdSC4daf986!&#34;)
+ *                     .vmSize("Standard_D14_V2")
+ *                     .username("acctestusrvm")
+ *                     .password("AccTestvdSC4daf986!")
  *                     .targetInstanceCount(3)
  *                     .build())
  *                 .zookeeperNode(InteractiveQueryClusterRolesZookeeperNodeArgs.builder()
- *                     .vmSize(&#34;Standard_A4_V2&#34;)
- *                     .username(&#34;acctestusrvm&#34;)
- *                     .password(&#34;AccTestvdSC4daf986!&#34;)
+ *                     .vmSize("Standard_A4_V2")
+ *                     .username("acctestusrvm")
+ *                     .password("AccTestvdSC4daf986!")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

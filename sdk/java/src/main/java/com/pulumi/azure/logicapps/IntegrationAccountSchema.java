@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,30 +45,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleIntegrationAccount = new IntegrationAccount(&#34;exampleIntegrationAccount&#34;, IntegrationAccountArgs.builder()        
- *             .name(&#34;example-ia&#34;)
+ *         var exampleIntegrationAccount = new IntegrationAccount("exampleIntegrationAccount", IntegrationAccountArgs.builder()        
+ *             .name("example-ia")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;Basic&#34;)
+ *             .skuName("Basic")
  *             .build());
  * 
- *         var exampleIntegrationAccountSchema = new IntegrationAccountSchema(&#34;exampleIntegrationAccountSchema&#34;, IntegrationAccountSchemaArgs.builder()        
- *             .name(&#34;example-ias&#34;)
+ *         var exampleIntegrationAccountSchema = new IntegrationAccountSchema("exampleIntegrationAccountSchema", IntegrationAccountSchemaArgs.builder()        
+ *             .name("example-ias")
  *             .resourceGroupName(example.name())
  *             .integrationAccountName(exampleIntegrationAccount.name())
  *             .content(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;testdata/integration_account_schema_content.xsd&#34;)
+ *                 .input("testdata/integration_account_schema_content.xsd")
  *                 .build()).result())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

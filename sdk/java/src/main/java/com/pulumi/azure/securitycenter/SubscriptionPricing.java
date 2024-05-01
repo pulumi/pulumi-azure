@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * ### Basic usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,20 +47,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SubscriptionPricing(&#34;example&#34;, SubscriptionPricingArgs.builder()        
- *             .tier(&#34;Standard&#34;)
- *             .resourceType(&#34;VirtualMachines&#34;)
+ *         var example = new SubscriptionPricing("example", SubscriptionPricingArgs.builder()        
+ *             .tier("Standard")
+ *             .resourceType("VirtualMachines")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Using Extensions with Defender CSPM
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -82,28 +82,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example1 = new SubscriptionPricing(&#34;example1&#34;, SubscriptionPricingArgs.builder()        
- *             .tier(&#34;Standard&#34;)
- *             .resourceType(&#34;CloudPosture&#34;)
+ *         var example1 = new SubscriptionPricing("example1", SubscriptionPricingArgs.builder()        
+ *             .tier("Standard")
+ *             .resourceType("CloudPosture")
  *             .extensions(            
  *                 SubscriptionPricingExtensionArgs.builder()
- *                     .name(&#34;ContainerRegistriesVulnerabilityAssessments&#34;)
+ *                     .name("ContainerRegistriesVulnerabilityAssessments")
  *                     .build(),
  *                 SubscriptionPricingExtensionArgs.builder()
- *                     .name(&#34;AgentlessVmScanning&#34;)
- *                     .additionalExtensionProperties(Map.of(&#34;ExclusionTags&#34;, &#34;[]&#34;))
+ *                     .name("AgentlessVmScanning")
+ *                     .additionalExtensionProperties(Map.of("ExclusionTags", "[]"))
  *                     .build(),
  *                 SubscriptionPricingExtensionArgs.builder()
- *                     .name(&#34;AgentlessDiscoveryForKubernetes&#34;)
+ *                     .name("AgentlessDiscoveryForKubernetes")
  *                     .build(),
  *                 SubscriptionPricingExtensionArgs.builder()
- *                     .name(&#34;SensitiveDataDiscovery&#34;)
+ *                     .name("SensitiveDataDiscovery")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

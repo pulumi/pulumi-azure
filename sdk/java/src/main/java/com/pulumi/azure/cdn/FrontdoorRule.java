@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -64,33 +64,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-cdn-frontdoor&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-cdn-frontdoor")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFrontdoorProfile = new FrontdoorProfile(&#34;exampleFrontdoorProfile&#34;, FrontdoorProfileArgs.builder()        
- *             .name(&#34;example-profile&#34;)
+ *         var exampleFrontdoorProfile = new FrontdoorProfile("exampleFrontdoorProfile", FrontdoorProfileArgs.builder()        
+ *             .name("example-profile")
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;Premium_AzureFrontDoor&#34;)
+ *             .skuName("Premium_AzureFrontDoor")
  *             .build());
  * 
- *         var exampleFrontdoorEndpoint = new FrontdoorEndpoint(&#34;exampleFrontdoorEndpoint&#34;, FrontdoorEndpointArgs.builder()        
- *             .name(&#34;example-endpoint&#34;)
+ *         var exampleFrontdoorEndpoint = new FrontdoorEndpoint("exampleFrontdoorEndpoint", FrontdoorEndpointArgs.builder()        
+ *             .name("example-endpoint")
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
- *             .tags(Map.of(&#34;endpoint&#34;, &#34;contoso.com&#34;))
+ *             .tags(Map.of("endpoint", "contoso.com"))
  *             .build());
  * 
- *         var exampleFrontdoorOriginGroup = new FrontdoorOriginGroup(&#34;exampleFrontdoorOriginGroup&#34;, FrontdoorOriginGroupArgs.builder()        
- *             .name(&#34;example-originGroup&#34;)
+ *         var exampleFrontdoorOriginGroup = new FrontdoorOriginGroup("exampleFrontdoorOriginGroup", FrontdoorOriginGroupArgs.builder()        
+ *             .name("example-originGroup")
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .sessionAffinityEnabled(true)
  *             .restoreTrafficTimeToHealedOrNewEndpointInMinutes(10)
  *             .healthProbe(FrontdoorOriginGroupHealthProbeArgs.builder()
  *                 .intervalInSeconds(240)
- *                 .path(&#34;/healthProbe&#34;)
- *                 .protocol(&#34;Https&#34;)
- *                 .requestType(&#34;GET&#34;)
+ *                 .path("/healthProbe")
+ *                 .protocol("Https")
+ *                 .requestType("GET")
  *                 .build())
  *             .loadBalancing(FrontdoorOriginGroupLoadBalancingArgs.builder()
  *                 .additionalLatencyInMilliseconds(0)
@@ -99,95 +99,95 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleFrontdoorOrigin = new FrontdoorOrigin(&#34;exampleFrontdoorOrigin&#34;, FrontdoorOriginArgs.builder()        
- *             .name(&#34;example-origin&#34;)
+ *         var exampleFrontdoorOrigin = new FrontdoorOrigin("exampleFrontdoorOrigin", FrontdoorOriginArgs.builder()        
+ *             .name("example-origin")
  *             .cdnFrontdoorOriginGroupId(exampleFrontdoorOriginGroup.id())
  *             .enabled(true)
  *             .certificateNameCheckEnabled(false)
  *             .hostName(exampleFrontdoorEndpoint.hostName())
  *             .httpPort(80)
  *             .httpsPort(443)
- *             .originHostHeader(&#34;contoso.com&#34;)
+ *             .originHostHeader("contoso.com")
  *             .priority(1)
  *             .weight(500)
  *             .build());
  * 
- *         var exampleFrontdoorRuleSet = new FrontdoorRuleSet(&#34;exampleFrontdoorRuleSet&#34;, FrontdoorRuleSetArgs.builder()        
- *             .name(&#34;exampleruleset&#34;)
+ *         var exampleFrontdoorRuleSet = new FrontdoorRuleSet("exampleFrontdoorRuleSet", FrontdoorRuleSetArgs.builder()        
+ *             .name("exampleruleset")
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .build());
  * 
- *         var exampleFrontdoorRule = new FrontdoorRule(&#34;exampleFrontdoorRule&#34;, FrontdoorRuleArgs.builder()        
- *             .name(&#34;examplerule&#34;)
+ *         var exampleFrontdoorRule = new FrontdoorRule("exampleFrontdoorRule", FrontdoorRuleArgs.builder()        
+ *             .name("examplerule")
  *             .cdnFrontdoorRuleSetId(exampleFrontdoorRuleSet.id())
  *             .order(1)
- *             .behaviorOnMatch(&#34;Continue&#34;)
+ *             .behaviorOnMatch("Continue")
  *             .actions(FrontdoorRuleActionsArgs.builder()
  *                 .routeConfigurationOverrideAction(FrontdoorRuleActionsRouteConfigurationOverrideActionArgs.builder()
  *                     .cdnFrontdoorOriginGroupId(exampleFrontdoorOriginGroup.id())
- *                     .forwardingProtocol(&#34;HttpsOnly&#34;)
- *                     .queryStringCachingBehavior(&#34;IncludeSpecifiedQueryStrings&#34;)
+ *                     .forwardingProtocol("HttpsOnly")
+ *                     .queryStringCachingBehavior("IncludeSpecifiedQueryStrings")
  *                     .queryStringParameters(                    
- *                         &#34;foo&#34;,
- *                         &#34;clientIp={client_ip}&#34;)
+ *                         "foo",
+ *                         "clientIp={client_ip}")
  *                     .compressionEnabled(true)
- *                     .cacheBehavior(&#34;OverrideIfOriginMissing&#34;)
- *                     .cacheDuration(&#34;365.23:59:59&#34;)
+ *                     .cacheBehavior("OverrideIfOriginMissing")
+ *                     .cacheDuration("365.23:59:59")
  *                     .build())
  *                 .urlRedirectAction(FrontdoorRuleActionsUrlRedirectActionArgs.builder()
- *                     .redirectType(&#34;PermanentRedirect&#34;)
- *                     .redirectProtocol(&#34;MatchRequest&#34;)
- *                     .queryString(&#34;clientIp={client_ip}&#34;)
- *                     .destinationPath(&#34;/exampleredirection&#34;)
- *                     .destinationHostname(&#34;contoso.com&#34;)
- *                     .destinationFragment(&#34;UrlRedirect&#34;)
+ *                     .redirectType("PermanentRedirect")
+ *                     .redirectProtocol("MatchRequest")
+ *                     .queryString("clientIp={client_ip}")
+ *                     .destinationPath("/exampleredirection")
+ *                     .destinationHostname("contoso.com")
+ *                     .destinationFragment("UrlRedirect")
  *                     .build())
  *                 .build())
  *             .conditions(FrontdoorRuleConditionsArgs.builder()
  *                 .hostNameConditions(FrontdoorRuleConditionsHostNameConditionArgs.builder()
- *                     .operator(&#34;Equal&#34;)
+ *                     .operator("Equal")
  *                     .negateCondition(false)
  *                     .matchValues(                    
- *                         &#34;www.contoso.com&#34;,
- *                         &#34;images.contoso.com&#34;,
- *                         &#34;video.contoso.com&#34;)
+ *                         "www.contoso.com",
+ *                         "images.contoso.com",
+ *                         "video.contoso.com")
  *                     .transforms(                    
- *                         &#34;Lowercase&#34;,
- *                         &#34;Trim&#34;)
+ *                         "Lowercase",
+ *                         "Trim")
  *                     .build())
  *                 .isDeviceConditions(FrontdoorRuleConditionsIsDeviceConditionArgs.builder()
- *                     .operator(&#34;Equal&#34;)
+ *                     .operator("Equal")
  *                     .negateCondition(false)
- *                     .matchValues(&#34;Mobile&#34;)
+ *                     .matchValues("Mobile")
  *                     .build())
  *                 .postArgsConditions(FrontdoorRuleConditionsPostArgsConditionArgs.builder()
- *                     .postArgsName(&#34;customerName&#34;)
- *                     .operator(&#34;BeginsWith&#34;)
+ *                     .postArgsName("customerName")
+ *                     .operator("BeginsWith")
  *                     .matchValues(                    
- *                         &#34;J&#34;,
- *                         &#34;K&#34;)
- *                     .transforms(&#34;Uppercase&#34;)
+ *                         "J",
+ *                         "K")
+ *                     .transforms("Uppercase")
  *                     .build())
  *                 .requestMethodConditions(FrontdoorRuleConditionsRequestMethodConditionArgs.builder()
- *                     .operator(&#34;Equal&#34;)
+ *                     .operator("Equal")
  *                     .negateCondition(false)
- *                     .matchValues(&#34;DELETE&#34;)
+ *                     .matchValues("DELETE")
  *                     .build())
  *                 .urlFilenameConditions(FrontdoorRuleConditionsUrlFilenameConditionArgs.builder()
- *                     .operator(&#34;Equal&#34;)
+ *                     .operator("Equal")
  *                     .negateCondition(false)
- *                     .matchValues(&#34;media.mp4&#34;)
+ *                     .matchValues("media.mp4")
  *                     .transforms(                    
- *                         &#34;Lowercase&#34;,
- *                         &#34;RemoveNulls&#34;,
- *                         &#34;Trim&#34;)
+ *                         "Lowercase",
+ *                         "RemoveNulls",
+ *                         "Trim")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Specifying IP Address Ranges

@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * This example provisions an App Service, a Relay Hybrid Connection, and a Service Bus using their outputs to create the App Service Hybrid Connection.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -58,54 +58,54 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;exampleResourceGroup1&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("exampleResourceGroup1")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var examplePlan = new Plan(&#34;examplePlan&#34;, PlanArgs.builder()        
- *             .name(&#34;exampleAppServicePlan1&#34;)
+ *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()        
+ *             .name("exampleAppServicePlan1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku(PlanSkuArgs.builder()
- *                 .tier(&#34;Standard&#34;)
- *                 .size(&#34;S1&#34;)
+ *                 .tier("Standard")
+ *                 .size("S1")
  *                 .build())
  *             .build());
  * 
- *         var exampleAppService = new AppService(&#34;exampleAppService&#34;, AppServiceArgs.builder()        
- *             .name(&#34;exampleAppService1&#34;)
+ *         var exampleAppService = new AppService("exampleAppService", AppServiceArgs.builder()        
+ *             .name("exampleAppService1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
  *             .build());
  * 
- *         var exampleNamespace = new Namespace(&#34;exampleNamespace&#34;, NamespaceArgs.builder()        
- *             .name(&#34;exampleRN1&#34;)
+ *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()        
+ *             .name("exampleRN1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;Standard&#34;)
+ *             .skuName("Standard")
  *             .build());
  * 
- *         var exampleHybridConnection = new HybridConnection(&#34;exampleHybridConnection&#34;, HybridConnectionArgs.builder()        
- *             .name(&#34;exampleRHC1&#34;)
+ *         var exampleHybridConnection = new HybridConnection("exampleHybridConnection", HybridConnectionArgs.builder()        
+ *             .name("exampleRHC1")
  *             .resourceGroupName(example.name())
  *             .relayNamespaceName(exampleNamespace.name())
- *             .userMetadata(&#34;examplemetadata&#34;)
+ *             .userMetadata("examplemetadata")
  *             .build());
  * 
- *         var exampleHybridConnection2 = new HybridConnection(&#34;exampleHybridConnection2&#34;, HybridConnectionArgs.builder()        
+ *         var exampleHybridConnection2 = new HybridConnection("exampleHybridConnection2", HybridConnectionArgs.builder()        
  *             .appServiceName(exampleAppService.name())
  *             .resourceGroupName(example.name())
  *             .relayId(exampleHybridConnection.id())
- *             .hostname(&#34;testhostname.example&#34;)
+ *             .hostname("testhostname.example")
  *             .port(8080)
- *             .sendKeyName(&#34;exampleSharedAccessKey&#34;)
+ *             .sendKeyName("exampleSharedAccessKey")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

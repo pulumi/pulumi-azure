@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,62 +54,62 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;terraform-webpubsub&#34;)
- *             .location(&#34;east us&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("terraform-webpubsub")
+ *             .location("east us")
  *             .build());
  * 
- *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
- *             .name(&#34;tfex-uai&#34;)
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()        
+ *             .name("tfex-uai")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .name(&#34;tfex-webpubsub&#34;)
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *             .name("tfex-webpubsub")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;Standard_S1&#34;)
+ *             .sku("Standard_S1")
  *             .capacity(1)
  *             .build());
  * 
- *         var exampleHub = new Hub(&#34;exampleHub&#34;, HubArgs.builder()        
- *             .name(&#34;tfex_wpsh&#34;)
+ *         var exampleHub = new Hub("exampleHub", HubArgs.builder()        
+ *             .name("tfex_wpsh")
  *             .webPubsubId(exampleService.id())
  *             .eventHandlers(            
  *                 HubEventHandlerArgs.builder()
- *                     .urlTemplate(&#34;https://test.com/api/{hub}/{event}&#34;)
- *                     .userEventPattern(&#34;*&#34;)
+ *                     .urlTemplate("https://test.com/api/{hub}/{event}")
+ *                     .userEventPattern("*")
  *                     .systemEvents(                    
- *                         &#34;connect&#34;,
- *                         &#34;connected&#34;)
+ *                         "connect",
+ *                         "connected")
  *                     .build(),
  *                 HubEventHandlerArgs.builder()
- *                     .urlTemplate(&#34;https://test.com/api/{hub}/{event}&#34;)
- *                     .userEventPattern(&#34;event1, event2&#34;)
- *                     .systemEvents(&#34;connected&#34;)
+ *                     .urlTemplate("https://test.com/api/{hub}/{event}")
+ *                     .userEventPattern("event1, event2")
+ *                     .systemEvents("connected")
  *                     .auth(HubEventHandlerAuthArgs.builder()
  *                         .managedIdentityId(exampleUserAssignedIdentity.id())
  *                         .build())
  *                     .build())
  *             .eventListeners(            
  *                 HubEventListenerArgs.builder()
- *                     .systemEventNameFilters(&#34;connected&#34;)
+ *                     .systemEventNameFilters("connected")
  *                     .userEventNameFilters(                    
- *                         &#34;event1&#34;,
- *                         &#34;event2&#34;)
+ *                         "event1",
+ *                         "event2")
  *                     .eventhubNamespaceName(test.name())
  *                     .eventhubName(test1.name())
  *                     .build(),
  *                 HubEventListenerArgs.builder()
- *                     .systemEventNameFilters(&#34;connected&#34;)
- *                     .userEventNameFilters(&#34;*&#34;)
+ *                     .systemEventNameFilters("connected")
+ *                     .userEventNameFilters("*")
  *                     .eventhubNamespaceName(test.name())
  *                     .eventhubName(test1.name())
  *                     .build(),
  *                 HubEventListenerArgs.builder()
- *                     .systemEventNameFilters(&#34;connected&#34;)
- *                     .userEventNameFilters(&#34;event1&#34;)
+ *                     .systemEventNameFilters("connected")
+ *                     .userEventNameFilters("event1")
  *                     .eventhubNamespaceName(test.name())
  *                     .eventhubName(test1.name())
  *                     .build())
@@ -118,7 +118,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

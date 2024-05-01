@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -61,19 +61,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;example-cosmosdb-account&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("example-cosmosdb-account")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .offerType(&#34;Standard&#34;)
- *             .kind(&#34;GlobalDocumentDB&#34;)
+ *             .offerType("Standard")
+ *             .kind("GlobalDocumentDB")
  *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
- *                 .consistencyLevel(&#34;BoundedStaleness&#34;)
+ *                 .consistencyLevel("BoundedStaleness")
  *                 .maxIntervalInSeconds(10)
  *                 .maxStalenessPrefix(200)
  *                 .build())
@@ -83,53 +83,53 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleSqlDatabase = new SqlDatabase(&#34;exampleSqlDatabase&#34;, SqlDatabaseArgs.builder()        
- *             .name(&#34;cosmos-sql-db&#34;)
+ *         var exampleSqlDatabase = new SqlDatabase("exampleSqlDatabase", SqlDatabaseArgs.builder()        
+ *             .name("cosmos-sql-db")
  *             .resourceGroupName(exampleAccount.resourceGroupName())
  *             .accountName(exampleAccount.name())
  *             .throughput(400)
  *             .build());
  * 
- *         var exampleSqlContainer = new SqlContainer(&#34;exampleSqlContainer&#34;, SqlContainerArgs.builder()        
- *             .name(&#34;example-container&#34;)
+ *         var exampleSqlContainer = new SqlContainer("exampleSqlContainer", SqlContainerArgs.builder()        
+ *             .name("example-container")
  *             .resourceGroupName(exampleAccount.resourceGroupName())
  *             .accountName(exampleAccount.name())
  *             .databaseName(exampleSqlDatabase.name())
- *             .partitionKeyPath(&#34;/definition&#34;)
+ *             .partitionKeyPath("/definition")
  *             .build());
  * 
- *         var exampleSpringCloudService = new SpringCloudService(&#34;exampleSpringCloudService&#34;, SpringCloudServiceArgs.builder()        
- *             .name(&#34;examplespringcloud&#34;)
+ *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()        
+ *             .name("examplespringcloud")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleSpringCloudApp = new SpringCloudApp(&#34;exampleSpringCloudApp&#34;, SpringCloudAppArgs.builder()        
- *             .name(&#34;examplespringcloudapp&#34;)
+ *         var exampleSpringCloudApp = new SpringCloudApp("exampleSpringCloudApp", SpringCloudAppArgs.builder()        
+ *             .name("examplespringcloudapp")
  *             .resourceGroupName(example.name())
  *             .serviceName(exampleSpringCloudService.name())
  *             .identity(SpringCloudAppIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
- *         var exampleSpringCloudJavaDeployment = new SpringCloudJavaDeployment(&#34;exampleSpringCloudJavaDeployment&#34;, SpringCloudJavaDeploymentArgs.builder()        
- *             .name(&#34;exampledeployment&#34;)
+ *         var exampleSpringCloudJavaDeployment = new SpringCloudJavaDeployment("exampleSpringCloudJavaDeployment", SpringCloudJavaDeploymentArgs.builder()        
+ *             .name("exampledeployment")
  *             .springCloudAppId(exampleSpringCloudApp.id())
  *             .build());
  * 
- *         var exampleSpringCloudConnection = new SpringCloudConnection(&#34;exampleSpringCloudConnection&#34;, SpringCloudConnectionArgs.builder()        
- *             .name(&#34;example-serviceconnector&#34;)
+ *         var exampleSpringCloudConnection = new SpringCloudConnection("exampleSpringCloudConnection", SpringCloudConnectionArgs.builder()        
+ *             .name("example-serviceconnector")
  *             .springCloudId(exampleSpringCloudJavaDeployment.id())
  *             .targetResourceId(exampleSqlDatabase.id())
  *             .authentication(SpringCloudConnectionAuthenticationArgs.builder()
- *                 .type(&#34;systemAssignedIdentity&#34;)
+ *                 .type("systemAssignedIdentity")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

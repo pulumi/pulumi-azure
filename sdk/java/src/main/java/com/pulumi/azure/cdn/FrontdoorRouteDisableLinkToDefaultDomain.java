@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FrontdoorRouteDisableLinkToDefaultDomain(&#34;example&#34;, FrontdoorRouteDisableLinkToDefaultDomainArgs.builder()        
+ *         var example = new FrontdoorRouteDisableLinkToDefaultDomain("example", FrontdoorRouteDisableLinkToDefaultDomainArgs.builder()        
  *             .cdnFrontdoorRouteId(exampleAzurermCdnFrontdoorRoute.id())
  *             .cdnFrontdoorCustomDomainIds(            
  *                 contoso.id(),
@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

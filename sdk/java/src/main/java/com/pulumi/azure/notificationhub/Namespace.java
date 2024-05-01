@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,22 +45,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;notificationhub-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("notificationhub-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleNamespace = new Namespace(&#34;exampleNamespace&#34;, NamespaceArgs.builder()        
- *             .name(&#34;myappnamespace&#34;)
+ *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()        
+ *             .name("myappnamespace")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .namespaceType(&#34;NotificationHub&#34;)
- *             .skuName(&#34;Free&#34;)
+ *             .namespaceType("NotificationHub")
+ *             .skuName("Free")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -38,7 +38,7 @@ public final class AutomationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -60,14 +60,14 @@ public final class AutomationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AutomationFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-account")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;automationAccountId&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.id()));
+     *         ctx.export("automationAccountId", example.applyValue(getAccountResult -> getAccountResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -80,7 +80,7 @@ public final class AutomationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -102,14 +102,14 @@ public final class AutomationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AutomationFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-account")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;automationAccountId&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.id()));
+     *         ctx.export("automationAccountId", example.applyValue(getAccountResult -> getAccountResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -122,7 +122,7 @@ public final class AutomationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -144,14 +144,14 @@ public final class AutomationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AutomationFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-account")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;automationAccountId&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.id()));
+     *         ctx.export("automationAccountId", example.applyValue(getAccountResult -> getAccountResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -164,7 +164,7 @@ public final class AutomationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -186,14 +186,14 @@ public final class AutomationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AutomationFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-account")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;automationAccountId&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.id()));
+     *         ctx.export("automationAccountId", example.applyValue(getAccountResult -> getAccountResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -206,7 +206,7 @@ public final class AutomationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -228,15 +228,15 @@ public final class AutomationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AutomationFunctions.getBoolVariable(GetBoolVariableArgs.builder()
-     *             .name(&#34;tfex-example-var&#34;)
-     *             .resourceGroupName(&#34;tfex-example-rg&#34;)
-     *             .automationAccountName(&#34;tfex-example-account&#34;)
+     *             .name("tfex-example-var")
+     *             .resourceGroupName("tfex-example-rg")
+     *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export(&#34;variableId&#34;, example.applyValue(getBoolVariableResult -&gt; getBoolVariableResult.id()));
+     *         ctx.export("variableId", example.applyValue(getBoolVariableResult -> getBoolVariableResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -249,7 +249,7 @@ public final class AutomationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -271,15 +271,15 @@ public final class AutomationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AutomationFunctions.getBoolVariable(GetBoolVariableArgs.builder()
-     *             .name(&#34;tfex-example-var&#34;)
-     *             .resourceGroupName(&#34;tfex-example-rg&#34;)
-     *             .automationAccountName(&#34;tfex-example-account&#34;)
+     *             .name("tfex-example-var")
+     *             .resourceGroupName("tfex-example-rg")
+     *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export(&#34;variableId&#34;, example.applyValue(getBoolVariableResult -&gt; getBoolVariableResult.id()));
+     *         ctx.export("variableId", example.applyValue(getBoolVariableResult -> getBoolVariableResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -292,7 +292,7 @@ public final class AutomationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -314,15 +314,15 @@ public final class AutomationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AutomationFunctions.getBoolVariable(GetBoolVariableArgs.builder()
-     *             .name(&#34;tfex-example-var&#34;)
-     *             .resourceGroupName(&#34;tfex-example-rg&#34;)
-     *             .automationAccountName(&#34;tfex-example-account&#34;)
+     *             .name("tfex-example-var")
+     *             .resourceGroupName("tfex-example-rg")
+     *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export(&#34;variableId&#34;, example.applyValue(getBoolVariableResult -&gt; getBoolVariableResult.id()));
+     *         ctx.export("variableId", example.applyValue(getBoolVariableResult -> getBoolVariableResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -335,7 +335,7 @@ public final class AutomationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -357,15 +357,15 @@ public final class AutomationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AutomationFunctions.getBoolVariable(GetBoolVariableArgs.builder()
-     *             .name(&#34;tfex-example-var&#34;)
-     *             .resourceGroupName(&#34;tfex-example-rg&#34;)
-     *             .automationAccountName(&#34;tfex-example-account&#34;)
+     *             .name("tfex-example-var")
+     *             .resourceGroupName("tfex-example-rg")
+     *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export(&#34;variableId&#34;, example.applyValue(getBoolVariableResult -&gt; getBoolVariableResult.id()));
+     *         ctx.export("variableId", example.applyValue(getBoolVariableResult -> getBoolVariableResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -378,7 +378,7 @@ public final class AutomationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -400,15 +400,15 @@ public final class AutomationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AutomationFunctions.getDateTimeVariable(GetDateTimeVariableArgs.builder()
-     *             .name(&#34;tfex-example-var&#34;)
-     *             .resourceGroupName(&#34;tfex-example-rg&#34;)
-     *             .automationAccountName(&#34;tfex-example-account&#34;)
+     *             .name("tfex-example-var")
+     *             .resourceGroupName("tfex-example-rg")
+     *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export(&#34;variableId&#34;, example.applyValue(getDateTimeVariableResult -&gt; getDateTimeVariableResult.id()));
+     *         ctx.export("variableId", example.applyValue(getDateTimeVariableResult -> getDateTimeVariableResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -421,7 +421,7 @@ public final class AutomationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -443,15 +443,15 @@ public final class AutomationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AutomationFunctions.getDateTimeVariable(GetDateTimeVariableArgs.builder()
-     *             .name(&#34;tfex-example-var&#34;)
-     *             .resourceGroupName(&#34;tfex-example-rg&#34;)
-     *             .automationAccountName(&#34;tfex-example-account&#34;)
+     *             .name("tfex-example-var")
+     *             .resourceGroupName("tfex-example-rg")
+     *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export(&#34;variableId&#34;, example.applyValue(getDateTimeVariableResult -&gt; getDateTimeVariableResult.id()));
+     *         ctx.export("variableId", example.applyValue(getDateTimeVariableResult -> getDateTimeVariableResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -464,7 +464,7 @@ public final class AutomationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -486,15 +486,15 @@ public final class AutomationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AutomationFunctions.getDateTimeVariable(GetDateTimeVariableArgs.builder()
-     *             .name(&#34;tfex-example-var&#34;)
-     *             .resourceGroupName(&#34;tfex-example-rg&#34;)
-     *             .automationAccountName(&#34;tfex-example-account&#34;)
+     *             .name("tfex-example-var")
+     *             .resourceGroupName("tfex-example-rg")
+     *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export(&#34;variableId&#34;, example.applyValue(getDateTimeVariableResult -&gt; getDateTimeVariableResult.id()));
+     *         ctx.export("variableId", example.applyValue(getDateTimeVariableResult -> getDateTimeVariableResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -507,7 +507,7 @@ public final class AutomationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -529,15 +529,15 @@ public final class AutomationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AutomationFunctions.getDateTimeVariable(GetDateTimeVariableArgs.builder()
-     *             .name(&#34;tfex-example-var&#34;)
-     *             .resourceGroupName(&#34;tfex-example-rg&#34;)
-     *             .automationAccountName(&#34;tfex-example-account&#34;)
+     *             .name("tfex-example-var")
+     *             .resourceGroupName("tfex-example-rg")
+     *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export(&#34;variableId&#34;, example.applyValue(getDateTimeVariableResult -&gt; getDateTimeVariableResult.id()));
+     *         ctx.export("variableId", example.applyValue(getDateTimeVariableResult -> getDateTimeVariableResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -550,7 +550,7 @@ public final class AutomationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -572,15 +572,15 @@ public final class AutomationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AutomationFunctions.getIntVariable(GetIntVariableArgs.builder()
-     *             .name(&#34;tfex-example-var&#34;)
-     *             .resourceGroupName(&#34;tfex-example-rg&#34;)
-     *             .automationAccountName(&#34;tfex-example-account&#34;)
+     *             .name("tfex-example-var")
+     *             .resourceGroupName("tfex-example-rg")
+     *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export(&#34;variableId&#34;, example.applyValue(getIntVariableResult -&gt; getIntVariableResult.id()));
+     *         ctx.export("variableId", example.applyValue(getIntVariableResult -> getIntVariableResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -593,7 +593,7 @@ public final class AutomationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -615,15 +615,15 @@ public final class AutomationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AutomationFunctions.getIntVariable(GetIntVariableArgs.builder()
-     *             .name(&#34;tfex-example-var&#34;)
-     *             .resourceGroupName(&#34;tfex-example-rg&#34;)
-     *             .automationAccountName(&#34;tfex-example-account&#34;)
+     *             .name("tfex-example-var")
+     *             .resourceGroupName("tfex-example-rg")
+     *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export(&#34;variableId&#34;, example.applyValue(getIntVariableResult -&gt; getIntVariableResult.id()));
+     *         ctx.export("variableId", example.applyValue(getIntVariableResult -> getIntVariableResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -636,7 +636,7 @@ public final class AutomationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -658,15 +658,15 @@ public final class AutomationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AutomationFunctions.getIntVariable(GetIntVariableArgs.builder()
-     *             .name(&#34;tfex-example-var&#34;)
-     *             .resourceGroupName(&#34;tfex-example-rg&#34;)
-     *             .automationAccountName(&#34;tfex-example-account&#34;)
+     *             .name("tfex-example-var")
+     *             .resourceGroupName("tfex-example-rg")
+     *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export(&#34;variableId&#34;, example.applyValue(getIntVariableResult -&gt; getIntVariableResult.id()));
+     *         ctx.export("variableId", example.applyValue(getIntVariableResult -> getIntVariableResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -679,7 +679,7 @@ public final class AutomationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -701,15 +701,15 @@ public final class AutomationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AutomationFunctions.getIntVariable(GetIntVariableArgs.builder()
-     *             .name(&#34;tfex-example-var&#34;)
-     *             .resourceGroupName(&#34;tfex-example-rg&#34;)
-     *             .automationAccountName(&#34;tfex-example-account&#34;)
+     *             .name("tfex-example-var")
+     *             .resourceGroupName("tfex-example-rg")
+     *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export(&#34;variableId&#34;, example.applyValue(getIntVariableResult -&gt; getIntVariableResult.id()));
+     *         ctx.export("variableId", example.applyValue(getIntVariableResult -> getIntVariableResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -722,7 +722,7 @@ public final class AutomationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -744,15 +744,15 @@ public final class AutomationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AutomationFunctions.getStringVariable(GetStringVariableArgs.builder()
-     *             .name(&#34;tfex-example-var&#34;)
-     *             .resourceGroupName(&#34;tfex-example-rg&#34;)
-     *             .automationAccountName(&#34;tfex-example-account&#34;)
+     *             .name("tfex-example-var")
+     *             .resourceGroupName("tfex-example-rg")
+     *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export(&#34;variableId&#34;, example.applyValue(getStringVariableResult -&gt; getStringVariableResult.id()));
+     *         ctx.export("variableId", example.applyValue(getStringVariableResult -> getStringVariableResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -765,7 +765,7 @@ public final class AutomationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -787,15 +787,15 @@ public final class AutomationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AutomationFunctions.getStringVariable(GetStringVariableArgs.builder()
-     *             .name(&#34;tfex-example-var&#34;)
-     *             .resourceGroupName(&#34;tfex-example-rg&#34;)
-     *             .automationAccountName(&#34;tfex-example-account&#34;)
+     *             .name("tfex-example-var")
+     *             .resourceGroupName("tfex-example-rg")
+     *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export(&#34;variableId&#34;, example.applyValue(getStringVariableResult -&gt; getStringVariableResult.id()));
+     *         ctx.export("variableId", example.applyValue(getStringVariableResult -> getStringVariableResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -808,7 +808,7 @@ public final class AutomationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -830,15 +830,15 @@ public final class AutomationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AutomationFunctions.getStringVariable(GetStringVariableArgs.builder()
-     *             .name(&#34;tfex-example-var&#34;)
-     *             .resourceGroupName(&#34;tfex-example-rg&#34;)
-     *             .automationAccountName(&#34;tfex-example-account&#34;)
+     *             .name("tfex-example-var")
+     *             .resourceGroupName("tfex-example-rg")
+     *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export(&#34;variableId&#34;, example.applyValue(getStringVariableResult -&gt; getStringVariableResult.id()));
+     *         ctx.export("variableId", example.applyValue(getStringVariableResult -> getStringVariableResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -851,7 +851,7 @@ public final class AutomationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -873,15 +873,15 @@ public final class AutomationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AutomationFunctions.getStringVariable(GetStringVariableArgs.builder()
-     *             .name(&#34;tfex-example-var&#34;)
-     *             .resourceGroupName(&#34;tfex-example-rg&#34;)
-     *             .automationAccountName(&#34;tfex-example-account&#34;)
+     *             .name("tfex-example-var")
+     *             .resourceGroupName("tfex-example-rg")
+     *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export(&#34;variableId&#34;, example.applyValue(getStringVariableResult -&gt; getStringVariableResult.id()));
+     *         ctx.export("variableId", example.applyValue(getStringVariableResult -> getStringVariableResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -922,7 +922,7 @@ public final class AutomationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -945,18 +945,18 @@ public final class AutomationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AutomationFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-account")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetVariables = AutomationFunctions.getVariables(GetVariablesArgs.builder()
-     *             .automationAccountId(example.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *             .automationAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;stringVars&#34;, exampleAzurermAutomationVariableString.string());
+     *         ctx.export("stringVars", exampleAzurermAutomationVariableString.string());
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -969,7 +969,7 @@ public final class AutomationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -992,18 +992,18 @@ public final class AutomationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AutomationFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-account")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetVariables = AutomationFunctions.getVariables(GetVariablesArgs.builder()
-     *             .automationAccountId(example.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *             .automationAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;stringVars&#34;, exampleAzurermAutomationVariableString.string());
+     *         ctx.export("stringVars", exampleAzurermAutomationVariableString.string());
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1016,7 +1016,7 @@ public final class AutomationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1039,18 +1039,18 @@ public final class AutomationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AutomationFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-account")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetVariables = AutomationFunctions.getVariables(GetVariablesArgs.builder()
-     *             .automationAccountId(example.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *             .automationAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;stringVars&#34;, exampleAzurermAutomationVariableString.string());
+     *         ctx.export("stringVars", exampleAzurermAutomationVariableString.string());
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1063,7 +1063,7 @@ public final class AutomationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1086,18 +1086,18 @@ public final class AutomationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AutomationFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-account")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetVariables = AutomationFunctions.getVariables(GetVariablesArgs.builder()
-     *             .automationAccountId(example.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *             .automationAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;stringVars&#34;, exampleAzurermAutomationVariableString.string());
+     *         ctx.export("stringVars", exampleAzurermAutomationVariableString.string());
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

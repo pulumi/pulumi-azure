@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,29 +48,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;analysis-services-server-test&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("analysis-services-server-test")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var server = new Server(&#34;server&#34;, ServerArgs.builder()        
- *             .name(&#34;analysisservicesserver&#34;)
+ *         var server = new Server("server", ServerArgs.builder()        
+ *             .name("analysisservicesserver")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;S0&#34;)
- *             .adminUsers(&#34;myuser@domain.tld&#34;)
+ *             .sku("S0")
+ *             .adminUsers("myuser@domain.tld")
  *             .enablePowerBiService(true)
  *             .ipv4FirewallRules(ServerIpv4FirewallRuleArgs.builder()
- *                 .name(&#34;myRule1&#34;)
- *                 .rangeStart(&#34;210.117.252.0&#34;)
- *                 .rangeEnd(&#34;210.117.252.255&#34;)
+ *                 .name("myRule1")
+ *                 .rangeStart("210.117.252.0")
+ *                 .rangeEnd("210.117.252.255")
  *                 .build())
- *             .tags(Map.of(&#34;abc&#34;, 123))
+ *             .tags(Map.of("abc", 123))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; **NOTE:** The server resource will automatically be started and stopped during an update if it is in `paused` state.

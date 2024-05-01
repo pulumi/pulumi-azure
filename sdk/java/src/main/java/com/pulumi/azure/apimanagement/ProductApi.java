@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,33 +45,33 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
- *             .name(&#34;example-api&#34;)
- *             .resourceGroupName(&#34;example-resources&#34;)
+ *             .name("example-api")
+ *             .resourceGroupName("example-resources")
  *             .build());
  * 
  *         final var exampleGetApi = ApimanagementFunctions.getApi(GetApiArgs.builder()
- *             .name(&#34;search-api&#34;)
- *             .apiManagementName(example.applyValue(getServiceResult -&gt; getServiceResult.name()))
- *             .resourceGroupName(example.applyValue(getServiceResult -&gt; getServiceResult.resourceGroupName()))
- *             .revision(&#34;2&#34;)
+ *             .name("search-api")
+ *             .apiManagementName(example.applyValue(getServiceResult -> getServiceResult.name()))
+ *             .resourceGroupName(example.applyValue(getServiceResult -> getServiceResult.resourceGroupName()))
+ *             .revision("2")
  *             .build());
  * 
  *         final var exampleGetProduct = ApimanagementFunctions.getProduct(GetProductArgs.builder()
- *             .productId(&#34;my-product&#34;)
- *             .apiManagementName(example.applyValue(getServiceResult -&gt; getServiceResult.name()))
- *             .resourceGroupName(example.applyValue(getServiceResult -&gt; getServiceResult.resourceGroupName()))
+ *             .productId("my-product")
+ *             .apiManagementName(example.applyValue(getServiceResult -> getServiceResult.name()))
+ *             .resourceGroupName(example.applyValue(getServiceResult -> getServiceResult.resourceGroupName()))
  *             .build());
  * 
- *         var exampleProductApi = new ProductApi(&#34;exampleProductApi&#34;, ProductApiArgs.builder()        
- *             .apiName(exampleGetApi.applyValue(getApiResult -&gt; getApiResult.name()))
- *             .productId(exampleGetProduct.applyValue(getProductResult -&gt; getProductResult.productId()))
- *             .apiManagementName(example.applyValue(getServiceResult -&gt; getServiceResult.name()))
- *             .resourceGroupName(example.applyValue(getServiceResult -&gt; getServiceResult.resourceGroupName()))
+ *         var exampleProductApi = new ProductApi("exampleProductApi", ProductApiArgs.builder()        
+ *             .apiName(exampleGetApi.applyValue(getApiResult -> getApiResult.name()))
+ *             .productId(exampleGetProduct.applyValue(getProductResult -> getProductResult.productId()))
+ *             .apiManagementName(example.applyValue(getServiceResult -> getServiceResult.name()))
+ *             .resourceGroupName(example.applyValue(getServiceResult -> getServiceResult.resourceGroupName()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

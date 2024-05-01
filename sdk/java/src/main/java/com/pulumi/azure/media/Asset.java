@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,21 +48,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;media-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("media-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;examplestoracc&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("examplestoracc")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;GRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("GRS")
  *             .build());
  * 
- *         var exampleServiceAccount = new ServiceAccount(&#34;exampleServiceAccount&#34;, ServiceAccountArgs.builder()        
- *             .name(&#34;examplemediaacc&#34;)
+ *         var exampleServiceAccount = new ServiceAccount("exampleServiceAccount", ServiceAccountArgs.builder()        
+ *             .name("examplemediaacc")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .storageAccounts(ServiceAccountStorageAccountArgs.builder()
@@ -71,16 +71,16 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleAsset = new Asset(&#34;exampleAsset&#34;, AssetArgs.builder()        
- *             .name(&#34;Asset1&#34;)
+ *         var exampleAsset = new Asset("exampleAsset", AssetArgs.builder()        
+ *             .name("Asset1")
  *             .resourceGroupName(example.name())
  *             .mediaServicesAccountName(exampleServiceAccount.name())
- *             .description(&#34;Asset description&#34;)
+ *             .description("Asset description")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

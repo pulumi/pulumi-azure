@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,24 +45,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleDataCollectionEndpoint = new DataCollectionEndpoint(&#34;exampleDataCollectionEndpoint&#34;, DataCollectionEndpointArgs.builder()        
- *             .name(&#34;example-mdce&#34;)
+ *         var exampleDataCollectionEndpoint = new DataCollectionEndpoint("exampleDataCollectionEndpoint", DataCollectionEndpointArgs.builder()        
+ *             .name("example-mdce")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .kind(&#34;Windows&#34;)
+ *             .kind("Windows")
  *             .publicNetworkAccessEnabled(true)
- *             .description(&#34;monitor_data_collection_endpoint example&#34;)
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .description("monitor_data_collection_endpoint example")
+ *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

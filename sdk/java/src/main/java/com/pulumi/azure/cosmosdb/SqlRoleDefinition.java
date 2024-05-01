@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,19 +53,19 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;example-cosmosdb&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("example-cosmosdb")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .offerType(&#34;Standard&#34;)
- *             .kind(&#34;GlobalDocumentDB&#34;)
+ *             .offerType("Standard")
+ *             .kind("GlobalDocumentDB")
  *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
- *                 .consistencyLevel(&#34;Strong&#34;)
+ *                 .consistencyLevel("Strong")
  *                 .build())
  *             .geoLocations(AccountGeoLocationArgs.builder()
  *                 .location(example.location())
@@ -73,20 +73,20 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleSqlRoleDefinition = new SqlRoleDefinition(&#34;exampleSqlRoleDefinition&#34;, SqlRoleDefinitionArgs.builder()        
- *             .roleDefinitionId(&#34;84cf3a8b-4122-4448-bce2-fa423cfe0a15&#34;)
+ *         var exampleSqlRoleDefinition = new SqlRoleDefinition("exampleSqlRoleDefinition", SqlRoleDefinitionArgs.builder()        
+ *             .roleDefinitionId("84cf3a8b-4122-4448-bce2-fa423cfe0a15")
  *             .resourceGroupName(example.name())
  *             .accountName(exampleAccount.name())
- *             .name(&#34;acctestsqlrole&#34;)
- *             .assignableScopes(exampleAccount.id().applyValue(id -&gt; String.format(&#34;%s/dbs/sales&#34;, id)))
+ *             .name("acctestsqlrole")
+ *             .assignableScopes(exampleAccount.id().applyValue(id -> String.format("%s/dbs/sales", id)))
  *             .permissions(SqlRoleDefinitionPermissionArgs.builder()
- *                 .dataActions(&#34;Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read&#34;)
+ *                 .dataActions("Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

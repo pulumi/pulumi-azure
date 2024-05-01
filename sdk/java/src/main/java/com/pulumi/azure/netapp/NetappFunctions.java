@@ -41,7 +41,7 @@ public final class NetappFunctions {
      * ## NetApp Account Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -63,14 +63,14 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getAccount(GetAccountArgs.builder()
-     *             .resourceGroupName(&#34;acctestRG&#34;)
-     *             .name(&#34;acctestnetappaccount&#34;)
+     *             .resourceGroupName("acctestRG")
+     *             .name("acctestnetappaccount")
      *             .build());
      * 
-     *         ctx.export(&#34;netappAccountId&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.id()));
+     *         ctx.export("netappAccountId", example.applyValue(getAccountResult -> getAccountResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -83,7 +83,7 @@ public final class NetappFunctions {
      * ## NetApp Account Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -105,14 +105,14 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getAccount(GetAccountArgs.builder()
-     *             .resourceGroupName(&#34;acctestRG&#34;)
-     *             .name(&#34;acctestnetappaccount&#34;)
+     *             .resourceGroupName("acctestRG")
+     *             .name("acctestnetappaccount")
      *             .build());
      * 
-     *         ctx.export(&#34;netappAccountId&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.id()));
+     *         ctx.export("netappAccountId", example.applyValue(getAccountResult -> getAccountResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -125,7 +125,7 @@ public final class NetappFunctions {
      * ## NetApp Account Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -147,14 +147,14 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getAccount(GetAccountArgs.builder()
-     *             .resourceGroupName(&#34;acctestRG&#34;)
-     *             .name(&#34;acctestnetappaccount&#34;)
+     *             .resourceGroupName("acctestRG")
+     *             .name("acctestnetappaccount")
      *             .build());
      * 
-     *         ctx.export(&#34;netappAccountId&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.id()));
+     *         ctx.export("netappAccountId", example.applyValue(getAccountResult -> getAccountResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -167,7 +167,7 @@ public final class NetappFunctions {
      * ## NetApp Account Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -189,14 +189,14 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getAccount(GetAccountArgs.builder()
-     *             .resourceGroupName(&#34;acctestRG&#34;)
-     *             .name(&#34;acctestnetappaccount&#34;)
+     *             .resourceGroupName("acctestRG")
+     *             .name("acctestnetappaccount")
      *             .build());
      * 
-     *         ctx.export(&#34;netappAccountId&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.id()));
+     *         ctx.export("netappAccountId", example.applyValue(getAccountResult -> getAccountResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -209,7 +209,7 @@ public final class NetappFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -231,13 +231,13 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getAccountEncryption(GetAccountEncryptionArgs.builder()
-     *             .netappAccountId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1&#34;)
+     *             .netappAccountId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAccountEncryptionResult -&gt; getAccountEncryptionResult.id()));
+     *         ctx.export("id", example.applyValue(getAccountEncryptionResult -> getAccountEncryptionResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -250,7 +250,7 @@ public final class NetappFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -272,13 +272,13 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getAccountEncryption(GetAccountEncryptionArgs.builder()
-     *             .netappAccountId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1&#34;)
+     *             .netappAccountId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAccountEncryptionResult -&gt; getAccountEncryptionResult.id()));
+     *         ctx.export("id", example.applyValue(getAccountEncryptionResult -> getAccountEncryptionResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -291,7 +291,7 @@ public final class NetappFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -313,13 +313,13 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getAccountEncryption(GetAccountEncryptionArgs.builder()
-     *             .netappAccountId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1&#34;)
+     *             .netappAccountId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAccountEncryptionResult -&gt; getAccountEncryptionResult.id()));
+     *         ctx.export("id", example.applyValue(getAccountEncryptionResult -> getAccountEncryptionResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -332,7 +332,7 @@ public final class NetappFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -354,13 +354,13 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getAccountEncryption(GetAccountEncryptionArgs.builder()
-     *             .netappAccountId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1&#34;)
+     *             .netappAccountId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAccountEncryptionResult -&gt; getAccountEncryptionResult.id()));
+     *         ctx.export("id", example.applyValue(getAccountEncryptionResult -> getAccountEncryptionResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -373,7 +373,7 @@ public final class NetappFunctions {
      * ## NetApp Pool Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -395,15 +395,15 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getPool(GetPoolArgs.builder()
-     *             .resourceGroupName(&#34;acctestRG&#34;)
-     *             .accountName(&#34;acctestnetappaccount&#34;)
-     *             .name(&#34;acctestnetapppool&#34;)
+     *             .resourceGroupName("acctestRG")
+     *             .accountName("acctestnetappaccount")
+     *             .name("acctestnetapppool")
      *             .build());
      * 
-     *         ctx.export(&#34;netappPoolId&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.id()));
+     *         ctx.export("netappPoolId", example.applyValue(getPoolResult -> getPoolResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -416,7 +416,7 @@ public final class NetappFunctions {
      * ## NetApp Pool Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -438,15 +438,15 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getPool(GetPoolArgs.builder()
-     *             .resourceGroupName(&#34;acctestRG&#34;)
-     *             .accountName(&#34;acctestnetappaccount&#34;)
-     *             .name(&#34;acctestnetapppool&#34;)
+     *             .resourceGroupName("acctestRG")
+     *             .accountName("acctestnetappaccount")
+     *             .name("acctestnetapppool")
      *             .build());
      * 
-     *         ctx.export(&#34;netappPoolId&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.id()));
+     *         ctx.export("netappPoolId", example.applyValue(getPoolResult -> getPoolResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -459,7 +459,7 @@ public final class NetappFunctions {
      * ## NetApp Pool Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -481,15 +481,15 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getPool(GetPoolArgs.builder()
-     *             .resourceGroupName(&#34;acctestRG&#34;)
-     *             .accountName(&#34;acctestnetappaccount&#34;)
-     *             .name(&#34;acctestnetapppool&#34;)
+     *             .resourceGroupName("acctestRG")
+     *             .accountName("acctestnetappaccount")
+     *             .name("acctestnetapppool")
      *             .build());
      * 
-     *         ctx.export(&#34;netappPoolId&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.id()));
+     *         ctx.export("netappPoolId", example.applyValue(getPoolResult -> getPoolResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -502,7 +502,7 @@ public final class NetappFunctions {
      * ## NetApp Pool Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -524,15 +524,15 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getPool(GetPoolArgs.builder()
-     *             .resourceGroupName(&#34;acctestRG&#34;)
-     *             .accountName(&#34;acctestnetappaccount&#34;)
-     *             .name(&#34;acctestnetapppool&#34;)
+     *             .resourceGroupName("acctestRG")
+     *             .accountName("acctestnetappaccount")
+     *             .name("acctestnetapppool")
      *             .build());
      * 
-     *         ctx.export(&#34;netappPoolId&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.id()));
+     *         ctx.export("netappPoolId", example.applyValue(getPoolResult -> getPoolResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -545,7 +545,7 @@ public final class NetappFunctions {
      * ## NetApp Snapshot Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -567,17 +567,17 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = NetappFunctions.getSnapshot(GetSnapshotArgs.builder()
-     *             .resourceGroupName(&#34;acctestRG&#34;)
-     *             .name(&#34;acctestnetappsnapshot&#34;)
-     *             .accountName(&#34;acctestnetappaccount&#34;)
-     *             .poolName(&#34;acctestnetapppool&#34;)
-     *             .volumeName(&#34;acctestnetappvolume&#34;)
+     *             .resourceGroupName("acctestRG")
+     *             .name("acctestnetappsnapshot")
+     *             .accountName("acctestnetappaccount")
+     *             .poolName("acctestnetapppool")
+     *             .volumeName("acctestnetappvolume")
      *             .build());
      * 
-     *         ctx.export(&#34;netappSnapshotId&#34;, example.id());
+     *         ctx.export("netappSnapshotId", example.id());
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -590,7 +590,7 @@ public final class NetappFunctions {
      * ## NetApp Snapshot Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -612,17 +612,17 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = NetappFunctions.getSnapshot(GetSnapshotArgs.builder()
-     *             .resourceGroupName(&#34;acctestRG&#34;)
-     *             .name(&#34;acctestnetappsnapshot&#34;)
-     *             .accountName(&#34;acctestnetappaccount&#34;)
-     *             .poolName(&#34;acctestnetapppool&#34;)
-     *             .volumeName(&#34;acctestnetappvolume&#34;)
+     *             .resourceGroupName("acctestRG")
+     *             .name("acctestnetappsnapshot")
+     *             .accountName("acctestnetappaccount")
+     *             .poolName("acctestnetapppool")
+     *             .volumeName("acctestnetappvolume")
      *             .build());
      * 
-     *         ctx.export(&#34;netappSnapshotId&#34;, example.id());
+     *         ctx.export("netappSnapshotId", example.id());
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -635,7 +635,7 @@ public final class NetappFunctions {
      * ## NetApp Snapshot Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -657,17 +657,17 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = NetappFunctions.getSnapshot(GetSnapshotArgs.builder()
-     *             .resourceGroupName(&#34;acctestRG&#34;)
-     *             .name(&#34;acctestnetappsnapshot&#34;)
-     *             .accountName(&#34;acctestnetappaccount&#34;)
-     *             .poolName(&#34;acctestnetapppool&#34;)
-     *             .volumeName(&#34;acctestnetappvolume&#34;)
+     *             .resourceGroupName("acctestRG")
+     *             .name("acctestnetappsnapshot")
+     *             .accountName("acctestnetappaccount")
+     *             .poolName("acctestnetapppool")
+     *             .volumeName("acctestnetappvolume")
      *             .build());
      * 
-     *         ctx.export(&#34;netappSnapshotId&#34;, example.id());
+     *         ctx.export("netappSnapshotId", example.id());
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -680,7 +680,7 @@ public final class NetappFunctions {
      * ## NetApp Snapshot Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -702,17 +702,17 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = NetappFunctions.getSnapshot(GetSnapshotArgs.builder()
-     *             .resourceGroupName(&#34;acctestRG&#34;)
-     *             .name(&#34;acctestnetappsnapshot&#34;)
-     *             .accountName(&#34;acctestnetappaccount&#34;)
-     *             .poolName(&#34;acctestnetapppool&#34;)
-     *             .volumeName(&#34;acctestnetappvolume&#34;)
+     *             .resourceGroupName("acctestRG")
+     *             .name("acctestnetappsnapshot")
+     *             .accountName("acctestnetappaccount")
+     *             .poolName("acctestnetapppool")
+     *             .volumeName("acctestnetappvolume")
      *             .build());
      * 
-     *         ctx.export(&#34;netappSnapshotId&#34;, example.id());
+     *         ctx.export("netappSnapshotId", example.id());
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -725,7 +725,7 @@ public final class NetappFunctions {
      * ## NetApp Snapshot Policy Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -747,21 +747,21 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getSnapshotPolicy(GetSnapshotPolicyArgs.builder()
-     *             .resourceGroupName(&#34;acctestRG&#34;)
-     *             .accountName(&#34;acctestnetappaccount&#34;)
-     *             .name(&#34;example-snapshot-policy&#34;)
+     *             .resourceGroupName("acctestRG")
+     *             .accountName("acctestnetappaccount")
+     *             .name("example-snapshot-policy")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.id()));
-     *         ctx.export(&#34;name&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.name()));
-     *         ctx.export(&#34;enabled&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.enabled()));
-     *         ctx.export(&#34;hourlySchedule&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.hourlySchedules()));
-     *         ctx.export(&#34;dailySchedule&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.dailySchedules()));
-     *         ctx.export(&#34;weeklySchedule&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.weeklySchedules()));
-     *         ctx.export(&#34;monthlySchedule&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.monthlySchedules()));
+     *         ctx.export("id", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.id()));
+     *         ctx.export("name", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.name()));
+     *         ctx.export("enabled", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.enabled()));
+     *         ctx.export("hourlySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.hourlySchedules()));
+     *         ctx.export("dailySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.dailySchedules()));
+     *         ctx.export("weeklySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.weeklySchedules()));
+     *         ctx.export("monthlySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.monthlySchedules()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -774,7 +774,7 @@ public final class NetappFunctions {
      * ## NetApp Snapshot Policy Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -796,21 +796,21 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getSnapshotPolicy(GetSnapshotPolicyArgs.builder()
-     *             .resourceGroupName(&#34;acctestRG&#34;)
-     *             .accountName(&#34;acctestnetappaccount&#34;)
-     *             .name(&#34;example-snapshot-policy&#34;)
+     *             .resourceGroupName("acctestRG")
+     *             .accountName("acctestnetappaccount")
+     *             .name("example-snapshot-policy")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.id()));
-     *         ctx.export(&#34;name&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.name()));
-     *         ctx.export(&#34;enabled&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.enabled()));
-     *         ctx.export(&#34;hourlySchedule&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.hourlySchedules()));
-     *         ctx.export(&#34;dailySchedule&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.dailySchedules()));
-     *         ctx.export(&#34;weeklySchedule&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.weeklySchedules()));
-     *         ctx.export(&#34;monthlySchedule&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.monthlySchedules()));
+     *         ctx.export("id", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.id()));
+     *         ctx.export("name", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.name()));
+     *         ctx.export("enabled", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.enabled()));
+     *         ctx.export("hourlySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.hourlySchedules()));
+     *         ctx.export("dailySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.dailySchedules()));
+     *         ctx.export("weeklySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.weeklySchedules()));
+     *         ctx.export("monthlySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.monthlySchedules()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -823,7 +823,7 @@ public final class NetappFunctions {
      * ## NetApp Snapshot Policy Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -845,21 +845,21 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getSnapshotPolicy(GetSnapshotPolicyArgs.builder()
-     *             .resourceGroupName(&#34;acctestRG&#34;)
-     *             .accountName(&#34;acctestnetappaccount&#34;)
-     *             .name(&#34;example-snapshot-policy&#34;)
+     *             .resourceGroupName("acctestRG")
+     *             .accountName("acctestnetappaccount")
+     *             .name("example-snapshot-policy")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.id()));
-     *         ctx.export(&#34;name&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.name()));
-     *         ctx.export(&#34;enabled&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.enabled()));
-     *         ctx.export(&#34;hourlySchedule&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.hourlySchedules()));
-     *         ctx.export(&#34;dailySchedule&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.dailySchedules()));
-     *         ctx.export(&#34;weeklySchedule&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.weeklySchedules()));
-     *         ctx.export(&#34;monthlySchedule&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.monthlySchedules()));
+     *         ctx.export("id", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.id()));
+     *         ctx.export("name", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.name()));
+     *         ctx.export("enabled", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.enabled()));
+     *         ctx.export("hourlySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.hourlySchedules()));
+     *         ctx.export("dailySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.dailySchedules()));
+     *         ctx.export("weeklySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.weeklySchedules()));
+     *         ctx.export("monthlySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.monthlySchedules()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -872,7 +872,7 @@ public final class NetappFunctions {
      * ## NetApp Snapshot Policy Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -894,21 +894,21 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getSnapshotPolicy(GetSnapshotPolicyArgs.builder()
-     *             .resourceGroupName(&#34;acctestRG&#34;)
-     *             .accountName(&#34;acctestnetappaccount&#34;)
-     *             .name(&#34;example-snapshot-policy&#34;)
+     *             .resourceGroupName("acctestRG")
+     *             .accountName("acctestnetappaccount")
+     *             .name("example-snapshot-policy")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.id()));
-     *         ctx.export(&#34;name&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.name()));
-     *         ctx.export(&#34;enabled&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.enabled()));
-     *         ctx.export(&#34;hourlySchedule&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.hourlySchedules()));
-     *         ctx.export(&#34;dailySchedule&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.dailySchedules()));
-     *         ctx.export(&#34;weeklySchedule&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.weeklySchedules()));
-     *         ctx.export(&#34;monthlySchedule&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.monthlySchedules()));
+     *         ctx.export("id", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.id()));
+     *         ctx.export("name", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.name()));
+     *         ctx.export("enabled", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.enabled()));
+     *         ctx.export("hourlySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.hourlySchedules()));
+     *         ctx.export("dailySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.dailySchedules()));
+     *         ctx.export("weeklySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.weeklySchedules()));
+     *         ctx.export("monthlySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.monthlySchedules()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -921,7 +921,7 @@ public final class NetappFunctions {
      * ## NetApp Volume Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -943,16 +943,16 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getVolume(GetVolumeArgs.builder()
-     *             .resourceGroupName(&#34;acctestRG&#34;)
-     *             .accountName(&#34;acctestnetappaccount&#34;)
-     *             .poolName(&#34;acctestnetapppool&#34;)
-     *             .name(&#34;example-volume&#34;)
+     *             .resourceGroupName("acctestRG")
+     *             .accountName("acctestnetappaccount")
+     *             .poolName("acctestnetapppool")
+     *             .name("example-volume")
      *             .build());
      * 
-     *         ctx.export(&#34;netappVolumeId&#34;, example.applyValue(getVolumeResult -&gt; getVolumeResult.id()));
+     *         ctx.export("netappVolumeId", example.applyValue(getVolumeResult -> getVolumeResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -965,7 +965,7 @@ public final class NetappFunctions {
      * ## NetApp Volume Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -987,16 +987,16 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getVolume(GetVolumeArgs.builder()
-     *             .resourceGroupName(&#34;acctestRG&#34;)
-     *             .accountName(&#34;acctestnetappaccount&#34;)
-     *             .poolName(&#34;acctestnetapppool&#34;)
-     *             .name(&#34;example-volume&#34;)
+     *             .resourceGroupName("acctestRG")
+     *             .accountName("acctestnetappaccount")
+     *             .poolName("acctestnetapppool")
+     *             .name("example-volume")
      *             .build());
      * 
-     *         ctx.export(&#34;netappVolumeId&#34;, example.applyValue(getVolumeResult -&gt; getVolumeResult.id()));
+     *         ctx.export("netappVolumeId", example.applyValue(getVolumeResult -> getVolumeResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1009,7 +1009,7 @@ public final class NetappFunctions {
      * ## NetApp Volume Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1031,16 +1031,16 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getVolume(GetVolumeArgs.builder()
-     *             .resourceGroupName(&#34;acctestRG&#34;)
-     *             .accountName(&#34;acctestnetappaccount&#34;)
-     *             .poolName(&#34;acctestnetapppool&#34;)
-     *             .name(&#34;example-volume&#34;)
+     *             .resourceGroupName("acctestRG")
+     *             .accountName("acctestnetappaccount")
+     *             .poolName("acctestnetapppool")
+     *             .name("example-volume")
      *             .build());
      * 
-     *         ctx.export(&#34;netappVolumeId&#34;, example.applyValue(getVolumeResult -&gt; getVolumeResult.id()));
+     *         ctx.export("netappVolumeId", example.applyValue(getVolumeResult -> getVolumeResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1053,7 +1053,7 @@ public final class NetappFunctions {
      * ## NetApp Volume Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1075,16 +1075,16 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getVolume(GetVolumeArgs.builder()
-     *             .resourceGroupName(&#34;acctestRG&#34;)
-     *             .accountName(&#34;acctestnetappaccount&#34;)
-     *             .poolName(&#34;acctestnetapppool&#34;)
-     *             .name(&#34;example-volume&#34;)
+     *             .resourceGroupName("acctestRG")
+     *             .accountName("acctestnetappaccount")
+     *             .poolName("acctestnetapppool")
+     *             .name("example-volume")
      *             .build());
      * 
-     *         ctx.export(&#34;netappVolumeId&#34;, example.applyValue(getVolumeResult -&gt; getVolumeResult.id()));
+     *         ctx.export("netappVolumeId", example.applyValue(getVolumeResult -> getVolumeResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1097,7 +1097,7 @@ public final class NetappFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1119,15 +1119,15 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getVolumeGroupSapHana(GetVolumeGroupSapHanaArgs.builder()
-     *             .name(&#34;existing application volume group name&#34;)
-     *             .resourceGroupName(&#34;resource group name where the account and volume group belong to&#34;)
-     *             .accountName(&#34;existing account where the application volume group belong to&#34;)
+     *             .name("existing application volume group name")
+     *             .resourceGroupName("resource group name where the account and volume group belong to")
+     *             .accountName("existing account where the application volume group belong to")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getVolumeGroupSapHanaResult -&gt; getVolumeGroupSapHanaResult.id()));
+     *         ctx.export("id", example.applyValue(getVolumeGroupSapHanaResult -> getVolumeGroupSapHanaResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1140,7 +1140,7 @@ public final class NetappFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1162,15 +1162,15 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getVolumeGroupSapHana(GetVolumeGroupSapHanaArgs.builder()
-     *             .name(&#34;existing application volume group name&#34;)
-     *             .resourceGroupName(&#34;resource group name where the account and volume group belong to&#34;)
-     *             .accountName(&#34;existing account where the application volume group belong to&#34;)
+     *             .name("existing application volume group name")
+     *             .resourceGroupName("resource group name where the account and volume group belong to")
+     *             .accountName("existing account where the application volume group belong to")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getVolumeGroupSapHanaResult -&gt; getVolumeGroupSapHanaResult.id()));
+     *         ctx.export("id", example.applyValue(getVolumeGroupSapHanaResult -> getVolumeGroupSapHanaResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1183,7 +1183,7 @@ public final class NetappFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1205,15 +1205,15 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getVolumeGroupSapHana(GetVolumeGroupSapHanaArgs.builder()
-     *             .name(&#34;existing application volume group name&#34;)
-     *             .resourceGroupName(&#34;resource group name where the account and volume group belong to&#34;)
-     *             .accountName(&#34;existing account where the application volume group belong to&#34;)
+     *             .name("existing application volume group name")
+     *             .resourceGroupName("resource group name where the account and volume group belong to")
+     *             .accountName("existing account where the application volume group belong to")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getVolumeGroupSapHanaResult -&gt; getVolumeGroupSapHanaResult.id()));
+     *         ctx.export("id", example.applyValue(getVolumeGroupSapHanaResult -> getVolumeGroupSapHanaResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1226,7 +1226,7 @@ public final class NetappFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1248,15 +1248,15 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getVolumeGroupSapHana(GetVolumeGroupSapHanaArgs.builder()
-     *             .name(&#34;existing application volume group name&#34;)
-     *             .resourceGroupName(&#34;resource group name where the account and volume group belong to&#34;)
-     *             .accountName(&#34;existing account where the application volume group belong to&#34;)
+     *             .name("existing application volume group name")
+     *             .resourceGroupName("resource group name where the account and volume group belong to")
+     *             .accountName("existing account where the application volume group belong to")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getVolumeGroupSapHanaResult -&gt; getVolumeGroupSapHanaResult.id()));
+     *         ctx.export("id", example.applyValue(getVolumeGroupSapHanaResult -> getVolumeGroupSapHanaResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1269,7 +1269,7 @@ public final class NetappFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1291,14 +1291,14 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getVolumeQuotaRule(GetVolumeQuotaRuleArgs.builder()
-     *             .name(&#34;exampleQuotaRule&#34;)
-     *             .volumeId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/vol1&#34;)
+     *             .name("exampleQuotaRule")
+     *             .volumeId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/vol1")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getVolumeQuotaRuleResult -&gt; getVolumeQuotaRuleResult.id()));
+     *         ctx.export("id", example.applyValue(getVolumeQuotaRuleResult -> getVolumeQuotaRuleResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1311,7 +1311,7 @@ public final class NetappFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1333,14 +1333,14 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getVolumeQuotaRule(GetVolumeQuotaRuleArgs.builder()
-     *             .name(&#34;exampleQuotaRule&#34;)
-     *             .volumeId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/vol1&#34;)
+     *             .name("exampleQuotaRule")
+     *             .volumeId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/vol1")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getVolumeQuotaRuleResult -&gt; getVolumeQuotaRuleResult.id()));
+     *         ctx.export("id", example.applyValue(getVolumeQuotaRuleResult -> getVolumeQuotaRuleResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1353,7 +1353,7 @@ public final class NetappFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1375,14 +1375,14 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getVolumeQuotaRule(GetVolumeQuotaRuleArgs.builder()
-     *             .name(&#34;exampleQuotaRule&#34;)
-     *             .volumeId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/vol1&#34;)
+     *             .name("exampleQuotaRule")
+     *             .volumeId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/vol1")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getVolumeQuotaRuleResult -&gt; getVolumeQuotaRuleResult.id()));
+     *         ctx.export("id", example.applyValue(getVolumeQuotaRuleResult -> getVolumeQuotaRuleResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1395,7 +1395,7 @@ public final class NetappFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1417,14 +1417,14 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getVolumeQuotaRule(GetVolumeQuotaRuleArgs.builder()
-     *             .name(&#34;exampleQuotaRule&#34;)
-     *             .volumeId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/vol1&#34;)
+     *             .name("exampleQuotaRule")
+     *             .volumeId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/vol1")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getVolumeQuotaRuleResult -&gt; getVolumeQuotaRuleResult.id()));
+     *         ctx.export("id", example.applyValue(getVolumeQuotaRuleResult -> getVolumeQuotaRuleResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

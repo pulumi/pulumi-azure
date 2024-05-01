@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,20 +48,20 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var primary = CoreFunctions.getSubscription();
  * 
- *         var example = new RoleDefinition(&#34;example&#34;, RoleDefinitionArgs.builder()        
- *             .name(&#34;my-custom-role&#34;)
- *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
- *             .description(&#34;This is a custom role created&#34;)
+ *         var example = new RoleDefinition("example", RoleDefinitionArgs.builder()        
+ *             .name("my-custom-role")
+ *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *             .description("This is a custom role created")
  *             .permissions(RoleDefinitionPermissionArgs.builder()
- *                 .actions(&#34;*&#34;)
+ *                 .actions("*")
  *                 .notActions()
  *                 .build())
- *             .assignableScopes(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+ *             .assignableScopes(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

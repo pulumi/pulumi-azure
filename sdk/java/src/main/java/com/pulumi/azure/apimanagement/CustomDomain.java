@@ -30,7 +30,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -67,83 +67,83 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
  *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
- *             .name(&#34;mykeyvault&#34;)
- *             .resourceGroupName(&#34;some-resource-group&#34;)
+ *             .name("mykeyvault")
+ *             .resourceGroupName("some-resource-group")
  *             .build());
  * 
- *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .name(&#34;example-apim&#34;)
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *             .name("example-apim")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .publisherName(&#34;pub1&#34;)
- *             .publisherEmail(&#34;pub1@email.com&#34;)
- *             .skuName(&#34;Developer_1&#34;)
+ *             .publisherName("pub1")
+ *             .publisherEmail("pub1@email.com")
+ *             .skuName("Developer_1")
  *             .build());
  * 
- *         var exampleCertificate = new Certificate(&#34;exampleCertificate&#34;, CertificateArgs.builder()        
- *             .name(&#34;example-certificate&#34;)
- *             .keyVaultId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+ *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()        
+ *             .name("example-certificate")
+ *             .keyVaultId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
  *             .certificatePolicy(CertificateCertificatePolicyArgs.builder()
  *                 .issuerParameters(CertificateCertificatePolicyIssuerParametersArgs.builder()
- *                     .name(&#34;Self&#34;)
+ *                     .name("Self")
  *                     .build())
  *                 .keyProperties(CertificateCertificatePolicyKeyPropertiesArgs.builder()
  *                     .exportable(true)
  *                     .keySize(2048)
- *                     .keyType(&#34;RSA&#34;)
+ *                     .keyType("RSA")
  *                     .reuseKey(true)
  *                     .build())
  *                 .lifetimeActions(CertificateCertificatePolicyLifetimeActionArgs.builder()
  *                     .action(CertificateCertificatePolicyLifetimeActionActionArgs.builder()
- *                         .actionType(&#34;AutoRenew&#34;)
+ *                         .actionType("AutoRenew")
  *                         .build())
  *                     .trigger(CertificateCertificatePolicyLifetimeActionTriggerArgs.builder()
  *                         .daysBeforeExpiry(30)
  *                         .build())
  *                     .build())
  *                 .secretProperties(CertificateCertificatePolicySecretPropertiesArgs.builder()
- *                     .contentType(&#34;application/x-pkcs12&#34;)
+ *                     .contentType("application/x-pkcs12")
  *                     .build())
  *                 .x509CertificateProperties(CertificateCertificatePolicyX509CertificatePropertiesArgs.builder()
  *                     .keyUsages(                    
- *                         &#34;cRLSign&#34;,
- *                         &#34;dataEncipherment&#34;,
- *                         &#34;digitalSignature&#34;,
- *                         &#34;keyAgreement&#34;,
- *                         &#34;keyCertSign&#34;,
- *                         &#34;keyEncipherment&#34;)
- *                     .subject(&#34;CN=api.example.com&#34;)
+ *                         "cRLSign",
+ *                         "dataEncipherment",
+ *                         "digitalSignature",
+ *                         "keyAgreement",
+ *                         "keyCertSign",
+ *                         "keyEncipherment")
+ *                     .subject("CN=api.example.com")
  *                     .validityInMonths(12)
  *                     .subjectAlternativeNames(CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs.builder()
  *                         .dnsNames(                        
- *                             &#34;api.example.com&#34;,
- *                             &#34;portal.example.com&#34;)
+ *                             "api.example.com",
+ *                             "portal.example.com")
  *                         .build())
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleCustomDomain = new CustomDomain(&#34;exampleCustomDomain&#34;, CustomDomainArgs.builder()        
+ *         var exampleCustomDomain = new CustomDomain("exampleCustomDomain", CustomDomainArgs.builder()        
  *             .apiManagementId(exampleService.id())
  *             .gateways(CustomDomainGatewayArgs.builder()
- *                 .hostName(&#34;api.example.com&#34;)
+ *                 .hostName("api.example.com")
  *                 .keyVaultId(exampleCertificate.versionlessSecretId())
  *                 .build())
  *             .developerPortals(CustomDomainDeveloperPortalArgs.builder()
- *                 .hostName(&#34;portal.example.com&#34;)
+ *                 .hostName("portal.example.com")
  *                 .keyVaultId(exampleCertificate.versionlessSecretId())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

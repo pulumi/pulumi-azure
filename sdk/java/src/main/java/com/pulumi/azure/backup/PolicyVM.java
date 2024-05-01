@@ -27,7 +27,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -57,26 +57,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;tfex-recovery_vault&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("tfex-recovery_vault")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVault = new Vault(&#34;exampleVault&#34;, VaultArgs.builder()        
- *             .name(&#34;tfex-recovery-vault&#34;)
+ *         var exampleVault = new Vault("exampleVault", VaultArgs.builder()        
+ *             .name("tfex-recovery-vault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;Standard&#34;)
+ *             .sku("Standard")
  *             .build());
  * 
- *         var examplePolicyVM = new PolicyVM(&#34;examplePolicyVM&#34;, PolicyVMArgs.builder()        
- *             .name(&#34;tfex-recovery-vault-policy&#34;)
+ *         var examplePolicyVM = new PolicyVM("examplePolicyVM", PolicyVMArgs.builder()        
+ *             .name("tfex-recovery-vault-policy")
  *             .resourceGroupName(example.name())
  *             .recoveryVaultName(exampleVault.name())
- *             .timezone(&#34;UTC&#34;)
+ *             .timezone("UTC")
  *             .backup(PolicyVMBackupArgs.builder()
- *                 .frequency(&#34;Daily&#34;)
- *                 .time(&#34;23:00&#34;)
+ *                 .frequency("Daily")
+ *                 .time("23:00")
  *                 .build())
  *             .retentionDaily(PolicyVMRetentionDailyArgs.builder()
  *                 .count(10)
@@ -84,31 +84,31 @@ import javax.annotation.Nullable;
  *             .retentionWeekly(PolicyVMRetentionWeeklyArgs.builder()
  *                 .count(42)
  *                 .weekdays(                
- *                     &#34;Sunday&#34;,
- *                     &#34;Wednesday&#34;,
- *                     &#34;Friday&#34;,
- *                     &#34;Saturday&#34;)
+ *                     "Sunday",
+ *                     "Wednesday",
+ *                     "Friday",
+ *                     "Saturday")
  *                 .build())
  *             .retentionMonthly(PolicyVMRetentionMonthlyArgs.builder()
  *                 .count(7)
  *                 .weekdays(                
- *                     &#34;Sunday&#34;,
- *                     &#34;Wednesday&#34;)
+ *                     "Sunday",
+ *                     "Wednesday")
  *                 .weeks(                
- *                     &#34;First&#34;,
- *                     &#34;Last&#34;)
+ *                     "First",
+ *                     "Last")
  *                 .build())
  *             .retentionYearly(PolicyVMRetentionYearlyArgs.builder()
  *                 .count(77)
- *                 .weekdays(&#34;Sunday&#34;)
- *                 .weeks(&#34;Last&#34;)
- *                 .months(&#34;January&#34;)
+ *                 .weekdays("Sunday")
+ *                 .weeks("Last")
+ *                 .months("January")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

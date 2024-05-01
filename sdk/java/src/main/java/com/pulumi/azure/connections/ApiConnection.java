@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,35 +48,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
  *         final var example = ConnectionsFunctions.getManagedApi(GetManagedApiArgs.builder()
- *             .name(&#34;servicebus&#34;)
+ *             .name("servicebus")
  *             .location(exampleResourceGroup.location())
  *             .build());
  * 
- *         var exampleNamespace = new Namespace(&#34;exampleNamespace&#34;, NamespaceArgs.builder()        
- *             .name(&#34;acctestsbn-conn-example&#34;)
+ *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()        
+ *             .name("acctestsbn-conn-example")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .sku(&#34;Basic&#34;)
+ *             .sku("Basic")
  *             .build());
  * 
- *         var exampleApiConnection = new ApiConnection(&#34;exampleApiConnection&#34;, ApiConnectionArgs.builder()        
- *             .name(&#34;example-connection&#34;)
+ *         var exampleApiConnection = new ApiConnection("exampleApiConnection", ApiConnectionArgs.builder()        
+ *             .name("example-connection")
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .managedApiId(example.applyValue(getManagedApiResult -&gt; getManagedApiResult).applyValue(example -&gt; example.applyValue(getManagedApiResult -&gt; getManagedApiResult.id())))
- *             .displayName(&#34;Example 1&#34;)
- *             .parameterValues(Map.of(&#34;connectionString&#34;, exampleNamespace.defaultPrimaryConnectionString()))
- *             .tags(Map.of(&#34;Hello&#34;, &#34;World&#34;))
+ *             .managedApiId(example.applyValue(getManagedApiResult -> getManagedApiResult).applyValue(example -> example.applyValue(getManagedApiResult -> getManagedApiResult.id())))
+ *             .displayName("Example 1")
+ *             .parameterValues(Map.of("connectionString", exampleNamespace.defaultPrimaryConnectionString()))
+ *             .tags(Map.of("Hello", "World"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -23,7 +23,7 @@ public final class DatabasemigrationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -45,15 +45,15 @@ public final class DatabasemigrationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatabasemigrationFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;example-dbms-project&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .serviceName(&#34;example-dbms&#34;)
+     *             .name("example-dbms-project")
+     *             .resourceGroupName("example-rg")
+     *             .serviceName("example-dbms")
      *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, example.applyValue(getProjectResult -&gt; getProjectResult.name()));
+     *         ctx.export("name", example.applyValue(getProjectResult -> getProjectResult.name()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -66,7 +66,7 @@ public final class DatabasemigrationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -88,15 +88,15 @@ public final class DatabasemigrationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatabasemigrationFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;example-dbms-project&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .serviceName(&#34;example-dbms&#34;)
+     *             .name("example-dbms-project")
+     *             .resourceGroupName("example-rg")
+     *             .serviceName("example-dbms")
      *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, example.applyValue(getProjectResult -&gt; getProjectResult.name()));
+     *         ctx.export("name", example.applyValue(getProjectResult -> getProjectResult.name()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -109,7 +109,7 @@ public final class DatabasemigrationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -131,15 +131,15 @@ public final class DatabasemigrationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatabasemigrationFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;example-dbms-project&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .serviceName(&#34;example-dbms&#34;)
+     *             .name("example-dbms-project")
+     *             .resourceGroupName("example-rg")
+     *             .serviceName("example-dbms")
      *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, example.applyValue(getProjectResult -&gt; getProjectResult.name()));
+     *         ctx.export("name", example.applyValue(getProjectResult -> getProjectResult.name()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -152,7 +152,7 @@ public final class DatabasemigrationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -174,15 +174,15 @@ public final class DatabasemigrationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatabasemigrationFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;example-dbms-project&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .serviceName(&#34;example-dbms&#34;)
+     *             .name("example-dbms-project")
+     *             .resourceGroupName("example-rg")
+     *             .serviceName("example-dbms")
      *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, example.applyValue(getProjectResult -&gt; getProjectResult.name()));
+     *         ctx.export("name", example.applyValue(getProjectResult -> getProjectResult.name()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -195,7 +195,7 @@ public final class DatabasemigrationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -217,14 +217,14 @@ public final class DatabasemigrationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatabasemigrationFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example-dms&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-dms")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;azurermDmsId&#34;, example.applyValue(getServiceResult -&gt; getServiceResult.id()));
+     *         ctx.export("azurermDmsId", example.applyValue(getServiceResult -> getServiceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -237,7 +237,7 @@ public final class DatabasemigrationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -259,14 +259,14 @@ public final class DatabasemigrationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatabasemigrationFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example-dms&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-dms")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;azurermDmsId&#34;, example.applyValue(getServiceResult -&gt; getServiceResult.id()));
+     *         ctx.export("azurermDmsId", example.applyValue(getServiceResult -> getServiceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -279,7 +279,7 @@ public final class DatabasemigrationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -301,14 +301,14 @@ public final class DatabasemigrationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatabasemigrationFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example-dms&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-dms")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;azurermDmsId&#34;, example.applyValue(getServiceResult -&gt; getServiceResult.id()));
+     *         ctx.export("azurermDmsId", example.applyValue(getServiceResult -> getServiceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -321,7 +321,7 @@ public final class DatabasemigrationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -343,14 +343,14 @@ public final class DatabasemigrationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatabasemigrationFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example-dms&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-dms")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;azurermDmsId&#34;, example.applyValue(getServiceResult -&gt; getServiceResult.id()));
+     *         ctx.export("azurermDmsId", example.applyValue(getServiceResult -> getServiceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

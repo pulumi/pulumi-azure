@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -58,70 +58,70 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;webapp&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("webapp")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var examplePlan = new Plan(&#34;examplePlan&#34;, PlanArgs.builder()        
- *             .name(&#34;appserviceplan&#34;)
+ *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()        
+ *             .name("appserviceplan")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .sku(PlanSkuArgs.builder()
- *                 .tier(&#34;Premium&#34;)
- *                 .size(&#34;P1&#34;)
+ *                 .tier("Premium")
+ *                 .size("P1")
  *                 .build())
  *             .build());
  * 
- *         var exampleAppService = new AppService(&#34;exampleAppService&#34;, AppServiceArgs.builder()        
- *             .name(&#34;mywebapp&#34;)
+ *         var exampleAppService = new AppService("exampleAppService", AppServiceArgs.builder()        
+ *             .name("mywebapp")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .appServicePlanId(examplePlan.id())
  *             .build());
  * 
  *         final var example = DnsFunctions.getZone(GetZoneArgs.builder()
- *             .name(&#34;example.com&#34;)
+ *             .name("example.com")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleCNameRecord = new CNameRecord(&#34;exampleCNameRecord&#34;, CNameRecordArgs.builder()        
- *             .name(&#34;www&#34;)
- *             .zoneName(example.applyValue(getZoneResult -&gt; getZoneResult).applyValue(example -&gt; example.applyValue(getZoneResult -&gt; getZoneResult.name())))
- *             .resourceGroupName(example.applyValue(getZoneResult -&gt; getZoneResult).applyValue(example -&gt; example.applyValue(getZoneResult -&gt; getZoneResult.resourceGroupName())))
+ *         var exampleCNameRecord = new CNameRecord("exampleCNameRecord", CNameRecordArgs.builder()        
+ *             .name("www")
+ *             .zoneName(example.applyValue(getZoneResult -> getZoneResult).applyValue(example -> example.applyValue(getZoneResult -> getZoneResult.name())))
+ *             .resourceGroupName(example.applyValue(getZoneResult -> getZoneResult).applyValue(example -> example.applyValue(getZoneResult -> getZoneResult.resourceGroupName())))
  *             .ttl(300)
  *             .record(exampleAppService.defaultSiteHostname())
  *             .build());
  * 
- *         var exampleTxtRecord = new TxtRecord(&#34;exampleTxtRecord&#34;, TxtRecordArgs.builder()        
- *             .name(exampleCNameRecord.name().applyValue(name -&gt; String.format(&#34;asuid.%s&#34;, name)))
- *             .zoneName(example.applyValue(getZoneResult -&gt; getZoneResult).applyValue(example -&gt; example.applyValue(getZoneResult -&gt; getZoneResult.name())))
- *             .resourceGroupName(example.applyValue(getZoneResult -&gt; getZoneResult).applyValue(example -&gt; example.applyValue(getZoneResult -&gt; getZoneResult.resourceGroupName())))
+ *         var exampleTxtRecord = new TxtRecord("exampleTxtRecord", TxtRecordArgs.builder()        
+ *             .name(exampleCNameRecord.name().applyValue(name -> String.format("asuid.%s", name)))
+ *             .zoneName(example.applyValue(getZoneResult -> getZoneResult).applyValue(example -> example.applyValue(getZoneResult -> getZoneResult.name())))
+ *             .resourceGroupName(example.applyValue(getZoneResult -> getZoneResult).applyValue(example -> example.applyValue(getZoneResult -> getZoneResult.resourceGroupName())))
  *             .ttl(300)
  *             .records(TxtRecordRecordArgs.builder()
  *                 .value(exampleAppService.customDomainVerificationId())
  *                 .build())
  *             .build());
  * 
- *         var exampleCustomHostnameBinding = new CustomHostnameBinding(&#34;exampleCustomHostnameBinding&#34;, CustomHostnameBindingArgs.builder()        
- *             .hostname(StdFunctions.trim().applyValue(invoke -&gt; invoke.result()))
+ *         var exampleCustomHostnameBinding = new CustomHostnameBinding("exampleCustomHostnameBinding", CustomHostnameBindingArgs.builder()        
+ *             .hostname(StdFunctions.trim().applyValue(invoke -> invoke.result()))
  *             .appServiceName(exampleAppService.name())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleManagedCertificate = new ManagedCertificate(&#34;exampleManagedCertificate&#34;, ManagedCertificateArgs.builder()        
+ *         var exampleManagedCertificate = new ManagedCertificate("exampleManagedCertificate", ManagedCertificateArgs.builder()        
  *             .customHostnameBindingId(exampleCustomHostnameBinding.id())
  *             .build());
  * 
- *         var exampleCertificateBinding = new CertificateBinding(&#34;exampleCertificateBinding&#34;, CertificateBindingArgs.builder()        
+ *         var exampleCertificateBinding = new CertificateBinding("exampleCertificateBinding", CertificateBindingArgs.builder()        
  *             .hostnameBindingId(exampleCustomHostnameBinding.id())
  *             .certificateId(exampleManagedCertificate.id())
- *             .sslState(&#34;SniEnabled&#34;)
+ *             .sslState("SniEnabled")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

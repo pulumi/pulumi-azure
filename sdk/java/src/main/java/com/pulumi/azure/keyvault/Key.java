@@ -30,7 +30,7 @@ import javax.annotation.Nullable;
  * ### Additional Examples
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -61,58 +61,58 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;examplekeyvault&#34;)
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("examplekeyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .skuName(&#34;premium&#34;)
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .skuName("premium")
  *             .softDeleteRetentionDays(7)
  *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
- *                 .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *                 .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *                 .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *                 .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *                 .keyPermissions(                
- *                     &#34;Create&#34;,
- *                     &#34;Delete&#34;,
- *                     &#34;Get&#34;,
- *                     &#34;Purge&#34;,
- *                     &#34;Recover&#34;,
- *                     &#34;Update&#34;,
- *                     &#34;GetRotationPolicy&#34;,
- *                     &#34;SetRotationPolicy&#34;)
- *                 .secretPermissions(&#34;Set&#34;)
+ *                     "Create",
+ *                     "Delete",
+ *                     "Get",
+ *                     "Purge",
+ *                     "Recover",
+ *                     "Update",
+ *                     "GetRotationPolicy",
+ *                     "SetRotationPolicy")
+ *                 .secretPermissions("Set")
  *                 .build())
  *             .build());
  * 
- *         var generated = new Key(&#34;generated&#34;, KeyArgs.builder()        
- *             .name(&#34;generated-certificate&#34;)
+ *         var generated = new Key("generated", KeyArgs.builder()        
+ *             .name("generated-certificate")
  *             .keyVaultId(exampleKeyVault.id())
- *             .keyType(&#34;RSA&#34;)
+ *             .keyType("RSA")
  *             .keySize(2048)
  *             .keyOpts(            
- *                 &#34;decrypt&#34;,
- *                 &#34;encrypt&#34;,
- *                 &#34;sign&#34;,
- *                 &#34;unwrapKey&#34;,
- *                 &#34;verify&#34;,
- *                 &#34;wrapKey&#34;)
+ *                 "decrypt",
+ *                 "encrypt",
+ *                 "sign",
+ *                 "unwrapKey",
+ *                 "verify",
+ *                 "wrapKey")
  *             .rotationPolicy(KeyRotationPolicyArgs.builder()
  *                 .automatic(KeyRotationPolicyAutomaticArgs.builder()
- *                     .timeBeforeExpiry(&#34;P30D&#34;)
+ *                     .timeBeforeExpiry("P30D")
  *                     .build())
- *                 .expireAfter(&#34;P90D&#34;)
- *                 .notifyBeforeExpiry(&#34;P29D&#34;)
+ *                 .expireAfter("P90D")
+ *                 .notifyBeforeExpiry("P29D")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

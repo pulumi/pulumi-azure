@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,31 +49,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
  *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
- *             .name(&#34;storageaccountname&#34;)
+ *             .name("storageaccountname")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleFactory = new Factory(&#34;exampleFactory&#34;, FactoryArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *             .name("example")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleLinkedServiceAzureTableStorage = new LinkedServiceAzureTableStorage(&#34;exampleLinkedServiceAzureTableStorage&#34;, LinkedServiceAzureTableStorageArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleLinkedServiceAzureTableStorage = new LinkedServiceAzureTableStorage("exampleLinkedServiceAzureTableStorage", LinkedServiceAzureTableStorageArgs.builder()        
+ *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
- *             .connectionString(example.applyValue(getAccountResult -&gt; getAccountResult).applyValue(example -&gt; example.applyValue(getAccountResult -&gt; getAccountResult.primaryConnectionString())))
+ *             .connectionString(example.applyValue(getAccountResult -> getAccountResult).applyValue(example -> example.applyValue(getAccountResult -> getAccountResult.primaryConnectionString())))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

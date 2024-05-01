@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,33 +48,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;tfex-automation-account&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("tfex-automation-account")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;tfex-automation-account&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("tfex-automation-account")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;Basic&#34;)
+ *             .skuName("Basic")
  *             .build());
  * 
- *         var exampleSchedule = new Schedule(&#34;exampleSchedule&#34;, ScheduleArgs.builder()        
- *             .name(&#34;tfex-automation-schedule&#34;)
+ *         var exampleSchedule = new Schedule("exampleSchedule", ScheduleArgs.builder()        
+ *             .name("tfex-automation-schedule")
  *             .resourceGroupName(example.name())
  *             .automationAccountName(exampleAccount.name())
- *             .frequency(&#34;Week&#34;)
+ *             .frequency("Week")
  *             .interval(1)
- *             .timezone(&#34;Australia/Perth&#34;)
- *             .startTime(&#34;2014-04-15T18:00:15+02:00&#34;)
- *             .description(&#34;This is an example schedule&#34;)
- *             .weekDays(&#34;Friday&#34;)
+ *             .timezone("Australia/Perth")
+ *             .startTime("2014-04-15T18:00:15+02:00")
+ *             .description("This is an example schedule")
+ *             .weekDays("Friday")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

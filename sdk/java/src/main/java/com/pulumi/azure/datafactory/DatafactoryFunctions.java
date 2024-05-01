@@ -26,7 +26,7 @@ public final class DatafactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -48,14 +48,14 @@ public final class DatafactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatafactoryFunctions.getFactory(GetFactoryArgs.builder()
-     *             .name(&#34;existing-adf&#34;)
-     *             .resourceGroupName(&#34;existing-rg&#34;)
+     *             .name("existing-adf")
+     *             .resourceGroupName("existing-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getFactoryResult -&gt; getFactoryResult.id()));
+     *         ctx.export("id", example.applyValue(getFactoryResult -> getFactoryResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -68,7 +68,7 @@ public final class DatafactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -90,14 +90,14 @@ public final class DatafactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatafactoryFunctions.getFactory(GetFactoryArgs.builder()
-     *             .name(&#34;existing-adf&#34;)
-     *             .resourceGroupName(&#34;existing-rg&#34;)
+     *             .name("existing-adf")
+     *             .resourceGroupName("existing-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getFactoryResult -&gt; getFactoryResult.id()));
+     *         ctx.export("id", example.applyValue(getFactoryResult -> getFactoryResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -110,7 +110,7 @@ public final class DatafactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -132,14 +132,14 @@ public final class DatafactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatafactoryFunctions.getFactory(GetFactoryArgs.builder()
-     *             .name(&#34;existing-adf&#34;)
-     *             .resourceGroupName(&#34;existing-rg&#34;)
+     *             .name("existing-adf")
+     *             .resourceGroupName("existing-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getFactoryResult -&gt; getFactoryResult.id()));
+     *         ctx.export("id", example.applyValue(getFactoryResult -> getFactoryResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -152,7 +152,7 @@ public final class DatafactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -174,14 +174,14 @@ public final class DatafactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatafactoryFunctions.getFactory(GetFactoryArgs.builder()
-     *             .name(&#34;existing-adf&#34;)
-     *             .resourceGroupName(&#34;existing-rg&#34;)
+     *             .name("existing-adf")
+     *             .resourceGroupName("existing-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getFactoryResult -&gt; getFactoryResult.id()));
+     *         ctx.export("id", example.applyValue(getFactoryResult -> getFactoryResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -194,7 +194,7 @@ public final class DatafactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -216,14 +216,14 @@ public final class DatafactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatafactoryFunctions.getTriggerSchedule(GetTriggerScheduleArgs.builder()
-     *             .name(&#34;example_trigger&#34;)
-     *             .dataFactoryId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataFactory/factories/datafactory1&#34;)
+     *             .name("example_trigger")
+     *             .dataFactoryId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataFactory/factories/datafactory1")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getTriggerScheduleResult -&gt; getTriggerScheduleResult.id()));
+     *         ctx.export("id", example.applyValue(getTriggerScheduleResult -> getTriggerScheduleResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -236,7 +236,7 @@ public final class DatafactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -258,14 +258,14 @@ public final class DatafactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatafactoryFunctions.getTriggerSchedule(GetTriggerScheduleArgs.builder()
-     *             .name(&#34;example_trigger&#34;)
-     *             .dataFactoryId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataFactory/factories/datafactory1&#34;)
+     *             .name("example_trigger")
+     *             .dataFactoryId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataFactory/factories/datafactory1")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getTriggerScheduleResult -&gt; getTriggerScheduleResult.id()));
+     *         ctx.export("id", example.applyValue(getTriggerScheduleResult -> getTriggerScheduleResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -278,7 +278,7 @@ public final class DatafactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -300,14 +300,14 @@ public final class DatafactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatafactoryFunctions.getTriggerSchedule(GetTriggerScheduleArgs.builder()
-     *             .name(&#34;example_trigger&#34;)
-     *             .dataFactoryId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataFactory/factories/datafactory1&#34;)
+     *             .name("example_trigger")
+     *             .dataFactoryId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataFactory/factories/datafactory1")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getTriggerScheduleResult -&gt; getTriggerScheduleResult.id()));
+     *         ctx.export("id", example.applyValue(getTriggerScheduleResult -> getTriggerScheduleResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -320,7 +320,7 @@ public final class DatafactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -342,14 +342,14 @@ public final class DatafactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatafactoryFunctions.getTriggerSchedule(GetTriggerScheduleArgs.builder()
-     *             .name(&#34;example_trigger&#34;)
-     *             .dataFactoryId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataFactory/factories/datafactory1&#34;)
+     *             .name("example_trigger")
+     *             .dataFactoryId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataFactory/factories/datafactory1")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getTriggerScheduleResult -&gt; getTriggerScheduleResult.id()));
+     *         ctx.export("id", example.applyValue(getTriggerScheduleResult -> getTriggerScheduleResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -362,7 +362,7 @@ public final class DatafactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -384,13 +384,13 @@ public final class DatafactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatafactoryFunctions.getTriggerSchedules(GetTriggerSchedulesArgs.builder()
-     *             .dataFactoryId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataFactory/factories/datafactory1&#34;)
+     *             .dataFactoryId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataFactory/factories/datafactory1")
      *             .build());
      * 
-     *         ctx.export(&#34;items&#34;, example.applyValue(getTriggerSchedulesResult -&gt; getTriggerSchedulesResult.items()));
+     *         ctx.export("items", example.applyValue(getTriggerSchedulesResult -> getTriggerSchedulesResult.items()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -403,7 +403,7 @@ public final class DatafactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -425,13 +425,13 @@ public final class DatafactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatafactoryFunctions.getTriggerSchedules(GetTriggerSchedulesArgs.builder()
-     *             .dataFactoryId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataFactory/factories/datafactory1&#34;)
+     *             .dataFactoryId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataFactory/factories/datafactory1")
      *             .build());
      * 
-     *         ctx.export(&#34;items&#34;, example.applyValue(getTriggerSchedulesResult -&gt; getTriggerSchedulesResult.items()));
+     *         ctx.export("items", example.applyValue(getTriggerSchedulesResult -> getTriggerSchedulesResult.items()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -444,7 +444,7 @@ public final class DatafactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -466,13 +466,13 @@ public final class DatafactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatafactoryFunctions.getTriggerSchedules(GetTriggerSchedulesArgs.builder()
-     *             .dataFactoryId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataFactory/factories/datafactory1&#34;)
+     *             .dataFactoryId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataFactory/factories/datafactory1")
      *             .build());
      * 
-     *         ctx.export(&#34;items&#34;, example.applyValue(getTriggerSchedulesResult -&gt; getTriggerSchedulesResult.items()));
+     *         ctx.export("items", example.applyValue(getTriggerSchedulesResult -> getTriggerSchedulesResult.items()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -485,7 +485,7 @@ public final class DatafactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -507,13 +507,13 @@ public final class DatafactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatafactoryFunctions.getTriggerSchedules(GetTriggerSchedulesArgs.builder()
-     *             .dataFactoryId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataFactory/factories/datafactory1&#34;)
+     *             .dataFactoryId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataFactory/factories/datafactory1")
      *             .build());
      * 
-     *         ctx.export(&#34;items&#34;, example.applyValue(getTriggerSchedulesResult -&gt; getTriggerSchedulesResult.items()));
+     *         ctx.export("items", example.applyValue(getTriggerSchedulesResult -> getTriggerSchedulesResult.items()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

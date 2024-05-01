@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -59,92 +59,92 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
  *         final var example = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
- *             .displayName(&#34;Azure Spring Cloud Resource Provider&#34;)
+ *             .displayName("Azure Spring Cloud Resource Provider")
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;keyvaultcertexample&#34;)
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("keyvaultcertexample")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .skuName(&#34;standard&#34;)
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .skuName("standard")
  *             .accessPolicies(            
  *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *                     .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
- *                     .secretPermissions(&#34;Set&#34;)
+ *                     .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *                     .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *                     .secretPermissions("Set")
  *                     .certificatePermissions(                    
- *                         &#34;Create&#34;,
- *                         &#34;Delete&#34;,
- *                         &#34;Get&#34;,
- *                         &#34;Update&#34;)
+ *                         "Create",
+ *                         "Delete",
+ *                         "Get",
+ *                         "Update")
  *                     .build(),
  *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *                     .objectId(example.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.objectId()))
+ *                     .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *                     .objectId(example.applyValue(getServicePrincipalResult -> getServicePrincipalResult.objectId()))
  *                     .secretPermissions(                    
- *                         &#34;Get&#34;,
- *                         &#34;List&#34;)
+ *                         "Get",
+ *                         "List")
  *                     .certificatePermissions(                    
- *                         &#34;Get&#34;,
- *                         &#34;List&#34;)
+ *                         "Get",
+ *                         "List")
  *                     .build())
  *             .build());
  * 
- *         var exampleCertificate = new Certificate(&#34;exampleCertificate&#34;, CertificateArgs.builder()        
- *             .name(&#34;cert-example&#34;)
+ *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()        
+ *             .name("cert-example")
  *             .keyVaultId(exampleKeyVault.id())
  *             .certificatePolicy(CertificateCertificatePolicyArgs.builder()
  *                 .issuerParameters(CertificateCertificatePolicyIssuerParametersArgs.builder()
- *                     .name(&#34;Self&#34;)
+ *                     .name("Self")
  *                     .build())
  *                 .keyProperties(CertificateCertificatePolicyKeyPropertiesArgs.builder()
  *                     .exportable(true)
  *                     .keySize(2048)
- *                     .keyType(&#34;RSA&#34;)
+ *                     .keyType("RSA")
  *                     .reuseKey(true)
  *                     .build())
  *                 .lifetimeActions(CertificateCertificatePolicyLifetimeActionArgs.builder()
  *                     .action(CertificateCertificatePolicyLifetimeActionActionArgs.builder()
- *                         .actionType(&#34;AutoRenew&#34;)
+ *                         .actionType("AutoRenew")
  *                         .build())
  *                     .trigger(CertificateCertificatePolicyLifetimeActionTriggerArgs.builder()
  *                         .daysBeforeExpiry(30)
  *                         .build())
  *                     .build())
  *                 .secretProperties(CertificateCertificatePolicySecretPropertiesArgs.builder()
- *                     .contentType(&#34;application/x-pkcs12&#34;)
+ *                     .contentType("application/x-pkcs12")
  *                     .build())
  *                 .x509CertificateProperties(CertificateCertificatePolicyX509CertificatePropertiesArgs.builder()
  *                     .keyUsages(                    
- *                         &#34;cRLSign&#34;,
- *                         &#34;dataEncipherment&#34;,
- *                         &#34;digitalSignature&#34;,
- *                         &#34;keyAgreement&#34;,
- *                         &#34;keyCertSign&#34;,
- *                         &#34;keyEncipherment&#34;)
- *                     .subject(&#34;CN=contoso.com&#34;)
+ *                         "cRLSign",
+ *                         "dataEncipherment",
+ *                         "digitalSignature",
+ *                         "keyAgreement",
+ *                         "keyCertSign",
+ *                         "keyEncipherment")
+ *                     .subject("CN=contoso.com")
  *                     .validityInMonths(12)
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleSpringCloudService = new SpringCloudService(&#34;exampleSpringCloudService&#34;, SpringCloudServiceArgs.builder()        
- *             .name(&#34;example-springcloud&#34;)
+ *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()        
+ *             .name("example-springcloud")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .build());
  * 
- *         var exampleSpringCloudCertificate = new SpringCloudCertificate(&#34;exampleSpringCloudCertificate&#34;, SpringCloudCertificateArgs.builder()        
- *             .name(&#34;example-scc&#34;)
+ *         var exampleSpringCloudCertificate = new SpringCloudCertificate("exampleSpringCloudCertificate", SpringCloudCertificateArgs.builder()        
+ *             .name("example-scc")
  *             .resourceGroupName(exampleSpringCloudService.resourceGroupName())
  *             .serviceName(exampleSpringCloudService.name())
  *             .keyVaultCertificateId(exampleCertificate.id())
@@ -153,7 +153,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

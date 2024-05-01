@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,32 +51,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleIoTHub = new IoTHub(&#34;exampleIoTHub&#34;, IoTHubArgs.builder()        
- *             .name(&#34;example-IoTHub&#34;)
+ *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()        
+ *             .name("example-IoTHub")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .sku(IoTHubSkuArgs.builder()
- *                 .name(&#34;S1&#34;)
- *                 .capacity(&#34;1&#34;)
+ *                 .name("S1")
+ *                 .capacity("1")
  *                 .build())
  *             .build());
  * 
- *         var exampleSecuritySolution = new SecuritySolution(&#34;exampleSecuritySolution&#34;, SecuritySolutionArgs.builder()        
- *             .name(&#34;example-Iot-Security-Solution&#34;)
+ *         var exampleSecuritySolution = new SecuritySolution("exampleSecuritySolution", SecuritySolutionArgs.builder()        
+ *             .name("example-Iot-Security-Solution")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .displayName(&#34;Iot Security Solution&#34;)
+ *             .displayName("Iot Security Solution")
  *             .iothubIds(exampleIoTHub.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

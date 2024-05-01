@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,34 +52,34 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleChannelsRegistration = new ChannelsRegistration(&#34;exampleChannelsRegistration&#34;, ChannelsRegistrationArgs.builder()        
- *             .name(&#34;example-bcr&#34;)
- *             .location(&#34;global&#34;)
+ *         var exampleChannelsRegistration = new ChannelsRegistration("exampleChannelsRegistration", ChannelsRegistrationArgs.builder()        
+ *             .name("example-bcr")
+ *             .location("global")
  *             .resourceGroupName(example.name())
- *             .sku(&#34;F0&#34;)
- *             .microsoftAppId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.clientId()))
+ *             .sku("F0")
+ *             .microsoftAppId(current.applyValue(getClientConfigResult -> getClientConfigResult.clientId()))
  *             .build());
  * 
- *         var exampleChannelFacebook = new ChannelFacebook(&#34;exampleChannelFacebook&#34;, ChannelFacebookArgs.builder()        
+ *         var exampleChannelFacebook = new ChannelFacebook("exampleChannelFacebook", ChannelFacebookArgs.builder()        
  *             .botName(exampleChannelsRegistration.name())
  *             .location(exampleChannelsRegistration.location())
  *             .resourceGroupName(example.name())
- *             .facebookApplicationId(&#34;563490254873576&#34;)
- *             .facebookApplicationSecret(&#34;8976d2536445ad5b976dee8437b9beb0&#34;)
+ *             .facebookApplicationId("563490254873576")
+ *             .facebookApplicationSecret("8976d2536445ad5b976dee8437b9beb0")
  *             .pages(ChannelFacebookPageArgs.builder()
- *                 .id(&#34;876248795081953&#34;)
- *                 .accessToken(&#34;CGGCec3UAFPMBAKwK3Ft8SEpO8ZCuvpNBI5DClaJCDfqJj2BgEHCKxcY0FDarmUQap6XxpZC9GWCW4nZCzjcKosAZAP7SO44X8Q8gAntbDIXgYUBGp9xtS8wUkwgKPobUePcOOVFkvClxvYZByuiQxoTiK9fQ9jZCPEorbmZCsKDZAx4VLnrNwCTZAPUwXxO61gfq4ZD&#34;)
+ *                 .id("876248795081953")
+ *                 .accessToken("CGGCec3UAFPMBAKwK3Ft8SEpO8ZCuvpNBI5DClaJCDfqJj2BgEHCKxcY0FDarmUQap6XxpZC9GWCW4nZCzjcKosAZAP7SO44X8Q8gAntbDIXgYUBGp9xtS8wUkwgKPobUePcOOVFkvClxvYZByuiQxoTiK9fQ9jZCPEorbmZCsKDZAx4VLnrNwCTZAPUwXxO61gfq4ZD")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

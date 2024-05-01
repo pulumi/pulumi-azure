@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,49 +53,49 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;rg-example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("rg-example")
+ *             .location("West Europe")
  *             .build());
  * 
  *         final var example = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
- *             .name(&#34;example-job&#34;)
+ *             .name("example-job")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleNamespace = new Namespace(&#34;exampleNamespace&#34;, NamespaceArgs.builder()        
- *             .name(&#34;example-namespace&#34;)
+ *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()        
+ *             .name("example-namespace")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .sku(&#34;Standard&#34;)
+ *             .sku("Standard")
  *             .build());
  * 
- *         var exampleTopic = new Topic(&#34;exampleTopic&#34;, TopicArgs.builder()        
- *             .name(&#34;example-topic&#34;)
+ *         var exampleTopic = new Topic("exampleTopic", TopicArgs.builder()        
+ *             .name("example-topic")
  *             .namespaceId(exampleNamespace.id())
  *             .enablePartitioning(true)
  *             .build());
  * 
- *         var exampleOutputServicebusTopic = new OutputServicebusTopic(&#34;exampleOutputServicebusTopic&#34;, OutputServicebusTopicArgs.builder()        
- *             .name(&#34;service-bus-topic-output&#34;)
- *             .streamAnalyticsJobName(example.applyValue(getJobResult -&gt; getJobResult).applyValue(example -&gt; example.applyValue(getJobResult -&gt; getJobResult.name())))
- *             .resourceGroupName(example.applyValue(getJobResult -&gt; getJobResult).applyValue(example -&gt; example.applyValue(getJobResult -&gt; getJobResult.resourceGroupName())))
+ *         var exampleOutputServicebusTopic = new OutputServicebusTopic("exampleOutputServicebusTopic", OutputServicebusTopicArgs.builder()        
+ *             .name("service-bus-topic-output")
+ *             .streamAnalyticsJobName(example.applyValue(getJobResult -> getJobResult).applyValue(example -> example.applyValue(getJobResult -> getJobResult.name())))
+ *             .resourceGroupName(example.applyValue(getJobResult -> getJobResult).applyValue(example -> example.applyValue(getJobResult -> getJobResult.resourceGroupName())))
  *             .topicName(exampleTopic.name())
  *             .servicebusNamespace(exampleNamespace.name())
  *             .sharedAccessPolicyKey(exampleNamespace.defaultPrimaryKey())
- *             .sharedAccessPolicyName(&#34;RootManageSharedAccessKey&#34;)
+ *             .sharedAccessPolicyName("RootManageSharedAccessKey")
  *             .propertyColumns(            
- *                 &#34;col1&#34;,
- *                 &#34;col2&#34;)
+ *                 "col1",
+ *                 "col2")
  *             .serialization(OutputServicebusTopicSerializationArgs.builder()
- *                 .type(&#34;Csv&#34;)
- *                 .format(&#34;Array&#34;)
+ *                 .type("Csv")
+ *                 .format("Array")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

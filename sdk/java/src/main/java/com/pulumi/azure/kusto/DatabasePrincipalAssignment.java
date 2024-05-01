@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,44 +50,44 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;KustoRG&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("KustoRG")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
- *             .name(&#34;kustocluster&#34;)
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()        
+ *             .name("kustocluster")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku(ClusterSkuArgs.builder()
- *                 .name(&#34;Standard_D13_v2&#34;)
+ *                 .name("Standard_D13_v2")
  *                 .capacity(2)
  *                 .build())
  *             .build());
  * 
- *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
- *             .name(&#34;KustoDatabase&#34;)
+ *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()        
+ *             .name("KustoDatabase")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .clusterName(exampleCluster.name())
- *             .hotCachePeriod(&#34;P7D&#34;)
- *             .softDeletePeriod(&#34;P31D&#34;)
+ *             .hotCachePeriod("P7D")
+ *             .softDeletePeriod("P31D")
  *             .build());
  * 
- *         var exampleDatabasePrincipalAssignment = new DatabasePrincipalAssignment(&#34;exampleDatabasePrincipalAssignment&#34;, DatabasePrincipalAssignmentArgs.builder()        
- *             .name(&#34;KustoPrincipalAssignment&#34;)
+ *         var exampleDatabasePrincipalAssignment = new DatabasePrincipalAssignment("exampleDatabasePrincipalAssignment", DatabasePrincipalAssignmentArgs.builder()        
+ *             .name("KustoPrincipalAssignment")
  *             .resourceGroupName(example.name())
  *             .clusterName(exampleCluster.name())
  *             .databaseName(exampleDatabase.name())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .principalId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.clientId()))
- *             .principalType(&#34;App&#34;)
- *             .role(&#34;Viewer&#34;)
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .principalId(current.applyValue(getClientConfigResult -> getClientConfigResult.clientId()))
+ *             .principalType("App")
+ *             .role("Viewer")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

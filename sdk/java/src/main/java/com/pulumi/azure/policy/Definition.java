@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,47 +44,47 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var policy = new Definition(&#34;policy&#34;, DefinitionArgs.builder()        
- *             .name(&#34;accTestPolicy&#34;)
- *             .policyType(&#34;Custom&#34;)
- *             .mode(&#34;Indexed&#34;)
- *             .displayName(&#34;acceptance test policy definition&#34;)
- *             .metadata(&#34;&#34;&#34;
+ *         var policy = new Definition("policy", DefinitionArgs.builder()        
+ *             .name("accTestPolicy")
+ *             .policyType("Custom")
+ *             .mode("Indexed")
+ *             .displayName("acceptance test policy definition")
+ *             .metadata("""
  *     {
- *     &#34;category&#34;: &#34;General&#34;
+ *     "category": "General"
  *     }
  * 
- *             &#34;&#34;&#34;)
- *             .policyRule(&#34;&#34;&#34;
+ *             """)
+ *             .policyRule("""
  *  {
- *     &#34;if&#34;: {
- *       &#34;not&#34;: {
- *         &#34;field&#34;: &#34;location&#34;,
- *         &#34;in&#34;: &#34;[parameters(&#39;allowedLocations&#39;)]&#34;
+ *     "if": {
+ *       "not": {
+ *         "field": "location",
+ *         "in": "[parameters('allowedLocations')]"
  *       }
  *     },
- *     &#34;then&#34;: {
- *       &#34;effect&#34;: &#34;audit&#34;
+ *     "then": {
+ *       "effect": "audit"
  *     }
  *   }
- *             &#34;&#34;&#34;)
- *             .parameters(&#34;&#34;&#34;
+ *             """)
+ *             .parameters("""
  *  {
- *     &#34;allowedLocations&#34;: {
- *       &#34;type&#34;: &#34;Array&#34;,
- *       &#34;metadata&#34;: {
- *         &#34;description&#34;: &#34;The list of allowed locations for resources.&#34;,
- *         &#34;displayName&#34;: &#34;Allowed locations&#34;,
- *         &#34;strongType&#34;: &#34;location&#34;
+ *     "allowedLocations": {
+ *       "type": "Array",
+ *       "metadata": {
+ *         "description": "The list of allowed locations for resources.",
+ *         "displayName": "Allowed locations",
+ *         "strongType": "location"
  *       }
  *     }
  *   }
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

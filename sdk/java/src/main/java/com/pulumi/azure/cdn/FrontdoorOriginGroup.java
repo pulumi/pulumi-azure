@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,27 +51,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-cdn-frontdoor&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-cdn-frontdoor")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFrontdoorProfile = new FrontdoorProfile(&#34;exampleFrontdoorProfile&#34;, FrontdoorProfileArgs.builder()        
- *             .name(&#34;example-profile&#34;)
+ *         var exampleFrontdoorProfile = new FrontdoorProfile("exampleFrontdoorProfile", FrontdoorProfileArgs.builder()        
+ *             .name("example-profile")
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;Standard_AzureFrontDoor&#34;)
+ *             .skuName("Standard_AzureFrontDoor")
  *             .build());
  * 
- *         var exampleFrontdoorOriginGroup = new FrontdoorOriginGroup(&#34;exampleFrontdoorOriginGroup&#34;, FrontdoorOriginGroupArgs.builder()        
- *             .name(&#34;example-origin-group&#34;)
+ *         var exampleFrontdoorOriginGroup = new FrontdoorOriginGroup("exampleFrontdoorOriginGroup", FrontdoorOriginGroupArgs.builder()        
+ *             .name("example-origin-group")
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .sessionAffinityEnabled(true)
  *             .restoreTrafficTimeToHealedOrNewEndpointInMinutes(10)
  *             .healthProbe(FrontdoorOriginGroupHealthProbeArgs.builder()
  *                 .intervalInSeconds(240)
- *                 .path(&#34;/healthProbe&#34;)
- *                 .protocol(&#34;Https&#34;)
- *                 .requestType(&#34;HEAD&#34;)
+ *                 .path("/healthProbe")
+ *                 .protocol("Https")
+ *                 .requestType("HEAD")
  *                 .build())
  *             .loadBalancing(FrontdoorOriginGroupLoadBalancingArgs.builder()
  *                 .additionalLatencyInMilliseconds(0)
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

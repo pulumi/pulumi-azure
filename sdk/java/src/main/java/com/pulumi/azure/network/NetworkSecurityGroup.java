@@ -27,7 +27,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,32 +51,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleNetworkSecurityGroup = new NetworkSecurityGroup(&#34;exampleNetworkSecurityGroup&#34;, NetworkSecurityGroupArgs.builder()        
- *             .name(&#34;acceptanceTestSecurityGroup1&#34;)
+ *         var exampleNetworkSecurityGroup = new NetworkSecurityGroup("exampleNetworkSecurityGroup", NetworkSecurityGroupArgs.builder()        
+ *             .name("acceptanceTestSecurityGroup1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .securityRules(NetworkSecurityGroupSecurityRuleArgs.builder()
- *                 .name(&#34;test123&#34;)
+ *                 .name("test123")
  *                 .priority(100)
- *                 .direction(&#34;Inbound&#34;)
- *                 .access(&#34;Allow&#34;)
- *                 .protocol(&#34;Tcp&#34;)
- *                 .sourcePortRange(&#34;*&#34;)
- *                 .destinationPortRange(&#34;*&#34;)
- *                 .sourceAddressPrefix(&#34;*&#34;)
- *                 .destinationAddressPrefix(&#34;*&#34;)
+ *                 .direction("Inbound")
+ *                 .access("Allow")
+ *                 .protocol("Tcp")
+ *                 .sourcePortRange("*")
+ *                 .destinationPortRange("*")
+ *                 .sourceAddressPrefix("*")
+ *                 .destinationAddressPrefix("*")
  *                 .build())
- *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *             .tags(Map.of("environment", "Production"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

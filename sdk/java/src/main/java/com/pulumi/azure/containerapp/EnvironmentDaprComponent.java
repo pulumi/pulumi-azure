@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,36 +51,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
- *             .name(&#34;acctest-01&#34;)
+ *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()        
+ *             .name("acctest-01")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;PerGB2018&#34;)
+ *             .sku("PerGB2018")
  *             .retentionInDays(30)
  *             .build());
  * 
- *         var exampleEnvironment = new Environment(&#34;exampleEnvironment&#34;, EnvironmentArgs.builder()        
- *             .name(&#34;Example-Environment&#34;)
+ *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()        
+ *             .name("Example-Environment")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .logAnalyticsWorkspaceId(exampleAnalyticsWorkspace.id())
  *             .build());
  * 
- *         var exampleEnvironmentDaprComponent = new EnvironmentDaprComponent(&#34;exampleEnvironmentDaprComponent&#34;, EnvironmentDaprComponentArgs.builder()        
- *             .name(&#34;example-component&#34;)
+ *         var exampleEnvironmentDaprComponent = new EnvironmentDaprComponent("exampleEnvironmentDaprComponent", EnvironmentDaprComponentArgs.builder()        
+ *             .name("example-component")
  *             .containerAppEnvironmentId(exampleEnvironment.id())
- *             .componentType(&#34;state.azure.blobstorage&#34;)
- *             .version(&#34;v1&#34;)
+ *             .componentType("state.azure.blobstorage")
+ *             .version("v1")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

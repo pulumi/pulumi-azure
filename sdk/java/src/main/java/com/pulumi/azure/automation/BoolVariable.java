@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,20 +46,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;tfex-example-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("tfex-example-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;tfex-example-account&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("tfex-example-account")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;Basic&#34;)
+ *             .skuName("Basic")
  *             .build());
  * 
- *         var exampleBoolVariable = new BoolVariable(&#34;exampleBoolVariable&#34;, BoolVariableArgs.builder()        
- *             .name(&#34;tfex-example-var&#34;)
+ *         var exampleBoolVariable = new BoolVariable("exampleBoolVariable", BoolVariableArgs.builder()        
+ *             .name("tfex-example-var")
  *             .resourceGroupName(example.name())
  *             .automationAccountName(exampleAccount.name())
  *             .value(false)
@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

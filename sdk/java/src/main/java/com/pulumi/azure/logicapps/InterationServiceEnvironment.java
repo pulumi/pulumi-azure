@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,69 +53,69 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;exampleRG1&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("exampleRG1")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-vnet1&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example-vnet1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .addressSpaces(&#34;10.0.0.0/22&#34;)
+ *             .addressSpaces("10.0.0.0/22")
  *             .build());
  * 
- *         var isesubnet1 = new Subnet(&#34;isesubnet1&#34;, SubnetArgs.builder()        
- *             .name(&#34;isesubnet1&#34;)
+ *         var isesubnet1 = new Subnet("isesubnet1", SubnetArgs.builder()        
+ *             .name("isesubnet1")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.1.0/27&#34;)
+ *             .addressPrefixes("10.0.1.0/27")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;integrationServiceEnvironments&#34;)
+ *                 .name("integrationServiceEnvironments")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .name(&#34;Microsoft.Logic/integrationServiceEnvironments&#34;)
+ *                     .name("Microsoft.Logic/integrationServiceEnvironments")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var isesubnet2 = new Subnet(&#34;isesubnet2&#34;, SubnetArgs.builder()        
- *             .name(&#34;isesubnet2&#34;)
+ *         var isesubnet2 = new Subnet("isesubnet2", SubnetArgs.builder()        
+ *             .name("isesubnet2")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.1.32/27&#34;)
+ *             .addressPrefixes("10.0.1.32/27")
  *             .build());
  * 
- *         var isesubnet3 = new Subnet(&#34;isesubnet3&#34;, SubnetArgs.builder()        
- *             .name(&#34;isesubnet3&#34;)
+ *         var isesubnet3 = new Subnet("isesubnet3", SubnetArgs.builder()        
+ *             .name("isesubnet3")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.1.64/27&#34;)
+ *             .addressPrefixes("10.0.1.64/27")
  *             .build());
  * 
- *         var isesubnet4 = new Subnet(&#34;isesubnet4&#34;, SubnetArgs.builder()        
- *             .name(&#34;isesubnet4&#34;)
+ *         var isesubnet4 = new Subnet("isesubnet4", SubnetArgs.builder()        
+ *             .name("isesubnet4")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.1.96/27&#34;)
+ *             .addressPrefixes("10.0.1.96/27")
  *             .build());
  * 
- *         var exampleInterationServiceEnvironment = new InterationServiceEnvironment(&#34;exampleInterationServiceEnvironment&#34;, InterationServiceEnvironmentArgs.builder()        
- *             .name(&#34;example-ise&#34;)
+ *         var exampleInterationServiceEnvironment = new InterationServiceEnvironment("exampleInterationServiceEnvironment", InterationServiceEnvironmentArgs.builder()        
+ *             .name("example-ise")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;Developer_0&#34;)
- *             .accessEndpointType(&#34;Internal&#34;)
+ *             .skuName("Developer_0")
+ *             .accessEndpointType("Internal")
  *             .virtualNetworkSubnetIds(            
  *                 isesubnet1.id(),
  *                 isesubnet2.id(),
  *                 isesubnet3.id(),
  *                 isesubnet4.id())
- *             .tags(Map.of(&#34;environment&#34;, &#34;development&#34;))
+ *             .tags(Map.of("environment", "development"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

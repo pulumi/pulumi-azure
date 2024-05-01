@@ -24,7 +24,7 @@ public final class SpringCloudServiceConfigServerGitSettingSshAuth {
      */
     private @Nullable String hostKeyAlgorithm;
     /**
-     * @return The SSH private key to access the Git repository, required when the URI starts with `git@` or `ssh://`.
+     * @return The SSH private key to access the Git repository, required when the URI starts with `git{@literal @}` or `ssh://`.
      * 
      */
     private String privateKey;
@@ -50,7 +50,7 @@ public final class SpringCloudServiceConfigServerGitSettingSshAuth {
         return Optional.ofNullable(this.hostKeyAlgorithm);
     }
     /**
-     * @return The SSH private key to access the Git repository, required when the URI starts with `git@` or `ssh://`.
+     * @return The SSH private key to access the Git repository, required when the URI starts with `git{@literal @}` or `ssh://`.
      * 
      */
     public String privateKey() {

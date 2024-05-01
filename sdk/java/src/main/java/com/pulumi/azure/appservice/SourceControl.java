@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,36 +50,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleServicePlan = new ServicePlan(&#34;exampleServicePlan&#34;, ServicePlanArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleServicePlan = new ServicePlan("exampleServicePlan", ServicePlanArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .osType(&#34;Linux&#34;)
- *             .skuName(&#34;P1v2&#34;)
+ *             .osType("Linux")
+ *             .skuName("P1v2")
  *             .build());
  * 
- *         var exampleLinuxWebApp = new LinuxWebApp(&#34;exampleLinuxWebApp&#34;, LinuxWebAppArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleLinuxWebApp = new LinuxWebApp("exampleLinuxWebApp", LinuxWebAppArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(exampleServicePlan.location())
  *             .servicePlanId(exampleServicePlan.id())
  *             .siteConfig()
  *             .build());
  * 
- *         var exampleSourceControl = new SourceControl(&#34;exampleSourceControl&#34;, SourceControlArgs.builder()        
+ *         var exampleSourceControl = new SourceControl("exampleSourceControl", SourceControlArgs.builder()        
  *             .appId(exampleLinuxWebApp.id())
- *             .repoUrl(&#34;https://github.com/Azure-Samples/python-docs-hello-world&#34;)
- *             .branch(&#34;master&#34;)
+ *             .repoUrl("https://github.com/Azure-Samples/python-docs-hello-world")
+ *             .branch("master")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

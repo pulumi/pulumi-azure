@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -58,35 +58,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleEventHubNamespace = new EventHubNamespace(&#34;exampleEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;Standard&#34;)
+ *             .sku("Standard")
  *             .build());
  * 
- *         var exampleEventHub = new EventHub(&#34;exampleEventHub&#34;, EventHubArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()        
+ *             .name("example")
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .resourceGroupName(example.name())
  *             .partitionCount(2)
  *             .messageRetention(7)
  *             .build());
  * 
- *         var exampleConsumerGroup = new ConsumerGroup(&#34;exampleConsumerGroup&#34;, ConsumerGroupArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleConsumerGroup = new ConsumerGroup("exampleConsumerGroup", ConsumerGroupArgs.builder()        
+ *             .name("example")
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .eventhubName(exampleEventHub.name())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleAuthorizationRule = new AuthorizationRule(&#34;exampleAuthorizationRule&#34;, AuthorizationRuleArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleAuthorizationRule = new AuthorizationRule("exampleAuthorizationRule", AuthorizationRuleArgs.builder()        
+ *             .name("example")
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .eventhubName(exampleEventHub.name())
  *             .resourceGroupName(example.name())
@@ -95,28 +95,28 @@ import javax.annotation.Nullable;
  *             .manage(false)
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleTimeSeriesInsightsGen2Environment = new TimeSeriesInsightsGen2Environment(&#34;exampleTimeSeriesInsightsGen2Environment&#34;, TimeSeriesInsightsGen2EnvironmentArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleTimeSeriesInsightsGen2Environment = new TimeSeriesInsightsGen2Environment("exampleTimeSeriesInsightsGen2Environment", TimeSeriesInsightsGen2EnvironmentArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;L1&#34;)
- *             .idProperties(&#34;id&#34;)
+ *             .skuName("L1")
+ *             .idProperties("id")
  *             .storage(TimeSeriesInsightsGen2EnvironmentStorageArgs.builder()
  *                 .name(exampleAccount.name())
  *                 .key(exampleAccount.primaryAccessKey())
  *                 .build())
  *             .build());
  * 
- *         var exampleTimeSeriesInsightsEventSourceEventhub = new TimeSeriesInsightsEventSourceEventhub(&#34;exampleTimeSeriesInsightsEventSourceEventhub&#34;, TimeSeriesInsightsEventSourceEventhubArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleTimeSeriesInsightsEventSourceEventhub = new TimeSeriesInsightsEventSourceEventhub("exampleTimeSeriesInsightsEventSourceEventhub", TimeSeriesInsightsEventSourceEventhubArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .environmentId(exampleTimeSeriesInsightsGen2Environment.id())
  *             .eventhubName(exampleEventHub.name())
@@ -129,7 +129,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

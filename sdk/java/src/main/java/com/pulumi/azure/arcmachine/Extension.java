@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,27 +48,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("example")
+ *             .location("West Europe")
  *             .build());
  * 
  *         final var example = ArcmachineFunctions.get(GetArgs.builder()
- *             .name(&#34;existing-hcmachine&#34;)
+ *             .name("existing-hcmachine")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleExtension = new Extension(&#34;exampleExtension&#34;, ExtensionArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;West Europe&#34;)
- *             .arcMachineId(example.applyValue(getResult -&gt; getResult).applyValue(example -&gt; example.applyValue(getResult -&gt; getResult.id())))
- *             .publisher(&#34;Microsoft.Azure.Monitor&#34;)
- *             .type(&#34;AzureMonitorLinuxAgent&#34;)
+ *         var exampleExtension = new Extension("exampleExtension", ExtensionArgs.builder()        
+ *             .name("example")
+ *             .location("West Europe")
+ *             .arcMachineId(example.applyValue(getResult -> getResult).applyValue(example -> example.applyValue(getResult -> getResult.id())))
+ *             .publisher("Microsoft.Azure.Monitor")
+ *             .type("AzureMonitorLinuxAgent")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

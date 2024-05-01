@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,29 +47,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;example-maps-account&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("example-maps-account")
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;G2&#34;)
- *             .tags(Map.of(&#34;environment&#34;, &#34;Test&#34;))
+ *             .skuName("G2")
+ *             .tags(Map.of("environment", "Test"))
  *             .build());
  * 
- *         var exampleCreator = new Creator(&#34;exampleCreator&#34;, CreatorArgs.builder()        
- *             .name(&#34;example-maps-creator&#34;)
+ *         var exampleCreator = new Creator("exampleCreator", CreatorArgs.builder()        
+ *             .name("example-maps-creator")
  *             .mapsAccountId(exampleAccount.id())
  *             .location(example.location())
  *             .storageUnits(1)
- *             .tags(Map.of(&#34;environment&#34;, &#34;Test&#34;))
+ *             .tags(Map.of("environment", "Test"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

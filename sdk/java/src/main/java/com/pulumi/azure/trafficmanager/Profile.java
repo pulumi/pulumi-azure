@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,38 +52,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var server = new RandomId(&#34;server&#34;, RandomIdArgs.builder()        
- *             .keepers(Map.of(&#34;azi_id&#34;, 1))
+ *         var server = new RandomId("server", RandomIdArgs.builder()        
+ *             .keepers(Map.of("azi_id", 1))
  *             .byteLength(8)
  *             .build());
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;trafficmanagerProfile&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("trafficmanagerProfile")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleTrafficManagerProfile = new TrafficManagerProfile(&#34;exampleTrafficManagerProfile&#34;, TrafficManagerProfileArgs.builder()        
+ *         var exampleTrafficManagerProfile = new TrafficManagerProfile("exampleTrafficManagerProfile", TrafficManagerProfileArgs.builder()        
  *             .name(server.hex())
  *             .resourceGroupName(example.name())
- *             .trafficRoutingMethod(&#34;Weighted&#34;)
+ *             .trafficRoutingMethod("Weighted")
  *             .dnsConfig(TrafficManagerProfileDnsConfigArgs.builder()
  *                 .relativeName(server.hex())
  *                 .ttl(100)
  *                 .build())
  *             .monitorConfig(TrafficManagerProfileMonitorConfigArgs.builder()
- *                 .protocol(&#34;HTTP&#34;)
+ *                 .protocol("HTTP")
  *                 .port(80)
- *                 .path(&#34;/&#34;)
+ *                 .path("/")
  *                 .intervalInSeconds(30)
  *                 .timeoutInSeconds(9)
  *                 .toleratedNumberOfFailures(3)
  *                 .build())
- *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *             .tags(Map.of("environment", "Production"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

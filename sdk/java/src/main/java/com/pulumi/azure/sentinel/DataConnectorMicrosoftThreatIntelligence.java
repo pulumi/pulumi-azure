@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,31 +47,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-rg&#34;)
- *             .location(&#34;east us&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-rg")
+ *             .location("east us")
  *             .build());
  * 
- *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
- *             .name(&#34;example-workspace&#34;)
+ *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()        
+ *             .name("example-workspace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;PerGB2018&#34;)
+ *             .sku("PerGB2018")
  *             .build());
  * 
- *         var exampleLogAnalyticsWorkspaceOnboarding = new LogAnalyticsWorkspaceOnboarding(&#34;exampleLogAnalyticsWorkspaceOnboarding&#34;, LogAnalyticsWorkspaceOnboardingArgs.builder()        
+ *         var exampleLogAnalyticsWorkspaceOnboarding = new LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", LogAnalyticsWorkspaceOnboardingArgs.builder()        
  *             .workspaceId(exampleAnalyticsWorkspace.id())
  *             .build());
  * 
- *         var exampleDataConnectorMicrosoftThreatIntelligence = new DataConnectorMicrosoftThreatIntelligence(&#34;exampleDataConnectorMicrosoftThreatIntelligence&#34;, DataConnectorMicrosoftThreatIntelligenceArgs.builder()        
- *             .name(&#34;example-dc-msti&#34;)
+ *         var exampleDataConnectorMicrosoftThreatIntelligence = new DataConnectorMicrosoftThreatIntelligence("exampleDataConnectorMicrosoftThreatIntelligence", DataConnectorMicrosoftThreatIntelligenceArgs.builder()        
+ *             .name("example-dc-msti")
  *             .logAnalyticsWorkspaceId(exampleLogAnalyticsWorkspaceOnboarding.workspaceId())
- *             .microsoftEmergingThreatFeedLookbackDate(&#34;1970-01-01T00:00:00Z&#34;)
+ *             .microsoftEmergingThreatFeedLookbackDate("1970-01-01T00:00:00Z")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

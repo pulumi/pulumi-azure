@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,27 +50,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFactory = new Factory(&#34;exampleFactory&#34;, FactoryArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleLinkedServiceCosmosDbMongoApi = new LinkedServiceCosmosDbMongoApi(&#34;exampleLinkedServiceCosmosDbMongoApi&#34;, LinkedServiceCosmosDbMongoApiArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleLinkedServiceCosmosDbMongoApi = new LinkedServiceCosmosDbMongoApi("exampleLinkedServiceCosmosDbMongoApi", LinkedServiceCosmosDbMongoApiArgs.builder()        
+ *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
- *             .connectionString(&#34;mongodb://testinstance:testkey@testinstance.documents.azure.com:10255/?ssl=true&#34;)
- *             .database(&#34;foo&#34;)
+ *             .connectionString("mongodb://testinstance:testkey@testinstance.documents.azure.com:10255/?ssl=true")
+ *             .database("foo")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

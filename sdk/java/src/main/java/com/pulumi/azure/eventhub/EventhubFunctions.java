@@ -44,7 +44,7 @@ public final class EventhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -66,7 +66,7 @@ public final class EventhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = EventhubFunctions.getAuthorizationRule(GetAuthorizationRuleArgs.builder()
-     *             .name(&#34;test&#34;)
+     *             .name("test")
      *             .namespaceName(testAzurermEventhubNamespace.name())
      *             .eventhubName(testAzurermEventhub.name())
      *             .resourceGroupName(testAzurermResourceGroup.name())
@@ -74,7 +74,7 @@ public final class EventhubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -87,7 +87,7 @@ public final class EventhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -109,7 +109,7 @@ public final class EventhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = EventhubFunctions.getAuthorizationRule(GetAuthorizationRuleArgs.builder()
-     *             .name(&#34;test&#34;)
+     *             .name("test")
      *             .namespaceName(testAzurermEventhubNamespace.name())
      *             .eventhubName(testAzurermEventhub.name())
      *             .resourceGroupName(testAzurermResourceGroup.name())
@@ -117,7 +117,7 @@ public final class EventhubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -130,7 +130,7 @@ public final class EventhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -152,7 +152,7 @@ public final class EventhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = EventhubFunctions.getAuthorizationRule(GetAuthorizationRuleArgs.builder()
-     *             .name(&#34;test&#34;)
+     *             .name("test")
      *             .namespaceName(testAzurermEventhubNamespace.name())
      *             .eventhubName(testAzurermEventhub.name())
      *             .resourceGroupName(testAzurermResourceGroup.name())
@@ -160,7 +160,7 @@ public final class EventhubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -173,7 +173,7 @@ public final class EventhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -195,7 +195,7 @@ public final class EventhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = EventhubFunctions.getAuthorizationRule(GetAuthorizationRuleArgs.builder()
-     *             .name(&#34;test&#34;)
+     *             .name("test")
      *             .namespaceName(testAzurermEventhubNamespace.name())
      *             .eventhubName(testAzurermEventhub.name())
      *             .resourceGroupName(testAzurermResourceGroup.name())
@@ -203,7 +203,7 @@ public final class EventhubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -216,7 +216,7 @@ public final class EventhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -238,14 +238,14 @@ public final class EventhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EventhubFunctions.getCluster(GetClusterArgs.builder()
-     *             .name(&#34;search-eventhub&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
+     *             .name("search-eventhub")
+     *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export(&#34;eventhubId&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.id()));
+     *         ctx.export("eventhubId", example.applyValue(getClusterResult -> getClusterResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -258,7 +258,7 @@ public final class EventhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -280,14 +280,14 @@ public final class EventhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EventhubFunctions.getCluster(GetClusterArgs.builder()
-     *             .name(&#34;search-eventhub&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
+     *             .name("search-eventhub")
+     *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export(&#34;eventhubId&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.id()));
+     *         ctx.export("eventhubId", example.applyValue(getClusterResult -> getClusterResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -300,7 +300,7 @@ public final class EventhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -322,14 +322,14 @@ public final class EventhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EventhubFunctions.getCluster(GetClusterArgs.builder()
-     *             .name(&#34;search-eventhub&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
+     *             .name("search-eventhub")
+     *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export(&#34;eventhubId&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.id()));
+     *         ctx.export("eventhubId", example.applyValue(getClusterResult -> getClusterResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -342,7 +342,7 @@ public final class EventhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -364,14 +364,14 @@ public final class EventhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EventhubFunctions.getCluster(GetClusterArgs.builder()
-     *             .name(&#34;search-eventhub&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
+     *             .name("search-eventhub")
+     *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export(&#34;eventhubId&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.id()));
+     *         ctx.export("eventhubId", example.applyValue(getClusterResult -> getClusterResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -384,7 +384,7 @@ public final class EventhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -414,7 +414,7 @@ public final class EventhubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -427,7 +427,7 @@ public final class EventhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -457,7 +457,7 @@ public final class EventhubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -470,7 +470,7 @@ public final class EventhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -500,7 +500,7 @@ public final class EventhubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -513,7 +513,7 @@ public final class EventhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -543,7 +543,7 @@ public final class EventhubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -556,7 +556,7 @@ public final class EventhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -578,15 +578,15 @@ public final class EventhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EventhubFunctions.getEventHub(GetEventHubArgs.builder()
-     *             .name(&#34;search-eventhub&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .namespaceName(&#34;search-eventhubns&#34;)
+     *             .name("search-eventhub")
+     *             .resourceGroupName("search-service")
+     *             .namespaceName("search-eventhubns")
      *             .build());
      * 
-     *         ctx.export(&#34;eventhubId&#34;, example.applyValue(getEventHubResult -&gt; getEventHubResult.id()));
+     *         ctx.export("eventhubId", example.applyValue(getEventHubResult -> getEventHubResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -599,7 +599,7 @@ public final class EventhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -621,15 +621,15 @@ public final class EventhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EventhubFunctions.getEventHub(GetEventHubArgs.builder()
-     *             .name(&#34;search-eventhub&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .namespaceName(&#34;search-eventhubns&#34;)
+     *             .name("search-eventhub")
+     *             .resourceGroupName("search-service")
+     *             .namespaceName("search-eventhubns")
      *             .build());
      * 
-     *         ctx.export(&#34;eventhubId&#34;, example.applyValue(getEventHubResult -&gt; getEventHubResult.id()));
+     *         ctx.export("eventhubId", example.applyValue(getEventHubResult -> getEventHubResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -642,7 +642,7 @@ public final class EventhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -664,15 +664,15 @@ public final class EventhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EventhubFunctions.getEventHub(GetEventHubArgs.builder()
-     *             .name(&#34;search-eventhub&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .namespaceName(&#34;search-eventhubns&#34;)
+     *             .name("search-eventhub")
+     *             .resourceGroupName("search-service")
+     *             .namespaceName("search-eventhubns")
      *             .build());
      * 
-     *         ctx.export(&#34;eventhubId&#34;, example.applyValue(getEventHubResult -&gt; getEventHubResult.id()));
+     *         ctx.export("eventhubId", example.applyValue(getEventHubResult -> getEventHubResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -685,7 +685,7 @@ public final class EventhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -707,15 +707,15 @@ public final class EventhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EventhubFunctions.getEventHub(GetEventHubArgs.builder()
-     *             .name(&#34;search-eventhub&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .namespaceName(&#34;search-eventhubns&#34;)
+     *             .name("search-eventhub")
+     *             .resourceGroupName("search-service")
+     *             .namespaceName("search-eventhubns")
      *             .build());
      * 
-     *         ctx.export(&#34;eventhubId&#34;, example.applyValue(getEventHubResult -&gt; getEventHubResult.id()));
+     *         ctx.export("eventhubId", example.applyValue(getEventHubResult -> getEventHubResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -728,7 +728,7 @@ public final class EventhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -750,14 +750,14 @@ public final class EventhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EventhubFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .name(&#34;search-eventhubns&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
+     *             .name("search-eventhubns")
+     *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export(&#34;eventhubNamespaceId&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.id()));
+     *         ctx.export("eventhubNamespaceId", example.applyValue(getNamespaceResult -> getNamespaceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
@@ -774,7 +774,7 @@ public final class EventhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -796,14 +796,14 @@ public final class EventhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EventhubFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .name(&#34;search-eventhubns&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
+     *             .name("search-eventhubns")
+     *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export(&#34;eventhubNamespaceId&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.id()));
+     *         ctx.export("eventhubNamespaceId", example.applyValue(getNamespaceResult -> getNamespaceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
@@ -820,7 +820,7 @@ public final class EventhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -842,14 +842,14 @@ public final class EventhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EventhubFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .name(&#34;search-eventhubns&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
+     *             .name("search-eventhubns")
+     *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export(&#34;eventhubNamespaceId&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.id()));
+     *         ctx.export("eventhubNamespaceId", example.applyValue(getNamespaceResult -> getNamespaceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
@@ -866,7 +866,7 @@ public final class EventhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -888,14 +888,14 @@ public final class EventhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EventhubFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .name(&#34;search-eventhubns&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
+     *             .name("search-eventhubns")
+     *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export(&#34;eventhubNamespaceId&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.id()));
+     *         ctx.export("eventhubNamespaceId", example.applyValue(getNamespaceResult -> getNamespaceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
@@ -912,7 +912,7 @@ public final class EventhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -934,14 +934,14 @@ public final class EventhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EventhubFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .name(&#34;search-eventhubns&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
+     *             .name("search-eventhubns")
+     *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export(&#34;eventhubNamespaceId&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.id()));
+     *         ctx.export("eventhubNamespaceId", example.applyValue(getNamespaceResult -> getNamespaceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -954,7 +954,7 @@ public final class EventhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -976,14 +976,14 @@ public final class EventhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EventhubFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .name(&#34;search-eventhubns&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
+     *             .name("search-eventhubns")
+     *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export(&#34;eventhubNamespaceId&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.id()));
+     *         ctx.export("eventhubNamespaceId", example.applyValue(getNamespaceResult -> getNamespaceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -996,7 +996,7 @@ public final class EventhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1018,14 +1018,14 @@ public final class EventhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EventhubFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .name(&#34;search-eventhubns&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
+     *             .name("search-eventhubns")
+     *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export(&#34;eventhubNamespaceId&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.id()));
+     *         ctx.export("eventhubNamespaceId", example.applyValue(getNamespaceResult -> getNamespaceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1038,7 +1038,7 @@ public final class EventhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1060,14 +1060,14 @@ public final class EventhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EventhubFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .name(&#34;search-eventhubns&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
+     *             .name("search-eventhubns")
+     *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export(&#34;eventhubNamespaceId&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.id()));
+     *         ctx.export("eventhubNamespaceId", example.applyValue(getNamespaceResult -> getNamespaceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1080,7 +1080,7 @@ public final class EventhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1102,15 +1102,15 @@ public final class EventhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EventhubFunctions.getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs.builder()
-     *             .name(&#34;navi&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .namespaceName(&#34;example-ns&#34;)
+     *             .name("navi")
+     *             .resourceGroupName("example-resources")
+     *             .namespaceName("example-ns")
      *             .build());
      * 
-     *         ctx.export(&#34;eventhubAuthorizationRuleId&#34;, exampleAzuremEventhubNamespaceAuthorizationRule.id());
+     *         ctx.export("eventhubAuthorizationRuleId", exampleAzuremEventhubNamespaceAuthorizationRule.id());
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1123,7 +1123,7 @@ public final class EventhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1145,15 +1145,15 @@ public final class EventhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EventhubFunctions.getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs.builder()
-     *             .name(&#34;navi&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .namespaceName(&#34;example-ns&#34;)
+     *             .name("navi")
+     *             .resourceGroupName("example-resources")
+     *             .namespaceName("example-ns")
      *             .build());
      * 
-     *         ctx.export(&#34;eventhubAuthorizationRuleId&#34;, exampleAzuremEventhubNamespaceAuthorizationRule.id());
+     *         ctx.export("eventhubAuthorizationRuleId", exampleAzuremEventhubNamespaceAuthorizationRule.id());
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1166,7 +1166,7 @@ public final class EventhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1188,15 +1188,15 @@ public final class EventhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EventhubFunctions.getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs.builder()
-     *             .name(&#34;navi&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .namespaceName(&#34;example-ns&#34;)
+     *             .name("navi")
+     *             .resourceGroupName("example-resources")
+     *             .namespaceName("example-ns")
      *             .build());
      * 
-     *         ctx.export(&#34;eventhubAuthorizationRuleId&#34;, exampleAzuremEventhubNamespaceAuthorizationRule.id());
+     *         ctx.export("eventhubAuthorizationRuleId", exampleAzuremEventhubNamespaceAuthorizationRule.id());
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1209,7 +1209,7 @@ public final class EventhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1231,15 +1231,15 @@ public final class EventhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EventhubFunctions.getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs.builder()
-     *             .name(&#34;navi&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .namespaceName(&#34;example-ns&#34;)
+     *             .name("navi")
+     *             .resourceGroupName("example-resources")
+     *             .namespaceName("example-ns")
      *             .build());
      * 
-     *         ctx.export(&#34;eventhubAuthorizationRuleId&#34;, exampleAzuremEventhubNamespaceAuthorizationRule.id());
+     *         ctx.export("eventhubAuthorizationRuleId", exampleAzuremEventhubNamespaceAuthorizationRule.id());
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1252,7 +1252,7 @@ public final class EventhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1282,28 +1282,28 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *             .name("example-resources")
+     *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleEventHubNamespace = new EventHubNamespace(&#34;exampleEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
-     *             .name(&#34;example-ehn&#34;)
+     *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()        
+     *             .name("example-ehn")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
-     *             .sku(&#34;Basic&#34;)
+     *             .sku("Basic")
      *             .build());
      * 
-     *         var exampleEventHub = new EventHub(&#34;exampleEventHub&#34;, EventHubArgs.builder()        
-     *             .name(&#34;example-eh&#34;)
+     *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()        
+     *             .name("example-eh")
      *             .namespaceName(exampleEventHubNamespace.name())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .partitionCount(1)
      *             .messageRetention(1)
      *             .build());
      * 
-     *         var exampleAuthorizationRule = new AuthorizationRule(&#34;exampleAuthorizationRule&#34;, AuthorizationRuleArgs.builder()        
-     *             .name(&#34;example-ehar&#34;)
+     *         var exampleAuthorizationRule = new AuthorizationRule("exampleAuthorizationRule", AuthorizationRuleArgs.builder()        
+     *             .name("example-ehar")
      *             .namespaceName(exampleEventHubNamespace.name())
      *             .eventhubName(exampleEventHub.name())
      *             .resourceGroupName(exampleResourceGroup.name())
@@ -1320,13 +1320,13 @@ public final class EventhubFunctions {
      *             .build());
      * 
      *         final var exampleGetSas = EventhubFunctions.getSas(GetSasArgs.builder()
-     *             .connectionString(example.applyValue(getAuthorizationRuleResult -&gt; getAuthorizationRuleResult).applyValue(example -&gt; example.applyValue(getAuthorizationRuleResult -&gt; getAuthorizationRuleResult.primaryConnectionString())))
-     *             .expiry(&#34;2023-06-23T00:00:00Z&#34;)
+     *             .connectionString(example.applyValue(getAuthorizationRuleResult -> getAuthorizationRuleResult).applyValue(example -> example.applyValue(getAuthorizationRuleResult -> getAuthorizationRuleResult.primaryConnectionString())))
+     *             .expiry("2023-06-23T00:00:00Z")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1339,7 +1339,7 @@ public final class EventhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1369,28 +1369,28 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *             .name("example-resources")
+     *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleEventHubNamespace = new EventHubNamespace(&#34;exampleEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
-     *             .name(&#34;example-ehn&#34;)
+     *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()        
+     *             .name("example-ehn")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
-     *             .sku(&#34;Basic&#34;)
+     *             .sku("Basic")
      *             .build());
      * 
-     *         var exampleEventHub = new EventHub(&#34;exampleEventHub&#34;, EventHubArgs.builder()        
-     *             .name(&#34;example-eh&#34;)
+     *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()        
+     *             .name("example-eh")
      *             .namespaceName(exampleEventHubNamespace.name())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .partitionCount(1)
      *             .messageRetention(1)
      *             .build());
      * 
-     *         var exampleAuthorizationRule = new AuthorizationRule(&#34;exampleAuthorizationRule&#34;, AuthorizationRuleArgs.builder()        
-     *             .name(&#34;example-ehar&#34;)
+     *         var exampleAuthorizationRule = new AuthorizationRule("exampleAuthorizationRule", AuthorizationRuleArgs.builder()        
+     *             .name("example-ehar")
      *             .namespaceName(exampleEventHubNamespace.name())
      *             .eventhubName(exampleEventHub.name())
      *             .resourceGroupName(exampleResourceGroup.name())
@@ -1407,13 +1407,13 @@ public final class EventhubFunctions {
      *             .build());
      * 
      *         final var exampleGetSas = EventhubFunctions.getSas(GetSasArgs.builder()
-     *             .connectionString(example.applyValue(getAuthorizationRuleResult -&gt; getAuthorizationRuleResult).applyValue(example -&gt; example.applyValue(getAuthorizationRuleResult -&gt; getAuthorizationRuleResult.primaryConnectionString())))
-     *             .expiry(&#34;2023-06-23T00:00:00Z&#34;)
+     *             .connectionString(example.applyValue(getAuthorizationRuleResult -> getAuthorizationRuleResult).applyValue(example -> example.applyValue(getAuthorizationRuleResult -> getAuthorizationRuleResult.primaryConnectionString())))
+     *             .expiry("2023-06-23T00:00:00Z")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1426,7 +1426,7 @@ public final class EventhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1456,28 +1456,28 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *             .name("example-resources")
+     *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleEventHubNamespace = new EventHubNamespace(&#34;exampleEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
-     *             .name(&#34;example-ehn&#34;)
+     *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()        
+     *             .name("example-ehn")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
-     *             .sku(&#34;Basic&#34;)
+     *             .sku("Basic")
      *             .build());
      * 
-     *         var exampleEventHub = new EventHub(&#34;exampleEventHub&#34;, EventHubArgs.builder()        
-     *             .name(&#34;example-eh&#34;)
+     *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()        
+     *             .name("example-eh")
      *             .namespaceName(exampleEventHubNamespace.name())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .partitionCount(1)
      *             .messageRetention(1)
      *             .build());
      * 
-     *         var exampleAuthorizationRule = new AuthorizationRule(&#34;exampleAuthorizationRule&#34;, AuthorizationRuleArgs.builder()        
-     *             .name(&#34;example-ehar&#34;)
+     *         var exampleAuthorizationRule = new AuthorizationRule("exampleAuthorizationRule", AuthorizationRuleArgs.builder()        
+     *             .name("example-ehar")
      *             .namespaceName(exampleEventHubNamespace.name())
      *             .eventhubName(exampleEventHub.name())
      *             .resourceGroupName(exampleResourceGroup.name())
@@ -1494,13 +1494,13 @@ public final class EventhubFunctions {
      *             .build());
      * 
      *         final var exampleGetSas = EventhubFunctions.getSas(GetSasArgs.builder()
-     *             .connectionString(example.applyValue(getAuthorizationRuleResult -&gt; getAuthorizationRuleResult).applyValue(example -&gt; example.applyValue(getAuthorizationRuleResult -&gt; getAuthorizationRuleResult.primaryConnectionString())))
-     *             .expiry(&#34;2023-06-23T00:00:00Z&#34;)
+     *             .connectionString(example.applyValue(getAuthorizationRuleResult -> getAuthorizationRuleResult).applyValue(example -> example.applyValue(getAuthorizationRuleResult -> getAuthorizationRuleResult.primaryConnectionString())))
+     *             .expiry("2023-06-23T00:00:00Z")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1513,7 +1513,7 @@ public final class EventhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1543,28 +1543,28 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *             .name("example-resources")
+     *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleEventHubNamespace = new EventHubNamespace(&#34;exampleEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
-     *             .name(&#34;example-ehn&#34;)
+     *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()        
+     *             .name("example-ehn")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
-     *             .sku(&#34;Basic&#34;)
+     *             .sku("Basic")
      *             .build());
      * 
-     *         var exampleEventHub = new EventHub(&#34;exampleEventHub&#34;, EventHubArgs.builder()        
-     *             .name(&#34;example-eh&#34;)
+     *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()        
+     *             .name("example-eh")
      *             .namespaceName(exampleEventHubNamespace.name())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .partitionCount(1)
      *             .messageRetention(1)
      *             .build());
      * 
-     *         var exampleAuthorizationRule = new AuthorizationRule(&#34;exampleAuthorizationRule&#34;, AuthorizationRuleArgs.builder()        
-     *             .name(&#34;example-ehar&#34;)
+     *         var exampleAuthorizationRule = new AuthorizationRule("exampleAuthorizationRule", AuthorizationRuleArgs.builder()        
+     *             .name("example-ehar")
      *             .namespaceName(exampleEventHubNamespace.name())
      *             .eventhubName(exampleEventHub.name())
      *             .resourceGroupName(exampleResourceGroup.name())
@@ -1581,13 +1581,13 @@ public final class EventhubFunctions {
      *             .build());
      * 
      *         final var exampleGetSas = EventhubFunctions.getSas(GetSasArgs.builder()
-     *             .connectionString(example.applyValue(getAuthorizationRuleResult -&gt; getAuthorizationRuleResult).applyValue(example -&gt; example.applyValue(getAuthorizationRuleResult -&gt; getAuthorizationRuleResult.primaryConnectionString())))
-     *             .expiry(&#34;2023-06-23T00:00:00Z&#34;)
+     *             .connectionString(example.applyValue(getAuthorizationRuleResult -> getAuthorizationRuleResult).applyValue(example -> example.applyValue(getAuthorizationRuleResult -> getAuthorizationRuleResult.primaryConnectionString())))
+     *             .expiry("2023-06-23T00:00:00Z")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1600,7 +1600,7 @@ public final class EventhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1622,14 +1622,14 @@ public final class EventhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .name(&#34;examplenamespace&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("examplenamespace")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;location&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.location()));
+     *         ctx.export("location", example.applyValue(getNamespaceResult -> getNamespaceResult.location()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
@@ -1646,7 +1646,7 @@ public final class EventhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1668,14 +1668,14 @@ public final class EventhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .name(&#34;examplenamespace&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("examplenamespace")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;location&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.location()));
+     *         ctx.export("location", example.applyValue(getNamespaceResult -> getNamespaceResult.location()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
@@ -1692,7 +1692,7 @@ public final class EventhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1714,14 +1714,14 @@ public final class EventhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .name(&#34;examplenamespace&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("examplenamespace")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;location&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.location()));
+     *         ctx.export("location", example.applyValue(getNamespaceResult -> getNamespaceResult.location()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
@@ -1738,7 +1738,7 @@ public final class EventhubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1760,14 +1760,14 @@ public final class EventhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .name(&#34;examplenamespace&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("examplenamespace")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;location&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.location()));
+     *         ctx.export("location", example.applyValue(getNamespaceResult -> getNamespaceResult.location()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated

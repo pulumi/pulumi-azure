@@ -26,7 +26,7 @@ public final class NginxFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -48,14 +48,14 @@ public final class NginxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .name(&#34;existing&#34;)
+     *             .name("existing")
      *             .nginxDeploymentId(exampleAzurermNginxDeployment.id())
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getCertificateResult -&gt; getCertificateResult.id()));
+     *         ctx.export("id", example.applyValue(getCertificateResult -> getCertificateResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -68,7 +68,7 @@ public final class NginxFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -90,14 +90,14 @@ public final class NginxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .name(&#34;existing&#34;)
+     *             .name("existing")
      *             .nginxDeploymentId(exampleAzurermNginxDeployment.id())
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getCertificateResult -&gt; getCertificateResult.id()));
+     *         ctx.export("id", example.applyValue(getCertificateResult -> getCertificateResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -110,7 +110,7 @@ public final class NginxFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -132,14 +132,14 @@ public final class NginxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .name(&#34;existing&#34;)
+     *             .name("existing")
      *             .nginxDeploymentId(exampleAzurermNginxDeployment.id())
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getCertificateResult -&gt; getCertificateResult.id()));
+     *         ctx.export("id", example.applyValue(getCertificateResult -> getCertificateResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -152,7 +152,7 @@ public final class NginxFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -174,14 +174,14 @@ public final class NginxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .name(&#34;existing&#34;)
+     *             .name("existing")
      *             .nginxDeploymentId(exampleAzurermNginxDeployment.id())
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getCertificateResult -&gt; getCertificateResult.id()));
+     *         ctx.export("id", example.applyValue(getCertificateResult -> getCertificateResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -206,7 +206,7 @@ public final class NginxFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -228,14 +228,14 @@ public final class NginxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getDeployment(GetDeploymentArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDeploymentResult -&gt; getDeploymentResult.id()));
+     *         ctx.export("id", example.applyValue(getDeploymentResult -> getDeploymentResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -248,7 +248,7 @@ public final class NginxFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -270,14 +270,14 @@ public final class NginxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getDeployment(GetDeploymentArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDeploymentResult -&gt; getDeploymentResult.id()));
+     *         ctx.export("id", example.applyValue(getDeploymentResult -> getDeploymentResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -290,7 +290,7 @@ public final class NginxFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -312,14 +312,14 @@ public final class NginxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getDeployment(GetDeploymentArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDeploymentResult -&gt; getDeploymentResult.id()));
+     *         ctx.export("id", example.applyValue(getDeploymentResult -> getDeploymentResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -332,7 +332,7 @@ public final class NginxFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -354,14 +354,14 @@ public final class NginxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getDeployment(GetDeploymentArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDeploymentResult -&gt; getDeploymentResult.id()));
+     *         ctx.export("id", example.applyValue(getDeploymentResult -> getDeploymentResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

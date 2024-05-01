@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,14 +44,14 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var primary = CoreFunctions.getSubscription();
  * 
- *         var example = new Assignment(&#34;example&#34;, AssignmentArgs.builder()        
- *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
- *             .lighthouseDefinitionId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationDefinitions/00000000-0000-0000-0000-000000000000&#34;)
+ *         var example = new Assignment("example", AssignmentArgs.builder()        
+ *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *             .lighthouseDefinitionId("/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationDefinitions/00000000-0000-0000-0000-000000000000")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

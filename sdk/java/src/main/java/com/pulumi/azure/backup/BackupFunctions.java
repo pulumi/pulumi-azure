@@ -23,7 +23,7 @@ public final class BackupFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -45,14 +45,14 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var policy = BackupFunctions.getPolicyFileshare(GetPolicyFileshareArgs.builder()
-     *             .name(&#34;policy&#34;)
-     *             .recoveryVaultName(&#34;recovery_vault&#34;)
-     *             .resourceGroupName(&#34;resource_group&#34;)
+     *             .name("policy")
+     *             .recoveryVaultName("recovery_vault")
+     *             .resourceGroupName("resource_group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -65,7 +65,7 @@ public final class BackupFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -87,14 +87,14 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var policy = BackupFunctions.getPolicyFileshare(GetPolicyFileshareArgs.builder()
-     *             .name(&#34;policy&#34;)
-     *             .recoveryVaultName(&#34;recovery_vault&#34;)
-     *             .resourceGroupName(&#34;resource_group&#34;)
+     *             .name("policy")
+     *             .recoveryVaultName("recovery_vault")
+     *             .resourceGroupName("resource_group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -107,7 +107,7 @@ public final class BackupFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -129,14 +129,14 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var policy = BackupFunctions.getPolicyFileshare(GetPolicyFileshareArgs.builder()
-     *             .name(&#34;policy&#34;)
-     *             .recoveryVaultName(&#34;recovery_vault&#34;)
-     *             .resourceGroupName(&#34;resource_group&#34;)
+     *             .name("policy")
+     *             .recoveryVaultName("recovery_vault")
+     *             .resourceGroupName("resource_group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -149,7 +149,7 @@ public final class BackupFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -171,14 +171,14 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var policy = BackupFunctions.getPolicyFileshare(GetPolicyFileshareArgs.builder()
-     *             .name(&#34;policy&#34;)
-     *             .recoveryVaultName(&#34;recovery_vault&#34;)
-     *             .resourceGroupName(&#34;resource_group&#34;)
+     *             .name("policy")
+     *             .recoveryVaultName("recovery_vault")
+     *             .resourceGroupName("resource_group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -191,7 +191,7 @@ public final class BackupFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -213,14 +213,14 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var policy = BackupFunctions.getPolicyVM(GetPolicyVMArgs.builder()
-     *             .name(&#34;policy&#34;)
-     *             .recoveryVaultName(&#34;recovery_vault&#34;)
-     *             .resourceGroupName(&#34;resource_group&#34;)
+     *             .name("policy")
+     *             .recoveryVaultName("recovery_vault")
+     *             .resourceGroupName("resource_group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -233,7 +233,7 @@ public final class BackupFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -255,14 +255,14 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var policy = BackupFunctions.getPolicyVM(GetPolicyVMArgs.builder()
-     *             .name(&#34;policy&#34;)
-     *             .recoveryVaultName(&#34;recovery_vault&#34;)
-     *             .resourceGroupName(&#34;resource_group&#34;)
+     *             .name("policy")
+     *             .recoveryVaultName("recovery_vault")
+     *             .resourceGroupName("resource_group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -275,7 +275,7 @@ public final class BackupFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -297,14 +297,14 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var policy = BackupFunctions.getPolicyVM(GetPolicyVMArgs.builder()
-     *             .name(&#34;policy&#34;)
-     *             .recoveryVaultName(&#34;recovery_vault&#34;)
-     *             .resourceGroupName(&#34;resource_group&#34;)
+     *             .name("policy")
+     *             .recoveryVaultName("recovery_vault")
+     *             .resourceGroupName("resource_group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -317,7 +317,7 @@ public final class BackupFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -339,14 +339,14 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var policy = BackupFunctions.getPolicyVM(GetPolicyVMArgs.builder()
-     *             .name(&#34;policy&#34;)
-     *             .recoveryVaultName(&#34;recovery_vault&#34;)
-     *             .resourceGroupName(&#34;resource_group&#34;)
+     *             .name("policy")
+     *             .recoveryVaultName("recovery_vault")
+     *             .resourceGroupName("resource_group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

@@ -23,7 +23,7 @@ public final class DashboardFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -45,14 +45,14 @@ public final class DashboardFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PortalFunctions.getDashboard(GetDashboardArgs.builder()
-     *             .name(&#34;existing-dashboard&#34;)
-     *             .resourceGroupName(&#34;dashboard-rg&#34;)
+     *             .name("existing-dashboard")
+     *             .resourceGroupName("dashboard-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleAzurermDashboard.id());
+     *         ctx.export("id", exampleAzurermDashboard.id());
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
@@ -69,7 +69,7 @@ public final class DashboardFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -91,14 +91,14 @@ public final class DashboardFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PortalFunctions.getDashboard(GetDashboardArgs.builder()
-     *             .name(&#34;existing-dashboard&#34;)
-     *             .resourceGroupName(&#34;dashboard-rg&#34;)
+     *             .name("existing-dashboard")
+     *             .resourceGroupName("dashboard-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleAzurermDashboard.id());
+     *         ctx.export("id", exampleAzurermDashboard.id());
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
@@ -115,7 +115,7 @@ public final class DashboardFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -137,14 +137,14 @@ public final class DashboardFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PortalFunctions.getDashboard(GetDashboardArgs.builder()
-     *             .name(&#34;existing-dashboard&#34;)
-     *             .resourceGroupName(&#34;dashboard-rg&#34;)
+     *             .name("existing-dashboard")
+     *             .resourceGroupName("dashboard-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleAzurermDashboard.id());
+     *         ctx.export("id", exampleAzurermDashboard.id());
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
@@ -161,7 +161,7 @@ public final class DashboardFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -183,14 +183,14 @@ public final class DashboardFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PortalFunctions.getDashboard(GetDashboardArgs.builder()
-     *             .name(&#34;existing-dashboard&#34;)
-     *             .resourceGroupName(&#34;dashboard-rg&#34;)
+     *             .name("existing-dashboard")
+     *             .resourceGroupName("dashboard-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleAzurermDashboard.id());
+     *         ctx.export("id", exampleAzurermDashboard.id());
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
@@ -207,7 +207,7 @@ public final class DashboardFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -229,14 +229,14 @@ public final class DashboardFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DashboardFunctions.getGrafana(GetGrafanaArgs.builder()
-     *             .name(&#34;example-grafana-dashboard&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-grafana-dashboard")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, example.applyValue(getGrafanaResult -&gt; getGrafanaResult.name()));
+     *         ctx.export("name", example.applyValue(getGrafanaResult -> getGrafanaResult.name()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -249,7 +249,7 @@ public final class DashboardFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -271,14 +271,14 @@ public final class DashboardFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DashboardFunctions.getGrafana(GetGrafanaArgs.builder()
-     *             .name(&#34;example-grafana-dashboard&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-grafana-dashboard")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, example.applyValue(getGrafanaResult -&gt; getGrafanaResult.name()));
+     *         ctx.export("name", example.applyValue(getGrafanaResult -> getGrafanaResult.name()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -291,7 +291,7 @@ public final class DashboardFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -313,14 +313,14 @@ public final class DashboardFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DashboardFunctions.getGrafana(GetGrafanaArgs.builder()
-     *             .name(&#34;example-grafana-dashboard&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-grafana-dashboard")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, example.applyValue(getGrafanaResult -&gt; getGrafanaResult.name()));
+     *         ctx.export("name", example.applyValue(getGrafanaResult -> getGrafanaResult.name()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -333,7 +333,7 @@ public final class DashboardFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -355,14 +355,14 @@ public final class DashboardFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DashboardFunctions.getGrafana(GetGrafanaArgs.builder()
-     *             .name(&#34;example-grafana-dashboard&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-grafana-dashboard")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, example.applyValue(getGrafanaResult -&gt; getGrafanaResult.name()));
+     *         ctx.export("name", example.applyValue(getGrafanaResult -> getGrafanaResult.name()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

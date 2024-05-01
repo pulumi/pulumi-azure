@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,36 +50,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFactory = new Factory(&#34;exampleFactory&#34;, FactoryArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleLinkedServiceWeb = new LinkedServiceWeb(&#34;exampleLinkedServiceWeb&#34;, LinkedServiceWebArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleLinkedServiceWeb = new LinkedServiceWeb("exampleLinkedServiceWeb", LinkedServiceWebArgs.builder()        
+ *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
- *             .authenticationType(&#34;Anonymous&#34;)
- *             .url(&#34;https://www.bing.com&#34;)
+ *             .authenticationType("Anonymous")
+ *             .url("https://www.bing.com")
  *             .build());
  * 
- *         var exampleDatasetHttp = new DatasetHttp(&#34;exampleDatasetHttp&#34;, DatasetHttpArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleDatasetHttp = new DatasetHttp("exampleDatasetHttp", DatasetHttpArgs.builder()        
+ *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .linkedServiceName(exampleLinkedServiceWeb.name())
- *             .relativeUrl(&#34;http://www.bing.com&#34;)
- *             .requestBody(&#34;foo=bar&#34;)
- *             .requestMethod(&#34;POST&#34;)
+ *             .relativeUrl("http://www.bing.com")
+ *             .requestBody("foo=bar")
+ *             .requestMethod("POST")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

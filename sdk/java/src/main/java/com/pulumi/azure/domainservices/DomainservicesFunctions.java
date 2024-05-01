@@ -22,7 +22,7 @@ public final class DomainservicesFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -44,13 +44,13 @@ public final class DomainservicesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DomainservicesFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example-aadds&#34;)
-     *             .resourceGroupName(&#34;example-aadds-rg&#34;)
+     *             .name("example-aadds")
+     *             .resourceGroupName("example-aadds-rg")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -65,7 +65,7 @@ public final class DomainservicesFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -87,13 +87,13 @@ public final class DomainservicesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DomainservicesFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example-aadds&#34;)
-     *             .resourceGroupName(&#34;example-aadds-rg&#34;)
+     *             .name("example-aadds")
+     *             .resourceGroupName("example-aadds-rg")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -108,7 +108,7 @@ public final class DomainservicesFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -130,13 +130,13 @@ public final class DomainservicesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DomainservicesFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example-aadds&#34;)
-     *             .resourceGroupName(&#34;example-aadds-rg&#34;)
+     *             .name("example-aadds")
+     *             .resourceGroupName("example-aadds-rg")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -151,7 +151,7 @@ public final class DomainservicesFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -173,13 +173,13 @@ public final class DomainservicesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DomainservicesFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example-aadds&#34;)
-     *             .resourceGroupName(&#34;example-aadds-rg&#34;)
+     *             .name("example-aadds")
+     *             .resourceGroupName("example-aadds-rg")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

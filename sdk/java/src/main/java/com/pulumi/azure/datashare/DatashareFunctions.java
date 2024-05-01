@@ -35,7 +35,7 @@ public final class DatashareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -57,14 +57,14 @@ public final class DatashareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatashareFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
+     *             .name("example-account")
+     *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.id()));
+     *         ctx.export("id", example.applyValue(getAccountResult -> getAccountResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -77,7 +77,7 @@ public final class DatashareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -99,14 +99,14 @@ public final class DatashareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatashareFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
+     *             .name("example-account")
+     *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.id()));
+     *         ctx.export("id", example.applyValue(getAccountResult -> getAccountResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -119,7 +119,7 @@ public final class DatashareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -141,14 +141,14 @@ public final class DatashareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatashareFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
+     *             .name("example-account")
+     *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.id()));
+     *         ctx.export("id", example.applyValue(getAccountResult -> getAccountResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -161,7 +161,7 @@ public final class DatashareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -183,14 +183,14 @@ public final class DatashareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatashareFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
+     *             .name("example-account")
+     *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.id()));
+     *         ctx.export("id", example.applyValue(getAccountResult -> getAccountResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -203,7 +203,7 @@ public final class DatashareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -225,14 +225,14 @@ public final class DatashareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatashareFunctions.getDatasetBlobStorage(GetDatasetBlobStorageArgs.builder()
-     *             .name(&#34;example-dsbsds&#34;)
-     *             .dataShareId(&#34;example-share-id&#34;)
+     *             .name("example-dsbsds")
+     *             .dataShareId("example-share-id")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetBlobStorageResult -&gt; getDatasetBlobStorageResult.id()));
+     *         ctx.export("id", example.applyValue(getDatasetBlobStorageResult -> getDatasetBlobStorageResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -245,7 +245,7 @@ public final class DatashareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -267,14 +267,14 @@ public final class DatashareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatashareFunctions.getDatasetBlobStorage(GetDatasetBlobStorageArgs.builder()
-     *             .name(&#34;example-dsbsds&#34;)
-     *             .dataShareId(&#34;example-share-id&#34;)
+     *             .name("example-dsbsds")
+     *             .dataShareId("example-share-id")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetBlobStorageResult -&gt; getDatasetBlobStorageResult.id()));
+     *         ctx.export("id", example.applyValue(getDatasetBlobStorageResult -> getDatasetBlobStorageResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -287,7 +287,7 @@ public final class DatashareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -309,14 +309,14 @@ public final class DatashareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatashareFunctions.getDatasetBlobStorage(GetDatasetBlobStorageArgs.builder()
-     *             .name(&#34;example-dsbsds&#34;)
-     *             .dataShareId(&#34;example-share-id&#34;)
+     *             .name("example-dsbsds")
+     *             .dataShareId("example-share-id")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetBlobStorageResult -&gt; getDatasetBlobStorageResult.id()));
+     *         ctx.export("id", example.applyValue(getDatasetBlobStorageResult -> getDatasetBlobStorageResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -329,7 +329,7 @@ public final class DatashareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -351,14 +351,14 @@ public final class DatashareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatashareFunctions.getDatasetBlobStorage(GetDatasetBlobStorageArgs.builder()
-     *             .name(&#34;example-dsbsds&#34;)
-     *             .dataShareId(&#34;example-share-id&#34;)
+     *             .name("example-dsbsds")
+     *             .dataShareId("example-share-id")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetBlobStorageResult -&gt; getDatasetBlobStorageResult.id()));
+     *         ctx.export("id", example.applyValue(getDatasetBlobStorageResult -> getDatasetBlobStorageResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -371,7 +371,7 @@ public final class DatashareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -393,14 +393,14 @@ public final class DatashareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatashareFunctions.getDatasetDataLakeGen2(GetDatasetDataLakeGen2Args.builder()
-     *             .name(&#34;example-dsdlg2ds&#34;)
-     *             .shareId(&#34;example-share-id&#34;)
+     *             .name("example-dsdlg2ds")
+     *             .shareId("example-share-id")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetDataLakeGen2Result -&gt; getDatasetDataLakeGen2Result.id()));
+     *         ctx.export("id", example.applyValue(getDatasetDataLakeGen2Result -> getDatasetDataLakeGen2Result.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -413,7 +413,7 @@ public final class DatashareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -435,14 +435,14 @@ public final class DatashareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatashareFunctions.getDatasetDataLakeGen2(GetDatasetDataLakeGen2Args.builder()
-     *             .name(&#34;example-dsdlg2ds&#34;)
-     *             .shareId(&#34;example-share-id&#34;)
+     *             .name("example-dsdlg2ds")
+     *             .shareId("example-share-id")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetDataLakeGen2Result -&gt; getDatasetDataLakeGen2Result.id()));
+     *         ctx.export("id", example.applyValue(getDatasetDataLakeGen2Result -> getDatasetDataLakeGen2Result.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -455,7 +455,7 @@ public final class DatashareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -477,14 +477,14 @@ public final class DatashareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatashareFunctions.getDatasetDataLakeGen2(GetDatasetDataLakeGen2Args.builder()
-     *             .name(&#34;example-dsdlg2ds&#34;)
-     *             .shareId(&#34;example-share-id&#34;)
+     *             .name("example-dsdlg2ds")
+     *             .shareId("example-share-id")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetDataLakeGen2Result -&gt; getDatasetDataLakeGen2Result.id()));
+     *         ctx.export("id", example.applyValue(getDatasetDataLakeGen2Result -> getDatasetDataLakeGen2Result.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -497,7 +497,7 @@ public final class DatashareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -519,14 +519,14 @@ public final class DatashareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatashareFunctions.getDatasetDataLakeGen2(GetDatasetDataLakeGen2Args.builder()
-     *             .name(&#34;example-dsdlg2ds&#34;)
-     *             .shareId(&#34;example-share-id&#34;)
+     *             .name("example-dsdlg2ds")
+     *             .shareId("example-share-id")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetDataLakeGen2Result -&gt; getDatasetDataLakeGen2Result.id()));
+     *         ctx.export("id", example.applyValue(getDatasetDataLakeGen2Result -> getDatasetDataLakeGen2Result.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -539,7 +539,7 @@ public final class DatashareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -561,14 +561,14 @@ public final class DatashareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatashareFunctions.getDatasetKustoCluster(GetDatasetKustoClusterArgs.builder()
-     *             .name(&#34;example-dskc&#34;)
-     *             .shareId(&#34;example-share-id&#34;)
+     *             .name("example-dskc")
+     *             .shareId("example-share-id")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetKustoClusterResult -&gt; getDatasetKustoClusterResult.id()));
+     *         ctx.export("id", example.applyValue(getDatasetKustoClusterResult -> getDatasetKustoClusterResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -581,7 +581,7 @@ public final class DatashareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -603,14 +603,14 @@ public final class DatashareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatashareFunctions.getDatasetKustoCluster(GetDatasetKustoClusterArgs.builder()
-     *             .name(&#34;example-dskc&#34;)
-     *             .shareId(&#34;example-share-id&#34;)
+     *             .name("example-dskc")
+     *             .shareId("example-share-id")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetKustoClusterResult -&gt; getDatasetKustoClusterResult.id()));
+     *         ctx.export("id", example.applyValue(getDatasetKustoClusterResult -> getDatasetKustoClusterResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -623,7 +623,7 @@ public final class DatashareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -645,14 +645,14 @@ public final class DatashareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatashareFunctions.getDatasetKustoCluster(GetDatasetKustoClusterArgs.builder()
-     *             .name(&#34;example-dskc&#34;)
-     *             .shareId(&#34;example-share-id&#34;)
+     *             .name("example-dskc")
+     *             .shareId("example-share-id")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetKustoClusterResult -&gt; getDatasetKustoClusterResult.id()));
+     *         ctx.export("id", example.applyValue(getDatasetKustoClusterResult -> getDatasetKustoClusterResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -665,7 +665,7 @@ public final class DatashareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -687,14 +687,14 @@ public final class DatashareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatashareFunctions.getDatasetKustoCluster(GetDatasetKustoClusterArgs.builder()
-     *             .name(&#34;example-dskc&#34;)
-     *             .shareId(&#34;example-share-id&#34;)
+     *             .name("example-dskc")
+     *             .shareId("example-share-id")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetKustoClusterResult -&gt; getDatasetKustoClusterResult.id()));
+     *         ctx.export("id", example.applyValue(getDatasetKustoClusterResult -> getDatasetKustoClusterResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -707,7 +707,7 @@ public final class DatashareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -729,14 +729,14 @@ public final class DatashareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatashareFunctions.getDatasetKustoDatabase(GetDatasetKustoDatabaseArgs.builder()
-     *             .name(&#34;example-dskdds&#34;)
-     *             .shareId(&#34;example-share-id&#34;)
+     *             .name("example-dskdds")
+     *             .shareId("example-share-id")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetKustoDatabaseResult -&gt; getDatasetKustoDatabaseResult.id()));
+     *         ctx.export("id", example.applyValue(getDatasetKustoDatabaseResult -> getDatasetKustoDatabaseResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -749,7 +749,7 @@ public final class DatashareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -771,14 +771,14 @@ public final class DatashareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatashareFunctions.getDatasetKustoDatabase(GetDatasetKustoDatabaseArgs.builder()
-     *             .name(&#34;example-dskdds&#34;)
-     *             .shareId(&#34;example-share-id&#34;)
+     *             .name("example-dskdds")
+     *             .shareId("example-share-id")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetKustoDatabaseResult -&gt; getDatasetKustoDatabaseResult.id()));
+     *         ctx.export("id", example.applyValue(getDatasetKustoDatabaseResult -> getDatasetKustoDatabaseResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -791,7 +791,7 @@ public final class DatashareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -813,14 +813,14 @@ public final class DatashareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatashareFunctions.getDatasetKustoDatabase(GetDatasetKustoDatabaseArgs.builder()
-     *             .name(&#34;example-dskdds&#34;)
-     *             .shareId(&#34;example-share-id&#34;)
+     *             .name("example-dskdds")
+     *             .shareId("example-share-id")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetKustoDatabaseResult -&gt; getDatasetKustoDatabaseResult.id()));
+     *         ctx.export("id", example.applyValue(getDatasetKustoDatabaseResult -> getDatasetKustoDatabaseResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -833,7 +833,7 @@ public final class DatashareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -855,14 +855,14 @@ public final class DatashareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatashareFunctions.getDatasetKustoDatabase(GetDatasetKustoDatabaseArgs.builder()
-     *             .name(&#34;example-dskdds&#34;)
-     *             .shareId(&#34;example-share-id&#34;)
+     *             .name("example-dskdds")
+     *             .shareId("example-share-id")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetKustoDatabaseResult -&gt; getDatasetKustoDatabaseResult.id()));
+     *         ctx.export("id", example.applyValue(getDatasetKustoDatabaseResult -> getDatasetKustoDatabaseResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -875,7 +875,7 @@ public final class DatashareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -898,19 +898,19 @@ public final class DatashareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatashareFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
+     *             .name("example-account")
+     *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
      *         final var exampleGetShare = DatashareFunctions.getShare(GetShareArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .accountId(example.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *             .name("existing")
+     *             .accountId(example.applyValue(getAccountResult -> getAccountResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleGetShare.applyValue(getShareResult -&gt; getShareResult.id()));
+     *         ctx.export("id", exampleGetShare.applyValue(getShareResult -> getShareResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -923,7 +923,7 @@ public final class DatashareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -946,19 +946,19 @@ public final class DatashareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatashareFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
+     *             .name("example-account")
+     *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
      *         final var exampleGetShare = DatashareFunctions.getShare(GetShareArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .accountId(example.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *             .name("existing")
+     *             .accountId(example.applyValue(getAccountResult -> getAccountResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleGetShare.applyValue(getShareResult -&gt; getShareResult.id()));
+     *         ctx.export("id", exampleGetShare.applyValue(getShareResult -> getShareResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -971,7 +971,7 @@ public final class DatashareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -994,19 +994,19 @@ public final class DatashareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatashareFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
+     *             .name("example-account")
+     *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
      *         final var exampleGetShare = DatashareFunctions.getShare(GetShareArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .accountId(example.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *             .name("existing")
+     *             .accountId(example.applyValue(getAccountResult -> getAccountResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleGetShare.applyValue(getShareResult -&gt; getShareResult.id()));
+     *         ctx.export("id", exampleGetShare.applyValue(getShareResult -> getShareResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1019,7 +1019,7 @@ public final class DatashareFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1042,19 +1042,19 @@ public final class DatashareFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatashareFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
+     *             .name("example-account")
+     *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
      *         final var exampleGetShare = DatashareFunctions.getShare(GetShareArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .accountId(example.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *             .name("existing")
+     *             .accountId(example.applyValue(getAccountResult -> getAccountResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleGetShare.applyValue(getShareResult -&gt; getShareResult.id()));
+     *         ctx.export("id", exampleGetShare.applyValue(getShareResult -> getShareResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

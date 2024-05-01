@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,68 +55,68 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;my-kusto-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("my-kusto-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var cluster = new Cluster(&#34;cluster&#34;, ClusterArgs.builder()        
- *             .name(&#34;kustocluster&#34;)
+ *         var cluster = new Cluster("cluster", ClusterArgs.builder()        
+ *             .name("kustocluster")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku(ClusterSkuArgs.builder()
- *                 .name(&#34;Standard_D13_v2&#34;)
+ *                 .name("Standard_D13_v2")
  *                 .capacity(2)
  *                 .build())
  *             .build());
  * 
- *         var database = new Database(&#34;database&#34;, DatabaseArgs.builder()        
- *             .name(&#34;my-kusto-database&#34;)
+ *         var database = new Database("database", DatabaseArgs.builder()        
+ *             .name("my-kusto-database")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .clusterName(cluster.name())
- *             .hotCachePeriod(&#34;P7D&#34;)
- *             .softDeletePeriod(&#34;P31D&#34;)
+ *             .hotCachePeriod("P7D")
+ *             .softDeletePeriod("P31D")
  *             .build());
  * 
- *         var eventhubNs = new EventHubNamespace(&#34;eventhubNs&#34;, EventHubNamespaceArgs.builder()        
- *             .name(&#34;my-eventhub-ns&#34;)
+ *         var eventhubNs = new EventHubNamespace("eventhubNs", EventHubNamespaceArgs.builder()        
+ *             .name("my-eventhub-ns")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;Standard&#34;)
+ *             .sku("Standard")
  *             .build());
  * 
- *         var eventhub = new EventHub(&#34;eventhub&#34;, EventHubArgs.builder()        
- *             .name(&#34;my-eventhub&#34;)
+ *         var eventhub = new EventHub("eventhub", EventHubArgs.builder()        
+ *             .name("my-eventhub")
  *             .namespaceName(eventhubNs.name())
  *             .resourceGroupName(example.name())
  *             .partitionCount(1)
  *             .messageRetention(1)
  *             .build());
  * 
- *         var consumerGroup = new ConsumerGroup(&#34;consumerGroup&#34;, ConsumerGroupArgs.builder()        
- *             .name(&#34;my-eventhub-consumergroup&#34;)
+ *         var consumerGroup = new ConsumerGroup("consumerGroup", ConsumerGroupArgs.builder()        
+ *             .name("my-eventhub-consumergroup")
  *             .namespaceName(eventhubNs.name())
  *             .eventhubName(eventhub.name())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var eventhubConnection = new EventhubDataConnection(&#34;eventhubConnection&#34;, EventhubDataConnectionArgs.builder()        
- *             .name(&#34;my-kusto-eventhub-data-connection&#34;)
+ *         var eventhubConnection = new EventhubDataConnection("eventhubConnection", EventhubDataConnectionArgs.builder()        
+ *             .name("my-kusto-eventhub-data-connection")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .clusterName(cluster.name())
  *             .databaseName(database.name())
  *             .eventhubId(eventhub.id())
  *             .consumerGroup(consumerGroup.name())
- *             .tableName(&#34;my-table&#34;)
- *             .mappingRuleName(&#34;my-table-mapping&#34;)
- *             .dataFormat(&#34;JSON&#34;)
+ *             .tableName("my-table")
+ *             .mappingRuleName("my-table-mapping")
+ *             .dataFormat("JSON")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -40,7 +40,7 @@ public final class PrivateLinkAssociationArgs extends com.pulumi.resources.Resou
      * Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignore_changes` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -61,7 +61,7 @@ public final class PrivateLinkAssociationArgs extends com.pulumi.resources.Resou
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new PrivateLinkAssociation(&#34;example&#34;, PrivateLinkAssociationArgs.builder()        
+     *         var example = new PrivateLinkAssociation("example", PrivateLinkAssociationArgs.builder()        
      *             .managementGroupId(exampleAzurermManagementGroup.id())
      *             .resourceManagementPrivateLinkId(exampleAzurermResourceManagementPrivateLink.id())
      *             .publicNetworkAccessEnabled(true)
@@ -69,7 +69,7 @@ public final class PrivateLinkAssociationArgs extends com.pulumi.resources.Resou
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -80,7 +80,7 @@ public final class PrivateLinkAssociationArgs extends com.pulumi.resources.Resou
      * @return Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignore_changes` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -101,7 +101,7 @@ public final class PrivateLinkAssociationArgs extends com.pulumi.resources.Resou
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new PrivateLinkAssociation(&#34;example&#34;, PrivateLinkAssociationArgs.builder()        
+     *         var example = new PrivateLinkAssociation("example", PrivateLinkAssociationArgs.builder()        
      *             .managementGroupId(exampleAzurermManagementGroup.id())
      *             .resourceManagementPrivateLinkId(exampleAzurermResourceManagementPrivateLink.id())
      *             .publicNetworkAccessEnabled(true)
@@ -109,7 +109,7 @@ public final class PrivateLinkAssociationArgs extends com.pulumi.resources.Resou
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -203,7 +203,7 @@ public final class PrivateLinkAssociationArgs extends com.pulumi.resources.Resou
          * @param name Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignore_changes` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
          * 
          * &lt;!--Start PulumiCodeChooser --&gt;
-         * ```java
+         * {@code
          * package generated_program;
          * 
          * import com.pulumi.Context;
@@ -224,7 +224,7 @@ public final class PrivateLinkAssociationArgs extends com.pulumi.resources.Resou
          *     }
          * 
          *     public static void stack(Context ctx) {
-         *         var example = new PrivateLinkAssociation(&#34;example&#34;, PrivateLinkAssociationArgs.builder()        
+         *         var example = new PrivateLinkAssociation("example", PrivateLinkAssociationArgs.builder()        
          *             .managementGroupId(exampleAzurermManagementGroup.id())
          *             .resourceManagementPrivateLinkId(exampleAzurermResourceManagementPrivateLink.id())
          *             .publicNetworkAccessEnabled(true)
@@ -232,7 +232,7 @@ public final class PrivateLinkAssociationArgs extends com.pulumi.resources.Resou
          * 
          *     }
          * }
-         * ```
+         * }
          * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
@@ -247,7 +247,7 @@ public final class PrivateLinkAssociationArgs extends com.pulumi.resources.Resou
          * @param name Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignore_changes` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
          * 
          * &lt;!--Start PulumiCodeChooser --&gt;
-         * ```java
+         * {@code
          * package generated_program;
          * 
          * import com.pulumi.Context;
@@ -268,7 +268,7 @@ public final class PrivateLinkAssociationArgs extends com.pulumi.resources.Resou
          *     }
          * 
          *     public static void stack(Context ctx) {
-         *         var example = new PrivateLinkAssociation(&#34;example&#34;, PrivateLinkAssociationArgs.builder()        
+         *         var example = new PrivateLinkAssociation("example", PrivateLinkAssociationArgs.builder()        
          *             .managementGroupId(exampleAzurermManagementGroup.id())
          *             .resourceManagementPrivateLinkId(exampleAzurermResourceManagementPrivateLink.id())
          *             .publicNetworkAccessEnabled(true)
@@ -276,7 +276,7 @@ public final class PrivateLinkAssociationArgs extends com.pulumi.resources.Resou
          * 
          *     }
          * }
-         * ```
+         * }
          * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder

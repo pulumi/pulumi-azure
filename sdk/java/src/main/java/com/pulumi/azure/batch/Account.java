@@ -27,7 +27,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,32 +52,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;testbatch&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("testbatch")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;teststorage&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("teststorage")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleAccount2 = new Account(&#34;exampleAccount2&#34;, AccountArgs.builder()        
- *             .name(&#34;testbatchaccount&#34;)
+ *         var exampleAccount2 = new Account("exampleAccount2", AccountArgs.builder()        
+ *             .name("testbatchaccount")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .poolAllocationMode(&#34;BatchService&#34;)
+ *             .poolAllocationMode("BatchService")
  *             .storageAccountId(exampleAccount.id())
- *             .storageAccountAuthenticationMode(&#34;StorageKeys&#34;)
- *             .tags(Map.of(&#34;env&#34;, &#34;test&#34;))
+ *             .storageAccountAuthenticationMode("StorageKeys")
+ *             .tags(Map.of("env", "test"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

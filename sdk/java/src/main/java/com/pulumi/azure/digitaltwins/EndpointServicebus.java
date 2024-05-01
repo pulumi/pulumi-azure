@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,39 +52,39 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example_resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example_resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleInstance = new Instance(&#34;exampleInstance&#34;, InstanceArgs.builder()        
- *             .name(&#34;example-DT&#34;)
+ *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()        
+ *             .name("example-DT")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleNamespace = new Namespace(&#34;exampleNamespace&#34;, NamespaceArgs.builder()        
- *             .name(&#34;exampleservicebusnamespace&#34;)
+ *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()        
+ *             .name("exampleservicebusnamespace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;Standard&#34;)
+ *             .sku("Standard")
  *             .build());
  * 
- *         var exampleTopic = new Topic(&#34;exampleTopic&#34;, TopicArgs.builder()        
- *             .name(&#34;exampleservicebustopic&#34;)
+ *         var exampleTopic = new Topic("exampleTopic", TopicArgs.builder()        
+ *             .name("exampleservicebustopic")
  *             .namespaceId(exampleNamespace.id())
  *             .build());
  * 
- *         var exampleTopicAuthorizationRule = new TopicAuthorizationRule(&#34;exampleTopicAuthorizationRule&#34;, TopicAuthorizationRuleArgs.builder()        
- *             .name(&#34;example-rule&#34;)
+ *         var exampleTopicAuthorizationRule = new TopicAuthorizationRule("exampleTopicAuthorizationRule", TopicAuthorizationRuleArgs.builder()        
+ *             .name("example-rule")
  *             .topicId(exampleTopic.id())
  *             .listen(false)
  *             .send(true)
  *             .manage(false)
  *             .build());
  * 
- *         var exampleEndpointServicebus = new EndpointServicebus(&#34;exampleEndpointServicebus&#34;, EndpointServicebusArgs.builder()        
- *             .name(&#34;example-EndpointSB&#34;)
+ *         var exampleEndpointServicebus = new EndpointServicebus("exampleEndpointServicebus", EndpointServicebusArgs.builder()        
+ *             .name("example-EndpointSB")
  *             .digitalTwinsId(exampleInstance.id())
  *             .servicebusPrimaryConnectionString(exampleTopicAuthorizationRule.primaryConnectionString())
  *             .servicebusSecondaryConnectionString(exampleTopicAuthorizationRule.secondaryConnectionString())
@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

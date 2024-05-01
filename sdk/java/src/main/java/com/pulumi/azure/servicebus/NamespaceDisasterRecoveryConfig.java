@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,37 +50,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;servicebus-replication&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("servicebus-replication")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var primary = new Namespace(&#34;primary&#34;, NamespaceArgs.builder()        
- *             .name(&#34;servicebus-primary&#34;)
+ *         var primary = new Namespace("primary", NamespaceArgs.builder()        
+ *             .name("servicebus-primary")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;Premium&#34;)
- *             .capacity(&#34;1&#34;)
+ *             .sku("Premium")
+ *             .capacity("1")
  *             .build());
  * 
- *         var secondary = new Namespace(&#34;secondary&#34;, NamespaceArgs.builder()        
- *             .name(&#34;servicebus-secondary&#34;)
+ *         var secondary = new Namespace("secondary", NamespaceArgs.builder()        
+ *             .name("servicebus-secondary")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;Premium&#34;)
- *             .capacity(&#34;1&#34;)
+ *             .sku("Premium")
+ *             .capacity("1")
  *             .build());
  * 
- *         var exampleNamespaceAuthorizationRule = new NamespaceAuthorizationRule(&#34;exampleNamespaceAuthorizationRule&#34;, NamespaceAuthorizationRuleArgs.builder()        
- *             .name(&#34;examplerule&#34;)
+ *         var exampleNamespaceAuthorizationRule = new NamespaceAuthorizationRule("exampleNamespaceAuthorizationRule", NamespaceAuthorizationRuleArgs.builder()        
+ *             .name("examplerule")
  *             .namespaceId(exampleAzurermServicebusNamespace.id())
  *             .listen(true)
  *             .send(true)
  *             .manage(false)
  *             .build());
  * 
- *         var exampleNamespaceDisasterRecoveryConfig = new NamespaceDisasterRecoveryConfig(&#34;exampleNamespaceDisasterRecoveryConfig&#34;, NamespaceDisasterRecoveryConfigArgs.builder()        
- *             .name(&#34;servicebus-alias-name&#34;)
+ *         var exampleNamespaceDisasterRecoveryConfig = new NamespaceDisasterRecoveryConfig("exampleNamespaceDisasterRecoveryConfig", NamespaceDisasterRecoveryConfigArgs.builder()        
+ *             .name("servicebus-alias-name")
  *             .primaryNamespaceId(primary.id())
  *             .partnerNamespaceId(secondary.id())
  *             .aliasAuthorizationRuleId(exampleNamespaceAuthorizationRule.id())
@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

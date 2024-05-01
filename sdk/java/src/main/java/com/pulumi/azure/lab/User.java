@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,46 +50,46 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleLab = new Lab(&#34;exampleLab&#34;, LabArgs.builder()        
- *             .name(&#34;example-lab&#34;)
+ *         var exampleLab = new Lab("exampleLab", LabArgs.builder()        
+ *             .name("example-lab")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .title(&#34;Test Title&#34;)
+ *             .title("Test Title")
  *             .security(LabSecurityArgs.builder()
  *                 .openAccessEnabled(false)
  *                 .build())
  *             .virtualMachine(LabVirtualMachineArgs.builder()
  *                 .adminUser(LabVirtualMachineAdminUserArgs.builder()
- *                     .username(&#34;testadmin&#34;)
- *                     .password(&#34;Password1234!&#34;)
+ *                     .username("testadmin")
+ *                     .password("Password1234!")
  *                     .build())
  *                 .imageReference(LabVirtualMachineImageReferenceArgs.builder()
- *                     .publisher(&#34;Canonical&#34;)
- *                     .offer(&#34;0001-com-ubuntu-server-jammy&#34;)
- *                     .sku(&#34;22_04-lts&#34;)
- *                     .version(&#34;latest&#34;)
+ *                     .publisher("Canonical")
+ *                     .offer("0001-com-ubuntu-server-jammy")
+ *                     .sku("22_04-lts")
+ *                     .version("latest")
  *                     .build())
  *                 .sku(LabVirtualMachineSkuArgs.builder()
- *                     .name(&#34;Classic_Fsv2_2_4GB_128_S_SSD&#34;)
+ *                     .name("Classic_Fsv2_2_4GB_128_S_SSD")
  *                     .capacity(1)
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
- *             .name(&#34;example-labuser&#34;)
+ *         var exampleUser = new User("exampleUser", UserArgs.builder()        
+ *             .name("example-labuser")
  *             .labId(exampleLab.id())
- *             .email(&#34;terraform-acctest@example.com&#34;)
+ *             .email("terraform-acctest@example.com")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

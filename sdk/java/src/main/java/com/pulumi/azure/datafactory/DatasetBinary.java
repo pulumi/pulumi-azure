@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,40 +54,40 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFactory = new Factory(&#34;exampleFactory&#34;, FactoryArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleLinkedServiceSftp = new LinkedServiceSftp(&#34;exampleLinkedServiceSftp&#34;, LinkedServiceSftpArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleLinkedServiceSftp = new LinkedServiceSftp("exampleLinkedServiceSftp", LinkedServiceSftpArgs.builder()        
+ *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
- *             .authenticationType(&#34;Basic&#34;)
- *             .host(&#34;http://www.bing.com&#34;)
+ *             .authenticationType("Basic")
+ *             .host("http://www.bing.com")
  *             .port(22)
- *             .username(&#34;foo&#34;)
- *             .password(&#34;bar&#34;)
+ *             .username("foo")
+ *             .password("bar")
  *             .build());
  * 
- *         var exampleDatasetBinary = new DatasetBinary(&#34;exampleDatasetBinary&#34;, DatasetBinaryArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleDatasetBinary = new DatasetBinary("exampleDatasetBinary", DatasetBinaryArgs.builder()        
+ *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .linkedServiceName(exampleLinkedServiceSftp.name())
  *             .sftpServerLocation(DatasetBinarySftpServerLocationArgs.builder()
- *                 .path(&#34;/test/&#34;)
- *                 .filename(&#34;**&#34;)
+ *                 .path("/test/")
+ *                 .filename("**")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

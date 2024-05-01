@@ -26,7 +26,7 @@ public final class DatabricksFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -48,14 +48,14 @@ public final class DatabricksFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatabricksFunctions.getAccessConnector(GetAccessConnectorArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAccessConnectorResult -&gt; getAccessConnectorResult.id()));
+     *         ctx.export("id", example.applyValue(getAccessConnectorResult -> getAccessConnectorResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -68,7 +68,7 @@ public final class DatabricksFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -90,14 +90,14 @@ public final class DatabricksFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatabricksFunctions.getAccessConnector(GetAccessConnectorArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAccessConnectorResult -&gt; getAccessConnectorResult.id()));
+     *         ctx.export("id", example.applyValue(getAccessConnectorResult -> getAccessConnectorResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -110,7 +110,7 @@ public final class DatabricksFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -132,14 +132,14 @@ public final class DatabricksFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatabricksFunctions.getAccessConnector(GetAccessConnectorArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAccessConnectorResult -&gt; getAccessConnectorResult.id()));
+     *         ctx.export("id", example.applyValue(getAccessConnectorResult -> getAccessConnectorResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -152,7 +152,7 @@ public final class DatabricksFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -174,14 +174,14 @@ public final class DatabricksFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatabricksFunctions.getAccessConnector(GetAccessConnectorArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAccessConnectorResult -&gt; getAccessConnectorResult.id()));
+     *         ctx.export("id", example.applyValue(getAccessConnectorResult -> getAccessConnectorResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -194,7 +194,7 @@ public final class DatabricksFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -216,14 +216,14 @@ public final class DatabricksFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatabricksFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name(&#34;example-workspace&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-workspace")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;databricksWorkspaceId&#34;, example.applyValue(getWorkspaceResult -&gt; getWorkspaceResult.workspaceId()));
+     *         ctx.export("databricksWorkspaceId", example.applyValue(getWorkspaceResult -> getWorkspaceResult.workspaceId()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -236,7 +236,7 @@ public final class DatabricksFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -258,14 +258,14 @@ public final class DatabricksFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatabricksFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name(&#34;example-workspace&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-workspace")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;databricksWorkspaceId&#34;, example.applyValue(getWorkspaceResult -&gt; getWorkspaceResult.workspaceId()));
+     *         ctx.export("databricksWorkspaceId", example.applyValue(getWorkspaceResult -> getWorkspaceResult.workspaceId()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -278,7 +278,7 @@ public final class DatabricksFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -300,14 +300,14 @@ public final class DatabricksFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatabricksFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name(&#34;example-workspace&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-workspace")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;databricksWorkspaceId&#34;, example.applyValue(getWorkspaceResult -&gt; getWorkspaceResult.workspaceId()));
+     *         ctx.export("databricksWorkspaceId", example.applyValue(getWorkspaceResult -> getWorkspaceResult.workspaceId()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -320,7 +320,7 @@ public final class DatabricksFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -342,14 +342,14 @@ public final class DatabricksFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatabricksFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name(&#34;example-workspace&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-workspace")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;databricksWorkspaceId&#34;, example.applyValue(getWorkspaceResult -&gt; getWorkspaceResult.workspaceId()));
+     *         ctx.export("databricksWorkspaceId", example.applyValue(getWorkspaceResult -> getWorkspaceResult.workspaceId()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -362,7 +362,7 @@ public final class DatabricksFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -388,10 +388,10 @@ public final class DatabricksFunctions {
      *             .privateEndpointId(exampleAzurermPrivateEndpoint.id())
      *             .build());
      * 
-     *         ctx.export(&#34;databricksWorkspacePrivateEndpointConnectionStatus&#34;, example.applyValue(getWorkspacePrivateEndpointConnectionResult -&gt; getWorkspacePrivateEndpointConnectionResult.connections()[0].status()));
+     *         ctx.export("databricksWorkspacePrivateEndpointConnectionStatus", example.applyValue(getWorkspacePrivateEndpointConnectionResult -> getWorkspacePrivateEndpointConnectionResult.connections()[0].status()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -404,7 +404,7 @@ public final class DatabricksFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -430,10 +430,10 @@ public final class DatabricksFunctions {
      *             .privateEndpointId(exampleAzurermPrivateEndpoint.id())
      *             .build());
      * 
-     *         ctx.export(&#34;databricksWorkspacePrivateEndpointConnectionStatus&#34;, example.applyValue(getWorkspacePrivateEndpointConnectionResult -&gt; getWorkspacePrivateEndpointConnectionResult.connections()[0].status()));
+     *         ctx.export("databricksWorkspacePrivateEndpointConnectionStatus", example.applyValue(getWorkspacePrivateEndpointConnectionResult -> getWorkspacePrivateEndpointConnectionResult.connections()[0].status()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -446,7 +446,7 @@ public final class DatabricksFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -472,10 +472,10 @@ public final class DatabricksFunctions {
      *             .privateEndpointId(exampleAzurermPrivateEndpoint.id())
      *             .build());
      * 
-     *         ctx.export(&#34;databricksWorkspacePrivateEndpointConnectionStatus&#34;, example.applyValue(getWorkspacePrivateEndpointConnectionResult -&gt; getWorkspacePrivateEndpointConnectionResult.connections()[0].status()));
+     *         ctx.export("databricksWorkspacePrivateEndpointConnectionStatus", example.applyValue(getWorkspacePrivateEndpointConnectionResult -> getWorkspacePrivateEndpointConnectionResult.connections()[0].status()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -488,7 +488,7 @@ public final class DatabricksFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -514,10 +514,10 @@ public final class DatabricksFunctions {
      *             .privateEndpointId(exampleAzurermPrivateEndpoint.id())
      *             .build());
      * 
-     *         ctx.export(&#34;databricksWorkspacePrivateEndpointConnectionStatus&#34;, example.applyValue(getWorkspacePrivateEndpointConnectionResult -&gt; getWorkspacePrivateEndpointConnectionResult.connections()[0].status()));
+     *         ctx.export("databricksWorkspacePrivateEndpointConnectionStatus", example.applyValue(getWorkspacePrivateEndpointConnectionResult -> getWorkspacePrivateEndpointConnectionResult.connections()[0].status()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

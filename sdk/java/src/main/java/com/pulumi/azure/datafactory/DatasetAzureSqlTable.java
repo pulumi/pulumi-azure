@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,32 +50,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFactory = new Factory(&#34;exampleFactory&#34;, FactoryArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleLinkedServiceAzureSqlDatabase = new LinkedServiceAzureSqlDatabase(&#34;exampleLinkedServiceAzureSqlDatabase&#34;, LinkedServiceAzureSqlDatabaseArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleLinkedServiceAzureSqlDatabase = new LinkedServiceAzureSqlDatabase("exampleLinkedServiceAzureSqlDatabase", LinkedServiceAzureSqlDatabaseArgs.builder()        
+ *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
- *             .connectionString(&#34;Integrated Security=False;Data Source=test;Initial Catalog=test;Initial Catalog=test;User ID=test;Password=test&#34;)
+ *             .connectionString("Integrated Security=False;Data Source=test;Initial Catalog=test;Initial Catalog=test;User ID=test;Password=test")
  *             .build());
  * 
- *         var exampleDatasetAzureSqlTable = new DatasetAzureSqlTable(&#34;exampleDatasetAzureSqlTable&#34;, DatasetAzureSqlTableArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleDatasetAzureSqlTable = new DatasetAzureSqlTable("exampleDatasetAzureSqlTable", DatasetAzureSqlTableArgs.builder()        
+ *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .linkedServiceId(exampleLinkedServiceAzureSqlDatabase.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

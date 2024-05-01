@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,27 +44,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;eventhub-replication&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("eventhub-replication")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var primary = new EventHubNamespace(&#34;primary&#34;, EventHubNamespaceArgs.builder()        
- *             .name(&#34;eventhub-primary&#34;)
+ *         var primary = new EventHubNamespace("primary", EventHubNamespaceArgs.builder()        
+ *             .name("eventhub-primary")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;Standard&#34;)
+ *             .sku("Standard")
  *             .build());
  * 
- *         var secondary = new EventHubNamespace(&#34;secondary&#34;, EventHubNamespaceArgs.builder()        
- *             .name(&#34;eventhub-secondary&#34;)
+ *         var secondary = new EventHubNamespace("secondary", EventHubNamespaceArgs.builder()        
+ *             .name("eventhub-secondary")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;Standard&#34;)
+ *             .sku("Standard")
  *             .build());
  * 
- *         var exampleEventhubNamespaceDisasterRecoveryConfig = new EventhubNamespaceDisasterRecoveryConfig(&#34;exampleEventhubNamespaceDisasterRecoveryConfig&#34;, EventhubNamespaceDisasterRecoveryConfigArgs.builder()        
- *             .name(&#34;replicate-eventhub&#34;)
+ *         var exampleEventhubNamespaceDisasterRecoveryConfig = new EventhubNamespaceDisasterRecoveryConfig("exampleEventhubNamespaceDisasterRecoveryConfig", EventhubNamespaceDisasterRecoveryConfigArgs.builder()        
+ *             .name("replicate-eventhub")
  *             .resourceGroupName(example.name())
  *             .namespaceName(primary.name())
  *             .partnerNamespaceId(secondary.id())
@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

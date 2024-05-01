@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,52 +51,52 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
- *             .name(&#34;acctest-01&#34;)
+ *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()        
+ *             .name("acctest-01")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;PerGB2018&#34;)
+ *             .sku("PerGB2018")
  *             .retentionInDays(30)
  *             .build());
  * 
- *         var exampleEnvironment = new Environment(&#34;exampleEnvironment&#34;, EnvironmentArgs.builder()        
- *             .name(&#34;myEnvironment&#34;)
+ *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()        
+ *             .name("myEnvironment")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .logAnalyticsWorkspaceId(exampleAnalyticsWorkspace.id())
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;azureteststorage&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("azureteststorage")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleShare = new Share(&#34;exampleShare&#34;, ShareArgs.builder()        
- *             .name(&#34;sharename&#34;)
+ *         var exampleShare = new Share("exampleShare", ShareArgs.builder()        
+ *             .name("sharename")
  *             .storageAccountName(exampleAccount.name())
  *             .quota(5)
  *             .build());
  * 
- *         var exampleEnvironmentStorage = new EnvironmentStorage(&#34;exampleEnvironmentStorage&#34;, EnvironmentStorageArgs.builder()        
- *             .name(&#34;mycontainerappstorage&#34;)
+ *         var exampleEnvironmentStorage = new EnvironmentStorage("exampleEnvironmentStorage", EnvironmentStorageArgs.builder()        
+ *             .name("mycontainerappstorage")
  *             .containerAppEnvironmentId(exampleEnvironment.id())
  *             .accountName(exampleAccount.name())
  *             .shareName(exampleShare.name())
  *             .accessKey(exampleAccount.primaryAccessKey())
- *             .accessMode(&#34;ReadOnly&#34;)
+ *             .accessMode("ReadOnly")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

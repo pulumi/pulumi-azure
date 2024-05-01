@@ -28,7 +28,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -58,44 +58,44 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var toMonitor = new Account(&#34;toMonitor&#34;, AccountArgs.builder()        
- *             .name(&#34;examplestorageaccount&#34;)
+ *         var toMonitor = new Account("toMonitor", AccountArgs.builder()        
+ *             .name("examplestorageaccount")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var main = new ActionGroup(&#34;main&#34;, ActionGroupArgs.builder()        
- *             .name(&#34;example-actiongroup&#34;)
+ *         var main = new ActionGroup("main", ActionGroupArgs.builder()        
+ *             .name("example-actiongroup")
  *             .resourceGroupName(example.name())
- *             .shortName(&#34;exampleact&#34;)
+ *             .shortName("exampleact")
  *             .webhookReceivers(ActionGroupWebhookReceiverArgs.builder()
- *                 .name(&#34;callmyapi&#34;)
- *                 .serviceUri(&#34;http://example.com/alert&#34;)
+ *                 .name("callmyapi")
+ *                 .serviceUri("http://example.com/alert")
  *                 .build())
  *             .build());
  * 
- *         var exampleMetricAlert = new MetricAlert(&#34;exampleMetricAlert&#34;, MetricAlertArgs.builder()        
- *             .name(&#34;example-metricalert&#34;)
+ *         var exampleMetricAlert = new MetricAlert("exampleMetricAlert", MetricAlertArgs.builder()        
+ *             .name("example-metricalert")
  *             .resourceGroupName(example.name())
  *             .scopes(toMonitor.id())
- *             .description(&#34;Action will be triggered when Transactions count is greater than 50.&#34;)
+ *             .description("Action will be triggered when Transactions count is greater than 50.")
  *             .criterias(MetricAlertCriteriaArgs.builder()
- *                 .metricNamespace(&#34;Microsoft.Storage/storageAccounts&#34;)
- *                 .metricName(&#34;Transactions&#34;)
- *                 .aggregation(&#34;Total&#34;)
- *                 .operator(&#34;GreaterThan&#34;)
+ *                 .metricNamespace("Microsoft.Storage/storageAccounts")
+ *                 .metricName("Transactions")
+ *                 .aggregation("Total")
+ *                 .operator("GreaterThan")
  *                 .threshold(50)
  *                 .dimensions(MetricAlertCriteriaDimensionArgs.builder()
- *                     .name(&#34;ApiName&#34;)
- *                     .operator(&#34;Include&#34;)
- *                     .values(&#34;*&#34;)
+ *                     .name("ApiName")
+ *                     .operator("Include")
+ *                     .values("*")
  *                     .build())
  *                 .build())
  *             .actions(MetricAlertActionArgs.builder()
@@ -105,7 +105,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

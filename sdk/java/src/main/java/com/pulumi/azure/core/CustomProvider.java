@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,24 +49,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleCustomProvider = new CustomProvider(&#34;exampleCustomProvider&#34;, CustomProviderArgs.builder()        
- *             .name(&#34;example_provider&#34;)
+ *         var exampleCustomProvider = new CustomProvider("exampleCustomProvider", CustomProviderArgs.builder()        
+ *             .name("example_provider")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .resourceTypes(CustomProviderResourceTypeArgs.builder()
- *                 .name(&#34;dEf1&#34;)
- *                 .endpoint(&#34;https://testendpoint.com/&#34;)
+ *                 .name("dEf1")
+ *                 .endpoint("https://testendpoint.com/")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

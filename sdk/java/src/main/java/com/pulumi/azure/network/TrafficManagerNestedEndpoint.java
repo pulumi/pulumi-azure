@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,55 +54,55 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
- *             .name(&#34;example-publicip&#34;)
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *             .name("example-publicip")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .allocationMethod(&#34;Static&#34;)
- *             .domainNameLabel(&#34;example-pip&#34;)
+ *             .allocationMethod("Static")
+ *             .domainNameLabel("example-pip")
  *             .build());
  * 
- *         var parent = new TrafficManagerProfile(&#34;parent&#34;, TrafficManagerProfileArgs.builder()        
- *             .name(&#34;parent-profile&#34;)
+ *         var parent = new TrafficManagerProfile("parent", TrafficManagerProfileArgs.builder()        
+ *             .name("parent-profile")
  *             .resourceGroupName(example.name())
- *             .trafficRoutingMethod(&#34;Weighted&#34;)
+ *             .trafficRoutingMethod("Weighted")
  *             .dnsConfig(TrafficManagerProfileDnsConfigArgs.builder()
- *                 .relativeName(&#34;parent-profile&#34;)
+ *                 .relativeName("parent-profile")
  *                 .ttl(100)
  *                 .build())
  *             .monitorConfig(TrafficManagerProfileMonitorConfigArgs.builder()
- *                 .protocol(&#34;HTTP&#34;)
+ *                 .protocol("HTTP")
  *                 .port(80)
- *                 .path(&#34;/&#34;)
+ *                 .path("/")
  *                 .intervalInSeconds(30)
  *                 .timeoutInSeconds(9)
  *                 .toleratedNumberOfFailures(3)
  *                 .build())
- *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *             .tags(Map.of("environment", "Production"))
  *             .build());
  * 
- *         var nested = new TrafficManagerProfile(&#34;nested&#34;, TrafficManagerProfileArgs.builder()        
- *             .name(&#34;nested-profile&#34;)
+ *         var nested = new TrafficManagerProfile("nested", TrafficManagerProfileArgs.builder()        
+ *             .name("nested-profile")
  *             .resourceGroupName(example.name())
- *             .trafficRoutingMethod(&#34;Priority&#34;)
+ *             .trafficRoutingMethod("Priority")
  *             .dnsConfig(TrafficManagerProfileDnsConfigArgs.builder()
- *                 .relativeName(&#34;nested-profile&#34;)
+ *                 .relativeName("nested-profile")
  *                 .ttl(30)
  *                 .build())
  *             .monitorConfig(TrafficManagerProfileMonitorConfigArgs.builder()
- *                 .protocol(&#34;HTTP&#34;)
+ *                 .protocol("HTTP")
  *                 .port(443)
- *                 .path(&#34;/&#34;)
+ *                 .path("/")
  *                 .build())
  *             .build());
  * 
- *         var exampleTrafficManagerNestedEndpoint = new TrafficManagerNestedEndpoint(&#34;exampleTrafficManagerNestedEndpoint&#34;, TrafficManagerNestedEndpointArgs.builder()        
- *             .name(&#34;example-endpoint&#34;)
+ *         var exampleTrafficManagerNestedEndpoint = new TrafficManagerNestedEndpoint("exampleTrafficManagerNestedEndpoint", TrafficManagerNestedEndpointArgs.builder()        
+ *             .name("example-endpoint")
  *             .targetResourceId(nested.id())
  *             .priority(1)
  *             .profileId(parent.id())
@@ -112,7 +112,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

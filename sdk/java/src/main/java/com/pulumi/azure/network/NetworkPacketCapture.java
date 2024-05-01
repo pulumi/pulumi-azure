@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -69,89 +69,89 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;packet-capture-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("packet-capture-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleNetworkWatcher = new NetworkWatcher(&#34;exampleNetworkWatcher&#34;, NetworkWatcherArgs.builder()        
- *             .name(&#34;network-watcher&#34;)
+ *         var exampleNetworkWatcher = new NetworkWatcher("exampleNetworkWatcher", NetworkWatcherArgs.builder()        
+ *             .name("network-watcher")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;production-network&#34;)
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("production-network")
+ *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;internal&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("internal")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
+ *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
- *         var exampleNetworkInterface = new NetworkInterface(&#34;exampleNetworkInterface&#34;, NetworkInterfaceArgs.builder()        
- *             .name(&#34;pctest-nic&#34;)
+ *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()        
+ *             .name("pctest-nic")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
- *                 .name(&#34;testconfiguration1&#34;)
+ *                 .name("testconfiguration1")
  *                 .subnetId(exampleSubnet.id())
- *                 .privateIpAddressAllocation(&#34;Dynamic&#34;)
+ *                 .privateIpAddressAllocation("Dynamic")
  *                 .build())
  *             .build());
  * 
- *         var exampleVirtualMachine = new VirtualMachine(&#34;exampleVirtualMachine&#34;, VirtualMachineArgs.builder()        
- *             .name(&#34;pctest-vm&#34;)
+ *         var exampleVirtualMachine = new VirtualMachine("exampleVirtualMachine", VirtualMachineArgs.builder()        
+ *             .name("pctest-vm")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .networkInterfaceIds(exampleNetworkInterface.id())
- *             .vmSize(&#34;Standard_F2&#34;)
+ *             .vmSize("Standard_F2")
  *             .storageImageReference(VirtualMachineStorageImageReferenceArgs.builder()
- *                 .publisher(&#34;Canonical&#34;)
- *                 .offer(&#34;0001-com-ubuntu-server-jammy&#34;)
- *                 .sku(&#34;22_04-lts&#34;)
- *                 .version(&#34;latest&#34;)
+ *                 .publisher("Canonical")
+ *                 .offer("0001-com-ubuntu-server-jammy")
+ *                 .sku("22_04-lts")
+ *                 .version("latest")
  *                 .build())
  *             .storageOsDisk(VirtualMachineStorageOsDiskArgs.builder()
- *                 .name(&#34;osdisk&#34;)
- *                 .caching(&#34;ReadWrite&#34;)
- *                 .createOption(&#34;FromImage&#34;)
- *                 .managedDiskType(&#34;Standard_LRS&#34;)
+ *                 .name("osdisk")
+ *                 .caching("ReadWrite")
+ *                 .createOption("FromImage")
+ *                 .managedDiskType("Standard_LRS")
  *                 .build())
  *             .osProfile(VirtualMachineOsProfileArgs.builder()
- *                 .computerName(&#34;pctest-vm&#34;)
- *                 .adminUsername(&#34;testadmin&#34;)
- *                 .adminPassword(&#34;Password1234!&#34;)
+ *                 .computerName("pctest-vm")
+ *                 .adminUsername("testadmin")
+ *                 .adminPassword("Password1234!")
  *                 .build())
  *             .osProfileLinuxConfig(VirtualMachineOsProfileLinuxConfigArgs.builder()
  *                 .disablePasswordAuthentication(false)
  *                 .build())
  *             .build());
  * 
- *         var exampleExtension = new Extension(&#34;exampleExtension&#34;, ExtensionArgs.builder()        
- *             .name(&#34;network-watcher&#34;)
+ *         var exampleExtension = new Extension("exampleExtension", ExtensionArgs.builder()        
+ *             .name("network-watcher")
  *             .virtualMachineId(exampleVirtualMachine.id())
- *             .publisher(&#34;Microsoft.Azure.NetworkWatcher&#34;)
- *             .type(&#34;NetworkWatcherAgentLinux&#34;)
- *             .typeHandlerVersion(&#34;1.4&#34;)
+ *             .publisher("Microsoft.Azure.NetworkWatcher")
+ *             .type("NetworkWatcherAgentLinux")
+ *             .typeHandlerVersion("1.4")
  *             .autoUpgradeMinorVersion(true)
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;pctestsa&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("pctestsa")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleNetworkPacketCapture = new NetworkPacketCapture(&#34;exampleNetworkPacketCapture&#34;, NetworkPacketCaptureArgs.builder()        
- *             .name(&#34;pctestcapture&#34;)
+ *         var exampleNetworkPacketCapture = new NetworkPacketCapture("exampleNetworkPacketCapture", NetworkPacketCaptureArgs.builder()        
+ *             .name("pctestcapture")
  *             .networkWatcherName(exampleNetworkWatcher.name())
  *             .resourceGroupName(example.name())
  *             .targetResourceId(exampleVirtualMachine.id())
@@ -162,7 +162,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; **NOTE:** This Resource requires that [the Network Watcher Virtual Machine Extension](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal#before-you-begin) is installed on the Virtual Machine before capturing can be enabled which can be installed via the `azure.compute.Extension` resource.

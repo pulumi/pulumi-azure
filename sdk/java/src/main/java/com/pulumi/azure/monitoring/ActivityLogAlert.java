@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,48 +55,48 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var main = new ActionGroup(&#34;main&#34;, ActionGroupArgs.builder()        
- *             .name(&#34;example-actiongroup&#34;)
+ *         var main = new ActionGroup("main", ActionGroupArgs.builder()        
+ *             .name("example-actiongroup")
  *             .resourceGroupName(example.name())
- *             .shortName(&#34;p0action&#34;)
+ *             .shortName("p0action")
  *             .webhookReceivers(ActionGroupWebhookReceiverArgs.builder()
- *                 .name(&#34;callmyapi&#34;)
- *                 .serviceUri(&#34;http://example.com/alert&#34;)
+ *                 .name("callmyapi")
+ *                 .serviceUri("http://example.com/alert")
  *                 .build())
  *             .build());
  * 
- *         var toMonitor = new Account(&#34;toMonitor&#34;, AccountArgs.builder()        
- *             .name(&#34;examplesa&#34;)
+ *         var toMonitor = new Account("toMonitor", AccountArgs.builder()        
+ *             .name("examplesa")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;GRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("GRS")
  *             .build());
  * 
- *         var mainActivityLogAlert = new ActivityLogAlert(&#34;mainActivityLogAlert&#34;, ActivityLogAlertArgs.builder()        
- *             .name(&#34;example-activitylogalert&#34;)
+ *         var mainActivityLogAlert = new ActivityLogAlert("mainActivityLogAlert", ActivityLogAlertArgs.builder()        
+ *             .name("example-activitylogalert")
  *             .resourceGroupName(example.name())
  *             .scopes(example.id())
- *             .description(&#34;This alert will monitor a specific storage account updates.&#34;)
+ *             .description("This alert will monitor a specific storage account updates.")
  *             .criteria(ActivityLogAlertCriteriaArgs.builder()
  *                 .resourceId(toMonitor.id())
- *                 .operationName(&#34;Microsoft.Storage/storageAccounts/write&#34;)
- *                 .category(&#34;Recommendation&#34;)
+ *                 .operationName("Microsoft.Storage/storageAccounts/write")
+ *                 .category("Recommendation")
  *                 .build())
  *             .actions(ActivityLogAlertActionArgs.builder()
  *                 .actionGroupId(main.id())
- *                 .webhookProperties(Map.of(&#34;from&#34;, &#34;source&#34;))
+ *                 .webhookProperties(Map.of("from", "source"))
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

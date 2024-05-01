@@ -80,7 +80,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -102,14 +102,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getAvailabilitySet(GetAvailabilitySetArgs.builder()
-     *             .name(&#34;tf-appsecuritygroup&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
+     *             .name("tf-appsecuritygroup")
+     *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;availabilitySetId&#34;, example.applyValue(getAvailabilitySetResult -&gt; getAvailabilitySetResult.id()));
+     *         ctx.export("availabilitySetId", example.applyValue(getAvailabilitySetResult -> getAvailabilitySetResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -122,7 +122,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -144,14 +144,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getAvailabilitySet(GetAvailabilitySetArgs.builder()
-     *             .name(&#34;tf-appsecuritygroup&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
+     *             .name("tf-appsecuritygroup")
+     *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;availabilitySetId&#34;, example.applyValue(getAvailabilitySetResult -&gt; getAvailabilitySetResult.id()));
+     *         ctx.export("availabilitySetId", example.applyValue(getAvailabilitySetResult -> getAvailabilitySetResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -164,7 +164,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -186,14 +186,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getAvailabilitySet(GetAvailabilitySetArgs.builder()
-     *             .name(&#34;tf-appsecuritygroup&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
+     *             .name("tf-appsecuritygroup")
+     *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;availabilitySetId&#34;, example.applyValue(getAvailabilitySetResult -&gt; getAvailabilitySetResult.id()));
+     *         ctx.export("availabilitySetId", example.applyValue(getAvailabilitySetResult -> getAvailabilitySetResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -206,7 +206,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -228,14 +228,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getAvailabilitySet(GetAvailabilitySetArgs.builder()
-     *             .name(&#34;tf-appsecuritygroup&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
+     *             .name("tf-appsecuritygroup")
+     *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;availabilitySetId&#34;, example.applyValue(getAvailabilitySetResult -&gt; getAvailabilitySetResult.id()));
+     *         ctx.export("availabilitySetId", example.applyValue(getAvailabilitySetResult -> getAvailabilitySetResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -248,7 +248,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -270,14 +270,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getBastionHost(GetBastionHostArgs.builder()
-     *             .name(&#34;existing-bastion&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
+     *             .name("existing-bastion")
+     *             .resourceGroupName("existing-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getBastionHostResult -&gt; getBastionHostResult.id()));
+     *         ctx.export("id", example.applyValue(getBastionHostResult -> getBastionHostResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -290,7 +290,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -312,14 +312,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getBastionHost(GetBastionHostArgs.builder()
-     *             .name(&#34;existing-bastion&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
+     *             .name("existing-bastion")
+     *             .resourceGroupName("existing-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getBastionHostResult -&gt; getBastionHostResult.id()));
+     *         ctx.export("id", example.applyValue(getBastionHostResult -> getBastionHostResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -332,7 +332,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -354,14 +354,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getBastionHost(GetBastionHostArgs.builder()
-     *             .name(&#34;existing-bastion&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
+     *             .name("existing-bastion")
+     *             .resourceGroupName("existing-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getBastionHostResult -&gt; getBastionHostResult.id()));
+     *         ctx.export("id", example.applyValue(getBastionHostResult -> getBastionHostResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -374,7 +374,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -396,14 +396,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getBastionHost(GetBastionHostArgs.builder()
-     *             .name(&#34;existing-bastion&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
+     *             .name("existing-bastion")
+     *             .resourceGroupName("existing-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getBastionHostResult -&gt; getBastionHostResult.id()));
+     *         ctx.export("id", example.applyValue(getBastionHostResult -> getBastionHostResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -416,7 +416,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -438,14 +438,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = ComputeFunctions.getConfidentialLedger(GetConfidentialLedgerArgs.builder()
-     *             .name(&#34;example-ledger&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-ledger")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;ledgerEndpoint&#34;, current.applyValue(getConfidentialLedgerResult -&gt; getConfidentialLedgerResult.ledgerEndpoint()));
+     *         ctx.export("ledgerEndpoint", current.applyValue(getConfidentialLedgerResult -> getConfidentialLedgerResult.ledgerEndpoint()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -458,7 +458,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -480,14 +480,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = ComputeFunctions.getConfidentialLedger(GetConfidentialLedgerArgs.builder()
-     *             .name(&#34;example-ledger&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-ledger")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;ledgerEndpoint&#34;, current.applyValue(getConfidentialLedgerResult -&gt; getConfidentialLedgerResult.ledgerEndpoint()));
+     *         ctx.export("ledgerEndpoint", current.applyValue(getConfidentialLedgerResult -> getConfidentialLedgerResult.ledgerEndpoint()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -500,7 +500,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -522,14 +522,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = ComputeFunctions.getConfidentialLedger(GetConfidentialLedgerArgs.builder()
-     *             .name(&#34;example-ledger&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-ledger")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;ledgerEndpoint&#34;, current.applyValue(getConfidentialLedgerResult -&gt; getConfidentialLedgerResult.ledgerEndpoint()));
+     *         ctx.export("ledgerEndpoint", current.applyValue(getConfidentialLedgerResult -> getConfidentialLedgerResult.ledgerEndpoint()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -542,7 +542,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -564,14 +564,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = ComputeFunctions.getConfidentialLedger(GetConfidentialLedgerArgs.builder()
-     *             .name(&#34;example-ledger&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-ledger")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;ledgerEndpoint&#34;, current.applyValue(getConfidentialLedgerResult -&gt; getConfidentialLedgerResult.ledgerEndpoint()));
+     *         ctx.export("ledgerEndpoint", current.applyValue(getConfidentialLedgerResult -> getConfidentialLedgerResult.ledgerEndpoint()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -584,7 +584,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -606,15 +606,15 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getDedicatedHost(GetDedicatedHostArgs.builder()
-     *             .name(&#34;example-host&#34;)
-     *             .dedicatedHostGroupName(&#34;example-host-group&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-host")
+     *             .dedicatedHostGroupName("example-host-group")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;dedicatedHostId&#34;, example.applyValue(getDedicatedHostResult -&gt; getDedicatedHostResult.id()));
+     *         ctx.export("dedicatedHostId", example.applyValue(getDedicatedHostResult -> getDedicatedHostResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -627,7 +627,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -649,15 +649,15 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getDedicatedHost(GetDedicatedHostArgs.builder()
-     *             .name(&#34;example-host&#34;)
-     *             .dedicatedHostGroupName(&#34;example-host-group&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-host")
+     *             .dedicatedHostGroupName("example-host-group")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;dedicatedHostId&#34;, example.applyValue(getDedicatedHostResult -&gt; getDedicatedHostResult.id()));
+     *         ctx.export("dedicatedHostId", example.applyValue(getDedicatedHostResult -> getDedicatedHostResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -670,7 +670,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -692,15 +692,15 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getDedicatedHost(GetDedicatedHostArgs.builder()
-     *             .name(&#34;example-host&#34;)
-     *             .dedicatedHostGroupName(&#34;example-host-group&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-host")
+     *             .dedicatedHostGroupName("example-host-group")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;dedicatedHostId&#34;, example.applyValue(getDedicatedHostResult -&gt; getDedicatedHostResult.id()));
+     *         ctx.export("dedicatedHostId", example.applyValue(getDedicatedHostResult -> getDedicatedHostResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -713,7 +713,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -735,15 +735,15 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getDedicatedHost(GetDedicatedHostArgs.builder()
-     *             .name(&#34;example-host&#34;)
-     *             .dedicatedHostGroupName(&#34;example-host-group&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-host")
+     *             .dedicatedHostGroupName("example-host-group")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;dedicatedHostId&#34;, example.applyValue(getDedicatedHostResult -&gt; getDedicatedHostResult.id()));
+     *         ctx.export("dedicatedHostId", example.applyValue(getDedicatedHostResult -> getDedicatedHostResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -756,7 +756,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -778,14 +778,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getDedicatedHostGroup(GetDedicatedHostGroupArgs.builder()
-     *             .name(&#34;example-dedicated-host-group&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-dedicated-host-group")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDedicatedHostGroupResult -&gt; getDedicatedHostGroupResult.id()));
+     *         ctx.export("id", example.applyValue(getDedicatedHostGroupResult -> getDedicatedHostGroupResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -798,7 +798,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -820,14 +820,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getDedicatedHostGroup(GetDedicatedHostGroupArgs.builder()
-     *             .name(&#34;example-dedicated-host-group&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-dedicated-host-group")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDedicatedHostGroupResult -&gt; getDedicatedHostGroupResult.id()));
+     *         ctx.export("id", example.applyValue(getDedicatedHostGroupResult -> getDedicatedHostGroupResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -840,7 +840,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -862,14 +862,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getDedicatedHostGroup(GetDedicatedHostGroupArgs.builder()
-     *             .name(&#34;example-dedicated-host-group&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-dedicated-host-group")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDedicatedHostGroupResult -&gt; getDedicatedHostGroupResult.id()));
+     *         ctx.export("id", example.applyValue(getDedicatedHostGroupResult -> getDedicatedHostGroupResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -882,7 +882,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -904,14 +904,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getDedicatedHostGroup(GetDedicatedHostGroupArgs.builder()
-     *             .name(&#34;example-dedicated-host-group&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-dedicated-host-group")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDedicatedHostGroupResult -&gt; getDedicatedHostGroupResult.id()));
+     *         ctx.export("id", example.applyValue(getDedicatedHostGroupResult -> getDedicatedHostGroupResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -924,7 +924,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -946,14 +946,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getDiskAccess(GetDiskAccessArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDiskAccessResult -&gt; getDiskAccessResult.id()));
+     *         ctx.export("id", example.applyValue(getDiskAccessResult -> getDiskAccessResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -966,7 +966,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -988,14 +988,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getDiskAccess(GetDiskAccessArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDiskAccessResult -&gt; getDiskAccessResult.id()));
+     *         ctx.export("id", example.applyValue(getDiskAccessResult -> getDiskAccessResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1008,7 +1008,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1030,14 +1030,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getDiskAccess(GetDiskAccessArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDiskAccessResult -&gt; getDiskAccessResult.id()));
+     *         ctx.export("id", example.applyValue(getDiskAccessResult -> getDiskAccessResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1050,7 +1050,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1072,14 +1072,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getDiskAccess(GetDiskAccessArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDiskAccessResult -&gt; getDiskAccessResult.id()));
+     *         ctx.export("id", example.applyValue(getDiskAccessResult -> getDiskAccessResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1092,7 +1092,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1114,14 +1114,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existing = ComputeFunctions.getDiskEncryptionSet(GetDiskEncryptionSetArgs.builder()
-     *             .name(&#34;example-des&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-des")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, existing.applyValue(getDiskEncryptionSetResult -&gt; getDiskEncryptionSetResult.id()));
+     *         ctx.export("id", existing.applyValue(getDiskEncryptionSetResult -> getDiskEncryptionSetResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1134,7 +1134,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1156,14 +1156,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existing = ComputeFunctions.getDiskEncryptionSet(GetDiskEncryptionSetArgs.builder()
-     *             .name(&#34;example-des&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-des")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, existing.applyValue(getDiskEncryptionSetResult -&gt; getDiskEncryptionSetResult.id()));
+     *         ctx.export("id", existing.applyValue(getDiskEncryptionSetResult -> getDiskEncryptionSetResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1176,7 +1176,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1198,14 +1198,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existing = ComputeFunctions.getDiskEncryptionSet(GetDiskEncryptionSetArgs.builder()
-     *             .name(&#34;example-des&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-des")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, existing.applyValue(getDiskEncryptionSetResult -&gt; getDiskEncryptionSetResult.id()));
+     *         ctx.export("id", existing.applyValue(getDiskEncryptionSetResult -> getDiskEncryptionSetResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1218,7 +1218,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1240,14 +1240,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existing = ComputeFunctions.getDiskEncryptionSet(GetDiskEncryptionSetArgs.builder()
-     *             .name(&#34;example-des&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-des")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, existing.applyValue(getDiskEncryptionSetResult -&gt; getDiskEncryptionSetResult.id()));
+     *         ctx.export("id", existing.applyValue(getDiskEncryptionSetResult -> getDiskEncryptionSetResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1260,7 +1260,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1282,14 +1282,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var search = ComputeFunctions.getImage(GetImageArgs.builder()
-     *             .name(&#34;search-api&#34;)
-     *             .resourceGroupName(&#34;packerimages&#34;)
+     *             .name("search-api")
+     *             .resourceGroupName("packerimages")
      *             .build());
      * 
-     *         ctx.export(&#34;imageId&#34;, search.applyValue(getImageResult -&gt; getImageResult.id()));
+     *         ctx.export("imageId", search.applyValue(getImageResult -> getImageResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1302,7 +1302,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1324,14 +1324,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var search = ComputeFunctions.getImage(GetImageArgs.builder()
-     *             .name(&#34;search-api&#34;)
-     *             .resourceGroupName(&#34;packerimages&#34;)
+     *             .name("search-api")
+     *             .resourceGroupName("packerimages")
      *             .build());
      * 
-     *         ctx.export(&#34;imageId&#34;, search.applyValue(getImageResult -&gt; getImageResult.id()));
+     *         ctx.export("imageId", search.applyValue(getImageResult -> getImageResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1344,7 +1344,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1366,14 +1366,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var search = ComputeFunctions.getImage(GetImageArgs.builder()
-     *             .name(&#34;search-api&#34;)
-     *             .resourceGroupName(&#34;packerimages&#34;)
+     *             .name("search-api")
+     *             .resourceGroupName("packerimages")
      *             .build());
      * 
-     *         ctx.export(&#34;imageId&#34;, search.applyValue(getImageResult -&gt; getImageResult.id()));
+     *         ctx.export("imageId", search.applyValue(getImageResult -> getImageResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1386,7 +1386,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1408,14 +1408,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var search = ComputeFunctions.getImage(GetImageArgs.builder()
-     *             .name(&#34;search-api&#34;)
-     *             .resourceGroupName(&#34;packerimages&#34;)
+     *             .name("search-api")
+     *             .resourceGroupName("packerimages")
      *             .build());
      * 
-     *         ctx.export(&#34;imageId&#34;, search.applyValue(getImageResult -&gt; getImageResult.id()));
+     *         ctx.export("imageId", search.applyValue(getImageResult -> getImageResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1428,7 +1428,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1450,12 +1450,12 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getImages(GetImagesArgs.builder()
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1468,7 +1468,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1490,12 +1490,12 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getImages(GetImagesArgs.builder()
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1508,7 +1508,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1530,12 +1530,12 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getImages(GetImagesArgs.builder()
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1548,7 +1548,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1570,12 +1570,12 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getImages(GetImagesArgs.builder()
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1588,7 +1588,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1610,14 +1610,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getIpGroups(GetIpGroupsArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;ids&#34;, example.applyValue(getIpGroupsResult -&gt; getIpGroupsResult.ids()));
+     *         ctx.export("ids", example.applyValue(getIpGroupsResult -> getIpGroupsResult.ids()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
@@ -1634,7 +1634,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1656,14 +1656,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getIpGroups(GetIpGroupsArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;ids&#34;, example.applyValue(getIpGroupsResult -&gt; getIpGroupsResult.ids()));
+     *         ctx.export("ids", example.applyValue(getIpGroupsResult -> getIpGroupsResult.ids()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
@@ -1680,7 +1680,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1702,14 +1702,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getIpGroups(GetIpGroupsArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;ids&#34;, example.applyValue(getIpGroupsResult -&gt; getIpGroupsResult.ids()));
+     *         ctx.export("ids", example.applyValue(getIpGroupsResult -> getIpGroupsResult.ids()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
@@ -1726,7 +1726,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1748,14 +1748,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getIpGroups(GetIpGroupsArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;ids&#34;, example.applyValue(getIpGroupsResult -&gt; getIpGroupsResult.ids()));
+     *         ctx.export("ids", example.applyValue(getIpGroupsResult -> getIpGroupsResult.ids()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
@@ -1772,7 +1772,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1794,14 +1794,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existing = ComputeFunctions.getManagedDisk(GetManagedDiskArgs.builder()
-     *             .name(&#34;example-datadisk&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-datadisk")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, existing.applyValue(getManagedDiskResult -&gt; getManagedDiskResult.id()));
+     *         ctx.export("id", existing.applyValue(getManagedDiskResult -> getManagedDiskResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1814,7 +1814,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1836,14 +1836,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existing = ComputeFunctions.getManagedDisk(GetManagedDiskArgs.builder()
-     *             .name(&#34;example-datadisk&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-datadisk")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, existing.applyValue(getManagedDiskResult -&gt; getManagedDiskResult.id()));
+     *         ctx.export("id", existing.applyValue(getManagedDiskResult -> getManagedDiskResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1856,7 +1856,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1878,14 +1878,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existing = ComputeFunctions.getManagedDisk(GetManagedDiskArgs.builder()
-     *             .name(&#34;example-datadisk&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-datadisk")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, existing.applyValue(getManagedDiskResult -&gt; getManagedDiskResult.id()));
+     *         ctx.export("id", existing.applyValue(getManagedDiskResult -> getManagedDiskResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1898,7 +1898,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1920,14 +1920,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existing = ComputeFunctions.getManagedDisk(GetManagedDiskArgs.builder()
-     *             .name(&#34;example-datadisk&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-datadisk")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, existing.applyValue(getManagedDiskResult -&gt; getManagedDiskResult.id()));
+     *         ctx.export("id", existing.applyValue(getManagedDiskResult -> getManagedDiskResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1940,7 +1940,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1962,14 +1962,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getOrchestratedVirtualMachineScaleSet(GetOrchestratedVirtualMachineScaleSetArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getOrchestratedVirtualMachineScaleSetResult -&gt; getOrchestratedVirtualMachineScaleSetResult.id()));
+     *         ctx.export("id", example.applyValue(getOrchestratedVirtualMachineScaleSetResult -> getOrchestratedVirtualMachineScaleSetResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1982,7 +1982,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2004,14 +2004,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getOrchestratedVirtualMachineScaleSet(GetOrchestratedVirtualMachineScaleSetArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getOrchestratedVirtualMachineScaleSetResult -&gt; getOrchestratedVirtualMachineScaleSetResult.id()));
+     *         ctx.export("id", example.applyValue(getOrchestratedVirtualMachineScaleSetResult -> getOrchestratedVirtualMachineScaleSetResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2024,7 +2024,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2046,14 +2046,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getOrchestratedVirtualMachineScaleSet(GetOrchestratedVirtualMachineScaleSetArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getOrchestratedVirtualMachineScaleSetResult -&gt; getOrchestratedVirtualMachineScaleSetResult.id()));
+     *         ctx.export("id", example.applyValue(getOrchestratedVirtualMachineScaleSetResult -> getOrchestratedVirtualMachineScaleSetResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2066,7 +2066,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2088,14 +2088,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getOrchestratedVirtualMachineScaleSet(GetOrchestratedVirtualMachineScaleSetArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getOrchestratedVirtualMachineScaleSetResult -&gt; getOrchestratedVirtualMachineScaleSetResult.id()));
+     *         ctx.export("id", example.applyValue(getOrchestratedVirtualMachineScaleSetResult -> getOrchestratedVirtualMachineScaleSetResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2108,7 +2108,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2130,16 +2130,16 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getPlatformImage(GetPlatformImageArgs.builder()
-     *             .location(&#34;West Europe&#34;)
-     *             .publisher(&#34;Canonical&#34;)
-     *             .offer(&#34;0001-com-ubuntu-server-focal&#34;)
-     *             .sku(&#34;20_04-lts&#34;)
+     *             .location("West Europe")
+     *             .publisher("Canonical")
+     *             .offer("0001-com-ubuntu-server-focal")
+     *             .sku("20_04-lts")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPlatformImageResult -&gt; getPlatformImageResult.id()));
+     *         ctx.export("id", example.applyValue(getPlatformImageResult -> getPlatformImageResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2152,7 +2152,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2174,16 +2174,16 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getPlatformImage(GetPlatformImageArgs.builder()
-     *             .location(&#34;West Europe&#34;)
-     *             .publisher(&#34;Canonical&#34;)
-     *             .offer(&#34;0001-com-ubuntu-server-focal&#34;)
-     *             .sku(&#34;20_04-lts&#34;)
+     *             .location("West Europe")
+     *             .publisher("Canonical")
+     *             .offer("0001-com-ubuntu-server-focal")
+     *             .sku("20_04-lts")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPlatformImageResult -&gt; getPlatformImageResult.id()));
+     *         ctx.export("id", example.applyValue(getPlatformImageResult -> getPlatformImageResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2196,7 +2196,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2218,16 +2218,16 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getPlatformImage(GetPlatformImageArgs.builder()
-     *             .location(&#34;West Europe&#34;)
-     *             .publisher(&#34;Canonical&#34;)
-     *             .offer(&#34;0001-com-ubuntu-server-focal&#34;)
-     *             .sku(&#34;20_04-lts&#34;)
+     *             .location("West Europe")
+     *             .publisher("Canonical")
+     *             .offer("0001-com-ubuntu-server-focal")
+     *             .sku("20_04-lts")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPlatformImageResult -&gt; getPlatformImageResult.id()));
+     *         ctx.export("id", example.applyValue(getPlatformImageResult -> getPlatformImageResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2240,7 +2240,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2262,16 +2262,16 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getPlatformImage(GetPlatformImageArgs.builder()
-     *             .location(&#34;West Europe&#34;)
-     *             .publisher(&#34;Canonical&#34;)
-     *             .offer(&#34;0001-com-ubuntu-server-focal&#34;)
-     *             .sku(&#34;20_04-lts&#34;)
+     *             .location("West Europe")
+     *             .publisher("Canonical")
+     *             .offer("0001-com-ubuntu-server-focal")
+     *             .sku("20_04-lts")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPlatformImageResult -&gt; getPlatformImageResult.id()));
+     *         ctx.export("id", example.applyValue(getPlatformImageResult -> getPlatformImageResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2284,7 +2284,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2306,14 +2306,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSharedImage(GetSharedImageArgs.builder()
-     *             .name(&#34;my-image&#34;)
-     *             .galleryName(&#34;my-image-gallery&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("my-image")
+     *             .galleryName("my-image-gallery")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2326,7 +2326,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2348,14 +2348,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSharedImage(GetSharedImageArgs.builder()
-     *             .name(&#34;my-image&#34;)
-     *             .galleryName(&#34;my-image-gallery&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("my-image")
+     *             .galleryName("my-image-gallery")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2368,7 +2368,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2390,14 +2390,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSharedImage(GetSharedImageArgs.builder()
-     *             .name(&#34;my-image&#34;)
-     *             .galleryName(&#34;my-image-gallery&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("my-image")
+     *             .galleryName("my-image-gallery")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2410,7 +2410,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2432,14 +2432,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSharedImage(GetSharedImageArgs.builder()
-     *             .name(&#34;my-image&#34;)
-     *             .galleryName(&#34;my-image-gallery&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("my-image")
+     *             .galleryName("my-image-gallery")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2452,7 +2452,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2474,13 +2474,13 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSharedImageGallery(GetSharedImageGalleryArgs.builder()
-     *             .name(&#34;my-image-gallery&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("my-image-gallery")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2493,7 +2493,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2515,13 +2515,13 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSharedImageGallery(GetSharedImageGalleryArgs.builder()
-     *             .name(&#34;my-image-gallery&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("my-image-gallery")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2534,7 +2534,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2556,13 +2556,13 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSharedImageGallery(GetSharedImageGalleryArgs.builder()
-     *             .name(&#34;my-image-gallery&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("my-image-gallery")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2575,7 +2575,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2597,13 +2597,13 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSharedImageGallery(GetSharedImageGalleryArgs.builder()
-     *             .name(&#34;my-image-gallery&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("my-image-gallery")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2616,7 +2616,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2638,15 +2638,15 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSharedImageVersion(GetSharedImageVersionArgs.builder()
-     *             .name(&#34;1.0.0&#34;)
-     *             .imageName(&#34;my-image&#34;)
-     *             .galleryName(&#34;my-image-gallery&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("1.0.0")
+     *             .imageName("my-image")
+     *             .galleryName("my-image-gallery")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2659,7 +2659,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2681,15 +2681,15 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSharedImageVersion(GetSharedImageVersionArgs.builder()
-     *             .name(&#34;1.0.0&#34;)
-     *             .imageName(&#34;my-image&#34;)
-     *             .galleryName(&#34;my-image-gallery&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("1.0.0")
+     *             .imageName("my-image")
+     *             .galleryName("my-image-gallery")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2702,7 +2702,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2724,15 +2724,15 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSharedImageVersion(GetSharedImageVersionArgs.builder()
-     *             .name(&#34;1.0.0&#34;)
-     *             .imageName(&#34;my-image&#34;)
-     *             .galleryName(&#34;my-image-gallery&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("1.0.0")
+     *             .imageName("my-image")
+     *             .galleryName("my-image-gallery")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2745,7 +2745,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2767,15 +2767,15 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSharedImageVersion(GetSharedImageVersionArgs.builder()
-     *             .name(&#34;1.0.0&#34;)
-     *             .imageName(&#34;my-image&#34;)
-     *             .galleryName(&#34;my-image-gallery&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("1.0.0")
+     *             .imageName("my-image")
+     *             .galleryName("my-image-gallery")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2788,7 +2788,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2810,14 +2810,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSharedImageVersions(GetSharedImageVersionsArgs.builder()
-     *             .imageName(&#34;my-image&#34;)
-     *             .galleryName(&#34;my-image-gallery&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .imageName("my-image")
+     *             .galleryName("my-image-gallery")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2830,7 +2830,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2852,14 +2852,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSharedImageVersions(GetSharedImageVersionsArgs.builder()
-     *             .imageName(&#34;my-image&#34;)
-     *             .galleryName(&#34;my-image-gallery&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .imageName("my-image")
+     *             .galleryName("my-image-gallery")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2872,7 +2872,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2894,14 +2894,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSharedImageVersions(GetSharedImageVersionsArgs.builder()
-     *             .imageName(&#34;my-image&#34;)
-     *             .galleryName(&#34;my-image-gallery&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .imageName("my-image")
+     *             .galleryName("my-image-gallery")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2914,7 +2914,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2936,14 +2936,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSharedImageVersions(GetSharedImageVersionsArgs.builder()
-     *             .imageName(&#34;my-image&#34;)
-     *             .galleryName(&#34;my-image-gallery&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .imageName("my-image")
+     *             .galleryName("my-image-gallery")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2956,7 +2956,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2978,13 +2978,13 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSnapshot(GetSnapshotArgs.builder()
-     *             .name(&#34;my-snapshot&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
+     *             .name("my-snapshot")
+     *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2997,7 +2997,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3019,13 +3019,13 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSnapshot(GetSnapshotArgs.builder()
-     *             .name(&#34;my-snapshot&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
+     *             .name("my-snapshot")
+     *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3038,7 +3038,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3060,13 +3060,13 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSnapshot(GetSnapshotArgs.builder()
-     *             .name(&#34;my-snapshot&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
+     *             .name("my-snapshot")
+     *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3079,7 +3079,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3101,13 +3101,13 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSnapshot(GetSnapshotArgs.builder()
-     *             .name(&#34;my-snapshot&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
+     *             .name("my-snapshot")
+     *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3120,7 +3120,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3142,14 +3142,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSshPublicKey(GetSshPublicKeyArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getSshPublicKeyResult -&gt; getSshPublicKeyResult.id()));
+     *         ctx.export("id", example.applyValue(getSshPublicKeyResult -> getSshPublicKeyResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3162,7 +3162,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3184,14 +3184,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSshPublicKey(GetSshPublicKeyArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getSshPublicKeyResult -&gt; getSshPublicKeyResult.id()));
+     *         ctx.export("id", example.applyValue(getSshPublicKeyResult -> getSshPublicKeyResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3204,7 +3204,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3226,14 +3226,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSshPublicKey(GetSshPublicKeyArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getSshPublicKeyResult -&gt; getSshPublicKeyResult.id()));
+     *         ctx.export("id", example.applyValue(getSshPublicKeyResult -> getSshPublicKeyResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3246,7 +3246,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3268,14 +3268,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSshPublicKey(GetSshPublicKeyArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getSshPublicKeyResult -&gt; getSshPublicKeyResult.id()));
+     *         ctx.export("id", example.applyValue(getSshPublicKeyResult -> getSshPublicKeyResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3288,7 +3288,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3310,14 +3310,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getVirtualMachine(GetVirtualMachineArgs.builder()
-     *             .name(&#34;production&#34;)
-     *             .resourceGroupName(&#34;networking&#34;)
+     *             .name("production")
+     *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export(&#34;virtualMachineId&#34;, example.applyValue(getVirtualMachineResult -&gt; getVirtualMachineResult.id()));
+     *         ctx.export("virtualMachineId", example.applyValue(getVirtualMachineResult -> getVirtualMachineResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3330,7 +3330,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3352,14 +3352,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getVirtualMachine(GetVirtualMachineArgs.builder()
-     *             .name(&#34;production&#34;)
-     *             .resourceGroupName(&#34;networking&#34;)
+     *             .name("production")
+     *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export(&#34;virtualMachineId&#34;, example.applyValue(getVirtualMachineResult -&gt; getVirtualMachineResult.id()));
+     *         ctx.export("virtualMachineId", example.applyValue(getVirtualMachineResult -> getVirtualMachineResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3372,7 +3372,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3394,14 +3394,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getVirtualMachine(GetVirtualMachineArgs.builder()
-     *             .name(&#34;production&#34;)
-     *             .resourceGroupName(&#34;networking&#34;)
+     *             .name("production")
+     *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export(&#34;virtualMachineId&#34;, example.applyValue(getVirtualMachineResult -&gt; getVirtualMachineResult.id()));
+     *         ctx.export("virtualMachineId", example.applyValue(getVirtualMachineResult -> getVirtualMachineResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3414,7 +3414,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3436,14 +3436,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getVirtualMachine(GetVirtualMachineArgs.builder()
-     *             .name(&#34;production&#34;)
-     *             .resourceGroupName(&#34;networking&#34;)
+     *             .name("production")
+     *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export(&#34;virtualMachineId&#34;, example.applyValue(getVirtualMachineResult -&gt; getVirtualMachineResult.id()));
+     *         ctx.export("virtualMachineId", example.applyValue(getVirtualMachineResult -> getVirtualMachineResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3456,7 +3456,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3478,14 +3478,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getVirtualMachineScaleSet(GetVirtualMachineScaleSetArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getVirtualMachineScaleSetResult -&gt; getVirtualMachineScaleSetResult.id()));
+     *         ctx.export("id", example.applyValue(getVirtualMachineScaleSetResult -> getVirtualMachineScaleSetResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3498,7 +3498,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3520,14 +3520,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getVirtualMachineScaleSet(GetVirtualMachineScaleSetArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getVirtualMachineScaleSetResult -&gt; getVirtualMachineScaleSetResult.id()));
+     *         ctx.export("id", example.applyValue(getVirtualMachineScaleSetResult -> getVirtualMachineScaleSetResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3540,7 +3540,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3562,14 +3562,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getVirtualMachineScaleSet(GetVirtualMachineScaleSetArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getVirtualMachineScaleSetResult -&gt; getVirtualMachineScaleSetResult.id()));
+     *         ctx.export("id", example.applyValue(getVirtualMachineScaleSetResult -> getVirtualMachineScaleSetResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3582,7 +3582,7 @@ public final class ComputeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3604,14 +3604,14 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getVirtualMachineScaleSet(GetVirtualMachineScaleSetArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getVirtualMachineScaleSetResult -&gt; getVirtualMachineScaleSetResult.id()));
+     *         ctx.export("id", example.applyValue(getVirtualMachineScaleSetResult -> getVirtualMachineScaleSetResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

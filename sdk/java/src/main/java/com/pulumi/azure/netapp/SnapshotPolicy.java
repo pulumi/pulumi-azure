@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * ## NetApp Snapshot Policy Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,19 +55,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;resource-group-01&#34;)
- *             .location(&#34;East US&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("resource-group-01")
+ *             .location("East US")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;netappaccount-01&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("netappaccount-01")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSnapshotPolicy = new SnapshotPolicy(&#34;exampleSnapshotPolicy&#34;, SnapshotPolicyArgs.builder()        
- *             .name(&#34;snapshotpolicy-01&#34;)
+ *         var exampleSnapshotPolicy = new SnapshotPolicy("exampleSnapshotPolicy", SnapshotPolicyArgs.builder()        
+ *             .name("snapshotpolicy-01")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .accountName(exampleAccount.name())
@@ -84,8 +84,8 @@ import javax.annotation.Nullable;
  *             .weeklySchedule(SnapshotPolicyWeeklyScheduleArgs.builder()
  *                 .snapshotsToKeep(1)
  *                 .daysOfWeeks(                
- *                     &#34;Monday&#34;,
- *                     &#34;Friday&#34;)
+ *                     "Monday",
+ *                     "Friday")
  *                 .hour(23)
  *                 .minute(0)
  *                 .build())
@@ -103,7 +103,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,32 +49,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleSpringCloudService = new SpringCloudService(&#34;exampleSpringCloudService&#34;, SpringCloudServiceArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;E0&#34;)
+ *             .skuName("E0")
  *             .build());
  * 
- *         var exampleSpringCloudElasticApplicationPerformanceMonitoring = new SpringCloudElasticApplicationPerformanceMonitoring(&#34;exampleSpringCloudElasticApplicationPerformanceMonitoring&#34;, SpringCloudElasticApplicationPerformanceMonitoringArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleSpringCloudElasticApplicationPerformanceMonitoring = new SpringCloudElasticApplicationPerformanceMonitoring("exampleSpringCloudElasticApplicationPerformanceMonitoring", SpringCloudElasticApplicationPerformanceMonitoringArgs.builder()        
+ *             .name("example")
  *             .springCloudServiceId(exampleSpringCloudService.id())
  *             .globallyEnabled(true)
  *             .applicationPackages(            
- *                 &#34;org.example&#34;,
- *                 &#34;org.another.example&#34;)
- *             .serviceName(&#34;example-service-name&#34;)
- *             .serverUrl(&#34;http://127.0.0.1:8200&#34;)
+ *                 "org.example",
+ *                 "org.another.example")
+ *             .serviceName("example-service-name")
+ *             .serverUrl("http://127.0.0.1:8200")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

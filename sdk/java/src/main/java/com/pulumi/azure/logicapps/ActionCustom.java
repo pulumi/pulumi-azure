@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,41 +44,41 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;workflow-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("workflow-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleWorkflow = new Workflow(&#34;exampleWorkflow&#34;, WorkflowArgs.builder()        
- *             .name(&#34;workflow1&#34;)
+ *         var exampleWorkflow = new Workflow("exampleWorkflow", WorkflowArgs.builder()        
+ *             .name("workflow1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleActionCustom = new ActionCustom(&#34;exampleActionCustom&#34;, ActionCustomArgs.builder()        
- *             .name(&#34;example-action&#34;)
+ *         var exampleActionCustom = new ActionCustom("exampleActionCustom", ActionCustomArgs.builder()        
+ *             .name("example-action")
  *             .logicAppId(exampleWorkflow.id())
- *             .body(&#34;&#34;&#34;
+ *             .body("""
  * {
- *     &#34;description&#34;: &#34;A variable to configure the auto expiration age in days. Configured in negative number. Default is -30 (30 days old).&#34;,
- *     &#34;inputs&#34;: {
- *         &#34;variables&#34;: [
+ *     "description": "A variable to configure the auto expiration age in days. Configured in negative number. Default is -30 (30 days old).",
+ *     "inputs": {
+ *         "variables": [
  *             {
- *                 &#34;name&#34;: &#34;ExpirationAgeInDays&#34;,
- *                 &#34;type&#34;: &#34;Integer&#34;,
- *                 &#34;value&#34;: -30
+ *                 "name": "ExpirationAgeInDays",
+ *                 "type": "Integer",
+ *                 "value": -30
  *             }
  *         ]
  *     },
- *     &#34;runAfter&#34;: {},
- *     &#34;type&#34;: &#34;InitializeVariable&#34;
+ *     "runAfter": {},
+ *     "type": "InitializeVariable"
  * }
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

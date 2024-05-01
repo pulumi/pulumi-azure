@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * ### With Create Empty
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,30 +49,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleManagedDisk = new ManagedDisk(&#34;exampleManagedDisk&#34;, ManagedDiskArgs.builder()        
- *             .name(&#34;acctestmd&#34;)
+ *         var exampleManagedDisk = new ManagedDisk("exampleManagedDisk", ManagedDiskArgs.builder()        
+ *             .name("acctestmd")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .storageAccountType(&#34;Standard_LRS&#34;)
- *             .createOption(&#34;Empty&#34;)
- *             .diskSizeGb(&#34;1&#34;)
- *             .tags(Map.of(&#34;environment&#34;, &#34;staging&#34;))
+ *             .storageAccountType("Standard_LRS")
+ *             .createOption("Empty")
+ *             .diskSizeGb("1")
+ *             .tags(Map.of("environment", "staging"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Create Copy
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -95,35 +95,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var source = new ManagedDisk(&#34;source&#34;, ManagedDiskArgs.builder()        
- *             .name(&#34;acctestmd1&#34;)
+ *         var source = new ManagedDisk("source", ManagedDiskArgs.builder()        
+ *             .name("acctestmd1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .storageAccountType(&#34;Standard_LRS&#34;)
- *             .createOption(&#34;Empty&#34;)
- *             .diskSizeGb(&#34;1&#34;)
- *             .tags(Map.of(&#34;environment&#34;, &#34;staging&#34;))
+ *             .storageAccountType("Standard_LRS")
+ *             .createOption("Empty")
+ *             .diskSizeGb("1")
+ *             .tags(Map.of("environment", "staging"))
  *             .build());
  * 
- *         var copy = new ManagedDisk(&#34;copy&#34;, ManagedDiskArgs.builder()        
- *             .name(&#34;acctestmd2&#34;)
+ *         var copy = new ManagedDisk("copy", ManagedDiskArgs.builder()        
+ *             .name("acctestmd2")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .storageAccountType(&#34;Standard_LRS&#34;)
- *             .createOption(&#34;Copy&#34;)
+ *             .storageAccountType("Standard_LRS")
+ *             .createOption("Copy")
  *             .sourceResourceId(source.id())
- *             .diskSizeGb(&#34;1&#34;)
- *             .tags(Map.of(&#34;environment&#34;, &#34;staging&#34;))
+ *             .diskSizeGb("1")
+ *             .tags(Map.of("environment", "staging"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

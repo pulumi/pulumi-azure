@@ -29,7 +29,7 @@ public final class EventgridFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -51,14 +51,14 @@ public final class EventgridFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EventgridFunctions.getDomain(GetDomainArgs.builder()
-     *             .name(&#34;my-eventgrid-domain&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("my-eventgrid-domain")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;eventgridDomainMappingTopic&#34;, example.applyValue(getDomainResult -&gt; getDomainResult.inputMappingFields()[0].topic()));
+     *         ctx.export("eventgridDomainMappingTopic", example.applyValue(getDomainResult -> getDomainResult.inputMappingFields()[0].topic()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -71,7 +71,7 @@ public final class EventgridFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -93,14 +93,14 @@ public final class EventgridFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EventgridFunctions.getDomain(GetDomainArgs.builder()
-     *             .name(&#34;my-eventgrid-domain&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("my-eventgrid-domain")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;eventgridDomainMappingTopic&#34;, example.applyValue(getDomainResult -&gt; getDomainResult.inputMappingFields()[0].topic()));
+     *         ctx.export("eventgridDomainMappingTopic", example.applyValue(getDomainResult -> getDomainResult.inputMappingFields()[0].topic()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -113,7 +113,7 @@ public final class EventgridFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -135,14 +135,14 @@ public final class EventgridFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EventgridFunctions.getDomain(GetDomainArgs.builder()
-     *             .name(&#34;my-eventgrid-domain&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("my-eventgrid-domain")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;eventgridDomainMappingTopic&#34;, example.applyValue(getDomainResult -&gt; getDomainResult.inputMappingFields()[0].topic()));
+     *         ctx.export("eventgridDomainMappingTopic", example.applyValue(getDomainResult -> getDomainResult.inputMappingFields()[0].topic()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -155,7 +155,7 @@ public final class EventgridFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -177,14 +177,14 @@ public final class EventgridFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EventgridFunctions.getDomain(GetDomainArgs.builder()
-     *             .name(&#34;my-eventgrid-domain&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("my-eventgrid-domain")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;eventgridDomainMappingTopic&#34;, example.applyValue(getDomainResult -&gt; getDomainResult.inputMappingFields()[0].topic()));
+     *         ctx.export("eventgridDomainMappingTopic", example.applyValue(getDomainResult -> getDomainResult.inputMappingFields()[0].topic()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -197,7 +197,7 @@ public final class EventgridFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -219,13 +219,13 @@ public final class EventgridFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EventgridFunctions.getDomainTopic(GetDomainTopicArgs.builder()
-     *             .name(&#34;my-eventgrid-domain-topic&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("my-eventgrid-domain-topic")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -238,7 +238,7 @@ public final class EventgridFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -260,13 +260,13 @@ public final class EventgridFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EventgridFunctions.getDomainTopic(GetDomainTopicArgs.builder()
-     *             .name(&#34;my-eventgrid-domain-topic&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("my-eventgrid-domain-topic")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -279,7 +279,7 @@ public final class EventgridFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -301,13 +301,13 @@ public final class EventgridFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EventgridFunctions.getDomainTopic(GetDomainTopicArgs.builder()
-     *             .name(&#34;my-eventgrid-domain-topic&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("my-eventgrid-domain-topic")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -320,7 +320,7 @@ public final class EventgridFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -342,13 +342,13 @@ public final class EventgridFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EventgridFunctions.getDomainTopic(GetDomainTopicArgs.builder()
-     *             .name(&#34;my-eventgrid-domain-topic&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("my-eventgrid-domain-topic")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -361,7 +361,7 @@ public final class EventgridFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -383,13 +383,13 @@ public final class EventgridFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EventgridFunctions.getSystemTopic(GetSystemTopicArgs.builder()
-     *             .name(&#34;eventgrid-system-topic&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("eventgrid-system-topic")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -402,7 +402,7 @@ public final class EventgridFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -424,13 +424,13 @@ public final class EventgridFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EventgridFunctions.getSystemTopic(GetSystemTopicArgs.builder()
-     *             .name(&#34;eventgrid-system-topic&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("eventgrid-system-topic")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -443,7 +443,7 @@ public final class EventgridFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -465,13 +465,13 @@ public final class EventgridFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EventgridFunctions.getSystemTopic(GetSystemTopicArgs.builder()
-     *             .name(&#34;eventgrid-system-topic&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("eventgrid-system-topic")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -484,7 +484,7 @@ public final class EventgridFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -506,13 +506,13 @@ public final class EventgridFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EventgridFunctions.getSystemTopic(GetSystemTopicArgs.builder()
-     *             .name(&#34;eventgrid-system-topic&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("eventgrid-system-topic")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -525,7 +525,7 @@ public final class EventgridFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -547,13 +547,13 @@ public final class EventgridFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EventgridFunctions.getTopic(GetTopicArgs.builder()
-     *             .name(&#34;my-eventgrid-topic&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("my-eventgrid-topic")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -566,7 +566,7 @@ public final class EventgridFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -588,13 +588,13 @@ public final class EventgridFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EventgridFunctions.getTopic(GetTopicArgs.builder()
-     *             .name(&#34;my-eventgrid-topic&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("my-eventgrid-topic")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -607,7 +607,7 @@ public final class EventgridFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -629,13 +629,13 @@ public final class EventgridFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EventgridFunctions.getTopic(GetTopicArgs.builder()
-     *             .name(&#34;my-eventgrid-topic&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("my-eventgrid-topic")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -648,7 +648,7 @@ public final class EventgridFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -670,13 +670,13 @@ public final class EventgridFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EventgridFunctions.getTopic(GetTopicArgs.builder()
-     *             .name(&#34;my-eventgrid-topic&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("my-eventgrid-topic")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

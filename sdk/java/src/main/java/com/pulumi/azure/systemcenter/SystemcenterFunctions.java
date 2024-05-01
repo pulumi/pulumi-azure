@@ -20,7 +20,7 @@ public final class SystemcenterFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -42,13 +42,13 @@ public final class SystemcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SystemcenterFunctions.getVirtualMachineManagerInventoryItems(GetVirtualMachineManagerInventoryItemsArgs.builder()
-     *             .inventoryType(&#34;Cloud&#34;)
+     *             .inventoryType("Cloud")
      *             .systemCenterVirtualMachineManagerServerId(exampleAzurermSystemCenterVirtualMachineManagerServer.id())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -61,7 +61,7 @@ public final class SystemcenterFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -83,13 +83,13 @@ public final class SystemcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SystemcenterFunctions.getVirtualMachineManagerInventoryItems(GetVirtualMachineManagerInventoryItemsArgs.builder()
-     *             .inventoryType(&#34;Cloud&#34;)
+     *             .inventoryType("Cloud")
      *             .systemCenterVirtualMachineManagerServerId(exampleAzurermSystemCenterVirtualMachineManagerServer.id())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -102,7 +102,7 @@ public final class SystemcenterFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -124,13 +124,13 @@ public final class SystemcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SystemcenterFunctions.getVirtualMachineManagerInventoryItems(GetVirtualMachineManagerInventoryItemsArgs.builder()
-     *             .inventoryType(&#34;Cloud&#34;)
+     *             .inventoryType("Cloud")
      *             .systemCenterVirtualMachineManagerServerId(exampleAzurermSystemCenterVirtualMachineManagerServer.id())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -143,7 +143,7 @@ public final class SystemcenterFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -165,13 +165,13 @@ public final class SystemcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SystemcenterFunctions.getVirtualMachineManagerInventoryItems(GetVirtualMachineManagerInventoryItemsArgs.builder()
-     *             .inventoryType(&#34;Cloud&#34;)
+     *             .inventoryType("Cloud")
      *             .systemCenterVirtualMachineManagerServerId(exampleAzurermSystemCenterVirtualMachineManagerServer.id())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

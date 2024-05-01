@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * ### Subscription)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -58,37 +58,37 @@ import javax.annotation.Nullable;
  *         final var example = CoreFunctions.getClientConfig();
  * 
  *         final var exampleGetRoleDefinition = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
- *             .name(&#34;Reader&#34;)
+ *             .name("Reader")
  *             .build());
  * 
- *         var exampleStatic = new Static(&#34;exampleStatic&#34;);
+ *         var exampleStatic = new Static("exampleStatic");
  * 
- *         var exampleEligibleRoleAssignment = new EligibleRoleAssignment(&#34;exampleEligibleRoleAssignment&#34;, EligibleRoleAssignmentArgs.builder()        
- *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
- *             .roleDefinitionId(String.format(&#34;%s%s&#34;, primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()),exampleGetRoleDefinition.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult.id())))
- *             .principalId(example.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *         var exampleEligibleRoleAssignment = new EligibleRoleAssignment("exampleEligibleRoleAssignment", EligibleRoleAssignmentArgs.builder()        
+ *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *             .roleDefinitionId(String.format("%s%s", primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()),exampleGetRoleDefinition.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id())))
+ *             .principalId(example.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *             .schedule(EligibleRoleAssignmentScheduleArgs.builder()
  *                 .startDateTime(exampleStatic.rfc3339())
  *                 .expiration(EligibleRoleAssignmentScheduleExpirationArgs.builder()
  *                     .durationHours(8)
  *                     .build())
  *                 .build())
- *             .justification(&#34;Expiration Duration Set&#34;)
+ *             .justification("Expiration Duration Set")
  *             .ticket(EligibleRoleAssignmentTicketArgs.builder()
- *                 .number(&#34;1&#34;)
- *                 .system(&#34;example ticket system&#34;)
+ *                 .number("1")
+ *                 .system("example ticket system")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Management Group)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -121,35 +121,35 @@ import javax.annotation.Nullable;
  *         final var example = CoreFunctions.getClientConfig();
  * 
  *         final var exampleGetRoleDefinition = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
- *             .name(&#34;Reader&#34;)
+ *             .name("Reader")
  *             .build());
  * 
- *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
- *             .name(&#34;Example-Management-Group&#34;)
+ *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+ *             .name("Example-Management-Group")
  *             .build());
  * 
- *         var exampleStatic = new Static(&#34;exampleStatic&#34;);
+ *         var exampleStatic = new Static("exampleStatic");
  * 
- *         var exampleEligibleRoleAssignment = new EligibleRoleAssignment(&#34;exampleEligibleRoleAssignment&#34;, EligibleRoleAssignmentArgs.builder()        
+ *         var exampleEligibleRoleAssignment = new EligibleRoleAssignment("exampleEligibleRoleAssignment", EligibleRoleAssignmentArgs.builder()        
  *             .scope(exampleGroup.id())
- *             .roleDefinitionId(exampleGetRoleDefinition.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult.id()))
- *             .principalId(example.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .roleDefinitionId(exampleGetRoleDefinition.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id()))
+ *             .principalId(example.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *             .schedule(EligibleRoleAssignmentScheduleArgs.builder()
  *                 .startDateTime(exampleStatic.rfc3339())
  *                 .expiration(EligibleRoleAssignmentScheduleExpirationArgs.builder()
  *                     .durationHours(8)
  *                     .build())
  *                 .build())
- *             .justification(&#34;Expiration Duration Set&#34;)
+ *             .justification("Expiration Duration Set")
  *             .ticket(EligibleRoleAssignmentTicketArgs.builder()
- *                 .number(&#34;1&#34;)
- *                 .system(&#34;example ticket system&#34;)
+ *                 .number("1")
+ *                 .system("example ticket system")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

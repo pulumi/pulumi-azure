@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * This example deploys an Azure Bastion Host Instance to a target virtual network.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,39 +56,39 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;examplevnet&#34;)
- *             .addressSpaces(&#34;192.168.1.0/24&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("examplevnet")
+ *             .addressSpaces("192.168.1.0/24")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;AzureBastionSubnet&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("AzureBastionSubnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;192.168.1.224/27&#34;)
+ *             .addressPrefixes("192.168.1.224/27")
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
- *             .name(&#34;examplepip&#34;)
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *             .name("examplepip")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .allocationMethod(&#34;Static&#34;)
- *             .sku(&#34;Standard&#34;)
+ *             .allocationMethod("Static")
+ *             .sku("Standard")
  *             .build());
  * 
- *         var exampleBastionHost = new BastionHost(&#34;exampleBastionHost&#34;, BastionHostArgs.builder()        
- *             .name(&#34;examplebastion&#34;)
+ *         var exampleBastionHost = new BastionHost("exampleBastionHost", BastionHostArgs.builder()        
+ *             .name("examplebastion")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .ipConfiguration(BastionHostIpConfigurationArgs.builder()
- *                 .name(&#34;configuration&#34;)
+ *                 .name("configuration")
  *                 .subnetId(exampleSubnet.id())
  *                 .publicIpAddressId(examplePublicIp.id())
  *                 .build())
@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

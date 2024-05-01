@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -70,42 +70,42 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;exampleRG&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("exampleRG")
+ *             .location("West Europe")
  *             .build());
  * 
  *         final var builtin = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
- *             .roleDefinitionId(&#34;fbdf93bf-df7d-467e-a4d2-9458aa1360c8&#34;)
+ *             .roleDefinitionId("fbdf93bf-df7d-467e-a4d2-9458aa1360c8")
  *             .build());
  * 
- *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
- *             .name(&#34;examplekc&#34;)
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()        
+ *             .name("examplekc")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .sku(ClusterSkuArgs.builder()
- *                 .name(&#34;Dev(No SLA)_Standard_D11_v2&#34;)
+ *                 .name("Dev(No SLA)_Standard_D11_v2")
  *                 .capacity(1)
  *                 .build())
  *             .identity(ClusterIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
- *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()        
  *             .scope(exampleResourceGroup.id())
- *             .roleDefinitionName(builtin.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult.name()))
- *             .principalId(exampleCluster.identity().applyValue(identity -&gt; identity.principalId()))
+ *             .roleDefinitionName(builtin.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.name()))
+ *             .principalId(exampleCluster.identity().applyValue(identity -> identity.principalId()))
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;example-ca&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("example-ca")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .offerType(&#34;Standard&#34;)
- *             .kind(&#34;GlobalDocumentDB&#34;)
+ *             .offerType("Standard")
+ *             .kind("GlobalDocumentDB")
  *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
- *                 .consistencyLevel(&#34;Session&#34;)
+ *                 .consistencyLevel("Session")
  *                 .maxIntervalInSeconds(5)
  *                 .maxStalenessPrefix(100)
  *                 .build())
@@ -115,72 +115,72 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleSqlDatabase = new SqlDatabase(&#34;exampleSqlDatabase&#34;, SqlDatabaseArgs.builder()        
- *             .name(&#34;examplecosmosdbsqldb&#34;)
+ *         var exampleSqlDatabase = new SqlDatabase("exampleSqlDatabase", SqlDatabaseArgs.builder()        
+ *             .name("examplecosmosdbsqldb")
  *             .resourceGroupName(exampleAccount.resourceGroupName())
  *             .accountName(exampleAccount.name())
  *             .build());
  * 
- *         var exampleSqlContainer = new SqlContainer(&#34;exampleSqlContainer&#34;, SqlContainerArgs.builder()        
- *             .name(&#34;examplecosmosdbsqlcon&#34;)
+ *         var exampleSqlContainer = new SqlContainer("exampleSqlContainer", SqlContainerArgs.builder()        
+ *             .name("examplecosmosdbsqlcon")
  *             .resourceGroupName(exampleAccount.resourceGroupName())
  *             .accountName(exampleAccount.name())
  *             .databaseName(exampleSqlDatabase.name())
- *             .partitionKeyPath(&#34;/part&#34;)
+ *             .partitionKeyPath("/part")
  *             .throughput(400)
  *             .build());
  * 
  *         final var example = CosmosdbFunctions.getSqlRoleDefinition(GetSqlRoleDefinitionArgs.builder()
- *             .roleDefinitionId(&#34;00000000-0000-0000-0000-000000000001&#34;)
+ *             .roleDefinitionId("00000000-0000-0000-0000-000000000001")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .accountName(exampleAccount.name())
  *             .build());
  * 
- *         var exampleSqlRoleAssignment = new SqlRoleAssignment(&#34;exampleSqlRoleAssignment&#34;, SqlRoleAssignmentArgs.builder()        
+ *         var exampleSqlRoleAssignment = new SqlRoleAssignment("exampleSqlRoleAssignment", SqlRoleAssignmentArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .accountName(exampleAccount.name())
- *             .roleDefinitionId(example.applyValue(getSqlRoleDefinitionResult -&gt; getSqlRoleDefinitionResult).applyValue(example -&gt; example.applyValue(getSqlRoleDefinitionResult -&gt; getSqlRoleDefinitionResult.id())))
- *             .principalId(exampleCluster.identity().applyValue(identity -&gt; identity.principalId()))
+ *             .roleDefinitionId(example.applyValue(getSqlRoleDefinitionResult -> getSqlRoleDefinitionResult).applyValue(example -> example.applyValue(getSqlRoleDefinitionResult -> getSqlRoleDefinitionResult.id())))
+ *             .principalId(exampleCluster.identity().applyValue(identity -> identity.principalId()))
  *             .scope(exampleAccount.id())
  *             .build());
  * 
- *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
- *             .name(&#34;examplekd&#34;)
+ *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()        
+ *             .name("examplekd")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .clusterName(exampleCluster.name())
  *             .build());
  * 
- *         var exampleScript = new Script(&#34;exampleScript&#34;, ScriptArgs.builder()        
- *             .name(&#34;create-table-script&#34;)
+ *         var exampleScript = new Script("exampleScript", ScriptArgs.builder()        
+ *             .name("create-table-script")
  *             .databaseId(exampleDatabase.id())
- *             .scriptContent(&#34;&#34;&#34;
+ *             .scriptContent("""
  * .create table TestTable(Id:string, Name:string, _ts:long, _timestamp:datetime)
- * .create table TestTable ingestion json mapping &#34;TestMapping&#34;
- * &#39;[&#39;
- * &#39;    {&#34;column&#34;:&#34;Id&#34;,&#34;path&#34;:&#34;$.id&#34;},&#39;
- * &#39;    {&#34;column&#34;:&#34;Name&#34;,&#34;path&#34;:&#34;$.name&#34;},&#39;
- * &#39;    {&#34;column&#34;:&#34;_ts&#34;,&#34;path&#34;:&#34;$._ts&#34;},&#39;
- * &#39;    {&#34;column&#34;:&#34;_timestamp&#34;,&#34;path&#34;:&#34;$._ts&#34;, &#34;transform&#34;:&#34;DateTimeFromUnixSeconds&#34;}&#39;
- * &#39;]&#39;
- * .alter table TestTable policy ingestionbatching &#34;{&#39;MaximumBatchingTimeSpan&#39;: &#39;0:0:10&#39;, &#39;MaximumNumberOfItems&#39;: 10000}&#34;
- *             &#34;&#34;&#34;)
+ * .create table TestTable ingestion json mapping "TestMapping"
+ * '['
+ * '    {"column":"Id","path":"$.id"},'
+ * '    {"column":"Name","path":"$.name"},'
+ * '    {"column":"_ts","path":"$._ts"},'
+ * '    {"column":"_timestamp","path":"$._ts", "transform":"DateTimeFromUnixSeconds"}'
+ * ']'
+ * .alter table TestTable policy ingestionbatching "{'MaximumBatchingTimeSpan': '0:0:10', 'MaximumNumberOfItems': 10000}"
+ *             """)
  *             .build());
  * 
- *         var exampleCosmosdbDataConnection = new CosmosdbDataConnection(&#34;exampleCosmosdbDataConnection&#34;, CosmosdbDataConnectionArgs.builder()        
- *             .name(&#34;examplekcdcd&#34;)
+ *         var exampleCosmosdbDataConnection = new CosmosdbDataConnection("exampleCosmosdbDataConnection", CosmosdbDataConnectionArgs.builder()        
+ *             .name("examplekcdcd")
  *             .location(exampleResourceGroup.location())
  *             .cosmosdbContainerId(exampleSqlContainer.id())
  *             .kustoDatabaseId(exampleDatabase.id())
  *             .managedIdentityId(exampleCluster.id())
- *             .tableName(&#34;TestTable&#34;)
- *             .mappingRuleName(&#34;TestMapping&#34;)
- *             .retrievalStartDate(&#34;2023-06-26T12:00:00.6554616Z&#34;)
+ *             .tableName("TestTable")
+ *             .mappingRuleName("TestMapping")
+ *             .retrievalStartDate("2023-06-26T12:00:00.6554616Z")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

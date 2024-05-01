@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -60,72 +60,72 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
  *         final var current = CoreFunctions.getSubscription();
  * 
- *         var exampleNetworkManager = new NetworkManager(&#34;exampleNetworkManager&#34;, NetworkManagerArgs.builder()        
- *             .name(&#34;example-network-manager&#34;)
+ *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()        
+ *             .name("example-network-manager")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .scope(NetworkManagerScopeArgs.builder()
- *                 .subscriptionIds(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+ *                 .subscriptionIds(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *                 .build())
  *             .scopeAccesses(            
- *                 &#34;Connectivity&#34;,
- *                 &#34;SecurityAdmin&#34;)
- *             .description(&#34;example network manager&#34;)
+ *                 "Connectivity",
+ *                 "SecurityAdmin")
+ *             .description("example network manager")
  *             .build());
  * 
- *         var exampleNetworkManagerNetworkGroup = new NetworkManagerNetworkGroup(&#34;exampleNetworkManagerNetworkGroup&#34;, NetworkManagerNetworkGroupArgs.builder()        
- *             .name(&#34;example-network-group&#34;)
+ *         var exampleNetworkManagerNetworkGroup = new NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", NetworkManagerNetworkGroupArgs.builder()        
+ *             .name("example-network-group")
  *             .networkManagerId(exampleNetworkManager.id())
  *             .build());
  * 
- *         var exampleNetworkManagerSecurityAdminConfiguration = new NetworkManagerSecurityAdminConfiguration(&#34;exampleNetworkManagerSecurityAdminConfiguration&#34;, NetworkManagerSecurityAdminConfigurationArgs.builder()        
- *             .name(&#34;example-admin-conf&#34;)
+ *         var exampleNetworkManagerSecurityAdminConfiguration = new NetworkManagerSecurityAdminConfiguration("exampleNetworkManagerSecurityAdminConfiguration", NetworkManagerSecurityAdminConfigurationArgs.builder()        
+ *             .name("example-admin-conf")
  *             .networkManagerId(exampleNetworkManager.id())
  *             .build());
  * 
- *         var exampleNetworkManagerAdminRuleCollection = new NetworkManagerAdminRuleCollection(&#34;exampleNetworkManagerAdminRuleCollection&#34;, NetworkManagerAdminRuleCollectionArgs.builder()        
- *             .name(&#34;example-admin-rule-collection&#34;)
+ *         var exampleNetworkManagerAdminRuleCollection = new NetworkManagerAdminRuleCollection("exampleNetworkManagerAdminRuleCollection", NetworkManagerAdminRuleCollectionArgs.builder()        
+ *             .name("example-admin-rule-collection")
  *             .securityAdminConfigurationId(exampleNetworkManagerSecurityAdminConfiguration.id())
  *             .networkGroupIds(exampleNetworkManagerNetworkGroup.id())
  *             .build());
  * 
- *         var exampleNetworkManagerAdminRule = new NetworkManagerAdminRule(&#34;exampleNetworkManagerAdminRule&#34;, NetworkManagerAdminRuleArgs.builder()        
- *             .name(&#34;example-admin-rule&#34;)
+ *         var exampleNetworkManagerAdminRule = new NetworkManagerAdminRule("exampleNetworkManagerAdminRule", NetworkManagerAdminRuleArgs.builder()        
+ *             .name("example-admin-rule")
  *             .adminRuleCollectionId(exampleNetworkManagerAdminRuleCollection.id())
- *             .action(&#34;Deny&#34;)
- *             .direction(&#34;Outbound&#34;)
+ *             .action("Deny")
+ *             .direction("Outbound")
  *             .priority(1)
- *             .protocol(&#34;Tcp&#34;)
+ *             .protocol("Tcp")
  *             .sourcePortRanges(            
- *                 &#34;80&#34;,
- *                 &#34;1024-65535&#34;)
- *             .destinationPortRanges(&#34;80&#34;)
+ *                 "80",
+ *                 "1024-65535")
+ *             .destinationPortRanges("80")
  *             .sources(NetworkManagerAdminRuleSourceArgs.builder()
- *                 .addressPrefixType(&#34;ServiceTag&#34;)
- *                 .addressPrefix(&#34;Internet&#34;)
+ *                 .addressPrefixType("ServiceTag")
+ *                 .addressPrefix("Internet")
  *                 .build())
  *             .destinations(            
  *                 NetworkManagerAdminRuleDestinationArgs.builder()
- *                     .addressPrefixType(&#34;IPPrefix&#34;)
- *                     .addressPrefix(&#34;10.1.0.1&#34;)
+ *                     .addressPrefixType("IPPrefix")
+ *                     .addressPrefix("10.1.0.1")
  *                     .build(),
  *                 NetworkManagerAdminRuleDestinationArgs.builder()
- *                     .addressPrefixType(&#34;IPPrefix&#34;)
- *                     .addressPrefix(&#34;10.0.0.0/24&#34;)
+ *                     .addressPrefixType("IPPrefix")
+ *                     .addressPrefix("10.0.0.0/24")
  *                     .build())
- *             .description(&#34;example admin rule&#34;)
+ *             .description("example admin rule")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,33 +45,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
- *             .name(&#34;mydomain.com&#34;)
+ *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()        
+ *             .name("mydomain.com")
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleCNameRecord = new CNameRecord(&#34;exampleCNameRecord&#34;, CNameRecordArgs.builder()        
- *             .name(&#34;test&#34;)
+ *         var exampleCNameRecord = new CNameRecord("exampleCNameRecord", CNameRecordArgs.builder()        
+ *             .name("test")
  *             .zoneName(exampleZone.name())
  *             .resourceGroupName(example.name())
  *             .ttl(300)
- *             .record(&#34;contoso.com&#34;)
+ *             .record("contoso.com")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Alias Record)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -96,26 +96,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
- *             .name(&#34;mydomain.com&#34;)
+ *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()        
+ *             .name("mydomain.com")
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var target = new CNameRecord(&#34;target&#34;, CNameRecordArgs.builder()        
- *             .name(&#34;target&#34;)
+ *         var target = new CNameRecord("target", CNameRecordArgs.builder()        
+ *             .name("target")
  *             .zoneName(exampleZone.name())
  *             .resourceGroupName(example.name())
  *             .ttl(300)
- *             .record(&#34;contoso.com&#34;)
+ *             .record("contoso.com")
  *             .build());
  * 
- *         var exampleCNameRecord = new CNameRecord(&#34;exampleCNameRecord&#34;, CNameRecordArgs.builder()        
- *             .name(&#34;test&#34;)
+ *         var exampleCNameRecord = new CNameRecord("exampleCNameRecord", CNameRecordArgs.builder()        
+ *             .name("test")
  *             .zoneName(exampleZone.name())
  *             .resourceGroupName(example.name())
  *             .ttl(300)
@@ -124,7 +124,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

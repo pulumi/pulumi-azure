@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -58,59 +58,59 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleNetwork = new Network(&#34;exampleNetwork&#34;, NetworkArgs.builder()        
- *             .name(&#34;example-mn&#34;)
+ *         var exampleNetwork = new Network("exampleNetwork", NetworkArgs.builder()        
+ *             .name("example-mn")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .mobileCountryCode(&#34;001&#34;)
- *             .mobileNetworkCode(&#34;01&#34;)
+ *             .mobileCountryCode("001")
+ *             .mobileNetworkCode("01")
  *             .build());
  * 
- *         var exampleNetworkSite = new NetworkSite(&#34;exampleNetworkSite&#34;, NetworkSiteArgs.builder()        
- *             .name(&#34;example-mns&#34;)
+ *         var exampleNetworkSite = new NetworkSite("exampleNetworkSite", NetworkSiteArgs.builder()        
+ *             .name("example-mns")
  *             .mobileNetworkId(test.id())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleDevice = new Device(&#34;exampleDevice&#34;, DeviceArgs.builder()        
- *             .name(&#34;example-device&#34;)
+ *         var exampleDevice = new Device("exampleDevice", DeviceArgs.builder()        
+ *             .name("example-device")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .skuName(&#34;EdgeP_Base-Standard&#34;)
+ *             .skuName("EdgeP_Base-Standard")
  *             .build());
  * 
- *         var exampleNetworkPacketCoreControlPlane = new NetworkPacketCoreControlPlane(&#34;exampleNetworkPacketCoreControlPlane&#34;, NetworkPacketCoreControlPlaneArgs.builder()        
- *             .name(&#34;example-mnpccp&#34;)
+ *         var exampleNetworkPacketCoreControlPlane = new NetworkPacketCoreControlPlane("exampleNetworkPacketCoreControlPlane", NetworkPacketCoreControlPlaneArgs.builder()        
+ *             .name("example-mnpccp")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .sku(&#34;G0&#34;)
- *             .controlPlaneAccessName(&#34;default-interface&#34;)
- *             .controlPlaneAccessIpv4Address(&#34;192.168.1.199&#34;)
- *             .controlPlaneAccessIpv4Gateway(&#34;192.168.1.1&#34;)
- *             .controlPlaneAccessIpv4Subnet(&#34;192.168.1.0/25&#34;)
+ *             .sku("G0")
+ *             .controlPlaneAccessName("default-interface")
+ *             .controlPlaneAccessIpv4Address("192.168.1.199")
+ *             .controlPlaneAccessIpv4Gateway("192.168.1.1")
+ *             .controlPlaneAccessIpv4Subnet("192.168.1.0/25")
  *             .siteIds(exampleNetworkSite.id())
  *             .localDiagnosticsAccess(NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs.builder()
- *                 .authenticationType(&#34;AAD&#34;)
+ *                 .authenticationType("AAD")
  *                 .build())
  *             .platform(NetworkPacketCoreControlPlanePlatformArgs.builder()
- *                 .type(&#34;AKS-HCI&#34;)
+ *                 .type("AKS-HCI")
  *                 .edgeDeviceId(exampleDevice.id())
  *                 .build())
  *             .interoperabilitySettingsJson(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;key&#34;, &#34;value&#34;)
+ *                     jsonProperty("key", "value")
  *                 )))
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .tags(Map.of("key", "value"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

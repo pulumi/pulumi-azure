@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,41 +52,41 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-bpvmw&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-bpvmw")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVault = new Vault(&#34;exampleVault&#34;, VaultArgs.builder()        
- *             .name(&#34;example-rsv&#34;)
+ *         var exampleVault = new Vault("exampleVault", VaultArgs.builder()        
+ *             .name("example-rsv")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;Standard&#34;)
+ *             .sku("Standard")
  *             .softDeleteEnabled(false)
  *             .build());
  * 
- *         var examplePolicyVMWorkload = new PolicyVMWorkload(&#34;examplePolicyVMWorkload&#34;, PolicyVMWorkloadArgs.builder()        
- *             .name(&#34;example-bpvmw&#34;)
+ *         var examplePolicyVMWorkload = new PolicyVMWorkload("examplePolicyVMWorkload", PolicyVMWorkloadArgs.builder()        
+ *             .name("example-bpvmw")
  *             .resourceGroupName(example.name())
  *             .recoveryVaultName(exampleVault.name())
- *             .workloadType(&#34;SQLDataBase&#34;)
+ *             .workloadType("SQLDataBase")
  *             .settings(PolicyVMWorkloadSettingsArgs.builder()
- *                 .timeZone(&#34;UTC&#34;)
+ *                 .timeZone("UTC")
  *                 .compressionEnabled(false)
  *                 .build())
  *             .protectionPolicies(            
  *                 PolicyVMWorkloadProtectionPolicyArgs.builder()
- *                     .policyType(&#34;Full&#34;)
+ *                     .policyType("Full")
  *                     .backup(PolicyVMWorkloadProtectionPolicyBackupArgs.builder()
- *                         .frequency(&#34;Daily&#34;)
- *                         .time(&#34;15:00&#34;)
+ *                         .frequency("Daily")
+ *                         .time("15:00")
  *                         .build())
  *                     .retentionDaily(PolicyVMWorkloadProtectionPolicyRetentionDailyArgs.builder()
  *                         .count(8)
  *                         .build())
  *                     .build(),
  *                 PolicyVMWorkloadProtectionPolicyArgs.builder()
- *                     .policyType(&#34;Log&#34;)
+ *                     .policyType("Log")
  *                     .backup(PolicyVMWorkloadProtectionPolicyBackupArgs.builder()
  *                         .frequencyInMinutes(15)
  *                         .build())
@@ -98,7 +98,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

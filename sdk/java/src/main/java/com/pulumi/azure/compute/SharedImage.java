@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,38 +52,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleSharedImageGallery = new SharedImageGallery(&#34;exampleSharedImageGallery&#34;, SharedImageGalleryArgs.builder()        
- *             .name(&#34;example_image_gallery&#34;)
+ *         var exampleSharedImageGallery = new SharedImageGallery("exampleSharedImageGallery", SharedImageGalleryArgs.builder()        
+ *             .name("example_image_gallery")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .description(&#34;Shared images and things.&#34;)
+ *             .description("Shared images and things.")
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Hello&#34;, &#34;There&#34;),
- *                 Map.entry(&#34;World&#34;, &#34;Example&#34;)
+ *                 Map.entry("Hello", "There"),
+ *                 Map.entry("World", "Example")
  *             ))
  *             .build());
  * 
- *         var exampleSharedImage = new SharedImage(&#34;exampleSharedImage&#34;, SharedImageArgs.builder()        
- *             .name(&#34;my-image&#34;)
+ *         var exampleSharedImage = new SharedImage("exampleSharedImage", SharedImageArgs.builder()        
+ *             .name("my-image")
  *             .galleryName(exampleSharedImageGallery.name())
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .osType(&#34;Linux&#34;)
+ *             .osType("Linux")
  *             .identifier(SharedImageIdentifierArgs.builder()
- *                 .publisher(&#34;PublisherName&#34;)
- *                 .offer(&#34;OfferName&#34;)
- *                 .sku(&#34;ExampleSku&#34;)
+ *                 .publisher("PublisherName")
+ *                 .offer("OfferName")
+ *                 .sku("ExampleSku")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

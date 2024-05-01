@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * 
  * *IPv4 custom prefix*
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,34 +47,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var examplePrefix = new Prefix(&#34;examplePrefix&#34;, PrefixArgs.builder()        
- *             .name(&#34;example-CustomIPPrefix&#34;)
+ *         var examplePrefix = new Prefix("examplePrefix", PrefixArgs.builder()        
+ *             .name("example-CustomIPPrefix")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .cidr(&#34;1.2.3.4/22&#34;)
+ *             .cidr("1.2.3.4/22")
  *             .zones(            
- *                 &#34;1&#34;,
- *                 &#34;2&#34;,
- *                 &#34;3&#34;)
+ *                 "1",
+ *                 "2",
+ *                 "3")
  *             .commissioningEnabled(true)
- *             .roaValidityEndDate(&#34;2099-12-12&#34;)
- *             .wanValidationSignedMessage(&#34;signed message for WAN validation&#34;)
- *             .tags(Map.of(&#34;env&#34;, &#34;test&#34;))
+ *             .roaValidityEndDate("2099-12-12")
+ *             .wanValidationSignedMessage("signed message for WAN validation")
+ *             .tags(Map.of("env", "test"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * *IPv6 custom prefix*
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -97,32 +97,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var global = new Prefix(&#34;global&#34;, PrefixArgs.builder()        
- *             .name(&#34;example-Global-CustomIPPrefix&#34;)
+ *         var global = new Prefix("global", PrefixArgs.builder()        
+ *             .name("example-Global-CustomIPPrefix")
  *             .location(test.location())
  *             .resourceGroupName(test.name())
- *             .cidr(&#34;2001:db8:1::/48&#34;)
- *             .roaValidityEndDate(&#34;2199-12-12&#34;)
- *             .wanValidationSignedMessage(&#34;signed message for WAN validation&#34;)
+ *             .cidr("2001:db8:1::/48")
+ *             .roaValidityEndDate("2199-12-12")
+ *             .wanValidationSignedMessage("signed message for WAN validation")
  *             .build());
  * 
- *         var regional = new Prefix(&#34;regional&#34;, PrefixArgs.builder()        
- *             .name(&#34;example-Regional-CustomIPPrefix&#34;)
+ *         var regional = new Prefix("regional", PrefixArgs.builder()        
+ *             .name("example-Regional-CustomIPPrefix")
  *             .location(test.location())
  *             .resourceGroupName(test.name())
  *             .parentCustomIpPrefixId(global.id())
- *             .cidr(global.cidr().applyValue(cidr -&gt; StdFunctions.cidrsubnet()).applyValue(invoke -&gt; invoke.result()))
- *             .zones(&#34;1&#34;)
+ *             .cidr(global.cidr().applyValue(cidr -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
+ *             .zones("1")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

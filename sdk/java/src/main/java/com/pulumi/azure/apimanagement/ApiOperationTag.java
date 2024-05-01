@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,24 +47,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = ApimanagementFunctions.getApi(GetApiArgs.builder()
- *             .name(&#34;search-api&#34;)
- *             .apiManagementName(&#34;search-api-management&#34;)
- *             .resourceGroupName(&#34;search-service&#34;)
- *             .revision(&#34;2&#34;)
+ *             .name("search-api")
+ *             .apiManagementName("search-api-management")
+ *             .resourceGroupName("search-service")
+ *             .revision("2")
  *             .build());
  * 
- *         var exampleApiOperation = new ApiOperation(&#34;exampleApiOperation&#34;, ApiOperationArgs.builder()        
- *             .operationId(&#34;user-delete&#34;)
- *             .apiName(example.applyValue(getApiResult -&gt; getApiResult.name()))
- *             .apiManagementName(example.applyValue(getApiResult -&gt; getApiResult.apiManagementName()))
- *             .resourceGroupName(example.applyValue(getApiResult -&gt; getApiResult.resourceGroupName()))
- *             .displayName(&#34;Delete User Operation&#34;)
- *             .method(&#34;DELETE&#34;)
- *             .urlTemplate(&#34;/users/{id}/delete&#34;)
- *             .description(&#34;This can only be done by the logged in user.&#34;)
+ *         var exampleApiOperation = new ApiOperation("exampleApiOperation", ApiOperationArgs.builder()        
+ *             .operationId("user-delete")
+ *             .apiName(example.applyValue(getApiResult -> getApiResult.name()))
+ *             .apiManagementName(example.applyValue(getApiResult -> getApiResult.apiManagementName()))
+ *             .resourceGroupName(example.applyValue(getApiResult -> getApiResult.resourceGroupName()))
+ *             .displayName("Delete User Operation")
+ *             .method("DELETE")
+ *             .urlTemplate("/users/{id}/delete")
+ *             .description("This can only be done by the logged in user.")
  *             .templateParameters(ApiOperationTemplateParameterArgs.builder()
- *                 .name(&#34;id&#34;)
- *                 .type(&#34;number&#34;)
+ *                 .name("id")
+ *                 .type("number")
  *                 .required(true)
  *                 .build())
  *             .responses(ApiOperationResponseArgs.builder()
@@ -72,15 +72,15 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleApiOperationTag = new ApiOperationTag(&#34;exampleApiOperationTag&#34;, ApiOperationTagArgs.builder()        
- *             .name(&#34;example-Tag&#34;)
+ *         var exampleApiOperationTag = new ApiOperationTag("exampleApiOperationTag", ApiOperationTagArgs.builder()        
+ *             .name("example-Tag")
  *             .apiOperationId(exampleApiOperation.id())
- *             .displayName(&#34;example-Tag&#34;)
+ *             .displayName("example-Tag")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

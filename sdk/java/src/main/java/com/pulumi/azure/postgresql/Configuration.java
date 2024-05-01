@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,36 +48,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;api-rg-pro&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("api-rg-pro")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
- *             .name(&#34;postgresql-server-1&#34;)
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+ *             .name("postgresql-server-1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;B_Gen5_2&#34;)
+ *             .skuName("B_Gen5_2")
  *             .storageMb(5120)
  *             .backupRetentionDays(7)
  *             .geoRedundantBackupEnabled(false)
  *             .autoGrowEnabled(true)
- *             .administratorLogin(&#34;psqladmin&#34;)
- *             .administratorLoginPassword(&#34;H@Sh1CoR3!&#34;)
- *             .version(&#34;9.5&#34;)
+ *             .administratorLogin("psqladmin")
+ *             .administratorLoginPassword("H@Sh1CoR3!")
+ *             .version("9.5")
  *             .sslEnforcementEnabled(true)
  *             .build());
  * 
- *         var exampleConfiguration = new Configuration(&#34;exampleConfiguration&#34;, ConfigurationArgs.builder()        
- *             .name(&#34;backslash_quote&#34;)
+ *         var exampleConfiguration = new Configuration("exampleConfiguration", ConfigurationArgs.builder()        
+ *             .name("backslash_quote")
  *             .resourceGroupName(example.name())
  *             .serverName(exampleServer.name())
- *             .value(&#34;on&#34;)
+ *             .value("on")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

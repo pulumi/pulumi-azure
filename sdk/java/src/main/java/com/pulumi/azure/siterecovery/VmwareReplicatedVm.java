@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -59,70 +59,70 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-rg&#34;)
- *             .location(&#34;West US&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-rg")
+ *             .location("West US")
  *             .build());
  * 
- *         var exampleVault = new Vault(&#34;exampleVault&#34;, VaultArgs.builder()        
- *             .name(&#34;example-recovery-vault&#34;)
+ *         var exampleVault = new Vault("exampleVault", VaultArgs.builder()        
+ *             .name("example-recovery-vault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;Standard&#34;)
+ *             .sku("Standard")
  *             .build());
  * 
- *         var exampleVMWareReplicationPolicy = new VMWareReplicationPolicy(&#34;exampleVMWareReplicationPolicy&#34;, VMWareReplicationPolicyArgs.builder()        
+ *         var exampleVMWareReplicationPolicy = new VMWareReplicationPolicy("exampleVMWareReplicationPolicy", VMWareReplicationPolicyArgs.builder()        
  *             .recoveryVaultId(exampleVault.id())
- *             .name(&#34;example-policy&#34;)
+ *             .name("example-policy")
  *             .recoveryPointRetentionInMinutes(1440)
  *             .applicationConsistentSnapshotFrequencyInMinutes(240)
  *             .build());
  * 
- *         var test = new VmwareReplicationPolicyAssociation(&#34;test&#34;, VmwareReplicationPolicyAssociationArgs.builder()        
- *             .name(&#34;example-association&#34;)
+ *         var test = new VmwareReplicationPolicyAssociation("test", VmwareReplicationPolicyAssociationArgs.builder()        
+ *             .name("example-association")
  *             .recoveryVaultId(exampleVault.id())
  *             .policyId(exampleVMWareReplicationPolicy.id())
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;examplestorageacc&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("examplestorageacc")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountKind(&#34;StorageV2&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountKind("StorageV2")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-net&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example-net")
  *             .resourceGroupName(example.name())
- *             .addressSpaces(&#34;192.168.2.0/24&#34;)
+ *             .addressSpaces("192.168.2.0/24")
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;example-subnet&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("example-subnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;192.168.2.0/24&#34;)
+ *             .addressPrefixes("192.168.2.0/24")
  *             .build());
  * 
- *         var exampleVmwareReplicatedVm = new VmwareReplicatedVm(&#34;exampleVmwareReplicatedVm&#34;, VmwareReplicatedVmArgs.builder()        
- *             .name(&#34;example-vmware-vm&#34;)
+ *         var exampleVmwareReplicatedVm = new VmwareReplicatedVm("exampleVmwareReplicatedVm", VmwareReplicatedVmArgs.builder()        
+ *             .name("example-vmware-vm")
  *             .recoveryVaultId(exampleVault.id())
- *             .sourceVmName(&#34;example-vm&#34;)
- *             .applianceName(&#34;example-appliance&#34;)
+ *             .sourceVmName("example-vm")
+ *             .applianceName("example-appliance")
  *             .recoveryReplicationPolicyId(exampleAzurermSiteRecoveryVmwareReplicationPolicyAssociation.policyId())
- *             .physicalServerCredentialName(&#34;example-creds&#34;)
- *             .licenseType(&#34;NotSpecified&#34;)
+ *             .physicalServerCredentialName("example-creds")
+ *             .licenseType("NotSpecified")
  *             .targetBootDiagnosticsStorageAccountId(exampleAccount.id())
- *             .targetVmName(&#34;example_replicated_vm&#34;)
+ *             .targetVmName("example_replicated_vm")
  *             .targetResourceGroupId(example.id())
  *             .defaultLogStorageAccountId(exampleAccount.id())
- *             .defaultRecoveryDiskType(&#34;Standard_LRS&#34;)
+ *             .defaultRecoveryDiskType("Standard_LRS")
  *             .targetNetworkId(exampleVirtualNetwork.id())
  *             .networkInterfaces(VmwareReplicatedVmNetworkInterfaceArgs.builder()
- *                 .sourceMacAddress(&#34;00:00:00:00:00:00&#34;)
+ *                 .sourceMacAddress("00:00:00:00:00:00")
  *                 .targetSubnetName(exampleSubnet.name())
  *                 .isPrimary(true)
  *                 .build())
@@ -130,7 +130,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

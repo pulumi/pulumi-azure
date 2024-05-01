@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -58,66 +58,66 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualWan = new VirtualWan(&#34;exampleVirtualWan&#34;, VirtualWanArgs.builder()        
- *             .name(&#34;example-vwan&#34;)
+ *         var exampleVirtualWan = new VirtualWan("exampleVirtualWan", VirtualWanArgs.builder()        
+ *             .name("example-vwan")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleVirtualHub = new VirtualHub(&#34;exampleVirtualHub&#34;, VirtualHubArgs.builder()        
- *             .name(&#34;example-hub&#34;)
+ *         var exampleVirtualHub = new VirtualHub("exampleVirtualHub", VirtualHubArgs.builder()        
+ *             .name("example-hub")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .virtualWanId(exampleVirtualWan.id())
- *             .addressPrefix(&#34;10.0.0.0/24&#34;)
+ *             .addressPrefix("10.0.0.0/24")
  *             .build());
  * 
- *         var exampleVpnGateway = new VpnGateway(&#34;exampleVpnGateway&#34;, VpnGatewayArgs.builder()        
- *             .name(&#34;example-vpng&#34;)
+ *         var exampleVpnGateway = new VpnGateway("exampleVpnGateway", VpnGatewayArgs.builder()        
+ *             .name("example-vpng")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .virtualHubId(exampleVirtualHub.id())
  *             .build());
  * 
- *         var exampleVpnSite = new VpnSite(&#34;exampleVpnSite&#34;, VpnSiteArgs.builder()        
- *             .name(&#34;example-vpn-site&#34;)
+ *         var exampleVpnSite = new VpnSite("exampleVpnSite", VpnSiteArgs.builder()        
+ *             .name("example-vpn-site")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .virtualWanId(exampleVirtualWan.id())
  *             .links(            
  *                 VpnSiteLinkArgs.builder()
- *                     .name(&#34;link1&#34;)
- *                     .ipAddress(&#34;10.1.0.0&#34;)
+ *                     .name("link1")
+ *                     .ipAddress("10.1.0.0")
  *                     .build(),
  *                 VpnSiteLinkArgs.builder()
- *                     .name(&#34;link2&#34;)
- *                     .ipAddress(&#34;10.2.0.0&#34;)
+ *                     .name("link2")
+ *                     .ipAddress("10.2.0.0")
  *                     .build())
  *             .build());
  * 
- *         var exampleVpnGatewayConnection = new VpnGatewayConnection(&#34;exampleVpnGatewayConnection&#34;, VpnGatewayConnectionArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleVpnGatewayConnection = new VpnGatewayConnection("exampleVpnGatewayConnection", VpnGatewayConnectionArgs.builder()        
+ *             .name("example")
  *             .vpnGatewayId(exampleVpnGateway.id())
  *             .remoteVpnSiteId(exampleVpnSite.id())
  *             .vpnLinks(            
  *                 VpnGatewayConnectionVpnLinkArgs.builder()
- *                     .name(&#34;link1&#34;)
- *                     .vpnSiteLinkId(exampleVpnSite.links().applyValue(links -&gt; links[0].id()))
+ *                     .name("link1")
+ *                     .vpnSiteLinkId(exampleVpnSite.links().applyValue(links -> links[0].id()))
  *                     .build(),
  *                 VpnGatewayConnectionVpnLinkArgs.builder()
- *                     .name(&#34;link2&#34;)
- *                     .vpnSiteLinkId(exampleVpnSite.links().applyValue(links -&gt; links[1].id()))
+ *                     .name("link2")
+ *                     .vpnSiteLinkId(exampleVpnSite.links().applyValue(links -> links[1].id()))
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

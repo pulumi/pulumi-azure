@@ -27,7 +27,7 @@ import javax.annotation.Nullable;
  * ### With Service Managed Key
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -59,64 +59,64 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;EastUs&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("EastUs")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;acctest-vnet1-mssql&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("acctest-vnet1-mssql")
  *             .resourceGroupName(example.name())
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *             .addressSpaces("10.0.0.0/16")
  *             .location(test.location())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;subnet1-mssql&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("subnet1-mssql")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.0.0/24&#34;)
+ *             .addressPrefixes("10.0.0.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;managedinstancedelegation&#34;)
+ *                 .name("managedinstancedelegation")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .name(&#34;Microsoft.Sql/managedInstances&#34;)
+ *                     .name("Microsoft.Sql/managedInstances")
  *                     .actions(                    
- *                         &#34;Microsoft.Network/virtualNetworks/subnets/join/action&#34;,
- *                         &#34;Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action&#34;,
- *                         &#34;Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action&#34;)
+ *                         "Microsoft.Network/virtualNetworks/subnets/join/action",
+ *                         "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
+ *                         "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleManagedInstance = new ManagedInstance(&#34;exampleManagedInstance&#34;, ManagedInstanceArgs.builder()        
- *             .name(&#34;mssqlinstance&#34;)
+ *         var exampleManagedInstance = new ManagedInstance("exampleManagedInstance", ManagedInstanceArgs.builder()        
+ *             .name("mssqlinstance")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .licenseType(&#34;BasePrice&#34;)
- *             .skuName(&#34;GP_Gen5&#34;)
+ *             .licenseType("BasePrice")
+ *             .skuName("GP_Gen5")
  *             .storageSizeInGb(32)
  *             .subnetId(exampleSubnet.id())
  *             .vcores(4)
- *             .administratorLogin(&#34;missadministrator&#34;)
- *             .administratorLoginPassword(&#34;NCC-1701-D&#34;)
+ *             .administratorLogin("missadministrator")
+ *             .administratorLoginPassword("NCC-1701-D")
  *             .identity(ManagedInstanceIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
- *         var exampleManagedInstanceTransparentDataEncryption = new ManagedInstanceTransparentDataEncryption(&#34;exampleManagedInstanceTransparentDataEncryption&#34;, ManagedInstanceTransparentDataEncryptionArgs.builder()        
+ *         var exampleManagedInstanceTransparentDataEncryption = new ManagedInstanceTransparentDataEncryption("exampleManagedInstanceTransparentDataEncryption", ManagedInstanceTransparentDataEncryptionArgs.builder()        
  *             .managedInstanceId(exampleManagedInstance.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Customer Managed Key
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -156,103 +156,103 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;EastUs&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("EastUs")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;acctest-vnet1-mssql&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("acctest-vnet1-mssql")
  *             .resourceGroupName(example.name())
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *             .addressSpaces("10.0.0.0/16")
  *             .location(test.location())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;subnet1-mssql&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("subnet1-mssql")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.0.0/24&#34;)
+ *             .addressPrefixes("10.0.0.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;managedinstancedelegation&#34;)
+ *                 .name("managedinstancedelegation")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .name(&#34;Microsoft.Sql/managedInstances&#34;)
+ *                     .name("Microsoft.Sql/managedInstances")
  *                     .actions(                    
- *                         &#34;Microsoft.Network/virtualNetworks/subnets/join/action&#34;,
- *                         &#34;Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action&#34;,
- *                         &#34;Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action&#34;)
+ *                         "Microsoft.Network/virtualNetworks/subnets/join/action",
+ *                         "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
+ *                         "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleManagedInstance = new ManagedInstance(&#34;exampleManagedInstance&#34;, ManagedInstanceArgs.builder()        
- *             .name(&#34;mssqlinstance&#34;)
+ *         var exampleManagedInstance = new ManagedInstance("exampleManagedInstance", ManagedInstanceArgs.builder()        
+ *             .name("mssqlinstance")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .licenseType(&#34;BasePrice&#34;)
- *             .skuName(&#34;GP_Gen5&#34;)
+ *             .licenseType("BasePrice")
+ *             .skuName("GP_Gen5")
  *             .storageSizeInGb(32)
  *             .subnetId(exampleSubnet.id())
  *             .vcores(4)
- *             .administratorLogin(&#34;missadministrator&#34;)
- *             .administratorLoginPassword(&#34;NCC-1701-D&#34;)
+ *             .administratorLogin("missadministrator")
+ *             .administratorLoginPassword("NCC-1701-D")
  *             .identity(ManagedInstanceIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
- *         // Create a key vault with policies for the deployer to create a key &amp; SQL Managed Instance to wrap/unwrap/get key
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         // Create a key vault with policies for the deployer to create a key & SQL Managed Instance to wrap/unwrap/get key
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .enabledForDiskEncryption(true)
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
  *             .softDeleteRetentionDays(7)
  *             .purgeProtectionEnabled(false)
- *             .skuName(&#34;standard&#34;)
+ *             .skuName("standard")
  *             .accessPolicies(            
  *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *                     .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *                     .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *                     .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *                     .keyPermissions(                    
- *                         &#34;Get&#34;,
- *                         &#34;List&#34;,
- *                         &#34;Create&#34;,
- *                         &#34;Delete&#34;,
- *                         &#34;Update&#34;,
- *                         &#34;Recover&#34;,
- *                         &#34;Purge&#34;,
- *                         &#34;GetRotationPolicy&#34;)
+ *                         "Get",
+ *                         "List",
+ *                         "Create",
+ *                         "Delete",
+ *                         "Update",
+ *                         "Recover",
+ *                         "Purge",
+ *                         "GetRotationPolicy")
  *                     .build(),
  *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(exampleManagedInstance.identity().applyValue(identity -&gt; identity.tenantId()))
- *                     .objectId(exampleManagedInstance.identity().applyValue(identity -&gt; identity.principalId()))
+ *                     .tenantId(exampleManagedInstance.identity().applyValue(identity -> identity.tenantId()))
+ *                     .objectId(exampleManagedInstance.identity().applyValue(identity -> identity.principalId()))
  *                     .keyPermissions(                    
- *                         &#34;Get&#34;,
- *                         &#34;WrapKey&#34;,
- *                         &#34;UnwrapKey&#34;)
+ *                         "Get",
+ *                         "WrapKey",
+ *                         "UnwrapKey")
  *                     .build())
  *             .build());
  * 
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
- *             .name(&#34;byok&#34;)
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *             .name("byok")
  *             .keyVaultId(exampleKeyVault.id())
- *             .keyType(&#34;RSA&#34;)
+ *             .keyType("RSA")
  *             .keySize(2048)
  *             .keyOpts(            
- *                 &#34;unwrapKey&#34;,
- *                 &#34;wrapKey&#34;)
+ *                 "unwrapKey",
+ *                 "wrapKey")
  *             .build());
  * 
- *         var exampleManagedInstanceTransparentDataEncryption = new ManagedInstanceTransparentDataEncryption(&#34;exampleManagedInstanceTransparentDataEncryption&#34;, ManagedInstanceTransparentDataEncryptionArgs.builder()        
+ *         var exampleManagedInstanceTransparentDataEncryption = new ManagedInstanceTransparentDataEncryption("exampleManagedInstanceTransparentDataEncryption", ManagedInstanceTransparentDataEncryptionArgs.builder()        
  *             .managedInstanceId(exampleManagedInstance.id())
  *             .keyVaultKeyId(exampleKey.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

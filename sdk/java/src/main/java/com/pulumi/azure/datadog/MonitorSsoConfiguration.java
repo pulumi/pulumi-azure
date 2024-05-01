@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * 
  * ### Enabling SSO on monitor
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,38 +48,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-datadog&#34;)
- *             .location(&#34;West US 2&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-datadog")
+ *             .location("West US 2")
  *             .build());
  * 
- *         var exampleMonitor = new Monitor(&#34;exampleMonitor&#34;, MonitorArgs.builder()        
- *             .name(&#34;example-monitor&#34;)
+ *         var exampleMonitor = new Monitor("exampleMonitor", MonitorArgs.builder()        
+ *             .name("example-monitor")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .datadogOrganization(MonitorDatadogOrganizationArgs.builder()
- *                 .apiKey(&#34;XXXX&#34;)
- *                 .applicationKey(&#34;XXXX&#34;)
+ *                 .apiKey("XXXX")
+ *                 .applicationKey("XXXX")
  *                 .build())
  *             .user(MonitorUserArgs.builder()
- *                 .name(&#34;Example&#34;)
- *                 .email(&#34;abc@xyz.com&#34;)
+ *                 .name("Example")
+ *                 .email("abc@xyz.com")
  *                 .build())
- *             .skuName(&#34;Linked&#34;)
+ *             .skuName("Linked")
  *             .identity(MonitorIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
- *         var exampleMonitorSsoConfiguration = new MonitorSsoConfiguration(&#34;exampleMonitorSsoConfiguration&#34;, MonitorSsoConfigurationArgs.builder()        
+ *         var exampleMonitorSsoConfiguration = new MonitorSsoConfiguration("exampleMonitorSsoConfiguration", MonitorSsoConfigurationArgs.builder()        
  *             .datadogMonitorId(exampleMonitor.id())
- *             .singleSignOnEnabled(&#34;Enable&#34;)
- *             .enterpriseApplicationId(&#34;XXXX&#34;)
+ *             .singleSignOnEnabled("Enable")
+ *             .enterpriseApplicationId("XXXX")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

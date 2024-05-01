@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,22 +45,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;rg-example-virtualdesktop&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("rg-example-virtualdesktop")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var workspace = new Workspace(&#34;workspace&#34;, WorkspaceArgs.builder()        
- *             .name(&#34;workspace&#34;)
+ *         var workspace = new Workspace("workspace", WorkspaceArgs.builder()        
+ *             .name("workspace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .friendlyName(&#34;FriendlyName&#34;)
- *             .description(&#34;A description of my workspace&#34;)
+ *             .friendlyName("FriendlyName")
+ *             .description("A description of my workspace")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

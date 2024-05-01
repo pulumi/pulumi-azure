@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,122 +51,122 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
- *         final var mdContent = config.get(&#34;mdContent&#34;).orElse(&#34;# Hello all :)&#34;);
- *         final var videoLink = config.get(&#34;videoLink&#34;).orElse(&#34;https://www.youtube.com/watch?v=......&#34;);
+ *         final var mdContent = config.get("mdContent").orElse("# Hello all :)");
+ *         final var videoLink = config.get("videoLink").orElse("https://www.youtube.com/watch?v=......");
  *         final var current = CoreFunctions.getSubscription();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;mygroup&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("mygroup")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var my_board = new Dashboard(&#34;my-board&#34;, DashboardArgs.builder()        
- *             .name(&#34;my-cool-dashboard&#34;)
+ *         var my_board = new Dashboard("my-board", DashboardArgs.builder()        
+ *             .name("my-cool-dashboard")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .tags(Map.of(&#34;source&#34;, &#34;managed&#34;))
- *             .dashboardProperties(&#34;&#34;&#34;
+ *             .tags(Map.of("source", "managed"))
+ *             .dashboardProperties("""
  * {
- *    &#34;lenses&#34;: {
- *         &#34;0&#34;: {
- *             &#34;order&#34;: 0,
- *             &#34;parts&#34;: {
- *                 &#34;0&#34;: {
- *                     &#34;position&#34;: {
- *                         &#34;x&#34;: 0,
- *                         &#34;y&#34;: 0,
- *                         &#34;rowSpan&#34;: 2,
- *                         &#34;colSpan&#34;: 3
+ *    "lenses": {
+ *         "0": {
+ *             "order": 0,
+ *             "parts": {
+ *                 "0": {
+ *                     "position": {
+ *                         "x": 0,
+ *                         "y": 0,
+ *                         "rowSpan": 2,
+ *                         "colSpan": 3
  *                     },
- *                     &#34;metadata&#34;: {
- *                         &#34;inputs&#34;: [],
- *                         &#34;type&#34;: &#34;Extension/HubsExtension/PartType/MarkdownPart&#34;,
- *                         &#34;settings&#34;: {
- *                             &#34;content&#34;: {
- *                                 &#34;settings&#34;: {
- *                                     &#34;content&#34;: &#34;%s&#34;,
- *                                     &#34;subtitle&#34;: &#34;&#34;,
- *                                     &#34;title&#34;: &#34;&#34;
+ *                     "metadata": {
+ *                         "inputs": [],
+ *                         "type": "Extension/HubsExtension/PartType/MarkdownPart",
+ *                         "settings": {
+ *                             "content": {
+ *                                 "settings": {
+ *                                     "content": "%s",
+ *                                     "subtitle": "",
+ *                                     "title": ""
  *                                 }
  *                             }
  *                         }
  *                     }
  *                 },               
- *                 &#34;1&#34;: {
- *                     &#34;position&#34;: {
- *                         &#34;x&#34;: 5,
- *                         &#34;y&#34;: 0,
- *                         &#34;rowSpan&#34;: 4,
- *                         &#34;colSpan&#34;: 6
+ *                 "1": {
+ *                     "position": {
+ *                         "x": 5,
+ *                         "y": 0,
+ *                         "rowSpan": 4,
+ *                         "colSpan": 6
  *                     },
- *                     &#34;metadata&#34;: {
- *                         &#34;inputs&#34;: [],
- *                         &#34;type&#34;: &#34;Extension/HubsExtension/PartType/VideoPart&#34;,
- *                         &#34;settings&#34;: {
- *                             &#34;content&#34;: {
- *                                 &#34;settings&#34;: {
- *                                     &#34;title&#34;: &#34;Important Information&#34;,
- *                                     &#34;subtitle&#34;: &#34;&#34;,
- *                                     &#34;src&#34;: &#34;%s&#34;,
- *                                     &#34;autoplay&#34;: true
+ *                     "metadata": {
+ *                         "inputs": [],
+ *                         "type": "Extension/HubsExtension/PartType/VideoPart",
+ *                         "settings": {
+ *                             "content": {
+ *                                 "settings": {
+ *                                     "title": "Important Information",
+ *                                     "subtitle": "",
+ *                                     "src": "%s",
+ *                                     "autoplay": true
  *                                 }
  *                             }
  *                         }
  *                     }
  *                 },
- *                 &#34;2&#34;: {
- *                     &#34;position&#34;: {
- *                         &#34;x&#34;: 0,
- *                         &#34;y&#34;: 4,
- *                         &#34;rowSpan&#34;: 4,
- *                         &#34;colSpan&#34;: 6
+ *                 "2": {
+ *                     "position": {
+ *                         "x": 0,
+ *                         "y": 4,
+ *                         "rowSpan": 4,
+ *                         "colSpan": 6
  *                     },
- *                     &#34;metadata&#34;: {
- *                         &#34;inputs&#34;: [
+ *                     "metadata": {
+ *                         "inputs": [
  *                             {
- *                                 &#34;name&#34;: &#34;ComponentId&#34;,
- *                                 &#34;value&#34;: &#34;/subscriptions/%s/resourceGroups/myRG/providers/microsoft.insights/components/myWebApp&#34;
+ *                                 "name": "ComponentId",
+ *                                 "value": "/subscriptions/%s/resourceGroups/myRG/providers/microsoft.insights/components/myWebApp"
  *                             }
  *                         ],
- *                         &#34;type&#34;: &#34;Extension/AppInsightsExtension/PartType/AppMapGalPt&#34;,
- *                         &#34;settings&#34;: {},
- *                         &#34;asset&#34;: {
- *                             &#34;idInputName&#34;: &#34;ComponentId&#34;,
- *                             &#34;type&#34;: &#34;ApplicationInsights&#34;
+ *                         "type": "Extension/AppInsightsExtension/PartType/AppMapGalPt",
+ *                         "settings": {},
+ *                         "asset": {
+ *                             "idInputName": "ComponentId",
+ *                             "type": "ApplicationInsights"
  *                         }
  *                     }
  *                 }              
  *             }
  *         }
  *     },
- *     &#34;metadata&#34;: {
- *         &#34;model&#34;: {
- *             &#34;timeRange&#34;: {
- *                 &#34;value&#34;: {
- *                     &#34;relative&#34;: {
- *                         &#34;duration&#34;: 24,
- *                         &#34;timeUnit&#34;: 1
+ *     "metadata": {
+ *         "model": {
+ *             "timeRange": {
+ *                 "value": {
+ *                     "relative": {
+ *                         "duration": 24,
+ *                         "timeUnit": 1
  *                     }
  *                 },
- *                 &#34;type&#34;: &#34;MsPortalFx.Composition.Configuration.ValueTypes.TimeRange&#34;
+ *                 "type": "MsPortalFx.Composition.Configuration.ValueTypes.TimeRange"
  *             },
- *             &#34;filterLocale&#34;: {
- *                 &#34;value&#34;: &#34;en-us&#34;
+ *             "filterLocale": {
+ *                 "value": "en-us"
  *             },
- *             &#34;filters&#34;: {
- *                 &#34;value&#34;: {
- *                     &#34;MsPortalFx_TimeRange&#34;: {
- *                         &#34;model&#34;: {
- *                             &#34;format&#34;: &#34;utc&#34;,
- *                             &#34;granularity&#34;: &#34;auto&#34;,
- *                             &#34;relative&#34;: &#34;24h&#34;
+ *             "filters": {
+ *                 "value": {
+ *                     "MsPortalFx_TimeRange": {
+ *                         "model": {
+ *                             "format": "utc",
+ *                             "granularity": "auto",
+ *                             "relative": "24h"
  *                         },
- *                         &#34;displayCache&#34;: {
- *                             &#34;name&#34;: &#34;UTC Time&#34;,
- *                             &#34;value&#34;: &#34;Past 24 hours&#34;
+ *                         "displayCache": {
+ *                             "name": "UTC Time",
+ *                             "value": "Past 24 hours"
  *                         },
- *                         &#34;filteredPartIds&#34;: [
- *                             &#34;StartboardPart-UnboundPart-ae44fef5-76b8-46b0-86f0-2b3f47bad1c7&#34;
+ *                         "filteredPartIds": [
+ *                             "StartboardPart-UnboundPart-ae44fef5-76b8-46b0-86f0-2b3f47bad1c7"
  *                         ]
  *                     }
  *                 }
@@ -174,12 +174,12 @@ import javax.annotation.Nullable;
  *         }
  *     }
  * }
- * &#34;, mdContent,videoLink,current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.subscriptionId())))
+ * ", mdContent,videoLink,current.applyValue(getSubscriptionResult -> getSubscriptionResult.subscriptionId())))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * It is recommended to follow the steps outlined

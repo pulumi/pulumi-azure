@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,22 +46,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;localNetworkGWTest&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("localNetworkGWTest")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var home = new LocalNetworkGateway(&#34;home&#34;, LocalNetworkGatewayArgs.builder()        
- *             .name(&#34;backHome&#34;)
+ *         var home = new LocalNetworkGateway("home", LocalNetworkGatewayArgs.builder()        
+ *             .name("backHome")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .gatewayAddress(&#34;12.13.14.15&#34;)
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *             .gatewayAddress("12.13.14.15")
+ *             .addressSpaces("10.0.0.0/16")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

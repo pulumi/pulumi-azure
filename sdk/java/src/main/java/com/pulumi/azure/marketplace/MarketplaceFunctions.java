@@ -20,7 +20,7 @@ public final class MarketplaceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -42,15 +42,15 @@ public final class MarketplaceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var barracuda = MarketplaceFunctions.getAgreement(GetAgreementArgs.builder()
-     *             .publisher(&#34;barracudanetworks&#34;)
-     *             .offer(&#34;waf&#34;)
-     *             .plan(&#34;hourly&#34;)
+     *             .publisher("barracudanetworks")
+     *             .offer("waf")
+     *             .plan("hourly")
      *             .build());
      * 
-     *         ctx.export(&#34;azurermMarketplaceAgreementId&#34;, id);
+     *         ctx.export("azurermMarketplaceAgreementId", id);
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -63,7 +63,7 @@ public final class MarketplaceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -85,15 +85,15 @@ public final class MarketplaceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var barracuda = MarketplaceFunctions.getAgreement(GetAgreementArgs.builder()
-     *             .publisher(&#34;barracudanetworks&#34;)
-     *             .offer(&#34;waf&#34;)
-     *             .plan(&#34;hourly&#34;)
+     *             .publisher("barracudanetworks")
+     *             .offer("waf")
+     *             .plan("hourly")
      *             .build());
      * 
-     *         ctx.export(&#34;azurermMarketplaceAgreementId&#34;, id);
+     *         ctx.export("azurermMarketplaceAgreementId", id);
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -106,7 +106,7 @@ public final class MarketplaceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -128,15 +128,15 @@ public final class MarketplaceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var barracuda = MarketplaceFunctions.getAgreement(GetAgreementArgs.builder()
-     *             .publisher(&#34;barracudanetworks&#34;)
-     *             .offer(&#34;waf&#34;)
-     *             .plan(&#34;hourly&#34;)
+     *             .publisher("barracudanetworks")
+     *             .offer("waf")
+     *             .plan("hourly")
      *             .build());
      * 
-     *         ctx.export(&#34;azurermMarketplaceAgreementId&#34;, id);
+     *         ctx.export("azurermMarketplaceAgreementId", id);
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -149,7 +149,7 @@ public final class MarketplaceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -171,15 +171,15 @@ public final class MarketplaceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var barracuda = MarketplaceFunctions.getAgreement(GetAgreementArgs.builder()
-     *             .publisher(&#34;barracudanetworks&#34;)
-     *             .offer(&#34;waf&#34;)
-     *             .plan(&#34;hourly&#34;)
+     *             .publisher("barracudanetworks")
+     *             .offer("waf")
+     *             .plan("hourly")
      *             .build());
      * 
-     *         ctx.export(&#34;azurermMarketplaceAgreementId&#34;, id);
+     *         ctx.export("azurermMarketplaceAgreementId", id);
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

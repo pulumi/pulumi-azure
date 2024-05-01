@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,42 +50,42 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleElasticSan = new ElasticSan(&#34;exampleElasticSan&#34;, ElasticSanArgs.builder()        
- *             .name(&#34;example-es&#34;)
+ *         var exampleElasticSan = new ElasticSan("exampleElasticSan", ElasticSanArgs.builder()        
+ *             .name("example-es")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .baseSizeInTib(1)
  *             .sku(ElasticSanSkuArgs.builder()
- *                 .name(&#34;Premium_LRS&#34;)
+ *                 .name("Premium_LRS")
  *                 .build())
  *             .build());
  * 
- *         var exampleVolumeGroup = new VolumeGroup(&#34;exampleVolumeGroup&#34;, VolumeGroupArgs.builder()        
- *             .name(&#34;example-esvg&#34;)
+ *         var exampleVolumeGroup = new VolumeGroup("exampleVolumeGroup", VolumeGroupArgs.builder()        
+ *             .name("example-esvg")
  *             .elasticSanId(exampleElasticSan.id())
  *             .build());
  * 
- *         var exampleVolume = new Volume(&#34;exampleVolume&#34;, VolumeArgs.builder()        
- *             .name(&#34;example-esv&#34;)
+ *         var exampleVolume = new Volume("exampleVolume", VolumeArgs.builder()        
+ *             .name("example-esv")
  *             .volumeGroupId(exampleVolumeGroup.id())
  *             .sizeInGib(1)
  *             .build());
  * 
- *         ctx.export(&#34;targetIqn&#34;, exampleVolume.targetIqn());
+ *         ctx.export("targetIqn", exampleVolume.targetIqn());
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Example of creating an Elastic SAN Volume from a Disk Snapshot
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -118,56 +118,56 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleElasticSan = new ElasticSan(&#34;exampleElasticSan&#34;, ElasticSanArgs.builder()        
- *             .name(&#34;example-es&#34;)
+ *         var exampleElasticSan = new ElasticSan("exampleElasticSan", ElasticSanArgs.builder()        
+ *             .name("example-es")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .baseSizeInTib(1)
  *             .sku(ElasticSanSkuArgs.builder()
- *                 .name(&#34;Premium_LRS&#34;)
+ *                 .name("Premium_LRS")
  *                 .build())
  *             .build());
  * 
- *         var exampleVolumeGroup = new VolumeGroup(&#34;exampleVolumeGroup&#34;, VolumeGroupArgs.builder()        
- *             .name(&#34;example-esvg&#34;)
+ *         var exampleVolumeGroup = new VolumeGroup("exampleVolumeGroup", VolumeGroupArgs.builder()        
+ *             .name("example-esvg")
  *             .elasticSanId(exampleElasticSan.id())
  *             .build());
  * 
- *         var exampleManagedDisk = new ManagedDisk(&#34;exampleManagedDisk&#34;, ManagedDiskArgs.builder()        
- *             .name(&#34;example-disk&#34;)
+ *         var exampleManagedDisk = new ManagedDisk("exampleManagedDisk", ManagedDiskArgs.builder()        
+ *             .name("example-disk")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .createOption(&#34;Empty&#34;)
- *             .storageAccountType(&#34;Standard_LRS&#34;)
+ *             .createOption("Empty")
+ *             .storageAccountType("Standard_LRS")
  *             .diskSizeGb(2)
  *             .build());
  * 
- *         var exampleSnapshot = new Snapshot(&#34;exampleSnapshot&#34;, SnapshotArgs.builder()        
- *             .name(&#34;example-ss&#34;)
+ *         var exampleSnapshot = new Snapshot("exampleSnapshot", SnapshotArgs.builder()        
+ *             .name("example-ss")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .createOption(&#34;Copy&#34;)
+ *             .createOption("Copy")
  *             .sourceUri(exampleManagedDisk.id())
  *             .build());
  * 
- *         var example2 = new Volume(&#34;example2&#34;, VolumeArgs.builder()        
- *             .name(&#34;example-esv2&#34;)
+ *         var example2 = new Volume("example2", VolumeArgs.builder()        
+ *             .name("example-esv2")
  *             .volumeGroupId(exampleVolumeGroup.id())
  *             .sizeInGib(2)
  *             .createSource(VolumeCreateSourceArgs.builder()
- *                 .sourceType(&#34;DiskSnapshot&#34;)
+ *                 .sourceType("DiskSnapshot")
  *                 .sourceId(exampleSnapshot.id())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

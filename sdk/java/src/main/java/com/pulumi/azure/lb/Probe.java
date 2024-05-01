@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,37 +52,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;LoadBalancerRG&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("LoadBalancerRG")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
- *             .name(&#34;PublicIPForLB&#34;)
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *             .name("PublicIPForLB")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .allocationMethod(&#34;Static&#34;)
+ *             .allocationMethod("Static")
  *             .build());
  * 
- *         var exampleLoadBalancer = new LoadBalancer(&#34;exampleLoadBalancer&#34;, LoadBalancerArgs.builder()        
- *             .name(&#34;TestLoadBalancer&#34;)
+ *         var exampleLoadBalancer = new LoadBalancer("exampleLoadBalancer", LoadBalancerArgs.builder()        
+ *             .name("TestLoadBalancer")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .frontendIpConfigurations(LoadBalancerFrontendIpConfigurationArgs.builder()
- *                 .name(&#34;PublicIPAddress&#34;)
+ *                 .name("PublicIPAddress")
  *                 .publicIpAddressId(examplePublicIp.id())
  *                 .build())
  *             .build());
  * 
- *         var exampleProbe = new Probe(&#34;exampleProbe&#34;, ProbeArgs.builder()        
+ *         var exampleProbe = new Probe("exampleProbe", ProbeArgs.builder()        
  *             .loadbalancerId(exampleLoadBalancer.id())
- *             .name(&#34;ssh-running-probe&#34;)
+ *             .name("ssh-running-probe")
  *             .port(22)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

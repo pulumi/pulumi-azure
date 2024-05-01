@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,32 +45,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleIoTHub = new IoTHub(&#34;exampleIoTHub&#34;, IoTHubArgs.builder()        
- *             .name(&#34;test&#34;)
+ *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()        
+ *             .name("test")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .sku(IoTHubSkuArgs.builder()
- *                 .name(&#34;S1&#34;)
- *                 .capacity(&#34;1&#34;)
+ *                 .name("S1")
+ *                 .capacity("1")
  *                 .build())
- *             .tags(Map.of(&#34;purpose&#34;, &#34;testing&#34;))
+ *             .tags(Map.of("purpose", "testing"))
  *             .build());
  * 
- *         var exampleConsumerGroup = new ConsumerGroup(&#34;exampleConsumerGroup&#34;, ConsumerGroupArgs.builder()        
- *             .name(&#34;group&#34;)
+ *         var exampleConsumerGroup = new ConsumerGroup("exampleConsumerGroup", ConsumerGroupArgs.builder()        
+ *             .name("group")
  *             .iothubName(exampleIoTHub.name())
- *             .eventhubEndpointName(&#34;events&#34;)
+ *             .eventhubEndpointName("events")
  *             .resourceGroupName(example.name())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

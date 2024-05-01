@@ -41,7 +41,7 @@ public final class CdnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -70,7 +70,7 @@ public final class CdnFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -83,7 +83,7 @@ public final class CdnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -112,7 +112,7 @@ public final class CdnFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -125,7 +125,7 @@ public final class CdnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -154,7 +154,7 @@ public final class CdnFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -167,7 +167,7 @@ public final class CdnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -196,7 +196,7 @@ public final class CdnFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -209,7 +209,7 @@ public final class CdnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -231,14 +231,14 @@ public final class CdnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorEndpoint(GetFrontdoorEndpointArgs.builder()
-     *             .name(&#34;existing-endpoint&#34;)
-     *             .profileName(&#34;existing-cdn-profile&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
+     *             .name("existing-endpoint")
+     *             .profileName("existing-cdn-profile")
+     *             .resourceGroupName("existing-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -251,7 +251,7 @@ public final class CdnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -273,14 +273,14 @@ public final class CdnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorEndpoint(GetFrontdoorEndpointArgs.builder()
-     *             .name(&#34;existing-endpoint&#34;)
-     *             .profileName(&#34;existing-cdn-profile&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
+     *             .name("existing-endpoint")
+     *             .profileName("existing-cdn-profile")
+     *             .resourceGroupName("existing-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -293,7 +293,7 @@ public final class CdnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -315,14 +315,14 @@ public final class CdnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorEndpoint(GetFrontdoorEndpointArgs.builder()
-     *             .name(&#34;existing-endpoint&#34;)
-     *             .profileName(&#34;existing-cdn-profile&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
+     *             .name("existing-endpoint")
+     *             .profileName("existing-cdn-profile")
+     *             .resourceGroupName("existing-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -335,7 +335,7 @@ public final class CdnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -357,14 +357,14 @@ public final class CdnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorEndpoint(GetFrontdoorEndpointArgs.builder()
-     *             .name(&#34;existing-endpoint&#34;)
-     *             .profileName(&#34;existing-cdn-profile&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
+     *             .name("existing-endpoint")
+     *             .profileName("existing-cdn-profile")
+     *             .resourceGroupName("existing-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -377,7 +377,7 @@ public final class CdnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -399,13 +399,13 @@ public final class CdnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorFirewallPolicy(GetFrontdoorFirewallPolicyArgs.builder()
-     *             .name(&#34;examplecdnfdwafpolicy&#34;)
+     *             .name("examplecdnfdwafpolicy")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -418,7 +418,7 @@ public final class CdnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -440,13 +440,13 @@ public final class CdnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorFirewallPolicy(GetFrontdoorFirewallPolicyArgs.builder()
-     *             .name(&#34;examplecdnfdwafpolicy&#34;)
+     *             .name("examplecdnfdwafpolicy")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -459,7 +459,7 @@ public final class CdnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -481,13 +481,13 @@ public final class CdnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorFirewallPolicy(GetFrontdoorFirewallPolicyArgs.builder()
-     *             .name(&#34;examplecdnfdwafpolicy&#34;)
+     *             .name("examplecdnfdwafpolicy")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -500,7 +500,7 @@ public final class CdnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -522,13 +522,13 @@ public final class CdnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorFirewallPolicy(GetFrontdoorFirewallPolicyArgs.builder()
-     *             .name(&#34;examplecdnfdwafpolicy&#34;)
+     *             .name("examplecdnfdwafpolicy")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -541,7 +541,7 @@ public final class CdnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -563,14 +563,14 @@ public final class CdnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorOriginGroup(GetFrontdoorOriginGroupArgs.builder()
-     *             .name(&#34;example-origin-group&#34;)
-     *             .profileName(&#34;example-profile&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-origin-group")
+     *             .profileName("example-profile")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -583,7 +583,7 @@ public final class CdnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -605,14 +605,14 @@ public final class CdnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorOriginGroup(GetFrontdoorOriginGroupArgs.builder()
-     *             .name(&#34;example-origin-group&#34;)
-     *             .profileName(&#34;example-profile&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-origin-group")
+     *             .profileName("example-profile")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -625,7 +625,7 @@ public final class CdnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -647,14 +647,14 @@ public final class CdnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorOriginGroup(GetFrontdoorOriginGroupArgs.builder()
-     *             .name(&#34;example-origin-group&#34;)
-     *             .profileName(&#34;example-profile&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-origin-group")
+     *             .profileName("example-profile")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -667,7 +667,7 @@ public final class CdnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -689,14 +689,14 @@ public final class CdnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorOriginGroup(GetFrontdoorOriginGroupArgs.builder()
-     *             .name(&#34;example-origin-group&#34;)
-     *             .profileName(&#34;example-profile&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-origin-group")
+     *             .profileName("example-profile")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -709,7 +709,7 @@ public final class CdnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -731,13 +731,13 @@ public final class CdnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorProfile(GetFrontdoorProfileArgs.builder()
-     *             .name(&#34;existing-cdn-profile&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
+     *             .name("existing-cdn-profile")
+     *             .resourceGroupName("existing-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -750,7 +750,7 @@ public final class CdnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -772,13 +772,13 @@ public final class CdnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorProfile(GetFrontdoorProfileArgs.builder()
-     *             .name(&#34;existing-cdn-profile&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
+     *             .name("existing-cdn-profile")
+     *             .resourceGroupName("existing-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -791,7 +791,7 @@ public final class CdnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -813,13 +813,13 @@ public final class CdnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorProfile(GetFrontdoorProfileArgs.builder()
-     *             .name(&#34;existing-cdn-profile&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
+     *             .name("existing-cdn-profile")
+     *             .resourceGroupName("existing-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -832,7 +832,7 @@ public final class CdnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -854,13 +854,13 @@ public final class CdnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorProfile(GetFrontdoorProfileArgs.builder()
-     *             .name(&#34;existing-cdn-profile&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
+     *             .name("existing-cdn-profile")
+     *             .resourceGroupName("existing-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -873,7 +873,7 @@ public final class CdnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -895,14 +895,14 @@ public final class CdnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorRuleSet(GetFrontdoorRuleSetArgs.builder()
-     *             .name(&#34;existing-rule-set&#34;)
-     *             .profileName(&#34;existing-profile&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
+     *             .name("existing-rule-set")
+     *             .profileName("existing-profile")
+     *             .resourceGroupName("existing-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -915,7 +915,7 @@ public final class CdnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -937,14 +937,14 @@ public final class CdnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorRuleSet(GetFrontdoorRuleSetArgs.builder()
-     *             .name(&#34;existing-rule-set&#34;)
-     *             .profileName(&#34;existing-profile&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
+     *             .name("existing-rule-set")
+     *             .profileName("existing-profile")
+     *             .resourceGroupName("existing-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -957,7 +957,7 @@ public final class CdnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -979,14 +979,14 @@ public final class CdnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorRuleSet(GetFrontdoorRuleSetArgs.builder()
-     *             .name(&#34;existing-rule-set&#34;)
-     *             .profileName(&#34;existing-profile&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
+     *             .name("existing-rule-set")
+     *             .profileName("existing-profile")
+     *             .resourceGroupName("existing-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -999,7 +999,7 @@ public final class CdnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1021,14 +1021,14 @@ public final class CdnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorRuleSet(GetFrontdoorRuleSetArgs.builder()
-     *             .name(&#34;existing-rule-set&#34;)
-     *             .profileName(&#34;existing-profile&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
+     *             .name("existing-rule-set")
+     *             .profileName("existing-profile")
+     *             .resourceGroupName("existing-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1041,7 +1041,7 @@ public final class CdnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1063,14 +1063,14 @@ public final class CdnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorSecret(GetFrontdoorSecretArgs.builder()
-     *             .name(&#34;example-secret&#34;)
-     *             .profileName(&#34;example-profile&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-secret")
+     *             .profileName("example-profile")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1083,7 +1083,7 @@ public final class CdnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1105,14 +1105,14 @@ public final class CdnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorSecret(GetFrontdoorSecretArgs.builder()
-     *             .name(&#34;example-secret&#34;)
-     *             .profileName(&#34;example-profile&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-secret")
+     *             .profileName("example-profile")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1125,7 +1125,7 @@ public final class CdnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1147,14 +1147,14 @@ public final class CdnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorSecret(GetFrontdoorSecretArgs.builder()
-     *             .name(&#34;example-secret&#34;)
-     *             .profileName(&#34;example-profile&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-secret")
+     *             .profileName("example-profile")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1167,7 +1167,7 @@ public final class CdnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1189,14 +1189,14 @@ public final class CdnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorSecret(GetFrontdoorSecretArgs.builder()
-     *             .name(&#34;example-secret&#34;)
-     *             .profileName(&#34;example-profile&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-secret")
+     *             .profileName("example-profile")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1209,7 +1209,7 @@ public final class CdnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1231,14 +1231,14 @@ public final class CdnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getProfile(GetProfileArgs.builder()
-     *             .name(&#34;myfirstcdnprofile&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("myfirstcdnprofile")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;cdnProfileId&#34;, example.applyValue(getProfileResult -&gt; getProfileResult.id()));
+     *         ctx.export("cdnProfileId", example.applyValue(getProfileResult -> getProfileResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1251,7 +1251,7 @@ public final class CdnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1273,14 +1273,14 @@ public final class CdnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getProfile(GetProfileArgs.builder()
-     *             .name(&#34;myfirstcdnprofile&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("myfirstcdnprofile")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;cdnProfileId&#34;, example.applyValue(getProfileResult -&gt; getProfileResult.id()));
+     *         ctx.export("cdnProfileId", example.applyValue(getProfileResult -> getProfileResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1293,7 +1293,7 @@ public final class CdnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1315,14 +1315,14 @@ public final class CdnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getProfile(GetProfileArgs.builder()
-     *             .name(&#34;myfirstcdnprofile&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("myfirstcdnprofile")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;cdnProfileId&#34;, example.applyValue(getProfileResult -&gt; getProfileResult.id()));
+     *         ctx.export("cdnProfileId", example.applyValue(getProfileResult -> getProfileResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1335,7 +1335,7 @@ public final class CdnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1357,14 +1357,14 @@ public final class CdnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getProfile(GetProfileArgs.builder()
-     *             .name(&#34;myfirstcdnprofile&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("myfirstcdnprofile")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;cdnProfileId&#34;, example.applyValue(getProfileResult -&gt; getProfileResult.id()));
+     *         ctx.export("cdnProfileId", example.applyValue(getProfileResult -> getProfileResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

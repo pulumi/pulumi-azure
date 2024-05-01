@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,25 +54,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleSpringCloudService = new SpringCloudService(&#34;exampleSpringCloudService&#34;, SpringCloudServiceArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;E0&#34;)
+ *             .skuName("E0")
  *             .build());
  * 
- *         var exampleSpringCloudGateway = new SpringCloudGateway(&#34;exampleSpringCloudGateway&#34;, SpringCloudGatewayArgs.builder()        
- *             .name(&#34;default&#34;)
+ *         var exampleSpringCloudGateway = new SpringCloudGateway("exampleSpringCloudGateway", SpringCloudGatewayArgs.builder()        
+ *             .name("default")
  *             .springCloudServiceId(exampleSpringCloudService.id())
  *             .build());
  * 
- *         var exampleSpringCloudApiPortal = new SpringCloudApiPortal(&#34;exampleSpringCloudApiPortal&#34;, SpringCloudApiPortalArgs.builder()        
- *             .name(&#34;default&#34;)
+ *         var exampleSpringCloudApiPortal = new SpringCloudApiPortal("exampleSpringCloudApiPortal", SpringCloudApiPortalArgs.builder()        
+ *             .name("default")
  *             .springCloudServiceId(exampleSpringCloudService.id())
  *             .gatewayIds(exampleSpringCloudGateway.id())
  *             .httpsOnlyEnabled(false)
@@ -80,16 +80,16 @@ import javax.annotation.Nullable;
  *             .instanceCount(1)
  *             .apiTryOutEnabled(true)
  *             .sso(SpringCloudApiPortalSsoArgs.builder()
- *                 .clientId(&#34;test&#34;)
- *                 .clientSecret(&#34;secret&#34;)
- *                 .issuerUri(&#34;https://www.example.com/issueToken&#34;)
- *                 .scopes(&#34;read&#34;)
+ *                 .clientId("test")
+ *                 .clientSecret("secret")
+ *                 .issuerUri("https://www.example.com/issueToken")
+ *                 .scopes("read")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

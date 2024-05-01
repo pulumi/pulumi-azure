@@ -33,7 +33,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -59,41 +59,41 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleNetworkSecurityGroup = new NetworkSecurityGroup(&#34;exampleNetworkSecurityGroup&#34;, NetworkSecurityGroupArgs.builder()        
- *             .name(&#34;example-security-group&#34;)
+ *         var exampleNetworkSecurityGroup = new NetworkSecurityGroup("exampleNetworkSecurityGroup", NetworkSecurityGroupArgs.builder()        
+ *             .name("example-security-group")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-network&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example-network")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *             .addressSpaces("10.0.0.0/16")
  *             .dnsServers(            
- *                 &#34;10.0.0.4&#34;,
- *                 &#34;10.0.0.5&#34;)
+ *                 "10.0.0.4",
+ *                 "10.0.0.5")
  *             .subnets(            
  *                 VirtualNetworkSubnetArgs.builder()
- *                     .name(&#34;subnet1&#34;)
- *                     .addressPrefix(&#34;10.0.1.0/24&#34;)
+ *                     .name("subnet1")
+ *                     .addressPrefix("10.0.1.0/24")
  *                     .build(),
  *                 VirtualNetworkSubnetArgs.builder()
- *                     .name(&#34;subnet2&#34;)
- *                     .addressPrefix(&#34;10.0.2.0/24&#34;)
+ *                     .name("subnet2")
+ *                     .addressPrefix("10.0.2.0/24")
  *                     .securityGroup(exampleNetworkSecurityGroup.id())
  *                     .build())
- *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *             .tags(Map.of("environment", "Production"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

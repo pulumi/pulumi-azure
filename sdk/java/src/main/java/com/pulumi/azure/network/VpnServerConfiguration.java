@@ -27,7 +27,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,19 +51,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var test = new VpnServerConfiguration(&#34;test&#34;, VpnServerConfigurationArgs.builder()        
- *             .name(&#34;example-config&#34;)
+ *         var test = new VpnServerConfiguration("test", VpnServerConfigurationArgs.builder()        
+ *             .name("example-config")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .vpnAuthenticationTypes(&#34;Certificate&#34;)
+ *             .vpnAuthenticationTypes("Certificate")
  *             .clientRootCertificates(VpnServerConfigurationClientRootCertificateArgs.builder()
- *                 .name(&#34;DigiCert-Federated-ID-Root-CA&#34;)
- *                 .publicCertData(&#34;&#34;&#34;
+ *                 .name("DigiCert-Federated-ID-Root-CA")
+ *                 .publicCertData("""
  * MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
  * MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
  * d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
@@ -84,13 +84,13 @@ import javax.annotation.Nullable;
  * uGLOhRJOFprPdoDIUBB+tmCl3oDcBy3vnUeOEioz8zAkprcb3GHwHAK+vHmmfgcn
  * WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
  * M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
- *                 &#34;&#34;&#34;)
+ *                 """)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

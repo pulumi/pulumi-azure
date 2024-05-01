@@ -27,7 +27,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,26 +53,26 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleManagedHardwareSecurityModule = new ManagedHardwareSecurityModule(&#34;exampleManagedHardwareSecurityModule&#34;, ManagedHardwareSecurityModuleArgs.builder()        
- *             .name(&#34;exampleKVHsm&#34;)
+ *         var exampleManagedHardwareSecurityModule = new ManagedHardwareSecurityModule("exampleManagedHardwareSecurityModule", ManagedHardwareSecurityModuleArgs.builder()        
+ *             .name("exampleKVHsm")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .skuName(&#34;Standard_B1&#34;)
+ *             .skuName("Standard_B1")
  *             .purgeProtectionEnabled(false)
  *             .softDeleteRetentionDays(90)
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .adminObjectIds(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
- *             .tags(Map.of(&#34;Env&#34;, &#34;Test&#34;))
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .adminObjectIds(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *             .tags(Map.of("Env", "Test"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

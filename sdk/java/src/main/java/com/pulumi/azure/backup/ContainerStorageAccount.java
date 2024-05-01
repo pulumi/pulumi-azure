@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,27 +46,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;tfex-network-mapping-primary&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("tfex-network-mapping-primary")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var vault = new Vault(&#34;vault&#34;, VaultArgs.builder()        
- *             .name(&#34;example-recovery-vault&#34;)
+ *         var vault = new Vault("vault", VaultArgs.builder()        
+ *             .name("example-recovery-vault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;Standard&#34;)
+ *             .sku("Standard")
  *             .build());
  * 
- *         var sa = new Account(&#34;sa&#34;, AccountArgs.builder()        
- *             .name(&#34;examplesa&#34;)
+ *         var sa = new Account("sa", AccountArgs.builder()        
+ *             .name("examplesa")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var container = new ContainerStorageAccount(&#34;container&#34;, ContainerStorageAccountArgs.builder()        
+ *         var container = new ContainerStorageAccount("container", ContainerStorageAccountArgs.builder()        
  *             .resourceGroupName(example.name())
  *             .recoveryVaultName(vault.name())
  *             .storageAccountId(sa.id())
@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

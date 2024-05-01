@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,61 +46,61 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;tf-test&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("tf-test")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleInsights = new Insights(&#34;exampleInsights&#34;, InsightsArgs.builder()        
- *             .name(&#34;tf-test-appinsights&#34;)
+ *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()        
+ *             .name("tf-test-appinsights")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .applicationType(&#34;web&#34;)
+ *             .applicationType("web")
  *             .build());
  * 
- *         var readTelemetry = new ApiKey(&#34;readTelemetry&#34;, ApiKeyArgs.builder()        
- *             .name(&#34;tf-test-appinsights-read-telemetry-api-key&#34;)
+ *         var readTelemetry = new ApiKey("readTelemetry", ApiKeyArgs.builder()        
+ *             .name("tf-test-appinsights-read-telemetry-api-key")
  *             .applicationInsightsId(exampleInsights.id())
  *             .readPermissions(            
- *                 &#34;aggregate&#34;,
- *                 &#34;api&#34;,
- *                 &#34;draft&#34;,
- *                 &#34;extendqueries&#34;,
- *                 &#34;search&#34;)
+ *                 "aggregate",
+ *                 "api",
+ *                 "draft",
+ *                 "extendqueries",
+ *                 "search")
  *             .build());
  * 
- *         var writeAnnotations = new ApiKey(&#34;writeAnnotations&#34;, ApiKeyArgs.builder()        
- *             .name(&#34;tf-test-appinsights-write-annotations-api-key&#34;)
+ *         var writeAnnotations = new ApiKey("writeAnnotations", ApiKeyArgs.builder()        
+ *             .name("tf-test-appinsights-write-annotations-api-key")
  *             .applicationInsightsId(exampleInsights.id())
- *             .writePermissions(&#34;annotations&#34;)
+ *             .writePermissions("annotations")
  *             .build());
  * 
- *         var authenticateSdkControlChannel = new ApiKey(&#34;authenticateSdkControlChannel&#34;, ApiKeyArgs.builder()        
- *             .name(&#34;tf-test-appinsights-authenticate-sdk-control-channel-api-key&#34;)
+ *         var authenticateSdkControlChannel = new ApiKey("authenticateSdkControlChannel", ApiKeyArgs.builder()        
+ *             .name("tf-test-appinsights-authenticate-sdk-control-channel-api-key")
  *             .applicationInsightsId(exampleInsights.id())
- *             .readPermissions(&#34;agentconfig&#34;)
+ *             .readPermissions("agentconfig")
  *             .build());
  * 
- *         var fullPermissions = new ApiKey(&#34;fullPermissions&#34;, ApiKeyArgs.builder()        
- *             .name(&#34;tf-test-appinsights-full-permissions-api-key&#34;)
+ *         var fullPermissions = new ApiKey("fullPermissions", ApiKeyArgs.builder()        
+ *             .name("tf-test-appinsights-full-permissions-api-key")
  *             .applicationInsightsId(exampleInsights.id())
  *             .readPermissions(            
- *                 &#34;agentconfig&#34;,
- *                 &#34;aggregate&#34;,
- *                 &#34;api&#34;,
- *                 &#34;draft&#34;,
- *                 &#34;extendqueries&#34;,
- *                 &#34;search&#34;)
- *             .writePermissions(&#34;annotations&#34;)
+ *                 "agentconfig",
+ *                 "aggregate",
+ *                 "api",
+ *                 "draft",
+ *                 "extendqueries",
+ *                 "search")
+ *             .writePermissions("annotations")
  *             .build());
  * 
- *         ctx.export(&#34;readTelemetryApiKey&#34;, readTelemetry.apiKey());
- *         ctx.export(&#34;writeAnnotationsApiKey&#34;, writeAnnotations.apiKey());
- *         ctx.export(&#34;authenticateSdkControlChannel&#34;, authenticateSdkControlChannel.apiKey());
- *         ctx.export(&#34;fullPermissionsApiKey&#34;, fullPermissions.apiKey());
+ *         ctx.export("readTelemetryApiKey", readTelemetry.apiKey());
+ *         ctx.export("writeAnnotationsApiKey", writeAnnotations.apiKey());
+ *         ctx.export("authenticateSdkControlChannel", authenticateSdkControlChannel.apiKey());
+ *         ctx.export("fullPermissionsApiKey", fullPermissions.apiKey());
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

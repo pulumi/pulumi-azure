@@ -26,7 +26,7 @@ public final class ContainerappFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -48,13 +48,13 @@ public final class ContainerappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerappFunctions.getApp(GetAppArgs.builder()
-     *             .name(&#34;example-app&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-app")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -67,7 +67,7 @@ public final class ContainerappFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -89,13 +89,13 @@ public final class ContainerappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerappFunctions.getApp(GetAppArgs.builder()
-     *             .name(&#34;example-app&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-app")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -108,7 +108,7 @@ public final class ContainerappFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -130,13 +130,13 @@ public final class ContainerappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerappFunctions.getApp(GetAppArgs.builder()
-     *             .name(&#34;example-app&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-app")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -149,7 +149,7 @@ public final class ContainerappFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -171,13 +171,13 @@ public final class ContainerappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerappFunctions.getApp(GetAppArgs.builder()
-     *             .name(&#34;example-app&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-app")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -190,7 +190,7 @@ public final class ContainerappFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -212,13 +212,13 @@ public final class ContainerappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerappFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .name(&#34;example-environment&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-environment")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -231,7 +231,7 @@ public final class ContainerappFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -253,13 +253,13 @@ public final class ContainerappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerappFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .name(&#34;example-environment&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-environment")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -272,7 +272,7 @@ public final class ContainerappFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -294,13 +294,13 @@ public final class ContainerappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerappFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .name(&#34;example-environment&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-environment")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -313,7 +313,7 @@ public final class ContainerappFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -335,13 +335,13 @@ public final class ContainerappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerappFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .name(&#34;example-environment&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-environment")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -354,7 +354,7 @@ public final class ContainerappFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -377,18 +377,18 @@ public final class ContainerappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerappFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .name(&#34;example-environment&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-environment")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetEnvironmentCertificate = ContainerappFunctions.getEnvironmentCertificate(GetEnvironmentCertificateArgs.builder()
-     *             .name(&#34;mycertificate&#34;)
-     *             .containerAppEnvironmentId(example.applyValue(getEnvironmentResult -&gt; getEnvironmentResult.id()))
+     *             .name("mycertificate")
+     *             .containerAppEnvironmentId(example.applyValue(getEnvironmentResult -> getEnvironmentResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -401,7 +401,7 @@ public final class ContainerappFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -424,18 +424,18 @@ public final class ContainerappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerappFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .name(&#34;example-environment&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-environment")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetEnvironmentCertificate = ContainerappFunctions.getEnvironmentCertificate(GetEnvironmentCertificateArgs.builder()
-     *             .name(&#34;mycertificate&#34;)
-     *             .containerAppEnvironmentId(example.applyValue(getEnvironmentResult -&gt; getEnvironmentResult.id()))
+     *             .name("mycertificate")
+     *             .containerAppEnvironmentId(example.applyValue(getEnvironmentResult -> getEnvironmentResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -448,7 +448,7 @@ public final class ContainerappFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -471,18 +471,18 @@ public final class ContainerappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerappFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .name(&#34;example-environment&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-environment")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetEnvironmentCertificate = ContainerappFunctions.getEnvironmentCertificate(GetEnvironmentCertificateArgs.builder()
-     *             .name(&#34;mycertificate&#34;)
-     *             .containerAppEnvironmentId(example.applyValue(getEnvironmentResult -&gt; getEnvironmentResult.id()))
+     *             .name("mycertificate")
+     *             .containerAppEnvironmentId(example.applyValue(getEnvironmentResult -> getEnvironmentResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -495,7 +495,7 @@ public final class ContainerappFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -518,18 +518,18 @@ public final class ContainerappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerappFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .name(&#34;example-environment&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-environment")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetEnvironmentCertificate = ContainerappFunctions.getEnvironmentCertificate(GetEnvironmentCertificateArgs.builder()
-     *             .name(&#34;mycertificate&#34;)
-     *             .containerAppEnvironmentId(example.applyValue(getEnvironmentResult -&gt; getEnvironmentResult.id()))
+     *             .name("mycertificate")
+     *             .containerAppEnvironmentId(example.applyValue(getEnvironmentResult -> getEnvironmentResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

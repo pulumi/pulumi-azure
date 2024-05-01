@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,39 +47,39 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleEventHubNamespace = new EventHubNamespace(&#34;exampleEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
- *             .name(&#34;acceptanceTestEventHubNamespace&#34;)
+ *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()        
+ *             .name("acceptanceTestEventHubNamespace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;Basic&#34;)
+ *             .sku("Basic")
  *             .capacity(2)
- *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *             .tags(Map.of("environment", "Production"))
  *             .build());
  * 
- *         var exampleEventHub = new EventHub(&#34;exampleEventHub&#34;, EventHubArgs.builder()        
- *             .name(&#34;acceptanceTestEventHub&#34;)
+ *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()        
+ *             .name("acceptanceTestEventHub")
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .resourceGroupName(example.name())
  *             .partitionCount(2)
  *             .messageRetention(2)
  *             .build());
  * 
- *         var exampleConsumerGroup = new ConsumerGroup(&#34;exampleConsumerGroup&#34;, ConsumerGroupArgs.builder()        
- *             .name(&#34;acceptanceTestEventHubConsumerGroup&#34;)
+ *         var exampleConsumerGroup = new ConsumerGroup("exampleConsumerGroup", ConsumerGroupArgs.builder()        
+ *             .name("acceptanceTestEventHubConsumerGroup")
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .eventhubName(exampleEventHub.name())
  *             .resourceGroupName(example.name())
- *             .userMetadata(&#34;some-meta-data&#34;)
+ *             .userMetadata("some-meta-data")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

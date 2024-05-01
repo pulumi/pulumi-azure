@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,53 +55,53 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *             .addressSpaces("10.0.0.0/16")
  *             .build());
  * 
- *         var exampleResolver = new Resolver(&#34;exampleResolver&#34;, ResolverArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleResolver = new Resolver("exampleResolver", ResolverArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .virtualNetworkId(exampleVirtualNetwork.id())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;inbounddns&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("inbounddns")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.0.0/28&#34;)
+ *             .addressPrefixes("10.0.0.0/28")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;Microsoft.Network.dnsResolvers&#34;)
+ *                 .name("Microsoft.Network.dnsResolvers")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/join/action&#34;)
- *                     .name(&#34;Microsoft.Network/dnsResolvers&#34;)
+ *                     .actions("Microsoft.Network/virtualNetworks/subnets/join/action")
+ *                     .name("Microsoft.Network/dnsResolvers")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleResolverInboundEndpoint = new ResolverInboundEndpoint(&#34;exampleResolverInboundEndpoint&#34;, ResolverInboundEndpointArgs.builder()        
- *             .name(&#34;example-drie&#34;)
+ *         var exampleResolverInboundEndpoint = new ResolverInboundEndpoint("exampleResolverInboundEndpoint", ResolverInboundEndpointArgs.builder()        
+ *             .name("example-drie")
  *             .privateDnsResolverId(exampleResolver.id())
  *             .location(exampleResolver.location())
  *             .ipConfigurations(ResolverInboundEndpointIpConfigurationArgs.builder()
- *                 .privateIpAllocationMethod(&#34;Dynamic&#34;)
+ *                 .privateIpAllocationMethod("Dynamic")
  *                 .subnetId(exampleSubnet.id())
  *                 .build())
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .tags(Map.of("key", "value"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

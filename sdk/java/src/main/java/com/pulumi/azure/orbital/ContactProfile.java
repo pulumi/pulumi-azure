@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,64 +54,64 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;rg-example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("rg-example")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;testvnet&#34;)
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("testvnet")
+ *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;testsubnet&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("testsubnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.1.0/24&#34;)
+ *             .addressPrefixes("10.0.1.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;orbitalgateway&#34;)
+ *                 .name("orbitalgateway")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .name(&#34;Microsoft.Orbital/orbitalGateways&#34;)
+ *                     .name("Microsoft.Orbital/orbitalGateways")
  *                     .actions(                    
- *                         &#34;Microsoft.Network/publicIPAddresses/join/action&#34;,
- *                         &#34;Microsoft.Network/virtualNetworks/subnets/join/action&#34;,
- *                         &#34;Microsoft.Network/virtualNetworks/read&#34;,
- *                         &#34;Microsoft.Network/publicIPAddresses/read&#34;)
+ *                         "Microsoft.Network/publicIPAddresses/join/action",
+ *                         "Microsoft.Network/virtualNetworks/subnets/join/action",
+ *                         "Microsoft.Network/virtualNetworks/read",
+ *                         "Microsoft.Network/publicIPAddresses/read")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleContactProfile = new ContactProfile(&#34;exampleContactProfile&#34;, ContactProfileArgs.builder()        
- *             .name(&#34;example-contact-profile&#34;)
+ *         var exampleContactProfile = new ContactProfile("exampleContactProfile", ContactProfileArgs.builder()        
+ *             .name("example-contact-profile")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .minimumVariableContactDuration(&#34;PT1M&#34;)
- *             .autoTracking(&#34;disabled&#34;)
+ *             .minimumVariableContactDuration("PT1M")
+ *             .autoTracking("disabled")
  *             .links(ContactProfileLinkArgs.builder()
  *                 .channels(ContactProfileLinkChannelArgs.builder()
- *                     .name(&#34;channelname&#34;)
+ *                     .name("channelname")
  *                     .bandwidthMhz(100)
  *                     .centerFrequencyMhz(101)
  *                     .endPoints(ContactProfileLinkChannelEndPointArgs.builder()
- *                         .endPointName(&#34;AQUA_command&#34;)
- *                         .ipAddress(&#34;10.0.1.0&#34;)
- *                         .port(&#34;49513&#34;)
- *                         .protocol(&#34;TCP&#34;)
+ *                         .endPointName("AQUA_command")
+ *                         .ipAddress("10.0.1.0")
+ *                         .port("49513")
+ *                         .protocol("TCP")
  *                         .build())
  *                     .build())
- *                 .direction(&#34;Uplink&#34;)
- *                 .name(&#34;RHCP_UL&#34;)
- *                 .polarization(&#34;RHCP&#34;)
+ *                 .direction("Uplink")
+ *                 .name("RHCP_UL")
+ *                 .polarization("RHCP")
  *                 .build())
  *             .networkConfigurationSubnetId(exampleSubnet.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

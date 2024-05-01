@@ -20,7 +20,7 @@ public final class SearchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -43,19 +43,19 @@ public final class SearchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *             .name("example-resources")
+     *             .location("West Europe")
      *             .build());
      * 
      *         final var example = SearchFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example-search-service&#34;)
+     *             .name("example-search-service")
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -68,7 +68,7 @@ public final class SearchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -91,19 +91,19 @@ public final class SearchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *             .name("example-resources")
+     *             .location("West Europe")
      *             .build());
      * 
      *         final var example = SearchFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example-search-service&#34;)
+     *             .name("example-search-service")
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -116,7 +116,7 @@ public final class SearchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -139,19 +139,19 @@ public final class SearchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *             .name("example-resources")
+     *             .location("West Europe")
      *             .build());
      * 
      *         final var example = SearchFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example-search-service&#34;)
+     *             .name("example-search-service")
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -164,7 +164,7 @@ public final class SearchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -187,19 +187,19 @@ public final class SearchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *             .name("example-resources")
+     *             .location("West Europe")
      *             .build());
      * 
      *         final var example = SearchFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example-search-service&#34;)
+     *             .name("example-search-service")
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

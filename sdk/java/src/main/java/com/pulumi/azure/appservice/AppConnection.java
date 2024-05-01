@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -60,19 +60,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;example-cosmosdb-account&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("example-cosmosdb-account")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .offerType(&#34;Standard&#34;)
- *             .kind(&#34;GlobalDocumentDB&#34;)
+ *             .offerType("Standard")
+ *             .kind("GlobalDocumentDB")
  *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
- *                 .consistencyLevel(&#34;BoundedStaleness&#34;)
+ *                 .consistencyLevel("BoundedStaleness")
  *                 .maxIntervalInSeconds(10)
  *                 .maxStalenessPrefix(200)
  *                 .build())
@@ -82,39 +82,39 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleSqlDatabase = new SqlDatabase(&#34;exampleSqlDatabase&#34;, SqlDatabaseArgs.builder()        
- *             .name(&#34;cosmos-sql-db&#34;)
+ *         var exampleSqlDatabase = new SqlDatabase("exampleSqlDatabase", SqlDatabaseArgs.builder()        
+ *             .name("cosmos-sql-db")
  *             .resourceGroupName(exampleAccount.resourceGroupName())
  *             .accountName(exampleAccount.name())
  *             .throughput(400)
  *             .build());
  * 
- *         var exampleSqlContainer = new SqlContainer(&#34;exampleSqlContainer&#34;, SqlContainerArgs.builder()        
- *             .name(&#34;example-container&#34;)
+ *         var exampleSqlContainer = new SqlContainer("exampleSqlContainer", SqlContainerArgs.builder()        
+ *             .name("example-container")
  *             .resourceGroupName(exampleAccount.resourceGroupName())
  *             .accountName(exampleAccount.name())
  *             .databaseName(exampleSqlDatabase.name())
- *             .partitionKeyPath(&#34;/definition&#34;)
+ *             .partitionKeyPath("/definition")
  *             .build());
  * 
- *         var exampleAccount2 = new Account(&#34;exampleAccount2&#34;, AccountArgs.builder()        
- *             .name(&#34;examplestorageaccount&#34;)
+ *         var exampleAccount2 = new Account("exampleAccount2", AccountArgs.builder()        
+ *             .name("examplestorageaccount")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleServicePlan = new ServicePlan(&#34;exampleServicePlan&#34;, ServicePlanArgs.builder()        
+ *         var exampleServicePlan = new ServicePlan("exampleServicePlan", ServicePlanArgs.builder()        
  *             .location(example.location())
- *             .name(&#34;example-serviceplan&#34;)
+ *             .name("example-serviceplan")
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;P1v2&#34;)
- *             .osType(&#34;Linux&#34;)
+ *             .skuName("P1v2")
+ *             .osType("Linux")
  *             .build());
  * 
- *         var test = new FunctionApp(&#34;test&#34;, FunctionAppArgs.builder()        
- *             .name(&#34;example-function-app&#34;)
+ *         var test = new FunctionApp("test", FunctionAppArgs.builder()        
+ *             .name("example-function-app")
  *             .location(testAzurermResourceGroup.location())
  *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .appServicePlanId(testAzurermAppServicePlan.id())
@@ -122,18 +122,18 @@ import javax.annotation.Nullable;
  *             .storageAccountAccessKey(testAzurermStorageAccount.primaryAccessKey())
  *             .build());
  * 
- *         var exampleAppConnection = new AppConnection(&#34;exampleAppConnection&#34;, AppConnectionArgs.builder()        
- *             .name(&#34;example-serviceconnector&#34;)
+ *         var exampleAppConnection = new AppConnection("exampleAppConnection", AppConnectionArgs.builder()        
+ *             .name("example-serviceconnector")
  *             .functionAppId(exampleAzurermFunctionApp.id())
  *             .targetResourceId(testAzurermCosmosdbAccount.id())
  *             .authentication(AppConnectionAuthenticationArgs.builder()
- *                 .type(&#34;systemAssignedIdentity&#34;)
+ *                 .type("systemAssignedIdentity")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -36,7 +36,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -70,37 +70,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;hdinsightstor&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("hdinsightstor")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleContainer = new Container(&#34;exampleContainer&#34;, ContainerArgs.builder()        
- *             .name(&#34;hdinsight&#34;)
+ *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()        
+ *             .name("hdinsight")
  *             .storageAccountName(exampleAccount.name())
- *             .containerAccessType(&#34;private&#34;)
+ *             .containerAccessType("private")
  *             .build());
  * 
- *         var exampleSparkCluster = new SparkCluster(&#34;exampleSparkCluster&#34;, SparkClusterArgs.builder()        
- *             .name(&#34;example-hdicluster&#34;)
+ *         var exampleSparkCluster = new SparkCluster("exampleSparkCluster", SparkClusterArgs.builder()        
+ *             .name("example-hdicluster")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .clusterVersion(&#34;3.6&#34;)
- *             .tier(&#34;Standard&#34;)
+ *             .clusterVersion("3.6")
+ *             .tier("Standard")
  *             .componentVersion(SparkClusterComponentVersionArgs.builder()
- *                 .spark(&#34;2.3&#34;)
+ *                 .spark("2.3")
  *                 .build())
  *             .gateway(SparkClusterGatewayArgs.builder()
- *                 .username(&#34;acctestusrgw&#34;)
- *                 .password(&#34;Password123!&#34;)
+ *                 .username("acctestusrgw")
+ *                 .password("Password123!")
  *                 .build())
  *             .storageAccounts(SparkClusterStorageAccountArgs.builder()
  *                 .storageContainerId(exampleContainer.id())
@@ -109,27 +109,27 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .roles(SparkClusterRolesArgs.builder()
  *                 .headNode(SparkClusterRolesHeadNodeArgs.builder()
- *                     .vmSize(&#34;Standard_A3&#34;)
- *                     .username(&#34;acctestusrvm&#34;)
- *                     .password(&#34;AccTestvdSC4daf986!&#34;)
+ *                     .vmSize("Standard_A3")
+ *                     .username("acctestusrvm")
+ *                     .password("AccTestvdSC4daf986!")
  *                     .build())
  *                 .workerNode(SparkClusterRolesWorkerNodeArgs.builder()
- *                     .vmSize(&#34;Standard_A3&#34;)
- *                     .username(&#34;acctestusrvm&#34;)
- *                     .password(&#34;AccTestvdSC4daf986!&#34;)
+ *                     .vmSize("Standard_A3")
+ *                     .username("acctestusrvm")
+ *                     .password("AccTestvdSC4daf986!")
  *                     .targetInstanceCount(3)
  *                     .build())
  *                 .zookeeperNode(SparkClusterRolesZookeeperNodeArgs.builder()
- *                     .vmSize(&#34;Medium&#34;)
- *                     .username(&#34;acctestusrvm&#34;)
- *                     .password(&#34;AccTestvdSC4daf986!&#34;)
+ *                     .vmSize("Medium")
+ *                     .username("acctestusrvm")
+ *                     .password("AccTestvdSC4daf986!")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,45 +51,45 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;terraform-webpubsub&#34;)
- *             .location(&#34;east us&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("terraform-webpubsub")
+ *             .location("east us")
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;examplekeyvault&#34;)
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("examplekeyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .skuName(&#34;standard&#34;)
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .skuName("standard")
  *             .softDeleteRetentionDays(7)
  *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
- *                 .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *                 .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
- *                 .certificatePermissions(&#34;managecontacts&#34;)
- *                 .keyPermissions(&#34;create&#34;)
- *                 .secretPermissions(&#34;set&#34;)
+ *                 .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *                 .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *                 .certificatePermissions("managecontacts")
+ *                 .keyPermissions("create")
+ *                 .secretPermissions("set")
  *                 .build())
  *             .build());
  * 
- *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .name(&#34;tfex-webpubsub&#34;)
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *             .name("tfex-webpubsub")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;Standard_S1&#34;)
+ *             .sku("Standard_S1")
  *             .capacity(1)
  *             .build());
  * 
- *         var exampleSharedPrivateLinkResource = new SharedPrivateLinkResource(&#34;exampleSharedPrivateLinkResource&#34;, SharedPrivateLinkResourceArgs.builder()        
- *             .name(&#34;tfex-webpubsub-splr&#34;)
+ *         var exampleSharedPrivateLinkResource = new SharedPrivateLinkResource("exampleSharedPrivateLinkResource", SharedPrivateLinkResourceArgs.builder()        
+ *             .name("tfex-webpubsub-splr")
  *             .webPubsubId(exampleService.id())
- *             .subresourceName(&#34;vault&#34;)
+ *             .subresourceName("vault")
  *             .targetResourceId(exampleKeyVault.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,20 +43,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = CoreFunctions.getTemplateSpecVersion(GetTemplateSpecVersionArgs.builder()
- *             .name(&#34;myTemplateForTenant&#34;)
- *             .resourceGroupName(&#34;myResourceGroup&#34;)
- *             .version(&#34;v0.1&#34;)
+ *             .name("myTemplateForTenant")
+ *             .resourceGroupName("myResourceGroup")
+ *             .version("v0.1")
  *             .build());
  * 
- *         var exampleTenantTemplateDeployment = new TenantTemplateDeployment(&#34;exampleTenantTemplateDeployment&#34;, TenantTemplateDeploymentArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;West Europe&#34;)
- *             .templateSpecVersionId(example.applyValue(getTemplateSpecVersionResult -&gt; getTemplateSpecVersionResult.id()))
+ *         var exampleTenantTemplateDeployment = new TenantTemplateDeployment("exampleTenantTemplateDeployment", TenantTemplateDeploymentArgs.builder()        
+ *             .name("example")
+ *             .location("West Europe")
+ *             .templateSpecVersionId(example.applyValue(getTemplateSpecVersionResult -> getTemplateSpecVersionResult.id()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

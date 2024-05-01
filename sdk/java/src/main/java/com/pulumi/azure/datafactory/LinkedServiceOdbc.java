@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,36 +51,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFactory = new Factory(&#34;exampleFactory&#34;, FactoryArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var anonymous = new LinkedServiceOdbc(&#34;anonymous&#34;, LinkedServiceOdbcArgs.builder()        
- *             .name(&#34;anonymous&#34;)
+ *         var anonymous = new LinkedServiceOdbc("anonymous", LinkedServiceOdbcArgs.builder()        
+ *             .name("anonymous")
  *             .dataFactoryId(exampleFactory.id())
- *             .connectionString(&#34;Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;&#34;)
+ *             .connectionString("Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;")
  *             .build());
  * 
- *         var basicAuth = new LinkedServiceOdbc(&#34;basicAuth&#34;, LinkedServiceOdbcArgs.builder()        
- *             .name(&#34;basic_auth&#34;)
+ *         var basicAuth = new LinkedServiceOdbc("basicAuth", LinkedServiceOdbcArgs.builder()        
+ *             .name("basic_auth")
  *             .dataFactoryId(exampleFactory.id())
- *             .connectionString(&#34;Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;&#34;)
+ *             .connectionString("Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;")
  *             .basicAuthentication(LinkedServiceOdbcBasicAuthenticationArgs.builder()
- *                 .username(&#34;onrylmz&#34;)
- *                 .password(&#34;Ch4ngeM3!&#34;)
+ *                 .username("onrylmz")
+ *                 .password("Ch4ngeM3!")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

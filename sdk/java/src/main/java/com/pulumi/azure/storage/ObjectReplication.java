@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,53 +50,53 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var src = new ResourceGroup(&#34;src&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;srcResourceGroupName&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var src = new ResourceGroup("src", ResourceGroupArgs.builder()        
+ *             .name("srcResourceGroupName")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var srcAccount = new Account(&#34;srcAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;srcstorageaccount&#34;)
+ *         var srcAccount = new Account("srcAccount", AccountArgs.builder()        
+ *             .name("srcstorageaccount")
  *             .resourceGroupName(src.name())
  *             .location(src.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .blobProperties(AccountBlobPropertiesArgs.builder()
  *                 .versioningEnabled(true)
  *                 .changeFeedEnabled(true)
  *                 .build())
  *             .build());
  * 
- *         var srcContainer = new Container(&#34;srcContainer&#34;, ContainerArgs.builder()        
- *             .name(&#34;srcstrcontainer&#34;)
+ *         var srcContainer = new Container("srcContainer", ContainerArgs.builder()        
+ *             .name("srcstrcontainer")
  *             .storageAccountName(srcAccount.name())
- *             .containerAccessType(&#34;private&#34;)
+ *             .containerAccessType("private")
  *             .build());
  * 
- *         var dst = new ResourceGroup(&#34;dst&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;dstResourceGroupName&#34;)
- *             .location(&#34;East US&#34;)
+ *         var dst = new ResourceGroup("dst", ResourceGroupArgs.builder()        
+ *             .name("dstResourceGroupName")
+ *             .location("East US")
  *             .build());
  * 
- *         var dstAccount = new Account(&#34;dstAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;dststorageaccount&#34;)
+ *         var dstAccount = new Account("dstAccount", AccountArgs.builder()        
+ *             .name("dststorageaccount")
  *             .resourceGroupName(dst.name())
  *             .location(dst.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .blobProperties(AccountBlobPropertiesArgs.builder()
  *                 .versioningEnabled(true)
  *                 .changeFeedEnabled(true)
  *                 .build())
  *             .build());
  * 
- *         var dstContainer = new Container(&#34;dstContainer&#34;, ContainerArgs.builder()        
- *             .name(&#34;dststrcontainer&#34;)
+ *         var dstContainer = new Container("dstContainer", ContainerArgs.builder()        
+ *             .name("dststrcontainer")
  *             .storageAccountName(dstAccount.name())
- *             .containerAccessType(&#34;private&#34;)
+ *             .containerAccessType("private")
  *             .build());
  * 
- *         var example = new ObjectReplication(&#34;example&#34;, ObjectReplicationArgs.builder()        
+ *         var example = new ObjectReplication("example", ObjectReplicationArgs.builder()        
  *             .sourceStorageAccountId(srcAccount.id())
  *             .destinationStorageAccountId(dstAccount.id())
  *             .rules(ObjectReplicationRuleArgs.builder()
@@ -107,7 +107,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

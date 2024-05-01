@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * ### Using A Built-In Role)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,21 +50,21 @@ import javax.annotation.Nullable;
  * 
  *         final var example = CoreFunctions.getClientConfig();
  * 
- *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
- *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
- *             .roleDefinitionName(&#34;Reader&#34;)
- *             .principalId(example.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()        
+ *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *             .roleDefinitionName("Reader")
+ *             .principalId(example.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Custom Role &amp; Service Principal)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -94,33 +94,33 @@ import javax.annotation.Nullable;
  * 
  *         final var example = CoreFunctions.getClientConfig();
  * 
- *         var exampleRoleDefinition = new RoleDefinition(&#34;exampleRoleDefinition&#34;, RoleDefinitionArgs.builder()        
- *             .roleDefinitionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .name(&#34;my-custom-role-definition&#34;)
- *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+ *         var exampleRoleDefinition = new RoleDefinition("exampleRoleDefinition", RoleDefinitionArgs.builder()        
+ *             .roleDefinitionId("00000000-0000-0000-0000-000000000000")
+ *             .name("my-custom-role-definition")
+ *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *             .permissions(RoleDefinitionPermissionArgs.builder()
- *                 .actions(&#34;Microsoft.Resources/subscriptions/resourceGroups/read&#34;)
+ *                 .actions("Microsoft.Resources/subscriptions/resourceGroups/read")
  *                 .notActions()
  *                 .build())
- *             .assignableScopes(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+ *             .assignableScopes(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *             .build());
  * 
- *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
- *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()        
+ *             .name("00000000-0000-0000-0000-000000000000")
+ *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *             .roleDefinitionId(exampleRoleDefinition.roleDefinitionResourceId())
- *             .principalId(example.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .principalId(example.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Custom Role &amp; User)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -150,33 +150,33 @@ import javax.annotation.Nullable;
  * 
  *         final var example = CoreFunctions.getClientConfig();
  * 
- *         var exampleRoleDefinition = new RoleDefinition(&#34;exampleRoleDefinition&#34;, RoleDefinitionArgs.builder()        
- *             .roleDefinitionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .name(&#34;my-custom-role-definition&#34;)
- *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+ *         var exampleRoleDefinition = new RoleDefinition("exampleRoleDefinition", RoleDefinitionArgs.builder()        
+ *             .roleDefinitionId("00000000-0000-0000-0000-000000000000")
+ *             .name("my-custom-role-definition")
+ *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *             .permissions(RoleDefinitionPermissionArgs.builder()
- *                 .actions(&#34;Microsoft.Resources/subscriptions/resourceGroups/read&#34;)
+ *                 .actions("Microsoft.Resources/subscriptions/resourceGroups/read")
  *                 .notActions()
  *                 .build())
- *             .assignableScopes(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+ *             .assignableScopes(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *             .build());
  * 
- *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
- *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()        
+ *             .name("00000000-0000-0000-0000-000000000000")
+ *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *             .roleDefinitionId(exampleRoleDefinition.roleDefinitionResourceId())
- *             .principalId(example.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .principalId(example.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Custom Role &amp; Management Group)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -209,36 +209,36 @@ import javax.annotation.Nullable;
  *         final var example = CoreFunctions.getClientConfig();
  * 
  *         final var exampleGetGroup = ManagementFunctions.getGroup(GetGroupArgs.builder()
- *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
+ *             .name("00000000-0000-0000-0000-000000000000")
  *             .build());
  * 
- *         var exampleRoleDefinition = new RoleDefinition(&#34;exampleRoleDefinition&#34;, RoleDefinitionArgs.builder()        
- *             .roleDefinitionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .name(&#34;my-custom-role-definition&#34;)
- *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+ *         var exampleRoleDefinition = new RoleDefinition("exampleRoleDefinition", RoleDefinitionArgs.builder()        
+ *             .roleDefinitionId("00000000-0000-0000-0000-000000000000")
+ *             .name("my-custom-role-definition")
+ *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *             .permissions(RoleDefinitionPermissionArgs.builder()
- *                 .actions(&#34;Microsoft.Resources/subscriptions/resourceGroups/read&#34;)
+ *                 .actions("Microsoft.Resources/subscriptions/resourceGroups/read")
  *                 .notActions()
  *                 .build())
- *             .assignableScopes(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+ *             .assignableScopes(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *             .build());
  * 
- *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
- *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()        
+ *             .name("00000000-0000-0000-0000-000000000000")
  *             .scope(primaryAzurermManagementGroup.id())
  *             .roleDefinitionId(exampleRoleDefinition.roleDefinitionResourceId())
- *             .principalId(example.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .principalId(example.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### ABAC Condition)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -268,20 +268,20 @@ import javax.annotation.Nullable;
  *         final var example = CoreFunctions.getClientConfig();
  * 
  *         final var builtin = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
- *             .name(&#34;Reader&#34;)
+ *             .name("Reader")
  *             .build());
  * 
- *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
- *             .roleDefinitionName(&#34;Role Based Access Control Administrator&#34;)
- *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
- *             .principalId(example.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
- *             .principalType(&#34;ServicePrincipal&#34;)
- *             .description(&#34;Role Based Access Control Administrator role assignment with ABAC Condition.&#34;)
- *             .conditionVersion(&#34;2.0&#34;)
- *             .condition(&#34;&#34;&#34;
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()        
+ *             .roleDefinitionName("Role Based Access Control Administrator")
+ *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *             .principalId(example.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *             .principalType("ServicePrincipal")
+ *             .description("Role Based Access Control Administrator role assignment with ABAC Condition.")
+ *             .conditionVersion("2.0")
+ *             .condition("""
  * (
  *  (
- *   !(ActionMatches{&#39;Microsoft.Authorization/roleAssignments/write&#39;})
+ *   !(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})
  *  )
  *  OR
  *  (
@@ -291,23 +291,23 @@ import javax.annotation.Nullable;
  * AND
  * (
  *  (
- *   !(ActionMatches{&#39;Microsoft.Authorization/roleAssignments/delete&#39;})
+ *   !(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})
  *  )
  *  OR
  *  (
  *   @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {%s}
  *  )
  * )
- * &#34;, StdFunctions.basename(BasenameArgs.builder()
- *                 .input(builtin.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult.roleDefinitionId()))
+ * ", StdFunctions.basename(BasenameArgs.builder()
+ *                 .input(builtin.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.roleDefinitionId()))
  *                 .build()).result(),StdFunctions.basename(BasenameArgs.builder()
- *                 .input(builtin.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult.roleDefinitionId()))
+ *                 .input(builtin.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.roleDefinitionId()))
  *                 .build()).result()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

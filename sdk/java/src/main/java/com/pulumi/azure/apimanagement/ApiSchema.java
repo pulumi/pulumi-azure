@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,26 +44,26 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = ApimanagementFunctions.getApi(GetApiArgs.builder()
- *             .name(&#34;search-api&#34;)
- *             .apiManagementName(&#34;search-api-management&#34;)
- *             .resourceGroupName(&#34;search-service&#34;)
- *             .revision(&#34;2&#34;)
+ *             .name("search-api")
+ *             .apiManagementName("search-api-management")
+ *             .resourceGroupName("search-service")
+ *             .revision("2")
  *             .build());
  * 
- *         var exampleApiSchema = new ApiSchema(&#34;exampleApiSchema&#34;, ApiSchemaArgs.builder()        
- *             .apiName(example.applyValue(getApiResult -&gt; getApiResult.name()))
- *             .apiManagementName(example.applyValue(getApiResult -&gt; getApiResult.apiManagementName()))
- *             .resourceGroupName(example.applyValue(getApiResult -&gt; getApiResult.resourceGroupName()))
- *             .schemaId(&#34;example-schema&#34;)
- *             .contentType(&#34;application/vnd.ms-azure-apim.xsd+xml&#34;)
+ *         var exampleApiSchema = new ApiSchema("exampleApiSchema", ApiSchemaArgs.builder()        
+ *             .apiName(example.applyValue(getApiResult -> getApiResult.name()))
+ *             .apiManagementName(example.applyValue(getApiResult -> getApiResult.apiManagementName()))
+ *             .resourceGroupName(example.applyValue(getApiResult -> getApiResult.resourceGroupName()))
+ *             .schemaId("example-schema")
+ *             .contentType("application/vnd.ms-azure-apim.xsd+xml")
  *             .value(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;api_management_api_schema.xml&#34;)
+ *                 .input("api_management_api_schema.xml")
  *                 .build()).result())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

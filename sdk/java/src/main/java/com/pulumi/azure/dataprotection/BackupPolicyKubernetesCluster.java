@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,48 +51,48 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleBackupVault = new BackupVault(&#34;exampleBackupVault&#34;, BackupVaultArgs.builder()        
- *             .name(&#34;example-backup-vault&#34;)
+ *         var exampleBackupVault = new BackupVault("exampleBackupVault", BackupVaultArgs.builder()        
+ *             .name("example-backup-vault")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .datastoreType(&#34;VaultStore&#34;)
- *             .redundancy(&#34;LocallyRedundant&#34;)
+ *             .datastoreType("VaultStore")
+ *             .redundancy("LocallyRedundant")
  *             .build());
  * 
- *         var exampleBackupPolicyKubernetesCluster = new BackupPolicyKubernetesCluster(&#34;exampleBackupPolicyKubernetesCluster&#34;, BackupPolicyKubernetesClusterArgs.builder()        
- *             .name(&#34;example-backup-policy&#34;)
+ *         var exampleBackupPolicyKubernetesCluster = new BackupPolicyKubernetesCluster("exampleBackupPolicyKubernetesCluster", BackupPolicyKubernetesClusterArgs.builder()        
+ *             .name("example-backup-policy")
  *             .resourceGroupName(example.name())
  *             .vaultName(exampleBackupVault.name())
- *             .backupRepeatingTimeIntervals(&#34;R/2021-05-23T02:30:00+00:00/P1W&#34;)
- *             .timeZone(&#34;India Standard Time&#34;)
- *             .defaultRetentionDuration(&#34;P4M&#34;)
+ *             .backupRepeatingTimeIntervals("R/2021-05-23T02:30:00+00:00/P1W")
+ *             .timeZone("India Standard Time")
+ *             .defaultRetentionDuration("P4M")
  *             .retentionRules(BackupPolicyKubernetesClusterRetentionRuleArgs.builder()
- *                 .name(&#34;Daily&#34;)
+ *                 .name("Daily")
  *                 .priority(25)
  *                 .lifeCycles(BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs.builder()
- *                     .duration(&#34;P84D&#34;)
- *                     .dataStoreType(&#34;OperationalStore&#34;)
+ *                     .duration("P84D")
+ *                     .dataStoreType("OperationalStore")
  *                     .build())
  *                 .criteria(BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs.builder()
- *                     .absoluteCriteria(&#34;FirstOfDay&#34;)
+ *                     .absoluteCriteria("FirstOfDay")
  *                     .build())
  *                 .build())
  *             .defaultRetentionRule(BackupPolicyKubernetesClusterDefaultRetentionRuleArgs.builder()
  *                 .lifeCycles(BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs.builder()
- *                     .duration(&#34;P7D&#34;)
- *                     .dataStoreType(&#34;OperationalStore&#34;)
+ *                     .duration("P7D")
+ *                     .dataStoreType("OperationalStore")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

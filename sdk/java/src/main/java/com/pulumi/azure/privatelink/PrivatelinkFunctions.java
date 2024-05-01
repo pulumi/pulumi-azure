@@ -26,7 +26,7 @@ public final class PrivatelinkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -48,14 +48,14 @@ public final class PrivatelinkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatelinkFunctions.getEndpointConnection(GetEndpointConnectionArgs.builder()
-     *             .name(&#34;example-private-endpoint&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-private-endpoint")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;privateEndpointStatus&#34;, example.applyValue(getEndpointConnectionResult -&gt; getEndpointConnectionResult.privateServiceConnections()[0].status()));
+     *         ctx.export("privateEndpointStatus", example.applyValue(getEndpointConnectionResult -> getEndpointConnectionResult.privateServiceConnections()[0].status()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -68,7 +68,7 @@ public final class PrivatelinkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -90,14 +90,14 @@ public final class PrivatelinkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatelinkFunctions.getEndpointConnection(GetEndpointConnectionArgs.builder()
-     *             .name(&#34;example-private-endpoint&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-private-endpoint")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;privateEndpointStatus&#34;, example.applyValue(getEndpointConnectionResult -&gt; getEndpointConnectionResult.privateServiceConnections()[0].status()));
+     *         ctx.export("privateEndpointStatus", example.applyValue(getEndpointConnectionResult -> getEndpointConnectionResult.privateServiceConnections()[0].status()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -110,7 +110,7 @@ public final class PrivatelinkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -132,14 +132,14 @@ public final class PrivatelinkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatelinkFunctions.getEndpointConnection(GetEndpointConnectionArgs.builder()
-     *             .name(&#34;example-private-endpoint&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-private-endpoint")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;privateEndpointStatus&#34;, example.applyValue(getEndpointConnectionResult -&gt; getEndpointConnectionResult.privateServiceConnections()[0].status()));
+     *         ctx.export("privateEndpointStatus", example.applyValue(getEndpointConnectionResult -> getEndpointConnectionResult.privateServiceConnections()[0].status()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -152,7 +152,7 @@ public final class PrivatelinkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -174,14 +174,14 @@ public final class PrivatelinkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatelinkFunctions.getEndpointConnection(GetEndpointConnectionArgs.builder()
-     *             .name(&#34;example-private-endpoint&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-private-endpoint")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;privateEndpointStatus&#34;, example.applyValue(getEndpointConnectionResult -&gt; getEndpointConnectionResult.privateServiceConnections()[0].status()));
+     *         ctx.export("privateEndpointStatus", example.applyValue(getEndpointConnectionResult -> getEndpointConnectionResult.privateServiceConnections()[0].status()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -194,7 +194,7 @@ public final class PrivatelinkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -216,14 +216,14 @@ public final class PrivatelinkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatelinkFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;myPrivateLinkService&#34;)
-     *             .resourceGroupName(&#34;PrivateLinkServiceRG&#34;)
+     *             .name("myPrivateLinkService")
+     *             .resourceGroupName("PrivateLinkServiceRG")
      *             .build());
      * 
-     *         ctx.export(&#34;privateLinkServiceId&#34;, example.applyValue(getServiceResult -&gt; getServiceResult.id()));
+     *         ctx.export("privateLinkServiceId", example.applyValue(getServiceResult -> getServiceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -236,7 +236,7 @@ public final class PrivatelinkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -258,14 +258,14 @@ public final class PrivatelinkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatelinkFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;myPrivateLinkService&#34;)
-     *             .resourceGroupName(&#34;PrivateLinkServiceRG&#34;)
+     *             .name("myPrivateLinkService")
+     *             .resourceGroupName("PrivateLinkServiceRG")
      *             .build());
      * 
-     *         ctx.export(&#34;privateLinkServiceId&#34;, example.applyValue(getServiceResult -&gt; getServiceResult.id()));
+     *         ctx.export("privateLinkServiceId", example.applyValue(getServiceResult -> getServiceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -278,7 +278,7 @@ public final class PrivatelinkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -300,14 +300,14 @@ public final class PrivatelinkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatelinkFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;myPrivateLinkService&#34;)
-     *             .resourceGroupName(&#34;PrivateLinkServiceRG&#34;)
+     *             .name("myPrivateLinkService")
+     *             .resourceGroupName("PrivateLinkServiceRG")
      *             .build());
      * 
-     *         ctx.export(&#34;privateLinkServiceId&#34;, example.applyValue(getServiceResult -&gt; getServiceResult.id()));
+     *         ctx.export("privateLinkServiceId", example.applyValue(getServiceResult -> getServiceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -320,7 +320,7 @@ public final class PrivatelinkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -342,14 +342,14 @@ public final class PrivatelinkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatelinkFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;myPrivateLinkService&#34;)
-     *             .resourceGroupName(&#34;PrivateLinkServiceRG&#34;)
+     *             .name("myPrivateLinkService")
+     *             .resourceGroupName("PrivateLinkServiceRG")
      *             .build());
      * 
-     *         ctx.export(&#34;privateLinkServiceId&#34;, example.applyValue(getServiceResult -&gt; getServiceResult.id()));
+     *         ctx.export("privateLinkServiceId", example.applyValue(getServiceResult -> getServiceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -362,7 +362,7 @@ public final class PrivatelinkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -388,10 +388,10 @@ public final class PrivatelinkFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export(&#34;privateEndpointStatus&#34;, example.applyValue(getServiceEndpointConnectionsResult -&gt; getServiceEndpointConnectionsResult.privateEndpointConnections()[0].status()));
+     *         ctx.export("privateEndpointStatus", example.applyValue(getServiceEndpointConnectionsResult -> getServiceEndpointConnectionsResult.privateEndpointConnections()[0].status()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -404,7 +404,7 @@ public final class PrivatelinkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -430,10 +430,10 @@ public final class PrivatelinkFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export(&#34;privateEndpointStatus&#34;, example.applyValue(getServiceEndpointConnectionsResult -&gt; getServiceEndpointConnectionsResult.privateEndpointConnections()[0].status()));
+     *         ctx.export("privateEndpointStatus", example.applyValue(getServiceEndpointConnectionsResult -> getServiceEndpointConnectionsResult.privateEndpointConnections()[0].status()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -446,7 +446,7 @@ public final class PrivatelinkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -472,10 +472,10 @@ public final class PrivatelinkFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export(&#34;privateEndpointStatus&#34;, example.applyValue(getServiceEndpointConnectionsResult -&gt; getServiceEndpointConnectionsResult.privateEndpointConnections()[0].status()));
+     *         ctx.export("privateEndpointStatus", example.applyValue(getServiceEndpointConnectionsResult -> getServiceEndpointConnectionsResult.privateEndpointConnections()[0].status()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -488,7 +488,7 @@ public final class PrivatelinkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -514,10 +514,10 @@ public final class PrivatelinkFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export(&#34;privateEndpointStatus&#34;, example.applyValue(getServiceEndpointConnectionsResult -&gt; getServiceEndpointConnectionsResult.privateEndpointConnections()[0].status()));
+     *         ctx.export("privateEndpointStatus", example.applyValue(getServiceEndpointConnectionsResult -> getServiceEndpointConnectionsResult.privateEndpointConnections()[0].status()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

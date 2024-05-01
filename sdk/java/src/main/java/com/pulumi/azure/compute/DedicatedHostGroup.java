@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,13 +46,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-rg-compute&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-rg-compute")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleDedicatedHostGroup = new DedicatedHostGroup(&#34;exampleDedicatedHostGroup&#34;, DedicatedHostGroupArgs.builder()        
- *             .name(&#34;example-dedicated-host-group&#34;)
+ *         var exampleDedicatedHostGroup = new DedicatedHostGroup("exampleDedicatedHostGroup", DedicatedHostGroupArgs.builder()        
+ *             .name("example-dedicated-host-group")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .platformFaultDomainCount(1)
@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,50 +53,50 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAlertProcessingRuleSuppression = new AlertProcessingRuleSuppression(&#34;exampleAlertProcessingRuleSuppression&#34;, AlertProcessingRuleSuppressionArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .resourceGroupName(&#34;example&#34;)
+ *         var exampleAlertProcessingRuleSuppression = new AlertProcessingRuleSuppression("exampleAlertProcessingRuleSuppression", AlertProcessingRuleSuppressionArgs.builder()        
+ *             .name("example")
+ *             .resourceGroupName("example")
  *             .scopes(example.id())
  *             .condition(AlertProcessingRuleSuppressionConditionArgs.builder()
  *                 .targetResourceType(AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs.builder()
- *                     .operator(&#34;Equals&#34;)
- *                     .values(&#34;Microsoft.Compute/VirtualMachines&#34;)
+ *                     .operator("Equals")
+ *                     .values("Microsoft.Compute/VirtualMachines")
  *                     .build())
  *                 .severity(AlertProcessingRuleSuppressionConditionSeverityArgs.builder()
- *                     .operator(&#34;Equals&#34;)
+ *                     .operator("Equals")
  *                     .values(                    
- *                         &#34;Sev0&#34;,
- *                         &#34;Sev1&#34;,
- *                         &#34;Sev2&#34;)
+ *                         "Sev0",
+ *                         "Sev1",
+ *                         "Sev2")
  *                     .build())
  *                 .build())
  *             .schedule(AlertProcessingRuleSuppressionScheduleArgs.builder()
- *                 .effectiveFrom(&#34;2022-01-01T01:02:03&#34;)
- *                 .effectiveUntil(&#34;2022-02-02T01:02:03&#34;)
- *                 .timeZone(&#34;Pacific Standard Time&#34;)
+ *                 .effectiveFrom("2022-01-01T01:02:03")
+ *                 .effectiveUntil("2022-02-02T01:02:03")
+ *                 .timeZone("Pacific Standard Time")
  *                 .recurrence(AlertProcessingRuleSuppressionScheduleRecurrenceArgs.builder()
  *                     .dailies(AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs.builder()
- *                         .startTime(&#34;17:00:00&#34;)
- *                         .endTime(&#34;09:00:00&#34;)
+ *                         .startTime("17:00:00")
+ *                         .endTime("09:00:00")
  *                         .build())
  *                     .weeklies(AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs.builder()
  *                         .daysOfWeeks(                        
- *                             &#34;Saturday&#34;,
- *                             &#34;Sunday&#34;)
+ *                             "Saturday",
+ *                             "Sunday")
  *                         .build())
  *                     .build())
  *                 .build())
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

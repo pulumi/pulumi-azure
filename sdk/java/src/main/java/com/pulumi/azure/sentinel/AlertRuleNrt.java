@@ -28,7 +28,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,38 +55,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
- *             .name(&#34;example-workspace&#34;)
+ *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()        
+ *             .name("example-workspace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;pergb2018&#34;)
+ *             .sku("pergb2018")
  *             .build());
  * 
- *         var exampleLogAnalyticsWorkspaceOnboarding = new LogAnalyticsWorkspaceOnboarding(&#34;exampleLogAnalyticsWorkspaceOnboarding&#34;, LogAnalyticsWorkspaceOnboardingArgs.builder()        
+ *         var exampleLogAnalyticsWorkspaceOnboarding = new LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", LogAnalyticsWorkspaceOnboardingArgs.builder()        
  *             .workspaceId(exampleAnalyticsWorkspace.id())
  *             .build());
  * 
- *         var exampleAlertRuleNrt = new AlertRuleNrt(&#34;exampleAlertRuleNrt&#34;, AlertRuleNrtArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleAlertRuleNrt = new AlertRuleNrt("exampleAlertRuleNrt", AlertRuleNrtArgs.builder()        
+ *             .name("example")
  *             .logAnalyticsWorkspaceId(exampleLogAnalyticsWorkspaceOnboarding.workspaceId())
- *             .displayName(&#34;example&#34;)
- *             .severity(&#34;High&#34;)
- *             .query(&#34;&#34;&#34;
+ *             .displayName("example")
+ *             .severity("High")
+ *             .query("""
  * AzureActivity |
- *   where OperationName == &#34;Create or Update Virtual Machine&#34; or OperationName ==&#34;Create Deployment&#34; |
- *   where ActivityStatus == &#34;Succeeded&#34; |
+ *   where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment" |
+ *   where ActivityStatus == "Succeeded" |
  *   make-series dcount(ResourceId) default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -29,7 +29,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,26 +52,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var appconf = new ConfigurationStore(&#34;appconf&#34;, ConfigurationStoreArgs.builder()        
- *             .name(&#34;appConf1&#34;)
+ *         var appconf = new ConfigurationStore("appconf", ConfigurationStoreArgs.builder()        
+ *             .name("appConf1")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Encryption)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -106,87 +106,87 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
- *             .name(&#34;example-identity&#34;)
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()        
+ *             .name("example-identity")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;exampleKVt123&#34;)
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("exampleKVt123")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .skuName(&#34;standard&#34;)
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .skuName("standard")
  *             .softDeleteRetentionDays(7)
  *             .purgeProtectionEnabled(true)
  *             .build());
  * 
- *         var server = new AccessPolicy(&#34;server&#34;, AccessPolicyArgs.builder()        
+ *         var server = new AccessPolicy("server", AccessPolicyArgs.builder()        
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
  *             .objectId(exampleUserAssignedIdentity.principalId())
  *             .keyPermissions(            
- *                 &#34;Get&#34;,
- *                 &#34;UnwrapKey&#34;,
- *                 &#34;WrapKey&#34;)
- *             .secretPermissions(&#34;Get&#34;)
+ *                 "Get",
+ *                 "UnwrapKey",
+ *                 "WrapKey")
+ *             .secretPermissions("Get")
  *             .build());
  * 
- *         var client = new AccessPolicy(&#34;client&#34;, AccessPolicyArgs.builder()        
+ *         var client = new AccessPolicy("client", AccessPolicyArgs.builder()        
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *             .keyPermissions(            
- *                 &#34;Get&#34;,
- *                 &#34;Create&#34;,
- *                 &#34;Delete&#34;,
- *                 &#34;List&#34;,
- *                 &#34;Restore&#34;,
- *                 &#34;Recover&#34;,
- *                 &#34;UnwrapKey&#34;,
- *                 &#34;WrapKey&#34;,
- *                 &#34;Purge&#34;,
- *                 &#34;Encrypt&#34;,
- *                 &#34;Decrypt&#34;,
- *                 &#34;Sign&#34;,
- *                 &#34;Verify&#34;,
- *                 &#34;GetRotationPolicy&#34;)
- *             .secretPermissions(&#34;Get&#34;)
+ *                 "Get",
+ *                 "Create",
+ *                 "Delete",
+ *                 "List",
+ *                 "Restore",
+ *                 "Recover",
+ *                 "UnwrapKey",
+ *                 "WrapKey",
+ *                 "Purge",
+ *                 "Encrypt",
+ *                 "Decrypt",
+ *                 "Sign",
+ *                 "Verify",
+ *                 "GetRotationPolicy")
+ *             .secretPermissions("Get")
  *             .build());
  * 
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
- *             .name(&#34;exampleKVkey&#34;)
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *             .name("exampleKVkey")
  *             .keyVaultId(exampleKeyVault.id())
- *             .keyType(&#34;RSA&#34;)
+ *             .keyType("RSA")
  *             .keySize(2048)
  *             .keyOpts(            
- *                 &#34;decrypt&#34;,
- *                 &#34;encrypt&#34;,
- *                 &#34;sign&#34;,
- *                 &#34;unwrapKey&#34;,
- *                 &#34;verify&#34;,
- *                 &#34;wrapKey&#34;)
+ *                 "decrypt",
+ *                 "encrypt",
+ *                 "sign",
+ *                 "unwrapKey",
+ *                 "verify",
+ *                 "wrapKey")
  *             .build());
  * 
- *         var exampleConfigurationStore = new ConfigurationStore(&#34;exampleConfigurationStore&#34;, ConfigurationStoreArgs.builder()        
- *             .name(&#34;appConf2&#34;)
+ *         var exampleConfigurationStore = new ConfigurationStore("exampleConfigurationStore", ConfigurationStoreArgs.builder()        
+ *             .name("appConf2")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .sku(&#34;standard&#34;)
+ *             .sku("standard")
  *             .localAuthEnabled(true)
- *             .publicNetworkAccess(&#34;Enabled&#34;)
+ *             .publicNetworkAccess("Enabled")
  *             .purgeProtectionEnabled(false)
  *             .softDeleteRetentionDays(1)
  *             .identity(ConfigurationStoreIdentityArgs.builder()
- *                 .type(&#34;UserAssigned&#34;)
+ *                 .type("UserAssigned")
  *                 .identityIds(exampleUserAssignedIdentity.id())
  *                 .build())
  *             .encryption(ConfigurationStoreEncryptionArgs.builder()
@@ -194,15 +194,15 @@ import javax.annotation.Nullable;
  *                 .identityClientId(exampleUserAssignedIdentity.clientId())
  *                 .build())
  *             .replicas(ConfigurationStoreReplicaArgs.builder()
- *                 .name(&#34;replica1&#34;)
- *                 .location(&#34;West US&#34;)
+ *                 .name("replica1")
+ *                 .location("West US")
  *                 .build())
- *             .tags(Map.of(&#34;environment&#34;, &#34;development&#34;))
+ *             .tags(Map.of("environment", "development"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

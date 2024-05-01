@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,40 +51,40 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Group(&#34;example&#34;, GroupArgs.builder()        
- *             .displayName(&#34;Some Management Group&#34;)
+ *         var example = new Group("example", GroupArgs.builder()        
+ *             .displayName("Some Management Group")
  *             .build());
  * 
- *         var exampleDefinition = new Definition(&#34;exampleDefinition&#34;, DefinitionArgs.builder()        
- *             .name(&#34;only-deploy-in-westeurope&#34;)
- *             .policyType(&#34;Custom&#34;)
- *             .mode(&#34;All&#34;)
- *             .displayName(&#34;my-policy-definition&#34;)
+ *         var exampleDefinition = new Definition("exampleDefinition", DefinitionArgs.builder()        
+ *             .name("only-deploy-in-westeurope")
+ *             .policyType("Custom")
+ *             .mode("All")
+ *             .displayName("my-policy-definition")
  *             .managementGroupId(example.id())
- *             .policyRule(&#34;&#34;&#34;
+ *             .policyRule("""
  *  {
- *     &#34;if&#34;: {
- *       &#34;not&#34;: {
- *         &#34;field&#34;: &#34;location&#34;,
- *         &#34;equals&#34;: &#34;westeurope&#34;
+ *     "if": {
+ *       "not": {
+ *         "field": "location",
+ *         "equals": "westeurope"
  *       }
  *     },
- *     &#34;then&#34;: {
- *       &#34;effect&#34;: &#34;Deny&#34;
+ *     "then": {
+ *       "effect": "Deny"
  *     }
  *   }
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
- *         var exampleGroupPolicyAssignment = new GroupPolicyAssignment(&#34;exampleGroupPolicyAssignment&#34;, GroupPolicyAssignmentArgs.builder()        
- *             .name(&#34;example-policy&#34;)
+ *         var exampleGroupPolicyAssignment = new GroupPolicyAssignment("exampleGroupPolicyAssignment", GroupPolicyAssignmentArgs.builder()        
+ *             .name("example-policy")
  *             .policyDefinitionId(exampleDefinition.id())
  *             .managementGroupId(example.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

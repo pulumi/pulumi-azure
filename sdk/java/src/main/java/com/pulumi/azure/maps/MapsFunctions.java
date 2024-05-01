@@ -20,7 +20,7 @@ public final class MapsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -42,14 +42,14 @@ public final class MapsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MapsFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;production&#34;)
-     *             .resourceGroupName(&#34;maps&#34;)
+     *             .name("production")
+     *             .resourceGroupName("maps")
      *             .build());
      * 
-     *         ctx.export(&#34;mapsAccountId&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.id()));
+     *         ctx.export("mapsAccountId", example.applyValue(getAccountResult -> getAccountResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -62,7 +62,7 @@ public final class MapsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -84,14 +84,14 @@ public final class MapsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MapsFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;production&#34;)
-     *             .resourceGroupName(&#34;maps&#34;)
+     *             .name("production")
+     *             .resourceGroupName("maps")
      *             .build());
      * 
-     *         ctx.export(&#34;mapsAccountId&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.id()));
+     *         ctx.export("mapsAccountId", example.applyValue(getAccountResult -> getAccountResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -104,7 +104,7 @@ public final class MapsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -126,14 +126,14 @@ public final class MapsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MapsFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;production&#34;)
-     *             .resourceGroupName(&#34;maps&#34;)
+     *             .name("production")
+     *             .resourceGroupName("maps")
      *             .build());
      * 
-     *         ctx.export(&#34;mapsAccountId&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.id()));
+     *         ctx.export("mapsAccountId", example.applyValue(getAccountResult -> getAccountResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -146,7 +146,7 @@ public final class MapsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -168,14 +168,14 @@ public final class MapsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MapsFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;production&#34;)
-     *             .resourceGroupName(&#34;maps&#34;)
+     *             .name("production")
+     *             .resourceGroupName("maps")
      *             .build());
      * 
-     *         ctx.export(&#34;mapsAccountId&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.id()));
+     *         ctx.export("mapsAccountId", example.applyValue(getAccountResult -> getAccountResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

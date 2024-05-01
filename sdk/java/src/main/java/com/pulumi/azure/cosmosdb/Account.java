@@ -33,7 +33,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -61,61 +61,61 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var rg = new ResourceGroup(&#34;rg&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;sample-rg&#34;)
- *             .location(&#34;westus&#34;)
+ *         var rg = new ResourceGroup("rg", ResourceGroupArgs.builder()        
+ *             .name("sample-rg")
+ *             .location("westus")
  *             .build());
  * 
- *         var ri = new RandomInteger(&#34;ri&#34;, RandomIntegerArgs.builder()        
+ *         var ri = new RandomInteger("ri", RandomIntegerArgs.builder()        
  *             .min(10000)
  *             .max(99999)
  *             .build());
  * 
- *         var db = new Account(&#34;db&#34;, AccountArgs.builder()        
- *             .name(ri.result().applyValue(result -&gt; String.format(&#34;tfex-cosmos-db-%s&#34;, result)))
+ *         var db = new Account("db", AccountArgs.builder()        
+ *             .name(ri.result().applyValue(result -> String.format("tfex-cosmos-db-%s", result)))
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .offerType(&#34;Standard&#34;)
- *             .kind(&#34;MongoDB&#34;)
+ *             .offerType("Standard")
+ *             .kind("MongoDB")
  *             .enableAutomaticFailover(true)
  *             .capabilities(            
  *                 AccountCapabilityArgs.builder()
- *                     .name(&#34;EnableAggregationPipeline&#34;)
+ *                     .name("EnableAggregationPipeline")
  *                     .build(),
  *                 AccountCapabilityArgs.builder()
- *                     .name(&#34;mongoEnableDocLevelTTL&#34;)
+ *                     .name("mongoEnableDocLevelTTL")
  *                     .build(),
  *                 AccountCapabilityArgs.builder()
- *                     .name(&#34;MongoDBv3.4&#34;)
+ *                     .name("MongoDBv3.4")
  *                     .build(),
  *                 AccountCapabilityArgs.builder()
- *                     .name(&#34;EnableMongo&#34;)
+ *                     .name("EnableMongo")
  *                     .build())
  *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
- *                 .consistencyLevel(&#34;BoundedStaleness&#34;)
+ *                 .consistencyLevel("BoundedStaleness")
  *                 .maxIntervalInSeconds(300)
  *                 .maxStalenessPrefix(100000)
  *                 .build())
  *             .geoLocations(            
  *                 AccountGeoLocationArgs.builder()
- *                     .location(&#34;eastus&#34;)
+ *                     .location("eastus")
  *                     .failoverPriority(1)
  *                     .build(),
  *                 AccountGeoLocationArgs.builder()
- *                     .location(&#34;westus&#34;)
+ *                     .location("westus")
  *                     .failoverPriority(0)
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## User Assigned Identity Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -142,38 +142,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new UserAssignedIdentity(&#34;example&#34;, UserAssignedIdentityArgs.builder()        
+ *         var example = new UserAssignedIdentity("example", UserAssignedIdentityArgs.builder()        
  *             .resourceGroupName(exampleAzurermResourceGroup.name())
  *             .location(exampleAzurermResourceGroup.location())
- *             .name(&#34;example-resource&#34;)
+ *             .name("example-resource")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;example-resource&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("example-resource")
  *             .location(exampleAzurermResourceGroup.location())
  *             .resourceGroupName(exampleAzurermResourceGroup.name())
- *             .defaultIdentityType(StdFunctions.join().applyValue(invoke -&gt; invoke.result()))
- *             .offerType(&#34;Standard&#34;)
- *             .kind(&#34;MongoDB&#34;)
+ *             .defaultIdentityType(StdFunctions.join().applyValue(invoke -> invoke.result()))
+ *             .offerType("Standard")
+ *             .kind("MongoDB")
  *             .capabilities(AccountCapabilityArgs.builder()
- *                 .name(&#34;EnableMongo&#34;)
+ *                 .name("EnableMongo")
  *                 .build())
  *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
- *                 .consistencyLevel(&#34;Strong&#34;)
+ *                 .consistencyLevel("Strong")
  *                 .build())
  *             .geoLocations(AccountGeoLocationArgs.builder()
- *                 .location(&#34;westus&#34;)
+ *                 .location("westus")
  *                 .failoverPriority(0)
  *                 .build())
  *             .identity(AccountIdentityArgs.builder()
- *                 .type(&#34;UserAssigned&#34;)
+ *                 .type("UserAssigned")
  *                 .identityIds(example.id())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

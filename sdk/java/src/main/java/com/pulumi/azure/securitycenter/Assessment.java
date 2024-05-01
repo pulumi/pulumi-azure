@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -58,76 +58,76 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-network&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example-network")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *             .addressSpaces("10.0.0.0/16")
  *             .build());
  * 
- *         var internal = new Subnet(&#34;internal&#34;, SubnetArgs.builder()        
- *             .name(&#34;internal&#34;)
+ *         var internal = new Subnet("internal", SubnetArgs.builder()        
+ *             .name("internal")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
+ *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
- *         var exampleLinuxVirtualMachineScaleSet = new LinuxVirtualMachineScaleSet(&#34;exampleLinuxVirtualMachineScaleSet&#34;, LinuxVirtualMachineScaleSetArgs.builder()        
- *             .name(&#34;example-vmss&#34;)
+ *         var exampleLinuxVirtualMachineScaleSet = new LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", LinuxVirtualMachineScaleSetArgs.builder()        
+ *             .name("example-vmss")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .sku(&#34;Standard_F2&#34;)
+ *             .sku("Standard_F2")
  *             .instances(1)
- *             .adminUsername(&#34;adminuser&#34;)
+ *             .adminUsername("adminuser")
  *             .adminSshKeys(LinuxVirtualMachineScaleSetAdminSshKeyArgs.builder()
- *                 .username(&#34;adminuser&#34;)
+ *                 .username("adminuser")
  *                 .publicKey(StdFunctions.file(FileArgs.builder()
- *                     .input(&#34;~/.ssh/id_rsa.pub&#34;)
+ *                     .input("~/.ssh/id_rsa.pub")
  *                     .build()).result())
  *                 .build())
  *             .sourceImageReference(LinuxVirtualMachineScaleSetSourceImageReferenceArgs.builder()
- *                 .publisher(&#34;Canonical&#34;)
- *                 .offer(&#34;0001-com-ubuntu-server-jammy&#34;)
- *                 .sku(&#34;22_04-lts&#34;)
- *                 .version(&#34;latest&#34;)
+ *                 .publisher("Canonical")
+ *                 .offer("0001-com-ubuntu-server-jammy")
+ *                 .sku("22_04-lts")
+ *                 .version("latest")
  *                 .build())
  *             .osDisk(LinuxVirtualMachineScaleSetOsDiskArgs.builder()
- *                 .storageAccountType(&#34;Standard_LRS&#34;)
- *                 .caching(&#34;ReadWrite&#34;)
+ *                 .storageAccountType("Standard_LRS")
+ *                 .caching("ReadWrite")
  *                 .build())
  *             .networkInterfaces(LinuxVirtualMachineScaleSetNetworkInterfaceArgs.builder()
- *                 .name(&#34;example&#34;)
+ *                 .name("example")
  *                 .primary(true)
  *                 .ipConfigurations(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs.builder()
- *                     .name(&#34;internal&#34;)
+ *                     .name("internal")
  *                     .primary(true)
  *                     .subnetId(internal.id())
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleAssessmentPolicy = new AssessmentPolicy(&#34;exampleAssessmentPolicy&#34;, AssessmentPolicyArgs.builder()        
- *             .displayName(&#34;Test Display Name&#34;)
- *             .severity(&#34;Medium&#34;)
- *             .description(&#34;Test Description&#34;)
+ *         var exampleAssessmentPolicy = new AssessmentPolicy("exampleAssessmentPolicy", AssessmentPolicyArgs.builder()        
+ *             .displayName("Test Display Name")
+ *             .severity("Medium")
+ *             .description("Test Description")
  *             .build());
  * 
- *         var exampleAssessment = new Assessment(&#34;exampleAssessment&#34;, AssessmentArgs.builder()        
+ *         var exampleAssessment = new Assessment("exampleAssessment", AssessmentArgs.builder()        
  *             .assessmentPolicyId(exampleAssessmentPolicy.id())
  *             .targetResourceId(exampleLinuxVirtualMachineScaleSet.id())
  *             .status(AssessmentStatusArgs.builder()
- *                 .code(&#34;Healthy&#34;)
+ *                 .code("Healthy")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

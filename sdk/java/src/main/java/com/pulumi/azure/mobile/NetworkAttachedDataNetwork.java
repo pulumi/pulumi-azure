@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -59,69 +59,69 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleDevice = new Device(&#34;exampleDevice&#34;, DeviceArgs.builder()        
- *             .name(&#34;example-device&#34;)
+ *         var exampleDevice = new Device("exampleDevice", DeviceArgs.builder()        
+ *             .name("example-device")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .skuName(&#34;EdgeP_Base-Standard&#34;)
+ *             .skuName("EdgeP_Base-Standard")
  *             .build());
  * 
- *         var exampleNetwork = new Network(&#34;exampleNetwork&#34;, NetworkArgs.builder()        
- *             .name(&#34;example-mn&#34;)
+ *         var exampleNetwork = new Network("exampleNetwork", NetworkArgs.builder()        
+ *             .name("example-mn")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .mobileCountryCode(&#34;001&#34;)
- *             .mobileNetworkCode(&#34;01&#34;)
+ *             .mobileCountryCode("001")
+ *             .mobileNetworkCode("01")
  *             .build());
  * 
- *         var exampleNetworkPacketCoreControlPlane = new NetworkPacketCoreControlPlane(&#34;exampleNetworkPacketCoreControlPlane&#34;, NetworkPacketCoreControlPlaneArgs.builder()        
- *             .name(&#34;example-mnpccp&#34;)
+ *         var exampleNetworkPacketCoreControlPlane = new NetworkPacketCoreControlPlane("exampleNetworkPacketCoreControlPlane", NetworkPacketCoreControlPlaneArgs.builder()        
+ *             .name("example-mnpccp")
  *             .resourceGroupName(example.name())
- *             .location(&#34;West Europe&#34;)
- *             .sku(&#34;G0&#34;)
+ *             .location("West Europe")
+ *             .sku("G0")
  *             .mobileNetworkId(exampleNetwork.id())
- *             .controlPlaneAccessName(&#34;default-interface&#34;)
- *             .controlPlaneAccessIpv4Address(&#34;192.168.1.199&#34;)
- *             .controlPlaneAccessIpv4Gateway(&#34;192.168.1.1&#34;)
- *             .controlPlaneAccessIpv4Subnet(&#34;192.168.1.0/25&#34;)
+ *             .controlPlaneAccessName("default-interface")
+ *             .controlPlaneAccessIpv4Address("192.168.1.199")
+ *             .controlPlaneAccessIpv4Gateway("192.168.1.1")
+ *             .controlPlaneAccessIpv4Subnet("192.168.1.0/25")
  *             .platform(NetworkPacketCoreControlPlanePlatformArgs.builder()
- *                 .type(&#34;AKS-HCI&#34;)
+ *                 .type("AKS-HCI")
  *                 .edgeDeviceId(exampleDevice.id())
  *                 .build())
  *             .build());
  * 
- *         var exampleNetworkPacketCoreDataPlane = new NetworkPacketCoreDataPlane(&#34;exampleNetworkPacketCoreDataPlane&#34;, NetworkPacketCoreDataPlaneArgs.builder()        
- *             .name(&#34;example-mnpcdp&#34;)
+ *         var exampleNetworkPacketCoreDataPlane = new NetworkPacketCoreDataPlane("exampleNetworkPacketCoreDataPlane", NetworkPacketCoreDataPlaneArgs.builder()        
+ *             .name("example-mnpcdp")
  *             .mobileNetworkPacketCoreControlPlaneId(exampleNetworkPacketCoreControlPlane.id())
  *             .location(example.location())
- *             .userPlaneAccessName(&#34;default-interface&#34;)
- *             .userPlaneAccessIpv4Address(&#34;192.168.1.199&#34;)
- *             .userPlaneAccessIpv4Gateway(&#34;192.168.1.1&#34;)
- *             .userPlaneAccessIpv4Subnet(&#34;192.168.1.0/25&#34;)
+ *             .userPlaneAccessName("default-interface")
+ *             .userPlaneAccessIpv4Address("192.168.1.199")
+ *             .userPlaneAccessIpv4Gateway("192.168.1.1")
+ *             .userPlaneAccessIpv4Subnet("192.168.1.0/25")
  *             .build());
  * 
- *         var exampleNetworkDataNetwork = new NetworkDataNetwork(&#34;exampleNetworkDataNetwork&#34;, NetworkDataNetworkArgs.builder()        
- *             .name(&#34;example-data-network&#34;)
+ *         var exampleNetworkDataNetwork = new NetworkDataNetwork("exampleNetworkDataNetwork", NetworkDataNetworkArgs.builder()        
+ *             .name("example-data-network")
  *             .mobileNetworkId(exampleNetwork.id())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleNetworkAttachedDataNetwork = new NetworkAttachedDataNetwork(&#34;exampleNetworkAttachedDataNetwork&#34;, NetworkAttachedDataNetworkArgs.builder()        
+ *         var exampleNetworkAttachedDataNetwork = new NetworkAttachedDataNetwork("exampleNetworkAttachedDataNetwork", NetworkAttachedDataNetworkArgs.builder()        
  *             .mobileNetworkDataNetworkName(exampleNetworkDataNetwork.name())
  *             .mobileNetworkPacketCoreDataPlaneId(exampleNetworkPacketCoreDataPlane.id())
  *             .location(example.location())
- *             .dnsAddresses(&#34;1.1.1.1&#34;)
- *             .userEquipmentAddressPoolPrefixes(&#34;2.4.1.0/24&#34;)
- *             .userEquipmentStaticAddressPoolPrefixes(&#34;2.4.2.0/24&#34;)
- *             .userPlaneAccessName(&#34;test&#34;)
- *             .userPlaneAccessIpv4Address(&#34;10.204.141.4&#34;)
- *             .userPlaneAccessIpv4Gateway(&#34;10.204.141.1&#34;)
- *             .userPlaneAccessIpv4Subnet(&#34;10.204.141.0/24&#34;)
+ *             .dnsAddresses("1.1.1.1")
+ *             .userEquipmentAddressPoolPrefixes("2.4.1.0/24")
+ *             .userEquipmentStaticAddressPoolPrefixes("2.4.2.0/24")
+ *             .userPlaneAccessName("test")
+ *             .userPlaneAccessIpv4Address("10.204.141.4")
+ *             .userPlaneAccessIpv4Gateway("10.204.141.1")
+ *             .userPlaneAccessIpv4Subnet("10.204.141.0/24")
  *             .networkAddressPortTranslation(NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs.builder()
  *                 .pinholeMaximumNumber(65536)
  *                 .icmpPinholeTimeoutInSeconds(30)
@@ -134,12 +134,12 @@ import javax.annotation.Nullable;
  *                 .tcpPortReuseMinimumHoldTimeInSeconds(120)
  *                 .udpTcpPortReuseMinimumHoldTimeInSeconds(60)
  *                 .build())
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .tags(Map.of("key", "value"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,31 +53,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;my-resource-group&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("my-resource-group")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
- *             .name(&#34;my-sql-server&#34;)
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+ *             .name("my-sql-server")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .version(&#34;12.0&#34;)
- *             .administratorLogin(&#34;4dm1n157r470r&#34;)
- *             .administratorLoginPassword(&#34;4-v3ry-53cr37-p455w0rd&#34;)
+ *             .version("12.0")
+ *             .administratorLogin("4dm1n157r470r")
+ *             .administratorLoginPassword("4-v3ry-53cr37-p455w0rd")
  *             .build());
  * 
- *         var exampleElasticPool = new ElasticPool(&#34;exampleElasticPool&#34;, ElasticPoolArgs.builder()        
- *             .name(&#34;test-epool&#34;)
+ *         var exampleElasticPool = new ElasticPool("exampleElasticPool", ElasticPoolArgs.builder()        
+ *             .name("test-epool")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .serverName(exampleServer.name())
- *             .licenseType(&#34;LicenseIncluded&#34;)
+ *             .licenseType("LicenseIncluded")
  *             .maxSizeGb(756)
  *             .sku(ElasticPoolSkuArgs.builder()
- *                 .name(&#34;BasicPool&#34;)
- *                 .tier(&#34;Basic&#34;)
- *                 .family(&#34;Gen4&#34;)
+ *                 .name("BasicPool")
+ *                 .tier("Basic")
+ *                 .family("Gen4")
  *                 .capacity(4)
  *                 .build())
  *             .perDatabaseSettings(ElasticPoolPerDatabaseSettingsArgs.builder()
@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

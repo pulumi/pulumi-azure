@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,30 +46,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;account1&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("account1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;Basic&#34;)
+ *             .skuName("Basic")
  *             .build());
  * 
- *         var exampleCredential = new Credential(&#34;exampleCredential&#34;, CredentialArgs.builder()        
- *             .name(&#34;credential1&#34;)
+ *         var exampleCredential = new Credential("exampleCredential", CredentialArgs.builder()        
+ *             .name("credential1")
  *             .resourceGroupName(example.name())
  *             .automationAccountName(exampleAccount.name())
- *             .username(&#34;example_user&#34;)
- *             .password(&#34;example_pwd&#34;)
- *             .description(&#34;This is an example credential&#34;)
+ *             .username("example_user")
+ *             .password("example_pwd")
+ *             .description("This is an example credential")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

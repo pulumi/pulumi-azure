@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,35 +51,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
- *             .displayName(&#34;Example Management Group&#34;)
+ *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+ *             .displayName("Example Management Group")
  *             .build());
  * 
  *         final var example = PolicyFunctions.getPolicyDefintion(GetPolicyDefintionArgs.builder()
- *             .displayName(&#34;Allowed locations&#34;)
+ *             .displayName("Allowed locations")
  *             .build());
  * 
- *         var exampleGroupPolicyAssignment = new GroupPolicyAssignment(&#34;exampleGroupPolicyAssignment&#34;, GroupPolicyAssignmentArgs.builder()        
- *             .name(&#34;exampleAssignment&#34;)
+ *         var exampleGroupPolicyAssignment = new GroupPolicyAssignment("exampleGroupPolicyAssignment", GroupPolicyAssignmentArgs.builder()        
+ *             .name("exampleAssignment")
  *             .managementGroupId(exampleGroup.id())
- *             .policyDefinitionId(example.applyValue(getPolicyDefintionResult -&gt; getPolicyDefintionResult.id()))
+ *             .policyDefinitionId(example.applyValue(getPolicyDefintionResult -> getPolicyDefintionResult.id()))
  *             .parameters(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;listOfAllowedLocations&#34;, jsonObject(
- *                         jsonProperty(&#34;value&#34;, jsonArray(&#34;East US&#34;))
+ *                     jsonProperty("listOfAllowedLocations", jsonObject(
+ *                         jsonProperty("value", jsonArray("East US"))
  *                     ))
  *                 )))
  *             .build());
  * 
- *         var exampleGroupPolicyRemediation = new GroupPolicyRemediation(&#34;exampleGroupPolicyRemediation&#34;, GroupPolicyRemediationArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleGroupPolicyRemediation = new GroupPolicyRemediation("exampleGroupPolicyRemediation", GroupPolicyRemediationArgs.builder()        
+ *             .name("example")
  *             .managementGroupId(exampleGroup.id())
  *             .policyAssignmentId(exampleGroupPolicyAssignment.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

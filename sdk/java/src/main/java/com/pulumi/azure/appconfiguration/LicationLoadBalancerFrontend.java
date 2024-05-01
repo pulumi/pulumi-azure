@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,20 +44,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LicationLoadBalancer(&#34;example&#34;, LicationLoadBalancerArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .resourceGroupName(&#34;example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new LicationLoadBalancer("example", LicationLoadBalancerArgs.builder()        
+ *             .name("example")
+ *             .resourceGroupName("example")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleLicationLoadBalancerFrontend = new LicationLoadBalancerFrontend(&#34;exampleLicationLoadBalancerFrontend&#34;, LicationLoadBalancerFrontendArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleLicationLoadBalancerFrontend = new LicationLoadBalancerFrontend("exampleLicationLoadBalancerFrontend", LicationLoadBalancerFrontendArgs.builder()        
+ *             .name("example")
  *             .applicationLoadBalancerId(example.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

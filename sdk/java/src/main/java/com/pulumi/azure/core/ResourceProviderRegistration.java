@@ -28,7 +28,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,19 +49,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceProviderRegistration(&#34;example&#34;, ResourceProviderRegistrationArgs.builder()        
- *             .name(&#34;Microsoft.PolicyInsights&#34;)
+ *         var example = new ResourceProviderRegistration("example", ResourceProviderRegistrationArgs.builder()        
+ *             .name("Microsoft.PolicyInsights")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Registering A Preview Feature)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -83,17 +83,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceProviderRegistration(&#34;example&#34;, ResourceProviderRegistrationArgs.builder()        
- *             .name(&#34;Microsoft.ContainerService&#34;)
+ *         var example = new ResourceProviderRegistration("example", ResourceProviderRegistrationArgs.builder()        
+ *             .name("Microsoft.ContainerService")
  *             .features(ResourceProviderRegistrationFeatureArgs.builder()
- *                 .name(&#34;AKS-DataPlaneAutoApprove&#34;)
+ *                 .name("AKS-DataPlaneAutoApprove")
  *                 .registered(true)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -57,30 +57,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleIoTHub = new IoTHub(&#34;exampleIoTHub&#34;, IoTHubArgs.builder()        
- *             .name(&#34;exampleIothub&#34;)
+ *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()        
+ *             .name("exampleIothub")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .sku(IoTHubSkuArgs.builder()
- *                 .name(&#34;B1&#34;)
- *                 .capacity(&#34;1&#34;)
+ *                 .name("B1")
+ *                 .capacity("1")
  *                 .build())
- *             .tags(Map.of(&#34;purpose&#34;, &#34;example&#34;))
+ *             .tags(Map.of("purpose", "example"))
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;cosmosdb-account&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("cosmosdb-account")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .offerType(&#34;Standard&#34;)
- *             .kind(&#34;GlobalDocumentDB&#34;)
+ *             .offerType("Standard")
+ *             .kind("GlobalDocumentDB")
  *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
- *                 .consistencyLevel(&#34;Strong&#34;)
+ *                 .consistencyLevel("Strong")
  *                 .build())
  *             .geoLocations(AccountGeoLocationArgs.builder()
  *                 .location(example.location())
@@ -88,22 +88,22 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleSqlDatabase = new SqlDatabase(&#34;exampleSqlDatabase&#34;, SqlDatabaseArgs.builder()        
- *             .name(&#34;cosmos-sql-db&#34;)
+ *         var exampleSqlDatabase = new SqlDatabase("exampleSqlDatabase", SqlDatabaseArgs.builder()        
+ *             .name("cosmos-sql-db")
  *             .resourceGroupName(exampleAccount.resourceGroupName())
  *             .accountName(exampleAccount.name())
  *             .build());
  * 
- *         var exampleSqlContainer = new SqlContainer(&#34;exampleSqlContainer&#34;, SqlContainerArgs.builder()        
- *             .name(&#34;example-container&#34;)
+ *         var exampleSqlContainer = new SqlContainer("exampleSqlContainer", SqlContainerArgs.builder()        
+ *             .name("example-container")
  *             .resourceGroupName(exampleAccount.resourceGroupName())
  *             .accountName(exampleAccount.name())
  *             .databaseName(exampleSqlDatabase.name())
- *             .partitionKeyPath(&#34;/definition/id&#34;)
+ *             .partitionKeyPath("/definition/id")
  *             .build());
  * 
- *         var exampleEndpointCosmosdbAccount = new EndpointCosmosdbAccount(&#34;exampleEndpointCosmosdbAccount&#34;, EndpointCosmosdbAccountArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleEndpointCosmosdbAccount = new EndpointCosmosdbAccount("exampleEndpointCosmosdbAccount", EndpointCosmosdbAccountArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .iothubId(exampleIoTHub.id())
  *             .containerName(exampleSqlContainer.name())
@@ -115,7 +115,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

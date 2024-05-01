@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  * ### With App Service)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -76,63 +76,63 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-virtual-network&#34;)
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example-virtual-network")
+ *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;example-subnet&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("example-subnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.1.0/24&#34;)
+ *             .addressPrefixes("10.0.1.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;example-delegation&#34;)
+ *                 .name("example-delegation")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .name(&#34;Microsoft.Web/serverFarms&#34;)
- *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/action&#34;)
+ *                     .name("Microsoft.Web/serverFarms")
+ *                     .actions("Microsoft.Network/virtualNetworks/subnets/action")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var examplePlan = new Plan(&#34;examplePlan&#34;, PlanArgs.builder()        
- *             .name(&#34;example-app-service-plan&#34;)
+ *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()        
+ *             .name("example-app-service-plan")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku(PlanSkuArgs.builder()
- *                 .tier(&#34;Standard&#34;)
- *                 .size(&#34;S1&#34;)
+ *                 .tier("Standard")
+ *                 .size("S1")
  *                 .build())
  *             .build());
  * 
- *         var exampleAppService = new AppService(&#34;exampleAppService&#34;, AppServiceArgs.builder()        
- *             .name(&#34;example-app-service&#34;)
+ *         var exampleAppService = new AppService("exampleAppService", AppServiceArgs.builder()        
+ *             .name("example-app-service")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
  *             .build());
  * 
- *         var exampleVirtualNetworkSwiftConnection = new VirtualNetworkSwiftConnection(&#34;exampleVirtualNetworkSwiftConnection&#34;, VirtualNetworkSwiftConnectionArgs.builder()        
+ *         var exampleVirtualNetworkSwiftConnection = new VirtualNetworkSwiftConnection("exampleVirtualNetworkSwiftConnection", VirtualNetworkSwiftConnectionArgs.builder()        
  *             .appServiceId(exampleAppService.id())
  *             .subnetId(exampleSubnet.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Function App)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -168,52 +168,52 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-virtual-network&#34;)
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example-virtual-network")
+ *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;example-subnet&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("example-subnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.1.0/24&#34;)
+ *             .addressPrefixes("10.0.1.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;example-delegation&#34;)
+ *                 .name("example-delegation")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .name(&#34;Microsoft.Web/serverFarms&#34;)
- *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/action&#34;)
+ *                     .name("Microsoft.Web/serverFarms")
+ *                     .actions("Microsoft.Network/virtualNetworks/subnets/action")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var examplePlan = new Plan(&#34;examplePlan&#34;, PlanArgs.builder()        
- *             .name(&#34;example-app-service-plan&#34;)
+ *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()        
+ *             .name("example-app-service-plan")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku(PlanSkuArgs.builder()
- *                 .tier(&#34;Standard&#34;)
- *                 .size(&#34;S1&#34;)
+ *                 .tier("Standard")
+ *                 .size("S1")
  *                 .build())
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;functionsappexamplesa&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("functionsappexamplesa")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleFunctionApp = new FunctionApp(&#34;exampleFunctionApp&#34;, FunctionAppArgs.builder()        
- *             .name(&#34;example-function-app&#34;)
+ *         var exampleFunctionApp = new FunctionApp("exampleFunctionApp", FunctionAppArgs.builder()        
+ *             .name("example-function-app")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
@@ -221,14 +221,14 @@ import javax.annotation.Nullable;
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
  *             .build());
  * 
- *         var exampleVirtualNetworkSwiftConnection = new VirtualNetworkSwiftConnection(&#34;exampleVirtualNetworkSwiftConnection&#34;, VirtualNetworkSwiftConnectionArgs.builder()        
+ *         var exampleVirtualNetworkSwiftConnection = new VirtualNetworkSwiftConnection("exampleVirtualNetworkSwiftConnection", VirtualNetworkSwiftConnectionArgs.builder()        
  *             .appServiceId(exampleFunctionApp.id())
  *             .subnetId(exampleSubnet.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

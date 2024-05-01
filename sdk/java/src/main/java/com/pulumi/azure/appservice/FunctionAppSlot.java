@@ -33,7 +33,7 @@ import javax.annotation.Nullable;
  * ### With App Service Plan)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -63,31 +63,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;azure-functions-test-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("azure-functions-test-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;functionsapptestsa&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("functionsapptestsa")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var examplePlan = new Plan(&#34;examplePlan&#34;, PlanArgs.builder()        
- *             .name(&#34;azure-functions-test-service-plan&#34;)
+ *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()        
+ *             .name("azure-functions-test-service-plan")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku(PlanSkuArgs.builder()
- *                 .tier(&#34;Standard&#34;)
- *                 .size(&#34;S1&#34;)
+ *                 .tier("Standard")
+ *                 .size("S1")
  *                 .build())
  *             .build());
  * 
- *         var exampleFunctionApp = new FunctionApp(&#34;exampleFunctionApp&#34;, FunctionAppArgs.builder()        
- *             .name(&#34;test-azure-functions&#34;)
+ *         var exampleFunctionApp = new FunctionApp("exampleFunctionApp", FunctionAppArgs.builder()        
+ *             .name("test-azure-functions")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
@@ -95,8 +95,8 @@ import javax.annotation.Nullable;
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
  *             .build());
  * 
- *         var exampleFunctionAppSlot = new FunctionAppSlot(&#34;exampleFunctionAppSlot&#34;, FunctionAppSlotArgs.builder()        
- *             .name(&#34;test-azure-functions_slot&#34;)
+ *         var exampleFunctionAppSlot = new FunctionAppSlot("exampleFunctionAppSlot", FunctionAppSlotArgs.builder()        
+ *             .name("test-azure-functions_slot")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
@@ -107,7 +107,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

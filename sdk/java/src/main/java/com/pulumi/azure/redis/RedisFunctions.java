@@ -23,7 +23,7 @@ public final class RedisFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -45,15 +45,15 @@ public final class RedisFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RedisFunctions.getCache(GetCacheArgs.builder()
-     *             .name(&#34;myrediscache&#34;)
-     *             .resourceGroupName(&#34;redis-cache&#34;)
+     *             .name("myrediscache")
+     *             .resourceGroupName("redis-cache")
      *             .build());
      * 
-     *         ctx.export(&#34;primaryAccessKey&#34;, example.applyValue(getCacheResult -&gt; getCacheResult.primaryAccessKey()));
-     *         ctx.export(&#34;hostname&#34;, example.applyValue(getCacheResult -&gt; getCacheResult.hostname()));
+     *         ctx.export("primaryAccessKey", example.applyValue(getCacheResult -> getCacheResult.primaryAccessKey()));
+     *         ctx.export("hostname", example.applyValue(getCacheResult -> getCacheResult.hostname()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -66,7 +66,7 @@ public final class RedisFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -88,15 +88,15 @@ public final class RedisFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RedisFunctions.getCache(GetCacheArgs.builder()
-     *             .name(&#34;myrediscache&#34;)
-     *             .resourceGroupName(&#34;redis-cache&#34;)
+     *             .name("myrediscache")
+     *             .resourceGroupName("redis-cache")
      *             .build());
      * 
-     *         ctx.export(&#34;primaryAccessKey&#34;, example.applyValue(getCacheResult -&gt; getCacheResult.primaryAccessKey()));
-     *         ctx.export(&#34;hostname&#34;, example.applyValue(getCacheResult -&gt; getCacheResult.hostname()));
+     *         ctx.export("primaryAccessKey", example.applyValue(getCacheResult -> getCacheResult.primaryAccessKey()));
+     *         ctx.export("hostname", example.applyValue(getCacheResult -> getCacheResult.hostname()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -109,7 +109,7 @@ public final class RedisFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -131,15 +131,15 @@ public final class RedisFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RedisFunctions.getCache(GetCacheArgs.builder()
-     *             .name(&#34;myrediscache&#34;)
-     *             .resourceGroupName(&#34;redis-cache&#34;)
+     *             .name("myrediscache")
+     *             .resourceGroupName("redis-cache")
      *             .build());
      * 
-     *         ctx.export(&#34;primaryAccessKey&#34;, example.applyValue(getCacheResult -&gt; getCacheResult.primaryAccessKey()));
-     *         ctx.export(&#34;hostname&#34;, example.applyValue(getCacheResult -&gt; getCacheResult.hostname()));
+     *         ctx.export("primaryAccessKey", example.applyValue(getCacheResult -> getCacheResult.primaryAccessKey()));
+     *         ctx.export("hostname", example.applyValue(getCacheResult -> getCacheResult.hostname()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -152,7 +152,7 @@ public final class RedisFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -174,15 +174,15 @@ public final class RedisFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RedisFunctions.getCache(GetCacheArgs.builder()
-     *             .name(&#34;myrediscache&#34;)
-     *             .resourceGroupName(&#34;redis-cache&#34;)
+     *             .name("myrediscache")
+     *             .resourceGroupName("redis-cache")
      *             .build());
      * 
-     *         ctx.export(&#34;primaryAccessKey&#34;, example.applyValue(getCacheResult -&gt; getCacheResult.primaryAccessKey()));
-     *         ctx.export(&#34;hostname&#34;, example.applyValue(getCacheResult -&gt; getCacheResult.hostname()));
+     *         ctx.export("primaryAccessKey", example.applyValue(getCacheResult -> getCacheResult.primaryAccessKey()));
+     *         ctx.export("hostname", example.applyValue(getCacheResult -> getCacheResult.hostname()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -195,7 +195,7 @@ public final class RedisFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -217,16 +217,16 @@ public final class RedisFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RedisFunctions.getEnterpriseDatabase(GetEnterpriseDatabaseArgs.builder()
-     *             .name(&#34;default&#34;)
+     *             .name("default")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .clusterId(exampleAzurermRedisEnterpriseCluster.id())
      *             .build());
      * 
-     *         ctx.export(&#34;redisEnterpriseDatabasePrimaryKey&#34;, example.applyValue(getEnterpriseDatabaseResult -&gt; getEnterpriseDatabaseResult.primaryAccessKey()));
-     *         ctx.export(&#34;redisEnterpriseDatabaseSecondaryKey&#34;, example.applyValue(getEnterpriseDatabaseResult -&gt; getEnterpriseDatabaseResult.secondaryAccessKey()));
+     *         ctx.export("redisEnterpriseDatabasePrimaryKey", example.applyValue(getEnterpriseDatabaseResult -> getEnterpriseDatabaseResult.primaryAccessKey()));
+     *         ctx.export("redisEnterpriseDatabaseSecondaryKey", example.applyValue(getEnterpriseDatabaseResult -> getEnterpriseDatabaseResult.secondaryAccessKey()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -239,7 +239,7 @@ public final class RedisFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -261,16 +261,16 @@ public final class RedisFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RedisFunctions.getEnterpriseDatabase(GetEnterpriseDatabaseArgs.builder()
-     *             .name(&#34;default&#34;)
+     *             .name("default")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .clusterId(exampleAzurermRedisEnterpriseCluster.id())
      *             .build());
      * 
-     *         ctx.export(&#34;redisEnterpriseDatabasePrimaryKey&#34;, example.applyValue(getEnterpriseDatabaseResult -&gt; getEnterpriseDatabaseResult.primaryAccessKey()));
-     *         ctx.export(&#34;redisEnterpriseDatabaseSecondaryKey&#34;, example.applyValue(getEnterpriseDatabaseResult -&gt; getEnterpriseDatabaseResult.secondaryAccessKey()));
+     *         ctx.export("redisEnterpriseDatabasePrimaryKey", example.applyValue(getEnterpriseDatabaseResult -> getEnterpriseDatabaseResult.primaryAccessKey()));
+     *         ctx.export("redisEnterpriseDatabaseSecondaryKey", example.applyValue(getEnterpriseDatabaseResult -> getEnterpriseDatabaseResult.secondaryAccessKey()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -283,7 +283,7 @@ public final class RedisFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -305,16 +305,16 @@ public final class RedisFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RedisFunctions.getEnterpriseDatabase(GetEnterpriseDatabaseArgs.builder()
-     *             .name(&#34;default&#34;)
+     *             .name("default")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .clusterId(exampleAzurermRedisEnterpriseCluster.id())
      *             .build());
      * 
-     *         ctx.export(&#34;redisEnterpriseDatabasePrimaryKey&#34;, example.applyValue(getEnterpriseDatabaseResult -&gt; getEnterpriseDatabaseResult.primaryAccessKey()));
-     *         ctx.export(&#34;redisEnterpriseDatabaseSecondaryKey&#34;, example.applyValue(getEnterpriseDatabaseResult -&gt; getEnterpriseDatabaseResult.secondaryAccessKey()));
+     *         ctx.export("redisEnterpriseDatabasePrimaryKey", example.applyValue(getEnterpriseDatabaseResult -> getEnterpriseDatabaseResult.primaryAccessKey()));
+     *         ctx.export("redisEnterpriseDatabaseSecondaryKey", example.applyValue(getEnterpriseDatabaseResult -> getEnterpriseDatabaseResult.secondaryAccessKey()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -327,7 +327,7 @@ public final class RedisFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -349,16 +349,16 @@ public final class RedisFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RedisFunctions.getEnterpriseDatabase(GetEnterpriseDatabaseArgs.builder()
-     *             .name(&#34;default&#34;)
+     *             .name("default")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .clusterId(exampleAzurermRedisEnterpriseCluster.id())
      *             .build());
      * 
-     *         ctx.export(&#34;redisEnterpriseDatabasePrimaryKey&#34;, example.applyValue(getEnterpriseDatabaseResult -&gt; getEnterpriseDatabaseResult.primaryAccessKey()));
-     *         ctx.export(&#34;redisEnterpriseDatabaseSecondaryKey&#34;, example.applyValue(getEnterpriseDatabaseResult -&gt; getEnterpriseDatabaseResult.secondaryAccessKey()));
+     *         ctx.export("redisEnterpriseDatabasePrimaryKey", example.applyValue(getEnterpriseDatabaseResult -> getEnterpriseDatabaseResult.primaryAccessKey()));
+     *         ctx.export("redisEnterpriseDatabaseSecondaryKey", example.applyValue(getEnterpriseDatabaseResult -> getEnterpriseDatabaseResult.secondaryAccessKey()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

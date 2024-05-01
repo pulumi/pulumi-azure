@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * ### Subscription Level Lock)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,22 +49,22 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getSubscription();
  * 
- *         var subscription_level = new Lock(&#34;subscription-level&#34;, LockArgs.builder()        
- *             .name(&#34;subscription-level&#34;)
- *             .scope(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
- *             .lockLevel(&#34;CanNotDelete&#34;)
- *             .notes(&#34;Items can&#39;t be deleted in this subscription!&#34;)
+ *         var subscription_level = new Lock("subscription-level", LockArgs.builder()        
+ *             .name("subscription-level")
+ *             .scope(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *             .lockLevel("CanNotDelete")
+ *             .notes("Items can't be deleted in this subscription!")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Resource Group Level Lock)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -87,27 +87,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;locked-resource-group&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("locked-resource-group")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var resource_group_level = new Lock(&#34;resource-group-level&#34;, LockArgs.builder()        
- *             .name(&#34;resource-group-level&#34;)
+ *         var resource_group_level = new Lock("resource-group-level", LockArgs.builder()        
+ *             .name("resource-group-level")
  *             .scope(example.id())
- *             .lockLevel(&#34;ReadOnly&#34;)
- *             .notes(&#34;This Resource Group is Read-Only&#34;)
+ *             .lockLevel("ReadOnly")
+ *             .notes("This Resource Group is Read-Only")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Resource Level Lock)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -132,29 +132,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;locked-resource-group&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("locked-resource-group")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
- *             .name(&#34;locked-publicip&#34;)
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *             .name("locked-publicip")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .allocationMethod(&#34;Static&#34;)
+ *             .allocationMethod("Static")
  *             .idleTimeoutInMinutes(30)
  *             .build());
  * 
- *         var public_ip = new Lock(&#34;public-ip&#34;, LockArgs.builder()        
- *             .name(&#34;resource-ip&#34;)
+ *         var public_ip = new Lock("public-ip", LockArgs.builder()        
+ *             .name("resource-ip")
  *             .scope(examplePublicIp.id())
- *             .lockLevel(&#34;CanNotDelete&#34;)
- *             .notes(&#34;Locked because it&#39;s needed by a third-party&#34;)
+ *             .lockLevel("CanNotDelete")
+ *             .notes("Locked because it's needed by a third-party")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

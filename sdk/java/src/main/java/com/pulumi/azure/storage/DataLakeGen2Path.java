@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,36 +50,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;examplestorageacc&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("examplestorageacc")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
- *             .accountKind(&#34;StorageV2&#34;)
- *             .isHnsEnabled(&#34;true&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
+ *             .accountKind("StorageV2")
+ *             .isHnsEnabled("true")
  *             .build());
  * 
- *         var exampleDataLakeGen2Filesystem = new DataLakeGen2Filesystem(&#34;exampleDataLakeGen2Filesystem&#34;, DataLakeGen2FilesystemArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleDataLakeGen2Filesystem = new DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", DataLakeGen2FilesystemArgs.builder()        
+ *             .name("example")
  *             .storageAccountId(exampleAccount.id())
  *             .build());
  * 
- *         var exampleDataLakeGen2Path = new DataLakeGen2Path(&#34;exampleDataLakeGen2Path&#34;, DataLakeGen2PathArgs.builder()        
- *             .path(&#34;example&#34;)
+ *         var exampleDataLakeGen2Path = new DataLakeGen2Path("exampleDataLakeGen2Path", DataLakeGen2PathArgs.builder()        
+ *             .path("example")
  *             .filesystemName(exampleDataLakeGen2Filesystem.name())
  *             .storageAccountId(exampleAccount.id())
- *             .resource(&#34;directory&#34;)
+ *             .resource("directory")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -23,7 +23,7 @@ public final class AppplatformFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -50,10 +50,10 @@ public final class AppplatformFunctions {
      *             .serviceName(exampleAzurermSpringCloudApp.serviceName())
      *             .build());
      * 
-     *         ctx.export(&#34;springCloudAppId&#34;, example.applyValue(getSpringCloudAppResult -&gt; getSpringCloudAppResult.id()));
+     *         ctx.export("springCloudAppId", example.applyValue(getSpringCloudAppResult -> getSpringCloudAppResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -66,7 +66,7 @@ public final class AppplatformFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -93,10 +93,10 @@ public final class AppplatformFunctions {
      *             .serviceName(exampleAzurermSpringCloudApp.serviceName())
      *             .build());
      * 
-     *         ctx.export(&#34;springCloudAppId&#34;, example.applyValue(getSpringCloudAppResult -&gt; getSpringCloudAppResult.id()));
+     *         ctx.export("springCloudAppId", example.applyValue(getSpringCloudAppResult -> getSpringCloudAppResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -109,7 +109,7 @@ public final class AppplatformFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -136,10 +136,10 @@ public final class AppplatformFunctions {
      *             .serviceName(exampleAzurermSpringCloudApp.serviceName())
      *             .build());
      * 
-     *         ctx.export(&#34;springCloudAppId&#34;, example.applyValue(getSpringCloudAppResult -&gt; getSpringCloudAppResult.id()));
+     *         ctx.export("springCloudAppId", example.applyValue(getSpringCloudAppResult -> getSpringCloudAppResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -152,7 +152,7 @@ public final class AppplatformFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -179,10 +179,10 @@ public final class AppplatformFunctions {
      *             .serviceName(exampleAzurermSpringCloudApp.serviceName())
      *             .build());
      * 
-     *         ctx.export(&#34;springCloudAppId&#34;, example.applyValue(getSpringCloudAppResult -&gt; getSpringCloudAppResult.id()));
+     *         ctx.export("springCloudAppId", example.applyValue(getSpringCloudAppResult -> getSpringCloudAppResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -195,7 +195,7 @@ public final class AppplatformFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -221,10 +221,10 @@ public final class AppplatformFunctions {
      *             .resourceGroupName(exampleAzurermSpringCloudService.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export(&#34;springCloudServiceId&#34;, example.applyValue(getSpringCloudServiceResult -&gt; getSpringCloudServiceResult.id()));
+     *         ctx.export("springCloudServiceId", example.applyValue(getSpringCloudServiceResult -> getSpringCloudServiceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -237,7 +237,7 @@ public final class AppplatformFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -263,10 +263,10 @@ public final class AppplatformFunctions {
      *             .resourceGroupName(exampleAzurermSpringCloudService.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export(&#34;springCloudServiceId&#34;, example.applyValue(getSpringCloudServiceResult -&gt; getSpringCloudServiceResult.id()));
+     *         ctx.export("springCloudServiceId", example.applyValue(getSpringCloudServiceResult -> getSpringCloudServiceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -279,7 +279,7 @@ public final class AppplatformFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -305,10 +305,10 @@ public final class AppplatformFunctions {
      *             .resourceGroupName(exampleAzurermSpringCloudService.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export(&#34;springCloudServiceId&#34;, example.applyValue(getSpringCloudServiceResult -&gt; getSpringCloudServiceResult.id()));
+     *         ctx.export("springCloudServiceId", example.applyValue(getSpringCloudServiceResult -> getSpringCloudServiceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -321,7 +321,7 @@ public final class AppplatformFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -347,10 +347,10 @@ public final class AppplatformFunctions {
      *             .resourceGroupName(exampleAzurermSpringCloudService.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export(&#34;springCloudServiceId&#34;, example.applyValue(getSpringCloudServiceResult -&gt; getSpringCloudServiceResult.id()));
+     *         ctx.export("springCloudServiceId", example.applyValue(getSpringCloudServiceResult -> getSpringCloudServiceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

@@ -29,7 +29,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,39 +55,39 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;my-signalr&#34;)
- *             .location(&#34;West US&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("my-signalr")
+ *             .location("West US")
  *             .build());
  * 
- *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .name(&#34;tfex-signalr&#34;)
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *             .name("tfex-signalr")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku(ServiceSkuArgs.builder()
- *                 .name(&#34;Free_F1&#34;)
+ *                 .name("Free_F1")
  *                 .capacity(1)
  *                 .build())
  *             .cors(ServiceCorArgs.builder()
- *                 .allowedOrigins(&#34;http://www.example.com&#34;)
+ *                 .allowedOrigins("http://www.example.com")
  *                 .build())
  *             .publicNetworkAccessEnabled(false)
  *             .connectivityLogsEnabled(true)
  *             .messagingLogsEnabled(true)
- *             .serviceMode(&#34;Default&#34;)
+ *             .serviceMode("Default")
  *             .upstreamEndpoints(ServiceUpstreamEndpointArgs.builder()
  *                 .categoryPatterns(                
- *                     &#34;connections&#34;,
- *                     &#34;messages&#34;)
- *                 .eventPatterns(&#34;*&#34;)
- *                 .hubPatterns(&#34;hub1&#34;)
- *                 .urlTemplate(&#34;http://foo.com&#34;)
+ *                     "connections",
+ *                     "messages")
+ *                 .eventPatterns("*")
+ *                 .hubPatterns("hub1")
+ *                 .urlTemplate("http://foo.com")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

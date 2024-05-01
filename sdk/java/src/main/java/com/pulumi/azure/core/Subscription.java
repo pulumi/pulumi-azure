@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * ### Creating A New Alias And Subscription For An Enrollment Account
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,24 +45,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = BillingFunctions.getEnrollmentAccountScope(GetEnrollmentAccountScopeArgs.builder()
- *             .billingAccountName(&#34;1234567890&#34;)
- *             .enrollmentAccountName(&#34;0123456&#34;)
+ *             .billingAccountName("1234567890")
+ *             .enrollmentAccountName("0123456")
  *             .build());
  * 
- *         var exampleSubscription = new Subscription(&#34;exampleSubscription&#34;, SubscriptionArgs.builder()        
- *             .subscriptionName(&#34;My Example EA Subscription&#34;)
- *             .billingScopeId(example.applyValue(getEnrollmentAccountScopeResult -&gt; getEnrollmentAccountScopeResult.id()))
+ *         var exampleSubscription = new Subscription("exampleSubscription", SubscriptionArgs.builder()        
+ *             .subscriptionName("My Example EA Subscription")
+ *             .billingScopeId(example.applyValue(getEnrollmentAccountScopeResult -> getEnrollmentAccountScopeResult.id()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Creating A New Alias And Subscription For A Microsoft Customer Account
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -86,25 +86,25 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = BillingFunctions.getMcaAccountScope(GetMcaAccountScopeArgs.builder()
- *             .billingAccountName(&#34;e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31&#34;)
- *             .billingProfileName(&#34;PE2Q-NOIT-BG7-TGB&#34;)
- *             .invoiceSectionName(&#34;MTT4-OBS7-PJA-TGB&#34;)
+ *             .billingAccountName("e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31")
+ *             .billingProfileName("PE2Q-NOIT-BG7-TGB")
+ *             .invoiceSectionName("MTT4-OBS7-PJA-TGB")
  *             .build());
  * 
- *         var exampleSubscription = new Subscription(&#34;exampleSubscription&#34;, SubscriptionArgs.builder()        
- *             .subscriptionName(&#34;My Example MCA Subscription&#34;)
- *             .billingScopeId(example.applyValue(getMcaAccountScopeResult -&gt; getMcaAccountScopeResult.id()))
+ *         var exampleSubscription = new Subscription("exampleSubscription", SubscriptionArgs.builder()        
+ *             .subscriptionName("My Example MCA Subscription")
+ *             .billingScopeId(example.applyValue(getMcaAccountScopeResult -> getMcaAccountScopeResult.id()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Creating A New Alias And Subscription For A Microsoft Partner Account
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -128,24 +128,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = BillingFunctions.getMpaAccountScope(GetMpaAccountScopeArgs.builder()
- *             .billingAccountName(&#34;e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31&#34;)
- *             .customerName(&#34;2281f543-7321-4cf9-1e23-edb4Oc31a31c&#34;)
+ *             .billingAccountName("e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31")
+ *             .customerName("2281f543-7321-4cf9-1e23-edb4Oc31a31c")
  *             .build());
  * 
- *         var exampleSubscription = new Subscription(&#34;exampleSubscription&#34;, SubscriptionArgs.builder()        
- *             .subscriptionName(&#34;My Example MPA Subscription&#34;)
- *             .billingScopeId(example.applyValue(getMpaAccountScopeResult -&gt; getMpaAccountScopeResult.id()))
+ *         var exampleSubscription = new Subscription("exampleSubscription", SubscriptionArgs.builder()        
+ *             .subscriptionName("My Example MPA Subscription")
+ *             .billingScopeId(example.applyValue(getMpaAccountScopeResult -> getMpaAccountScopeResult.id()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Adding An Alias To An Existing Subscription
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -166,15 +166,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Subscription(&#34;example&#34;, SubscriptionArgs.builder()        
- *             .alias(&#34;examplesub&#34;)
- *             .subscriptionName(&#34;My Example Subscription&#34;)
- *             .subscriptionId(&#34;12345678-12234-5678-9012-123456789012&#34;)
+ *         var example = new Subscription("example", SubscriptionArgs.builder()        
+ *             .alias("examplesub")
+ *             .subscriptionName("My Example Subscription")
+ *             .subscriptionId("12345678-12234-5678-9012-123456789012")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

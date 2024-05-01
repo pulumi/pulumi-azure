@@ -23,7 +23,7 @@ public final class ConsumptionFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -45,14 +45,14 @@ public final class ConsumptionFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConsumptionFunctions.getBudgetResourceGroup(GetBudgetResourceGroupArgs.builder()
-     *             .name(&#34;existing&#34;)
+     *             .name("existing")
      *             .resourceGroupId(exampleAzurermResourceGroup.id())
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.id()));
+     *         ctx.export("id", example.applyValue(getBudgetResourceGroupResult -> getBudgetResourceGroupResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -65,7 +65,7 @@ public final class ConsumptionFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -87,14 +87,14 @@ public final class ConsumptionFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConsumptionFunctions.getBudgetResourceGroup(GetBudgetResourceGroupArgs.builder()
-     *             .name(&#34;existing&#34;)
+     *             .name("existing")
      *             .resourceGroupId(exampleAzurermResourceGroup.id())
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.id()));
+     *         ctx.export("id", example.applyValue(getBudgetResourceGroupResult -> getBudgetResourceGroupResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -107,7 +107,7 @@ public final class ConsumptionFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -129,14 +129,14 @@ public final class ConsumptionFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConsumptionFunctions.getBudgetResourceGroup(GetBudgetResourceGroupArgs.builder()
-     *             .name(&#34;existing&#34;)
+     *             .name("existing")
      *             .resourceGroupId(exampleAzurermResourceGroup.id())
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.id()));
+     *         ctx.export("id", example.applyValue(getBudgetResourceGroupResult -> getBudgetResourceGroupResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -149,7 +149,7 @@ public final class ConsumptionFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -171,14 +171,14 @@ public final class ConsumptionFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConsumptionFunctions.getBudgetResourceGroup(GetBudgetResourceGroupArgs.builder()
-     *             .name(&#34;existing&#34;)
+     *             .name("existing")
      *             .resourceGroupId(exampleAzurermResourceGroup.id())
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.id()));
+     *         ctx.export("id", example.applyValue(getBudgetResourceGroupResult -> getBudgetResourceGroupResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -191,7 +191,7 @@ public final class ConsumptionFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -213,14 +213,14 @@ public final class ConsumptionFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConsumptionFunctions.getBudgetSubscription(GetBudgetSubscriptionArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .subscriptionId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/&#34;)
+     *             .name("existing")
+     *             .subscriptionId("/subscriptions/00000000-0000-0000-0000-000000000000/")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleAzurermConsumptionBudget.id());
+     *         ctx.export("id", exampleAzurermConsumptionBudget.id());
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -233,7 +233,7 @@ public final class ConsumptionFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -255,14 +255,14 @@ public final class ConsumptionFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConsumptionFunctions.getBudgetSubscription(GetBudgetSubscriptionArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .subscriptionId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/&#34;)
+     *             .name("existing")
+     *             .subscriptionId("/subscriptions/00000000-0000-0000-0000-000000000000/")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleAzurermConsumptionBudget.id());
+     *         ctx.export("id", exampleAzurermConsumptionBudget.id());
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -275,7 +275,7 @@ public final class ConsumptionFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -297,14 +297,14 @@ public final class ConsumptionFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConsumptionFunctions.getBudgetSubscription(GetBudgetSubscriptionArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .subscriptionId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/&#34;)
+     *             .name("existing")
+     *             .subscriptionId("/subscriptions/00000000-0000-0000-0000-000000000000/")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleAzurermConsumptionBudget.id());
+     *         ctx.export("id", exampleAzurermConsumptionBudget.id());
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -317,7 +317,7 @@ public final class ConsumptionFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -339,14 +339,14 @@ public final class ConsumptionFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConsumptionFunctions.getBudgetSubscription(GetBudgetSubscriptionArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .subscriptionId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/&#34;)
+     *             .name("existing")
+     *             .subscriptionId("/subscriptions/00000000-0000-0000-0000-000000000000/")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleAzurermConsumptionBudget.id());
+     *         ctx.export("id", exampleAzurermConsumptionBudget.id());
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

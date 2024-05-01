@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,29 +52,29 @@ import javax.annotation.Nullable;
  *         final var example = CoreFunctions.getSubscription();
  * 
  *         final var exampleGetPolicySetDefinition = PolicyFunctions.getPolicySetDefinition(GetPolicySetDefinitionArgs.builder()
- *             .displayName(&#34;Audit machines with insecure password security settings&#34;)
+ *             .displayName("Audit machines with insecure password security settings")
  *             .build());
  * 
- *         var exampleSubscriptionPolicyAssignment = new SubscriptionPolicyAssignment(&#34;exampleSubscriptionPolicyAssignment&#34;, SubscriptionPolicyAssignmentArgs.builder()        
- *             .name(&#34;exampleAssignment&#34;)
- *             .subscriptionId(example.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
- *             .policyDefinitionId(exampleGetPolicySetDefinition.applyValue(getPolicySetDefinitionResult -&gt; getPolicySetDefinitionResult.id()))
- *             .location(&#34;westus&#34;)
+ *         var exampleSubscriptionPolicyAssignment = new SubscriptionPolicyAssignment("exampleSubscriptionPolicyAssignment", SubscriptionPolicyAssignmentArgs.builder()        
+ *             .name("exampleAssignment")
+ *             .subscriptionId(example.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *             .policyDefinitionId(exampleGetPolicySetDefinition.applyValue(getPolicySetDefinitionResult -> getPolicySetDefinitionResult.id()))
+ *             .location("westus")
  *             .identity(SubscriptionPolicyAssignmentIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
- *         var exampleSubscriptionPolicyExemption = new SubscriptionPolicyExemption(&#34;exampleSubscriptionPolicyExemption&#34;, SubscriptionPolicyExemptionArgs.builder()        
- *             .name(&#34;exampleExemption&#34;)
- *             .subscriptionId(example.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+ *         var exampleSubscriptionPolicyExemption = new SubscriptionPolicyExemption("exampleSubscriptionPolicyExemption", SubscriptionPolicyExemptionArgs.builder()        
+ *             .name("exampleExemption")
+ *             .subscriptionId(example.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *             .policyAssignmentId(exampleSubscriptionPolicyAssignment.id())
- *             .exemptionCategory(&#34;Mitigated&#34;)
+ *             .exemptionCategory("Mitigated")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,29 +50,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
- *             .name(&#34;example-sqlserver&#34;)
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+ *             .name("example-sqlserver")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .version(&#34;12.0&#34;)
- *             .administratorLogin(&#34;missadministrator&#34;)
- *             .administratorLoginPassword(&#34;AdminPassword123!&#34;)
+ *             .version("12.0")
+ *             .administratorLogin("missadministrator")
+ *             .administratorLoginPassword("AdminPassword123!")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;examplesa&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("examplesa")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleServerExtendedAuditingPolicy = new ServerExtendedAuditingPolicy(&#34;exampleServerExtendedAuditingPolicy&#34;, ServerExtendedAuditingPolicyArgs.builder()        
+ *         var exampleServerExtendedAuditingPolicy = new ServerExtendedAuditingPolicy("exampleServerExtendedAuditingPolicy", ServerExtendedAuditingPolicyArgs.builder()        
  *             .serverId(exampleServer.id())
  *             .storageEndpoint(exampleAccount.primaryBlobEndpoint())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
@@ -82,13 +82,13 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Storage Account Behind VNet And Firewall
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -134,83 +134,83 @@ import javax.annotation.Nullable;
  * 
  *         final var example = CoreFunctions.getClientConfig();
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("example")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;virtnetname-1&#34;)
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("virtnetname-1")
+ *             .addressSpaces("10.0.0.0/16")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;subnetname-1&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("subnetname-1")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
+ *             .addressPrefixes("10.0.2.0/24")
  *             .serviceEndpoints(            
- *                 &#34;Microsoft.Sql&#34;,
- *                 &#34;Microsoft.Storage&#34;)
+ *                 "Microsoft.Sql",
+ *                 "Microsoft.Storage")
  *             .enforcePrivateLinkEndpointNetworkPolicies(true)
  *             .build());
  * 
- *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
- *             .name(&#34;example-sqlserver&#34;)
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+ *             .name("example-sqlserver")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
- *             .version(&#34;12.0&#34;)
- *             .administratorLogin(&#34;missadministrator&#34;)
- *             .administratorLoginPassword(&#34;AdminPassword123!&#34;)
- *             .minimumTlsVersion(&#34;1.2&#34;)
+ *             .version("12.0")
+ *             .administratorLogin("missadministrator")
+ *             .administratorLoginPassword("AdminPassword123!")
+ *             .minimumTlsVersion("1.2")
  *             .identity(ServerIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
- *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
- *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
- *             .roleDefinitionName(&#34;Storage Blob Data Contributor&#34;)
- *             .principalId(exampleServer.identity().applyValue(identity -&gt; identity.principalId()))
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()        
+ *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *             .roleDefinitionName("Storage Blob Data Contributor")
+ *             .principalId(exampleServer.identity().applyValue(identity -> identity.principalId()))
  *             .build());
  * 
- *         var sqlvnetrule = new VirtualNetworkRule(&#34;sqlvnetrule&#34;, VirtualNetworkRuleArgs.builder()        
- *             .name(&#34;sql-vnet-rule&#34;)
+ *         var sqlvnetrule = new VirtualNetworkRule("sqlvnetrule", VirtualNetworkRuleArgs.builder()        
+ *             .name("sql-vnet-rule")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .serverName(exampleServer.name())
  *             .subnetId(exampleSubnet.id())
  *             .build());
  * 
- *         var exampleFirewallRule = new FirewallRule(&#34;exampleFirewallRule&#34;, FirewallRuleArgs.builder()        
- *             .name(&#34;FirewallRule1&#34;)
+ *         var exampleFirewallRule = new FirewallRule("exampleFirewallRule", FirewallRuleArgs.builder()        
+ *             .name("FirewallRule1")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .serverName(exampleServer.name())
- *             .startIpAddress(&#34;0.0.0.0&#34;)
- *             .endIpAddress(&#34;0.0.0.0&#34;)
+ *             .startIpAddress("0.0.0.0")
+ *             .endIpAddress("0.0.0.0")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;examplesa&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("examplesa")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
- *             .accountKind(&#34;StorageV2&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
+ *             .accountKind("StorageV2")
  *             .allowNestedItemsToBePublic(false)
  *             .networkRules(AccountNetworkRulesArgs.builder()
- *                 .defaultAction(&#34;Deny&#34;)
- *                 .ipRules(&#34;127.0.0.1&#34;)
+ *                 .defaultAction("Deny")
+ *                 .ipRules("127.0.0.1")
  *                 .virtualNetworkSubnetIds(exampleSubnet.id())
- *                 .bypasses(&#34;AzureServices&#34;)
+ *                 .bypasses("AzureServices")
  *                 .build())
  *             .identity(AccountIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
- *         var exampleServerExtendedAuditingPolicy = new ServerExtendedAuditingPolicy(&#34;exampleServerExtendedAuditingPolicy&#34;, ServerExtendedAuditingPolicyArgs.builder()        
+ *         var exampleServerExtendedAuditingPolicy = new ServerExtendedAuditingPolicy("exampleServerExtendedAuditingPolicy", ServerExtendedAuditingPolicyArgs.builder()        
  *             .storageEndpoint(exampleAccount.primaryBlobEndpoint())
  *             .serverId(exampleServer.id())
  *             .retentionInDays(6)
@@ -220,7 +220,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

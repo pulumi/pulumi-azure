@@ -29,7 +29,7 @@ public final class BatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -51,14 +51,14 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BatchFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;testbatchaccount&#34;)
-     *             .resourceGroupName(&#34;test&#34;)
+     *             .name("testbatchaccount")
+     *             .resourceGroupName("test")
      *             .build());
      * 
-     *         ctx.export(&#34;poolAllocationMode&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.poolAllocationMode()));
+     *         ctx.export("poolAllocationMode", example.applyValue(getAccountResult -> getAccountResult.poolAllocationMode()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -71,7 +71,7 @@ public final class BatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -93,14 +93,14 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BatchFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;testbatchaccount&#34;)
-     *             .resourceGroupName(&#34;test&#34;)
+     *             .name("testbatchaccount")
+     *             .resourceGroupName("test")
      *             .build());
      * 
-     *         ctx.export(&#34;poolAllocationMode&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.poolAllocationMode()));
+     *         ctx.export("poolAllocationMode", example.applyValue(getAccountResult -> getAccountResult.poolAllocationMode()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -113,7 +113,7 @@ public final class BatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -135,14 +135,14 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BatchFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;testbatchaccount&#34;)
-     *             .resourceGroupName(&#34;test&#34;)
+     *             .name("testbatchaccount")
+     *             .resourceGroupName("test")
      *             .build());
      * 
-     *         ctx.export(&#34;poolAllocationMode&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.poolAllocationMode()));
+     *         ctx.export("poolAllocationMode", example.applyValue(getAccountResult -> getAccountResult.poolAllocationMode()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -155,7 +155,7 @@ public final class BatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -177,14 +177,14 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BatchFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;testbatchaccount&#34;)
-     *             .resourceGroupName(&#34;test&#34;)
+     *             .name("testbatchaccount")
+     *             .resourceGroupName("test")
      *             .build());
      * 
-     *         ctx.export(&#34;poolAllocationMode&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.poolAllocationMode()));
+     *         ctx.export("poolAllocationMode", example.applyValue(getAccountResult -> getAccountResult.poolAllocationMode()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -197,7 +197,7 @@ public final class BatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -219,15 +219,15 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BatchFunctions.getApplication(GetApplicationArgs.builder()
-     *             .name(&#34;testapplication&#34;)
-     *             .resourceGroupName(&#34;test&#34;)
-     *             .accountName(&#34;testbatchaccount&#34;)
+     *             .name("testapplication")
+     *             .resourceGroupName("test")
+     *             .accountName("testbatchaccount")
      *             .build());
      * 
-     *         ctx.export(&#34;batchApplicationId&#34;, example.applyValue(getApplicationResult -&gt; getApplicationResult.id()));
+     *         ctx.export("batchApplicationId", example.applyValue(getApplicationResult -> getApplicationResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -240,7 +240,7 @@ public final class BatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -262,15 +262,15 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BatchFunctions.getApplication(GetApplicationArgs.builder()
-     *             .name(&#34;testapplication&#34;)
-     *             .resourceGroupName(&#34;test&#34;)
-     *             .accountName(&#34;testbatchaccount&#34;)
+     *             .name("testapplication")
+     *             .resourceGroupName("test")
+     *             .accountName("testbatchaccount")
      *             .build());
      * 
-     *         ctx.export(&#34;batchApplicationId&#34;, example.applyValue(getApplicationResult -&gt; getApplicationResult.id()));
+     *         ctx.export("batchApplicationId", example.applyValue(getApplicationResult -> getApplicationResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -283,7 +283,7 @@ public final class BatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -305,15 +305,15 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BatchFunctions.getApplication(GetApplicationArgs.builder()
-     *             .name(&#34;testapplication&#34;)
-     *             .resourceGroupName(&#34;test&#34;)
-     *             .accountName(&#34;testbatchaccount&#34;)
+     *             .name("testapplication")
+     *             .resourceGroupName("test")
+     *             .accountName("testbatchaccount")
      *             .build());
      * 
-     *         ctx.export(&#34;batchApplicationId&#34;, example.applyValue(getApplicationResult -&gt; getApplicationResult.id()));
+     *         ctx.export("batchApplicationId", example.applyValue(getApplicationResult -> getApplicationResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -326,7 +326,7 @@ public final class BatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -348,15 +348,15 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BatchFunctions.getApplication(GetApplicationArgs.builder()
-     *             .name(&#34;testapplication&#34;)
-     *             .resourceGroupName(&#34;test&#34;)
-     *             .accountName(&#34;testbatchaccount&#34;)
+     *             .name("testapplication")
+     *             .resourceGroupName("test")
+     *             .accountName("testbatchaccount")
      *             .build());
      * 
-     *         ctx.export(&#34;batchApplicationId&#34;, example.applyValue(getApplicationResult -&gt; getApplicationResult.id()));
+     *         ctx.export("batchApplicationId", example.applyValue(getApplicationResult -> getApplicationResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -369,7 +369,7 @@ public final class BatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -391,15 +391,15 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BatchFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .name(&#34;SHA1-42C107874FD0E4A9583292A2F1098E8FE4B2EDDA&#34;)
-     *             .accountName(&#34;examplebatchaccount&#34;)
-     *             .resourceGroupName(&#34;example&#34;)
+     *             .name("SHA1-42C107874FD0E4A9583292A2F1098E8FE4B2EDDA")
+     *             .accountName("examplebatchaccount")
+     *             .resourceGroupName("example")
      *             .build());
      * 
-     *         ctx.export(&#34;thumbprint&#34;, example.applyValue(getCertificateResult -&gt; getCertificateResult.thumbprint()));
+     *         ctx.export("thumbprint", example.applyValue(getCertificateResult -> getCertificateResult.thumbprint()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -412,7 +412,7 @@ public final class BatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -434,15 +434,15 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BatchFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .name(&#34;SHA1-42C107874FD0E4A9583292A2F1098E8FE4B2EDDA&#34;)
-     *             .accountName(&#34;examplebatchaccount&#34;)
-     *             .resourceGroupName(&#34;example&#34;)
+     *             .name("SHA1-42C107874FD0E4A9583292A2F1098E8FE4B2EDDA")
+     *             .accountName("examplebatchaccount")
+     *             .resourceGroupName("example")
      *             .build());
      * 
-     *         ctx.export(&#34;thumbprint&#34;, example.applyValue(getCertificateResult -&gt; getCertificateResult.thumbprint()));
+     *         ctx.export("thumbprint", example.applyValue(getCertificateResult -> getCertificateResult.thumbprint()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -455,7 +455,7 @@ public final class BatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -477,15 +477,15 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BatchFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .name(&#34;SHA1-42C107874FD0E4A9583292A2F1098E8FE4B2EDDA&#34;)
-     *             .accountName(&#34;examplebatchaccount&#34;)
-     *             .resourceGroupName(&#34;example&#34;)
+     *             .name("SHA1-42C107874FD0E4A9583292A2F1098E8FE4B2EDDA")
+     *             .accountName("examplebatchaccount")
+     *             .resourceGroupName("example")
      *             .build());
      * 
-     *         ctx.export(&#34;thumbprint&#34;, example.applyValue(getCertificateResult -&gt; getCertificateResult.thumbprint()));
+     *         ctx.export("thumbprint", example.applyValue(getCertificateResult -> getCertificateResult.thumbprint()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -498,7 +498,7 @@ public final class BatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -520,15 +520,15 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BatchFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .name(&#34;SHA1-42C107874FD0E4A9583292A2F1098E8FE4B2EDDA&#34;)
-     *             .accountName(&#34;examplebatchaccount&#34;)
-     *             .resourceGroupName(&#34;example&#34;)
+     *             .name("SHA1-42C107874FD0E4A9583292A2F1098E8FE4B2EDDA")
+     *             .accountName("examplebatchaccount")
+     *             .resourceGroupName("example")
      *             .build());
      * 
-     *         ctx.export(&#34;thumbprint&#34;, example.applyValue(getCertificateResult -&gt; getCertificateResult.thumbprint()));
+     *         ctx.export("thumbprint", example.applyValue(getCertificateResult -> getCertificateResult.thumbprint()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -541,7 +541,7 @@ public final class BatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -563,14 +563,14 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BatchFunctions.getPool(GetPoolArgs.builder()
-     *             .name(&#34;testbatchpool&#34;)
-     *             .accountName(&#34;testbatchaccount&#34;)
-     *             .resourceGroupName(&#34;test&#34;)
+     *             .name("testbatchpool")
+     *             .accountName("testbatchaccount")
+     *             .resourceGroupName("test")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -583,7 +583,7 @@ public final class BatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -605,14 +605,14 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BatchFunctions.getPool(GetPoolArgs.builder()
-     *             .name(&#34;testbatchpool&#34;)
-     *             .accountName(&#34;testbatchaccount&#34;)
-     *             .resourceGroupName(&#34;test&#34;)
+     *             .name("testbatchpool")
+     *             .accountName("testbatchaccount")
+     *             .resourceGroupName("test")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -625,7 +625,7 @@ public final class BatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -647,14 +647,14 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BatchFunctions.getPool(GetPoolArgs.builder()
-     *             .name(&#34;testbatchpool&#34;)
-     *             .accountName(&#34;testbatchaccount&#34;)
-     *             .resourceGroupName(&#34;test&#34;)
+     *             .name("testbatchpool")
+     *             .accountName("testbatchaccount")
+     *             .resourceGroupName("test")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -667,7 +667,7 @@ public final class BatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -689,14 +689,14 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BatchFunctions.getPool(GetPoolArgs.builder()
-     *             .name(&#34;testbatchpool&#34;)
-     *             .accountName(&#34;testbatchaccount&#34;)
-     *             .resourceGroupName(&#34;test&#34;)
+     *             .name("testbatchpool")
+     *             .accountName("testbatchaccount")
+     *             .resourceGroupName("test")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

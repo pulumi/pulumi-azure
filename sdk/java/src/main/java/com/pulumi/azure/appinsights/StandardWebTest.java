@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,32 +52,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;rg-example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("rg-example")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleInsights = new Insights(&#34;exampleInsights&#34;, InsightsArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .applicationType(&#34;web&#34;)
+ *             .applicationType("web")
  *             .build());
  * 
- *         var exampleStandardWebTest = new StandardWebTest(&#34;exampleStandardWebTest&#34;, StandardWebTestArgs.builder()        
- *             .name(&#34;example-test&#34;)
+ *         var exampleStandardWebTest = new StandardWebTest("exampleStandardWebTest", StandardWebTestArgs.builder()        
+ *             .name("example-test")
  *             .resourceGroupName(example.name())
- *             .location(&#34;West Europe&#34;)
+ *             .location("West Europe")
  *             .applicationInsightsId(exampleInsights.id())
- *             .geoLocations(&#34;example&#34;)
+ *             .geoLocations("example")
  *             .request(StandardWebTestRequestArgs.builder()
- *                 .url(&#34;http://www.example.com&#34;)
+ *                 .url("http://www.example.com")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

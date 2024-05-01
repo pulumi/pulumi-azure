@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,33 +48,33 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
- *             .name(&#34;example-apim&#34;)
- *             .resourceGroupName(&#34;example-resources&#34;)
+ *             .name("example-apim")
+ *             .resourceGroupName("example-resources")
  *             .build());
  * 
  *         final var exampleGetProduct = ApimanagementFunctions.getProduct(GetProductArgs.builder()
- *             .productId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .apiManagementName(example.applyValue(getServiceResult -&gt; getServiceResult.name()))
- *             .resourceGroupName(example.applyValue(getServiceResult -&gt; getServiceResult.resourceGroupName()))
+ *             .productId("00000000-0000-0000-0000-000000000000")
+ *             .apiManagementName(example.applyValue(getServiceResult -> getServiceResult.name()))
+ *             .resourceGroupName(example.applyValue(getServiceResult -> getServiceResult.resourceGroupName()))
  *             .build());
  * 
  *         final var exampleGetUser = ApimanagementFunctions.getUser(GetUserArgs.builder()
- *             .userId(&#34;11111111-1111-1111-1111-111111111111&#34;)
- *             .apiManagementName(example.applyValue(getServiceResult -&gt; getServiceResult.name()))
- *             .resourceGroupName(example.applyValue(getServiceResult -&gt; getServiceResult.resourceGroupName()))
+ *             .userId("11111111-1111-1111-1111-111111111111")
+ *             .apiManagementName(example.applyValue(getServiceResult -> getServiceResult.name()))
+ *             .resourceGroupName(example.applyValue(getServiceResult -> getServiceResult.resourceGroupName()))
  *             .build());
  * 
- *         var exampleSubscription = new Subscription(&#34;exampleSubscription&#34;, SubscriptionArgs.builder()        
- *             .apiManagementName(example.applyValue(getServiceResult -&gt; getServiceResult.name()))
- *             .resourceGroupName(example.applyValue(getServiceResult -&gt; getServiceResult.resourceGroupName()))
- *             .userId(exampleGetUser.applyValue(getUserResult -&gt; getUserResult.id()))
- *             .productId(exampleGetProduct.applyValue(getProductResult -&gt; getProductResult.id()))
- *             .displayName(&#34;Parser API&#34;)
+ *         var exampleSubscription = new Subscription("exampleSubscription", SubscriptionArgs.builder()        
+ *             .apiManagementName(example.applyValue(getServiceResult -> getServiceResult.name()))
+ *             .resourceGroupName(example.applyValue(getServiceResult -> getServiceResult.resourceGroupName()))
+ *             .userId(exampleGetUser.applyValue(getUserResult -> getUserResult.id()))
+ *             .productId(exampleGetProduct.applyValue(getProductResult -> getProductResult.id()))
+ *             .displayName("Parser API")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

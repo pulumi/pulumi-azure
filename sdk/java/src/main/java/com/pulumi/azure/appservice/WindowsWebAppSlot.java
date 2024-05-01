@@ -32,7 +32,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -61,36 +61,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleServicePlan = new ServicePlan(&#34;exampleServicePlan&#34;, ServicePlanArgs.builder()        
- *             .name(&#34;example-plan&#34;)
+ *         var exampleServicePlan = new ServicePlan("exampleServicePlan", ServicePlanArgs.builder()        
+ *             .name("example-plan")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .osType(&#34;Windows&#34;)
- *             .skuName(&#34;P1v2&#34;)
+ *             .osType("Windows")
+ *             .skuName("P1v2")
  *             .build());
  * 
- *         var exampleWindowsWebApp = new WindowsWebApp(&#34;exampleWindowsWebApp&#34;, WindowsWebAppArgs.builder()        
- *             .name(&#34;example-windows-web-app&#34;)
+ *         var exampleWindowsWebApp = new WindowsWebApp("exampleWindowsWebApp", WindowsWebAppArgs.builder()        
+ *             .name("example-windows-web-app")
  *             .resourceGroupName(example.name())
  *             .location(exampleServicePlan.location())
  *             .servicePlanId(exampleServicePlan.id())
  *             .siteConfig()
  *             .build());
  * 
- *         var exampleWindowsWebAppSlot = new WindowsWebAppSlot(&#34;exampleWindowsWebAppSlot&#34;, WindowsWebAppSlotArgs.builder()        
- *             .name(&#34;example-slot&#34;)
+ *         var exampleWindowsWebAppSlot = new WindowsWebAppSlot("exampleWindowsWebAppSlot", WindowsWebAppSlotArgs.builder()        
+ *             .name("example-slot")
  *             .appServiceId(exampleWindowsWebApp.id())
  *             .siteConfig()
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

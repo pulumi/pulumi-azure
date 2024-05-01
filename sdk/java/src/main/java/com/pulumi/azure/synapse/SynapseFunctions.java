@@ -20,7 +20,7 @@ public final class SynapseFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -42,14 +42,14 @@ public final class SynapseFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SynapseFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getWorkspaceResult -&gt; getWorkspaceResult.id()));
+     *         ctx.export("id", example.applyValue(getWorkspaceResult -> getWorkspaceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -62,7 +62,7 @@ public final class SynapseFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -84,14 +84,14 @@ public final class SynapseFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SynapseFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getWorkspaceResult -&gt; getWorkspaceResult.id()));
+     *         ctx.export("id", example.applyValue(getWorkspaceResult -> getWorkspaceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -104,7 +104,7 @@ public final class SynapseFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -126,14 +126,14 @@ public final class SynapseFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SynapseFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getWorkspaceResult -&gt; getWorkspaceResult.id()));
+     *         ctx.export("id", example.applyValue(getWorkspaceResult -> getWorkspaceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -146,7 +146,7 @@ public final class SynapseFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -168,14 +168,14 @@ public final class SynapseFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SynapseFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getWorkspaceResult -&gt; getWorkspaceResult.id()));
+     *         ctx.export("id", example.applyValue(getWorkspaceResult -> getWorkspaceResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

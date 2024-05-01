@@ -48,7 +48,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -70,15 +70,15 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getAAAARecord(GetAAAARecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsAaaaRecordId&#34;, example.applyValue(getAAAARecordResult -&gt; getAAAARecordResult.id()));
+     *         ctx.export("dnsAaaaRecordId", example.applyValue(getAAAARecordResult -> getAAAARecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -89,7 +89,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -111,15 +111,15 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getAAAARecord(GetAAAARecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsAaaaRecordId&#34;, example.applyValue(getAAAARecordResult -&gt; getAAAARecordResult.id()));
+     *         ctx.export("dnsAaaaRecordId", example.applyValue(getAAAARecordResult -> getAAAARecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -130,7 +130,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -152,15 +152,15 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getAAAARecord(GetAAAARecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsAaaaRecordId&#34;, example.applyValue(getAAAARecordResult -&gt; getAAAARecordResult.id()));
+     *         ctx.export("dnsAaaaRecordId", example.applyValue(getAAAARecordResult -> getAAAARecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -171,7 +171,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -193,15 +193,15 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getAAAARecord(GetAAAARecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsAaaaRecordId&#34;, example.applyValue(getAAAARecordResult -&gt; getAAAARecordResult.id()));
+     *         ctx.export("dnsAaaaRecordId", example.applyValue(getAAAARecordResult -> getAAAARecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -212,7 +212,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -234,15 +234,15 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getARecord(GetARecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsARecordId&#34;, example.applyValue(getARecordResult -&gt; getARecordResult.id()));
+     *         ctx.export("dnsARecordId", example.applyValue(getARecordResult -> getARecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -253,7 +253,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -275,15 +275,15 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getARecord(GetARecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsARecordId&#34;, example.applyValue(getARecordResult -&gt; getARecordResult.id()));
+     *         ctx.export("dnsARecordId", example.applyValue(getARecordResult -> getARecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -294,7 +294,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -316,15 +316,15 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getARecord(GetARecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsARecordId&#34;, example.applyValue(getARecordResult -&gt; getARecordResult.id()));
+     *         ctx.export("dnsARecordId", example.applyValue(getARecordResult -> getARecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -335,7 +335,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -357,15 +357,15 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getARecord(GetARecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsARecordId&#34;, example.applyValue(getARecordResult -&gt; getARecordResult.id()));
+     *         ctx.export("dnsARecordId", example.applyValue(getARecordResult -> getARecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -376,7 +376,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -398,15 +398,15 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getCAARecord(GetCAARecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsCaaRecordId&#34;, example.applyValue(getCAARecordResult -&gt; getCAARecordResult.id()));
+     *         ctx.export("dnsCaaRecordId", example.applyValue(getCAARecordResult -> getCAARecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -417,7 +417,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -439,15 +439,15 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getCAARecord(GetCAARecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsCaaRecordId&#34;, example.applyValue(getCAARecordResult -&gt; getCAARecordResult.id()));
+     *         ctx.export("dnsCaaRecordId", example.applyValue(getCAARecordResult -> getCAARecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -458,7 +458,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -480,15 +480,15 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getCAARecord(GetCAARecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsCaaRecordId&#34;, example.applyValue(getCAARecordResult -&gt; getCAARecordResult.id()));
+     *         ctx.export("dnsCaaRecordId", example.applyValue(getCAARecordResult -> getCAARecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -499,7 +499,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -521,15 +521,15 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getCAARecord(GetCAARecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsCaaRecordId&#34;, example.applyValue(getCAARecordResult -&gt; getCAARecordResult.id()));
+     *         ctx.export("dnsCaaRecordId", example.applyValue(getCAARecordResult -> getCAARecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -540,7 +540,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -562,15 +562,15 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getCnameRecord(GetCnameRecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsCnameRecordId&#34;, example.applyValue(getCnameRecordResult -&gt; getCnameRecordResult.id()));
+     *         ctx.export("dnsCnameRecordId", example.applyValue(getCnameRecordResult -> getCnameRecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -581,7 +581,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -603,15 +603,15 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getCnameRecord(GetCnameRecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsCnameRecordId&#34;, example.applyValue(getCnameRecordResult -&gt; getCnameRecordResult.id()));
+     *         ctx.export("dnsCnameRecordId", example.applyValue(getCnameRecordResult -> getCnameRecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -622,7 +622,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -644,15 +644,15 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getCnameRecord(GetCnameRecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsCnameRecordId&#34;, example.applyValue(getCnameRecordResult -&gt; getCnameRecordResult.id()));
+     *         ctx.export("dnsCnameRecordId", example.applyValue(getCnameRecordResult -> getCnameRecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -663,7 +663,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -685,15 +685,15 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getCnameRecord(GetCnameRecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsCnameRecordId&#34;, example.applyValue(getCnameRecordResult -&gt; getCnameRecordResult.id()));
+     *         ctx.export("dnsCnameRecordId", example.applyValue(getCnameRecordResult -> getCnameRecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -704,7 +704,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -726,15 +726,15 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getMxRecord(GetMxRecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsMxRecordId&#34;, example.applyValue(getMxRecordResult -&gt; getMxRecordResult.id()));
+     *         ctx.export("dnsMxRecordId", example.applyValue(getMxRecordResult -> getMxRecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -745,7 +745,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -767,15 +767,15 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getMxRecord(GetMxRecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsMxRecordId&#34;, example.applyValue(getMxRecordResult -&gt; getMxRecordResult.id()));
+     *         ctx.export("dnsMxRecordId", example.applyValue(getMxRecordResult -> getMxRecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -786,7 +786,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -808,15 +808,15 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getMxRecord(GetMxRecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsMxRecordId&#34;, example.applyValue(getMxRecordResult -&gt; getMxRecordResult.id()));
+     *         ctx.export("dnsMxRecordId", example.applyValue(getMxRecordResult -> getMxRecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -827,7 +827,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -849,15 +849,15 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getMxRecord(GetMxRecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsMxRecordId&#34;, example.applyValue(getMxRecordResult -&gt; getMxRecordResult.id()));
+     *         ctx.export("dnsMxRecordId", example.applyValue(getMxRecordResult -> getMxRecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -868,7 +868,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -890,15 +890,15 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getNsRecord(GetNsRecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsNsRecordId&#34;, example.applyValue(getNsRecordResult -&gt; getNsRecordResult.id()));
+     *         ctx.export("dnsNsRecordId", example.applyValue(getNsRecordResult -> getNsRecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -909,7 +909,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -931,15 +931,15 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getNsRecord(GetNsRecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsNsRecordId&#34;, example.applyValue(getNsRecordResult -&gt; getNsRecordResult.id()));
+     *         ctx.export("dnsNsRecordId", example.applyValue(getNsRecordResult -> getNsRecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -950,7 +950,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -972,15 +972,15 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getNsRecord(GetNsRecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsNsRecordId&#34;, example.applyValue(getNsRecordResult -&gt; getNsRecordResult.id()));
+     *         ctx.export("dnsNsRecordId", example.applyValue(getNsRecordResult -> getNsRecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -991,7 +991,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1013,15 +1013,15 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getNsRecord(GetNsRecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsNsRecordId&#34;, example.applyValue(getNsRecordResult -&gt; getNsRecordResult.id()));
+     *         ctx.export("dnsNsRecordId", example.applyValue(getNsRecordResult -> getNsRecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1032,7 +1032,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1054,15 +1054,15 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getPtrRecord(GetPtrRecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsPtrRecordId&#34;, example.applyValue(getPtrRecordResult -&gt; getPtrRecordResult.id()));
+     *         ctx.export("dnsPtrRecordId", example.applyValue(getPtrRecordResult -> getPtrRecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1073,7 +1073,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1095,15 +1095,15 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getPtrRecord(GetPtrRecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsPtrRecordId&#34;, example.applyValue(getPtrRecordResult -&gt; getPtrRecordResult.id()));
+     *         ctx.export("dnsPtrRecordId", example.applyValue(getPtrRecordResult -> getPtrRecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1114,7 +1114,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1136,15 +1136,15 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getPtrRecord(GetPtrRecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsPtrRecordId&#34;, example.applyValue(getPtrRecordResult -&gt; getPtrRecordResult.id()));
+     *         ctx.export("dnsPtrRecordId", example.applyValue(getPtrRecordResult -> getPtrRecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1155,7 +1155,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1177,15 +1177,15 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getPtrRecord(GetPtrRecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsPtrRecordId&#34;, example.applyValue(getPtrRecordResult -&gt; getPtrRecordResult.id()));
+     *         ctx.export("dnsPtrRecordId", example.applyValue(getPtrRecordResult -> getPtrRecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1196,7 +1196,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1218,14 +1218,14 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getSoaRecord(GetSoaRecordArgs.builder()
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsSoaRecordId&#34;, example.applyValue(getSoaRecordResult -&gt; getSoaRecordResult.id()));
+     *         ctx.export("dnsSoaRecordId", example.applyValue(getSoaRecordResult -> getSoaRecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1236,7 +1236,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1258,14 +1258,14 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getSoaRecord(GetSoaRecordArgs.builder()
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsSoaRecordId&#34;, example.applyValue(getSoaRecordResult -&gt; getSoaRecordResult.id()));
+     *         ctx.export("dnsSoaRecordId", example.applyValue(getSoaRecordResult -> getSoaRecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1276,7 +1276,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1298,14 +1298,14 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getSoaRecord(GetSoaRecordArgs.builder()
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsSoaRecordId&#34;, example.applyValue(getSoaRecordResult -&gt; getSoaRecordResult.id()));
+     *         ctx.export("dnsSoaRecordId", example.applyValue(getSoaRecordResult -> getSoaRecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1316,7 +1316,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1338,14 +1338,14 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getSoaRecord(GetSoaRecordArgs.builder()
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsSoaRecordId&#34;, example.applyValue(getSoaRecordResult -&gt; getSoaRecordResult.id()));
+     *         ctx.export("dnsSoaRecordId", example.applyValue(getSoaRecordResult -> getSoaRecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1356,7 +1356,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1378,15 +1378,15 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getSrvRecord(GetSrvRecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsSrvRecordId&#34;, example.applyValue(getSrvRecordResult -&gt; getSrvRecordResult.id()));
+     *         ctx.export("dnsSrvRecordId", example.applyValue(getSrvRecordResult -> getSrvRecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1397,7 +1397,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1419,15 +1419,15 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getSrvRecord(GetSrvRecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsSrvRecordId&#34;, example.applyValue(getSrvRecordResult -&gt; getSrvRecordResult.id()));
+     *         ctx.export("dnsSrvRecordId", example.applyValue(getSrvRecordResult -> getSrvRecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1438,7 +1438,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1460,15 +1460,15 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getSrvRecord(GetSrvRecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsSrvRecordId&#34;, example.applyValue(getSrvRecordResult -&gt; getSrvRecordResult.id()));
+     *         ctx.export("dnsSrvRecordId", example.applyValue(getSrvRecordResult -> getSrvRecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1479,7 +1479,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1501,15 +1501,15 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getSrvRecord(GetSrvRecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsSrvRecordId&#34;, example.applyValue(getSrvRecordResult -&gt; getSrvRecordResult.id()));
+     *         ctx.export("dnsSrvRecordId", example.applyValue(getSrvRecordResult -> getSrvRecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1520,7 +1520,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1542,15 +1542,15 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getTxtRecord(GetTxtRecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsTxtRecordId&#34;, example.applyValue(getTxtRecordResult -&gt; getTxtRecordResult.id()));
+     *         ctx.export("dnsTxtRecordId", example.applyValue(getTxtRecordResult -> getTxtRecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1561,7 +1561,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1583,15 +1583,15 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getTxtRecord(GetTxtRecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsTxtRecordId&#34;, example.applyValue(getTxtRecordResult -&gt; getTxtRecordResult.id()));
+     *         ctx.export("dnsTxtRecordId", example.applyValue(getTxtRecordResult -> getTxtRecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1602,7 +1602,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1624,15 +1624,15 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getTxtRecord(GetTxtRecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsTxtRecordId&#34;, example.applyValue(getTxtRecordResult -&gt; getTxtRecordResult.id()));
+     *         ctx.export("dnsTxtRecordId", example.applyValue(getTxtRecordResult -> getTxtRecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1643,7 +1643,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1665,15 +1665,15 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getTxtRecord(GetTxtRecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsTxtRecordId&#34;, example.applyValue(getTxtRecordResult -&gt; getTxtRecordResult.id()));
+     *         ctx.export("dnsTxtRecordId", example.applyValue(getTxtRecordResult -> getTxtRecordResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1686,7 +1686,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1708,14 +1708,14 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getZone(GetZoneArgs.builder()
-     *             .name(&#34;search-eventhubns&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
+     *             .name("search-eventhubns")
+     *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsZoneId&#34;, example.applyValue(getZoneResult -&gt; getZoneResult.id()));
+     *         ctx.export("dnsZoneId", example.applyValue(getZoneResult -> getZoneResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1728,7 +1728,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1750,14 +1750,14 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getZone(GetZoneArgs.builder()
-     *             .name(&#34;search-eventhubns&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
+     *             .name("search-eventhubns")
+     *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsZoneId&#34;, example.applyValue(getZoneResult -&gt; getZoneResult.id()));
+     *         ctx.export("dnsZoneId", example.applyValue(getZoneResult -> getZoneResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1770,7 +1770,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1792,14 +1792,14 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getZone(GetZoneArgs.builder()
-     *             .name(&#34;search-eventhubns&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
+     *             .name("search-eventhubns")
+     *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsZoneId&#34;, example.applyValue(getZoneResult -&gt; getZoneResult.id()));
+     *         ctx.export("dnsZoneId", example.applyValue(getZoneResult -> getZoneResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1812,7 +1812,7 @@ public final class DnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1834,14 +1834,14 @@ public final class DnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DnsFunctions.getZone(GetZoneArgs.builder()
-     *             .name(&#34;search-eventhubns&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
+     *             .name("search-eventhubns")
+     *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export(&#34;dnsZoneId&#34;, example.applyValue(getZoneResult -&gt; getZoneResult.id()));
+     *         ctx.export("dnsZoneId", example.applyValue(getZoneResult -> getZoneResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

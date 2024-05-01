@@ -20,7 +20,7 @@ public final class ArcmachineFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -42,14 +42,14 @@ public final class ArcmachineFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ArcmachineFunctions.get(GetArgs.builder()
-     *             .name(&#34;existing-hcmachine&#34;)
-     *             .resourceGroupName(&#34;existing-rg&#34;)
+     *             .name("existing-hcmachine")
+     *             .resourceGroupName("existing-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getResult -&gt; getResult.id()));
+     *         ctx.export("id", example.applyValue(getResult -> getResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -62,7 +62,7 @@ public final class ArcmachineFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -84,14 +84,14 @@ public final class ArcmachineFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ArcmachineFunctions.get(GetArgs.builder()
-     *             .name(&#34;existing-hcmachine&#34;)
-     *             .resourceGroupName(&#34;existing-rg&#34;)
+     *             .name("existing-hcmachine")
+     *             .resourceGroupName("existing-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getResult -&gt; getResult.id()));
+     *         ctx.export("id", example.applyValue(getResult -> getResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -104,7 +104,7 @@ public final class ArcmachineFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -126,14 +126,14 @@ public final class ArcmachineFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ArcmachineFunctions.get(GetArgs.builder()
-     *             .name(&#34;existing-hcmachine&#34;)
-     *             .resourceGroupName(&#34;existing-rg&#34;)
+     *             .name("existing-hcmachine")
+     *             .resourceGroupName("existing-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getResult -&gt; getResult.id()));
+     *         ctx.export("id", example.applyValue(getResult -> getResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -146,7 +146,7 @@ public final class ArcmachineFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -168,14 +168,14 @@ public final class ArcmachineFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ArcmachineFunctions.get(GetArgs.builder()
-     *             .name(&#34;existing-hcmachine&#34;)
-     *             .resourceGroupName(&#34;existing-rg&#34;)
+     *             .name("existing-hcmachine")
+     *             .resourceGroupName("existing-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getResult -&gt; getResult.id()));
+     *         ctx.export("id", example.applyValue(getResult -> getResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

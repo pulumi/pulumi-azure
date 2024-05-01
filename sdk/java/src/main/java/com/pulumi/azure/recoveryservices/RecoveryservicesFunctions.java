@@ -20,7 +20,7 @@ public final class RecoveryservicesFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -42,13 +42,13 @@ public final class RecoveryservicesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var vault = RecoveryservicesFunctions.getVault(GetVaultArgs.builder()
-     *             .name(&#34;tfex-recovery_vault&#34;)
-     *             .resourceGroupName(&#34;tfex-resource_group&#34;)
+     *             .name("tfex-recovery_vault")
+     *             .resourceGroupName("tfex-resource_group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -61,7 +61,7 @@ public final class RecoveryservicesFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -83,13 +83,13 @@ public final class RecoveryservicesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var vault = RecoveryservicesFunctions.getVault(GetVaultArgs.builder()
-     *             .name(&#34;tfex-recovery_vault&#34;)
-     *             .resourceGroupName(&#34;tfex-resource_group&#34;)
+     *             .name("tfex-recovery_vault")
+     *             .resourceGroupName("tfex-resource_group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -102,7 +102,7 @@ public final class RecoveryservicesFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -124,13 +124,13 @@ public final class RecoveryservicesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var vault = RecoveryservicesFunctions.getVault(GetVaultArgs.builder()
-     *             .name(&#34;tfex-recovery_vault&#34;)
-     *             .resourceGroupName(&#34;tfex-resource_group&#34;)
+     *             .name("tfex-recovery_vault")
+     *             .resourceGroupName("tfex-resource_group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -143,7 +143,7 @@ public final class RecoveryservicesFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -165,13 +165,13 @@ public final class RecoveryservicesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var vault = RecoveryservicesFunctions.getVault(GetVaultArgs.builder()
-     *             .name(&#34;tfex-recovery_vault&#34;)
-     *             .resourceGroupName(&#34;tfex-resource_group&#34;)
+     *             .name("tfex-recovery_vault")
+     *             .resourceGroupName("tfex-resource_group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

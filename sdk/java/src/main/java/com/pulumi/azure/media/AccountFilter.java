@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,21 +54,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;media-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("media-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;examplestoracc&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("examplestoracc")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;GRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("GRS")
  *             .build());
  * 
- *         var exampleServiceAccount = new ServiceAccount(&#34;exampleServiceAccount&#34;, ServiceAccountArgs.builder()        
- *             .name(&#34;examplemediaacc&#34;)
+ *         var exampleServiceAccount = new ServiceAccount("exampleServiceAccount", ServiceAccountArgs.builder()        
+ *             .name("examplemediaacc")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .storageAccounts(ServiceAccountStorageAccountArgs.builder()
@@ -77,8 +77,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleAccountFilter = new AccountFilter(&#34;exampleAccountFilter&#34;, AccountFilterArgs.builder()        
- *             .name(&#34;Filter1&#34;)
+ *         var exampleAccountFilter = new AccountFilter("exampleAccountFilter", AccountFilterArgs.builder()        
+ *             .name("Filter1")
  *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .mediaServicesAccountName(test.name())
  *             .firstQualityBitrate(128000)
@@ -94,39 +94,39 @@ import javax.annotation.Nullable;
  *                 AccountFilterTrackSelectionArgs.builder()
  *                     .conditions(                    
  *                         AccountFilterTrackSelectionConditionArgs.builder()
- *                             .property(&#34;Type&#34;)
- *                             .operation(&#34;Equal&#34;)
- *                             .value(&#34;Audio&#34;)
+ *                             .property("Type")
+ *                             .operation("Equal")
+ *                             .value("Audio")
  *                             .build(),
  *                         AccountFilterTrackSelectionConditionArgs.builder()
- *                             .property(&#34;Language&#34;)
- *                             .operation(&#34;NotEqual&#34;)
- *                             .value(&#34;en&#34;)
+ *                             .property("Language")
+ *                             .operation("NotEqual")
+ *                             .value("en")
  *                             .build(),
  *                         AccountFilterTrackSelectionConditionArgs.builder()
- *                             .property(&#34;FourCC&#34;)
- *                             .operation(&#34;NotEqual&#34;)
- *                             .value(&#34;EC-3&#34;)
+ *                             .property("FourCC")
+ *                             .operation("NotEqual")
+ *                             .value("EC-3")
  *                             .build())
  *                     .build(),
  *                 AccountFilterTrackSelectionArgs.builder()
  *                     .conditions(                    
  *                         AccountFilterTrackSelectionConditionArgs.builder()
- *                             .property(&#34;Type&#34;)
- *                             .operation(&#34;Equal&#34;)
- *                             .value(&#34;Video&#34;)
+ *                             .property("Type")
+ *                             .operation("Equal")
+ *                             .value("Video")
  *                             .build(),
  *                         AccountFilterTrackSelectionConditionArgs.builder()
- *                             .property(&#34;Bitrate&#34;)
- *                             .operation(&#34;Equal&#34;)
- *                             .value(&#34;3000000-5000000&#34;)
+ *                             .property("Bitrate")
+ *                             .operation("Equal")
+ *                             .value("3000000-5000000")
  *                             .build())
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -20,7 +20,7 @@ public final class OperationalinsightsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -42,14 +42,14 @@ public final class OperationalinsightsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OperationalinsightsFunctions.getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs.builder()
-     *             .name(&#34;acctest-01&#34;)
-     *             .resourceGroupName(&#34;acctest&#34;)
+     *             .name("acctest-01")
+     *             .resourceGroupName("acctest")
      *             .build());
      * 
-     *         ctx.export(&#34;logAnalyticsWorkspaceId&#34;, example.applyValue(getAnalyticsWorkspaceResult -&gt; getAnalyticsWorkspaceResult.workspaceId()));
+     *         ctx.export("logAnalyticsWorkspaceId", example.applyValue(getAnalyticsWorkspaceResult -> getAnalyticsWorkspaceResult.workspaceId()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -62,7 +62,7 @@ public final class OperationalinsightsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -84,14 +84,14 @@ public final class OperationalinsightsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OperationalinsightsFunctions.getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs.builder()
-     *             .name(&#34;acctest-01&#34;)
-     *             .resourceGroupName(&#34;acctest&#34;)
+     *             .name("acctest-01")
+     *             .resourceGroupName("acctest")
      *             .build());
      * 
-     *         ctx.export(&#34;logAnalyticsWorkspaceId&#34;, example.applyValue(getAnalyticsWorkspaceResult -&gt; getAnalyticsWorkspaceResult.workspaceId()));
+     *         ctx.export("logAnalyticsWorkspaceId", example.applyValue(getAnalyticsWorkspaceResult -> getAnalyticsWorkspaceResult.workspaceId()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -104,7 +104,7 @@ public final class OperationalinsightsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -126,14 +126,14 @@ public final class OperationalinsightsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OperationalinsightsFunctions.getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs.builder()
-     *             .name(&#34;acctest-01&#34;)
-     *             .resourceGroupName(&#34;acctest&#34;)
+     *             .name("acctest-01")
+     *             .resourceGroupName("acctest")
      *             .build());
      * 
-     *         ctx.export(&#34;logAnalyticsWorkspaceId&#34;, example.applyValue(getAnalyticsWorkspaceResult -&gt; getAnalyticsWorkspaceResult.workspaceId()));
+     *         ctx.export("logAnalyticsWorkspaceId", example.applyValue(getAnalyticsWorkspaceResult -> getAnalyticsWorkspaceResult.workspaceId()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -146,7 +146,7 @@ public final class OperationalinsightsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -168,14 +168,14 @@ public final class OperationalinsightsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OperationalinsightsFunctions.getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs.builder()
-     *             .name(&#34;acctest-01&#34;)
-     *             .resourceGroupName(&#34;acctest&#34;)
+     *             .name("acctest-01")
+     *             .resourceGroupName("acctest")
      *             .build());
      * 
-     *         ctx.export(&#34;logAnalyticsWorkspaceId&#34;, example.applyValue(getAnalyticsWorkspaceResult -&gt; getAnalyticsWorkspaceResult.workspaceId()));
+     *         ctx.export("logAnalyticsWorkspaceId", example.applyValue(getAnalyticsWorkspaceResult -> getAnalyticsWorkspaceResult.workspaceId()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -59,74 +59,74 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;examplevn&#34;)
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("examplevn")
+ *             .addressSpaces("10.0.0.0/16")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;examplesubnet&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("examplesubnet")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.1.0/24&#34;)
+ *             .addressPrefixes("10.0.1.0/24")
  *             .build());
  * 
- *         var exampleCache = new Cache(&#34;exampleCache&#34;, CacheArgs.builder()        
- *             .name(&#34;examplehpccache&#34;)
+ *         var exampleCache = new Cache("exampleCache", CacheArgs.builder()        
+ *             .name("examplehpccache")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .cacheSizeInGb(3072)
  *             .subnetId(exampleSubnet.id())
- *             .skuName(&#34;Standard_2G&#34;)
+ *             .skuName("Standard_2G")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;examplestorgaccount&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("examplestorgaccount")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleContainer = new Container(&#34;exampleContainer&#34;, ContainerArgs.builder()        
- *             .name(&#34;examplestoragecontainer&#34;)
+ *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()        
+ *             .name("examplestoragecontainer")
  *             .storageAccountName(exampleAccount.name())
  *             .build());
  * 
  *         final var example = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
- *             .displayName(&#34;HPC Cache Resource Provider&#34;)
+ *             .displayName("HPC Cache Resource Provider")
  *             .build());
  * 
- *         var exampleStorageAccountContrib = new Assignment(&#34;exampleStorageAccountContrib&#34;, AssignmentArgs.builder()        
+ *         var exampleStorageAccountContrib = new Assignment("exampleStorageAccountContrib", AssignmentArgs.builder()        
  *             .scope(exampleAccount.id())
- *             .roleDefinitionName(&#34;Storage Account Contributor&#34;)
- *             .principalId(example.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.objectId()))
+ *             .roleDefinitionName("Storage Account Contributor")
+ *             .principalId(example.applyValue(getServicePrincipalResult -> getServicePrincipalResult.objectId()))
  *             .build());
  * 
- *         var exampleStorageBlobDataContrib = new Assignment(&#34;exampleStorageBlobDataContrib&#34;, AssignmentArgs.builder()        
+ *         var exampleStorageBlobDataContrib = new Assignment("exampleStorageBlobDataContrib", AssignmentArgs.builder()        
  *             .scope(exampleAccount.id())
- *             .roleDefinitionName(&#34;Storage Blob Data Contributor&#34;)
- *             .principalId(example.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.objectId()))
+ *             .roleDefinitionName("Storage Blob Data Contributor")
+ *             .principalId(example.applyValue(getServicePrincipalResult -> getServicePrincipalResult.objectId()))
  *             .build());
  * 
- *         var exampleCacheBlobTarget = new CacheBlobTarget(&#34;exampleCacheBlobTarget&#34;, CacheBlobTargetArgs.builder()        
- *             .name(&#34;examplehpccblobtarget&#34;)
+ *         var exampleCacheBlobTarget = new CacheBlobTarget("exampleCacheBlobTarget", CacheBlobTargetArgs.builder()        
+ *             .name("examplehpccblobtarget")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .cacheName(exampleCache.name())
  *             .storageContainerId(exampleContainer.resourceManagerId())
- *             .namespacePath(&#34;/blob_storage&#34;)
+ *             .namespacePath("/blob_storage")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

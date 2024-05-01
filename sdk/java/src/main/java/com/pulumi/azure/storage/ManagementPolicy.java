@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,33 +53,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;resourceGroupName&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("resourceGroupName")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;storageaccountname&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("storageaccountname")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
- *             .accountKind(&#34;BlobStorage&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
+ *             .accountKind("BlobStorage")
  *             .build());
  * 
- *         var exampleManagementPolicy = new ManagementPolicy(&#34;exampleManagementPolicy&#34;, ManagementPolicyArgs.builder()        
+ *         var exampleManagementPolicy = new ManagementPolicy("exampleManagementPolicy", ManagementPolicyArgs.builder()        
  *             .storageAccountId(exampleAccount.id())
  *             .rules(            
  *                 ManagementPolicyRuleArgs.builder()
- *                     .name(&#34;rule1&#34;)
+ *                     .name("rule1")
  *                     .enabled(true)
  *                     .filters(ManagementPolicyRuleFiltersArgs.builder()
- *                         .prefixMatches(&#34;container1/prefix1&#34;)
- *                         .blobTypes(&#34;blockBlob&#34;)
+ *                         .prefixMatches("container1/prefix1")
+ *                         .blobTypes("blockBlob")
  *                         .matchBlobIndexTags(ManagementPolicyRuleFiltersMatchBlobIndexTagArgs.builder()
- *                             .name(&#34;tag1&#34;)
- *                             .operation(&#34;==&#34;)
- *                             .value(&#34;val1&#34;)
+ *                             .name("tag1")
+ *                             .operation("==")
+ *                             .value("val1")
  *                             .build())
  *                         .build())
  *                     .actions(ManagementPolicyRuleActionsArgs.builder()
@@ -94,13 +94,13 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build(),
  *                 ManagementPolicyRuleArgs.builder()
- *                     .name(&#34;rule2&#34;)
+ *                     .name("rule2")
  *                     .enabled(false)
  *                     .filters(ManagementPolicyRuleFiltersArgs.builder()
  *                         .prefixMatches(                        
- *                             &#34;container2/prefix1&#34;,
- *                             &#34;container2/prefix2&#34;)
- *                         .blobTypes(&#34;blockBlob&#34;)
+ *                             "container2/prefix1",
+ *                             "container2/prefix2")
+ *                         .blobTypes("blockBlob")
  *                         .build())
  *                     .actions(ManagementPolicyRuleActionsArgs.builder()
  *                         .baseBlob(ManagementPolicyRuleActionsBaseBlobArgs.builder()
@@ -124,7 +124,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

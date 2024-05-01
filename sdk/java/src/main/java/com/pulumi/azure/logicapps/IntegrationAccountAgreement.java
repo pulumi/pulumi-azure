@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,61 +53,61 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var test = new IntegrationAccount(&#34;test&#34;, IntegrationAccountArgs.builder()        
- *             .name(&#34;example-ia&#34;)
+ *         var test = new IntegrationAccount("test", IntegrationAccountArgs.builder()        
+ *             .name("example-ia")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;Standard&#34;)
+ *             .skuName("Standard")
  *             .build());
  * 
- *         var host = new IntegrationAccountPartner(&#34;host&#34;, IntegrationAccountPartnerArgs.builder()        
- *             .name(&#34;example-hostpartner&#34;)
+ *         var host = new IntegrationAccountPartner("host", IntegrationAccountPartnerArgs.builder()        
+ *             .name("example-hostpartner")
  *             .resourceGroupName(example.name())
  *             .integrationAccountName(test.name())
  *             .businessIdentities(IntegrationAccountPartnerBusinessIdentityArgs.builder()
- *                 .qualifier(&#34;AS2Identity&#34;)
- *                 .value(&#34;FabrikamNY&#34;)
+ *                 .qualifier("AS2Identity")
+ *                 .value("FabrikamNY")
  *                 .build())
  *             .build());
  * 
- *         var guest = new IntegrationAccountPartner(&#34;guest&#34;, IntegrationAccountPartnerArgs.builder()        
- *             .name(&#34;example-guestpartner&#34;)
+ *         var guest = new IntegrationAccountPartner("guest", IntegrationAccountPartnerArgs.builder()        
+ *             .name("example-guestpartner")
  *             .resourceGroupName(example.name())
  *             .integrationAccountName(test.name())
  *             .businessIdentities(IntegrationAccountPartnerBusinessIdentityArgs.builder()
- *                 .qualifier(&#34;AS2Identity&#34;)
- *                 .value(&#34;FabrikamDC&#34;)
+ *                 .qualifier("AS2Identity")
+ *                 .value("FabrikamDC")
  *                 .build())
  *             .build());
  * 
- *         var testIntegrationAccountAgreement = new IntegrationAccountAgreement(&#34;testIntegrationAccountAgreement&#34;, IntegrationAccountAgreementArgs.builder()        
- *             .name(&#34;example-agreement&#34;)
+ *         var testIntegrationAccountAgreement = new IntegrationAccountAgreement("testIntegrationAccountAgreement", IntegrationAccountAgreementArgs.builder()        
+ *             .name("example-agreement")
  *             .resourceGroupName(example.name())
  *             .integrationAccountName(test.name())
- *             .agreementType(&#34;AS2&#34;)
+ *             .agreementType("AS2")
  *             .hostPartnerName(host.name())
  *             .guestPartnerName(guest.name())
  *             .content(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;testdata/integration_account_agreement_content_as2.json&#34;)
+ *                 .input("testdata/integration_account_agreement_content_as2.json")
  *                 .build()).result())
  *             .hostIdentity(IntegrationAccountAgreementHostIdentityArgs.builder()
- *                 .qualifier(&#34;AS2Identity&#34;)
- *                 .value(&#34;FabrikamNY&#34;)
+ *                 .qualifier("AS2Identity")
+ *                 .value("FabrikamNY")
  *                 .build())
  *             .guestIdentity(IntegrationAccountAgreementGuestIdentityArgs.builder()
- *                 .qualifier(&#34;AS2Identity&#34;)
- *                 .value(&#34;FabrikamDC&#34;)
+ *                 .qualifier("AS2Identity")
+ *                 .value("FabrikamDC")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,44 +53,44 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleSync = new Sync(&#34;exampleSync&#34;, SyncArgs.builder()        
- *             .name(&#34;example-ss&#34;)
+ *         var exampleSync = new Sync("exampleSync", SyncArgs.builder()        
+ *             .name("example-ss")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleSyncGroup = new SyncGroup(&#34;exampleSyncGroup&#34;, SyncGroupArgs.builder()        
- *             .name(&#34;example-ss-group&#34;)
+ *         var exampleSyncGroup = new SyncGroup("exampleSyncGroup", SyncGroupArgs.builder()        
+ *             .name("example-ss-group")
  *             .storageSyncId(exampleSync.id())
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleShare = new Share(&#34;exampleShare&#34;, ShareArgs.builder()        
- *             .name(&#34;example-share&#34;)
+ *         var exampleShare = new Share("exampleShare", ShareArgs.builder()        
+ *             .name("example-share")
  *             .storageAccountName(exampleAccount.name())
  *             .quota(50)
  *             .acls(ShareAclArgs.builder()
- *                 .id(&#34;GhostedRecall&#34;)
+ *                 .id("GhostedRecall")
  *                 .accessPolicies(ShareAclAccessPolicyArgs.builder()
- *                     .permissions(&#34;r&#34;)
+ *                     .permissions("r")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleSyncCloudEndpoint = new SyncCloudEndpoint(&#34;exampleSyncCloudEndpoint&#34;, SyncCloudEndpointArgs.builder()        
- *             .name(&#34;example-ss-ce&#34;)
+ *         var exampleSyncCloudEndpoint = new SyncCloudEndpoint("exampleSyncCloudEndpoint", SyncCloudEndpointArgs.builder()        
+ *             .name("example-ss-ce")
  *             .storageSyncGroupId(exampleSyncGroup.id())
  *             .fileShareName(exampleShare.name())
  *             .storageAccountId(exampleAccount.id())
@@ -98,7 +98,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

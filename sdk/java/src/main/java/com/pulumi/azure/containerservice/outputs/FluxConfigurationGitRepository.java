@@ -64,7 +64,7 @@ public final class FluxConfigurationGitRepository {
      */
     private @Nullable Integer timeoutInSeconds;
     /**
-     * @return Specifies the URL to sync for the flux configuration git repository. It must start with `http://`, `https://`, `git@` or `ssh://`.
+     * @return Specifies the URL to sync for the flux configuration git repository. It must start with `http://`, `https://`, `git{@literal @}` or `ssh://`.
      * 
      */
     private String url;
@@ -141,7 +141,7 @@ public final class FluxConfigurationGitRepository {
         return Optional.ofNullable(this.timeoutInSeconds);
     }
     /**
-     * @return Specifies the URL to sync for the flux configuration git repository. It must start with `http://`, `https://`, `git@` or `ssh://`.
+     * @return Specifies the URL to sync for the flux configuration git repository. It must start with `http://`, `https://`, `git{@literal @}` or `ssh://`.
      * 
      */
     public String url() {

@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,22 +43,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ScheduledAction(&#34;example&#34;, ScheduledActionArgs.builder()        
- *             .name(&#34;examplescheduledaction&#34;)
- *             .displayName(&#34;Report Last 6 Months&#34;)
- *             .viewId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.CostManagement/views/ms:CostByService&#34;)
- *             .emailAddressSender(&#34;platformteam@test.com&#34;)
- *             .emailSubject(&#34;Cost Management Report&#34;)
- *             .emailAddresses(&#34;example@example.com&#34;)
- *             .message(&#34;Hi all, take a look at last 6 months spending!&#34;)
- *             .frequency(&#34;Daily&#34;)
- *             .startDate(&#34;2023-01-02T00:00:00Z&#34;)
- *             .endDate(&#34;2023-02-02T00:00:00Z&#34;)
+ *         var example = new ScheduledAction("example", ScheduledActionArgs.builder()        
+ *             .name("examplescheduledaction")
+ *             .displayName("Report Last 6 Months")
+ *             .viewId("/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.CostManagement/views/ms:CostByService")
+ *             .emailAddressSender("platformteam@test.com")
+ *             .emailSubject("Cost Management Report")
+ *             .emailAddresses("example@example.com")
+ *             .message("Hi all, take a look at last 6 months spending!")
+ *             .frequency("Daily")
+ *             .startDate("2023-01-02T00:00:00Z")
+ *             .endDate("2023-02-02T00:00:00Z")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -29,7 +29,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,25 +53,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var acr = new Registry(&#34;acr&#34;, RegistryArgs.builder()        
- *             .name(&#34;containerRegistry1&#34;)
+ *         var acr = new Registry("acr", RegistryArgs.builder()        
+ *             .name("containerRegistry1")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .sku(&#34;Premium&#34;)
+ *             .sku("Premium")
  *             .adminEnabled(false)
  *             .georeplications(            
  *                 RegistryGeoreplicationArgs.builder()
- *                     .location(&#34;East US&#34;)
+ *                     .location("East US")
  *                     .zoneRedundancyEnabled(true)
  *                     .tags()
  *                     .build(),
  *                 RegistryGeoreplicationArgs.builder()
- *                     .location(&#34;North Europe&#34;)
+ *                     .location("North Europe")
  *                     .zoneRedundancyEnabled(true)
  *                     .tags()
  *                     .build())
@@ -79,13 +79,13 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Encryption)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -114,47 +114,47 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
- *             .name(&#34;registry-uai&#34;)
+ *             .name("registry-uai")
  *             .build());
  * 
  *         final var example = KeyvaultFunctions.getKey(GetKeyArgs.builder()
- *             .name(&#34;super-secret&#34;)
+ *             .name("super-secret")
  *             .keyVaultId(existing.id())
  *             .build());
  * 
- *         var acr = new Registry(&#34;acr&#34;, RegistryArgs.builder()        
- *             .name(&#34;containerRegistry1&#34;)
+ *         var acr = new Registry("acr", RegistryArgs.builder()        
+ *             .name("containerRegistry1")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
- *             .sku(&#34;Premium&#34;)
+ *             .sku("Premium")
  *             .identity(RegistryIdentityArgs.builder()
- *                 .type(&#34;UserAssigned&#34;)
+ *                 .type("UserAssigned")
  *                 .identityIds(exampleUserAssignedIdentity.id())
  *                 .build())
  *             .encryption(RegistryEncryptionArgs.builder()
  *                 .enabled(true)
- *                 .keyVaultKeyId(example.applyValue(getKeyResult -&gt; getKeyResult.id()))
+ *                 .keyVaultKeyId(example.applyValue(getKeyResult -> getKeyResult.id()))
  *                 .identityClientId(exampleUserAssignedIdentity.clientId())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Attaching A Container Registry To A Kubernetes Cluster)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -183,44 +183,44 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleRegistry = new Registry(&#34;exampleRegistry&#34;, RegistryArgs.builder()        
- *             .name(&#34;containerRegistry1&#34;)
+ *         var exampleRegistry = new Registry("exampleRegistry", RegistryArgs.builder()        
+ *             .name("containerRegistry1")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .sku(&#34;Premium&#34;)
+ *             .sku("Premium")
  *             .build());
  * 
- *         var exampleKubernetesCluster = new KubernetesCluster(&#34;exampleKubernetesCluster&#34;, KubernetesClusterArgs.builder()        
- *             .name(&#34;example-aks1&#34;)
+ *         var exampleKubernetesCluster = new KubernetesCluster("exampleKubernetesCluster", KubernetesClusterArgs.builder()        
+ *             .name("example-aks1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .dnsPrefix(&#34;exampleaks1&#34;)
+ *             .dnsPrefix("exampleaks1")
  *             .defaultNodePool(KubernetesClusterDefaultNodePoolArgs.builder()
- *                 .name(&#34;default&#34;)
+ *                 .name("default")
  *                 .nodeCount(1)
- *                 .vmSize(&#34;Standard_D2_v2&#34;)
+ *                 .vmSize("Standard_D2_v2")
  *                 .build())
  *             .identity(KubernetesClusterIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
- *             .tags(Map.of(&#34;Environment&#34;, &#34;Production&#34;))
+ *             .tags(Map.of("Environment", "Production"))
  *             .build());
  * 
- *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
- *             .principalId(exampleKubernetesCluster.kubeletIdentity().applyValue(kubeletIdentity -&gt; kubeletIdentity.objectId()))
- *             .roleDefinitionName(&#34;AcrPull&#34;)
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()        
+ *             .principalId(exampleKubernetesCluster.kubeletIdentity().applyValue(kubeletIdentity -> kubeletIdentity.objectId()))
+ *             .roleDefinitionName("AcrPull")
  *             .scope(exampleRegistry.id())
  *             .skipServicePrincipalAadCheck(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

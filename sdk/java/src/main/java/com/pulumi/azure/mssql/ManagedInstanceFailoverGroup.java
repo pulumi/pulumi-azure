@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * &gt; **Note:** For a more complete example, see the `./examples/sql-azure/managed_instance_failover_group` directory within the GitHub Repository.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -64,89 +64,89 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *             .addressSpaces("10.0.0.0/16")
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
+ *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
- *         var exampleNetworkSecurityGroup = new NetworkSecurityGroup(&#34;exampleNetworkSecurityGroup&#34;, NetworkSecurityGroupArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleNetworkSecurityGroup = new NetworkSecurityGroup("exampleNetworkSecurityGroup", NetworkSecurityGroupArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation(&#34;exampleSubnetNetworkSecurityGroupAssociation&#34;, SubnetNetworkSecurityGroupAssociationArgs.builder()        
+ *         var exampleSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation("exampleSubnetNetworkSecurityGroupAssociation", SubnetNetworkSecurityGroupAssociationArgs.builder()        
  *             .subnetId(exampleSubnet.id())
  *             .networkSecurityGroupId(exampleNetworkSecurityGroup.id())
  *             .build());
  * 
- *         var exampleRouteTable = new RouteTable(&#34;exampleRouteTable&#34;, RouteTableArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleRouteTable = new RouteTable("exampleRouteTable", RouteTableArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnetRouteTableAssociation = new SubnetRouteTableAssociation(&#34;exampleSubnetRouteTableAssociation&#34;, SubnetRouteTableAssociationArgs.builder()        
+ *         var exampleSubnetRouteTableAssociation = new SubnetRouteTableAssociation("exampleSubnetRouteTableAssociation", SubnetRouteTableAssociationArgs.builder()        
  *             .subnetId(exampleSubnet.id())
  *             .routeTableId(exampleRouteTable.id())
  *             .build());
  * 
- *         var primary = new ManagedInstance(&#34;primary&#34;, ManagedInstanceArgs.builder()        
- *             .name(&#34;example-primary&#34;)
+ *         var primary = new ManagedInstance("primary", ManagedInstanceArgs.builder()        
+ *             .name("example-primary")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .administratorLogin(&#34;mradministrator&#34;)
- *             .administratorLoginPassword(&#34;thisIsDog11&#34;)
- *             .licenseType(&#34;BasePrice&#34;)
+ *             .administratorLogin("mradministrator")
+ *             .administratorLoginPassword("thisIsDog11")
+ *             .licenseType("BasePrice")
  *             .subnetId(exampleSubnet.id())
- *             .skuName(&#34;GP_Gen5&#34;)
+ *             .skuName("GP_Gen5")
  *             .vcores(4)
  *             .storageSizeInGb(32)
- *             .tags(Map.of(&#34;environment&#34;, &#34;prod&#34;))
+ *             .tags(Map.of("environment", "prod"))
  *             .build());
  * 
- *         var secondary = new ManagedInstance(&#34;secondary&#34;, ManagedInstanceArgs.builder()        
- *             .name(&#34;example-secondary&#34;)
+ *         var secondary = new ManagedInstance("secondary", ManagedInstanceArgs.builder()        
+ *             .name("example-secondary")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .administratorLogin(&#34;mradministrator&#34;)
- *             .administratorLoginPassword(&#34;thisIsDog11&#34;)
- *             .licenseType(&#34;BasePrice&#34;)
+ *             .administratorLogin("mradministrator")
+ *             .administratorLoginPassword("thisIsDog11")
+ *             .licenseType("BasePrice")
  *             .subnetId(exampleSubnet.id())
- *             .skuName(&#34;GP_Gen5&#34;)
+ *             .skuName("GP_Gen5")
  *             .vcores(4)
  *             .storageSizeInGb(32)
- *             .tags(Map.of(&#34;environment&#34;, &#34;prod&#34;))
+ *             .tags(Map.of("environment", "prod"))
  *             .build());
  * 
- *         var exampleManagedInstanceFailoverGroup = new ManagedInstanceFailoverGroup(&#34;exampleManagedInstanceFailoverGroup&#34;, ManagedInstanceFailoverGroupArgs.builder()        
- *             .name(&#34;example-failover-group&#34;)
+ *         var exampleManagedInstanceFailoverGroup = new ManagedInstanceFailoverGroup("exampleManagedInstanceFailoverGroup", ManagedInstanceFailoverGroupArgs.builder()        
+ *             .name("example-failover-group")
  *             .location(primary.location())
  *             .managedInstanceId(primary.id())
  *             .partnerManagedInstanceId(secondary.id())
  *             .readWriteEndpointFailoverPolicy(ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs.builder()
- *                 .mode(&#34;Automatic&#34;)
+ *                 .mode("Automatic")
  *                 .graceMinutes(60)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

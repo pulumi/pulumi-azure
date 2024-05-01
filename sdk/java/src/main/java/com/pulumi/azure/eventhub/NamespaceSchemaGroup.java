@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,28 +42,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;exampleRG-ehn-schemaGroup&#34;)
- *             .location(&#34;East US&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("exampleRG-ehn-schemaGroup")
+ *             .location("East US")
  *             .build());
  * 
- *         var test = new EventHubNamespace(&#34;test&#34;, EventHubNamespaceArgs.builder()        
- *             .name(&#34;example-ehn-schemaGroup&#34;)
+ *         var test = new EventHubNamespace("test", EventHubNamespaceArgs.builder()        
+ *             .name("example-ehn-schemaGroup")
  *             .location(testAzurermResourceGroup.location())
  *             .resourceGroupName(testAzurermResourceGroup.name())
- *             .sku(&#34;Standard&#34;)
+ *             .sku("Standard")
  *             .build());
  * 
- *         var testNamespaceSchemaGroup = new NamespaceSchemaGroup(&#34;testNamespaceSchemaGroup&#34;, NamespaceSchemaGroupArgs.builder()        
- *             .name(&#34;example-schemaGroup&#34;)
+ *         var testNamespaceSchemaGroup = new NamespaceSchemaGroup("testNamespaceSchemaGroup", NamespaceSchemaGroupArgs.builder()        
+ *             .name("example-schemaGroup")
  *             .namespaceId(test.id())
- *             .schemaCompatibility(&#34;Forward&#34;)
- *             .schemaType(&#34;Avro&#34;)
+ *             .schemaCompatibility("Forward")
+ *             .schemaType("Avro")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

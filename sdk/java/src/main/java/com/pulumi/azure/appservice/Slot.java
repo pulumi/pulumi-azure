@@ -36,7 +36,7 @@ import javax.annotation.Nullable;
  * ### NET 4.X)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -70,68 +70,68 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var server = new RandomId(&#34;server&#34;, RandomIdArgs.builder()        
- *             .keepers(Map.of(&#34;azi_id&#34;, 1))
+ *         var server = new RandomId("server", RandomIdArgs.builder()        
+ *             .keepers(Map.of("azi_id", 1))
  *             .byteLength(8)
  *             .build());
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;some-resource-group&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("some-resource-group")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var examplePlan = new Plan(&#34;examplePlan&#34;, PlanArgs.builder()        
- *             .name(&#34;some-app-service-plan&#34;)
+ *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()        
+ *             .name("some-app-service-plan")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku(PlanSkuArgs.builder()
- *                 .tier(&#34;Standard&#34;)
- *                 .size(&#34;S1&#34;)
+ *                 .tier("Standard")
+ *                 .size("S1")
  *                 .build())
  *             .build());
  * 
- *         var exampleAppService = new AppService(&#34;exampleAppService&#34;, AppServiceArgs.builder()        
+ *         var exampleAppService = new AppService("exampleAppService", AppServiceArgs.builder()        
  *             .name(server.hex())
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
  *             .siteConfig(AppServiceSiteConfigArgs.builder()
- *                 .dotnetFrameworkVersion(&#34;v4.0&#34;)
+ *                 .dotnetFrameworkVersion("v4.0")
  *                 .build())
- *             .appSettings(Map.of(&#34;SOME_KEY&#34;, &#34;some-value&#34;))
+ *             .appSettings(Map.of("SOME_KEY", "some-value"))
  *             .connectionStrings(AppServiceConnectionStringArgs.builder()
- *                 .name(&#34;Database&#34;)
- *                 .type(&#34;SQLServer&#34;)
- *                 .value(&#34;Server=some-server.mydomain.com;Integrated Security=SSPI&#34;)
+ *                 .name("Database")
+ *                 .type("SQLServer")
+ *                 .value("Server=some-server.mydomain.com;Integrated Security=SSPI")
  *                 .build())
  *             .build());
  * 
- *         var exampleSlot = new Slot(&#34;exampleSlot&#34;, SlotArgs.builder()        
+ *         var exampleSlot = new Slot("exampleSlot", SlotArgs.builder()        
  *             .name(server.hex())
  *             .appServiceName(exampleAppService.name())
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
  *             .siteConfig(SlotSiteConfigArgs.builder()
- *                 .dotnetFrameworkVersion(&#34;v4.0&#34;)
+ *                 .dotnetFrameworkVersion("v4.0")
  *                 .build())
- *             .appSettings(Map.of(&#34;SOME_KEY&#34;, &#34;some-value&#34;))
+ *             .appSettings(Map.of("SOME_KEY", "some-value"))
  *             .connectionStrings(SlotConnectionStringArgs.builder()
- *                 .name(&#34;Database&#34;)
- *                 .type(&#34;SQLServer&#34;)
- *                 .value(&#34;Server=some-server.mydomain.com;Integrated Security=SSPI&#34;)
+ *                 .name("Database")
+ *                 .type("SQLServer")
+ *                 .value("Server=some-server.mydomain.com;Integrated Security=SSPI")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Java 1.8)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -163,54 +163,54 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var server = new RandomId(&#34;server&#34;, RandomIdArgs.builder()        
- *             .keepers(Map.of(&#34;azi_id&#34;, 1))
+ *         var server = new RandomId("server", RandomIdArgs.builder()        
+ *             .keepers(Map.of("azi_id", 1))
  *             .byteLength(8)
  *             .build());
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;some-resource-group&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("some-resource-group")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var examplePlan = new Plan(&#34;examplePlan&#34;, PlanArgs.builder()        
- *             .name(&#34;some-app-service-plan&#34;)
+ *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()        
+ *             .name("some-app-service-plan")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku(PlanSkuArgs.builder()
- *                 .tier(&#34;Standard&#34;)
- *                 .size(&#34;S1&#34;)
+ *                 .tier("Standard")
+ *                 .size("S1")
  *                 .build())
  *             .build());
  * 
- *         var exampleAppService = new AppService(&#34;exampleAppService&#34;, AppServiceArgs.builder()        
+ *         var exampleAppService = new AppService("exampleAppService", AppServiceArgs.builder()        
  *             .name(server.hex())
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
  *             .siteConfig(AppServiceSiteConfigArgs.builder()
- *                 .javaVersion(&#34;1.8&#34;)
- *                 .javaContainer(&#34;JETTY&#34;)
- *                 .javaContainerVersion(&#34;9.3&#34;)
+ *                 .javaVersion("1.8")
+ *                 .javaContainer("JETTY")
+ *                 .javaContainerVersion("9.3")
  *                 .build())
  *             .build());
  * 
- *         var exampleSlot = new Slot(&#34;exampleSlot&#34;, SlotArgs.builder()        
+ *         var exampleSlot = new Slot("exampleSlot", SlotArgs.builder()        
  *             .name(server.hex())
  *             .appServiceName(exampleAppService.name())
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
  *             .siteConfig(SlotSiteConfigArgs.builder()
- *                 .javaVersion(&#34;1.8&#34;)
- *                 .javaContainer(&#34;JETTY&#34;)
- *                 .javaContainerVersion(&#34;9.3&#34;)
+ *                 .javaVersion("1.8")
+ *                 .javaContainer("JETTY")
+ *                 .javaContainerVersion("9.3")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

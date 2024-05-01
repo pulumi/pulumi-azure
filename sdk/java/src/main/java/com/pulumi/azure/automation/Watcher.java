@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,53 +52,53 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;example-account&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("example-account")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;Basic&#34;)
+ *             .skuName("Basic")
  *             .build());
  * 
- *         var exampleHybridRunbookWorkerGroup = new HybridRunbookWorkerGroup(&#34;exampleHybridRunbookWorkerGroup&#34;, HybridRunbookWorkerGroupArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleHybridRunbookWorkerGroup = new HybridRunbookWorkerGroup("exampleHybridRunbookWorkerGroup", HybridRunbookWorkerGroupArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .automationAccountName(exampleAccount.name())
  *             .build());
  * 
- *         var exampleRunBook = new RunBook(&#34;exampleRunBook&#34;, RunBookArgs.builder()        
- *             .name(&#34;Get-AzureVMTutorial&#34;)
+ *         var exampleRunBook = new RunBook("exampleRunBook", RunBookArgs.builder()        
+ *             .name("Get-AzureVMTutorial")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .automationAccountName(exampleAccount.name())
- *             .logVerbose(&#34;true&#34;)
- *             .logProgress(&#34;true&#34;)
- *             .description(&#34;This is an example runbook&#34;)
- *             .runbookType(&#34;PowerShellWorkflow&#34;)
+ *             .logVerbose("true")
+ *             .logProgress("true")
+ *             .description("This is an example runbook")
+ *             .runbookType("PowerShellWorkflow")
  *             .publishContentLink(RunBookPublishContentLinkArgs.builder()
- *                 .uri(&#34;https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1&#34;)
+ *                 .uri("https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1")
  *                 .build())
  *             .build());
  * 
- *         var exampleWatcher = new Watcher(&#34;exampleWatcher&#34;, WatcherArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleWatcher = new Watcher("exampleWatcher", WatcherArgs.builder()        
+ *             .name("example")
  *             .automationAccountId(exampleAccount.id())
- *             .location(&#34;West Europe&#34;)
+ *             .location("West Europe")
  *             .scriptName(exampleRunBook.name())
  *             .scriptRunOn(exampleHybridRunbookWorkerGroup.name())
- *             .description(&#34;example-watcher desc&#34;)
+ *             .description("example-watcher desc")
  *             .executionFrequencyInSeconds(42)
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
- *             .scriptParameters(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .tags(Map.of("foo", "bar"))
+ *             .scriptParameters(Map.of("foo", "bar"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

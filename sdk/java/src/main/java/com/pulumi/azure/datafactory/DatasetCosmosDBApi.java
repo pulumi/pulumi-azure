@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,39 +52,39 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
  *         final var example = CosmosdbFunctions.getAccount(GetAccountArgs.builder()
- *             .name(&#34;tfex-cosmosdb-account&#34;)
- *             .resourceGroupName(&#34;tfex-cosmosdb-account-rg&#34;)
+ *             .name("tfex-cosmosdb-account")
+ *             .resourceGroupName("tfex-cosmosdb-account-rg")
  *             .build());
  * 
- *         var exampleFactory = new Factory(&#34;exampleFactory&#34;, FactoryArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *             .name("example")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleLinkedServiceCosmosDb = new LinkedServiceCosmosDb(&#34;exampleLinkedServiceCosmosDb&#34;, LinkedServiceCosmosDbArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleLinkedServiceCosmosDb = new LinkedServiceCosmosDb("exampleLinkedServiceCosmosDb", LinkedServiceCosmosDbArgs.builder()        
+ *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
- *             .accountEndpoint(example.applyValue(getAccountResult -&gt; getAccountResult.endpoint()))
- *             .database(&#34;foo&#34;)
+ *             .accountEndpoint(example.applyValue(getAccountResult -> getAccountResult.endpoint()))
+ *             .database("foo")
  *             .build());
  * 
- *         var exampleDatasetCosmosDBApi = new DatasetCosmosDBApi(&#34;exampleDatasetCosmosDBApi&#34;, DatasetCosmosDBApiArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleDatasetCosmosDBApi = new DatasetCosmosDBApi("exampleDatasetCosmosDBApi", DatasetCosmosDBApiArgs.builder()        
+ *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .linkedServiceName(exampleLinkedServiceCosmosDb.name())
- *             .collectionName(&#34;bar&#34;)
+ *             .collectionName("bar")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

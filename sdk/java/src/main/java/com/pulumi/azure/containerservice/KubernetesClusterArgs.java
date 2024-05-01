@@ -735,7 +735,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
      * &gt; **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -764,40 +764,40 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+     *             .name("example")
+     *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
-     *             .name(&#34;privatelink.eastus2.azmk8s.io&#34;)
+     *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()        
+     *             .name("privatelink.eastus2.azmk8s.io")
      *             .resourceGroupName(example.name())
      *             .build());
      * 
-     *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
-     *             .name(&#34;aks-example-identity&#34;)
+     *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()        
+     *             .name("aks-example-identity")
      *             .resourceGroupName(example.name())
      *             .location(example.location())
      *             .build());
      * 
-     *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
+     *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()        
      *             .scope(exampleZone.id())
-     *             .roleDefinitionName(&#34;Private DNS Zone Contributor&#34;)
+     *             .roleDefinitionName("Private DNS Zone Contributor")
      *             .principalId(exampleUserAssignedIdentity.principalId())
      *             .build());
      * 
-     *         var exampleKubernetesCluster = new KubernetesCluster(&#34;exampleKubernetesCluster&#34;, KubernetesClusterArgs.builder()        
-     *             .name(&#34;aksexamplewithprivatednszone1&#34;)
+     *         var exampleKubernetesCluster = new KubernetesCluster("exampleKubernetesCluster", KubernetesClusterArgs.builder()        
+     *             .name("aksexamplewithprivatednszone1")
      *             .location(example.location())
      *             .resourceGroupName(example.name())
-     *             .dnsPrefix(&#34;aksexamplednsprefix1&#34;)
+     *             .dnsPrefix("aksexamplednsprefix1")
      *             .privateClusterEnabled(true)
      *             .privateDnsZoneId(exampleZone.id())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -810,7 +810,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
      * &gt; **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -839,40 +839,40 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+     *             .name("example")
+     *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
-     *             .name(&#34;privatelink.eastus2.azmk8s.io&#34;)
+     *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()        
+     *             .name("privatelink.eastus2.azmk8s.io")
      *             .resourceGroupName(example.name())
      *             .build());
      * 
-     *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
-     *             .name(&#34;aks-example-identity&#34;)
+     *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()        
+     *             .name("aks-example-identity")
      *             .resourceGroupName(example.name())
      *             .location(example.location())
      *             .build());
      * 
-     *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
+     *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()        
      *             .scope(exampleZone.id())
-     *             .roleDefinitionName(&#34;Private DNS Zone Contributor&#34;)
+     *             .roleDefinitionName("Private DNS Zone Contributor")
      *             .principalId(exampleUserAssignedIdentity.principalId())
      *             .build());
      * 
-     *         var exampleKubernetesCluster = new KubernetesCluster(&#34;exampleKubernetesCluster&#34;, KubernetesClusterArgs.builder()        
-     *             .name(&#34;aksexamplewithprivatednszone1&#34;)
+     *         var exampleKubernetesCluster = new KubernetesCluster("exampleKubernetesCluster", KubernetesClusterArgs.builder()        
+     *             .name("aksexamplewithprivatednszone1")
      *             .location(example.location())
      *             .resourceGroupName(example.name())
-     *             .dnsPrefix(&#34;aksexamplednsprefix1&#34;)
+     *             .dnsPrefix("aksexamplednsprefix1")
      *             .privateClusterEnabled(true)
      *             .privateDnsZoneId(exampleZone.id())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2176,7 +2176,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
          * &gt; **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
          * 
          * &lt;!--Start PulumiCodeChooser --&gt;
-         * ```java
+         * {@code
          * package generated_program;
          * 
          * import com.pulumi.Context;
@@ -2205,40 +2205,40 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
          *     }
          * 
          *     public static void stack(Context ctx) {
-         *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
-         *             .name(&#34;example&#34;)
-         *             .location(&#34;West Europe&#34;)
+         *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+         *             .name("example")
+         *             .location("West Europe")
          *             .build());
          * 
-         *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
-         *             .name(&#34;privatelink.eastus2.azmk8s.io&#34;)
+         *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()        
+         *             .name("privatelink.eastus2.azmk8s.io")
          *             .resourceGroupName(example.name())
          *             .build());
          * 
-         *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
-         *             .name(&#34;aks-example-identity&#34;)
+         *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()        
+         *             .name("aks-example-identity")
          *             .resourceGroupName(example.name())
          *             .location(example.location())
          *             .build());
          * 
-         *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
+         *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()        
          *             .scope(exampleZone.id())
-         *             .roleDefinitionName(&#34;Private DNS Zone Contributor&#34;)
+         *             .roleDefinitionName("Private DNS Zone Contributor")
          *             .principalId(exampleUserAssignedIdentity.principalId())
          *             .build());
          * 
-         *         var exampleKubernetesCluster = new KubernetesCluster(&#34;exampleKubernetesCluster&#34;, KubernetesClusterArgs.builder()        
-         *             .name(&#34;aksexamplewithprivatednszone1&#34;)
+         *         var exampleKubernetesCluster = new KubernetesCluster("exampleKubernetesCluster", KubernetesClusterArgs.builder()        
+         *             .name("aksexamplewithprivatednszone1")
          *             .location(example.location())
          *             .resourceGroupName(example.name())
-         *             .dnsPrefix(&#34;aksexamplednsprefix1&#34;)
+         *             .dnsPrefix("aksexamplednsprefix1")
          *             .privateClusterEnabled(true)
          *             .privateDnsZoneId(exampleZone.id())
          *             .build());
          * 
          *     }
          * }
-         * ```
+         * }
          * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
@@ -2255,7 +2255,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
          * &gt; **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
          * 
          * &lt;!--Start PulumiCodeChooser --&gt;
-         * ```java
+         * {@code
          * package generated_program;
          * 
          * import com.pulumi.Context;
@@ -2284,40 +2284,40 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
          *     }
          * 
          *     public static void stack(Context ctx) {
-         *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
-         *             .name(&#34;example&#34;)
-         *             .location(&#34;West Europe&#34;)
+         *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+         *             .name("example")
+         *             .location("West Europe")
          *             .build());
          * 
-         *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
-         *             .name(&#34;privatelink.eastus2.azmk8s.io&#34;)
+         *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()        
+         *             .name("privatelink.eastus2.azmk8s.io")
          *             .resourceGroupName(example.name())
          *             .build());
          * 
-         *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
-         *             .name(&#34;aks-example-identity&#34;)
+         *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()        
+         *             .name("aks-example-identity")
          *             .resourceGroupName(example.name())
          *             .location(example.location())
          *             .build());
          * 
-         *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
+         *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()        
          *             .scope(exampleZone.id())
-         *             .roleDefinitionName(&#34;Private DNS Zone Contributor&#34;)
+         *             .roleDefinitionName("Private DNS Zone Contributor")
          *             .principalId(exampleUserAssignedIdentity.principalId())
          *             .build());
          * 
-         *         var exampleKubernetesCluster = new KubernetesCluster(&#34;exampleKubernetesCluster&#34;, KubernetesClusterArgs.builder()        
-         *             .name(&#34;aksexamplewithprivatednszone1&#34;)
+         *         var exampleKubernetesCluster = new KubernetesCluster("exampleKubernetesCluster", KubernetesClusterArgs.builder()        
+         *             .name("aksexamplewithprivatednszone1")
          *             .location(example.location())
          *             .resourceGroupName(example.name())
-         *             .dnsPrefix(&#34;aksexamplednsprefix1&#34;)
+         *             .dnsPrefix("aksexamplednsprefix1")
          *             .privateClusterEnabled(true)
          *             .privateDnsZoneId(exampleZone.id())
          *             .build());
          * 
          *     }
          * }
-         * ```
+         * }
          * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder

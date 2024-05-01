@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,33 +49,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleSpringCloudService = new SpringCloudService(&#34;exampleSpringCloudService&#34;, SpringCloudServiceArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;E0&#34;)
+ *             .skuName("E0")
  *             .build());
  * 
- *         var exampleSpringCloudDynatraceApplicationPerformanceMonitoring = new SpringCloudDynatraceApplicationPerformanceMonitoring(&#34;exampleSpringCloudDynatraceApplicationPerformanceMonitoring&#34;, SpringCloudDynatraceApplicationPerformanceMonitoringArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleSpringCloudDynatraceApplicationPerformanceMonitoring = new SpringCloudDynatraceApplicationPerformanceMonitoring("exampleSpringCloudDynatraceApplicationPerformanceMonitoring", SpringCloudDynatraceApplicationPerformanceMonitoringArgs.builder()        
+ *             .name("example")
  *             .springCloudServiceId(exampleSpringCloudService.id())
  *             .globallyEnabled(true)
- *             .apiUrl(&#34;https://example-api-url.com&#34;)
- *             .apiToken(&#34;dt0s01.AAAAAAAAAAAAAAAAAAAAAAAA.BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB&#34;)
- *             .environmentId(&#34;example-environment-id&#34;)
- *             .tenant(&#34;example-tenant&#34;)
- *             .tenantToken(&#34;dt0s01.AAAAAAAAAAAAAAAAAAAAAAAA.BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB&#34;)
- *             .connectionPoint(&#34;https://example.live.dynatrace.com:443&#34;)
+ *             .apiUrl("https://example-api-url.com")
+ *             .apiToken("dt0s01.AAAAAAAAAAAAAAAAAAAAAAAA.BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB")
+ *             .environmentId("example-environment-id")
+ *             .tenant("example-tenant")
+ *             .tenantToken("dt0s01.AAAAAAAAAAAAAAAAAAAAAAAA.BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB")
+ *             .connectionPoint("https://example.live.dynatrace.com:443")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

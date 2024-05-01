@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -40,14 +40,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SourceControlToken(&#34;example&#34;, SourceControlTokenArgs.builder()        
- *             .type(&#34;GitHub&#34;)
- *             .token(&#34;ghp_sometokenvaluesecretsauce&#34;)
+ *         var example = new SourceControlToken("example", SourceControlTokenArgs.builder()        
+ *             .type("GitHub")
+ *             .token("ghp_sometokenvaluesecretsauce")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

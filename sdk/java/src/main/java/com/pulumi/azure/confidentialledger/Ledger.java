@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,26 +51,26 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var ledger = new Ledger(&#34;ledger&#34;, LedgerArgs.builder()        
- *             .name(&#34;example-ledger&#34;)
+ *         var ledger = new Ledger("ledger", LedgerArgs.builder()        
+ *             .name("example-ledger")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .ledgerType(&#34;Private&#34;)
+ *             .ledgerType("Private")
  *             .azureadBasedServicePrincipals(LedgerAzureadBasedServicePrincipalArgs.builder()
- *                 .principalId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
- *                 .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *                 .ledgerRoleName(&#34;Administrator&#34;)
+ *                 .principalId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *                 .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *                 .ledgerRoleName("Administrator")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

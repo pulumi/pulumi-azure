@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,35 +45,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;workflow-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("workflow-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleWorkflow = new Workflow(&#34;exampleWorkflow&#34;, WorkflowArgs.builder()        
- *             .name(&#34;workflow1&#34;)
+ *         var exampleWorkflow = new Workflow("exampleWorkflow", WorkflowArgs.builder()        
+ *             .name("workflow1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleTriggerHttpRequest = new TriggerHttpRequest(&#34;exampleTriggerHttpRequest&#34;, TriggerHttpRequestArgs.builder()        
- *             .name(&#34;some-http-trigger&#34;)
+ *         var exampleTriggerHttpRequest = new TriggerHttpRequest("exampleTriggerHttpRequest", TriggerHttpRequestArgs.builder()        
+ *             .name("some-http-trigger")
  *             .logicAppId(exampleWorkflow.id())
- *             .schema(&#34;&#34;&#34;
+ *             .schema("""
  * {
- *     &#34;type&#34;: &#34;object&#34;,
- *     &#34;properties&#34;: {
- *         &#34;hello&#34;: {
- *             &#34;type&#34;: &#34;string&#34;
+ *     "type": "object",
+ *     "properties": {
+ *         "hello": {
+ *             "type": "string"
  *         }
  *     }
  * }
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,21 +45,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-redisenterprise&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-redisenterprise")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleEnterpriseCluster = new EnterpriseCluster(&#34;exampleEnterpriseCluster&#34;, EnterpriseClusterArgs.builder()        
- *             .name(&#34;example-redisenterprise&#34;)
+ *         var exampleEnterpriseCluster = new EnterpriseCluster("exampleEnterpriseCluster", EnterpriseClusterArgs.builder()        
+ *             .name("example-redisenterprise")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .skuName(&#34;EnterpriseFlash_F300-3&#34;)
+ *             .skuName("EnterpriseFlash_F300-3")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

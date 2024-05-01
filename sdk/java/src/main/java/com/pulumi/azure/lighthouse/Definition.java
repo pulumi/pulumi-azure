@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,24 +49,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var contributor = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
- *             .roleDefinitionId(&#34;b24988ac-6180-42a0-ab88-20f7382dd24c&#34;)
+ *             .roleDefinitionId("b24988ac-6180-42a0-ab88-20f7382dd24c")
  *             .build());
  * 
- *         var example = new Definition(&#34;example&#34;, DefinitionArgs.builder()        
- *             .name(&#34;Sample definition&#34;)
- *             .description(&#34;This is a lighthouse definition created IaC&#34;)
- *             .managingTenantId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .scope(&#34;/subscriptions/00000000-0000-0000-0000-000000000000&#34;)
+ *         var example = new Definition("example", DefinitionArgs.builder()        
+ *             .name("Sample definition")
+ *             .description("This is a lighthouse definition created IaC")
+ *             .managingTenantId("00000000-0000-0000-0000-000000000000")
+ *             .scope("/subscriptions/00000000-0000-0000-0000-000000000000")
  *             .authorizations(DefinitionAuthorizationArgs.builder()
- *                 .principalId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *                 .roleDefinitionId(contributor.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult.roleDefinitionId()))
- *                 .principalDisplayName(&#34;Tier 1 Support&#34;)
+ *                 .principalId("00000000-0000-0000-0000-000000000000")
+ *                 .roleDefinitionId(contributor.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.roleDefinitionId()))
+ *                 .principalDisplayName("Tier 1 Support")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -168,14 +168,14 @@ public final class FluxConfigurationGitRepositoryArgs extends com.pulumi.resourc
     }
 
     /**
-     * Specifies the URL to sync for the flux configuration git repository. It must start with `http://`, `https://`, `git@` or `ssh://`.
+     * Specifies the URL to sync for the flux configuration git repository. It must start with `http://`, `https://`, `git{@literal @}` or `ssh://`.
      * 
      */
     @Import(name="url", required=true)
     private Output<String> url;
 
     /**
-     * @return Specifies the URL to sync for the flux configuration git repository. It must start with `http://`, `https://`, `git@` or `ssh://`.
+     * @return Specifies the URL to sync for the flux configuration git repository. It must start with `http://`, `https://`, `git{@literal @}` or `ssh://`.
      * 
      */
     public Output<String> url() {
@@ -427,7 +427,7 @@ public final class FluxConfigurationGitRepositoryArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param url Specifies the URL to sync for the flux configuration git repository. It must start with `http://`, `https://`, `git@` or `ssh://`.
+         * @param url Specifies the URL to sync for the flux configuration git repository. It must start with `http://`, `https://`, `git{@literal @}` or `ssh://`.
          * 
          * @return builder
          * 
@@ -438,7 +438,7 @@ public final class FluxConfigurationGitRepositoryArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param url Specifies the URL to sync for the flux configuration git repository. It must start with `http://`, `https://`, `git@` or `ssh://`.
+         * @param url Specifies the URL to sync for the flux configuration git repository. It must start with `http://`, `https://`, `git{@literal @}` or `ssh://`.
          * 
          * @return builder
          * 

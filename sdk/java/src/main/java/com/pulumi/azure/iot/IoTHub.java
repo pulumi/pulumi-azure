@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -82,110 +82,110 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;examplestorage&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("examplestorage")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleContainer = new Container(&#34;exampleContainer&#34;, ContainerArgs.builder()        
- *             .name(&#34;examplecontainer&#34;)
+ *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()        
+ *             .name("examplecontainer")
  *             .storageAccountName(exampleAccount.name())
- *             .containerAccessType(&#34;private&#34;)
+ *             .containerAccessType("private")
  *             .build());
  * 
- *         var exampleEventHubNamespace = new EventHubNamespace(&#34;exampleEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
- *             .name(&#34;example-namespace&#34;)
+ *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()        
+ *             .name("example-namespace")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .sku(&#34;Basic&#34;)
+ *             .sku("Basic")
  *             .build());
  * 
- *         var exampleEventHub = new EventHub(&#34;exampleEventHub&#34;, EventHubArgs.builder()        
- *             .name(&#34;example-eventhub&#34;)
+ *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()        
+ *             .name("example-eventhub")
  *             .resourceGroupName(example.name())
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .partitionCount(2)
  *             .messageRetention(1)
  *             .build());
  * 
- *         var exampleAuthorizationRule = new AuthorizationRule(&#34;exampleAuthorizationRule&#34;, AuthorizationRuleArgs.builder()        
+ *         var exampleAuthorizationRule = new AuthorizationRule("exampleAuthorizationRule", AuthorizationRuleArgs.builder()        
  *             .resourceGroupName(example.name())
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .eventhubName(exampleEventHub.name())
- *             .name(&#34;acctest&#34;)
+ *             .name("acctest")
  *             .send(true)
  *             .build());
  * 
- *         var exampleIoTHub = new IoTHub(&#34;exampleIoTHub&#34;, IoTHubArgs.builder()        
- *             .name(&#34;Example-IoTHub&#34;)
+ *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()        
+ *             .name("Example-IoTHub")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .localAuthenticationEnabled(false)
  *             .sku(IoTHubSkuArgs.builder()
- *                 .name(&#34;S1&#34;)
- *                 .capacity(&#34;1&#34;)
+ *                 .name("S1")
+ *                 .capacity("1")
  *                 .build())
  *             .endpoints(            
  *                 IoTHubEndpointArgs.builder()
- *                     .type(&#34;AzureIotHub.StorageContainer&#34;)
+ *                     .type("AzureIotHub.StorageContainer")
  *                     .connectionString(exampleAccount.primaryBlobConnectionString())
- *                     .name(&#34;export&#34;)
+ *                     .name("export")
  *                     .batchFrequencyInSeconds(60)
  *                     .maxChunkSizeInBytes(10485760)
  *                     .containerName(exampleContainer.name())
- *                     .encoding(&#34;Avro&#34;)
- *                     .fileNameFormat(&#34;{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}&#34;)
+ *                     .encoding("Avro")
+ *                     .fileNameFormat("{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}")
  *                     .build(),
  *                 IoTHubEndpointArgs.builder()
- *                     .type(&#34;AzureIotHub.EventHub&#34;)
+ *                     .type("AzureIotHub.EventHub")
  *                     .connectionString(exampleAuthorizationRule.primaryConnectionString())
- *                     .name(&#34;export2&#34;)
+ *                     .name("export2")
  *                     .build())
  *             .routes(            
  *                 IoTHubRouteArgs.builder()
- *                     .name(&#34;export&#34;)
- *                     .source(&#34;DeviceMessages&#34;)
- *                     .condition(&#34;true&#34;)
- *                     .endpointNames(&#34;export&#34;)
+ *                     .name("export")
+ *                     .source("DeviceMessages")
+ *                     .condition("true")
+ *                     .endpointNames("export")
  *                     .enabled(true)
  *                     .build(),
  *                 IoTHubRouteArgs.builder()
- *                     .name(&#34;export2&#34;)
- *                     .source(&#34;DeviceMessages&#34;)
- *                     .condition(&#34;true&#34;)
- *                     .endpointNames(&#34;export2&#34;)
+ *                     .name("export2")
+ *                     .source("DeviceMessages")
+ *                     .condition("true")
+ *                     .endpointNames("export2")
  *                     .enabled(true)
  *                     .build())
  *             .enrichments(IoTHubEnrichmentArgs.builder()
- *                 .key(&#34;tenant&#34;)
- *                 .value(&#34;$twin.tags.Tenant&#34;)
+ *                 .key("tenant")
+ *                 .value("$twin.tags.Tenant")
  *                 .endpointNames(                
- *                     &#34;export&#34;,
- *                     &#34;export2&#34;)
+ *                     "export",
+ *                     "export2")
  *                 .build())
  *             .cloudToDevice(IoTHubCloudToDeviceArgs.builder()
  *                 .maxDeliveryCount(30)
- *                 .defaultTtl(&#34;PT1H&#34;)
+ *                 .defaultTtl("PT1H")
  *                 .feedbacks(IoTHubCloudToDeviceFeedbackArgs.builder()
- *                     .timeToLive(&#34;PT1H10M&#34;)
+ *                     .timeToLive("PT1H10M")
  *                     .maxDeliveryCount(15)
- *                     .lockDuration(&#34;PT30S&#34;)
+ *                     .lockDuration("PT30S")
  *                     .build())
  *                 .build())
- *             .tags(Map.of(&#34;purpose&#34;, &#34;testing&#34;))
+ *             .tags(Map.of("purpose", "testing"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

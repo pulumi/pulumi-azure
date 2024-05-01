@@ -20,7 +20,7 @@ public final class ConnectionsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -42,14 +42,14 @@ public final class ConnectionsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectionsFunctions.getManagedApi(GetManagedApiArgs.builder()
-     *             .name(&#34;servicebus&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *             .name("servicebus")
+     *             .location("West Europe")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getManagedApiResult -&gt; getManagedApiResult.id()));
+     *         ctx.export("id", example.applyValue(getManagedApiResult -> getManagedApiResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -62,7 +62,7 @@ public final class ConnectionsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -84,14 +84,14 @@ public final class ConnectionsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectionsFunctions.getManagedApi(GetManagedApiArgs.builder()
-     *             .name(&#34;servicebus&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *             .name("servicebus")
+     *             .location("West Europe")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getManagedApiResult -&gt; getManagedApiResult.id()));
+     *         ctx.export("id", example.applyValue(getManagedApiResult -> getManagedApiResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -104,7 +104,7 @@ public final class ConnectionsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -126,14 +126,14 @@ public final class ConnectionsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectionsFunctions.getManagedApi(GetManagedApiArgs.builder()
-     *             .name(&#34;servicebus&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *             .name("servicebus")
+     *             .location("West Europe")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getManagedApiResult -&gt; getManagedApiResult.id()));
+     *         ctx.export("id", example.applyValue(getManagedApiResult -> getManagedApiResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -146,7 +146,7 @@ public final class ConnectionsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -168,14 +168,14 @@ public final class ConnectionsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectionsFunctions.getManagedApi(GetManagedApiArgs.builder()
-     *             .name(&#34;servicebus&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *             .name("servicebus")
+     *             .location("West Europe")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getManagedApiResult -&gt; getManagedApiResult.id()));
+     *         ctx.export("id", example.applyValue(getManagedApiResult -> getManagedApiResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

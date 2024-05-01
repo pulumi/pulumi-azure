@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,54 +49,54 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .name(&#34;example-apim&#34;)
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *             .name("example-apim")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .publisherName(&#34;My Company&#34;)
- *             .publisherEmail(&#34;company@terraform.io&#34;)
- *             .skuName(&#34;Developer_1&#34;)
+ *             .publisherName("My Company")
+ *             .publisherEmail("company@terraform.io")
+ *             .skuName("Developer_1")
  *             .build());
  * 
- *         var exampleApi = new Api(&#34;exampleApi&#34;, ApiArgs.builder()        
- *             .name(&#34;example-api&#34;)
+ *         var exampleApi = new Api("exampleApi", ApiArgs.builder()        
+ *             .name("example-api")
  *             .resourceGroupName(example.name())
  *             .apiManagementName(exampleService.name())
- *             .revision(&#34;1&#34;)
+ *             .revision("1")
  *             .build());
  * 
- *         var exampleApiOperation = new ApiOperation(&#34;exampleApiOperation&#34;, ApiOperationArgs.builder()        
- *             .operationId(&#34;acctest-operation&#34;)
+ *         var exampleApiOperation = new ApiOperation("exampleApiOperation", ApiOperationArgs.builder()        
+ *             .operationId("acctest-operation")
  *             .apiName(exampleApi.name())
  *             .apiManagementName(exampleService.name())
  *             .resourceGroupName(example.name())
- *             .displayName(&#34;DELETE Resource&#34;)
- *             .method(&#34;DELETE&#34;)
- *             .urlTemplate(&#34;/resource&#34;)
+ *             .displayName("DELETE Resource")
+ *             .method("DELETE")
+ *             .urlTemplate("/resource")
  *             .build());
  * 
- *         var exampleApiOperationPolicy = new ApiOperationPolicy(&#34;exampleApiOperationPolicy&#34;, ApiOperationPolicyArgs.builder()        
+ *         var exampleApiOperationPolicy = new ApiOperationPolicy("exampleApiOperationPolicy", ApiOperationPolicyArgs.builder()        
  *             .apiName(exampleApiOperation.apiName())
  *             .apiManagementName(exampleApiOperation.apiManagementName())
  *             .resourceGroupName(exampleApiOperation.resourceGroupName())
  *             .operationId(exampleApiOperation.operationId())
- *             .xmlContent(&#34;&#34;&#34;
- * &lt;policies&gt;
- *   &lt;inbound&gt;
- *     &lt;find-and-replace from=&#34;xyz&#34; to=&#34;abc&#34; /&gt;
- *   &lt;/inbound&gt;
- * &lt;/policies&gt;
- *             &#34;&#34;&#34;)
+ *             .xmlContent("""
+ * <policies>
+ *   <inbound>
+ *     <find-and-replace from="xyz" to="abc" />
+ *   </inbound>
+ * </policies>
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

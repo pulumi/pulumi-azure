@@ -40,7 +40,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -76,93 +76,93 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;testaccbatch&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("testaccbatch")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;testaccsa&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("testaccsa")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleAccount2 = new Account(&#34;exampleAccount2&#34;, AccountArgs.builder()        
- *             .name(&#34;testaccbatch&#34;)
+ *         var exampleAccount2 = new Account("exampleAccount2", AccountArgs.builder()        
+ *             .name("testaccbatch")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .poolAllocationMode(&#34;BatchService&#34;)
+ *             .poolAllocationMode("BatchService")
  *             .storageAccountId(exampleAccount.id())
- *             .storageAccountAuthenticationMode(&#34;StorageKeys&#34;)
- *             .tags(Map.of(&#34;env&#34;, &#34;test&#34;))
+ *             .storageAccountAuthenticationMode("StorageKeys")
+ *             .tags(Map.of("env", "test"))
  *             .build());
  * 
- *         var exampleCertificate = new Certificate(&#34;exampleCertificate&#34;, CertificateArgs.builder()        
+ *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()        
  *             .resourceGroupName(example.name())
  *             .accountName(exampleAccount2.name())
  *             .certificate(StdFunctions.filebase64(Filebase64Args.builder()
- *                 .input(&#34;certificate.cer&#34;)
+ *                 .input("certificate.cer")
  *                 .build()).result())
- *             .format(&#34;Cer&#34;)
- *             .thumbprint(&#34;312d31a79fa0cef49c00f769afc2b73e9f4edf34&#34;)
- *             .thumbprintAlgorithm(&#34;SHA1&#34;)
+ *             .format("Cer")
+ *             .thumbprint("312d31a79fa0cef49c00f769afc2b73e9f4edf34")
+ *             .thumbprintAlgorithm("SHA1")
  *             .build());
  * 
- *         var examplePool = new Pool(&#34;examplePool&#34;, PoolArgs.builder()        
- *             .name(&#34;testaccpool&#34;)
+ *         var examplePool = new Pool("examplePool", PoolArgs.builder()        
+ *             .name("testaccpool")
  *             .resourceGroupName(example.name())
  *             .accountName(exampleAccount2.name())
- *             .displayName(&#34;Test Acc Pool Auto&#34;)
- *             .vmSize(&#34;Standard_A1&#34;)
- *             .nodeAgentSkuId(&#34;batch.node.ubuntu 20.04&#34;)
+ *             .displayName("Test Acc Pool Auto")
+ *             .vmSize("Standard_A1")
+ *             .nodeAgentSkuId("batch.node.ubuntu 20.04")
  *             .autoScale(PoolAutoScaleArgs.builder()
- *                 .evaluationInterval(&#34;PT15M&#34;)
- *                 .formula(&#34;&#34;&#34;
+ *                 .evaluationInterval("PT15M")
+ *                 .formula("""
  *       startingNumberOfVMs = 1;
  *       maxNumberofVMs = 25;
  *       pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);
- *       pendingTaskSamples = pendingTaskSamplePercent &lt; 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 *   TimeInterval_Second));
+ *       pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 *   TimeInterval_Second));
  *       $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
- *                 &#34;&#34;&#34;)
+ *                 """)
  *                 .build())
  *             .storageImageReference(PoolStorageImageReferenceArgs.builder()
- *                 .publisher(&#34;microsoft-azure-batch&#34;)
- *                 .offer(&#34;ubuntu-server-container&#34;)
- *                 .sku(&#34;20-04-lts&#34;)
- *                 .version(&#34;latest&#34;)
+ *                 .publisher("microsoft-azure-batch")
+ *                 .offer("ubuntu-server-container")
+ *                 .sku("20-04-lts")
+ *                 .version("latest")
  *                 .build())
  *             .containerConfiguration(PoolContainerConfigurationArgs.builder()
- *                 .type(&#34;DockerCompatible&#34;)
+ *                 .type("DockerCompatible")
  *                 .containerRegistries(PoolContainerConfigurationContainerRegistryArgs.builder()
- *                     .registryServer(&#34;docker.io&#34;)
- *                     .userName(&#34;login&#34;)
- *                     .password(&#34;apassword&#34;)
+ *                     .registryServer("docker.io")
+ *                     .userName("login")
+ *                     .password("apassword")
  *                     .build())
  *                 .build())
  *             .startTask(PoolStartTaskArgs.builder()
- *                 .commandLine(&#34;echo &#39;Hello World from $env&#39;&#34;)
+ *                 .commandLine("echo 'Hello World from $env'")
  *                 .taskRetryMaximum(1)
  *                 .waitForSuccess(true)
- *                 .commonEnvironmentProperties(Map.of(&#34;env&#34;, &#34;TEST&#34;))
+ *                 .commonEnvironmentProperties(Map.of("env", "TEST"))
  *                 .userIdentity(PoolStartTaskUserIdentityArgs.builder()
  *                     .autoUser(PoolStartTaskUserIdentityAutoUserArgs.builder()
- *                         .elevationLevel(&#34;NonAdmin&#34;)
- *                         .scope(&#34;Task&#34;)
+ *                         .elevationLevel("NonAdmin")
+ *                         .scope("Task")
  *                         .build())
  *                     .build())
  *                 .build())
  *             .certificates(PoolCertificateArgs.builder()
  *                 .id(exampleCertificate.id())
- *                 .storeLocation(&#34;CurrentUser&#34;)
- *                 .visibilities(&#34;StartTask&#34;)
+ *                 .storeLocation("CurrentUser")
+ *                 .visibilities("StartTask")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

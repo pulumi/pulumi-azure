@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -57,49 +57,49 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleInsights = new Insights(&#34;exampleInsights&#34;, InsightsArgs.builder()        
- *             .name(&#34;workspace-example-ai&#34;)
+ *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()        
+ *             .name("workspace-example-ai")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .applicationType(&#34;web&#34;)
+ *             .applicationType("web")
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;workspaceexamplekeyvault&#34;)
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("workspaceexamplekeyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .skuName(&#34;premium&#34;)
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .skuName("premium")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;workspacestorageaccount&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("workspacestorageaccount")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;GRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("GRS")
  *             .build());
  * 
- *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
- *             .name(&#34;example-workspace&#34;)
+ *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()        
+ *             .name("example-workspace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .applicationInsightsId(exampleInsights.id())
  *             .keyVaultId(exampleKeyVault.id())
  *             .storageAccountId(exampleAccount.id())
  *             .identity(WorkspaceIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Data Encryption
@@ -107,7 +107,7 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** The Key Vault must enable purge protection.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -145,70 +145,70 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleInsights = new Insights(&#34;exampleInsights&#34;, InsightsArgs.builder()        
- *             .name(&#34;workspace-example-ai&#34;)
+ *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()        
+ *             .name("workspace-example-ai")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .applicationType(&#34;web&#34;)
+ *             .applicationType("web")
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;workspaceexamplekeyvault&#34;)
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("workspaceexamplekeyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .skuName(&#34;premium&#34;)
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .skuName("premium")
  *             .purgeProtectionEnabled(true)
  *             .build());
  * 
- *         var exampleAccessPolicy = new AccessPolicy(&#34;exampleAccessPolicy&#34;, AccessPolicyArgs.builder()        
+ *         var exampleAccessPolicy = new AccessPolicy("exampleAccessPolicy", AccessPolicyArgs.builder()        
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *             .keyPermissions(            
- *                 &#34;Create&#34;,
- *                 &#34;Get&#34;,
- *                 &#34;Delete&#34;,
- *                 &#34;Purge&#34;,
- *                 &#34;GetRotationPolicy&#34;)
+ *                 "Create",
+ *                 "Get",
+ *                 "Delete",
+ *                 "Purge",
+ *                 "GetRotationPolicy")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;workspacestorageaccount&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("workspacestorageaccount")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;GRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("GRS")
  *             .build());
  * 
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
- *             .name(&#34;workspaceexamplekeyvaultkey&#34;)
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *             .name("workspaceexamplekeyvaultkey")
  *             .keyVaultId(exampleKeyVault.id())
- *             .keyType(&#34;RSA&#34;)
+ *             .keyType("RSA")
  *             .keySize(2048)
  *             .keyOpts(            
- *                 &#34;decrypt&#34;,
- *                 &#34;encrypt&#34;,
- *                 &#34;sign&#34;,
- *                 &#34;unwrapKey&#34;,
- *                 &#34;verify&#34;,
- *                 &#34;wrapKey&#34;)
+ *                 "decrypt",
+ *                 "encrypt",
+ *                 "sign",
+ *                 "unwrapKey",
+ *                 "verify",
+ *                 "wrapKey")
  *             .build());
  * 
- *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
- *             .name(&#34;example-workspace&#34;)
+ *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()        
+ *             .name("example-workspace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .applicationInsightsId(exampleInsights.id())
  *             .keyVaultId(exampleKeyVault.id())
  *             .storageAccountId(exampleAccount.id())
  *             .identity(WorkspaceIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .encryption(WorkspaceEncryptionArgs.builder()
  *                 .keyVaultId(exampleKeyVault.id())
@@ -218,7 +218,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With User Assigned Identity And Data Encryption
@@ -226,7 +226,7 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** The Key Vault must enable purge protection.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -270,128 +270,128 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleInsights = new Insights(&#34;exampleInsights&#34;, InsightsArgs.builder()        
- *             .name(&#34;example-ai&#34;)
+ *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()        
+ *             .name("example-ai")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .applicationType(&#34;web&#34;)
+ *             .applicationType("web")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;examplestorageaccount&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("examplestorageaccount")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;GRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("GRS")
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;example-keyvalut&#34;)
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("example-keyvalut")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .skuName(&#34;premium&#34;)
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .skuName("premium")
  *             .purgeProtectionEnabled(true)
  *             .build());
  * 
- *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
- *             .name(&#34;example-identity&#34;)
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()        
+ *             .name("example-identity")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var example_identity = new AccessPolicy(&#34;example-identity&#34;, AccessPolicyArgs.builder()        
+ *         var example_identity = new AccessPolicy("example-identity", AccessPolicyArgs.builder()        
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
  *             .objectId(exampleUserAssignedIdentity.principalId())
  *             .keyPermissions(            
- *                 &#34;WrapKey&#34;,
- *                 &#34;UnwrapKey&#34;,
- *                 &#34;Get&#34;,
- *                 &#34;Recover&#34;)
+ *                 "WrapKey",
+ *                 "UnwrapKey",
+ *                 "Get",
+ *                 "Recover")
  *             .secretPermissions(            
- *                 &#34;Get&#34;,
- *                 &#34;List&#34;,
- *                 &#34;Set&#34;,
- *                 &#34;Delete&#34;,
- *                 &#34;Recover&#34;,
- *                 &#34;Backup&#34;,
- *                 &#34;Restore&#34;)
+ *                 "Get",
+ *                 "List",
+ *                 "Set",
+ *                 "Delete",
+ *                 "Recover",
+ *                 "Backup",
+ *                 "Restore")
  *             .build());
  * 
- *         var example_sp = new AccessPolicy(&#34;example-sp&#34;, AccessPolicyArgs.builder()        
+ *         var example_sp = new AccessPolicy("example-sp", AccessPolicyArgs.builder()        
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *             .keyPermissions(            
- *                 &#34;Get&#34;,
- *                 &#34;Create&#34;,
- *                 &#34;Recover&#34;,
- *                 &#34;Delete&#34;,
- *                 &#34;Purge&#34;,
- *                 &#34;GetRotationPolicy&#34;)
+ *                 "Get",
+ *                 "Create",
+ *                 "Recover",
+ *                 "Delete",
+ *                 "Purge",
+ *                 "GetRotationPolicy")
  *             .build());
  * 
  *         final var test = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
- *             .displayName(&#34;Azure Cosmos DB&#34;)
+ *             .displayName("Azure Cosmos DB")
  *             .build());
  * 
- *         var example_cosmosdb = new AccessPolicy(&#34;example-cosmosdb&#34;, AccessPolicyArgs.builder()        
+ *         var example_cosmosdb = new AccessPolicy("example-cosmosdb", AccessPolicyArgs.builder()        
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .objectId(test.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.objectId()))
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .objectId(test.applyValue(getServicePrincipalResult -> getServicePrincipalResult.objectId()))
  *             .keyPermissions(            
- *                 &#34;Get&#34;,
- *                 &#34;Recover&#34;,
- *                 &#34;UnwrapKey&#34;,
- *                 &#34;WrapKey&#34;)
+ *                 "Get",
+ *                 "Recover",
+ *                 "UnwrapKey",
+ *                 "WrapKey")
  *             .build());
  * 
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
- *             .name(&#34;example-keyvaultkey&#34;)
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *             .name("example-keyvaultkey")
  *             .keyVaultId(exampleKeyVault.id())
- *             .keyType(&#34;RSA&#34;)
+ *             .keyType("RSA")
  *             .keySize(2048)
  *             .keyOpts(            
- *                 &#34;decrypt&#34;,
- *                 &#34;encrypt&#34;,
- *                 &#34;sign&#34;,
- *                 &#34;unwrapKey&#34;,
- *                 &#34;verify&#34;,
- *                 &#34;wrapKey&#34;)
+ *                 "decrypt",
+ *                 "encrypt",
+ *                 "sign",
+ *                 "unwrapKey",
+ *                 "verify",
+ *                 "wrapKey")
  *             .build());
  * 
- *         var example_role1 = new Assignment(&#34;example-role1&#34;, AssignmentArgs.builder()        
+ *         var example_role1 = new Assignment("example-role1", AssignmentArgs.builder()        
  *             .scope(exampleKeyVault.id())
- *             .roleDefinitionName(&#34;Contributor&#34;)
+ *             .roleDefinitionName("Contributor")
  *             .principalId(exampleUserAssignedIdentity.principalId())
  *             .build());
  * 
- *         var example_role2 = new Assignment(&#34;example-role2&#34;, AssignmentArgs.builder()        
+ *         var example_role2 = new Assignment("example-role2", AssignmentArgs.builder()        
  *             .scope(exampleAccount.id())
- *             .roleDefinitionName(&#34;Storage Blob Data Contributor&#34;)
+ *             .roleDefinitionName("Storage Blob Data Contributor")
  *             .principalId(exampleUserAssignedIdentity.principalId())
  *             .build());
  * 
- *         var example_role3 = new Assignment(&#34;example-role3&#34;, AssignmentArgs.builder()        
+ *         var example_role3 = new Assignment("example-role3", AssignmentArgs.builder()        
  *             .scope(exampleAccount.id())
- *             .roleDefinitionName(&#34;Contributor&#34;)
+ *             .roleDefinitionName("Contributor")
  *             .principalId(exampleUserAssignedIdentity.principalId())
  *             .build());
  * 
- *         var example_role4 = new Assignment(&#34;example-role4&#34;, AssignmentArgs.builder()        
+ *         var example_role4 = new Assignment("example-role4", AssignmentArgs.builder()        
  *             .scope(exampleInsights.id())
- *             .roleDefinitionName(&#34;Contributor&#34;)
+ *             .roleDefinitionName("Contributor")
  *             .principalId(exampleUserAssignedIdentity.principalId())
  *             .build());
  * 
- *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
- *             .name(&#34;example-workspace&#34;)
+ *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()        
+ *             .name("example-workspace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .applicationInsightsId(exampleInsights.id())
@@ -400,7 +400,7 @@ import javax.annotation.Nullable;
  *             .highBusinessImpact(true)
  *             .primaryUserAssignedIdentity(exampleUserAssignedIdentity.id())
  *             .identity(WorkspaceIdentityArgs.builder()
- *                 .type(&#34;UserAssigned&#34;)
+ *                 .type("UserAssigned")
  *                 .identityIds(exampleUserAssignedIdentity.id())
  *                 .build())
  *             .encryption(WorkspaceEncryptionArgs.builder()
@@ -412,7 +412,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -27,7 +27,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,34 +54,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;rg-example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("rg-example")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleLocalRulestack = new LocalRulestack(&#34;exampleLocalRulestack&#34;, LocalRulestackArgs.builder()        
- *             .name(&#34;lrs-example&#34;)
+ *         var exampleLocalRulestack = new LocalRulestack("exampleLocalRulestack", LocalRulestackArgs.builder()        
+ *             .name("lrs-example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleLocalRulestackRule = new LocalRulestackRule(&#34;exampleLocalRulestackRule&#34;, LocalRulestackRuleArgs.builder()        
- *             .name(&#34;example-rule&#34;)
+ *         var exampleLocalRulestackRule = new LocalRulestackRule("exampleLocalRulestackRule", LocalRulestackRuleArgs.builder()        
+ *             .name("example-rule")
  *             .rulestackId(exampleLocalRulestack.id())
  *             .priority(1000)
- *             .action(&#34;Allow&#34;)
- *             .applications(&#34;any&#34;)
+ *             .action("Allow")
+ *             .applications("any")
  *             .source(LocalRulestackRuleSourceArgs.builder()
- *                 .cidrs(&#34;10.0.0.0/8&#34;)
+ *                 .cidrs("10.0.0.0/8")
  *                 .build())
  *             .destination(LocalRulestackRuleDestinationArgs.builder()
- *                 .cidrs(&#34;192.168.16.0/24&#34;)
+ *                 .cidrs("192.168.16.0/24")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

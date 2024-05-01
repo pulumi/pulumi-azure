@@ -23,7 +23,7 @@ public final class PostgresqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -45,14 +45,14 @@ public final class PostgresqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PostgresqlFunctions.getFlexibleServer(GetFlexibleServerArgs.builder()
-     *             .name(&#34;existing-postgresql-fs&#34;)
-     *             .resourceGroupName(&#34;existing-postgresql-resgroup&#34;)
+     *             .name("existing-postgresql-fs")
+     *             .resourceGroupName("existing-postgresql-resgroup")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getFlexibleServerResult -&gt; getFlexibleServerResult.id()));
+     *         ctx.export("id", example.applyValue(getFlexibleServerResult -> getFlexibleServerResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -65,7 +65,7 @@ public final class PostgresqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -87,14 +87,14 @@ public final class PostgresqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PostgresqlFunctions.getFlexibleServer(GetFlexibleServerArgs.builder()
-     *             .name(&#34;existing-postgresql-fs&#34;)
-     *             .resourceGroupName(&#34;existing-postgresql-resgroup&#34;)
+     *             .name("existing-postgresql-fs")
+     *             .resourceGroupName("existing-postgresql-resgroup")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getFlexibleServerResult -&gt; getFlexibleServerResult.id()));
+     *         ctx.export("id", example.applyValue(getFlexibleServerResult -> getFlexibleServerResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -107,7 +107,7 @@ public final class PostgresqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -129,14 +129,14 @@ public final class PostgresqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PostgresqlFunctions.getFlexibleServer(GetFlexibleServerArgs.builder()
-     *             .name(&#34;existing-postgresql-fs&#34;)
-     *             .resourceGroupName(&#34;existing-postgresql-resgroup&#34;)
+     *             .name("existing-postgresql-fs")
+     *             .resourceGroupName("existing-postgresql-resgroup")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getFlexibleServerResult -&gt; getFlexibleServerResult.id()));
+     *         ctx.export("id", example.applyValue(getFlexibleServerResult -> getFlexibleServerResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -149,7 +149,7 @@ public final class PostgresqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -171,14 +171,14 @@ public final class PostgresqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PostgresqlFunctions.getFlexibleServer(GetFlexibleServerArgs.builder()
-     *             .name(&#34;existing-postgresql-fs&#34;)
-     *             .resourceGroupName(&#34;existing-postgresql-resgroup&#34;)
+     *             .name("existing-postgresql-fs")
+     *             .resourceGroupName("existing-postgresql-resgroup")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getFlexibleServerResult -&gt; getFlexibleServerResult.id()));
+     *         ctx.export("id", example.applyValue(getFlexibleServerResult -> getFlexibleServerResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -191,7 +191,7 @@ public final class PostgresqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -213,14 +213,14 @@ public final class PostgresqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PostgresqlFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;postgresql-server-1&#34;)
-     *             .resourceGroupName(&#34;api-rg-pro&#34;)
+     *             .name("postgresql-server-1")
+     *             .resourceGroupName("api-rg-pro")
      *             .build());
      * 
-     *         ctx.export(&#34;postgresqlServerId&#34;, example.applyValue(getServerResult -&gt; getServerResult.id()));
+     *         ctx.export("postgresqlServerId", example.applyValue(getServerResult -> getServerResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -233,7 +233,7 @@ public final class PostgresqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -255,14 +255,14 @@ public final class PostgresqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PostgresqlFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;postgresql-server-1&#34;)
-     *             .resourceGroupName(&#34;api-rg-pro&#34;)
+     *             .name("postgresql-server-1")
+     *             .resourceGroupName("api-rg-pro")
      *             .build());
      * 
-     *         ctx.export(&#34;postgresqlServerId&#34;, example.applyValue(getServerResult -&gt; getServerResult.id()));
+     *         ctx.export("postgresqlServerId", example.applyValue(getServerResult -> getServerResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -275,7 +275,7 @@ public final class PostgresqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -297,14 +297,14 @@ public final class PostgresqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PostgresqlFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;postgresql-server-1&#34;)
-     *             .resourceGroupName(&#34;api-rg-pro&#34;)
+     *             .name("postgresql-server-1")
+     *             .resourceGroupName("api-rg-pro")
      *             .build());
      * 
-     *         ctx.export(&#34;postgresqlServerId&#34;, example.applyValue(getServerResult -&gt; getServerResult.id()));
+     *         ctx.export("postgresqlServerId", example.applyValue(getServerResult -> getServerResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -317,7 +317,7 @@ public final class PostgresqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -339,14 +339,14 @@ public final class PostgresqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PostgresqlFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;postgresql-server-1&#34;)
-     *             .resourceGroupName(&#34;api-rg-pro&#34;)
+     *             .name("postgresql-server-1")
+     *             .resourceGroupName("api-rg-pro")
      *             .build());
      * 
-     *         ctx.export(&#34;postgresqlServerId&#34;, example.applyValue(getServerResult -&gt; getServerResult.id()));
+     *         ctx.export("postgresqlServerId", example.applyValue(getServerResult -> getServerResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

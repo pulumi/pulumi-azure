@@ -27,7 +27,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,27 +51,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleRouteTable = new RouteTable(&#34;exampleRouteTable&#34;, RouteTableArgs.builder()        
- *             .name(&#34;example-route-table&#34;)
+ *         var exampleRouteTable = new RouteTable("exampleRouteTable", RouteTableArgs.builder()        
+ *             .name("example-route-table")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .disableBgpRoutePropagation(false)
  *             .routes(RouteTableRouteArgs.builder()
- *                 .name(&#34;route1&#34;)
- *                 .addressPrefix(&#34;10.1.0.0/16&#34;)
- *                 .nextHopType(&#34;VnetLocal&#34;)
+ *                 .name("route1")
+ *                 .addressPrefix("10.1.0.0/16")
+ *                 .nextHopType("VnetLocal")
  *                 .build())
- *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *             .tags(Map.of("environment", "Production"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

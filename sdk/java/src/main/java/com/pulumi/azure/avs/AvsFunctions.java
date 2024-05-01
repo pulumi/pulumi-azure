@@ -22,7 +22,7 @@ public final class AvsFunctions {
      * &gt; **NOTE :**  Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -44,14 +44,14 @@ public final class AvsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AvsFunctions.getPrivateCloud(GetPrivateCloudArgs.builder()
-     *             .name(&#34;existing-vmware-private-cloud&#34;)
-     *             .resourceGroupName(&#34;existing-resgroup&#34;)
+     *             .name("existing-vmware-private-cloud")
+     *             .resourceGroupName("existing-resgroup")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPrivateCloudResult -&gt; getPrivateCloudResult.id()));
+     *         ctx.export("id", example.applyValue(getPrivateCloudResult -> getPrivateCloudResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -66,7 +66,7 @@ public final class AvsFunctions {
      * &gt; **NOTE :**  Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -88,14 +88,14 @@ public final class AvsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AvsFunctions.getPrivateCloud(GetPrivateCloudArgs.builder()
-     *             .name(&#34;existing-vmware-private-cloud&#34;)
-     *             .resourceGroupName(&#34;existing-resgroup&#34;)
+     *             .name("existing-vmware-private-cloud")
+     *             .resourceGroupName("existing-resgroup")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPrivateCloudResult -&gt; getPrivateCloudResult.id()));
+     *         ctx.export("id", example.applyValue(getPrivateCloudResult -> getPrivateCloudResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -110,7 +110,7 @@ public final class AvsFunctions {
      * &gt; **NOTE :**  Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -132,14 +132,14 @@ public final class AvsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AvsFunctions.getPrivateCloud(GetPrivateCloudArgs.builder()
-     *             .name(&#34;existing-vmware-private-cloud&#34;)
-     *             .resourceGroupName(&#34;existing-resgroup&#34;)
+     *             .name("existing-vmware-private-cloud")
+     *             .resourceGroupName("existing-resgroup")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPrivateCloudResult -&gt; getPrivateCloudResult.id()));
+     *         ctx.export("id", example.applyValue(getPrivateCloudResult -> getPrivateCloudResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -154,7 +154,7 @@ public final class AvsFunctions {
      * &gt; **NOTE :**  Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -176,14 +176,14 @@ public final class AvsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AvsFunctions.getPrivateCloud(GetPrivateCloudArgs.builder()
-     *             .name(&#34;existing-vmware-private-cloud&#34;)
-     *             .resourceGroupName(&#34;existing-resgroup&#34;)
+     *             .name("existing-vmware-private-cloud")
+     *             .resourceGroupName("existing-resgroup")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPrivateCloudResult -&gt; getPrivateCloudResult.id()));
+     *         ctx.export("id", example.applyValue(getPrivateCloudResult -> getPrivateCloudResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

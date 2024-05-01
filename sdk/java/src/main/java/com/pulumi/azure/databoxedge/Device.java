@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,21 +46,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-databoxedge&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-databoxedge")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleDevice = new Device(&#34;exampleDevice&#34;, DeviceArgs.builder()        
- *             .name(&#34;example-device&#34;)
+ *         var exampleDevice = new Device("exampleDevice", DeviceArgs.builder()        
+ *             .name("example-device")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .skuName(&#34;EdgeP_Base-Standard&#34;)
+ *             .skuName("EdgeP_Base-Standard")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

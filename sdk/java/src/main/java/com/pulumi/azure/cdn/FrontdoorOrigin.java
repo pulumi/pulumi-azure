@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,45 +53,45 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFrontdoorProfile = new FrontdoorProfile(&#34;exampleFrontdoorProfile&#34;, FrontdoorProfileArgs.builder()        
- *             .name(&#34;example-profile&#34;)
+ *         var exampleFrontdoorProfile = new FrontdoorProfile("exampleFrontdoorProfile", FrontdoorProfileArgs.builder()        
+ *             .name("example-profile")
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;Premium_AzureFrontDoor&#34;)
+ *             .skuName("Premium_AzureFrontDoor")
  *             .build());
  * 
- *         var exampleFrontdoorOriginGroup = new FrontdoorOriginGroup(&#34;exampleFrontdoorOriginGroup&#34;, FrontdoorOriginGroupArgs.builder()        
- *             .name(&#34;example-origingroup&#34;)
+ *         var exampleFrontdoorOriginGroup = new FrontdoorOriginGroup("exampleFrontdoorOriginGroup", FrontdoorOriginGroupArgs.builder()        
+ *             .name("example-origingroup")
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .loadBalancing()
  *             .build());
  * 
- *         var exampleFrontdoorOrigin = new FrontdoorOrigin(&#34;exampleFrontdoorOrigin&#34;, FrontdoorOriginArgs.builder()        
- *             .name(&#34;example-origin&#34;)
+ *         var exampleFrontdoorOrigin = new FrontdoorOrigin("exampleFrontdoorOrigin", FrontdoorOriginArgs.builder()        
+ *             .name("example-origin")
  *             .cdnFrontdoorOriginGroupId(exampleFrontdoorOriginGroup.id())
  *             .enabled(true)
  *             .certificateNameCheckEnabled(false)
- *             .hostName(&#34;contoso.com&#34;)
+ *             .hostName("contoso.com")
  *             .httpPort(80)
  *             .httpsPort(443)
- *             .originHostHeader(&#34;www.contoso.com&#34;)
+ *             .originHostHeader("www.contoso.com")
  *             .priority(1)
  *             .weight(1)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Private Link
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -123,38 +123,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;examplestoracc&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("examplestoracc")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Premium&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Premium")
+ *             .accountReplicationType("LRS")
  *             .allowNestedItemsToBePublic(false)
  *             .networkRules(AccountNetworkRulesArgs.builder()
- *                 .defaultAction(&#34;Deny&#34;)
+ *                 .defaultAction("Deny")
  *                 .build())
- *             .tags(Map.of(&#34;environment&#34;, &#34;Example&#34;))
+ *             .tags(Map.of("environment", "Example"))
  *             .build());
  * 
- *         var exampleFrontdoorProfile = new FrontdoorProfile(&#34;exampleFrontdoorProfile&#34;, FrontdoorProfileArgs.builder()        
- *             .name(&#34;example-profile&#34;)
+ *         var exampleFrontdoorProfile = new FrontdoorProfile("exampleFrontdoorProfile", FrontdoorProfileArgs.builder()        
+ *             .name("example-profile")
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;Premium_AzureFrontDoor&#34;)
+ *             .skuName("Premium_AzureFrontDoor")
  *             .build());
  * 
- *         var exampleFrontdoorOriginGroup = new FrontdoorOriginGroup(&#34;exampleFrontdoorOriginGroup&#34;, FrontdoorOriginGroupArgs.builder()        
- *             .name(&#34;example-origin-group&#34;)
+ *         var exampleFrontdoorOriginGroup = new FrontdoorOriginGroup("exampleFrontdoorOriginGroup", FrontdoorOriginGroupArgs.builder()        
+ *             .name("example-origin-group")
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .loadBalancing()
  *             .build());
  * 
- *         var exampleFrontdoorOrigin = new FrontdoorOrigin(&#34;exampleFrontdoorOrigin&#34;, FrontdoorOriginArgs.builder()        
- *             .name(&#34;example-origin&#34;)
+ *         var exampleFrontdoorOrigin = new FrontdoorOrigin("exampleFrontdoorOrigin", FrontdoorOriginArgs.builder()        
+ *             .name("example-origin")
  *             .cdnFrontdoorOriginGroupId(exampleFrontdoorOriginGroup.id())
  *             .enabled(true)
  *             .certificateNameCheckEnabled(true)
@@ -163,8 +163,8 @@ import javax.annotation.Nullable;
  *             .priority(1)
  *             .weight(500)
  *             .privateLink(FrontdoorOriginPrivateLinkArgs.builder()
- *                 .requestMessage(&#34;Request access for Private Link Origin CDN Frontdoor&#34;)
- *                 .targetType(&#34;blob&#34;)
+ *                 .requestMessage("Request access for Private Link Origin CDN Frontdoor")
+ *                 .targetType("blob")
  *                 .location(exampleAccount.location())
  *                 .privateLinkTargetId(exampleAccount.id())
  *                 .build())
@@ -172,13 +172,13 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Private Link Service
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -222,19 +222,19 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFrontdoorProfile = new FrontdoorProfile(&#34;exampleFrontdoorProfile&#34;, FrontdoorProfileArgs.builder()        
- *             .name(&#34;profile-example&#34;)
+ *         var exampleFrontdoorProfile = new FrontdoorProfile("exampleFrontdoorProfile", FrontdoorProfileArgs.builder()        
+ *             .name("profile-example")
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;Premium_AzureFrontDoor&#34;)
+ *             .skuName("Premium_AzureFrontDoor")
  *             .build());
  * 
- *         var exampleFrontdoorOriginGroup = new FrontdoorOriginGroup(&#34;exampleFrontdoorOriginGroup&#34;, FrontdoorOriginGroupArgs.builder()        
- *             .name(&#34;group-example&#34;)
+ *         var exampleFrontdoorOriginGroup = new FrontdoorOriginGroup("exampleFrontdoorOriginGroup", FrontdoorOriginGroupArgs.builder()        
+ *             .name("group-example")
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .loadBalancing(FrontdoorOriginGroupLoadBalancingArgs.builder()
  *                 .additionalLatencyInMilliseconds(0)
@@ -243,32 +243,32 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;vn-example&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("vn-example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .addressSpaces(&#34;10.5.0.0/16&#34;)
+ *             .addressSpaces("10.5.0.0/16")
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;sn-example&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("sn-example")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.5.1.0/24&#34;)
+ *             .addressPrefixes("10.5.1.0/24")
  *             .privateLinkServiceNetworkPoliciesEnabled(false)
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
- *             .name(&#34;ip-example&#34;)
- *             .sku(&#34;Standard&#34;)
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *             .name("ip-example")
+ *             .sku("Standard")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .allocationMethod(&#34;Static&#34;)
+ *             .allocationMethod("Static")
  *             .build());
  * 
- *         var exampleLoadBalancer = new LoadBalancer(&#34;exampleLoadBalancer&#34;, LoadBalancerArgs.builder()        
- *             .name(&#34;lb-example&#34;)
- *             .sku(&#34;Standard&#34;)
+ *         var exampleLoadBalancer = new LoadBalancer("exampleLoadBalancer", LoadBalancerArgs.builder()        
+ *             .name("lb-example")
+ *             .sku("Standard")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .frontendIpConfigurations(LoadBalancerFrontendIpConfigurationArgs.builder()
@@ -277,32 +277,32 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleLinkService = new LinkService(&#34;exampleLinkService&#34;, LinkServiceArgs.builder()        
- *             .name(&#34;pls-example&#34;)
+ *         var exampleLinkService = new LinkService("exampleLinkService", LinkServiceArgs.builder()        
+ *             .name("pls-example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .visibilitySubscriptionIds(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.subscriptionId()))
- *             .loadBalancerFrontendIpConfigurationIds(exampleLoadBalancer.frontendIpConfigurations().applyValue(frontendIpConfigurations -&gt; frontendIpConfigurations[0].id()))
+ *             .visibilitySubscriptionIds(current.applyValue(getClientConfigResult -> getClientConfigResult.subscriptionId()))
+ *             .loadBalancerFrontendIpConfigurationIds(exampleLoadBalancer.frontendIpConfigurations().applyValue(frontendIpConfigurations -> frontendIpConfigurations[0].id()))
  *             .natIpConfigurations(LinkServiceNatIpConfigurationArgs.builder()
- *                 .name(&#34;primary&#34;)
- *                 .privateIpAddress(&#34;10.5.1.17&#34;)
- *                 .privateIpAddressVersion(&#34;IPv4&#34;)
+ *                 .name("primary")
+ *                 .privateIpAddress("10.5.1.17")
+ *                 .privateIpAddressVersion("IPv4")
  *                 .subnetId(exampleSubnet.id())
  *                 .primary(true)
  *                 .build())
  *             .build());
  * 
- *         var exampleFrontdoorOrigin = new FrontdoorOrigin(&#34;exampleFrontdoorOrigin&#34;, FrontdoorOriginArgs.builder()        
- *             .name(&#34;origin-example&#34;)
+ *         var exampleFrontdoorOrigin = new FrontdoorOrigin("exampleFrontdoorOrigin", FrontdoorOriginArgs.builder()        
+ *             .name("origin-example")
  *             .cdnFrontdoorOriginGroupId(exampleFrontdoorOriginGroup.id())
  *             .enabled(true)
- *             .hostName(&#34;example.com&#34;)
- *             .originHostHeader(&#34;example.com&#34;)
+ *             .hostName("example.com")
+ *             .originHostHeader("example.com")
  *             .priority(1)
  *             .weight(1000)
  *             .certificateNameCheckEnabled(false)
  *             .privateLink(FrontdoorOriginPrivateLinkArgs.builder()
- *                 .requestMessage(&#34;Request access for Private Link Origin CDN Frontdoor&#34;)
+ *                 .requestMessage("Request access for Private Link Origin CDN Frontdoor")
  *                 .location(example.location())
  *                 .privateLinkTargetId(exampleLinkService.id())
  *                 .build())
@@ -310,7 +310,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Example HCL Configurations

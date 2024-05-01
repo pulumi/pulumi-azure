@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,9 +48,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
  *         final var current = CoreFunctions.getClientConfig();
@@ -58,30 +58,30 @@ import javax.annotation.Nullable;
  *         final var currentGetSubscription = CoreFunctions.getSubscription();
  * 
  *         final var alt = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
- *             .subscriptionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
+ *             .subscriptionId("00000000-0000-0000-0000-000000000000")
  *             .build());
  * 
- *         var exampleNetworkManager = new NetworkManager(&#34;exampleNetworkManager&#34;, NetworkManagerArgs.builder()        
- *             .name(&#34;example-networkmanager&#34;)
+ *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()        
+ *             .name("example-networkmanager")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .scope(NetworkManagerScopeArgs.builder()
- *                 .subscriptionIds(currentGetSubscription.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+ *                 .subscriptionIds(currentGetSubscription.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *                 .build())
- *             .scopeAccesses(&#34;SecurityAdmin&#34;)
+ *             .scopeAccesses("SecurityAdmin")
  *             .build());
  * 
- *         var exampleNetworkManagerScopeConnection = new NetworkManagerScopeConnection(&#34;exampleNetworkManagerScopeConnection&#34;, NetworkManagerScopeConnectionArgs.builder()        
- *             .name(&#34;example-nsc&#34;)
+ *         var exampleNetworkManagerScopeConnection = new NetworkManagerScopeConnection("exampleNetworkManagerScopeConnection", NetworkManagerScopeConnectionArgs.builder()        
+ *             .name("example-nsc")
  *             .networkManagerId(exampleNetworkManager.id())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .targetScopeId(alt.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
- *             .description(&#34;example&#34;)
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .targetScopeId(alt.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *             .description("example")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

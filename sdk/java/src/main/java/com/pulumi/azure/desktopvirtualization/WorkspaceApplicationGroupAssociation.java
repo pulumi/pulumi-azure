@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,41 +48,41 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;rg-example-virtualdesktop&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("rg-example-virtualdesktop")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var pooledbreadthfirst = new HostPool(&#34;pooledbreadthfirst&#34;, HostPoolArgs.builder()        
- *             .name(&#34;pooledbreadthfirst&#34;)
+ *         var pooledbreadthfirst = new HostPool("pooledbreadthfirst", HostPoolArgs.builder()        
+ *             .name("pooledbreadthfirst")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .type(&#34;Pooled&#34;)
- *             .loadBalancerType(&#34;BreadthFirst&#34;)
+ *             .type("Pooled")
+ *             .loadBalancerType("BreadthFirst")
  *             .build());
  * 
- *         var remoteapp = new ApplicationGroup(&#34;remoteapp&#34;, ApplicationGroupArgs.builder()        
- *             .name(&#34;remoteapp&#34;)
+ *         var remoteapp = new ApplicationGroup("remoteapp", ApplicationGroupArgs.builder()        
+ *             .name("remoteapp")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .type(&#34;RemoteApp&#34;)
+ *             .type("RemoteApp")
  *             .hostPoolId(pooledbreadthfirst.id())
  *             .build());
  * 
- *         var workspace = new Workspace(&#34;workspace&#34;, WorkspaceArgs.builder()        
- *             .name(&#34;workspace&#34;)
+ *         var workspace = new Workspace("workspace", WorkspaceArgs.builder()        
+ *             .name("workspace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var workspaceremoteapp = new WorkspaceApplicationGroupAssociation(&#34;workspaceremoteapp&#34;, WorkspaceApplicationGroupAssociationArgs.builder()        
+ *         var workspaceremoteapp = new WorkspaceApplicationGroupAssociation("workspaceremoteapp", WorkspaceApplicationGroupAssociationArgs.builder()        
  *             .workspaceId(workspace.id())
  *             .applicationGroupId(remoteapp.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

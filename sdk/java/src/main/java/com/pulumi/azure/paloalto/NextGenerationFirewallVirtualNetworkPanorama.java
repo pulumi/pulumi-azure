@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -63,76 +63,76 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resource-group&#34;)
- *             .location(&#34;westeurope&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resource-group")
+ *             .location("westeurope")
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
- *             .name(&#34;example-public-ip&#34;)
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *             .name("example-public-ip")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .allocationMethod(&#34;Static&#34;)
- *             .sku(&#34;Standard&#34;)
+ *             .allocationMethod("Static")
+ *             .sku("Standard")
  *             .build());
  * 
- *         var exampleNetworkSecurityGroup = new NetworkSecurityGroup(&#34;exampleNetworkSecurityGroup&#34;, NetworkSecurityGroupArgs.builder()        
- *             .name(&#34;example-nsg&#34;)
+ *         var exampleNetworkSecurityGroup = new NetworkSecurityGroup("exampleNetworkSecurityGroup", NetworkSecurityGroupArgs.builder()        
+ *             .name("example-nsg")
  *             .location(test.location())
  *             .resourceGroupName(test.name())
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-vnet&#34;)
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example-vnet")
+ *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *             .tags(Map.of("environment", "Production"))
  *             .build());
  * 
- *         var trust = new Subnet(&#34;trust&#34;, SubnetArgs.builder()        
- *             .name(&#34;example-trust-subnet&#34;)
+ *         var trust = new Subnet("trust", SubnetArgs.builder()        
+ *             .name("example-trust-subnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.1.0/24&#34;)
+ *             .addressPrefixes("10.0.1.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;trusted&#34;)
+ *                 .name("trusted")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .name(&#34;PaloAltoNetworks.Cloudngfw/firewalls&#34;)
- *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/join/action&#34;)
+ *                     .name("PaloAltoNetworks.Cloudngfw/firewalls")
+ *                     .actions("Microsoft.Network/virtualNetworks/subnets/join/action")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var trustSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation(&#34;trustSubnetNetworkSecurityGroupAssociation&#34;, SubnetNetworkSecurityGroupAssociationArgs.builder()        
+ *         var trustSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation("trustSubnetNetworkSecurityGroupAssociation", SubnetNetworkSecurityGroupAssociationArgs.builder()        
  *             .subnetId(trust.id())
  *             .networkSecurityGroupId(exampleNetworkSecurityGroup.id())
  *             .build());
  * 
- *         var untrust = new Subnet(&#34;untrust&#34;, SubnetArgs.builder()        
- *             .name(&#34;example-untrust-subnet&#34;)
+ *         var untrust = new Subnet("untrust", SubnetArgs.builder()        
+ *             .name("example-untrust-subnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
+ *             .addressPrefixes("10.0.2.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;untrusted&#34;)
+ *                 .name("untrusted")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .name(&#34;PaloAltoNetworks.Cloudngfw/firewalls&#34;)
- *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/join/action&#34;)
+ *                     .name("PaloAltoNetworks.Cloudngfw/firewalls")
+ *                     .actions("Microsoft.Network/virtualNetworks/subnets/join/action")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var untrustSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation(&#34;untrustSubnetNetworkSecurityGroupAssociation&#34;, SubnetNetworkSecurityGroupAssociationArgs.builder()        
+ *         var untrustSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation("untrustSubnetNetworkSecurityGroupAssociation", SubnetNetworkSecurityGroupAssociationArgs.builder()        
  *             .subnetId(untrust.id())
  *             .networkSecurityGroupId(exampleNetworkSecurityGroup.id())
  *             .build());
  * 
- *         var exampleNextGenerationFirewallVirtualNetworkPanorama = new NextGenerationFirewallVirtualNetworkPanorama(&#34;exampleNextGenerationFirewallVirtualNetworkPanorama&#34;, NextGenerationFirewallVirtualNetworkPanoramaArgs.builder()        
- *             .name(&#34;example-ngfwvh&#34;)
+ *         var exampleNextGenerationFirewallVirtualNetworkPanorama = new NextGenerationFirewallVirtualNetworkPanorama("exampleNextGenerationFirewallVirtualNetworkPanorama", NextGenerationFirewallVirtualNetworkPanoramaArgs.builder()        
+ *             .name("example-ngfwvh")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .panoramaBase64Config(&#34;e2RnbmFtZTogY25nZnctYXotZXhhbXBsZSwgdHBsbmFtZTogY25nZnctZXhhbXBsZS10ZW1wbGF0ZS1zdGFjaywgZXhhbXBsZS1wYW5vcmFtYS1zZXJ2ZXI6IDE5Mi4xNjguMC4xLCB2bS1hdXRoLWtleTogMDAwMDAwMDAwMDAwMDAwLCBleHBpcnk6IDIwMjQvMDcvMzF9Cg==&#34;)
+ *             .panoramaBase64Config("e2RnbmFtZTogY25nZnctYXotZXhhbXBsZSwgdHBsbmFtZTogY25nZnctZXhhbXBsZS10ZW1wbGF0ZS1zdGFjaywgZXhhbXBsZS1wYW5vcmFtYS1zZXJ2ZXI6IDE5Mi4xNjguMC4xLCB2bS1hdXRoLWtleTogMDAwMDAwMDAwMDAwMDAwLCBleHBpcnk6IDIwMjQvMDcvMzF9Cg==")
  *             .networkProfile(NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs.builder()
  *                 .publicIpAddressIds(examplePublicIp.id())
  *                 .vnetConfiguration(NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArgs.builder()
@@ -145,7 +145,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

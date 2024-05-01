@@ -27,7 +27,7 @@ import javax.annotation.Nullable;
  * &gt; **NOTE :**  Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,28 +51,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var examplePrivateCloud = new PrivateCloud(&#34;examplePrivateCloud&#34;, PrivateCloudArgs.builder()        
- *             .name(&#34;example-vmware-private-cloud&#34;)
+ *         var examplePrivateCloud = new PrivateCloud("examplePrivateCloud", PrivateCloudArgs.builder()        
+ *             .name("example-vmware-private-cloud")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .skuName(&#34;av36&#34;)
+ *             .skuName("av36")
  *             .managementCluster(PrivateCloudManagementClusterArgs.builder()
  *                 .size(3)
  *                 .build())
- *             .networkSubnetCidr(&#34;192.168.48.0/22&#34;)
+ *             .networkSubnetCidr("192.168.48.0/22")
  *             .internetConnectionEnabled(false)
- *             .nsxtPassword(&#34;QazWsx13$Edc&#34;)
- *             .vcenterPassword(&#34;WsxEdc23$Rfv&#34;)
+ *             .nsxtPassword("QazWsx13$Edc")
+ *             .vcenterPassword("WsxEdc23$Rfv")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

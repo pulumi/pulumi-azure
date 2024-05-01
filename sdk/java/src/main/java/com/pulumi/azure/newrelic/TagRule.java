@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,47 +53,47 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;East US&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("East US")
  *             .build());
  * 
- *         var exampleMonitor = new Monitor(&#34;exampleMonitor&#34;, MonitorArgs.builder()        
- *             .name(&#34;example-nrm&#34;)
+ *         var exampleMonitor = new Monitor("exampleMonitor", MonitorArgs.builder()        
+ *             .name("example-nrm")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .plan(MonitorPlanArgs.builder()
- *                 .effectiveDate(&#34;2023-06-06T00:00:00Z&#34;)
+ *                 .effectiveDate("2023-06-06T00:00:00Z")
  *                 .build())
  *             .user(MonitorUserArgs.builder()
- *                 .email(&#34;user@example.com&#34;)
- *                 .firstName(&#34;Example&#34;)
- *                 .lastName(&#34;User&#34;)
- *                 .phoneNumber(&#34;+12313803556&#34;)
+ *                 .email("user@example.com")
+ *                 .firstName("Example")
+ *                 .lastName("User")
+ *                 .phoneNumber("+12313803556")
  *                 .build())
  *             .build());
  * 
- *         var exampleTagRule = new TagRule(&#34;exampleTagRule&#34;, TagRuleArgs.builder()        
+ *         var exampleTagRule = new TagRule("exampleTagRule", TagRuleArgs.builder()        
  *             .monitorId(exampleMonitor.id())
  *             .azureActiveDirectoryLogEnabled(true)
  *             .activityLogEnabled(true)
  *             .metricEnabled(true)
  *             .subscriptionLogEnabled(true)
  *             .logTagFilters(TagRuleLogTagFilterArgs.builder()
- *                 .name(&#34;key&#34;)
- *                 .action(&#34;Include&#34;)
- *                 .value(&#34;value&#34;)
+ *                 .name("key")
+ *                 .action("Include")
+ *                 .value("value")
  *                 .build())
  *             .metricTagFilters(TagRuleMetricTagFilterArgs.builder()
- *                 .name(&#34;key&#34;)
- *                 .action(&#34;Exclude&#34;)
- *                 .value(&#34;value&#34;)
+ *                 .name("key")
+ *                 .action("Exclude")
+ *                 .value("value")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

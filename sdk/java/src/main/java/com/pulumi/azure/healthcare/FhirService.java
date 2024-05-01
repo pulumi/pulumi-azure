@@ -27,7 +27,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,52 +56,52 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example")
+ *             .location("West Europe")
  *             .build());
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleFhirService = new FhirService(&#34;exampleFhirService&#34;, FhirServiceArgs.builder()        
- *             .name(&#34;tfexfhir&#34;)
- *             .location(&#34;east us&#34;)
- *             .resourceGroupName(&#34;tfex-resource_group&#34;)
+ *         var exampleFhirService = new FhirService("exampleFhirService", FhirServiceArgs.builder()        
+ *             .name("tfexfhir")
+ *             .location("east us")
+ *             .resourceGroupName("tfex-resource_group")
  *             .workspaceId(exampleWorkspace.id())
- *             .kind(&#34;fhir-R4&#34;)
+ *             .kind("fhir-R4")
  *             .authentication(FhirServiceAuthenticationArgs.builder()
- *                 .authority(&#34;https://login.microsoftonline.com/tenantId&#34;)
- *                 .audience(&#34;https://tfexfhir.fhir.azurehealthcareapis.com&#34;)
+ *                 .authority("https://login.microsoftonline.com/tenantId")
+ *                 .audience("https://tfexfhir.fhir.azurehealthcareapis.com")
  *                 .build())
- *             .accessPolicyObjectIds(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .accessPolicyObjectIds(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *             .identity(FhirServiceIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
- *             .containerRegistryLoginServerUrls(&#34;tfex-container_registry_login_server&#34;)
+ *             .containerRegistryLoginServerUrls("tfex-container_registry_login_server")
  *             .cors(FhirServiceCorsArgs.builder()
  *                 .allowedOrigins(                
- *                     &#34;https://tfex.com:123&#34;,
- *                     &#34;https://tfex1.com:3389&#34;)
- *                 .allowedHeaders(&#34;*&#34;)
+ *                     "https://tfex.com:123",
+ *                     "https://tfex1.com:3389")
+ *                 .allowedHeaders("*")
  *                 .allowedMethods(                
- *                     &#34;GET&#34;,
- *                     &#34;DELETE&#34;,
- *                     &#34;PUT&#34;)
+ *                     "GET",
+ *                     "DELETE",
+ *                     "PUT")
  *                 .maxAgeInSeconds(3600)
  *                 .credentialsAllowed(true)
  *                 .build())
- *             .configurationExportStorageAccountName(&#34;storage_account_name&#34;)
+ *             .configurationExportStorageAccountName("storage_account_name")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

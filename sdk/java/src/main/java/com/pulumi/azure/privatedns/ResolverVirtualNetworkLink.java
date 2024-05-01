@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,65 +56,65 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;west europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("west europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-vnet&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example-vnet")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *             .addressSpaces("10.0.0.0/16")
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;outbounddns&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("outbounddns")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.0.64/28&#34;)
+ *             .addressPrefixes("10.0.0.64/28")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;Microsoft.Network.dnsResolvers&#34;)
+ *                 .name("Microsoft.Network.dnsResolvers")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/join/action&#34;)
- *                     .name(&#34;Microsoft.Network/dnsResolvers&#34;)
+ *                     .actions("Microsoft.Network/virtualNetworks/subnets/join/action")
+ *                     .name("Microsoft.Network/dnsResolvers")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleResolver = new Resolver(&#34;exampleResolver&#34;, ResolverArgs.builder()        
- *             .name(&#34;example-resolver&#34;)
+ *         var exampleResolver = new Resolver("exampleResolver", ResolverArgs.builder()        
+ *             .name("example-resolver")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .virtualNetworkId(exampleVirtualNetwork.id())
  *             .build());
  * 
- *         var exampleResolverOutboundEndpoint = new ResolverOutboundEndpoint(&#34;exampleResolverOutboundEndpoint&#34;, ResolverOutboundEndpointArgs.builder()        
- *             .name(&#34;example-endpoint&#34;)
+ *         var exampleResolverOutboundEndpoint = new ResolverOutboundEndpoint("exampleResolverOutboundEndpoint", ResolverOutboundEndpointArgs.builder()        
+ *             .name("example-endpoint")
  *             .privateDnsResolverId(exampleResolver.id())
  *             .location(exampleResolver.location())
  *             .subnetId(exampleSubnet.id())
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .tags(Map.of("key", "value"))
  *             .build());
  * 
- *         var exampleResolverDnsForwardingRuleset = new ResolverDnsForwardingRuleset(&#34;exampleResolverDnsForwardingRuleset&#34;, ResolverDnsForwardingRulesetArgs.builder()        
- *             .name(&#34;example-ruleset&#34;)
+ *         var exampleResolverDnsForwardingRuleset = new ResolverDnsForwardingRuleset("exampleResolverDnsForwardingRuleset", ResolverDnsForwardingRulesetArgs.builder()        
+ *             .name("example-ruleset")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .privateDnsResolverOutboundEndpointIds(exampleResolverOutboundEndpoint.id())
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .tags(Map.of("key", "value"))
  *             .build());
  * 
- *         var exampleResolverVirtualNetworkLink = new ResolverVirtualNetworkLink(&#34;exampleResolverVirtualNetworkLink&#34;, ResolverVirtualNetworkLinkArgs.builder()        
- *             .name(&#34;example-link&#34;)
+ *         var exampleResolverVirtualNetworkLink = new ResolverVirtualNetworkLink("exampleResolverVirtualNetworkLink", ResolverVirtualNetworkLinkArgs.builder()        
+ *             .name("example-link")
  *             .dnsForwardingRulesetId(exampleResolverDnsForwardingRuleset.id())
  *             .virtualNetworkId(exampleVirtualNetwork.id())
- *             .metadata(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .metadata(Map.of("key", "value"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

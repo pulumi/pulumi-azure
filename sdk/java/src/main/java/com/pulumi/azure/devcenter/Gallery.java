@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,42 +49,42 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var testUserAssignedIdentity = new UserAssignedIdentity(&#34;testUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
- *             .name(&#34;example-uai&#34;)
+ *         var testUserAssignedIdentity = new UserAssignedIdentity("testUserAssignedIdentity", UserAssignedIdentityArgs.builder()        
+ *             .name("example-uai")
  *             .location(testAzurermResourceGroup.location())
  *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .build());
  * 
- *         var test = new DevCenter(&#34;test&#34;, DevCenterArgs.builder()        
- *             .name(&#34;example-devcenter&#34;)
+ *         var test = new DevCenter("test", DevCenterArgs.builder()        
+ *             .name("example-devcenter")
  *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .location(testAzurermResourceGroup.location())
  *             .identity(DevCenterIdentityArgs.builder()
- *                 .type(&#34;UserAssigned&#34;)
+ *                 .type("UserAssigned")
  *                 .identityIds(testUserAssignedIdentity.id())
  *                 .build())
  *             .build());
  * 
- *         var exampleSharedImageGallery = new SharedImageGallery(&#34;exampleSharedImageGallery&#34;, SharedImageGalleryArgs.builder()        
- *             .name(&#34;example-image-gallery&#34;)
+ *         var exampleSharedImageGallery = new SharedImageGallery("exampleSharedImageGallery", SharedImageGalleryArgs.builder()        
+ *             .name("example-image-gallery")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleGallery = new Gallery(&#34;exampleGallery&#34;, GalleryArgs.builder()        
+ *         var exampleGallery = new Gallery("exampleGallery", GalleryArgs.builder()        
  *             .devCenterId(exampleAzurermDevCenter.id())
  *             .sharedGalleryId(exampleSharedImageGallery.id())
- *             .name(&#34;example&#34;)
+ *             .name("example")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * 
  * ### Adding TagRules on monitor
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,46 +54,46 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-datadog&#34;)
- *             .location(&#34;West US 2&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-datadog")
+ *             .location("West US 2")
  *             .build());
  * 
- *         var exampleMonitor = new Monitor(&#34;exampleMonitor&#34;, MonitorArgs.builder()        
- *             .name(&#34;example-monitor&#34;)
+ *         var exampleMonitor = new Monitor("exampleMonitor", MonitorArgs.builder()        
+ *             .name("example-monitor")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .datadogOrganization(MonitorDatadogOrganizationArgs.builder()
- *                 .apiKey(&#34;XXXX&#34;)
- *                 .applicationKey(&#34;XXXX&#34;)
+ *                 .apiKey("XXXX")
+ *                 .applicationKey("XXXX")
  *                 .build())
  *             .user(MonitorUserArgs.builder()
- *                 .name(&#34;Example&#34;)
- *                 .email(&#34;abc@xyz.com&#34;)
+ *                 .name("Example")
+ *                 .email("abc@xyz.com")
  *                 .build())
- *             .skuName(&#34;Linked&#34;)
+ *             .skuName("Linked")
  *             .identity(MonitorIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
- *         var exampleMonitorTagRule = new MonitorTagRule(&#34;exampleMonitorTagRule&#34;, MonitorTagRuleArgs.builder()        
+ *         var exampleMonitorTagRule = new MonitorTagRule("exampleMonitorTagRule", MonitorTagRuleArgs.builder()        
  *             .datadogMonitorId(exampleMonitor.id())
  *             .logs(MonitorTagRuleLogArgs.builder()
  *                 .subscriptionLogEnabled(true)
  *                 .build())
  *             .metrics(MonitorTagRuleMetricArgs.builder()
  *                 .filters(MonitorTagRuleMetricFilterArgs.builder()
- *                     .name(&#34;Test&#34;)
- *                     .value(&#34;Logs&#34;)
- *                     .action(&#34;Include&#34;)
+ *                     .name("Test")
+ *                     .value("Logs")
+ *                     .action("Include")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

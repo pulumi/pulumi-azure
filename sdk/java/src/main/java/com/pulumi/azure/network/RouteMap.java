@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,47 +50,47 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualWan = new VirtualWan(&#34;exampleVirtualWan&#34;, VirtualWanArgs.builder()        
- *             .name(&#34;example-vwan&#34;)
+ *         var exampleVirtualWan = new VirtualWan("exampleVirtualWan", VirtualWanArgs.builder()        
+ *             .name("example-vwan")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleVirtualHub = new VirtualHub(&#34;exampleVirtualHub&#34;, VirtualHubArgs.builder()        
- *             .name(&#34;example-vhub&#34;)
+ *         var exampleVirtualHub = new VirtualHub("exampleVirtualHub", VirtualHubArgs.builder()        
+ *             .name("example-vhub")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .virtualWanId(exampleVirtualWan.id())
- *             .addressPrefix(&#34;10.0.1.0/24&#34;)
+ *             .addressPrefix("10.0.1.0/24")
  *             .build());
  * 
- *         var exampleRouteMap = new RouteMap(&#34;exampleRouteMap&#34;, RouteMapArgs.builder()        
- *             .name(&#34;example-rm&#34;)
+ *         var exampleRouteMap = new RouteMap("exampleRouteMap", RouteMapArgs.builder()        
+ *             .name("example-rm")
  *             .virtualHubId(exampleVirtualHub.id())
  *             .rules(RouteMapRuleArgs.builder()
- *                 .name(&#34;rule1&#34;)
- *                 .nextStepIfMatched(&#34;Continue&#34;)
+ *                 .name("rule1")
+ *                 .nextStepIfMatched("Continue")
  *                 .actions(RouteMapRuleActionArgs.builder()
- *                     .type(&#34;Add&#34;)
+ *                     .type("Add")
  *                     .parameters(RouteMapRuleActionParameterArgs.builder()
- *                         .asPaths(&#34;22334&#34;)
+ *                         .asPaths("22334")
  *                         .build())
  *                     .build())
  *                 .matchCriterions(RouteMapRuleMatchCriterionArgs.builder()
- *                     .matchCondition(&#34;Contains&#34;)
- *                     .routePrefixes(&#34;10.0.0.0/8&#34;)
+ *                     .matchCondition("Contains")
+ *                     .routePrefixes("10.0.0.0/8")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

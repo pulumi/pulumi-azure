@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,47 +49,47 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleBackupVault = new BackupVault(&#34;exampleBackupVault&#34;, BackupVaultArgs.builder()        
- *             .name(&#34;example-backup-vault&#34;)
+ *         var exampleBackupVault = new BackupVault("exampleBackupVault", BackupVaultArgs.builder()        
+ *             .name("example-backup-vault")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .datastoreType(&#34;VaultStore&#34;)
- *             .redundancy(&#34;LocallyRedundant&#34;)
+ *             .datastoreType("VaultStore")
+ *             .redundancy("LocallyRedundant")
  *             .build());
  * 
- *         var exampleBackupPolicyDisk = new BackupPolicyDisk(&#34;exampleBackupPolicyDisk&#34;, BackupPolicyDiskArgs.builder()        
- *             .name(&#34;example-backup-policy&#34;)
+ *         var exampleBackupPolicyDisk = new BackupPolicyDisk("exampleBackupPolicyDisk", BackupPolicyDiskArgs.builder()        
+ *             .name("example-backup-policy")
  *             .vaultId(exampleBackupVault.id())
- *             .backupRepeatingTimeIntervals(&#34;R/2021-05-19T06:33:16+00:00/PT4H&#34;)
- *             .defaultRetentionDuration(&#34;P7D&#34;)
- *             .timeZone(&#34;W. Europe Standard Time&#34;)
+ *             .backupRepeatingTimeIntervals("R/2021-05-19T06:33:16+00:00/PT4H")
+ *             .defaultRetentionDuration("P7D")
+ *             .timeZone("W. Europe Standard Time")
  *             .retentionRules(            
  *                 BackupPolicyDiskRetentionRuleArgs.builder()
- *                     .name(&#34;Daily&#34;)
- *                     .duration(&#34;P7D&#34;)
+ *                     .name("Daily")
+ *                     .duration("P7D")
  *                     .priority(25)
  *                     .criteria(BackupPolicyDiskRetentionRuleCriteriaArgs.builder()
- *                         .absoluteCriteria(&#34;FirstOfDay&#34;)
+ *                         .absoluteCriteria("FirstOfDay")
  *                         .build())
  *                     .build(),
  *                 BackupPolicyDiskRetentionRuleArgs.builder()
- *                     .name(&#34;Weekly&#34;)
- *                     .duration(&#34;P7D&#34;)
+ *                     .name("Weekly")
+ *                     .duration("P7D")
  *                     .priority(20)
  *                     .criteria(BackupPolicyDiskRetentionRuleCriteriaArgs.builder()
- *                         .absoluteCriteria(&#34;FirstOfWeek&#34;)
+ *                         .absoluteCriteria("FirstOfWeek")
  *                         .build())
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

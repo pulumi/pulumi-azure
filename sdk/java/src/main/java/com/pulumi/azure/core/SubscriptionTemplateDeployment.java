@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,31 +42,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SubscriptionTemplateDeployment(&#34;example&#34;, SubscriptionTemplateDeploymentArgs.builder()        
- *             .name(&#34;example-deployment&#34;)
- *             .location(&#34;West Europe&#34;)
- *             .templateContent(&#34;&#34;&#34;
+ *         var example = new SubscriptionTemplateDeployment("example", SubscriptionTemplateDeploymentArgs.builder()        
+ *             .name("example-deployment")
+ *             .location("West Europe")
+ *             .templateContent("""
  *  {
- *    &#34;$schema&#34;: &#34;https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#&#34;,
- *    &#34;contentVersion&#34;: &#34;1.0.0.0&#34;,
- *    &#34;parameters&#34;: {},
- *    &#34;variables&#34;: {},
- *    &#34;resources&#34;: [
+ *    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+ *    "contentVersion": "1.0.0.0",
+ *    "parameters": {},
+ *    "variables": {},
+ *    "resources": [
  *      {
- *        &#34;type&#34;: &#34;Microsoft.Resources/resourceGroups&#34;,
- *        &#34;apiVersion&#34;: &#34;2018-05-01&#34;,
- *        &#34;location&#34;: &#34;West Europe&#34;,
- *        &#34;name&#34;: &#34;some-resource-group&#34;,
- *        &#34;properties&#34;: {}
+ *        "type": "Microsoft.Resources/resourceGroups",
+ *        "apiVersion": "2018-05-01",
+ *        "location": "West Europe",
+ *        "name": "some-resource-group",
+ *        "properties": {}
  *      }
  *    ]
  *  }
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -29,7 +29,7 @@ public final class MssqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -54,29 +54,29 @@ public final class MssqlFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *             .name("example-resources")
+     *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
-     *             .name(&#34;example&#34;)
+     *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+     *             .name("example")
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .location(exampleResourceGroup.location())
-     *             .version(&#34;12.0&#34;)
-     *             .administratorLogin(&#34;4dm1n157r470r&#34;)
-     *             .administratorLoginPassword(&#34;4-v3ry-53cr37-p455w0rd&#34;)
+     *             .version("12.0")
+     *             .administratorLogin("4dm1n157r470r")
+     *             .administratorLoginPassword("4-v3ry-53cr37-p455w0rd")
      *             .build());
      * 
      *         final var example = MssqlFunctions.getDatabase(GetDatabaseArgs.builder()
-     *             .name(&#34;example-mssql-db&#34;)
+     *             .name("example-mssql-db")
      *             .serverId(exampleServer.id())
      *             .build());
      * 
-     *         ctx.export(&#34;databaseId&#34;, example.applyValue(getDatabaseResult -&gt; getDatabaseResult).applyValue(example -&gt; example.applyValue(getDatabaseResult -&gt; getDatabaseResult.id())));
+     *         ctx.export("databaseId", example.applyValue(getDatabaseResult -> getDatabaseResult).applyValue(example -> example.applyValue(getDatabaseResult -> getDatabaseResult.id())));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -89,7 +89,7 @@ public final class MssqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -114,29 +114,29 @@ public final class MssqlFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *             .name("example-resources")
+     *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
-     *             .name(&#34;example&#34;)
+     *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+     *             .name("example")
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .location(exampleResourceGroup.location())
-     *             .version(&#34;12.0&#34;)
-     *             .administratorLogin(&#34;4dm1n157r470r&#34;)
-     *             .administratorLoginPassword(&#34;4-v3ry-53cr37-p455w0rd&#34;)
+     *             .version("12.0")
+     *             .administratorLogin("4dm1n157r470r")
+     *             .administratorLoginPassword("4-v3ry-53cr37-p455w0rd")
      *             .build());
      * 
      *         final var example = MssqlFunctions.getDatabase(GetDatabaseArgs.builder()
-     *             .name(&#34;example-mssql-db&#34;)
+     *             .name("example-mssql-db")
      *             .serverId(exampleServer.id())
      *             .build());
      * 
-     *         ctx.export(&#34;databaseId&#34;, example.applyValue(getDatabaseResult -&gt; getDatabaseResult).applyValue(example -&gt; example.applyValue(getDatabaseResult -&gt; getDatabaseResult.id())));
+     *         ctx.export("databaseId", example.applyValue(getDatabaseResult -> getDatabaseResult).applyValue(example -> example.applyValue(getDatabaseResult -> getDatabaseResult.id())));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -149,7 +149,7 @@ public final class MssqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -174,29 +174,29 @@ public final class MssqlFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *             .name("example-resources")
+     *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
-     *             .name(&#34;example&#34;)
+     *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+     *             .name("example")
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .location(exampleResourceGroup.location())
-     *             .version(&#34;12.0&#34;)
-     *             .administratorLogin(&#34;4dm1n157r470r&#34;)
-     *             .administratorLoginPassword(&#34;4-v3ry-53cr37-p455w0rd&#34;)
+     *             .version("12.0")
+     *             .administratorLogin("4dm1n157r470r")
+     *             .administratorLoginPassword("4-v3ry-53cr37-p455w0rd")
      *             .build());
      * 
      *         final var example = MssqlFunctions.getDatabase(GetDatabaseArgs.builder()
-     *             .name(&#34;example-mssql-db&#34;)
+     *             .name("example-mssql-db")
      *             .serverId(exampleServer.id())
      *             .build());
      * 
-     *         ctx.export(&#34;databaseId&#34;, example.applyValue(getDatabaseResult -&gt; getDatabaseResult).applyValue(example -&gt; example.applyValue(getDatabaseResult -&gt; getDatabaseResult.id())));
+     *         ctx.export("databaseId", example.applyValue(getDatabaseResult -> getDatabaseResult).applyValue(example -> example.applyValue(getDatabaseResult -> getDatabaseResult.id())));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -209,7 +209,7 @@ public final class MssqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -234,29 +234,29 @@ public final class MssqlFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *             .name("example-resources")
+     *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
-     *             .name(&#34;example&#34;)
+     *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+     *             .name("example")
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .location(exampleResourceGroup.location())
-     *             .version(&#34;12.0&#34;)
-     *             .administratorLogin(&#34;4dm1n157r470r&#34;)
-     *             .administratorLoginPassword(&#34;4-v3ry-53cr37-p455w0rd&#34;)
+     *             .version("12.0")
+     *             .administratorLogin("4dm1n157r470r")
+     *             .administratorLoginPassword("4-v3ry-53cr37-p455w0rd")
      *             .build());
      * 
      *         final var example = MssqlFunctions.getDatabase(GetDatabaseArgs.builder()
-     *             .name(&#34;example-mssql-db&#34;)
+     *             .name("example-mssql-db")
      *             .serverId(exampleServer.id())
      *             .build());
      * 
-     *         ctx.export(&#34;databaseId&#34;, example.applyValue(getDatabaseResult -&gt; getDatabaseResult).applyValue(example -&gt; example.applyValue(getDatabaseResult -&gt; getDatabaseResult.id())));
+     *         ctx.export("databaseId", example.applyValue(getDatabaseResult -> getDatabaseResult).applyValue(example -> example.applyValue(getDatabaseResult -> getDatabaseResult.id())));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -269,7 +269,7 @@ public final class MssqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -291,15 +291,15 @@ public final class MssqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MssqlFunctions.getElasticPool(GetElasticPoolArgs.builder()
-     *             .name(&#34;mssqlelasticpoolname&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .serverName(&#34;example-sql-server&#34;)
+     *             .name("mssqlelasticpoolname")
+     *             .resourceGroupName("example-resources")
+     *             .serverName("example-sql-server")
      *             .build());
      * 
-     *         ctx.export(&#34;elasticpoolId&#34;, example.applyValue(getElasticPoolResult -&gt; getElasticPoolResult.id()));
+     *         ctx.export("elasticpoolId", example.applyValue(getElasticPoolResult -> getElasticPoolResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -312,7 +312,7 @@ public final class MssqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -334,15 +334,15 @@ public final class MssqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MssqlFunctions.getElasticPool(GetElasticPoolArgs.builder()
-     *             .name(&#34;mssqlelasticpoolname&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .serverName(&#34;example-sql-server&#34;)
+     *             .name("mssqlelasticpoolname")
+     *             .resourceGroupName("example-resources")
+     *             .serverName("example-sql-server")
      *             .build());
      * 
-     *         ctx.export(&#34;elasticpoolId&#34;, example.applyValue(getElasticPoolResult -&gt; getElasticPoolResult.id()));
+     *         ctx.export("elasticpoolId", example.applyValue(getElasticPoolResult -> getElasticPoolResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -355,7 +355,7 @@ public final class MssqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -377,15 +377,15 @@ public final class MssqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MssqlFunctions.getElasticPool(GetElasticPoolArgs.builder()
-     *             .name(&#34;mssqlelasticpoolname&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .serverName(&#34;example-sql-server&#34;)
+     *             .name("mssqlelasticpoolname")
+     *             .resourceGroupName("example-resources")
+     *             .serverName("example-sql-server")
      *             .build());
      * 
-     *         ctx.export(&#34;elasticpoolId&#34;, example.applyValue(getElasticPoolResult -&gt; getElasticPoolResult.id()));
+     *         ctx.export("elasticpoolId", example.applyValue(getElasticPoolResult -> getElasticPoolResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -398,7 +398,7 @@ public final class MssqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -420,15 +420,15 @@ public final class MssqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MssqlFunctions.getElasticPool(GetElasticPoolArgs.builder()
-     *             .name(&#34;mssqlelasticpoolname&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .serverName(&#34;example-sql-server&#34;)
+     *             .name("mssqlelasticpoolname")
+     *             .resourceGroupName("example-resources")
+     *             .serverName("example-sql-server")
      *             .build());
      * 
-     *         ctx.export(&#34;elasticpoolId&#34;, example.applyValue(getElasticPoolResult -&gt; getElasticPoolResult.id()));
+     *         ctx.export("elasticpoolId", example.applyValue(getElasticPoolResult -> getElasticPoolResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -441,7 +441,7 @@ public final class MssqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -463,13 +463,13 @@ public final class MssqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MssqlFunctions.getManagedInstance(GetManagedInstanceArgs.builder()
-     *             .name(&#34;managedsqlinstance&#34;)
+     *             .name("managedsqlinstance")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -482,7 +482,7 @@ public final class MssqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -504,13 +504,13 @@ public final class MssqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MssqlFunctions.getManagedInstance(GetManagedInstanceArgs.builder()
-     *             .name(&#34;managedsqlinstance&#34;)
+     *             .name("managedsqlinstance")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -523,7 +523,7 @@ public final class MssqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -545,13 +545,13 @@ public final class MssqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MssqlFunctions.getManagedInstance(GetManagedInstanceArgs.builder()
-     *             .name(&#34;managedsqlinstance&#34;)
+     *             .name("managedsqlinstance")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -564,7 +564,7 @@ public final class MssqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -586,13 +586,13 @@ public final class MssqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MssqlFunctions.getManagedInstance(GetManagedInstanceArgs.builder()
-     *             .name(&#34;managedsqlinstance&#34;)
+     *             .name("managedsqlinstance")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -605,7 +605,7 @@ public final class MssqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -627,14 +627,14 @@ public final class MssqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MssqlFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;existingMsSqlServer&#34;)
-     *             .resourceGroupName(&#34;existingResGroup&#34;)
+     *             .name("existingMsSqlServer")
+     *             .resourceGroupName("existingResGroup")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getServerResult -&gt; getServerResult.id()));
+     *         ctx.export("id", example.applyValue(getServerResult -> getServerResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -647,7 +647,7 @@ public final class MssqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -669,14 +669,14 @@ public final class MssqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MssqlFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;existingMsSqlServer&#34;)
-     *             .resourceGroupName(&#34;existingResGroup&#34;)
+     *             .name("existingMsSqlServer")
+     *             .resourceGroupName("existingResGroup")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getServerResult -&gt; getServerResult.id()));
+     *         ctx.export("id", example.applyValue(getServerResult -> getServerResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -689,7 +689,7 @@ public final class MssqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -711,14 +711,14 @@ public final class MssqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MssqlFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;existingMsSqlServer&#34;)
-     *             .resourceGroupName(&#34;existingResGroup&#34;)
+     *             .name("existingMsSqlServer")
+     *             .resourceGroupName("existingResGroup")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getServerResult -&gt; getServerResult.id()));
+     *         ctx.export("id", example.applyValue(getServerResult -> getServerResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -731,7 +731,7 @@ public final class MssqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -753,14 +753,14 @@ public final class MssqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MssqlFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;existingMsSqlServer&#34;)
-     *             .resourceGroupName(&#34;existingResGroup&#34;)
+     *             .name("existingMsSqlServer")
+     *             .resourceGroupName("existingResGroup")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getServerResult -&gt; getServerResult.id()));
+     *         ctx.export("id", example.applyValue(getServerResult -> getServerResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

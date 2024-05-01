@@ -22,7 +22,7 @@ public final class GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth 
      */
     private String hostKeyAlgorithm;
     /**
-     * @return The SSH private key to access the Git repository, needed when the URI starts with `git@` or `ssh://`.
+     * @return The SSH private key to access the Git repository, needed when the URI starts with `git{@literal @}` or `ssh://`.
      * 
      */
     private String privateKey;
@@ -48,7 +48,7 @@ public final class GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth 
         return this.hostKeyAlgorithm;
     }
     /**
-     * @return The SSH private key to access the Git repository, needed when the URI starts with `git@` or `ssh://`.
+     * @return The SSH private key to access the Git repository, needed when the URI starts with `git{@literal @}` or `ssh://`.
      * 
      */
     public String privateKey() {

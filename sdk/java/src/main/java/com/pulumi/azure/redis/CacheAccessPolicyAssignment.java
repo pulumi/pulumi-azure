@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,37 +48,37 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var test = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;East US&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("East US")
  *             .build());
  * 
- *         var exampleCache = new Cache(&#34;exampleCache&#34;, CacheArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleCache = new Cache("exampleCache", CacheArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .capacity(1)
- *             .family(&#34;P&#34;)
- *             .skuName(&#34;Premium&#34;)
+ *             .family("P")
+ *             .skuName("Premium")
  *             .enableNonSslPort(false)
  *             .redisConfiguration(CacheRedisConfigurationArgs.builder()
  *                 .maxmemoryReserved(2)
  *                 .maxmemoryDelta(2)
- *                 .maxmemoryPolicy(&#34;allkeys-lru&#34;)
+ *                 .maxmemoryPolicy("allkeys-lru")
  *                 .build())
  *             .build());
  * 
- *         var exampleCacheAccessPolicyAssignment = new CacheAccessPolicyAssignment(&#34;exampleCacheAccessPolicyAssignment&#34;, CacheAccessPolicyAssignmentArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleCacheAccessPolicyAssignment = new CacheAccessPolicyAssignment("exampleCacheAccessPolicyAssignment", CacheAccessPolicyAssignmentArgs.builder()        
+ *             .name("example")
  *             .redisCacheId(exampleCache.id())
- *             .accessPolicyName(&#34;Data Contributor&#34;)
- *             .objectId(test.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
- *             .objectIdAlias(&#34;ServicePrincipal&#34;)
+ *             .accessPolicyName("Data Contributor")
+ *             .objectId(test.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *             .objectIdAlias("ServicePrincipal")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

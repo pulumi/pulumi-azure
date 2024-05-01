@@ -33,7 +33,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -57,22 +57,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
- *             .name(&#34;example-servicefabric&#34;)
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()        
+ *             .name("example-servicefabric")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .reliabilityLevel(&#34;Bronze&#34;)
- *             .upgradeMode(&#34;Manual&#34;)
- *             .clusterCodeVersion(&#34;7.1.456.959&#34;)
- *             .vmImage(&#34;Windows&#34;)
- *             .managementEndpoint(&#34;https://example:80&#34;)
+ *             .reliabilityLevel("Bronze")
+ *             .upgradeMode("Manual")
+ *             .clusterCodeVersion("7.1.456.959")
+ *             .vmImage("Windows")
+ *             .managementEndpoint("https://example:80")
  *             .nodeTypes(ClusterNodeTypeArgs.builder()
- *                 .name(&#34;first&#34;)
+ *                 .name("first")
  *                 .instanceCount(3)
  *                 .isPrimary(true)
  *                 .clientEndpointPort(2020)
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

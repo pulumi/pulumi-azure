@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -57,82 +57,82 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFrontdoor = new Frontdoor(&#34;exampleFrontdoor&#34;, FrontdoorArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleFrontdoor = new Frontdoor("exampleFrontdoor", FrontdoorArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .backendPools(FrontdoorBackendPoolArgs.builder()
- *                 .name(&#34;exampleBackendBing&#34;)
- *                 .loadBalancingName(&#34;exampleLoadBalancingSettings1&#34;)
- *                 .healthProbeName(&#34;exampleHealthProbeSetting1&#34;)
+ *                 .name("exampleBackendBing")
+ *                 .loadBalancingName("exampleLoadBalancingSettings1")
+ *                 .healthProbeName("exampleHealthProbeSetting1")
  *                 .backends(FrontdoorBackendPoolBackendArgs.builder()
- *                     .hostHeader(&#34;www.bing.com&#34;)
- *                     .address(&#34;www.bing.com&#34;)
+ *                     .hostHeader("www.bing.com")
+ *                     .address("www.bing.com")
  *                     .httpPort(80)
  *                     .httpsPort(443)
  *                     .build())
  *                 .build())
  *             .backendPoolHealthProbes(FrontdoorBackendPoolHealthProbeArgs.builder()
- *                 .name(&#34;exampleHealthProbeSetting1&#34;)
+ *                 .name("exampleHealthProbeSetting1")
  *                 .build())
  *             .backendPoolLoadBalancings(FrontdoorBackendPoolLoadBalancingArgs.builder()
- *                 .name(&#34;exampleLoadBalancingSettings1&#34;)
+ *                 .name("exampleLoadBalancingSettings1")
  *                 .build())
  *             .frontendEndpoints(FrontdoorFrontendEndpointArgs.builder()
- *                 .name(&#34;exampleFrontendEndpoint1&#34;)
- *                 .hostName(&#34;example-FrontDoor.azurefd.net&#34;)
+ *                 .name("exampleFrontendEndpoint1")
+ *                 .hostName("example-FrontDoor.azurefd.net")
  *                 .build())
  *             .routingRules(FrontdoorRoutingRuleArgs.builder()
- *                 .name(&#34;exampleRoutingRule1&#34;)
+ *                 .name("exampleRoutingRule1")
  *                 .acceptedProtocols(                
- *                     &#34;Http&#34;,
- *                     &#34;Https&#34;)
- *                 .patternsToMatches(&#34;/*&#34;)
- *                 .frontendEndpoints(&#34;exampleFrontendEndpoint1&#34;)
+ *                     "Http",
+ *                     "Https")
+ *                 .patternsToMatches("/*")
+ *                 .frontendEndpoints("exampleFrontendEndpoint1")
  *                 .build())
  *             .build());
  * 
- *         var exampleRulesEngine = new RulesEngine(&#34;exampleRulesEngine&#34;, RulesEngineArgs.builder()        
- *             .name(&#34;exampleRulesEngineConfig1&#34;)
+ *         var exampleRulesEngine = new RulesEngine("exampleRulesEngine", RulesEngineArgs.builder()        
+ *             .name("exampleRulesEngineConfig1")
  *             .frontdoorName(exampleFrontdoor.name())
  *             .resourceGroupName(exampleFrontdoor.resourceGroupName())
  *             .rules(            
  *                 RulesEngineRuleArgs.builder()
- *                     .name(&#34;debuggingoutput&#34;)
+ *                     .name("debuggingoutput")
  *                     .priority(1)
  *                     .action(RulesEngineRuleActionArgs.builder()
  *                         .responseHeaders(RulesEngineRuleActionResponseHeaderArgs.builder()
- *                             .headerActionType(&#34;Append&#34;)
- *                             .headerName(&#34;X-TEST-HEADER&#34;)
- *                             .value(&#34;Append Header Rule&#34;)
+ *                             .headerActionType("Append")
+ *                             .headerName("X-TEST-HEADER")
+ *                             .value("Append Header Rule")
  *                             .build())
  *                         .build())
  *                     .build(),
  *                 RulesEngineRuleArgs.builder()
- *                     .name(&#34;overwriteorigin&#34;)
+ *                     .name("overwriteorigin")
  *                     .priority(2)
  *                     .matchConditions(RulesEngineRuleMatchConditionArgs.builder()
- *                         .variable(&#34;RequestMethod&#34;)
- *                         .operator(&#34;Equal&#34;)
+ *                         .variable("RequestMethod")
+ *                         .operator("Equal")
  *                         .values(                        
- *                             &#34;GET&#34;,
- *                             &#34;POST&#34;)
+ *                             "GET",
+ *                             "POST")
  *                         .build())
  *                     .action(RulesEngineRuleActionArgs.builder()
  *                         .responseHeaders(                        
  *                             RulesEngineRuleActionResponseHeaderArgs.builder()
- *                                 .headerActionType(&#34;Overwrite&#34;)
- *                                 .headerName(&#34;Access-Control-Allow-Origin&#34;)
- *                                 .value(&#34;*&#34;)
+ *                                 .headerActionType("Overwrite")
+ *                                 .headerName("Access-Control-Allow-Origin")
+ *                                 .value("*")
  *                                 .build(),
  *                             RulesEngineRuleActionResponseHeaderArgs.builder()
- *                                 .headerActionType(&#34;Overwrite&#34;)
- *                                 .headerName(&#34;Access-Control-Allow-Credentials&#34;)
- *                                 .value(&#34;true&#34;)
+ *                                 .headerActionType("Overwrite")
+ *                                 .headerName("Access-Control-Allow-Credentials")
+ *                                 .value("true")
  *                                 .build())
  *                         .build())
  *                     .build())
@@ -140,7 +140,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

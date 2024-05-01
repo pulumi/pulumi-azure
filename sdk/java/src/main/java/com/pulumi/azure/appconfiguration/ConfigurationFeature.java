@@ -28,7 +28,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,36 +56,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var appconf = new ConfigurationStore(&#34;appconf&#34;, ConfigurationStoreArgs.builder()        
- *             .name(&#34;appConf1&#34;)
+ *         var appconf = new ConfigurationStore("appconf", ConfigurationStoreArgs.builder()        
+ *             .name("appConf1")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var appconfDataowner = new Assignment(&#34;appconfDataowner&#34;, AssignmentArgs.builder()        
+ *         var appconfDataowner = new Assignment("appconfDataowner", AssignmentArgs.builder()        
  *             .scope(appconf.id())
- *             .roleDefinitionName(&#34;App Configuration Data Owner&#34;)
- *             .principalId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .roleDefinitionName("App Configuration Data Owner")
+ *             .principalId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *             .build());
  * 
- *         var test = new ConfigurationFeature(&#34;test&#34;, ConfigurationFeatureArgs.builder()        
+ *         var test = new ConfigurationFeature("test", ConfigurationFeatureArgs.builder()        
  *             .configurationStoreId(appconf.id())
- *             .description(&#34;test description&#34;)
- *             .name(&#34;test-ackey&#34;)
- *             .label(&#34;test-ackeylabel&#34;)
+ *             .description("test description")
+ *             .name("test-ackey")
+ *             .label("test-ackeylabel")
  *             .enabled(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

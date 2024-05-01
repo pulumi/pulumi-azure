@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,51 +54,51 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleLab = new Lab(&#34;exampleLab&#34;, LabArgs.builder()        
- *             .name(&#34;example-devtestlab&#34;)
+ *         var exampleLab = new Lab("exampleLab", LabArgs.builder()        
+ *             .name("example-devtestlab")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tags(Map.of(&#34;Sydney&#34;, &#34;Australia&#34;))
+ *             .tags(Map.of("Sydney", "Australia"))
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-network&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example-network")
  *             .labName(exampleLab.name())
  *             .resourceGroupName(example.name())
  *             .subnet(VirtualNetworkSubnetArgs.builder()
- *                 .usePublicIpAddress(&#34;Allow&#34;)
- *                 .useInVirtualMachineCreation(&#34;Allow&#34;)
+ *                 .usePublicIpAddress("Allow")
+ *                 .useInVirtualMachineCreation("Allow")
  *                 .build())
  *             .build());
  * 
- *         var exampleWindowsVirtualMachine = new WindowsVirtualMachine(&#34;exampleWindowsVirtualMachine&#34;, WindowsVirtualMachineArgs.builder()        
- *             .name(&#34;example-vm03&#34;)
+ *         var exampleWindowsVirtualMachine = new WindowsVirtualMachine("exampleWindowsVirtualMachine", WindowsVirtualMachineArgs.builder()        
+ *             .name("example-vm03")
  *             .labName(exampleLab.name())
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .size(&#34;Standard_DS2&#34;)
- *             .username(&#34;exampleuser99&#34;)
- *             .password(&#34;Pa$w0rd1234!&#34;)
+ *             .size("Standard_DS2")
+ *             .username("exampleuser99")
+ *             .password("Pa$w0rd1234!")
  *             .labVirtualNetworkId(exampleVirtualNetwork.id())
- *             .labSubnetName(exampleVirtualNetwork.subnet().applyValue(subnet -&gt; subnet.name()))
- *             .storageType(&#34;Premium&#34;)
- *             .notes(&#34;Some notes about this Virtual Machine.&#34;)
+ *             .labSubnetName(exampleVirtualNetwork.subnet().applyValue(subnet -> subnet.name()))
+ *             .storageType("Premium")
+ *             .notes("Some notes about this Virtual Machine.")
  *             .galleryImageReference(WindowsVirtualMachineGalleryImageReferenceArgs.builder()
- *                 .offer(&#34;WindowsServer&#34;)
- *                 .publisher(&#34;MicrosoftWindowsServer&#34;)
- *                 .sku(&#34;2019-Datacenter&#34;)
- *                 .version(&#34;latest&#34;)
+ *                 .offer("WindowsServer")
+ *                 .publisher("MicrosoftWindowsServer")
+ *                 .sku("2019-Datacenter")
+ *                 .version("latest")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

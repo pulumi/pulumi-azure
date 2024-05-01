@@ -41,7 +41,7 @@ public final class MonitoringFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -63,14 +63,14 @@ public final class MonitoringFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getActionGroup(GetActionGroupArgs.builder()
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .name(&#34;tfex-actiongroup&#34;)
+     *             .resourceGroupName("example-rg")
+     *             .name("tfex-actiongroup")
      *             .build());
      * 
-     *         ctx.export(&#34;actionGroupId&#34;, example.applyValue(getActionGroupResult -&gt; getActionGroupResult.id()));
+     *         ctx.export("actionGroupId", example.applyValue(getActionGroupResult -> getActionGroupResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -83,7 +83,7 @@ public final class MonitoringFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -105,14 +105,14 @@ public final class MonitoringFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getActionGroup(GetActionGroupArgs.builder()
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .name(&#34;tfex-actiongroup&#34;)
+     *             .resourceGroupName("example-rg")
+     *             .name("tfex-actiongroup")
      *             .build());
      * 
-     *         ctx.export(&#34;actionGroupId&#34;, example.applyValue(getActionGroupResult -&gt; getActionGroupResult.id()));
+     *         ctx.export("actionGroupId", example.applyValue(getActionGroupResult -> getActionGroupResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -125,7 +125,7 @@ public final class MonitoringFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -147,14 +147,14 @@ public final class MonitoringFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getActionGroup(GetActionGroupArgs.builder()
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .name(&#34;tfex-actiongroup&#34;)
+     *             .resourceGroupName("example-rg")
+     *             .name("tfex-actiongroup")
      *             .build());
      * 
-     *         ctx.export(&#34;actionGroupId&#34;, example.applyValue(getActionGroupResult -&gt; getActionGroupResult.id()));
+     *         ctx.export("actionGroupId", example.applyValue(getActionGroupResult -> getActionGroupResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -167,7 +167,7 @@ public final class MonitoringFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -189,14 +189,14 @@ public final class MonitoringFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getActionGroup(GetActionGroupArgs.builder()
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .name(&#34;tfex-actiongroup&#34;)
+     *             .resourceGroupName("example-rg")
+     *             .name("tfex-actiongroup")
      *             .build());
      * 
-     *         ctx.export(&#34;actionGroupId&#34;, example.applyValue(getActionGroupResult -&gt; getActionGroupResult.id()));
+     *         ctx.export("actionGroupId", example.applyValue(getActionGroupResult -> getActionGroupResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -209,7 +209,7 @@ public final class MonitoringFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -231,14 +231,14 @@ public final class MonitoringFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getDataCollectionEndpoint(GetDataCollectionEndpointArgs.builder()
-     *             .name(&#34;example-mdce&#34;)
+     *             .name("example-mdce")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export(&#34;endpointId&#34;, example.applyValue(getDataCollectionEndpointResult -&gt; getDataCollectionEndpointResult.id()));
+     *         ctx.export("endpointId", example.applyValue(getDataCollectionEndpointResult -> getDataCollectionEndpointResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -251,7 +251,7 @@ public final class MonitoringFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -273,14 +273,14 @@ public final class MonitoringFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getDataCollectionEndpoint(GetDataCollectionEndpointArgs.builder()
-     *             .name(&#34;example-mdce&#34;)
+     *             .name("example-mdce")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export(&#34;endpointId&#34;, example.applyValue(getDataCollectionEndpointResult -&gt; getDataCollectionEndpointResult.id()));
+     *         ctx.export("endpointId", example.applyValue(getDataCollectionEndpointResult -> getDataCollectionEndpointResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -293,7 +293,7 @@ public final class MonitoringFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -315,14 +315,14 @@ public final class MonitoringFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getDataCollectionEndpoint(GetDataCollectionEndpointArgs.builder()
-     *             .name(&#34;example-mdce&#34;)
+     *             .name("example-mdce")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export(&#34;endpointId&#34;, example.applyValue(getDataCollectionEndpointResult -&gt; getDataCollectionEndpointResult.id()));
+     *         ctx.export("endpointId", example.applyValue(getDataCollectionEndpointResult -> getDataCollectionEndpointResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -335,7 +335,7 @@ public final class MonitoringFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -357,14 +357,14 @@ public final class MonitoringFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getDataCollectionEndpoint(GetDataCollectionEndpointArgs.builder()
-     *             .name(&#34;example-mdce&#34;)
+     *             .name("example-mdce")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export(&#34;endpointId&#34;, example.applyValue(getDataCollectionEndpointResult -&gt; getDataCollectionEndpointResult.id()));
+     *         ctx.export("endpointId", example.applyValue(getDataCollectionEndpointResult -> getDataCollectionEndpointResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -377,7 +377,7 @@ public final class MonitoringFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -399,14 +399,14 @@ public final class MonitoringFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getDataCollectionRule(GetDataCollectionRuleArgs.builder()
-     *             .name(&#34;example-rule&#34;)
+     *             .name("example-rule")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export(&#34;ruleId&#34;, example.applyValue(getDataCollectionRuleResult -&gt; getDataCollectionRuleResult.id()));
+     *         ctx.export("ruleId", example.applyValue(getDataCollectionRuleResult -> getDataCollectionRuleResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -419,7 +419,7 @@ public final class MonitoringFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -441,14 +441,14 @@ public final class MonitoringFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getDataCollectionRule(GetDataCollectionRuleArgs.builder()
-     *             .name(&#34;example-rule&#34;)
+     *             .name("example-rule")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export(&#34;ruleId&#34;, example.applyValue(getDataCollectionRuleResult -&gt; getDataCollectionRuleResult.id()));
+     *         ctx.export("ruleId", example.applyValue(getDataCollectionRuleResult -> getDataCollectionRuleResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -461,7 +461,7 @@ public final class MonitoringFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -483,14 +483,14 @@ public final class MonitoringFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getDataCollectionRule(GetDataCollectionRuleArgs.builder()
-     *             .name(&#34;example-rule&#34;)
+     *             .name("example-rule")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export(&#34;ruleId&#34;, example.applyValue(getDataCollectionRuleResult -&gt; getDataCollectionRuleResult.id()));
+     *         ctx.export("ruleId", example.applyValue(getDataCollectionRuleResult -> getDataCollectionRuleResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -503,7 +503,7 @@ public final class MonitoringFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -525,14 +525,14 @@ public final class MonitoringFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getDataCollectionRule(GetDataCollectionRuleArgs.builder()
-     *             .name(&#34;example-rule&#34;)
+     *             .name("example-rule")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export(&#34;ruleId&#34;, example.applyValue(getDataCollectionRuleResult -&gt; getDataCollectionRuleResult.id()));
+     *         ctx.export("ruleId", example.applyValue(getDataCollectionRuleResult -> getDataCollectionRuleResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -545,7 +545,7 @@ public final class MonitoringFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -574,12 +574,12 @@ public final class MonitoringFunctions {
      *             .build());
      * 
      *         final var exampleGetDiagnosticCategories = MonitoringFunctions.getDiagnosticCategories(GetDiagnosticCategoriesArgs.builder()
-     *             .resourceId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .resourceId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -592,7 +592,7 @@ public final class MonitoringFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -621,12 +621,12 @@ public final class MonitoringFunctions {
      *             .build());
      * 
      *         final var exampleGetDiagnosticCategories = MonitoringFunctions.getDiagnosticCategories(GetDiagnosticCategoriesArgs.builder()
-     *             .resourceId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .resourceId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -639,7 +639,7 @@ public final class MonitoringFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -668,12 +668,12 @@ public final class MonitoringFunctions {
      *             .build());
      * 
      *         final var exampleGetDiagnosticCategories = MonitoringFunctions.getDiagnosticCategories(GetDiagnosticCategoriesArgs.builder()
-     *             .resourceId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .resourceId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -686,7 +686,7 @@ public final class MonitoringFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -715,12 +715,12 @@ public final class MonitoringFunctions {
      *             .build());
      * 
      *         final var exampleGetDiagnosticCategories = MonitoringFunctions.getDiagnosticCategories(GetDiagnosticCategoriesArgs.builder()
-     *             .resourceId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .resourceId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -735,7 +735,7 @@ public final class MonitoringFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -757,13 +757,13 @@ public final class MonitoringFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getLogProfile(GetLogProfileArgs.builder()
-     *             .name(&#34;test-logprofile&#34;)
+     *             .name("test-logprofile")
      *             .build());
      * 
-     *         ctx.export(&#34;logProfileStorageAccountId&#34;, example.applyValue(getLogProfileResult -&gt; getLogProfileResult.storageAccountId()));
+     *         ctx.export("logProfileStorageAccountId", example.applyValue(getLogProfileResult -> getLogProfileResult.storageAccountId()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -778,7 +778,7 @@ public final class MonitoringFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -800,13 +800,13 @@ public final class MonitoringFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getLogProfile(GetLogProfileArgs.builder()
-     *             .name(&#34;test-logprofile&#34;)
+     *             .name("test-logprofile")
      *             .build());
      * 
-     *         ctx.export(&#34;logProfileStorageAccountId&#34;, example.applyValue(getLogProfileResult -&gt; getLogProfileResult.storageAccountId()));
+     *         ctx.export("logProfileStorageAccountId", example.applyValue(getLogProfileResult -> getLogProfileResult.storageAccountId()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -821,7 +821,7 @@ public final class MonitoringFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -843,13 +843,13 @@ public final class MonitoringFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getLogProfile(GetLogProfileArgs.builder()
-     *             .name(&#34;test-logprofile&#34;)
+     *             .name("test-logprofile")
      *             .build());
      * 
-     *         ctx.export(&#34;logProfileStorageAccountId&#34;, example.applyValue(getLogProfileResult -&gt; getLogProfileResult.storageAccountId()));
+     *         ctx.export("logProfileStorageAccountId", example.applyValue(getLogProfileResult -> getLogProfileResult.storageAccountId()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -864,7 +864,7 @@ public final class MonitoringFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -886,13 +886,13 @@ public final class MonitoringFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getLogProfile(GetLogProfileArgs.builder()
-     *             .name(&#34;test-logprofile&#34;)
+     *             .name("test-logprofile")
      *             .build());
      * 
-     *         ctx.export(&#34;logProfileStorageAccountId&#34;, example.applyValue(getLogProfileResult -&gt; getLogProfileResult.storageAccountId()));
+     *         ctx.export("logProfileStorageAccountId", example.applyValue(getLogProfileResult -> getLogProfileResult.storageAccountId()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -905,7 +905,7 @@ public final class MonitoringFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -927,14 +927,14 @@ public final class MonitoringFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getScheduledQueryRulesAlert(GetScheduledQueryRulesAlertArgs.builder()
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .name(&#34;tfex-queryrule&#34;)
+     *             .resourceGroupName("example-rg")
+     *             .name("tfex-queryrule")
      *             .build());
      * 
-     *         ctx.export(&#34;queryRuleId&#34;, example.applyValue(getScheduledQueryRulesAlertResult -&gt; getScheduledQueryRulesAlertResult.id()));
+     *         ctx.export("queryRuleId", example.applyValue(getScheduledQueryRulesAlertResult -> getScheduledQueryRulesAlertResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -947,7 +947,7 @@ public final class MonitoringFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -969,14 +969,14 @@ public final class MonitoringFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getScheduledQueryRulesAlert(GetScheduledQueryRulesAlertArgs.builder()
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .name(&#34;tfex-queryrule&#34;)
+     *             .resourceGroupName("example-rg")
+     *             .name("tfex-queryrule")
      *             .build());
      * 
-     *         ctx.export(&#34;queryRuleId&#34;, example.applyValue(getScheduledQueryRulesAlertResult -&gt; getScheduledQueryRulesAlertResult.id()));
+     *         ctx.export("queryRuleId", example.applyValue(getScheduledQueryRulesAlertResult -> getScheduledQueryRulesAlertResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -989,7 +989,7 @@ public final class MonitoringFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1011,14 +1011,14 @@ public final class MonitoringFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getScheduledQueryRulesAlert(GetScheduledQueryRulesAlertArgs.builder()
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .name(&#34;tfex-queryrule&#34;)
+     *             .resourceGroupName("example-rg")
+     *             .name("tfex-queryrule")
      *             .build());
      * 
-     *         ctx.export(&#34;queryRuleId&#34;, example.applyValue(getScheduledQueryRulesAlertResult -&gt; getScheduledQueryRulesAlertResult.id()));
+     *         ctx.export("queryRuleId", example.applyValue(getScheduledQueryRulesAlertResult -> getScheduledQueryRulesAlertResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1031,7 +1031,7 @@ public final class MonitoringFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1053,14 +1053,14 @@ public final class MonitoringFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getScheduledQueryRulesAlert(GetScheduledQueryRulesAlertArgs.builder()
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .name(&#34;tfex-queryrule&#34;)
+     *             .resourceGroupName("example-rg")
+     *             .name("tfex-queryrule")
      *             .build());
      * 
-     *         ctx.export(&#34;queryRuleId&#34;, example.applyValue(getScheduledQueryRulesAlertResult -&gt; getScheduledQueryRulesAlertResult.id()));
+     *         ctx.export("queryRuleId", example.applyValue(getScheduledQueryRulesAlertResult -> getScheduledQueryRulesAlertResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1073,7 +1073,7 @@ public final class MonitoringFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1095,14 +1095,14 @@ public final class MonitoringFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getScheduledQueryRulesLog(GetScheduledQueryRulesLogArgs.builder()
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .name(&#34;tfex-queryrule&#34;)
+     *             .resourceGroupName("example-rg")
+     *             .name("tfex-queryrule")
      *             .build());
      * 
-     *         ctx.export(&#34;queryRuleId&#34;, example.applyValue(getScheduledQueryRulesLogResult -&gt; getScheduledQueryRulesLogResult.id()));
+     *         ctx.export("queryRuleId", example.applyValue(getScheduledQueryRulesLogResult -> getScheduledQueryRulesLogResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1115,7 +1115,7 @@ public final class MonitoringFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1137,14 +1137,14 @@ public final class MonitoringFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getScheduledQueryRulesLog(GetScheduledQueryRulesLogArgs.builder()
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .name(&#34;tfex-queryrule&#34;)
+     *             .resourceGroupName("example-rg")
+     *             .name("tfex-queryrule")
      *             .build());
      * 
-     *         ctx.export(&#34;queryRuleId&#34;, example.applyValue(getScheduledQueryRulesLogResult -&gt; getScheduledQueryRulesLogResult.id()));
+     *         ctx.export("queryRuleId", example.applyValue(getScheduledQueryRulesLogResult -> getScheduledQueryRulesLogResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1157,7 +1157,7 @@ public final class MonitoringFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1179,14 +1179,14 @@ public final class MonitoringFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getScheduledQueryRulesLog(GetScheduledQueryRulesLogArgs.builder()
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .name(&#34;tfex-queryrule&#34;)
+     *             .resourceGroupName("example-rg")
+     *             .name("tfex-queryrule")
      *             .build());
      * 
-     *         ctx.export(&#34;queryRuleId&#34;, example.applyValue(getScheduledQueryRulesLogResult -&gt; getScheduledQueryRulesLogResult.id()));
+     *         ctx.export("queryRuleId", example.applyValue(getScheduledQueryRulesLogResult -> getScheduledQueryRulesLogResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1199,7 +1199,7 @@ public final class MonitoringFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1221,14 +1221,14 @@ public final class MonitoringFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getScheduledQueryRulesLog(GetScheduledQueryRulesLogArgs.builder()
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .name(&#34;tfex-queryrule&#34;)
+     *             .resourceGroupName("example-rg")
+     *             .name("tfex-queryrule")
      *             .build());
      * 
-     *         ctx.export(&#34;queryRuleId&#34;, example.applyValue(getScheduledQueryRulesLogResult -&gt; getScheduledQueryRulesLogResult.id()));
+     *         ctx.export("queryRuleId", example.applyValue(getScheduledQueryRulesLogResult -> getScheduledQueryRulesLogResult.id()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1241,7 +1241,7 @@ public final class MonitoringFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1263,14 +1263,14 @@ public final class MonitoringFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name(&#34;example-workspace&#34;)
+     *             .name("example-workspace")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export(&#34;queryEndpoint&#34;, example.applyValue(getWorkspaceResult -&gt; getWorkspaceResult.queryEndpoint()));
+     *         ctx.export("queryEndpoint", example.applyValue(getWorkspaceResult -> getWorkspaceResult.queryEndpoint()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1283,7 +1283,7 @@ public final class MonitoringFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1305,14 +1305,14 @@ public final class MonitoringFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name(&#34;example-workspace&#34;)
+     *             .name("example-workspace")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export(&#34;queryEndpoint&#34;, example.applyValue(getWorkspaceResult -&gt; getWorkspaceResult.queryEndpoint()));
+     *         ctx.export("queryEndpoint", example.applyValue(getWorkspaceResult -> getWorkspaceResult.queryEndpoint()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1325,7 +1325,7 @@ public final class MonitoringFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1347,14 +1347,14 @@ public final class MonitoringFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name(&#34;example-workspace&#34;)
+     *             .name("example-workspace")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export(&#34;queryEndpoint&#34;, example.applyValue(getWorkspaceResult -&gt; getWorkspaceResult.queryEndpoint()));
+     *         ctx.export("queryEndpoint", example.applyValue(getWorkspaceResult -> getWorkspaceResult.queryEndpoint()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1367,7 +1367,7 @@ public final class MonitoringFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1389,14 +1389,14 @@ public final class MonitoringFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name(&#34;example-workspace&#34;)
+     *             .name("example-workspace")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export(&#34;queryEndpoint&#34;, example.applyValue(getWorkspaceResult -&gt; getWorkspaceResult.queryEndpoint()));
+     *         ctx.export("queryEndpoint", example.applyValue(getWorkspaceResult -> getWorkspaceResult.queryEndpoint()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

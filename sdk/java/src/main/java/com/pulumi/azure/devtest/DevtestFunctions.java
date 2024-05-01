@@ -23,7 +23,7 @@ public final class DevtestFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -45,14 +45,14 @@ public final class DevtestFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevtestFunctions.getLab(GetLabArgs.builder()
-     *             .name(&#34;example-lab&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-lab")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;uniqueIdentifier&#34;, example.applyValue(getLabResult -&gt; getLabResult.uniqueIdentifier()));
+     *         ctx.export("uniqueIdentifier", example.applyValue(getLabResult -> getLabResult.uniqueIdentifier()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -65,7 +65,7 @@ public final class DevtestFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -87,14 +87,14 @@ public final class DevtestFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevtestFunctions.getLab(GetLabArgs.builder()
-     *             .name(&#34;example-lab&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-lab")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;uniqueIdentifier&#34;, example.applyValue(getLabResult -&gt; getLabResult.uniqueIdentifier()));
+     *         ctx.export("uniqueIdentifier", example.applyValue(getLabResult -> getLabResult.uniqueIdentifier()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -107,7 +107,7 @@ public final class DevtestFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -129,14 +129,14 @@ public final class DevtestFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevtestFunctions.getLab(GetLabArgs.builder()
-     *             .name(&#34;example-lab&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-lab")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;uniqueIdentifier&#34;, example.applyValue(getLabResult -&gt; getLabResult.uniqueIdentifier()));
+     *         ctx.export("uniqueIdentifier", example.applyValue(getLabResult -> getLabResult.uniqueIdentifier()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -149,7 +149,7 @@ public final class DevtestFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -171,14 +171,14 @@ public final class DevtestFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevtestFunctions.getLab(GetLabArgs.builder()
-     *             .name(&#34;example-lab&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-lab")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;uniqueIdentifier&#34;, example.applyValue(getLabResult -&gt; getLabResult.uniqueIdentifier()));
+     *         ctx.export("uniqueIdentifier", example.applyValue(getLabResult -> getLabResult.uniqueIdentifier()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -191,7 +191,7 @@ public final class DevtestFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -213,15 +213,15 @@ public final class DevtestFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevtestFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
-     *             .name(&#34;example-network&#34;)
-     *             .labName(&#34;examplelab&#34;)
-     *             .resourceGroupName(&#34;example-resource&#34;)
+     *             .name("example-network")
+     *             .labName("examplelab")
+     *             .resourceGroupName("example-resource")
      *             .build());
      * 
-     *         ctx.export(&#34;labSubnetName&#34;, example.applyValue(getVirtualNetworkResult -&gt; getVirtualNetworkResult.allowedSubnets()[0].labSubnetName()));
+     *         ctx.export("labSubnetName", example.applyValue(getVirtualNetworkResult -> getVirtualNetworkResult.allowedSubnets()[0].labSubnetName()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -234,7 +234,7 @@ public final class DevtestFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -256,15 +256,15 @@ public final class DevtestFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevtestFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
-     *             .name(&#34;example-network&#34;)
-     *             .labName(&#34;examplelab&#34;)
-     *             .resourceGroupName(&#34;example-resource&#34;)
+     *             .name("example-network")
+     *             .labName("examplelab")
+     *             .resourceGroupName("example-resource")
      *             .build());
      * 
-     *         ctx.export(&#34;labSubnetName&#34;, example.applyValue(getVirtualNetworkResult -&gt; getVirtualNetworkResult.allowedSubnets()[0].labSubnetName()));
+     *         ctx.export("labSubnetName", example.applyValue(getVirtualNetworkResult -> getVirtualNetworkResult.allowedSubnets()[0].labSubnetName()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -277,7 +277,7 @@ public final class DevtestFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -299,15 +299,15 @@ public final class DevtestFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevtestFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
-     *             .name(&#34;example-network&#34;)
-     *             .labName(&#34;examplelab&#34;)
-     *             .resourceGroupName(&#34;example-resource&#34;)
+     *             .name("example-network")
+     *             .labName("examplelab")
+     *             .resourceGroupName("example-resource")
      *             .build());
      * 
-     *         ctx.export(&#34;labSubnetName&#34;, example.applyValue(getVirtualNetworkResult -&gt; getVirtualNetworkResult.allowedSubnets()[0].labSubnetName()));
+     *         ctx.export("labSubnetName", example.applyValue(getVirtualNetworkResult -> getVirtualNetworkResult.allowedSubnets()[0].labSubnetName()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -320,7 +320,7 @@ public final class DevtestFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -342,15 +342,15 @@ public final class DevtestFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevtestFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
-     *             .name(&#34;example-network&#34;)
-     *             .labName(&#34;examplelab&#34;)
-     *             .resourceGroupName(&#34;example-resource&#34;)
+     *             .name("example-network")
+     *             .labName("examplelab")
+     *             .resourceGroupName("example-resource")
      *             .build());
      * 
-     *         ctx.export(&#34;labSubnetName&#34;, example.applyValue(getVirtualNetworkResult -&gt; getVirtualNetworkResult.allowedSubnets()[0].labSubnetName()));
+     *         ctx.export("labSubnetName", example.applyValue(getVirtualNetworkResult -> getVirtualNetworkResult.allowedSubnets()[0].labSubnetName()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

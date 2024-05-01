@@ -23,7 +23,7 @@ public final class WebpubsubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -48,16 +48,16 @@ public final class WebpubsubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var testResourceGroup = new ResourceGroup(&#34;testResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;terraform-webpubsub&#34;)
-     *             .location(&#34;east us&#34;)
+     *         var testResourceGroup = new ResourceGroup("testResourceGroup", ResourceGroupArgs.builder()        
+     *             .name("terraform-webpubsub")
+     *             .location("east us")
      *             .build());
      * 
-     *         var testService = new Service(&#34;testService&#34;, ServiceArgs.builder()        
-     *             .name(&#34;tfex-webpubsub&#34;)
+     *         var testService = new Service("testService", ServiceArgs.builder()        
+     *             .name("tfex-webpubsub")
      *             .location(testResourceGroup.location())
      *             .resourceGroupName(testResourceGroup.name())
-     *             .sku(&#34;Standard_S1&#34;)
+     *             .sku("Standard_S1")
      *             .capacity(1)
      *             .build());
      * 
@@ -67,7 +67,7 @@ public final class WebpubsubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -80,7 +80,7 @@ public final class WebpubsubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -105,16 +105,16 @@ public final class WebpubsubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var testResourceGroup = new ResourceGroup(&#34;testResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;terraform-webpubsub&#34;)
-     *             .location(&#34;east us&#34;)
+     *         var testResourceGroup = new ResourceGroup("testResourceGroup", ResourceGroupArgs.builder()        
+     *             .name("terraform-webpubsub")
+     *             .location("east us")
      *             .build());
      * 
-     *         var testService = new Service(&#34;testService&#34;, ServiceArgs.builder()        
-     *             .name(&#34;tfex-webpubsub&#34;)
+     *         var testService = new Service("testService", ServiceArgs.builder()        
+     *             .name("tfex-webpubsub")
      *             .location(testResourceGroup.location())
      *             .resourceGroupName(testResourceGroup.name())
-     *             .sku(&#34;Standard_S1&#34;)
+     *             .sku("Standard_S1")
      *             .capacity(1)
      *             .build());
      * 
@@ -124,7 +124,7 @@ public final class WebpubsubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -137,7 +137,7 @@ public final class WebpubsubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -162,16 +162,16 @@ public final class WebpubsubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var testResourceGroup = new ResourceGroup(&#34;testResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;terraform-webpubsub&#34;)
-     *             .location(&#34;east us&#34;)
+     *         var testResourceGroup = new ResourceGroup("testResourceGroup", ResourceGroupArgs.builder()        
+     *             .name("terraform-webpubsub")
+     *             .location("east us")
      *             .build());
      * 
-     *         var testService = new Service(&#34;testService&#34;, ServiceArgs.builder()        
-     *             .name(&#34;tfex-webpubsub&#34;)
+     *         var testService = new Service("testService", ServiceArgs.builder()        
+     *             .name("tfex-webpubsub")
      *             .location(testResourceGroup.location())
      *             .resourceGroupName(testResourceGroup.name())
-     *             .sku(&#34;Standard_S1&#34;)
+     *             .sku("Standard_S1")
      *             .capacity(1)
      *             .build());
      * 
@@ -181,7 +181,7 @@ public final class WebpubsubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -194,7 +194,7 @@ public final class WebpubsubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -219,16 +219,16 @@ public final class WebpubsubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var testResourceGroup = new ResourceGroup(&#34;testResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;terraform-webpubsub&#34;)
-     *             .location(&#34;east us&#34;)
+     *         var testResourceGroup = new ResourceGroup("testResourceGroup", ResourceGroupArgs.builder()        
+     *             .name("terraform-webpubsub")
+     *             .location("east us")
      *             .build());
      * 
-     *         var testService = new Service(&#34;testService&#34;, ServiceArgs.builder()        
-     *             .name(&#34;tfex-webpubsub&#34;)
+     *         var testService = new Service("testService", ServiceArgs.builder()        
+     *             .name("tfex-webpubsub")
      *             .location(testResourceGroup.location())
      *             .resourceGroupName(testResourceGroup.name())
-     *             .sku(&#34;Standard_S1&#34;)
+     *             .sku("Standard_S1")
      *             .capacity(1)
      *             .build());
      * 
@@ -238,7 +238,7 @@ public final class WebpubsubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -251,7 +251,7 @@ public final class WebpubsubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -273,13 +273,13 @@ public final class WebpubsubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WebpubsubFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;test-webpubsub&#34;)
-     *             .resourceGroupName(&#34;wps-resource-group&#34;)
+     *             .name("test-webpubsub")
+     *             .resourceGroupName("wps-resource-group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -292,7 +292,7 @@ public final class WebpubsubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -314,13 +314,13 @@ public final class WebpubsubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WebpubsubFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;test-webpubsub&#34;)
-     *             .resourceGroupName(&#34;wps-resource-group&#34;)
+     *             .name("test-webpubsub")
+     *             .resourceGroupName("wps-resource-group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -333,7 +333,7 @@ public final class WebpubsubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -355,13 +355,13 @@ public final class WebpubsubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WebpubsubFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;test-webpubsub&#34;)
-     *             .resourceGroupName(&#34;wps-resource-group&#34;)
+     *             .name("test-webpubsub")
+     *             .resourceGroupName("wps-resource-group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -374,7 +374,7 @@ public final class WebpubsubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -396,13 +396,13 @@ public final class WebpubsubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WebpubsubFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;test-webpubsub&#34;)
-     *             .resourceGroupName(&#34;wps-resource-group&#34;)
+     *             .name("test-webpubsub")
+     *             .resourceGroupName("wps-resource-group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

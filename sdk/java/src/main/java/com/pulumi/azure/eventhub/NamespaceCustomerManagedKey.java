@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * ### With System Assigned Identity
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -61,92 +61,92 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
- *             .name(&#34;example-cluster&#34;)
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()        
+ *             .name("example-cluster")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .skuName(&#34;Dedicated_1&#34;)
+ *             .skuName("Dedicated_1")
  *             .build());
  * 
- *         var exampleEventHubNamespace = new EventHubNamespace(&#34;exampleEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
- *             .name(&#34;example-namespace&#34;)
+ *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()        
+ *             .name("example-namespace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;Standard&#34;)
+ *             .sku("Standard")
  *             .dedicatedClusterId(exampleCluster.id())
  *             .identity(EventHubNamespaceIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;examplekv&#34;)
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("examplekv")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .skuName(&#34;standard&#34;)
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .skuName("standard")
  *             .purgeProtectionEnabled(true)
  *             .build());
  * 
- *         var exampleAccessPolicy = new AccessPolicy(&#34;exampleAccessPolicy&#34;, AccessPolicyArgs.builder()        
+ *         var exampleAccessPolicy = new AccessPolicy("exampleAccessPolicy", AccessPolicyArgs.builder()        
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(exampleEventHubNamespace.identity().applyValue(identity -&gt; identity.tenantId()))
- *             .objectId(exampleEventHubNamespace.identity().applyValue(identity -&gt; identity.principalId()))
+ *             .tenantId(exampleEventHubNamespace.identity().applyValue(identity -> identity.tenantId()))
+ *             .objectId(exampleEventHubNamespace.identity().applyValue(identity -> identity.principalId()))
  *             .keyPermissions(            
- *                 &#34;Get&#34;,
- *                 &#34;UnwrapKey&#34;,
- *                 &#34;WrapKey&#34;)
+ *                 "Get",
+ *                 "UnwrapKey",
+ *                 "WrapKey")
  *             .build());
  * 
- *         var example2 = new AccessPolicy(&#34;example2&#34;, AccessPolicyArgs.builder()        
+ *         var example2 = new AccessPolicy("example2", AccessPolicyArgs.builder()        
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *             .keyPermissions(            
- *                 &#34;Create&#34;,
- *                 &#34;Delete&#34;,
- *                 &#34;Get&#34;,
- *                 &#34;List&#34;,
- *                 &#34;Purge&#34;,
- *                 &#34;Recover&#34;,
- *                 &#34;GetRotationPolicy&#34;)
+ *                 "Create",
+ *                 "Delete",
+ *                 "Get",
+ *                 "List",
+ *                 "Purge",
+ *                 "Recover",
+ *                 "GetRotationPolicy")
  *             .build());
  * 
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
- *             .name(&#34;examplekvkey&#34;)
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *             .name("examplekvkey")
  *             .keyVaultId(exampleKeyVault.id())
- *             .keyType(&#34;RSA&#34;)
+ *             .keyType("RSA")
  *             .keySize(2048)
  *             .keyOpts(            
- *                 &#34;decrypt&#34;,
- *                 &#34;encrypt&#34;,
- *                 &#34;sign&#34;,
- *                 &#34;unwrapKey&#34;,
- *                 &#34;verify&#34;,
- *                 &#34;wrapKey&#34;)
+ *                 "decrypt",
+ *                 "encrypt",
+ *                 "sign",
+ *                 "unwrapKey",
+ *                 "verify",
+ *                 "wrapKey")
  *             .build());
  * 
- *         var exampleNamespaceCustomerManagedKey = new NamespaceCustomerManagedKey(&#34;exampleNamespaceCustomerManagedKey&#34;, NamespaceCustomerManagedKeyArgs.builder()        
+ *         var exampleNamespaceCustomerManagedKey = new NamespaceCustomerManagedKey("exampleNamespaceCustomerManagedKey", NamespaceCustomerManagedKeyArgs.builder()        
  *             .eventhubNamespaceId(exampleEventHubNamespace.id())
  *             .keyVaultKeyIds(exampleKey.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With User Assigned Identity
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -183,86 +183,86 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
- *             .name(&#34;example-cluster&#34;)
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()        
+ *             .name("example-cluster")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .skuName(&#34;Dedicated_1&#34;)
+ *             .skuName("Dedicated_1")
  *             .build());
  * 
- *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()        
  *             .location(example.location())
- *             .name(&#34;example&#34;)
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleEventHubNamespace = new EventHubNamespace(&#34;exampleEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
- *             .name(&#34;example-namespace&#34;)
+ *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()        
+ *             .name("example-namespace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;Standard&#34;)
+ *             .sku("Standard")
  *             .dedicatedClusterId(exampleCluster.id())
  *             .identity(EventHubNamespaceIdentityArgs.builder()
- *                 .type(&#34;UserAssigned&#34;)
+ *                 .type("UserAssigned")
  *                 .identityIds(exampleUserAssignedIdentity.id())
  *                 .build())
  *             .build());
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;examplekv&#34;)
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("examplekv")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .skuName(&#34;standard&#34;)
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .skuName("standard")
  *             .purgeProtectionEnabled(true)
  *             .build());
  * 
- *         var exampleAccessPolicy = new AccessPolicy(&#34;exampleAccessPolicy&#34;, AccessPolicyArgs.builder()        
+ *         var exampleAccessPolicy = new AccessPolicy("exampleAccessPolicy", AccessPolicyArgs.builder()        
  *             .keyVaultId(exampleKeyVault.id())
  *             .tenantId(test.tenantId())
  *             .objectId(test.principalId())
  *             .keyPermissions(            
- *                 &#34;Get&#34;,
- *                 &#34;UnwrapKey&#34;,
- *                 &#34;WrapKey&#34;)
+ *                 "Get",
+ *                 "UnwrapKey",
+ *                 "WrapKey")
  *             .build());
  * 
- *         var example2 = new AccessPolicy(&#34;example2&#34;, AccessPolicyArgs.builder()        
+ *         var example2 = new AccessPolicy("example2", AccessPolicyArgs.builder()        
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *             .keyPermissions(            
- *                 &#34;Create&#34;,
- *                 &#34;Delete&#34;,
- *                 &#34;Get&#34;,
- *                 &#34;List&#34;,
- *                 &#34;Purge&#34;,
- *                 &#34;Recover&#34;,
- *                 &#34;GetRotationPolicy&#34;)
+ *                 "Create",
+ *                 "Delete",
+ *                 "Get",
+ *                 "List",
+ *                 "Purge",
+ *                 "Recover",
+ *                 "GetRotationPolicy")
  *             .build());
  * 
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
- *             .name(&#34;examplekvkey&#34;)
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *             .name("examplekvkey")
  *             .keyVaultId(exampleKeyVault.id())
- *             .keyType(&#34;RSA&#34;)
+ *             .keyType("RSA")
  *             .keySize(2048)
  *             .keyOpts(            
- *                 &#34;decrypt&#34;,
- *                 &#34;encrypt&#34;,
- *                 &#34;sign&#34;,
- *                 &#34;unwrapKey&#34;,
- *                 &#34;verify&#34;,
- *                 &#34;wrapKey&#34;)
+ *                 "decrypt",
+ *                 "encrypt",
+ *                 "sign",
+ *                 "unwrapKey",
+ *                 "verify",
+ *                 "wrapKey")
  *             .build());
  * 
- *         var exampleNamespaceCustomerManagedKey = new NamespaceCustomerManagedKey(&#34;exampleNamespaceCustomerManagedKey&#34;, NamespaceCustomerManagedKeyArgs.builder()        
+ *         var exampleNamespaceCustomerManagedKey = new NamespaceCustomerManagedKey("exampleNamespaceCustomerManagedKey", NamespaceCustomerManagedKeyArgs.builder()        
  *             .eventhubNamespaceId(exampleEventHubNamespace.id())
  *             .keyVaultKeyIds(exampleKey.id())
  *             .userAssignedIdentityId(exampleUserAssignedIdentity.id())
@@ -270,7 +270,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

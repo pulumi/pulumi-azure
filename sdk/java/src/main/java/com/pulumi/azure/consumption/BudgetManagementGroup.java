@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,59 +53,59 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Group(&#34;example&#34;, GroupArgs.builder()        
- *             .displayName(&#34;example&#34;)
+ *         var example = new Group("example", GroupArgs.builder()        
+ *             .displayName("example")
  *             .build());
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;eastus&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("example")
+ *             .location("eastus")
  *             .build());
  * 
- *         var exampleBudgetManagementGroup = new BudgetManagementGroup(&#34;exampleBudgetManagementGroup&#34;, BudgetManagementGroupArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleBudgetManagementGroup = new BudgetManagementGroup("exampleBudgetManagementGroup", BudgetManagementGroupArgs.builder()        
+ *             .name("example")
  *             .managementGroupId(example.id())
  *             .amount(1000)
- *             .timeGrain(&#34;Monthly&#34;)
+ *             .timeGrain("Monthly")
  *             .timePeriod(BudgetManagementGroupTimePeriodArgs.builder()
- *                 .startDate(&#34;2022-06-01T00:00:00Z&#34;)
- *                 .endDate(&#34;2022-07-01T00:00:00Z&#34;)
+ *                 .startDate("2022-06-01T00:00:00Z")
+ *                 .endDate("2022-07-01T00:00:00Z")
  *                 .build())
  *             .filter(BudgetManagementGroupFilterArgs.builder()
  *                 .dimensions(BudgetManagementGroupFilterDimensionArgs.builder()
- *                     .name(&#34;ResourceGroupName&#34;)
+ *                     .name("ResourceGroupName")
  *                     .values(exampleResourceGroup.name())
  *                     .build())
  *                 .tags(BudgetManagementGroupFilterTagArgs.builder()
- *                     .name(&#34;foo&#34;)
+ *                     .name("foo")
  *                     .values(                    
- *                         &#34;bar&#34;,
- *                         &#34;baz&#34;)
+ *                         "bar",
+ *                         "baz")
  *                     .build())
  *                 .build())
  *             .notifications(            
  *                 BudgetManagementGroupNotificationArgs.builder()
  *                     .enabled(true)
  *                     .threshold(90)
- *                     .operator(&#34;EqualTo&#34;)
+ *                     .operator("EqualTo")
  *                     .contactEmails(                    
- *                         &#34;foo@example.com&#34;,
- *                         &#34;bar@example.com&#34;)
+ *                         "foo@example.com",
+ *                         "bar@example.com")
  *                     .build(),
  *                 BudgetManagementGroupNotificationArgs.builder()
  *                     .enabled(false)
  *                     .threshold(100)
- *                     .operator(&#34;GreaterThan&#34;)
- *                     .thresholdType(&#34;Forecasted&#34;)
+ *                     .operator("GreaterThan")
+ *                     .thresholdType("Forecasted")
  *                     .contactEmails(                    
- *                         &#34;foo@example.com&#34;,
- *                         &#34;bar@example.com&#34;)
+ *                         "foo@example.com",
+ *                         "bar@example.com")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

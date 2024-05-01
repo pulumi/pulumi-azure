@@ -34,7 +34,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -61,35 +61,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleRegistry = new Registry(&#34;exampleRegistry&#34;, RegistryArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleRegistry = new Registry("exampleRegistry", RegistryArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .sku(&#34;Basic&#34;)
+ *             .sku("Basic")
  *             .build());
  * 
- *         var exampleRegistryTask = new RegistryTask(&#34;exampleRegistryTask&#34;, RegistryTaskArgs.builder()        
- *             .name(&#34;example-task&#34;)
+ *         var exampleRegistryTask = new RegistryTask("exampleRegistryTask", RegistryTaskArgs.builder()        
+ *             .name("example-task")
  *             .containerRegistryId(exampleRegistry.id())
  *             .platform(RegistryTaskPlatformArgs.builder()
- *                 .os(&#34;Linux&#34;)
+ *                 .os("Linux")
  *                 .build())
  *             .dockerStep(RegistryTaskDockerStepArgs.builder()
- *                 .dockerfilePath(&#34;Dockerfile&#34;)
- *                 .contextPath(&#34;https://github.com/&lt;username&gt;/&lt;repository&gt;#&lt;branch&gt;:&lt;folder&gt;&#34;)
- *                 .contextAccessToken(&#34;&lt;github personal access token&gt;&#34;)
- *                 .imageNames(&#34;helloworld:{{.Run.ID}}&#34;)
+ *                 .dockerfilePath("Dockerfile")
+ *                 .contextPath("https://github.com/<username>/<repository>#<branch>:<folder>")
+ *                 .contextAccessToken("<github personal access token>")
+ *                 .imageNames("helloworld:{{.Run.ID}}")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

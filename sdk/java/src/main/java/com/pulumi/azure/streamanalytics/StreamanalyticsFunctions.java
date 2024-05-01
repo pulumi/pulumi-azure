@@ -20,7 +20,7 @@ public final class StreamanalyticsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -42,14 +42,14 @@ public final class StreamanalyticsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
-     *             .name(&#34;example-job&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-job")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;jobId&#34;, example.applyValue(getJobResult -&gt; getJobResult.jobId()));
+     *         ctx.export("jobId", example.applyValue(getJobResult -> getJobResult.jobId()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -62,7 +62,7 @@ public final class StreamanalyticsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -84,14 +84,14 @@ public final class StreamanalyticsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
-     *             .name(&#34;example-job&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-job")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;jobId&#34;, example.applyValue(getJobResult -&gt; getJobResult.jobId()));
+     *         ctx.export("jobId", example.applyValue(getJobResult -> getJobResult.jobId()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -104,7 +104,7 @@ public final class StreamanalyticsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -126,14 +126,14 @@ public final class StreamanalyticsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
-     *             .name(&#34;example-job&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-job")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;jobId&#34;, example.applyValue(getJobResult -&gt; getJobResult.jobId()));
+     *         ctx.export("jobId", example.applyValue(getJobResult -> getJobResult.jobId()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -146,7 +146,7 @@ public final class StreamanalyticsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -168,14 +168,14 @@ public final class StreamanalyticsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
-     *             .name(&#34;example-job&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-job")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;jobId&#34;, example.applyValue(getJobResult -&gt; getJobResult.jobId()));
+     *         ctx.export("jobId", example.applyValue(getJobResult -> getJobResult.jobId()));
      *     }
      * }
-     * ```
+     * }
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

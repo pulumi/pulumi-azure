@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,38 +51,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVpnServerConfiguration = new VpnServerConfiguration(&#34;exampleVpnServerConfiguration&#34;, VpnServerConfigurationArgs.builder()        
- *             .name(&#34;example-VPNSC&#34;)
+ *         var exampleVpnServerConfiguration = new VpnServerConfiguration("exampleVpnServerConfiguration", VpnServerConfigurationArgs.builder()        
+ *             .name("example-VPNSC")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .vpnAuthenticationTypes(&#34;Radius&#34;)
+ *             .vpnAuthenticationTypes("Radius")
  *             .radius(VpnServerConfigurationRadiusArgs.builder()
  *                 .servers(VpnServerConfigurationRadiusServerArgs.builder()
- *                     .address(&#34;10.105.1.1&#34;)
- *                     .secret(&#34;vindicators-the-return-of-worldender&#34;)
+ *                     .address("10.105.1.1")
+ *                     .secret("vindicators-the-return-of-worldender")
  *                     .score(15)
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleVpnServerConfigurationPolicyGroup = new VpnServerConfigurationPolicyGroup(&#34;exampleVpnServerConfigurationPolicyGroup&#34;, VpnServerConfigurationPolicyGroupArgs.builder()        
- *             .name(&#34;example-VPNSCPG&#34;)
+ *         var exampleVpnServerConfigurationPolicyGroup = new VpnServerConfigurationPolicyGroup("exampleVpnServerConfigurationPolicyGroup", VpnServerConfigurationPolicyGroupArgs.builder()        
+ *             .name("example-VPNSCPG")
  *             .vpnServerConfigurationId(exampleVpnServerConfiguration.id())
  *             .policies(VpnServerConfigurationPolicyGroupPolicyArgs.builder()
- *                 .name(&#34;policy1&#34;)
- *                 .type(&#34;RadiusAzureGroupId&#34;)
- *                 .value(&#34;6ad1bd08&#34;)
+ *                 .name("policy1")
+ *                 .type("RadiusAzureGroupId")
+ *                 .value("6ad1bd08")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

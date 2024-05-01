@@ -30,7 +30,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -66,45 +66,45 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-network&#34;)
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example-network")
+ *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var service = new Subnet(&#34;service&#34;, SubnetArgs.builder()        
- *             .name(&#34;service&#34;)
+ *         var service = new Subnet("service", SubnetArgs.builder()        
+ *             .name("service")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.1.0/24&#34;)
+ *             .addressPrefixes("10.0.1.0/24")
  *             .enforcePrivateLinkServiceNetworkPolicies(true)
  *             .build());
  * 
- *         var endpoint = new Subnet(&#34;endpoint&#34;, SubnetArgs.builder()        
- *             .name(&#34;endpoint&#34;)
+ *         var endpoint = new Subnet("endpoint", SubnetArgs.builder()        
+ *             .name("endpoint")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
+ *             .addressPrefixes("10.0.2.0/24")
  *             .enforcePrivateLinkEndpointNetworkPolicies(true)
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
- *             .name(&#34;example-pip&#34;)
- *             .sku(&#34;Standard&#34;)
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *             .name("example-pip")
+ *             .sku("Standard")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .allocationMethod(&#34;Static&#34;)
+ *             .allocationMethod("Static")
  *             .build());
  * 
- *         var exampleLoadBalancer = new LoadBalancer(&#34;exampleLoadBalancer&#34;, LoadBalancerArgs.builder()        
- *             .name(&#34;example-lb&#34;)
- *             .sku(&#34;Standard&#34;)
+ *         var exampleLoadBalancer = new LoadBalancer("exampleLoadBalancer", LoadBalancerArgs.builder()        
+ *             .name("example-lb")
+ *             .sku("Standard")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .frontendIpConfigurations(LoadBalancerFrontendIpConfigurationArgs.builder()
@@ -113,8 +113,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleLinkService = new LinkService(&#34;exampleLinkService&#34;, LinkServiceArgs.builder()        
- *             .name(&#34;example-privatelink&#34;)
+ *         var exampleLinkService = new LinkService("exampleLinkService", LinkServiceArgs.builder()        
+ *             .name("example-privatelink")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .natIpConfigurations(LinkServiceNatIpConfigurationArgs.builder()
@@ -122,16 +122,16 @@ import javax.annotation.Nullable;
  *                 .primary(true)
  *                 .subnetId(service.id())
  *                 .build())
- *             .loadBalancerFrontendIpConfigurationIds(exampleLoadBalancer.frontendIpConfigurations().applyValue(frontendIpConfigurations -&gt; frontendIpConfigurations[0].id()))
+ *             .loadBalancerFrontendIpConfigurationIds(exampleLoadBalancer.frontendIpConfigurations().applyValue(frontendIpConfigurations -> frontendIpConfigurations[0].id()))
  *             .build());
  * 
- *         var exampleEndpoint = new Endpoint(&#34;exampleEndpoint&#34;, EndpointArgs.builder()        
- *             .name(&#34;example-endpoint&#34;)
+ *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()        
+ *             .name("example-endpoint")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .subnetId(endpoint.id())
  *             .privateServiceConnection(EndpointPrivateServiceConnectionArgs.builder()
- *                 .name(&#34;example-privateserviceconnection&#34;)
+ *                 .name("example-privateserviceconnection")
  *                 .privateConnectionResourceId(exampleLinkService.id())
  *                 .isManualConnection(false)
  *                 .build())
@@ -139,13 +139,13 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Using a Private Link Service Alias with existing resources:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -173,42 +173,42 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = CoreFunctions.getResourceGroup(GetResourceGroupArgs.builder()
- *             .name(&#34;example-resources&#34;)
+ *             .name("example-resources")
  *             .build());
  * 
  *         final var vnet = NetworkFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
- *             .name(&#34;example-network&#34;)
- *             .resourceGroupName(example.applyValue(getResourceGroupResult -&gt; getResourceGroupResult.name()))
+ *             .name("example-network")
+ *             .resourceGroupName(example.applyValue(getResourceGroupResult -> getResourceGroupResult.name()))
  *             .build());
  * 
  *         final var subnet = NetworkFunctions.getSubnet(GetSubnetArgs.builder()
- *             .name(&#34;default&#34;)
- *             .virtualNetworkName(vnet.applyValue(getVirtualNetworkResult -&gt; getVirtualNetworkResult.name()))
- *             .resourceGroupName(example.applyValue(getResourceGroupResult -&gt; getResourceGroupResult.name()))
+ *             .name("default")
+ *             .virtualNetworkName(vnet.applyValue(getVirtualNetworkResult -> getVirtualNetworkResult.name()))
+ *             .resourceGroupName(example.applyValue(getResourceGroupResult -> getResourceGroupResult.name()))
  *             .build());
  * 
- *         var exampleEndpoint = new Endpoint(&#34;exampleEndpoint&#34;, EndpointArgs.builder()        
- *             .name(&#34;example-endpoint&#34;)
- *             .location(example.applyValue(getResourceGroupResult -&gt; getResourceGroupResult.location()))
- *             .resourceGroupName(example.applyValue(getResourceGroupResult -&gt; getResourceGroupResult.name()))
- *             .subnetId(subnet.applyValue(getSubnetResult -&gt; getSubnetResult.id()))
+ *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()        
+ *             .name("example-endpoint")
+ *             .location(example.applyValue(getResourceGroupResult -> getResourceGroupResult.location()))
+ *             .resourceGroupName(example.applyValue(getResourceGroupResult -> getResourceGroupResult.name()))
+ *             .subnetId(subnet.applyValue(getSubnetResult -> getSubnetResult.id()))
  *             .privateServiceConnection(EndpointPrivateServiceConnectionArgs.builder()
- *                 .name(&#34;example-privateserviceconnection&#34;)
- *                 .privateConnectionResourceAlias(&#34;example-privatelinkservice.d20286c8-4ea5-11eb-9584-8f53157226c6.centralus.azure.privatelinkservice&#34;)
+ *                 .name("example-privateserviceconnection")
+ *                 .privateConnectionResourceAlias("example-privatelinkservice.d20286c8-4ea5-11eb-9584-8f53157226c6.centralus.azure.privatelinkservice")
  *                 .isManualConnection(true)
- *                 .requestMessage(&#34;PL&#34;)
+ *                 .requestMessage("PL")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Using a Private Endpoint pointing to an *owned* Azure service, with proper DNS configuration:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -243,57 +243,57 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;exampleaccount&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("exampleaccount")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;virtnetname&#34;)
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("virtnetname")
+ *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;subnetname&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("subnetname")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
+ *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
- *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
- *             .name(&#34;privatelink.blob.core.windows.net&#34;)
+ *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()        
+ *             .name("privatelink.blob.core.windows.net")
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleEndpoint = new Endpoint(&#34;exampleEndpoint&#34;, EndpointArgs.builder()        
- *             .name(&#34;example-endpoint&#34;)
+ *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()        
+ *             .name("example-endpoint")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .subnetId(exampleSubnet.id())
  *             .privateServiceConnection(EndpointPrivateServiceConnectionArgs.builder()
- *                 .name(&#34;example-privateserviceconnection&#34;)
+ *                 .name("example-privateserviceconnection")
  *                 .privateConnectionResourceId(exampleAccount.id())
- *                 .subresourceNames(&#34;blob&#34;)
+ *                 .subresourceNames("blob")
  *                 .isManualConnection(false)
  *                 .build())
  *             .privateDnsZoneGroup(EndpointPrivateDnsZoneGroupArgs.builder()
- *                 .name(&#34;example-dns-zone-group&#34;)
+ *                 .name("example-dns-zone-group")
  *                 .privateDnsZoneIds(exampleZone.id())
  *                 .build())
  *             .build());
  * 
- *         var exampleZoneVirtualNetworkLink = new ZoneVirtualNetworkLink(&#34;exampleZoneVirtualNetworkLink&#34;, ZoneVirtualNetworkLinkArgs.builder()        
- *             .name(&#34;example-link&#34;)
+ *         var exampleZoneVirtualNetworkLink = new ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink", ZoneVirtualNetworkLinkArgs.builder()        
+ *             .name("example-link")
  *             .resourceGroupName(example.name())
  *             .privateDnsZoneName(exampleZone.name())
  *             .virtualNetworkId(exampleVirtualNetwork.id())
@@ -301,7 +301,7 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Example HCL Configurations
