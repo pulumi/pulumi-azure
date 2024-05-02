@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a Microsoft Graph Services Account.
  *
- * !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `azure.graph.ServicesAccount` resource instead.
+ * !> **NOTE:** This resource has been deprecated in version 5.0 of the provider and will be removed in version 6.0. Please use `azure.graph.ServicesAccount` resource instead.
  *
  * ## Example Usage
  *
