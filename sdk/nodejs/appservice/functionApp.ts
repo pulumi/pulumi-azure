@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a Function App.
  *
- * !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `azure.appservice.LinuxFunctionApp` resources instead.
+ * !> **NOTE:** This resource has been deprecated in version 5.0 of the provider and will be removed in version 6.0. Please use `azure.appservice.LinuxFunctionApp` resources instead.
  *
  * > **Note:** To connect an Azure Function App and a subnet within the same region `azure.appservice.VirtualNetworkSwiftConnection` can be used.
  * For an example, check the `azure.appservice.VirtualNetworkSwiftConnection` documentation.

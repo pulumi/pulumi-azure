@@ -14,7 +14,7 @@ import (
 
 // Promotes an App Service Slot to Production within an App Service.
 //
-// !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `appservice.WebAppActiveSlot` resource instead.
+// !> **NOTE:** This resource has been deprecated in version 5.0 of the provider and will be removed in version 6.0. Please use `appservice.WebAppActiveSlot` resource instead.
 //
 // > **Note:** When using Slots - the `appSettings`, `connectionString` and `siteConfig` blocks on the `appservice.AppService` resource will be overwritten when promoting a Slot using the `appservice.ActiveSlot` resource.
 //

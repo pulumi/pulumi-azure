@@ -11,7 +11,7 @@ import {Kind} from "./index";
 /**
  * Manages an App Service Plan component.
  *
- * !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `azure.appservice.ServicePlan` resource instead.
+ * !> **NOTE:** This resource has been deprecated in version 5.0 of the provider and will be removed in version 6.0. Please use `azure.appservice.ServicePlan` resource instead.
  *
  * ## Example Usage
  *
