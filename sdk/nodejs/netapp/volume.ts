@@ -72,8 +72,8 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly exportPolicyRules!: pulumi.Output<outputs.netapp.VolumeExportPolicyRule[] | undefined>;
     /**
-     * Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent
-     * `azurerm_netapp_account` having a defined AD connection.
+     * Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azure.netapp.Account`
+     * having a defined AD connection.
      */
     public readonly kerberosEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -290,8 +290,8 @@ export interface VolumeState {
      */
     exportPolicyRules?: pulumi.Input<pulumi.Input<inputs.netapp.VolumeExportPolicyRule>[]>;
     /**
-     * Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent
-     * `azurerm_netapp_account` having a defined AD connection.
+     * Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azure.netapp.Account`
+     * having a defined AD connection.
      */
     kerberosEnabled?: pulumi.Input<boolean>;
     /**
@@ -411,8 +411,8 @@ export interface VolumeArgs {
      */
     exportPolicyRules?: pulumi.Input<pulumi.Input<inputs.netapp.VolumeExportPolicyRule>[]>;
     /**
-     * Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent
-     * `azurerm_netapp_account` having a defined AD connection.
+     * Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azure.netapp.Account`
+     * having a defined AD connection.
      */
     kerberosEnabled?: pulumi.Input<boolean>;
     /**
