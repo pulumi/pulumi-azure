@@ -58,8 +58,8 @@ class VolumeArgs:
         :param pulumi.Input['VolumeDataProtectionSnapshotPolicyArgs'] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
         :param pulumi.Input[str] encryption_key_source: The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['VolumeExportPolicyRuleArgs']]] export_policy_rules: One or more `export_policy_rule` block defined below.
-        :param pulumi.Input[bool] kerberos_enabled: Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent
-               `azurerm_netapp_account` having a defined AD connection.
+        :param pulumi.Input[bool] kerberos_enabled: Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account`
+               having a defined AD connection.
         :param pulumi.Input[str] key_vault_private_endpoint_id: The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Volume. Changing this forces a new resource to be created.
@@ -284,8 +284,8 @@ class VolumeArgs:
     @pulumi.getter(name="kerberosEnabled")
     def kerberos_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent
-        `azurerm_netapp_account` having a defined AD connection.
+        Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account`
+        having a defined AD connection.
         """
         return pulumi.get(self, "kerberos_enabled")
 
@@ -492,8 +492,8 @@ class _VolumeState:
         :param pulumi.Input['VolumeDataProtectionSnapshotPolicyArgs'] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
         :param pulumi.Input[str] encryption_key_source: The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['VolumeExportPolicyRuleArgs']]] export_policy_rules: One or more `export_policy_rule` block defined below.
-        :param pulumi.Input[bool] kerberos_enabled: Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent
-               `azurerm_netapp_account` having a defined AD connection.
+        :param pulumi.Input[bool] kerberos_enabled: Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account`
+               having a defined AD connection.
         :param pulumi.Input[str] key_vault_private_endpoint_id: The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] mount_ip_addresses: A list of IPv4 Addresses which should be used to mount the volume.
@@ -662,8 +662,8 @@ class _VolumeState:
     @pulumi.getter(name="kerberosEnabled")
     def kerberos_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent
-        `azurerm_netapp_account` having a defined AD connection.
+        Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account`
+        having a defined AD connection.
         """
         return pulumi.get(self, "kerberos_enabled")
 
@@ -965,8 +965,8 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['VolumeDataProtectionSnapshotPolicyArgs']] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
         :param pulumi.Input[str] encryption_key_source: The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeExportPolicyRuleArgs']]]] export_policy_rules: One or more `export_policy_rule` block defined below.
-        :param pulumi.Input[bool] kerberos_enabled: Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent
-               `azurerm_netapp_account` having a defined AD connection.
+        :param pulumi.Input[bool] kerberos_enabled: Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account`
+               having a defined AD connection.
         :param pulumi.Input[str] key_vault_private_endpoint_id: The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Volume. Changing this forces a new resource to be created.
@@ -1149,8 +1149,8 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['VolumeDataProtectionSnapshotPolicyArgs']] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
         :param pulumi.Input[str] encryption_key_source: The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeExportPolicyRuleArgs']]]] export_policy_rules: One or more `export_policy_rule` block defined below.
-        :param pulumi.Input[bool] kerberos_enabled: Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent
-               `azurerm_netapp_account` having a defined AD connection.
+        :param pulumi.Input[bool] kerberos_enabled: Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account`
+               having a defined AD connection.
         :param pulumi.Input[str] key_vault_private_endpoint_id: The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] mount_ip_addresses: A list of IPv4 Addresses which should be used to mount the volume.
@@ -1268,8 +1268,8 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="kerberosEnabled")
     def kerberos_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent
-        `azurerm_netapp_account` having a defined AD connection.
+        Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account`
+        having a defined AD connection.
         """
         return pulumi.get(self, "kerberos_enabled")
 

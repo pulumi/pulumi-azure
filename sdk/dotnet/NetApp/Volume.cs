@@ -64,8 +64,8 @@ namespace Pulumi.Azure.NetApp
         public Output<ImmutableArray<Outputs.VolumeExportPolicyRule>> ExportPolicyRules { get; private set; } = null!;
 
         /// <summary>
-        /// Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent
-        /// `azurerm_netapp_account` having a defined AD connection.
+        /// Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azure.netapp.Account`
+        /// having a defined AD connection.
         /// </summary>
         [Output("kerberosEnabled")]
         public Output<bool?> KerberosEnabled { get; private set; } = null!;
@@ -287,8 +287,8 @@ namespace Pulumi.Azure.NetApp
         }
 
         /// <summary>
-        /// Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent
-        /// `azurerm_netapp_account` having a defined AD connection.
+        /// Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azure.netapp.Account`
+        /// having a defined AD connection.
         /// </summary>
         [Input("kerberosEnabled")]
         public Input<bool>? KerberosEnabled { get; set; }
@@ -478,8 +478,8 @@ namespace Pulumi.Azure.NetApp
         }
 
         /// <summary>
-        /// Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent
-        /// `azurerm_netapp_account` having a defined AD connection.
+        /// Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azure.netapp.Account`
+        /// having a defined AD connection.
         /// </summary>
         [Input("kerberosEnabled")]
         public Input<bool>? KerberosEnabled { get; set; }
