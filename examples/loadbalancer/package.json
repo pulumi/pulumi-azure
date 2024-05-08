@@ -2,7 +2,7 @@
     "name": "2-vms-loadbalancer-lbrules",
     "version": "0.0.1",
     "dependencies": {
-        "@pulumi/azure": "^4.0.0",
+        "@pulumi/azure": "^5.0.0",
         "@pulumi/pulumi": "^3.0.0"
     },
     "devDependencies": {
