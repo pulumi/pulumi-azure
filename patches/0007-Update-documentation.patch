@@ -975,7 +975,7 @@ index 0000000000..2789c4e8a4
 +terraform import azurerm_connection_monitor.monitor1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkWatchers/watcher1/connectionMonitors/monitor1
 +```
 diff --git a/website/docs/r/container_group.html.markdown b/website/docs/r/container_group.html.markdown
-index 31df674972..74819d42a3 100644
+index c3c80d41e9..cf11da37b5 100644
 --- a/website/docs/r/container_group.html.markdown
 +++ b/website/docs/r/container_group.html.markdown
 @@ -14,7 +14,7 @@ Manages as an Azure Container Group instance.
@@ -987,7 +987,7 @@ index 31df674972..74819d42a3 100644
  
  ```hcl
  resource "azurerm_resource_group" "example" {
-@@ -277,7 +277,7 @@ A `volume` block supports:
+@@ -255,7 +255,7 @@ A `volume` block supports:
  
  ~> **Note** when using a storage account volume, all of `share_name`, `storage_account_name`, and `storage_account_key` must be specified.
  
@@ -997,7 +997,7 @@ index 31df674972..74819d42a3 100644
  ---
  
 diff --git a/website/docs/r/container_registry.html.markdown b/website/docs/r/container_registry.html.markdown
-index aeaa4514d6..0c02bc4313 100644
+index c824ba842e..4e2de96ed0 100644
 --- a/website/docs/r/container_registry.html.markdown
 +++ b/website/docs/r/container_registry.html.markdown
 @@ -11,9 +11,6 @@ description: |-
@@ -1921,7 +1921,7 @@ index 656e81119f..b9a4cae44f 100644
    scope              = "/subscriptions/00000000-0000-0000-0000-000000000000"
  
 diff --git a/website/docs/r/linux_virtual_machine.html.markdown b/website/docs/r/linux_virtual_machine.html.markdown
-index 6f49ac6c7c..bfddf6471c 100644
+index 8ec721ea72..7f7c4ec1a7 100644
 --- a/website/docs/r/linux_virtual_machine.html.markdown
 +++ b/website/docs/r/linux_virtual_machine.html.markdown
 @@ -12,9 +12,9 @@ Manages a Linux Virtual Machine.
@@ -2199,7 +2199,7 @@ index e717ee3aee..cdef8e4c39 100644
 --> **Note:** This is a Terraform Specific ID in the format `{natGatewayID}|{publicIPAddressID}`
 +-> **Note:** This is a provider Specific ID in the format `{natGatewayID}|{publicIPAddressID}`
 diff --git a/website/docs/r/network_connection_monitor.html.markdown b/website/docs/r/network_connection_monitor.html.markdown
-index ffbc02a4aa..6a22cde2d8 100644
+index 24a6db8c7d..fc00d63a21 100644
 --- a/website/docs/r/network_connection_monitor.html.markdown
 +++ b/website/docs/r/network_connection_monitor.html.markdown
 @@ -10,7 +10,7 @@ description: |-
