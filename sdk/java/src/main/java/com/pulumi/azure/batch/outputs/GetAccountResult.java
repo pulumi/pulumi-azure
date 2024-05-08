@@ -11,8 +11,6 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAccountResult {
@@ -25,7 +23,7 @@ public final class GetAccountResult {
      * @return The `encryption` block that describes the Azure KeyVault key reference used to encrypt data for the Azure Batch account.
      * 
      */
-    private @Nullable GetAccountEncryption encryption;
+    private GetAccountEncryption encryption;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -85,8 +83,8 @@ public final class GetAccountResult {
      * @return The `encryption` block that describes the Azure KeyVault key reference used to encrypt data for the Azure Batch account.
      * 
      */
-    public Optional<GetAccountEncryption> encryption() {
-        return Optional.ofNullable(this.encryption);
+    public GetAccountEncryption encryption() {
+        return this.encryption;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -165,7 +163,7 @@ public final class GetAccountResult {
     @CustomType.Builder
     public static final class Builder {
         private String accountEndpoint;
-        private @Nullable GetAccountEncryption encryption;
+        private GetAccountEncryption encryption;
         private String id;
         private List<GetAccountKeyVaultReference> keyVaultReferences;
         private String location;
@@ -202,8 +200,10 @@ public final class GetAccountResult {
             return this;
         }
         @CustomType.Setter
-        public Builder encryption(@Nullable GetAccountEncryption encryption) {
-
+        public Builder encryption(GetAccountEncryption encryption) {
+            if (encryption == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "encryption");
+            }
             this.encryption = encryption;
             return this;
         }

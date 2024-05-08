@@ -477,14 +477,14 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="identity", refs={ScaleSetIdentity.class}, tree="[0]")
-    private Output<ScaleSetIdentity> identity;
+    private Output</* @Nullable */ ScaleSetIdentity> identity;
 
     /**
      * @return An `identity` block as defined below.
      * 
      */
-    public Output<ScaleSetIdentity> identity() {
-        return this.identity;
+    public Output<Optional<ScaleSetIdentity>> identity() {
+        return Codegen.optional(this.identity);
     }
     /**
      * (Optional, when a Windows machine) Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.

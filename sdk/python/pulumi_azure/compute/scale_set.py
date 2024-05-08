@@ -1702,7 +1702,7 @@ class ScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> pulumi.Output['outputs.ScaleSetIdentity']:
+    def identity(self) -> pulumi.Output[Optional['outputs.ScaleSetIdentity']]:
         """
         An `identity` block as defined below.
         """

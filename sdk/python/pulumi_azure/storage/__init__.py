@@ -10,6 +10,7 @@ from .account_network_rules import *
 from .blob import *
 from .blob_inventory_policy import *
 from .container import *
+from .container_immutability_policy import *
 from .customer_managed_key import *
 from .data_lake_gen2_filesystem import *
 from .data_lake_gen2_path import *
@@ -43,6 +44,7 @@ from .share_file import *
 from .sync import *
 from .sync_cloud_endpoint import *
 from .sync_group import *
+from .sync_server_endpoint import *
 from .table import *
 from .table_entity import *
 from .zip_blob import *

@@ -16,30 +16,22 @@ public final class GroupContainerGpuLimitArgs extends com.pulumi.resources.Resou
 
     public static final GroupContainerGpuLimitArgs Empty = new GroupContainerGpuLimitArgs();
 
-    /**
-     * The upper limit of the number of GPUs which should be assigned to this container.
-     * 
-     */
     @Import(name="count")
     private @Nullable Output<Integer> count;
 
-    /**
-     * @return The upper limit of the number of GPUs which should be assigned to this container.
-     * 
-     */
     public Optional<Output<Integer>> count() {
         return Optional.ofNullable(this.count);
     }
 
     /**
-     * The allowed SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`.
+     * Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="sku")
     private @Nullable Output<String> sku;
 
     /**
-     * @return The allowed SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`.
+     * @return Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> sku() {
@@ -71,29 +63,17 @@ public final class GroupContainerGpuLimitArgs extends com.pulumi.resources.Resou
             $ = new GroupContainerGpuLimitArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param count The upper limit of the number of GPUs which should be assigned to this container.
-         * 
-         * @return builder
-         * 
-         */
         public Builder count(@Nullable Output<Integer> count) {
             $.count = count;
             return this;
         }
 
-        /**
-         * @param count The upper limit of the number of GPUs which should be assigned to this container.
-         * 
-         * @return builder
-         * 
-         */
         public Builder count(Integer count) {
             return count(Output.of(count));
         }
 
         /**
-         * @param sku The allowed SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`.
+         * @param sku Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -104,7 +84,7 @@ public final class GroupContainerGpuLimitArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param sku The allowed SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`.
+         * @param sku Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

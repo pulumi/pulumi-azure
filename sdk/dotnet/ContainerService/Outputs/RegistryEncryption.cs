@@ -13,9 +13,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
     [OutputType]
     public sealed class RegistryEncryption
     {
-        /// <summary>
-        /// Boolean value that indicates whether encryption is enabled.
-        /// </summary>
         public readonly bool? Enabled;
         /// <summary>
         /// The client ID of the managed identity associated with the encryption key.

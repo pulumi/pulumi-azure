@@ -139,13 +139,17 @@ export class CustomerManagedKey extends pulumi.CustomResource {
     public readonly keyName!: pulumi.Output<string>;
     public readonly keyVaultId!: pulumi.Output<string | undefined>;
     /**
-     * URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `keyVaultId`, or `keyVaultUri` must be specified.
+     * URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
      */
     public readonly keyVaultUri!: pulumi.Output<string>;
     /**
      * The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
      */
     public readonly keyVersion!: pulumi.Output<string | undefined>;
+    /**
+     * Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
+     */
+    public readonly managedHsmKeyId!: pulumi.Output<string | undefined>;
     /**
      * The ID of the Storage Account. Changing this forces a new resource to be created.
      */
@@ -173,6 +177,7 @@ export class CustomerManagedKey extends pulumi.CustomResource {
             resourceInputs["keyVaultId"] = state ? state.keyVaultId : undefined;
             resourceInputs["keyVaultUri"] = state ? state.keyVaultUri : undefined;
             resourceInputs["keyVersion"] = state ? state.keyVersion : undefined;
+            resourceInputs["managedHsmKeyId"] = state ? state.managedHsmKeyId : undefined;
             resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
             resourceInputs["userAssignedIdentityId"] = state ? state.userAssignedIdentityId : undefined;
         } else {
@@ -188,6 +193,7 @@ export class CustomerManagedKey extends pulumi.CustomResource {
             resourceInputs["keyVaultId"] = args ? args.keyVaultId : undefined;
             resourceInputs["keyVaultUri"] = args ? args.keyVaultUri : undefined;
             resourceInputs["keyVersion"] = args ? args.keyVersion : undefined;
+            resourceInputs["managedHsmKeyId"] = args ? args.managedHsmKeyId : undefined;
             resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             resourceInputs["userAssignedIdentityId"] = args ? args.userAssignedIdentityId : undefined;
         }
@@ -210,13 +216,17 @@ export interface CustomerManagedKeyState {
     keyName?: pulumi.Input<string>;
     keyVaultId?: pulumi.Input<string>;
     /**
-     * URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `keyVaultId`, or `keyVaultUri` must be specified.
+     * URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
      */
     keyVaultUri?: pulumi.Input<string>;
     /**
      * The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
      */
     keyVersion?: pulumi.Input<string>;
+    /**
+     * Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
+     */
+    managedHsmKeyId?: pulumi.Input<string>;
     /**
      * The ID of the Storage Account. Changing this forces a new resource to be created.
      */
@@ -241,13 +251,17 @@ export interface CustomerManagedKeyArgs {
     keyName: pulumi.Input<string>;
     keyVaultId?: pulumi.Input<string>;
     /**
-     * URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `keyVaultId`, or `keyVaultUri` must be specified.
+     * URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
      */
     keyVaultUri?: pulumi.Input<string>;
     /**
      * The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
      */
     keyVersion?: pulumi.Input<string>;
+    /**
+     * Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
+     */
+    managedHsmKeyId?: pulumi.Input<string>;
     /**
      * The ID of the Storage Account. Changing this forces a new resource to be created.
      */

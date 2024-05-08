@@ -301,7 +301,7 @@ export class ScaleSet extends pulumi.CustomResource {
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.compute.ScaleSetIdentity>;
+    public readonly identity!: pulumi.Output<outputs.compute.ScaleSetIdentity | undefined>;
     /**
      * (Optional, when a Windows machine) Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
      */

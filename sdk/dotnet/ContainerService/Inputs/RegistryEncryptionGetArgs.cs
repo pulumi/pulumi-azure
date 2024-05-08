@@ -12,9 +12,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
     public sealed class RegistryEncryptionGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Boolean value that indicates whether encryption is enabled.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

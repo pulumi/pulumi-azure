@@ -16,30 +16,22 @@ public final class GroupContainerGpuArgs extends com.pulumi.resources.ResourceAr
 
     public static final GroupContainerGpuArgs Empty = new GroupContainerGpuArgs();
 
-    /**
-     * The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
-     * 
-     */
     @Import(name="count")
     private @Nullable Output<Integer> count;
 
-    /**
-     * @return The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
-     * 
-     */
     public Optional<Output<Integer>> count() {
         return Optional.ofNullable(this.count);
     }
 
     /**
-     * The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+     * Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="sku")
     private @Nullable Output<String> sku;
 
     /**
-     * @return The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+     * @return Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> sku() {
@@ -71,29 +63,17 @@ public final class GroupContainerGpuArgs extends com.pulumi.resources.ResourceAr
             $ = new GroupContainerGpuArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param count The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder count(@Nullable Output<Integer> count) {
             $.count = count;
             return this;
         }
 
-        /**
-         * @param count The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder count(Integer count) {
             return count(Output.of(count));
         }
 
         /**
-         * @param sku The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+         * @param sku Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -104,7 +84,7 @@ public final class GroupContainerGpuArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param sku The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+         * @param sku Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

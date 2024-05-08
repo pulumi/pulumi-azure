@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.ResourceArgs {
@@ -15,18 +17,33 @@ public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.Re
     public static final AccountCustomerManagedKeyArgs Empty = new AccountCustomerManagedKeyArgs();
 
     /**
-     * The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
+     * The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `key_vault_key_id` and `managed_hsm_key_id` may be specified.
      * 
      */
-    @Import(name="keyVaultKeyId", required=true)
-    private Output<String> keyVaultKeyId;
+    @Import(name="keyVaultKeyId")
+    private @Nullable Output<String> keyVaultKeyId;
 
     /**
-     * @return The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
+     * @return The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `key_vault_key_id` and `managed_hsm_key_id` may be specified.
      * 
      */
-    public Output<String> keyVaultKeyId() {
-        return this.keyVaultKeyId;
+    public Optional<Output<String>> keyVaultKeyId() {
+        return Optional.ofNullable(this.keyVaultKeyId);
+    }
+
+    /**
+     * The ID of the managed HSM Key. Exactly one of `key_vault_key_id` and `managed_hsm_key_id` may be specified.
+     * 
+     */
+    @Import(name="managedHsmKeyId")
+    private @Nullable Output<String> managedHsmKeyId;
+
+    /**
+     * @return The ID of the managed HSM Key. Exactly one of `key_vault_key_id` and `managed_hsm_key_id` may be specified.
+     * 
+     */
+    public Optional<Output<String>> managedHsmKeyId() {
+        return Optional.ofNullable(this.managedHsmKeyId);
     }
 
     /**
@@ -52,6 +69,7 @@ public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.Re
 
     private AccountCustomerManagedKeyArgs(AccountCustomerManagedKeyArgs $) {
         this.keyVaultKeyId = $.keyVaultKeyId;
+        this.managedHsmKeyId = $.managedHsmKeyId;
         this.userAssignedIdentityId = $.userAssignedIdentityId;
     }
 
@@ -74,24 +92,45 @@ public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param keyVaultKeyId The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
+         * @param keyVaultKeyId The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `key_vault_key_id` and `managed_hsm_key_id` may be specified.
          * 
          * @return builder
          * 
          */
-        public Builder keyVaultKeyId(Output<String> keyVaultKeyId) {
+        public Builder keyVaultKeyId(@Nullable Output<String> keyVaultKeyId) {
             $.keyVaultKeyId = keyVaultKeyId;
             return this;
         }
 
         /**
-         * @param keyVaultKeyId The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
+         * @param keyVaultKeyId The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `key_vault_key_id` and `managed_hsm_key_id` may be specified.
          * 
          * @return builder
          * 
          */
         public Builder keyVaultKeyId(String keyVaultKeyId) {
             return keyVaultKeyId(Output.of(keyVaultKeyId));
+        }
+
+        /**
+         * @param managedHsmKeyId The ID of the managed HSM Key. Exactly one of `key_vault_key_id` and `managed_hsm_key_id` may be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedHsmKeyId(@Nullable Output<String> managedHsmKeyId) {
+            $.managedHsmKeyId = managedHsmKeyId;
+            return this;
+        }
+
+        /**
+         * @param managedHsmKeyId The ID of the managed HSM Key. Exactly one of `key_vault_key_id` and `managed_hsm_key_id` may be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedHsmKeyId(String managedHsmKeyId) {
+            return managedHsmKeyId(Output.of(managedHsmKeyId));
         }
 
         /**
@@ -120,9 +159,6 @@ public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.Re
         }
 
         public AccountCustomerManagedKeyArgs build() {
-            if ($.keyVaultKeyId == null) {
-                throw new MissingRequiredPropertyException("AccountCustomerManagedKeyArgs", "keyVaultKeyId");
-            }
             if ($.userAssignedIdentityId == null) {
                 throw new MissingRequiredPropertyException("AccountCustomerManagedKeyArgs", "userAssignedIdentityId");
             }

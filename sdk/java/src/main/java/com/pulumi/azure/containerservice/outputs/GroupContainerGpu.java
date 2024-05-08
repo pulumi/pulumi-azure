@@ -12,27 +12,19 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GroupContainerGpu {
-    /**
-     * @return The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
-     * 
-     */
     private @Nullable Integer count;
     /**
-     * @return The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+     * @return Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String sku;
 
     private GroupContainerGpu() {}
-    /**
-     * @return The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
-     * 
-     */
     public Optional<Integer> count() {
         return Optional.ofNullable(this.count);
     }
     /**
-     * @return The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+     * @return Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> sku() {

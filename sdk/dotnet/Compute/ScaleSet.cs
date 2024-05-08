@@ -416,7 +416,7 @@ namespace Pulumi.Azure.Compute
         /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ScaleSetIdentity> Identity { get; private set; } = null!;
+        public Output<Outputs.ScaleSetIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// (Optional, when a Windows machine) Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.

@@ -28,6 +28,22 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:keyvault/managedHardwareSecurityModuleRoleAssignment:ManagedHardwareSecurityModuleRoleAssignment")
 public class ManagedHardwareSecurityModuleRoleAssignment extends com.pulumi.resources.CustomResource {
     /**
+     * The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
+     * *
+     * 
+     */
+    @Export(name="managedHsmId", refs={String.class}, tree="[0]")
+    private Output<String> managedHsmId;
+
+    /**
+     * @return The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
+     * *
+     * 
+     */
+    public Output<String> managedHsmId() {
+        return this.managedHsmId;
+    }
+    /**
      * The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
      * 
      */
@@ -56,14 +72,14 @@ public class ManagedHardwareSecurityModuleRoleAssignment extends com.pulumi.reso
         return this.principalId;
     }
     /**
-     * The resource id of created assignment resource.
+     * (Deprecated) The resource id of created assignment resource.
      * 
      */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
     /**
-     * @return The resource id of created assignment resource.
+     * @return (Deprecated) The resource id of created assignment resource.
      * 
      */
     public Output<String> resourceId() {
@@ -98,16 +114,14 @@ public class ManagedHardwareSecurityModuleRoleAssignment extends com.pulumi.reso
         return this.scope;
     }
     /**
-     * The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
+     * @deprecated
+     * The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider
      * 
      */
+    @Deprecated /* The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider */
     @Export(name="vaultBaseUrl", refs={String.class}, tree="[0]")
     private Output<String> vaultBaseUrl;
 
-    /**
-     * @return The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
-     * 
-     */
     public Output<String> vaultBaseUrl() {
         return this.vaultBaseUrl;
     }

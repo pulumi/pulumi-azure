@@ -3,34 +3,16 @@
 
 package com.pulumi.azure.batch.inputs;
 
-import com.pulumi.azure.batch.inputs.GetAccountEncryptionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class GetAccountArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetAccountArgs Empty = new GetAccountArgs();
-
-    /**
-     * The `encryption` block that describes the Azure KeyVault key reference used to encrypt data for the Azure Batch account.
-     * 
-     */
-    @Import(name="encryption")
-    private @Nullable Output<GetAccountEncryptionArgs> encryption;
-
-    /**
-     * @return The `encryption` block that describes the Azure KeyVault key reference used to encrypt data for the Azure Batch account.
-     * 
-     */
-    public Optional<Output<GetAccountEncryptionArgs>> encryption() {
-        return Optional.ofNullable(this.encryption);
-    }
 
     /**
      * The name of the Batch account.
@@ -65,7 +47,6 @@ public final class GetAccountArgs extends com.pulumi.resources.InvokeArgs {
     private GetAccountArgs() {}
 
     private GetAccountArgs(GetAccountArgs $) {
-        this.encryption = $.encryption;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
     }
@@ -86,27 +67,6 @@ public final class GetAccountArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetAccountArgs defaults) {
             $ = new GetAccountArgs(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @param encryption The `encryption` block that describes the Azure KeyVault key reference used to encrypt data for the Azure Batch account.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder encryption(@Nullable Output<GetAccountEncryptionArgs> encryption) {
-            $.encryption = encryption;
-            return this;
-        }
-
-        /**
-         * @param encryption The `encryption` block that describes the Azure KeyVault key reference used to encrypt data for the Azure Batch account.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder encryption(GetAccountEncryptionArgs encryption) {
-            return encryption(Output.of(encryption));
         }
 
         /**

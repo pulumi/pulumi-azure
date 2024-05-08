@@ -48,7 +48,6 @@ __all__ = [
     'PoolUserAccountLinuxUserConfigurationArgs',
     'PoolUserAccountWindowsUserConfigurationArgs',
     'PoolWindowArgs',
-    'GetAccountEncryptionArgs',
 ]
 
 @pulumi.input_type
@@ -2397,27 +2396,5 @@ class PoolWindowArgs:
     @enable_automatic_updates.setter
     def enable_automatic_updates(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_automatic_updates", value)
-
-
-@pulumi.input_type
-class GetAccountEncryptionArgs:
-    def __init__(__self__, *,
-                 key_vault_key_id: str):
-        """
-        :param str key_vault_key_id: The full URL path of the Key Vault Key used to encrypt data for this Batch account.
-        """
-        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
-
-    @property
-    @pulumi.getter(name="keyVaultKeyId")
-    def key_vault_key_id(self) -> str:
-        """
-        The full URL path of the Key Vault Key used to encrypt data for this Batch account.
-        """
-        return pulumi.get(self, "key_vault_key_id")
-
-    @key_vault_key_id.setter
-    def key_vault_key_id(self, value: str):
-        pulumi.set(self, "key_vault_key_id", value)
 
 

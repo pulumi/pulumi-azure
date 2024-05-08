@@ -50,7 +50,7 @@ public final class NetworkConnectionMonitorEndpoint {
      */
     private @Nullable String targetResourceId;
     /**
-     * @return The endpoint type of the Network Connection Monitor. Possible values are `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
+     * @return The endpoint type of the Network Connection Monitor. Possible values are `AzureArcVM`, `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
      * 
      */
     private @Nullable String targetResourceType;
@@ -106,7 +106,7 @@ public final class NetworkConnectionMonitorEndpoint {
         return Optional.ofNullable(this.targetResourceId);
     }
     /**
-     * @return The endpoint type of the Network Connection Monitor. Possible values are `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
+     * @return The endpoint type of the Network Connection Monitor. Possible values are `AzureArcVM`, `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
      * 
      */
     public Optional<String> targetResourceType() {

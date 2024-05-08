@@ -52,7 +52,7 @@ index 40c52aa5bd..dab70b9c5c 100644
  
  			"backup_blob_container_uri": {
 diff --git a/internal/services/appservice/helpers/function_app_schema.go b/internal/services/appservice/helpers/function_app_schema.go
-index 66719d8bec..01dad19aa2 100644
+index 06b5fa4d90..bdda339536 100644
 --- a/internal/services/appservice/helpers/function_app_schema.go
 +++ b/internal/services/appservice/helpers/function_app_schema.go
 @@ -1059,10 +1059,11 @@ func linuxFunctionAppStackSchema() *pluginsdk.Schema {
@@ -292,10 +292,10 @@ index d1de175cb8..d18589669e 100644
  
  						"size_gb": {
 diff --git a/internal/services/compute/linux_virtual_machine_resource.go b/internal/services/compute/linux_virtual_machine_resource.go
-index f622c18058..288f865398 100644
+index 18857dca52..9120f6a6bd 100644
 --- a/internal/services/compute/linux_virtual_machine_resource.go
 +++ b/internal/services/compute/linux_virtual_machine_resource.go
-@@ -360,11 +360,11 @@ func resourceLinuxVirtualMachine() *pluginsdk.Resource {
+@@ -361,11 +361,11 @@ func resourceLinuxVirtualMachine() *pluginsdk.Resource {
  			},
  
  			"platform_fault_domain": {
@@ -391,19 +391,19 @@ index 4c6030c160..e320bb0c99 100644
  			},
  
 diff --git a/internal/services/containers/container_group_resource.go b/internal/services/containers/container_group_resource.go
-index ef6ae95450..3fb78d2cf8 100644
+index 8c58fcc2df..be6dd18437 100644
 --- a/internal/services/containers/container_group_resource.go
 +++ b/internal/services/containers/container_group_resource.go
-@@ -7,6 +7,8 @@ import (
- 	"bytes"
- 	"context"
- 	"fmt"
-+	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
-+	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/suppress"
- 	"log"
+@@ -11,6 +11,8 @@ import (
  	"strings"
  	"time"
-@@ -71,7 +73,8 @@ func resourceContainerGroup() *pluginsdk.Resource {
+ 
++	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/suppress"
++
+ 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+ 	"github.com/hashicorp/go-azure-helpers/lang/response"
+ 	"github.com/hashicorp/go-azure-helpers/resourcemanager/commonids"
+@@ -72,7 +74,8 @@ func resourceContainerGroup() *pluginsdk.Resource {
  					string(containerinstance.ContainerGroupIPAddressTypePublic),
  					string(containerinstance.ContainerGroupIPAddressTypePrivate),
  					"None",
@@ -413,7 +413,7 @@ index ef6ae95450..3fb78d2cf8 100644
  			},
  
  			"os_type": {
-@@ -81,7 +84,8 @@ func resourceContainerGroup() *pluginsdk.Resource {
+@@ -82,7 +85,8 @@ func resourceContainerGroup() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
  					string(containerinstance.OperatingSystemTypesWindows),
  					string(containerinstance.OperatingSystemTypesLinux),
@@ -423,7 +423,7 @@ index ef6ae95450..3fb78d2cf8 100644
  			},
  
  			"image_registry_credential": {
-@@ -167,7 +171,7 @@ func resourceContainerGroup() *pluginsdk.Resource {
+@@ -168,7 +172,7 @@ func resourceContainerGroup() *pluginsdk.Resource {
  					string(containerinstance.ContainerGroupRestartPolicyAlways),
  					string(containerinstance.ContainerGroupRestartPolicyNever),
  					string(containerinstance.ContainerGroupRestartPolicyOnFailure),
@@ -433,7 +433,7 @@ index ef6ae95450..3fb78d2cf8 100644
  
  			"dns_name_label": {
 diff --git a/internal/services/containers/container_registry_resource.go b/internal/services/containers/container_registry_resource.go
-index 46644dc374..1a8604d4a8 100644
+index b4421f2947..0eb8adf83a 100644
 --- a/internal/services/containers/container_registry_resource.go
 +++ b/internal/services/containers/container_registry_resource.go
 @@ -7,7 +7,6 @@ import (
@@ -444,7 +444,7 @@ index 46644dc374..1a8604d4a8 100644
  	"strings"
  	"time"
  
-@@ -607,11 +606,6 @@ func resourceContainerRegistryRead(d *pluginsdk.ResourceData, meta interface{})
+@@ -762,11 +761,6 @@ func resourceContainerRegistryRead(d *pluginsdk.ResourceData, meta interface{})
  		}
  	}
  
@@ -457,7 +457,7 @@ index 46644dc374..1a8604d4a8 100644
  
  	return nil
 diff --git a/internal/services/containers/kubernetes_cluster_resource.go b/internal/services/containers/kubernetes_cluster_resource.go
-index e80f81e97d..caea1a9856 100644
+index d147df68f2..f726cb9772 100644
 --- a/internal/services/containers/kubernetes_cluster_resource.go
 +++ b/internal/services/containers/kubernetes_cluster_resource.go
 @@ -1060,7 +1060,7 @@ func resourceKubernetesCluster() *pluginsdk.Resource {
@@ -754,7 +754,7 @@ index e15c10ac79..ebcdb70c0b 100644
  			},
  			"template": {
 diff --git a/internal/services/iothub/iothub_resource.go b/internal/services/iothub/iothub_resource.go
-index c14cb45e16..debc0e57fa 100644
+index 3d40271135..b2dccadabb 100644
 --- a/internal/services/iothub/iothub_resource.go
 +++ b/internal/services/iothub/iothub_resource.go
 @@ -30,6 +30,7 @@ import (
@@ -765,7 +765,7 @@ index c14cb45e16..debc0e57fa 100644
  	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/validation"
  	"github.com/hashicorp/terraform-provider-azurerm/internal/timeouts"
  	"github.com/hashicorp/terraform-provider-azurerm/utils"
-@@ -343,11 +344,13 @@ func resourceIotHub() *pluginsdk.Resource {
+@@ -341,11 +342,13 @@ func resourceIotHub() *pluginsdk.Resource {
  						},
  
  						"encoding": {
@@ -808,18 +808,19 @@ index 90e02d8080..8970530193 100644
  									"reuse_key": {
  										Type:     pluginsdk.TypeBool,
 diff --git a/internal/services/legacy/virtual_machine_resource.go b/internal/services/legacy/virtual_machine_resource.go
-index 7f9d197b2c..b8e12f04fc 100644
+index 2bc0fb2243..03efb5e451 100644
 --- a/internal/services/legacy/virtual_machine_resource.go
 +++ b/internal/services/legacy/virtual_machine_resource.go
-@@ -9,6 +9,7 @@ import (
- 	"crypto/sha1"
- 	"encoding/hex"
- 	"fmt"
-+	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
- 	"log"
+@@ -13,6 +13,8 @@ import (
  	"strings"
  	"time"
-@@ -183,7 +184,7 @@ func resourceVirtualMachine() *pluginsdk.Resource {
+ 
++	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
++
+ 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+ 	"github.com/hashicorp/go-azure-helpers/lang/response"
+ 	"github.com/hashicorp/go-azure-helpers/resourcemanager/commonids"
+@@ -154,7 +156,7 @@ func resourceVirtualMachine() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
  					"Windows_Client",
  					"Windows_Server",
@@ -828,37 +829,37 @@ index 7f9d197b2c..b8e12f04fc 100644
  			},
  
  			"vm_size": {
-@@ -249,7 +250,8 @@ func resourceVirtualMachine() *pluginsdk.Resource {
+@@ -220,7 +222,8 @@ func resourceVirtualMachine() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
- 								string(compute.OperatingSystemTypesLinux),
- 								string(compute.OperatingSystemTypesWindows),
+ 								string(virtualmachines.OperatingSystemTypesLinux),
+ 								string(virtualmachines.OperatingSystemTypesWindows),
 -							}, false),
 +							}, features.CaseInsensitive()),
 +							DiffSuppressFunc: suppress.CaseDifferenceV2Only,
  						},
  
  						"name": {
-@@ -284,7 +286,8 @@ func resourceVirtualMachine() *pluginsdk.Resource {
- 								string(compute.StorageAccountTypesPremiumLRS),
- 								string(compute.StorageAccountTypesStandardLRS),
- 								string(compute.StorageAccountTypesStandardSSDLRS),
+@@ -255,7 +258,8 @@ func resourceVirtualMachine() *pluginsdk.Resource {
+ 								string(virtualmachines.StorageAccountTypesPremiumLRS),
+ 								string(virtualmachines.StorageAccountTypesStandardLRS),
+ 								string(virtualmachines.StorageAccountTypesStandardSSDLRS),
 -							}, false),
 +							}, features.CaseInsensitive()),
 +							DiffSuppressFunc: suppress.CaseDifferenceV2Only,
  						},
  
  						"image_uri": {
-@@ -358,7 +361,8 @@ func resourceVirtualMachine() *pluginsdk.Resource {
- 								string(compute.StorageAccountTypesStandardLRS),
- 								string(compute.StorageAccountTypesStandardSSDLRS),
- 								string(compute.StorageAccountTypesUltraSSDLRS),
+@@ -329,7 +333,8 @@ func resourceVirtualMachine() *pluginsdk.Resource {
+ 								string(virtualmachines.StorageAccountTypesStandardLRS),
+ 								string(virtualmachines.StorageAccountTypesStandardSSDLRS),
+ 								string(virtualmachines.StorageAccountTypesUltraSSDLRS),
 -							}, false),
 +							}, features.CaseInsensitive()),
 +							DiffSuppressFunc: suppress.CaseDifferenceV2Only,
  						},
  
  						"create_option": {
-@@ -505,7 +509,8 @@ func resourceVirtualMachine() *pluginsdk.Resource {
+@@ -476,7 +481,8 @@ func resourceVirtualMachine() *pluginsdk.Resource {
  										ValidateFunc: validation.StringInSlice([]string{
  											"HTTP",
  											"HTTPS",
@@ -869,18 +870,19 @@ index 7f9d197b2c..b8e12f04fc 100644
  									"certificate_url": {
  										Type:     pluginsdk.TypeString,
 diff --git a/internal/services/legacy/virtual_machine_scale_set_resource.go b/internal/services/legacy/virtual_machine_scale_set_resource.go
-index 2301102093..b9721d0755 100644
+index 799f142449..6aada8c4d7 100644
 --- a/internal/services/legacy/virtual_machine_scale_set_resource.go
 +++ b/internal/services/legacy/virtual_machine_scale_set_resource.go
-@@ -7,6 +7,7 @@ import (
- 	"bytes"
- 	"context"
- 	"fmt"
-+	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
- 	"log"
+@@ -12,6 +12,8 @@ import (
  	"strings"
  	"time"
-@@ -150,7 +151,7 @@ func resourceVirtualMachineScaleSet() *pluginsdk.Resource {
+ 
++	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
++
+ 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+ 	"github.com/hashicorp/go-azure-helpers/lang/response"
+ 	"github.com/hashicorp/go-azure-helpers/resourcemanager/commonschema"
+@@ -123,7 +125,7 @@ func resourceVirtualMachineScaleSet() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
  					"Windows_Client",
  					"Windows_Server",
@@ -889,40 +891,40 @@ index 2301102093..b9721d0755 100644
  			},
  
  			"upgrade_policy_mode": {
-@@ -160,7 +161,8 @@ func resourceVirtualMachineScaleSet() *pluginsdk.Resource {
- 					string(compute.UpgradeModeAutomatic),
- 					string(compute.UpgradeModeManual),
- 					string(compute.UpgradeModeRolling),
+@@ -133,7 +135,8 @@ func resourceVirtualMachineScaleSet() *pluginsdk.Resource {
+ 					string(virtualmachinescalesets.UpgradeModeAutomatic),
+ 					string(virtualmachinescalesets.UpgradeModeManual),
+ 					string(virtualmachinescalesets.UpgradeModeRolling),
 -				}, false),
 +				}, features.CaseInsensitive()),
 +				DiffSuppressFunc: suppress.CaseDifferenceV2Only,
  			},
  
  			"health_probe_id": {
-@@ -233,7 +235,8 @@ func resourceVirtualMachineScaleSet() *pluginsdk.Resource {
+@@ -206,7 +209,8 @@ func resourceVirtualMachineScaleSet() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
- 					string(compute.VirtualMachinePriorityTypesLow),
- 					string(compute.VirtualMachinePriorityTypesRegular),
+ 					string(virtualmachinescalesets.VirtualMachinePriorityTypesLow),
+ 					string(virtualmachinescalesets.VirtualMachinePriorityTypesRegular),
 -				}, false),
 +				}, features.CaseInsensitive()),
 +				DiffSuppressFunc: suppress.CaseDifferenceV2Only,
  			},
  
  			"eviction_policy": {
-@@ -599,7 +602,8 @@ func resourceVirtualMachineScaleSet() *pluginsdk.Resource {
- 								string(compute.StorageAccountTypesPremiumLRS),
- 								string(compute.StorageAccountTypesStandardLRS),
- 								string(compute.StorageAccountTypesStandardSSDLRS),
+@@ -572,7 +576,8 @@ func resourceVirtualMachineScaleSet() *pluginsdk.Resource {
+ 								string(virtualmachinescalesets.StorageAccountTypesPremiumLRS),
+ 								string(virtualmachinescalesets.StorageAccountTypesStandardLRS),
+ 								string(virtualmachinescalesets.StorageAccountTypesStandardSSDLRS),
 -							}, false),
 +							}, features.CaseInsensitive()),
 +							DiffSuppressFunc: suppress.CaseDifferenceV2Only,
  						},
  
  						"caching": {
-@@ -658,7 +662,8 @@ func resourceVirtualMachineScaleSet() *pluginsdk.Resource {
- 								string(compute.StorageAccountTypesPremiumLRS),
- 								string(compute.StorageAccountTypesStandardLRS),
- 								string(compute.StorageAccountTypesStandardSSDLRS),
+@@ -631,7 +636,8 @@ func resourceVirtualMachineScaleSet() *pluginsdk.Resource {
+ 								string(virtualmachinescalesets.StorageAccountTypesPremiumLRS),
+ 								string(virtualmachinescalesets.StorageAccountTypesStandardLRS),
+ 								string(virtualmachinescalesets.StorageAccountTypesStandardSSDLRS),
 -							}, false),
 +							}, features.CaseInsensitive()),
 +							DiffSuppressFunc: suppress.CaseDifferenceV2Only,
@@ -2469,7 +2471,7 @@ index b215edff58..4381151544 100644
  	if !ok {
  		return fmt.Errorf("could not determine Storage domain suffix for environment %q", meta.(*clients.Client).Account.Environment.Name)
 diff --git a/internal/services/storage/storage_account_resource.go b/internal/services/storage/storage_account_resource.go
-index 52d93d380c..c76e8b8e26 100644
+index a68e2afada..dfefdbb1ed 100644
 --- a/internal/services/storage/storage_account_resource.go
 +++ b/internal/services/storage/storage_account_resource.go
 @@ -13,6 +13,9 @@ import (
@@ -2482,7 +2484,7 @@ index 52d93d380c..c76e8b8e26 100644
  	"github.com/Azure/azure-sdk-for-go/services/storage/mgmt/2021-09-01/storage" // nolint: staticcheck
  	azautorest "github.com/Azure/go-autorest/autorest"
  	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-@@ -146,8 +149,9 @@ func resourceStorageAccount() *pluginsdk.Resource {
+@@ -150,8 +153,9 @@ func resourceStorageAccount() *pluginsdk.Resource {
  					string(storage.KindBlockBlobStorage),
  					string(storage.KindFileStorage),
  					string(storage.KindStorageV2),
@@ -2494,7 +2496,7 @@ index 52d93d380c..c76e8b8e26 100644
  			},
  
  			"account_tier": {
-@@ -157,7 +161,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
+@@ -161,7 +165,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
  					string(storage.SkuTierStandard),
  					string(storage.SkuTierPremium),
@@ -2504,7 +2506,7 @@ index 52d93d380c..c76e8b8e26 100644
  			},
  
  			"account_replication_type": {
-@@ -170,7 +175,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
+@@ -174,7 +179,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
  					"RAGRS",
  					"GZRS",
  					"RAGZRS",
@@ -2514,7 +2516,7 @@ index 52d93d380c..c76e8b8e26 100644
  			},
  
  			// Only valid for FileStorage, BlobStorage & StorageV2 accounts, defaults to "Hot" in create function
-@@ -181,7 +187,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
+@@ -185,7 +191,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
  					string(storage.AccessTierCool),
  					string(storage.AccessTierHot),
@@ -2524,7 +2526,7 @@ index 52d93d380c..c76e8b8e26 100644
  			},
  
  			"azure_files_authentication": {
-@@ -410,7 +417,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
+@@ -422,7 +429,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
  									string(storage.BypassLogging),
  									string(storage.BypassMetrics),
  									string(storage.BypassNone),

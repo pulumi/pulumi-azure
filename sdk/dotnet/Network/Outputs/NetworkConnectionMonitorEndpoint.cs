@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? TargetResourceId;
         /// <summary>
-        /// The endpoint type of the Network Connection Monitor. Possible values are `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
+        /// The endpoint type of the Network Connection Monitor. Possible values are `AzureArcVM`, `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
         /// </summary>
         public readonly string? TargetResourceType;
 

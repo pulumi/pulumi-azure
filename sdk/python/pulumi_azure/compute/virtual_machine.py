@@ -1306,7 +1306,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> pulumi.Output['outputs.VirtualMachineIdentity']:
+    def identity(self) -> pulumi.Output[Optional['outputs.VirtualMachineIdentity']]:
         """
         An `identity` block as defined below.
         """

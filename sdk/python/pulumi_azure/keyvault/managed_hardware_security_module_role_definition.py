@@ -16,40 +16,32 @@ __all__ = ['ManagedHardwareSecurityModuleRoleDefinitionArgs', 'ManagedHardwareSe
 @pulumi.input_type
 class ManagedHardwareSecurityModuleRoleDefinitionArgs:
     def __init__(__self__, *,
-                 vault_base_url: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 managed_hsm_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs']]]] = None,
-                 role_name: Optional[pulumi.Input[str]] = None):
+                 role_name: Optional[pulumi.Input[str]] = None,
+                 vault_base_url: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ManagedHardwareSecurityModuleRoleDefinition resource.
-        :param pulumi.Input[str] vault_base_url: The base URL of the managed hardware security module resource. Changing this forces a new KeyVault Role Definition to be created.
         :param pulumi.Input[str] description: Specifies a text description about this KeyVault Role Definition.
         :param pulumi.Input[str] name: The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs']]] permissions: One or more `permission` blocks as defined below.
         :param pulumi.Input[str] role_name: Specify a name for this KeyVault Role Definition.
+        :param pulumi.Input[str] vault_base_url: The base URL of the managed hardware security module resource. Changing this forces a new KeyVault Role Definition to be created.
         """
-        pulumi.set(__self__, "vault_base_url", vault_base_url)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if managed_hsm_id is not None:
+            pulumi.set(__self__, "managed_hsm_id", managed_hsm_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
         if role_name is not None:
             pulumi.set(__self__, "role_name", role_name)
-
-    @property
-    @pulumi.getter(name="vaultBaseUrl")
-    def vault_base_url(self) -> pulumi.Input[str]:
-        """
-        The base URL of the managed hardware security module resource. Changing this forces a new KeyVault Role Definition to be created.
-        """
-        return pulumi.get(self, "vault_base_url")
-
-    @vault_base_url.setter
-    def vault_base_url(self, value: pulumi.Input[str]):
-        pulumi.set(self, "vault_base_url", value)
+        if vault_base_url is not None:
+            pulumi.set(__self__, "vault_base_url", vault_base_url)
 
     @property
     @pulumi.getter
@@ -62,6 +54,15 @@ class ManagedHardwareSecurityModuleRoleDefinitionArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="managedHsmId")
+    def managed_hsm_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "managed_hsm_id")
+
+    @managed_hsm_id.setter
+    def managed_hsm_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_hsm_id", value)
 
     @property
     @pulumi.getter
@@ -99,11 +100,24 @@ class ManagedHardwareSecurityModuleRoleDefinitionArgs:
     def role_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "role_name", value)
 
+    @property
+    @pulumi.getter(name="vaultBaseUrl")
+    def vault_base_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The base URL of the managed hardware security module resource. Changing this forces a new KeyVault Role Definition to be created.
+        """
+        return pulumi.get(self, "vault_base_url")
+
+    @vault_base_url.setter
+    def vault_base_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vault_base_url", value)
+
 
 @pulumi.input_type
 class _ManagedHardwareSecurityModuleRoleDefinitionState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
+                 managed_hsm_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs']]]] = None,
                  resource_manager_id: Optional[pulumi.Input[str]] = None,
@@ -122,6 +136,8 @@ class _ManagedHardwareSecurityModuleRoleDefinitionState:
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if managed_hsm_id is not None:
+            pulumi.set(__self__, "managed_hsm_id", managed_hsm_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if permissions is not None:
@@ -146,6 +162,15 @@ class _ManagedHardwareSecurityModuleRoleDefinitionState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="managedHsmId")
+    def managed_hsm_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "managed_hsm_id")
+
+    @managed_hsm_id.setter
+    def managed_hsm_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_hsm_id", value)
 
     @property
     @pulumi.getter
@@ -226,6 +251,7 @@ class ManagedHardwareSecurityModuleRoleDefinition(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 managed_hsm_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs']]]]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
@@ -254,7 +280,7 @@ class ManagedHardwareSecurityModuleRoleDefinition(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ManagedHardwareSecurityModuleRoleDefinitionArgs,
+                 args: Optional[ManagedHardwareSecurityModuleRoleDefinitionArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a KeyVault Managed Hardware Security Module Role Definition. This resource works together with Managed hardware security module resource.
@@ -283,6 +309,7 @@ class ManagedHardwareSecurityModuleRoleDefinition(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 managed_hsm_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs']]]]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
@@ -297,11 +324,10 @@ class ManagedHardwareSecurityModuleRoleDefinition(pulumi.CustomResource):
             __props__ = ManagedHardwareSecurityModuleRoleDefinitionArgs.__new__(ManagedHardwareSecurityModuleRoleDefinitionArgs)
 
             __props__.__dict__["description"] = description
+            __props__.__dict__["managed_hsm_id"] = managed_hsm_id
             __props__.__dict__["name"] = name
             __props__.__dict__["permissions"] = permissions
             __props__.__dict__["role_name"] = role_name
-            if vault_base_url is None and not opts.urn:
-                raise TypeError("Missing required property 'vault_base_url'")
             __props__.__dict__["vault_base_url"] = vault_base_url
             __props__.__dict__["resource_manager_id"] = None
             __props__.__dict__["role_type"] = None
@@ -316,6 +342,7 @@ class ManagedHardwareSecurityModuleRoleDefinition(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
+            managed_hsm_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs']]]]] = None,
             resource_manager_id: Optional[pulumi.Input[str]] = None,
@@ -342,6 +369,7 @@ class ManagedHardwareSecurityModuleRoleDefinition(pulumi.CustomResource):
         __props__ = _ManagedHardwareSecurityModuleRoleDefinitionState.__new__(_ManagedHardwareSecurityModuleRoleDefinitionState)
 
         __props__.__dict__["description"] = description
+        __props__.__dict__["managed_hsm_id"] = managed_hsm_id
         __props__.__dict__["name"] = name
         __props__.__dict__["permissions"] = permissions
         __props__.__dict__["resource_manager_id"] = resource_manager_id
@@ -357,6 +385,11 @@ class ManagedHardwareSecurityModuleRoleDefinition(pulumi.CustomResource):
         Specifies a text description about this KeyVault Role Definition.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="managedHsmId")
+    def managed_hsm_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "managed_hsm_id")
 
     @property
     @pulumi.getter

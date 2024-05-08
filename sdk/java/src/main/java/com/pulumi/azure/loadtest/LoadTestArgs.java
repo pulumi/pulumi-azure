@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.loadtest;
 
+import com.pulumi.azure.loadtest.inputs.LoadTestEncryptionArgs;
 import com.pulumi.azure.loadtest.inputs.LoadTestIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -31,6 +32,21 @@ public final class LoadTestArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
+    }
+
+    /**
+     * An `encryption` block as defined below. Changing this forces a new Load Test to be created.
+     * 
+     */
+    @Import(name="encryption")
+    private @Nullable Output<LoadTestEncryptionArgs> encryption;
+
+    /**
+     * @return An `encryption` block as defined below. Changing this forces a new Load Test to be created.
+     * 
+     */
+    public Optional<Output<LoadTestEncryptionArgs>> encryption() {
+        return Optional.ofNullable(this.encryption);
     }
 
     /**
@@ -112,6 +128,7 @@ public final class LoadTestArgs extends com.pulumi.resources.ResourceArgs {
 
     private LoadTestArgs(LoadTestArgs $) {
         this.description = $.description;
+        this.encryption = $.encryption;
         this.identity = $.identity;
         this.location = $.location;
         this.name = $.name;
@@ -156,6 +173,27 @@ public final class LoadTestArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param encryption An `encryption` block as defined below. Changing this forces a new Load Test to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryption(@Nullable Output<LoadTestEncryptionArgs> encryption) {
+            $.encryption = encryption;
+            return this;
+        }
+
+        /**
+         * @param encryption An `encryption` block as defined below. Changing this forces a new Load Test to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryption(LoadTestEncryptionArgs encryption) {
+            return encryption(Output.of(encryption));
         }
 
         /**

@@ -51,6 +51,13 @@ public final class VirtualMachineIdentityArgs extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.principalId);
     }
 
+    @Import(name="tenantId")
+    private @Nullable Output<String> tenantId;
+
+    public Optional<Output<String>> tenantId() {
+        return Optional.ofNullable(this.tenantId);
+    }
+
     /**
      * Specifies the type of Managed Service Identity that should be configured on this Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
      * 
@@ -79,6 +86,7 @@ public final class VirtualMachineIdentityArgs extends com.pulumi.resources.Resou
     private VirtualMachineIdentityArgs(VirtualMachineIdentityArgs $) {
         this.identityIds = $.identityIds;
         this.principalId = $.principalId;
+        this.tenantId = $.tenantId;
         this.type = $.type;
     }
 
@@ -156,6 +164,15 @@ public final class VirtualMachineIdentityArgs extends com.pulumi.resources.Resou
          */
         public Builder principalId(String principalId) {
             return principalId(Output.of(principalId));
+        }
+
+        public Builder tenantId(@Nullable Output<String> tenantId) {
+            $.tenantId = tenantId;
+            return this;
+        }
+
+        public Builder tenantId(String tenantId) {
+            return tenantId(Output.of(tenantId));
         }
 
         /**

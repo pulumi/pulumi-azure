@@ -6073,6 +6073,8 @@ class ScaleSetIdentity(dict):
             suggest = "identity_ids"
         elif key == "principalId":
             suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ScaleSetIdentity. Access the value via the '{suggest}' property getter instead.")
@@ -6088,7 +6090,8 @@ class ScaleSetIdentity(dict):
     def __init__(__self__, *,
                  type: str,
                  identity_ids: Optional[Sequence[str]] = None,
-                 principal_id: Optional[str] = None):
+                 principal_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
         """
         :param str type: Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
         :param Sequence[str] identity_ids: Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
@@ -6124,6 +6127,8 @@ class ScaleSetIdentity(dict):
             pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -6171,6 +6176,11 @@ class ScaleSetIdentity(dict):
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[str]:
         return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        return pulumi.get(self, "tenant_id")
 
 
 @pulumi.output_type
@@ -8197,6 +8207,8 @@ class VirtualMachineIdentity(dict):
             suggest = "identity_ids"
         elif key == "principalId":
             suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in VirtualMachineIdentity. Access the value via the '{suggest}' property getter instead.")
@@ -8212,7 +8224,8 @@ class VirtualMachineIdentity(dict):
     def __init__(__self__, *,
                  type: str,
                  identity_ids: Optional[Sequence[str]] = None,
-                 principal_id: Optional[str] = None):
+                 principal_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
         """
         :param str type: Specifies the type of Managed Service Identity that should be configured on this Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
                
@@ -8229,6 +8242,8 @@ class VirtualMachineIdentity(dict):
             pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -8259,6 +8274,11 @@ class VirtualMachineIdentity(dict):
         The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        return pulumi.get(self, "tenant_id")
 
 
 @pulumi.output_type

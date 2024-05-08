@@ -158,7 +158,7 @@ type VirtualMachine struct {
 	// > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
 	DeleteOsDiskOnTermination pulumi.BoolPtrOutput `pulumi:"deleteOsDiskOnTermination"`
 	// An `identity` block as defined below.
-	Identity VirtualMachineIdentityOutput `pulumi:"identity"`
+	Identity VirtualMachineIdentityPtrOutput `pulumi:"identity"`
 	// Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
 	LicenseType pulumi.StringOutput `pulumi:"licenseType"`
 	// Specifies the Azure Region where the Virtual Machine exists. Changing this forces a new resource to be created.
@@ -610,8 +610,8 @@ func (o VirtualMachineOutput) DeleteOsDiskOnTermination() pulumi.BoolPtrOutput {
 }
 
 // An `identity` block as defined below.
-func (o VirtualMachineOutput) Identity() VirtualMachineIdentityOutput {
-	return o.ApplyT(func(v *VirtualMachine) VirtualMachineIdentityOutput { return v.Identity }).(VirtualMachineIdentityOutput)
+func (o VirtualMachineOutput) Identity() VirtualMachineIdentityPtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) VirtualMachineIdentityPtrOutput { return v.Identity }).(VirtualMachineIdentityPtrOutput)
 }
 
 // Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.

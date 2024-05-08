@@ -22,7 +22,7 @@ class GetManagedHardwareSecurityModuleRoleDefinitionResult:
     """
     A collection of values returned by getManagedHardwareSecurityModuleRoleDefinition.
     """
-    def __init__(__self__, assignable_scopes=None, description=None, id=None, name=None, permissions=None, resource_manager_id=None, role_name=None, role_type=None, vault_base_url=None):
+    def __init__(__self__, assignable_scopes=None, description=None, id=None, managed_hsm_id=None, name=None, permissions=None, resource_manager_id=None, role_name=None, role_type=None, vault_base_url=None):
         if assignable_scopes and not isinstance(assignable_scopes, list):
             raise TypeError("Expected argument 'assignable_scopes' to be a list")
         pulumi.set(__self__, "assignable_scopes", assignable_scopes)
@@ -32,6 +32,9 @@ class GetManagedHardwareSecurityModuleRoleDefinitionResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if managed_hsm_id and not isinstance(managed_hsm_id, str):
+            raise TypeError("Expected argument 'managed_hsm_id' to be a str")
+        pulumi.set(__self__, "managed_hsm_id", managed_hsm_id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -74,6 +77,11 @@ class GetManagedHardwareSecurityModuleRoleDefinitionResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="managedHsmId")
+    def managed_hsm_id(self) -> str:
+        return pulumi.get(self, "managed_hsm_id")
 
     @property
     @pulumi.getter
@@ -127,6 +135,7 @@ class AwaitableGetManagedHardwareSecurityModuleRoleDefinitionResult(GetManagedHa
             assignable_scopes=self.assignable_scopes,
             description=self.description,
             id=self.id,
+            managed_hsm_id=self.managed_hsm_id,
             name=self.name,
             permissions=self.permissions,
             resource_manager_id=self.resource_manager_id,
@@ -135,17 +144,30 @@ class AwaitableGetManagedHardwareSecurityModuleRoleDefinitionResult(GetManagedHa
             vault_base_url=self.vault_base_url)
 
 
-def get_managed_hardware_security_module_role_definition(name: Optional[str] = None,
+def get_managed_hardware_security_module_role_definition(managed_hsm_id: Optional[str] = None,
+                                                         name: Optional[str] = None,
                                                          vault_base_url: Optional[str] = None,
                                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedHardwareSecurityModuleRoleDefinitionResult:
     """
     Use this data source to access information about an existing KeyVault Role Definition.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.keyvault.get_managed_hardware_security_module_role_definition(vault_base_url=test["hsmUri"],
+        name="21dbd100-6940-42c2-9190-5d6cb909625b")
+    pulumi.export("id", example.resource_manager_id)
+    ```
 
 
     :param str name: The name in UUID notation of this KeyVault Role Definition.
     :param str vault_base_url: Specify the base URL of the Managed HSM resource.
     """
     __args__ = dict()
+    __args__['managedHsmId'] = managed_hsm_id
     __args__['name'] = name
     __args__['vaultBaseUrl'] = vault_base_url
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -155,6 +177,7 @@ def get_managed_hardware_security_module_role_definition(name: Optional[str] = N
         assignable_scopes=pulumi.get(__ret__, 'assignable_scopes'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
+        managed_hsm_id=pulumi.get(__ret__, 'managed_hsm_id'),
         name=pulumi.get(__ret__, 'name'),
         permissions=pulumi.get(__ret__, 'permissions'),
         resource_manager_id=pulumi.get(__ret__, 'resource_manager_id'),
@@ -164,11 +187,23 @@ def get_managed_hardware_security_module_role_definition(name: Optional[str] = N
 
 
 @_utilities.lift_output_func(get_managed_hardware_security_module_role_definition)
-def get_managed_hardware_security_module_role_definition_output(name: Optional[pulumi.Input[str]] = None,
-                                                                vault_base_url: Optional[pulumi.Input[str]] = None,
+def get_managed_hardware_security_module_role_definition_output(managed_hsm_id: Optional[pulumi.Input[Optional[str]]] = None,
+                                                                name: Optional[pulumi.Input[str]] = None,
+                                                                vault_base_url: Optional[pulumi.Input[Optional[str]]] = None,
                                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedHardwareSecurityModuleRoleDefinitionResult]:
     """
     Use this data source to access information about an existing KeyVault Role Definition.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.keyvault.get_managed_hardware_security_module_role_definition(vault_base_url=test["hsmUri"],
+        name="21dbd100-6940-42c2-9190-5d6cb909625b")
+    pulumi.export("id", example.resource_manager_id)
+    ```
 
 
     :param str name: The name in UUID notation of this KeyVault Role Definition.

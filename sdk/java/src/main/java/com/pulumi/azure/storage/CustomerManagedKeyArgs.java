@@ -54,14 +54,14 @@ public final class CustomerManagedKeyArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `key_vault_id`, or `key_vault_uri` must be specified.
+     * URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
      * 
      */
     @Import(name="keyVaultUri")
     private @Nullable Output<String> keyVaultUri;
 
     /**
-     * @return URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `key_vault_id`, or `key_vault_uri` must be specified.
+     * @return URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
      * 
      */
     public Optional<Output<String>> keyVaultUri() {
@@ -81,6 +81,21 @@ public final class CustomerManagedKeyArgs extends com.pulumi.resources.ResourceA
      */
     public Optional<Output<String>> keyVersion() {
         return Optional.ofNullable(this.keyVersion);
+    }
+
+    /**
+     * Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
+     * 
+     */
+    @Import(name="managedHsmKeyId")
+    private @Nullable Output<String> managedHsmKeyId;
+
+    /**
+     * @return Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
+     * 
+     */
+    public Optional<Output<String>> managedHsmKeyId() {
+        return Optional.ofNullable(this.managedHsmKeyId);
     }
 
     /**
@@ -121,6 +136,7 @@ public final class CustomerManagedKeyArgs extends com.pulumi.resources.ResourceA
         this.keyVaultId = $.keyVaultId;
         this.keyVaultUri = $.keyVaultUri;
         this.keyVersion = $.keyVersion;
+        this.managedHsmKeyId = $.managedHsmKeyId;
         this.storageAccountId = $.storageAccountId;
         this.userAssignedIdentityId = $.userAssignedIdentityId;
     }
@@ -195,7 +211,7 @@ public final class CustomerManagedKeyArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param keyVaultUri URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `key_vault_id`, or `key_vault_uri` must be specified.
+         * @param keyVaultUri URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
          * 
          * @return builder
          * 
@@ -206,7 +222,7 @@ public final class CustomerManagedKeyArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param keyVaultUri URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `key_vault_id`, or `key_vault_uri` must be specified.
+         * @param keyVaultUri URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
          * 
          * @return builder
          * 
@@ -234,6 +250,27 @@ public final class CustomerManagedKeyArgs extends com.pulumi.resources.ResourceA
          */
         public Builder keyVersion(String keyVersion) {
             return keyVersion(Output.of(keyVersion));
+        }
+
+        /**
+         * @param managedHsmKeyId Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedHsmKeyId(@Nullable Output<String> managedHsmKeyId) {
+            $.managedHsmKeyId = managedHsmKeyId;
+            return this;
+        }
+
+        /**
+         * @param managedHsmKeyId Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedHsmKeyId(String managedHsmKeyId) {
+            return managedHsmKeyId(Output.of(managedHsmKeyId));
         }
 
         /**

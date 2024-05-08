@@ -69,6 +69,8 @@ type Sync struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name which should be used for this Storage Sync. Changing this forces a new Storage Sync to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A list of registered servers owned by this Storage Sync.
+	RegisteredServers pulumi.StringArrayOutput `pulumi:"registeredServers"`
 	// The name of the Resource Group where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags which should be assigned to the Storage Sync.
@@ -114,6 +116,8 @@ type syncState struct {
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Storage Sync. Changing this forces a new Storage Sync to be created.
 	Name *string `pulumi:"name"`
+	// A list of registered servers owned by this Storage Sync.
+	RegisteredServers []string `pulumi:"registeredServers"`
 	// The name of the Resource Group where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags which should be assigned to the Storage Sync.
@@ -127,6 +131,8 @@ type SyncState struct {
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Storage Sync. Changing this forces a new Storage Sync to be created.
 	Name pulumi.StringPtrInput
+	// A list of registered servers owned by this Storage Sync.
+	RegisteredServers pulumi.StringArrayInput
 	// The name of the Resource Group where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Storage Sync.
@@ -264,6 +270,11 @@ func (o SyncOutput) Location() pulumi.StringOutput {
 // The name which should be used for this Storage Sync. Changing this forces a new Storage Sync to be created.
 func (o SyncOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Sync) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A list of registered servers owned by this Storage Sync.
+func (o SyncOutput) RegisteredServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Sync) pulumi.StringArrayOutput { return v.RegisteredServers }).(pulumi.StringArrayOutput)
 }
 
 // The name of the Resource Group where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.

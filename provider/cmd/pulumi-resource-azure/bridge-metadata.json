@@ -10102,6 +10102,12 @@
                                         }
                                     }
                                 },
+                                "outbound_ip_address_ids": {
+                                    "maxItemsOne": false
+                                },
+                                "outbound_ip_prefix_ids": {
+                                    "maxItemsOne": false
+                                },
                                 "pod_cidrs": {
                                     "maxItemsOne": false
                                 },
@@ -12206,6 +12212,16 @@
                 "current": "azure:loadtest/loadTest:LoadTest",
                 "majorVersion": 5,
                 "fields": {
+                    "encryption": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
                     "identity": {
                         "maxItemsOne": true,
                         "elem": {
@@ -19912,6 +19928,10 @@
                 "current": "azure:storage/container:Container",
                 "majorVersion": 5
             },
+            "azurerm_storage_container_immutability_policy": {
+                "current": "azure:storage/containerImmutabilityPolicy:ContainerImmutabilityPolicy",
+                "majorVersion": 5
+            },
             "azurerm_storage_data_lake_gen2_filesystem": {
                 "current": "azure:storage/dataLakeGen2Filesystem:DataLakeGen2Filesystem",
                 "majorVersion": 5,
@@ -20049,7 +20069,12 @@
             },
             "azurerm_storage_sync": {
                 "current": "azure:storage/sync:Sync",
-                "majorVersion": 5
+                "majorVersion": 5,
+                "fields": {
+                    "registered_servers": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "azurerm_storage_sync_cloud_endpoint": {
                 "current": "azure:storage/syncCloudEndpoint:SyncCloudEndpoint",
@@ -20057,6 +20082,10 @@
             },
             "azurerm_storage_sync_group": {
                 "current": "azure:storage/syncGroup:SyncGroup",
+                "majorVersion": 5
+            },
+            "azurerm_storage_sync_server_endpoint": {
+                "current": "azure:storage/syncServerEndpoint:SyncServerEndpoint",
                 "majorVersion": 5
             },
             "azurerm_storage_table": {
@@ -30851,6 +30880,11 @@
             }
         },
         "datasources": {
+            "azurerm_batch_account": {
+                "maxItemsOneOverrides": {
+                    "encryption": true
+                }
+            },
             "azurerm_ip_groups": {
                 "renames": [
                     "azure:compute/getIpGroups:getIpGroups"

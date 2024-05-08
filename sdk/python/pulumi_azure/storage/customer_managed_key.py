@@ -20,14 +20,16 @@ class CustomerManagedKeyArgs:
                  key_vault_id: Optional[pulumi.Input[str]] = None,
                  key_vault_uri: Optional[pulumi.Input[str]] = None,
                  key_version: Optional[pulumi.Input[str]] = None,
+                 managed_hsm_key_id: Optional[pulumi.Input[str]] = None,
                  user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CustomerManagedKey resource.
         :param pulumi.Input[str] key_name: The name of Key Vault Key.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] federated_identity_client_id: The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
-        :param pulumi.Input[str] key_vault_uri: URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `key_vault_id`, or `key_vault_uri` must be specified.
+        :param pulumi.Input[str] key_vault_uri: URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
         :param pulumi.Input[str] key_version: The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
+        :param pulumi.Input[str] managed_hsm_key_id: Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
         :param pulumi.Input[str] user_assigned_identity_id: The ID of a user assigned identity.
         """
         pulumi.set(__self__, "key_name", key_name)
@@ -40,6 +42,8 @@ class CustomerManagedKeyArgs:
             pulumi.set(__self__, "key_vault_uri", key_vault_uri)
         if key_version is not None:
             pulumi.set(__self__, "key_version", key_version)
+        if managed_hsm_key_id is not None:
+            pulumi.set(__self__, "managed_hsm_key_id", managed_hsm_key_id)
         if user_assigned_identity_id is not None:
             pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
 
@@ -92,7 +96,7 @@ class CustomerManagedKeyArgs:
     @pulumi.getter(name="keyVaultUri")
     def key_vault_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `key_vault_id`, or `key_vault_uri` must be specified.
+        URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
         """
         return pulumi.get(self, "key_vault_uri")
 
@@ -111,6 +115,18 @@ class CustomerManagedKeyArgs:
     @key_version.setter
     def key_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_version", value)
+
+    @property
+    @pulumi.getter(name="managedHsmKeyId")
+    def managed_hsm_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
+        """
+        return pulumi.get(self, "managed_hsm_key_id")
+
+    @managed_hsm_key_id.setter
+    def managed_hsm_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_hsm_key_id", value)
 
     @property
     @pulumi.getter(name="userAssignedIdentityId")
@@ -133,14 +149,16 @@ class _CustomerManagedKeyState:
                  key_vault_id: Optional[pulumi.Input[str]] = None,
                  key_vault_uri: Optional[pulumi.Input[str]] = None,
                  key_version: Optional[pulumi.Input[str]] = None,
+                 managed_hsm_key_id: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering CustomerManagedKey resources.
         :param pulumi.Input[str] federated_identity_client_id: The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
         :param pulumi.Input[str] key_name: The name of Key Vault Key.
-        :param pulumi.Input[str] key_vault_uri: URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `key_vault_id`, or `key_vault_uri` must be specified.
+        :param pulumi.Input[str] key_vault_uri: URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
         :param pulumi.Input[str] key_version: The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
+        :param pulumi.Input[str] managed_hsm_key_id: Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_assigned_identity_id: The ID of a user assigned identity.
         """
@@ -154,6 +172,8 @@ class _CustomerManagedKeyState:
             pulumi.set(__self__, "key_vault_uri", key_vault_uri)
         if key_version is not None:
             pulumi.set(__self__, "key_version", key_version)
+        if managed_hsm_key_id is not None:
+            pulumi.set(__self__, "managed_hsm_key_id", managed_hsm_key_id)
         if storage_account_id is not None:
             pulumi.set(__self__, "storage_account_id", storage_account_id)
         if user_assigned_identity_id is not None:
@@ -196,7 +216,7 @@ class _CustomerManagedKeyState:
     @pulumi.getter(name="keyVaultUri")
     def key_vault_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `key_vault_id`, or `key_vault_uri` must be specified.
+        URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
         """
         return pulumi.get(self, "key_vault_uri")
 
@@ -215,6 +235,18 @@ class _CustomerManagedKeyState:
     @key_version.setter
     def key_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_version", value)
+
+    @property
+    @pulumi.getter(name="managedHsmKeyId")
+    def managed_hsm_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
+        """
+        return pulumi.get(self, "managed_hsm_key_id")
+
+    @managed_hsm_key_id.setter
+    def managed_hsm_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_hsm_key_id", value)
 
     @property
     @pulumi.getter(name="storageAccountId")
@@ -251,6 +283,7 @@ class CustomerManagedKey(pulumi.CustomResource):
                  key_vault_id: Optional[pulumi.Input[str]] = None,
                  key_vault_uri: Optional[pulumi.Input[str]] = None,
                  key_version: Optional[pulumi.Input[str]] = None,
+                 managed_hsm_key_id: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -348,8 +381,9 @@ class CustomerManagedKey(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] federated_identity_client_id: The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
         :param pulumi.Input[str] key_name: The name of Key Vault Key.
-        :param pulumi.Input[str] key_vault_uri: URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `key_vault_id`, or `key_vault_uri` must be specified.
+        :param pulumi.Input[str] key_vault_uri: URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
         :param pulumi.Input[str] key_version: The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
+        :param pulumi.Input[str] managed_hsm_key_id: Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_assigned_identity_id: The ID of a user assigned identity.
         """
@@ -469,6 +503,7 @@ class CustomerManagedKey(pulumi.CustomResource):
                  key_vault_id: Optional[pulumi.Input[str]] = None,
                  key_vault_uri: Optional[pulumi.Input[str]] = None,
                  key_version: Optional[pulumi.Input[str]] = None,
+                 managed_hsm_key_id: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -487,6 +522,7 @@ class CustomerManagedKey(pulumi.CustomResource):
             __props__.__dict__["key_vault_id"] = key_vault_id
             __props__.__dict__["key_vault_uri"] = key_vault_uri
             __props__.__dict__["key_version"] = key_version
+            __props__.__dict__["managed_hsm_key_id"] = managed_hsm_key_id
             if storage_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_id'")
             __props__.__dict__["storage_account_id"] = storage_account_id
@@ -506,6 +542,7 @@ class CustomerManagedKey(pulumi.CustomResource):
             key_vault_id: Optional[pulumi.Input[str]] = None,
             key_vault_uri: Optional[pulumi.Input[str]] = None,
             key_version: Optional[pulumi.Input[str]] = None,
+            managed_hsm_key_id: Optional[pulumi.Input[str]] = None,
             storage_account_id: Optional[pulumi.Input[str]] = None,
             user_assigned_identity_id: Optional[pulumi.Input[str]] = None) -> 'CustomerManagedKey':
         """
@@ -517,8 +554,9 @@ class CustomerManagedKey(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] federated_identity_client_id: The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
         :param pulumi.Input[str] key_name: The name of Key Vault Key.
-        :param pulumi.Input[str] key_vault_uri: URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `key_vault_id`, or `key_vault_uri` must be specified.
+        :param pulumi.Input[str] key_vault_uri: URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
         :param pulumi.Input[str] key_version: The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
+        :param pulumi.Input[str] managed_hsm_key_id: Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_assigned_identity_id: The ID of a user assigned identity.
         """
@@ -531,6 +569,7 @@ class CustomerManagedKey(pulumi.CustomResource):
         __props__.__dict__["key_vault_id"] = key_vault_id
         __props__.__dict__["key_vault_uri"] = key_vault_uri
         __props__.__dict__["key_version"] = key_version
+        __props__.__dict__["managed_hsm_key_id"] = managed_hsm_key_id
         __props__.__dict__["storage_account_id"] = storage_account_id
         __props__.__dict__["user_assigned_identity_id"] = user_assigned_identity_id
         return CustomerManagedKey(resource_name, opts=opts, __props__=__props__)
@@ -560,7 +599,7 @@ class CustomerManagedKey(pulumi.CustomResource):
     @pulumi.getter(name="keyVaultUri")
     def key_vault_uri(self) -> pulumi.Output[str]:
         """
-        URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `key_vault_id`, or `key_vault_uri` must be specified.
+        URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
         """
         return pulumi.get(self, "key_vault_uri")
 
@@ -571,6 +610,14 @@ class CustomerManagedKey(pulumi.CustomResource):
         The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
         """
         return pulumi.get(self, "key_version")
+
+    @property
+    @pulumi.getter(name="managedHsmKeyId")
+    def managed_hsm_key_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
+        """
+        return pulumi.get(self, "managed_hsm_key_id")
 
     @property
     @pulumi.getter(name="storageAccountId")

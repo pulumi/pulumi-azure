@@ -14501,6 +14501,7 @@ type ScaleSetIdentity struct {
 	// ```
 	IdentityIds []string `pulumi:"identityIds"`
 	PrincipalId *string  `pulumi:"principalId"`
+	TenantId    *string  `pulumi:"tenantId"`
 	// Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 	Type string `pulumi:"type"`
 }
@@ -14563,6 +14564,7 @@ type ScaleSetIdentityArgs struct {
 	// ```
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
+	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
 	// Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -14699,6 +14701,10 @@ func (o ScaleSetIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScaleSetIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
+func (o ScaleSetIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScaleSetIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
 // Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 func (o ScaleSetIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ScaleSetIdentity) string { return v.Type }).(pulumi.StringOutput)
@@ -14790,6 +14796,15 @@ func (o ScaleSetIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ScaleSetIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScaleSetIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -19870,6 +19885,7 @@ type VirtualMachineIdentity struct {
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
+	TenantId    *string `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	//
 	// > **NOTE:** Managed Service Identity previously required the installation of a VM Extension, but this information [is now available via the Azure Instance Metadata Service](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview#how-does-it-work).
@@ -19896,6 +19912,7 @@ type VirtualMachineIdentityArgs struct {
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	TenantId    pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	//
 	// > **NOTE:** Managed Service Identity previously required the installation of a VM Extension, but this information [is now available via the Azure Instance Metadata Service](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview#how-does-it-work).
@@ -19993,6 +20010,10 @@ func (o VirtualMachineIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
+func (o VirtualMachineIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
 // Specifies the type of Managed Service Identity that should be configured on this Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 //
 // > **NOTE:** Managed Service Identity previously required the installation of a VM Extension, but this information [is now available via the Azure Instance Metadata Service](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview#how-does-it-work).
@@ -20045,6 +20066,15 @@ func (o VirtualMachineIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o VirtualMachineIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
 	}).(pulumi.StringPtrOutput)
 }
 

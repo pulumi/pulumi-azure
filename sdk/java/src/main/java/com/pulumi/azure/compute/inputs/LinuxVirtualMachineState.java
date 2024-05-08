@@ -377,14 +377,14 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Specifies the BYOL Type for this Virtual Machine. Possible values are `RHEL_BYOS` and `SLES_BYOS`.
+     * Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE` and `SLES_BYOS`.
      * 
      */
     @Import(name="licenseType")
     private @Nullable Output<String> licenseType;
 
     /**
-     * @return Specifies the BYOL Type for this Virtual Machine. Possible values are `RHEL_BYOS` and `SLES_BYOS`.
+     * @return Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE` and `SLES_BYOS`.
      * 
      */
     public Optional<Output<String>> licenseType() {
@@ -1478,7 +1478,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param licenseType Specifies the BYOL Type for this Virtual Machine. Possible values are `RHEL_BYOS` and `SLES_BYOS`.
+         * @param licenseType Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE` and `SLES_BYOS`.
          * 
          * @return builder
          * 
@@ -1489,7 +1489,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param licenseType Specifies the BYOL Type for this Virtual Machine. Possible values are `RHEL_BYOS` and `SLES_BYOS`.
+         * @param licenseType Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE` and `SLES_BYOS`.
          * 
          * @return builder
          * 

@@ -12,6 +12,34 @@ import (
 )
 
 // Use this data source to access information about an existing KeyVault Role Definition.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := keyvault.LookupManagedHardwareSecurityModuleRoleDefinition(ctx, &keyvault.LookupManagedHardwareSecurityModuleRoleDefinitionArgs{
+//				VaultBaseUrl: pulumi.StringRef(test.HsmUri),
+//				Name:         "21dbd100-6940-42c2-9190-5d6cb909625b",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("id", example.ResourceManagerId)
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupManagedHardwareSecurityModuleRoleDefinition(ctx *pulumi.Context, args *LookupManagedHardwareSecurityModuleRoleDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupManagedHardwareSecurityModuleRoleDefinitionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupManagedHardwareSecurityModuleRoleDefinitionResult
@@ -24,10 +52,11 @@ func LookupManagedHardwareSecurityModuleRoleDefinition(ctx *pulumi.Context, args
 
 // A collection of arguments for invoking getManagedHardwareSecurityModuleRoleDefinition.
 type LookupManagedHardwareSecurityModuleRoleDefinitionArgs struct {
+	ManagedHsmId *string `pulumi:"managedHsmId"`
 	// The name in UUID notation of this KeyVault Role Definition.
 	Name string `pulumi:"name"`
 	// Specify the base URL of the Managed HSM resource.
-	VaultBaseUrl string `pulumi:"vaultBaseUrl"`
+	VaultBaseUrl *string `pulumi:"vaultBaseUrl"`
 }
 
 // A collection of values returned by getManagedHardwareSecurityModuleRoleDefinition.
@@ -37,8 +66,9 @@ type LookupManagedHardwareSecurityModuleRoleDefinitionResult struct {
 	// A text description of this role definition.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id           string `pulumi:"id"`
+	ManagedHsmId string `pulumi:"managedHsmId"`
+	Name         string `pulumi:"name"`
 	// A `permission` block as defined below.
 	Permissions []GetManagedHardwareSecurityModuleRoleDefinitionPermission `pulumi:"permissions"`
 	// The ID of the role definition resource without base url.
@@ -65,10 +95,11 @@ func LookupManagedHardwareSecurityModuleRoleDefinitionOutput(ctx *pulumi.Context
 
 // A collection of arguments for invoking getManagedHardwareSecurityModuleRoleDefinition.
 type LookupManagedHardwareSecurityModuleRoleDefinitionOutputArgs struct {
+	ManagedHsmId pulumi.StringPtrInput `pulumi:"managedHsmId"`
 	// The name in UUID notation of this KeyVault Role Definition.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specify the base URL of the Managed HSM resource.
-	VaultBaseUrl pulumi.StringInput `pulumi:"vaultBaseUrl"`
+	VaultBaseUrl pulumi.StringPtrInput `pulumi:"vaultBaseUrl"`
 }
 
 func (LookupManagedHardwareSecurityModuleRoleDefinitionOutputArgs) ElementType() reflect.Type {
@@ -103,6 +134,10 @@ func (o LookupManagedHardwareSecurityModuleRoleDefinitionResultOutput) Descripti
 // The provider-assigned unique ID for this managed resource.
 func (o LookupManagedHardwareSecurityModuleRoleDefinitionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupManagedHardwareSecurityModuleRoleDefinitionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupManagedHardwareSecurityModuleRoleDefinitionResultOutput) ManagedHsmId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedHardwareSecurityModuleRoleDefinitionResult) string { return v.ManagedHsmId }).(pulumi.StringOutput)
 }
 
 func (o LookupManagedHardwareSecurityModuleRoleDefinitionResultOutput) Name() pulumi.StringOutput {

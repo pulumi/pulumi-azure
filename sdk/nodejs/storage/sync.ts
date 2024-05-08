@@ -76,6 +76,10 @@ export class Sync extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * A list of registered servers owned by this Storage Sync.
+     */
+    public /*out*/ readonly registeredServers!: pulumi.Output<string[]>;
+    /**
      * The name of the Resource Group where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -100,6 +104,7 @@ export class Sync extends pulumi.CustomResource {
             resourceInputs["incomingTrafficPolicy"] = state ? state.incomingTrafficPolicy : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["registeredServers"] = state ? state.registeredServers : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
@@ -112,6 +117,7 @@ export class Sync extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["registeredServers"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Sync.__pulumiType, name, resourceInputs, opts);
@@ -134,6 +140,10 @@ export interface SyncState {
      * The name which should be used for this Storage Sync. Changing this forces a new Storage Sync to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A list of registered servers owned by this Storage Sync.
+     */
+    registeredServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the Resource Group where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
      */

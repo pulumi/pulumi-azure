@@ -12066,7 +12066,7 @@ type NetworkConnectionMonitorEndpoint struct {
 	Name string `pulumi:"name"`
 	// The resource ID which is used as the endpoint by the Network Connection Monitor.
 	TargetResourceId *string `pulumi:"targetResourceId"`
-	// The endpoint type of the Network Connection Monitor. Possible values are `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
+	// The endpoint type of the Network Connection Monitor. Possible values are `AzureArcVM`, `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
 	TargetResourceType *string `pulumi:"targetResourceType"`
 }
 
@@ -12096,7 +12096,7 @@ type NetworkConnectionMonitorEndpointArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The resource ID which is used as the endpoint by the Network Connection Monitor.
 	TargetResourceId pulumi.StringPtrInput `pulumi:"targetResourceId"`
-	// The endpoint type of the Network Connection Monitor. Possible values are `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
+	// The endpoint type of the Network Connection Monitor. Possible values are `AzureArcVM`, `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
 	TargetResourceType pulumi.StringPtrInput `pulumi:"targetResourceType"`
 }
 
@@ -12186,7 +12186,7 @@ func (o NetworkConnectionMonitorEndpointOutput) TargetResourceId() pulumi.String
 	return o.ApplyT(func(v NetworkConnectionMonitorEndpoint) *string { return v.TargetResourceId }).(pulumi.StringPtrOutput)
 }
 
-// The endpoint type of the Network Connection Monitor. Possible values are `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
+// The endpoint type of the Network Connection Monitor. Possible values are `AzureArcVM`, `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
 func (o NetworkConnectionMonitorEndpointOutput) TargetResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkConnectionMonitorEndpoint) *string { return v.TargetResourceType }).(pulumi.StringPtrOutput)
 }

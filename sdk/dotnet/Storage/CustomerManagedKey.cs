@@ -155,7 +155,7 @@ namespace Pulumi.Azure.Storage
         public Output<string?> KeyVaultId { get; private set; } = null!;
 
         /// <summary>
-        /// URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `key_vault_id`, or `key_vault_uri` must be specified.
+        /// URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
         /// </summary>
         [Output("keyVaultUri")]
         public Output<string> KeyVaultUri { get; private set; } = null!;
@@ -165,6 +165,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Output("keyVersion")]
         public Output<string?> KeyVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
+        /// </summary>
+        [Output("managedHsmKeyId")]
+        public Output<string?> ManagedHsmKeyId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Storage Account. Changing this forces a new resource to be created.
@@ -240,7 +246,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? KeyVaultId { get; set; }
 
         /// <summary>
-        /// URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `key_vault_id`, or `key_vault_uri` must be specified.
+        /// URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
         /// </summary>
         [Input("keyVaultUri")]
         public Input<string>? KeyVaultUri { get; set; }
@@ -250,6 +256,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("keyVersion")]
         public Input<string>? KeyVersion { get; set; }
+
+        /// <summary>
+        /// Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
+        /// </summary>
+        [Input("managedHsmKeyId")]
+        public Input<string>? ManagedHsmKeyId { get; set; }
 
         /// <summary>
         /// The ID of the Storage Account. Changing this forces a new resource to be created.
@@ -287,7 +299,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? KeyVaultId { get; set; }
 
         /// <summary>
-        /// URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `key_vault_id`, or `key_vault_uri` must be specified.
+        /// URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
         /// </summary>
         [Input("keyVaultUri")]
         public Input<string>? KeyVaultUri { get; set; }
@@ -297,6 +309,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("keyVersion")]
         public Input<string>? KeyVersion { get; set; }
+
+        /// <summary>
+        /// Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
+        /// </summary>
+        [Input("managedHsmKeyId")]
+        public Input<string>? ManagedHsmKeyId { get; set; }
 
         /// <summary>
         /// The ID of the Storage Account. Changing this forces a new resource to be created.

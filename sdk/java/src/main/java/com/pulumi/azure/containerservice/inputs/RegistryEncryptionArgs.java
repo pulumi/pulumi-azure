@@ -18,16 +18,20 @@ public final class RegistryEncryptionArgs extends com.pulumi.resources.ResourceA
     public static final RegistryEncryptionArgs Empty = new RegistryEncryptionArgs();
 
     /**
-     * Boolean value that indicates whether encryption is enabled.
+     * @deprecated
+     * The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider.
      * 
      */
+    @Deprecated /* The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider. */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Boolean value that indicates whether encryption is enabled.
+     * @deprecated
+     * The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider.
      * 
      */
+    @Deprecated /* The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider. */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -89,22 +93,26 @@ public final class RegistryEncryptionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param enabled Boolean value that indicates whether encryption is enabled.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider.
+         * 
          */
+        @Deprecated /* The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider. */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
         /**
-         * @param enabled Boolean value that indicates whether encryption is enabled.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider.
+         * 
          */
+        @Deprecated /* The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider. */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

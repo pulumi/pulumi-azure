@@ -6,6 +6,7 @@ package com.pulumi.azure.loadtest;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.loadtest.LoadTestArgs;
 import com.pulumi.azure.loadtest.inputs.LoadTestState;
+import com.pulumi.azure.loadtest.outputs.LoadTestEncryption;
 import com.pulumi.azure.loadtest.outputs.LoadTestIdentity;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -71,20 +72,6 @@ import javax.annotation.Nullable;
  * ```
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ## Blocks Reference
- * 
- * ### `identity` Block
- * 
- * The `identity` block supports the following arguments:
- * 
- * * `type` - (Required) Specifies the type of Managed Identity that should be assigned to this Load Test. Possible values are `SystemAssigned`, `SystemAssigned, UserAssigned` and `UserAssigned`.
- * * `identity_ids` - (Optional) A list of the User Assigned Identity IDs that should be assigned to this Load Test.
- * 
- * In addition to the arguments defined above, the `identity` block exports the following attributes:
- * 
- * * `principal_id` - The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
- * * `tenant_id` - The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
- * 
  * ## Import
  * 
  * An existing Load Test can be imported into Terraform using the `resource id`, e.g.
@@ -129,6 +116,20 @@ public class LoadTest extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
+    }
+    /**
+     * An `encryption` block as defined below. Changing this forces a new Load Test to be created.
+     * 
+     */
+    @Export(name="encryption", refs={LoadTestEncryption.class}, tree="[0]")
+    private Output</* @Nullable */ LoadTestEncryption> encryption;
+
+    /**
+     * @return An `encryption` block as defined below. Changing this forces a new Load Test to be created.
+     * 
+     */
+    public Output<Optional<LoadTestEncryption>> encryption() {
+        return Codegen.optional(this.encryption);
     }
     /**
      * An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.

@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -113,6 +114,20 @@ public class Sync extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * A list of registered servers owned by this Storage Sync.
+     * 
+     */
+    @Export(name="registeredServers", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> registeredServers;
+
+    /**
+     * @return A list of registered servers owned by this Storage Sync.
+     * 
+     */
+    public Output<List<String>> registeredServers() {
+        return this.registeredServers;
     }
     /**
      * The name of the Resource Group where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.

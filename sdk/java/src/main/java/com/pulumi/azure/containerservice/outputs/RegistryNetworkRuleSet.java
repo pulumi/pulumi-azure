@@ -30,10 +30,10 @@ public final class RegistryNetworkRuleSet {
     private @Nullable List<RegistryNetworkRuleSetIpRule> ipRules;
     /**
      * @deprecated
-     *  This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead
+     * The property `virtual_network` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /*  This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead */
+    @Deprecated /* The property `virtual_network` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider. */
     private @Nullable List<RegistryNetworkRuleSetVirtualNetwork> virtualNetworks;
 
     private RegistryNetworkRuleSet() {}
@@ -57,10 +57,10 @@ public final class RegistryNetworkRuleSet {
     }
     /**
      * @deprecated
-     *  This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead
+     * The property `virtual_network` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /*  This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead */
+    @Deprecated /* The property `virtual_network` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider. */
     public List<RegistryNetworkRuleSetVirtualNetwork> virtualNetworks() {
         return this.virtualNetworks == null ? List.of() : this.virtualNetworks;
     }

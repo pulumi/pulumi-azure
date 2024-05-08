@@ -6,6 +6,7 @@ package com.pulumi.azure.storage.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -62,6 +63,21 @@ public final class SyncState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A list of registered servers owned by this Storage Sync.
+     * 
+     */
+    @Import(name="registeredServers")
+    private @Nullable Output<List<String>> registeredServers;
+
+    /**
+     * @return A list of registered servers owned by this Storage Sync.
+     * 
+     */
+    public Optional<Output<List<String>>> registeredServers() {
+        return Optional.ofNullable(this.registeredServers);
+    }
+
+    /**
      * The name of the Resource Group where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
      * 
      */
@@ -97,6 +113,7 @@ public final class SyncState extends com.pulumi.resources.ResourceArgs {
         this.incomingTrafficPolicy = $.incomingTrafficPolicy;
         this.location = $.location;
         this.name = $.name;
+        this.registeredServers = $.registeredServers;
         this.resourceGroupName = $.resourceGroupName;
         this.tags = $.tags;
     }
@@ -180,6 +197,37 @@ public final class SyncState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param registeredServers A list of registered servers owned by this Storage Sync.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder registeredServers(@Nullable Output<List<String>> registeredServers) {
+            $.registeredServers = registeredServers;
+            return this;
+        }
+
+        /**
+         * @param registeredServers A list of registered servers owned by this Storage Sync.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder registeredServers(List<String> registeredServers) {
+            return registeredServers(Output.of(registeredServers));
+        }
+
+        /**
+         * @param registeredServers A list of registered servers owned by this Storage Sync.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder registeredServers(String... registeredServers) {
+            return registeredServers(List.of(registeredServers));
         }
 
         /**

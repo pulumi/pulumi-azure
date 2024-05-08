@@ -218,7 +218,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.compute.LinuxVirtualMachineIdentity | undefined>;
     /**
-     * Specifies the BYOL Type for this Virtual Machine. Possible values are `RHEL_BYOS` and `SLES_BYOS`.
+     * Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE` and `SLES_BYOS`.
      */
     public readonly licenseType!: pulumi.Output<string | undefined>;
     /**
@@ -618,7 +618,7 @@ export interface LinuxVirtualMachineState {
      */
     identity?: pulumi.Input<inputs.compute.LinuxVirtualMachineIdentity>;
     /**
-     * Specifies the BYOL Type for this Virtual Machine. Possible values are `RHEL_BYOS` and `SLES_BYOS`.
+     * Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE` and `SLES_BYOS`.
      */
     licenseType?: pulumi.Input<string>;
     /**
@@ -873,7 +873,7 @@ export interface LinuxVirtualMachineArgs {
      */
     identity?: pulumi.Input<inputs.compute.LinuxVirtualMachineIdentity>;
     /**
-     * Specifies the BYOL Type for this Virtual Machine. Possible values are `RHEL_BYOS` and `SLES_BYOS`.
+     * Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE` and `SLES_BYOS`.
      */
     licenseType?: pulumi.Input<string>;
     /**

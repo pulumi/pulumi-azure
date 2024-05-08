@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BlobInventoryPolicy{}
 	case "azure:storage/container:Container":
 		r = &Container{}
+	case "azure:storage/containerImmutabilityPolicy:ContainerImmutabilityPolicy":
+		r = &ContainerImmutabilityPolicy{}
 	case "azure:storage/customerManagedKey:CustomerManagedKey":
 		r = &CustomerManagedKey{}
 	case "azure:storage/dataLakeGen2Filesystem:DataLakeGen2Filesystem":
@@ -71,6 +73,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SyncCloudEndpoint{}
 	case "azure:storage/syncGroup:SyncGroup":
 		r = &SyncGroup{}
+	case "azure:storage/syncServerEndpoint:SyncServerEndpoint":
+		r = &SyncServerEndpoint{}
 	case "azure:storage/table:Table":
 		r = &Table{}
 	case "azure:storage/tableEntity:TableEntity":
@@ -113,6 +117,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"storage/container",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"storage/containerImmutabilityPolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -213,6 +222,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"storage/syncGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"storage/syncServerEndpoint",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

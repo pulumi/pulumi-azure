@@ -5645,47 +5645,6 @@ func (i GetAccountEncryptionArgs) ToGetAccountEncryptionOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccountEncryptionOutput)
 }
 
-func (i GetAccountEncryptionArgs) ToGetAccountEncryptionPtrOutput() GetAccountEncryptionPtrOutput {
-	return i.ToGetAccountEncryptionPtrOutputWithContext(context.Background())
-}
-
-func (i GetAccountEncryptionArgs) ToGetAccountEncryptionPtrOutputWithContext(ctx context.Context) GetAccountEncryptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAccountEncryptionOutput).ToGetAccountEncryptionPtrOutputWithContext(ctx)
-}
-
-// GetAccountEncryptionPtrInput is an input type that accepts GetAccountEncryptionArgs, GetAccountEncryptionPtr and GetAccountEncryptionPtrOutput values.
-// You can construct a concrete instance of `GetAccountEncryptionPtrInput` via:
-//
-//	        GetAccountEncryptionArgs{...}
-//
-//	or:
-//
-//	        nil
-type GetAccountEncryptionPtrInput interface {
-	pulumi.Input
-
-	ToGetAccountEncryptionPtrOutput() GetAccountEncryptionPtrOutput
-	ToGetAccountEncryptionPtrOutputWithContext(context.Context) GetAccountEncryptionPtrOutput
-}
-
-type getAccountEncryptionPtrType GetAccountEncryptionArgs
-
-func GetAccountEncryptionPtr(v *GetAccountEncryptionArgs) GetAccountEncryptionPtrInput {
-	return (*getAccountEncryptionPtrType)(v)
-}
-
-func (*getAccountEncryptionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetAccountEncryption)(nil)).Elem()
-}
-
-func (i *getAccountEncryptionPtrType) ToGetAccountEncryptionPtrOutput() GetAccountEncryptionPtrOutput {
-	return i.ToGetAccountEncryptionPtrOutputWithContext(context.Background())
-}
-
-func (i *getAccountEncryptionPtrType) ToGetAccountEncryptionPtrOutputWithContext(ctx context.Context) GetAccountEncryptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAccountEncryptionPtrOutput)
-}
-
 type GetAccountEncryptionOutput struct{ *pulumi.OutputState }
 
 func (GetAccountEncryptionOutput) ElementType() reflect.Type {
@@ -5700,53 +5659,9 @@ func (o GetAccountEncryptionOutput) ToGetAccountEncryptionOutputWithContext(ctx 
 	return o
 }
 
-func (o GetAccountEncryptionOutput) ToGetAccountEncryptionPtrOutput() GetAccountEncryptionPtrOutput {
-	return o.ToGetAccountEncryptionPtrOutputWithContext(context.Background())
-}
-
-func (o GetAccountEncryptionOutput) ToGetAccountEncryptionPtrOutputWithContext(ctx context.Context) GetAccountEncryptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetAccountEncryption) *GetAccountEncryption {
-		return &v
-	}).(GetAccountEncryptionPtrOutput)
-}
-
 // The full URL path of the Key Vault Key used to encrypt data for this Batch account.
 func (o GetAccountEncryptionOutput) KeyVaultKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccountEncryption) string { return v.KeyVaultKeyId }).(pulumi.StringOutput)
-}
-
-type GetAccountEncryptionPtrOutput struct{ *pulumi.OutputState }
-
-func (GetAccountEncryptionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetAccountEncryption)(nil)).Elem()
-}
-
-func (o GetAccountEncryptionPtrOutput) ToGetAccountEncryptionPtrOutput() GetAccountEncryptionPtrOutput {
-	return o
-}
-
-func (o GetAccountEncryptionPtrOutput) ToGetAccountEncryptionPtrOutputWithContext(ctx context.Context) GetAccountEncryptionPtrOutput {
-	return o
-}
-
-func (o GetAccountEncryptionPtrOutput) Elem() GetAccountEncryptionOutput {
-	return o.ApplyT(func(v *GetAccountEncryption) GetAccountEncryption {
-		if v != nil {
-			return *v
-		}
-		var ret GetAccountEncryption
-		return ret
-	}).(GetAccountEncryptionOutput)
-}
-
-// The full URL path of the Key Vault Key used to encrypt data for this Batch account.
-func (o GetAccountEncryptionPtrOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetAccountEncryption) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.KeyVaultKeyId
-	}).(pulumi.StringPtrOutput)
 }
 
 type GetAccountKeyVaultReference struct {
@@ -9490,7 +9405,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolWindowInput)(nil)).Elem(), PoolWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolWindowArrayInput)(nil)).Elem(), PoolWindowArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountEncryptionInput)(nil)).Elem(), GetAccountEncryptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountEncryptionPtrInput)(nil)).Elem(), GetAccountEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountKeyVaultReferenceInput)(nil)).Elem(), GetAccountKeyVaultReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountKeyVaultReferenceArrayInput)(nil)).Elem(), GetAccountKeyVaultReferenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolAutoScaleInput)(nil)).Elem(), GetPoolAutoScaleArgs{})
@@ -9628,7 +9542,6 @@ func init() {
 	pulumi.RegisterOutputType(PoolWindowOutput{})
 	pulumi.RegisterOutputType(PoolWindowArrayOutput{})
 	pulumi.RegisterOutputType(GetAccountEncryptionOutput{})
-	pulumi.RegisterOutputType(GetAccountEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(GetAccountKeyVaultReferenceOutput{})
 	pulumi.RegisterOutputType(GetAccountKeyVaultReferenceArrayOutput{})
 	pulumi.RegisterOutputType(GetPoolAutoScaleOutput{})

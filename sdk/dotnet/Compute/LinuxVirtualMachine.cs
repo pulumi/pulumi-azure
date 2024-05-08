@@ -273,7 +273,7 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.LinuxVirtualMachineIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the BYOL Type for this Virtual Machine. Possible values are `RHEL_BYOS` and `SLES_BYOS`.
+        /// Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE` and `SLES_BYOS`.
         /// </summary>
         [Output("licenseType")]
         public Output<string?> LicenseType { get; private set; } = null!;
@@ -713,7 +713,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.LinuxVirtualMachineIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Specifies the BYOL Type for this Virtual Machine. Possible values are `RHEL_BYOS` and `SLES_BYOS`.
+        /// Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE` and `SLES_BYOS`.
         /// </summary>
         [Input("licenseType")]
         public Input<string>? LicenseType { get; set; }
@@ -1098,7 +1098,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.LinuxVirtualMachineIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Specifies the BYOL Type for this Virtual Machine. Possible values are `RHEL_BYOS` and `SLES_BYOS`.
+        /// Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE` and `SLES_BYOS`.
         /// </summary>
         [Input("licenseType")]
         public Input<string>? LicenseType { get; set; }

@@ -7,11 +7,20 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetManagedHardwareSecurityModuleRoleDefinitionPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetManagedHardwareSecurityModuleRoleDefinitionPlainArgs Empty = new GetManagedHardwareSecurityModuleRoleDefinitionPlainArgs();
+
+    @Import(name="managedHsmId")
+    private @Nullable String managedHsmId;
+
+    public Optional<String> managedHsmId() {
+        return Optional.ofNullable(this.managedHsmId);
+    }
 
     /**
      * The name in UUID notation of this KeyVault Role Definition.
@@ -32,20 +41,21 @@ public final class GetManagedHardwareSecurityModuleRoleDefinitionPlainArgs exten
      * Specify the base URL of the Managed HSM resource.
      * 
      */
-    @Import(name="vaultBaseUrl", required=true)
-    private String vaultBaseUrl;
+    @Import(name="vaultBaseUrl")
+    private @Nullable String vaultBaseUrl;
 
     /**
      * @return Specify the base URL of the Managed HSM resource.
      * 
      */
-    public String vaultBaseUrl() {
-        return this.vaultBaseUrl;
+    public Optional<String> vaultBaseUrl() {
+        return Optional.ofNullable(this.vaultBaseUrl);
     }
 
     private GetManagedHardwareSecurityModuleRoleDefinitionPlainArgs() {}
 
     private GetManagedHardwareSecurityModuleRoleDefinitionPlainArgs(GetManagedHardwareSecurityModuleRoleDefinitionPlainArgs $) {
+        this.managedHsmId = $.managedHsmId;
         this.name = $.name;
         this.vaultBaseUrl = $.vaultBaseUrl;
     }
@@ -68,6 +78,11 @@ public final class GetManagedHardwareSecurityModuleRoleDefinitionPlainArgs exten
             $ = new GetManagedHardwareSecurityModuleRoleDefinitionPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        public Builder managedHsmId(@Nullable String managedHsmId) {
+            $.managedHsmId = managedHsmId;
+            return this;
+        }
+
         /**
          * @param name The name in UUID notation of this KeyVault Role Definition.
          * 
@@ -85,7 +100,7 @@ public final class GetManagedHardwareSecurityModuleRoleDefinitionPlainArgs exten
          * @return builder
          * 
          */
-        public Builder vaultBaseUrl(String vaultBaseUrl) {
+        public Builder vaultBaseUrl(@Nullable String vaultBaseUrl) {
             $.vaultBaseUrl = vaultBaseUrl;
             return this;
         }
@@ -93,9 +108,6 @@ public final class GetManagedHardwareSecurityModuleRoleDefinitionPlainArgs exten
         public GetManagedHardwareSecurityModuleRoleDefinitionPlainArgs build() {
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("GetManagedHardwareSecurityModuleRoleDefinitionPlainArgs", "name");
-            }
-            if ($.vaultBaseUrl == null) {
-                throw new MissingRequiredPropertyException("GetManagedHardwareSecurityModuleRoleDefinitionPlainArgs", "vaultBaseUrl");
             }
             return $;
         }

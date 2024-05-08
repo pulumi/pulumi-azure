@@ -25,6 +25,7 @@ public final class VirtualMachineIdentity {
      * 
      */
     private @Nullable String principalId;
+    private @Nullable String tenantId;
     /**
      * @return Specifies the type of Managed Service Identity that should be configured on this Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
      * 
@@ -52,6 +53,9 @@ public final class VirtualMachineIdentity {
     public Optional<String> principalId() {
         return Optional.ofNullable(this.principalId);
     }
+    public Optional<String> tenantId() {
+        return Optional.ofNullable(this.tenantId);
+    }
     /**
      * @return Specifies the type of Managed Service Identity that should be configured on this Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
      * 
@@ -75,12 +79,14 @@ public final class VirtualMachineIdentity {
     public static final class Builder {
         private @Nullable List<String> identityIds;
         private @Nullable String principalId;
+        private @Nullable String tenantId;
         private String type;
         public Builder() {}
         public Builder(VirtualMachineIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.identityIds = defaults.identityIds;
     	      this.principalId = defaults.principalId;
+    	      this.tenantId = defaults.tenantId;
     	      this.type = defaults.type;
         }
 
@@ -100,6 +106,12 @@ public final class VirtualMachineIdentity {
             return this;
         }
         @CustomType.Setter
+        public Builder tenantId(@Nullable String tenantId) {
+
+            this.tenantId = tenantId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder type(String type) {
             if (type == null) {
               throw new MissingRequiredPropertyException("VirtualMachineIdentity", "type");
@@ -111,6 +123,7 @@ public final class VirtualMachineIdentity {
             final var _resultValue = new VirtualMachineIdentity();
             _resultValue.identityIds = identityIds;
             _resultValue.principalId = principalId;
+            _resultValue.tenantId = tenantId;
             _resultValue.type = type;
             return _resultValue;
         }

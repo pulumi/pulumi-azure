@@ -14,18 +14,32 @@ namespace Pulumi.Azure.LoadTest.Inputs
     {
         [Input("identityIds")]
         private InputList<string>? _identityIds;
+
+        /// <summary>
+        /// A list of the User Assigned Identity IDs that should be assigned to this Load Test.
+        /// </summary>
         public InputList<string> IdentityIds
         {
             get => _identityIds ?? (_identityIds = new InputList<string>());
             set => _identityIds = value;
         }
 
+        /// <summary>
+        /// The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
+        /// *
+        /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
 
+        /// <summary>
+        /// The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
+        /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
+        /// <summary>
+        /// Specifies the type of Managed Identity that should be assigned to this Load Test Encryption. Possible values are `SystemAssigned` or `UserAssigned`. Changing this forces a new Load Test to be created.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

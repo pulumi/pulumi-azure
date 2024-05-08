@@ -1448,8 +1448,10 @@ func (o AccountCustomDomainPtrOutput) UseSubdomain() pulumi.BoolPtrOutput {
 }
 
 type AccountCustomerManagedKey struct {
-	// The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
-	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
+	// The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
+	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
+	// The ID of the managed HSM Key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
+	ManagedHsmKeyId *string `pulumi:"managedHsmKeyId"`
 	// The ID of a user assigned identity.
 	//
 	// > **NOTE:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
@@ -1468,8 +1470,10 @@ type AccountCustomerManagedKeyInput interface {
 }
 
 type AccountCustomerManagedKeyArgs struct {
-	// The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
-	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
+	// The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
+	KeyVaultKeyId pulumi.StringPtrInput `pulumi:"keyVaultKeyId"`
+	// The ID of the managed HSM Key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
+	ManagedHsmKeyId pulumi.StringPtrInput `pulumi:"managedHsmKeyId"`
 	// The ID of a user assigned identity.
 	//
 	// > **NOTE:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
@@ -1553,9 +1557,14 @@ func (o AccountCustomerManagedKeyOutput) ToAccountCustomerManagedKeyPtrOutputWit
 	}).(AccountCustomerManagedKeyPtrOutput)
 }
 
-// The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
-func (o AccountCustomerManagedKeyOutput) KeyVaultKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountCustomerManagedKey) string { return v.KeyVaultKeyId }).(pulumi.StringOutput)
+// The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
+func (o AccountCustomerManagedKeyOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountCustomerManagedKey) *string { return v.KeyVaultKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the managed HSM Key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
+func (o AccountCustomerManagedKeyOutput) ManagedHsmKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountCustomerManagedKey) *string { return v.ManagedHsmKeyId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of a user assigned identity.
@@ -1589,13 +1598,23 @@ func (o AccountCustomerManagedKeyPtrOutput) Elem() AccountCustomerManagedKeyOutp
 	}).(AccountCustomerManagedKeyOutput)
 }
 
-// The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
+// The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
 func (o AccountCustomerManagedKeyPtrOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountCustomerManagedKey) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.KeyVaultKeyId
+		return v.KeyVaultKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the managed HSM Key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
+func (o AccountCustomerManagedKeyPtrOutput) ManagedHsmKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountCustomerManagedKey) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedHsmKeyId
 	}).(pulumi.StringPtrOutput)
 }
 

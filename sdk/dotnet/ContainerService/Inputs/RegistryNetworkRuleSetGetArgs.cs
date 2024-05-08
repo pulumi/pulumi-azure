@@ -36,7 +36,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
         [Input("virtualNetworks")]
         private InputList<Inputs.RegistryNetworkRuleSetVirtualNetworkGetArgs>? _virtualNetworks;
-        [Obsolete(@" This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead")]
+        [Obsolete(@"The property `virtual_network` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider.")]
         public InputList<Inputs.RegistryNetworkRuleSetVirtualNetworkGetArgs> VirtualNetworks
         {
             get => _virtualNetworks ?? (_virtualNetworks = new InputList<Inputs.RegistryNetworkRuleSetVirtualNetworkGetArgs>());

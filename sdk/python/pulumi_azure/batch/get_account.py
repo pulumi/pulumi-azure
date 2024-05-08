@@ -9,7 +9,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from ._inputs import *
 
 __all__ = [
     'GetAccountResult',
@@ -71,7 +70,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter
-    def encryption(self) -> Optional['outputs.GetAccountEncryptionResult']:
+    def encryption(self) -> 'outputs.GetAccountEncryptionResult':
         """
         The `encryption` block that describes the Azure KeyVault key reference used to encrypt data for the Azure Batch account.
         """
@@ -175,8 +174,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             tags=self.tags)
 
 
-def get_account(encryption: Optional[pulumi.InputType['GetAccountEncryptionArgs']] = None,
-                name: Optional[str] = None,
+def get_account(name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
@@ -194,12 +192,10 @@ def get_account(encryption: Optional[pulumi.InputType['GetAccountEncryptionArgs'
     ```
 
 
-    :param pulumi.InputType['GetAccountEncryptionArgs'] encryption: The `encryption` block that describes the Azure KeyVault key reference used to encrypt data for the Azure Batch account.
     :param str name: The name of the Batch account.
     :param str resource_group_name: The Name of the Resource Group where this Batch account exists.
     """
     __args__ = dict()
-    __args__['encryption'] = encryption
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -221,8 +217,7 @@ def get_account(encryption: Optional[pulumi.InputType['GetAccountEncryptionArgs'
 
 
 @_utilities.lift_output_func(get_account)
-def get_account_output(encryption: Optional[pulumi.Input[Optional[pulumi.InputType['GetAccountEncryptionArgs']]]] = None,
-                       name: Optional[pulumi.Input[str]] = None,
+def get_account_output(name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
@@ -240,7 +235,6 @@ def get_account_output(encryption: Optional[pulumi.Input[Optional[pulumi.InputTy
     ```
 
 
-    :param pulumi.InputType['GetAccountEncryptionArgs'] encryption: The `encryption` block that describes the Azure KeyVault key reference used to encrypt data for the Azure Batch account.
     :param str name: The name of the Batch account.
     :param str resource_group_name: The Name of the Resource Group where this Batch account exists.
     """
