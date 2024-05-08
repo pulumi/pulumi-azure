@@ -23,6 +23,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// The Principal ID associated with this Managed Service Identity.
         /// </summary>
         public readonly string? PrincipalId;
+        public readonly string? TenantId;
         /// <summary>
         /// Specifies the type of Managed Service Identity that should be configured on this Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         /// 
@@ -38,10 +39,13 @@ namespace Pulumi.Azure.Compute.Outputs
 
             string? principalId,
 
+            string? tenantId,
+
             string type)
         {
             IdentityIds = identityIds;
             PrincipalId = principalId;
+            TenantId = tenantId;
             Type = type;
         }
     }

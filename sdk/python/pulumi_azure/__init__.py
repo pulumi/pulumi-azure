@@ -8563,6 +8563,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "storage/containerImmutabilityPolicy",
+  "fqn": "pulumi_azure.storage",
+  "classes": {
+   "azure:storage/containerImmutabilityPolicy:ContainerImmutabilityPolicy": "ContainerImmutabilityPolicy"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "storage/customerManagedKey",
   "fqn": "pulumi_azure.storage",
   "classes": {
@@ -8719,6 +8727,14 @@ _utilities.register(
   "fqn": "pulumi_azure.storage",
   "classes": {
    "azure:storage/syncGroup:SyncGroup": "SyncGroup"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "storage/syncServerEndpoint",
+  "fqn": "pulumi_azure.storage",
+  "classes": {
+   "azure:storage/syncServerEndpoint:SyncServerEndpoint": "SyncServerEndpoint"
   }
  },
  {

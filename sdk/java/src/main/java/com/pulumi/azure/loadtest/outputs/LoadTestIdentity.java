@@ -13,21 +13,55 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LoadTestIdentity {
+    /**
+     * @return A list of the User Assigned Identity IDs that should be assigned to this Load Test.
+     * 
+     */
     private @Nullable List<String> identityIds;
+    /**
+     * @return The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
+     * *
+     * 
+     */
     private @Nullable String principalId;
+    /**
+     * @return The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
+     * 
+     */
     private @Nullable String tenantId;
+    /**
+     * @return Specifies the type of Managed Identity that should be assigned to this Load Test Encryption. Possible values are `SystemAssigned` or `UserAssigned`. Changing this forces a new Load Test to be created.
+     * 
+     */
     private String type;
 
     private LoadTestIdentity() {}
+    /**
+     * @return A list of the User Assigned Identity IDs that should be assigned to this Load Test.
+     * 
+     */
     public List<String> identityIds() {
         return this.identityIds == null ? List.of() : this.identityIds;
     }
+    /**
+     * @return The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
+     * *
+     * 
+     */
     public Optional<String> principalId() {
         return Optional.ofNullable(this.principalId);
     }
+    /**
+     * @return The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
+     * 
+     */
     public Optional<String> tenantId() {
         return Optional.ofNullable(this.tenantId);
     }
+    /**
+     * @return Specifies the type of Managed Identity that should be assigned to this Load Test Encryption. Possible values are `SystemAssigned` or `UserAssigned`. Changing this forces a new Load Test to be created.
+     * 
+     */
     public String type() {
         return this.type;
     }

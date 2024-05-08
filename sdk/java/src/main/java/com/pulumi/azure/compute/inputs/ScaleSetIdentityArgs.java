@@ -143,6 +143,13 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.principalId);
     }
 
+    @Import(name="tenantId")
+    private @Nullable Output<String> tenantId;
+
+    public Optional<Output<String>> tenantId() {
+        return Optional.ofNullable(this.tenantId);
+    }
+
     /**
      * Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set&#39;s Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
      * 
@@ -163,6 +170,7 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
     private ScaleSetIdentityArgs(ScaleSetIdentityArgs $) {
         this.identityIds = $.identityIds;
         this.principalId = $.principalId;
+        this.tenantId = $.tenantId;
         this.type = $.type;
     }
 
@@ -378,6 +386,15 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
 
         public Builder principalId(String principalId) {
             return principalId(Output.of(principalId));
+        }
+
+        public Builder tenantId(@Nullable Output<String> tenantId) {
+            $.tenantId = tenantId;
+            return this;
+        }
+
+        public Builder tenantId(String tenantId) {
+            return tenantId(Output.of(tenantId));
         }
 
         /**

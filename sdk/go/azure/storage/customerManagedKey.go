@@ -159,10 +159,12 @@ type CustomerManagedKey struct {
 	// The name of Key Vault Key.
 	KeyName    pulumi.StringOutput    `pulumi:"keyName"`
 	KeyVaultId pulumi.StringPtrOutput `pulumi:"keyVaultId"`
-	// URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `keyVaultId`, or `keyVaultUri` must be specified.
+	// URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
 	KeyVaultUri pulumi.StringOutput `pulumi:"keyVaultUri"`
 	// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
 	KeyVersion pulumi.StringPtrOutput `pulumi:"keyVersion"`
+	// Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
+	ManagedHsmKeyId pulumi.StringPtrOutput `pulumi:"managedHsmKeyId"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringOutput `pulumi:"storageAccountId"`
 	// The ID of a user assigned identity.
@@ -210,10 +212,12 @@ type customerManagedKeyState struct {
 	// The name of Key Vault Key.
 	KeyName    *string `pulumi:"keyName"`
 	KeyVaultId *string `pulumi:"keyVaultId"`
-	// URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `keyVaultId`, or `keyVaultUri` must be specified.
+	// URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
 	KeyVaultUri *string `pulumi:"keyVaultUri"`
 	// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
 	KeyVersion *string `pulumi:"keyVersion"`
+	// Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
+	ManagedHsmKeyId *string `pulumi:"managedHsmKeyId"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// The ID of a user assigned identity.
@@ -226,10 +230,12 @@ type CustomerManagedKeyState struct {
 	// The name of Key Vault Key.
 	KeyName    pulumi.StringPtrInput
 	KeyVaultId pulumi.StringPtrInput
-	// URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `keyVaultId`, or `keyVaultUri` must be specified.
+	// URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
 	KeyVaultUri pulumi.StringPtrInput
 	// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
 	KeyVersion pulumi.StringPtrInput
+	// Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
+	ManagedHsmKeyId pulumi.StringPtrInput
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringPtrInput
 	// The ID of a user assigned identity.
@@ -246,10 +252,12 @@ type customerManagedKeyArgs struct {
 	// The name of Key Vault Key.
 	KeyName    string  `pulumi:"keyName"`
 	KeyVaultId *string `pulumi:"keyVaultId"`
-	// URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `keyVaultId`, or `keyVaultUri` must be specified.
+	// URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
 	KeyVaultUri *string `pulumi:"keyVaultUri"`
 	// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
 	KeyVersion *string `pulumi:"keyVersion"`
+	// Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
+	ManagedHsmKeyId *string `pulumi:"managedHsmKeyId"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountId string `pulumi:"storageAccountId"`
 	// The ID of a user assigned identity.
@@ -263,10 +271,12 @@ type CustomerManagedKeyArgs struct {
 	// The name of Key Vault Key.
 	KeyName    pulumi.StringInput
 	KeyVaultId pulumi.StringPtrInput
-	// URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `keyVaultId`, or `keyVaultUri` must be specified.
+	// URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
 	KeyVaultUri pulumi.StringPtrInput
 	// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
 	KeyVersion pulumi.StringPtrInput
+	// Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
+	ManagedHsmKeyId pulumi.StringPtrInput
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringInput
 	// The ID of a user assigned identity.
@@ -374,7 +384,7 @@ func (o CustomerManagedKeyOutput) KeyVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomerManagedKey) pulumi.StringPtrOutput { return v.KeyVaultId }).(pulumi.StringPtrOutput)
 }
 
-// URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `keyVaultId`, or `keyVaultUri` must be specified.
+// URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
 func (o CustomerManagedKeyOutput) KeyVaultUri() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomerManagedKey) pulumi.StringOutput { return v.KeyVaultUri }).(pulumi.StringOutput)
 }
@@ -382,6 +392,11 @@ func (o CustomerManagedKeyOutput) KeyVaultUri() pulumi.StringOutput {
 // The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
 func (o CustomerManagedKeyOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomerManagedKey) pulumi.StringPtrOutput { return v.KeyVersion }).(pulumi.StringPtrOutput)
+}
+
+// Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
+func (o CustomerManagedKeyOutput) ManagedHsmKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomerManagedKey) pulumi.StringPtrOutput { return v.ManagedHsmKeyId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Storage Account. Changing this forces a new resource to be created.

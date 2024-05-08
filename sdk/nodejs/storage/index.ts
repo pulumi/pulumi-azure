@@ -30,6 +30,11 @@ export type Container = import("./container").Container;
 export const Container: typeof import("./container").Container = null as any;
 utilities.lazyLoad(exports, ["Container"], () => require("./container"));
 
+export { ContainerImmutabilityPolicyArgs, ContainerImmutabilityPolicyState } from "./containerImmutabilityPolicy";
+export type ContainerImmutabilityPolicy = import("./containerImmutabilityPolicy").ContainerImmutabilityPolicy;
+export const ContainerImmutabilityPolicy: typeof import("./containerImmutabilityPolicy").ContainerImmutabilityPolicy = null as any;
+utilities.lazyLoad(exports, ["ContainerImmutabilityPolicy"], () => require("./containerImmutabilityPolicy"));
+
 export { CustomerManagedKeyArgs, CustomerManagedKeyState } from "./customerManagedKey";
 export type CustomerManagedKey = import("./customerManagedKey").CustomerManagedKey;
 export const CustomerManagedKey: typeof import("./customerManagedKey").CustomerManagedKey = null as any;
@@ -195,6 +200,11 @@ export type SyncGroup = import("./syncGroup").SyncGroup;
 export const SyncGroup: typeof import("./syncGroup").SyncGroup = null as any;
 utilities.lazyLoad(exports, ["SyncGroup"], () => require("./syncGroup"));
 
+export { SyncServerEndpointArgs, SyncServerEndpointState } from "./syncServerEndpoint";
+export type SyncServerEndpoint = import("./syncServerEndpoint").SyncServerEndpoint;
+export const SyncServerEndpoint: typeof import("./syncServerEndpoint").SyncServerEndpoint = null as any;
+utilities.lazyLoad(exports, ["SyncServerEndpoint"], () => require("./syncServerEndpoint"));
+
 export { TableArgs, TableState } from "./table";
 export type Table = import("./table").Table;
 export const Table: typeof import("./table").Table = null as any;
@@ -226,6 +236,8 @@ const _module = {
                 return new BlobInventoryPolicy(name, <any>undefined, { urn })
             case "azure:storage/container:Container":
                 return new Container(name, <any>undefined, { urn })
+            case "azure:storage/containerImmutabilityPolicy:ContainerImmutabilityPolicy":
+                return new ContainerImmutabilityPolicy(name, <any>undefined, { urn })
             case "azure:storage/customerManagedKey:CustomerManagedKey":
                 return new CustomerManagedKey(name, <any>undefined, { urn })
             case "azure:storage/dataLakeGen2Filesystem:DataLakeGen2Filesystem":
@@ -266,6 +278,8 @@ const _module = {
                 return new SyncCloudEndpoint(name, <any>undefined, { urn })
             case "azure:storage/syncGroup:SyncGroup":
                 return new SyncGroup(name, <any>undefined, { urn })
+            case "azure:storage/syncServerEndpoint:SyncServerEndpoint":
+                return new SyncServerEndpoint(name, <any>undefined, { urn })
             case "azure:storage/table:Table":
                 return new Table(name, <any>undefined, { urn })
             case "azure:storage/tableEntity:TableEntity":
@@ -282,6 +296,7 @@ pulumi.runtime.registerResourceModule("azure", "storage/accountNetworkRules", _m
 pulumi.runtime.registerResourceModule("azure", "storage/blob", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/blobInventoryPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/container", _module)
+pulumi.runtime.registerResourceModule("azure", "storage/containerImmutabilityPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/customerManagedKey", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/dataLakeGen2Filesystem", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/dataLakeGen2Path", _module)
@@ -302,6 +317,7 @@ pulumi.runtime.registerResourceModule("azure", "storage/shareFile", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/sync", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/syncCloudEndpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/syncGroup", _module)
+pulumi.runtime.registerResourceModule("azure", "storage/syncServerEndpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/table", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/tableEntity", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/zipBlob", _module)

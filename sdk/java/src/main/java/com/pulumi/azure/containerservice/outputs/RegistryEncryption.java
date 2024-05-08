@@ -14,9 +14,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RegistryEncryption {
     /**
-     * @return Boolean value that indicates whether encryption is enabled.
+     * @deprecated
+     * The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider.
      * 
      */
+    @Deprecated /* The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider. */
     private @Nullable Boolean enabled;
     /**
      * @return The client ID of the managed identity associated with the encryption key.
@@ -31,9 +33,11 @@ public final class RegistryEncryption {
 
     private RegistryEncryption() {}
     /**
-     * @return Boolean value that indicates whether encryption is enabled.
+     * @deprecated
+     * The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider.
      * 
      */
+    @Deprecated /* The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider. */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }

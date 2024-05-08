@@ -61,20 +61,6 @@ import (
 //
 // ```
 //
-// ## Blocks Reference
-//
-// ### `identity` Block
-//
-// The `identity` block supports the following arguments:
-//
-// * `type` - (Required) Specifies the type of Managed Identity that should be assigned to this Load Test. Possible values are `SystemAssigned`, `SystemAssigned, UserAssigned` and `UserAssigned`.
-// * `identityIds` - (Optional) A list of the User Assigned Identity IDs that should be assigned to this Load Test.
-//
-// In addition to the arguments defined above, the `identity` block exports the following attributes:
-//
-// * `principalId` - The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
-// * `tenantId` - The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
-//
 // ## Import
 //
 // An existing Load Test can be imported into Terraform using the `resource id`, e.g.
@@ -95,6 +81,8 @@ type LoadTest struct {
 	DataPlaneUri pulumi.StringOutput `pulumi:"dataPlaneUri"`
 	// Description of the resource. Changing this forces a new Load Test to be created.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// An `encryption` block as defined below. Changing this forces a new Load Test to be created.
+	Encryption LoadTestEncryptionPtrOutput `pulumi:"encryption"`
 	// An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
 	Identity LoadTestIdentityPtrOutput `pulumi:"identity"`
 	// The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
@@ -144,6 +132,8 @@ type loadTestState struct {
 	DataPlaneUri *string `pulumi:"dataPlaneUri"`
 	// Description of the resource. Changing this forces a new Load Test to be created.
 	Description *string `pulumi:"description"`
+	// An `encryption` block as defined below. Changing this forces a new Load Test to be created.
+	Encryption *LoadTestEncryption `pulumi:"encryption"`
 	// An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
 	Identity *LoadTestIdentity `pulumi:"identity"`
 	// The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
@@ -161,6 +151,8 @@ type LoadTestState struct {
 	DataPlaneUri pulumi.StringPtrInput
 	// Description of the resource. Changing this forces a new Load Test to be created.
 	Description pulumi.StringPtrInput
+	// An `encryption` block as defined below. Changing this forces a new Load Test to be created.
+	Encryption LoadTestEncryptionPtrInput
 	// An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
 	Identity LoadTestIdentityPtrInput
 	// The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
@@ -180,6 +172,8 @@ func (LoadTestState) ElementType() reflect.Type {
 type loadTestArgs struct {
 	// Description of the resource. Changing this forces a new Load Test to be created.
 	Description *string `pulumi:"description"`
+	// An `encryption` block as defined below. Changing this forces a new Load Test to be created.
+	Encryption *LoadTestEncryption `pulumi:"encryption"`
 	// An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
 	Identity *LoadTestIdentity `pulumi:"identity"`
 	// The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
@@ -196,6 +190,8 @@ type loadTestArgs struct {
 type LoadTestArgs struct {
 	// Description of the resource. Changing this forces a new Load Test to be created.
 	Description pulumi.StringPtrInput
+	// An `encryption` block as defined below. Changing this forces a new Load Test to be created.
+	Encryption LoadTestEncryptionPtrInput
 	// An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
 	Identity LoadTestIdentityPtrInput
 	// The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
@@ -303,6 +299,11 @@ func (o LoadTestOutput) DataPlaneUri() pulumi.StringOutput {
 // Description of the resource. Changing this forces a new Load Test to be created.
 func (o LoadTestOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadTest) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// An `encryption` block as defined below. Changing this forces a new Load Test to be created.
+func (o LoadTestOutput) Encryption() LoadTestEncryptionPtrOutput {
+	return o.ApplyT(func(v *LoadTest) LoadTestEncryptionPtrOutput { return v.Encryption }).(LoadTestEncryptionPtrOutput)
 }
 
 // An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.

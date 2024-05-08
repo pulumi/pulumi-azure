@@ -72,6 +72,12 @@ namespace Pulumi.Azure.Storage
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// A list of registered servers owned by this Storage Sync.
+        /// </summary>
+        [Output("registeredServers")]
+        public Output<ImmutableArray<string>> RegisteredServers { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Resource Group where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -190,6 +196,18 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("registeredServers")]
+        private InputList<string>? _registeredServers;
+
+        /// <summary>
+        /// A list of registered servers owned by this Storage Sync.
+        /// </summary>
+        public InputList<string> RegisteredServers
+        {
+            get => _registeredServers ?? (_registeredServers = new InputList<string>());
+            set => _registeredServers = value;
+        }
 
         /// <summary>
         /// The name of the Resource Group where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.

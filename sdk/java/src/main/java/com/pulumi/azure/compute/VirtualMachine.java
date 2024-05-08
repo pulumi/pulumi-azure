@@ -238,14 +238,14 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="identity", refs={VirtualMachineIdentity.class}, tree="[0]")
-    private Output<VirtualMachineIdentity> identity;
+    private Output</* @Nullable */ VirtualMachineIdentity> identity;
 
     /**
      * @return An `identity` block as defined below.
      * 
      */
-    public Output<VirtualMachineIdentity> identity() {
-        return this.identity;
+    public Output<Optional<VirtualMachineIdentity>> identity() {
+        return Codegen.optional(this.identity);
     }
     /**
      * Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.

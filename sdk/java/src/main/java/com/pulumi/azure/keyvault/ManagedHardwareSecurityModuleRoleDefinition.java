@@ -96,6 +96,12 @@ public class ManagedHardwareSecurityModuleRoleDefinition extends com.pulumi.reso
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    @Export(name="managedHsmId", refs={String.class}, tree="[0]")
+    private Output<String> managedHsmId;
+
+    public Output<String> managedHsmId() {
+        return this.managedHsmId;
+    }
     /**
      * The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
      * 
@@ -193,7 +199,7 @@ public class ManagedHardwareSecurityModuleRoleDefinition extends com.pulumi.reso
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ManagedHardwareSecurityModuleRoleDefinition(String name, ManagedHardwareSecurityModuleRoleDefinitionArgs args) {
+    public ManagedHardwareSecurityModuleRoleDefinition(String name, @Nullable ManagedHardwareSecurityModuleRoleDefinitionArgs args) {
         this(name, args, null);
     }
     /**
@@ -202,7 +208,7 @@ public class ManagedHardwareSecurityModuleRoleDefinition extends com.pulumi.reso
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ManagedHardwareSecurityModuleRoleDefinition(String name, ManagedHardwareSecurityModuleRoleDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public ManagedHardwareSecurityModuleRoleDefinition(String name, @Nullable ManagedHardwareSecurityModuleRoleDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:keyvault/managedHardwareSecurityModuleRoleDefinition:ManagedHardwareSecurityModuleRoleDefinition", name, args == null ? ManagedHardwareSecurityModuleRoleDefinitionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
     }
 

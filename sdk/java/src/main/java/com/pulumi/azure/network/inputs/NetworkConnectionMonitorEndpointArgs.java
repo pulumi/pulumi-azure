@@ -124,14 +124,14 @@ public final class NetworkConnectionMonitorEndpointArgs extends com.pulumi.resou
     }
 
     /**
-     * The endpoint type of the Network Connection Monitor. Possible values are `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
+     * The endpoint type of the Network Connection Monitor. Possible values are `AzureArcVM`, `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
      * 
      */
     @Import(name="targetResourceType")
     private @Nullable Output<String> targetResourceType;
 
     /**
-     * @return The endpoint type of the Network Connection Monitor. Possible values are `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
+     * @return The endpoint type of the Network Connection Monitor. Possible values are `AzureArcVM`, `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
      * 
      */
     public Optional<Output<String>> targetResourceType() {
@@ -337,7 +337,7 @@ public final class NetworkConnectionMonitorEndpointArgs extends com.pulumi.resou
         }
 
         /**
-         * @param targetResourceType The endpoint type of the Network Connection Monitor. Possible values are `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
+         * @param targetResourceType The endpoint type of the Network Connection Monitor. Possible values are `AzureArcVM`, `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
          * 
          * @return builder
          * 
@@ -348,7 +348,7 @@ public final class NetworkConnectionMonitorEndpointArgs extends com.pulumi.resou
         }
 
         /**
-         * @param targetResourceType The endpoint type of the Network Connection Monitor. Possible values are `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
+         * @param targetResourceType The endpoint type of the Network Connection Monitor. Possible values are `AzureArcVM`, `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
          * 
          * @return builder
          * 

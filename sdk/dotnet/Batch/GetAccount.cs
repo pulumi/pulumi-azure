@@ -74,12 +74,6 @@ namespace Pulumi.Azure.Batch
     public sealed class GetAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The `encryption` block that describes the Azure KeyVault key reference used to encrypt data for the Azure Batch account.
-        /// </summary>
-        [Input("encryption")]
-        public Inputs.GetAccountEncryptionArgs? Encryption { get; set; }
-
-        /// <summary>
         /// The name of the Batch account.
         /// </summary>
         [Input("name", required: true)]
@@ -99,12 +93,6 @@ namespace Pulumi.Azure.Batch
 
     public sealed class GetAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The `encryption` block that describes the Azure KeyVault key reference used to encrypt data for the Azure Batch account.
-        /// </summary>
-        [Input("encryption")]
-        public Input<Inputs.GetAccountEncryptionInputArgs>? Encryption { get; set; }
-
         /// <summary>
         /// The name of the Batch account.
         /// </summary>
@@ -134,7 +122,7 @@ namespace Pulumi.Azure.Batch
         /// <summary>
         /// The `encryption` block that describes the Azure KeyVault key reference used to encrypt data for the Azure Batch account.
         /// </summary>
-        public readonly Outputs.GetAccountEncryptionResult? Encryption;
+        public readonly Outputs.GetAccountEncryptionResult Encryption;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -177,7 +165,7 @@ namespace Pulumi.Azure.Batch
         private GetAccountResult(
             string accountEndpoint,
 
-            Outputs.GetAccountEncryptionResult? encryption,
+            Outputs.GetAccountEncryptionResult encryption,
 
             string id,
 

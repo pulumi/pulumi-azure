@@ -44,6 +44,11 @@ export class ManagedHardwareSecurityModuleRoleAssignment extends pulumi.CustomRe
     }
 
     /**
+     * The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
+     * *
+     */
+    public readonly managedHsmId!: pulumi.Output<string>;
+    /**
      * The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -52,7 +57,7 @@ export class ManagedHardwareSecurityModuleRoleAssignment extends pulumi.CustomRe
      */
     public readonly principalId!: pulumi.Output<string>;
     /**
-     * The resource id of created assignment resource.
+     * (Deprecated) The resource id of created assignment resource.
      */
     public /*out*/ readonly resourceId!: pulumi.Output<string>;
     /**
@@ -64,7 +69,7 @@ export class ManagedHardwareSecurityModuleRoleAssignment extends pulumi.CustomRe
      */
     public readonly scope!: pulumi.Output<string>;
     /**
-     * The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
+     * @deprecated The field `vaultBaseUrl` has been deprecated in favour of `managedHsmId` and will be removed in 4.0 of the Azure Provider
      */
     public readonly vaultBaseUrl!: pulumi.Output<string>;
 
@@ -81,6 +86,7 @@ export class ManagedHardwareSecurityModuleRoleAssignment extends pulumi.CustomRe
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedHardwareSecurityModuleRoleAssignmentState | undefined;
+            resourceInputs["managedHsmId"] = state ? state.managedHsmId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["principalId"] = state ? state.principalId : undefined;
             resourceInputs["resourceId"] = state ? state.resourceId : undefined;
@@ -98,9 +104,7 @@ export class ManagedHardwareSecurityModuleRoleAssignment extends pulumi.CustomRe
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            if ((!args || args.vaultBaseUrl === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'vaultBaseUrl'");
-            }
+            resourceInputs["managedHsmId"] = args ? args.managedHsmId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["principalId"] = args ? args.principalId : undefined;
             resourceInputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
@@ -118,6 +122,11 @@ export class ManagedHardwareSecurityModuleRoleAssignment extends pulumi.CustomRe
  */
 export interface ManagedHardwareSecurityModuleRoleAssignmentState {
     /**
+     * The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
+     * *
+     */
+    managedHsmId?: pulumi.Input<string>;
+    /**
      * The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
      */
     name?: pulumi.Input<string>;
@@ -126,7 +135,7 @@ export interface ManagedHardwareSecurityModuleRoleAssignmentState {
      */
     principalId?: pulumi.Input<string>;
     /**
-     * The resource id of created assignment resource.
+     * (Deprecated) The resource id of created assignment resource.
      */
     resourceId?: pulumi.Input<string>;
     /**
@@ -138,7 +147,7 @@ export interface ManagedHardwareSecurityModuleRoleAssignmentState {
      */
     scope?: pulumi.Input<string>;
     /**
-     * The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
+     * @deprecated The field `vaultBaseUrl` has been deprecated in favour of `managedHsmId` and will be removed in 4.0 of the Azure Provider
      */
     vaultBaseUrl?: pulumi.Input<string>;
 }
@@ -147,6 +156,11 @@ export interface ManagedHardwareSecurityModuleRoleAssignmentState {
  * The set of arguments for constructing a ManagedHardwareSecurityModuleRoleAssignment resource.
  */
 export interface ManagedHardwareSecurityModuleRoleAssignmentArgs {
+    /**
+     * The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
+     * *
+     */
+    managedHsmId?: pulumi.Input<string>;
     /**
      * The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
      */
@@ -164,7 +178,7 @@ export interface ManagedHardwareSecurityModuleRoleAssignmentArgs {
      */
     scope: pulumi.Input<string>;
     /**
-     * The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
+     * @deprecated The field `vaultBaseUrl` has been deprecated in favour of `managedHsmId` and will be removed in 4.0 of the Azure Provider
      */
-    vaultBaseUrl: pulumi.Input<string>;
+    vaultBaseUrl?: pulumi.Input<string>;
 }

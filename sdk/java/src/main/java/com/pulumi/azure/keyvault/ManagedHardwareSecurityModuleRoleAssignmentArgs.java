@@ -17,6 +17,23 @@ public final class ManagedHardwareSecurityModuleRoleAssignmentArgs extends com.p
     public static final ManagedHardwareSecurityModuleRoleAssignmentArgs Empty = new ManagedHardwareSecurityModuleRoleAssignmentArgs();
 
     /**
+     * The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
+     * *
+     * 
+     */
+    @Import(name="managedHsmId")
+    private @Nullable Output<String> managedHsmId;
+
+    /**
+     * @return The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
+     * *
+     * 
+     */
+    public Optional<Output<String>> managedHsmId() {
+        return Optional.ofNullable(this.managedHsmId);
+    }
+
+    /**
      * The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
      * 
      */
@@ -77,23 +94,28 @@ public final class ManagedHardwareSecurityModuleRoleAssignmentArgs extends com.p
     }
 
     /**
-     * The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
+     * @deprecated
+     * The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider
      * 
      */
-    @Import(name="vaultBaseUrl", required=true)
-    private Output<String> vaultBaseUrl;
+    @Deprecated /* The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider */
+    @Import(name="vaultBaseUrl")
+    private @Nullable Output<String> vaultBaseUrl;
 
     /**
-     * @return The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
+     * @deprecated
+     * The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider
      * 
      */
-    public Output<String> vaultBaseUrl() {
-        return this.vaultBaseUrl;
+    @Deprecated /* The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider */
+    public Optional<Output<String>> vaultBaseUrl() {
+        return Optional.ofNullable(this.vaultBaseUrl);
     }
 
     private ManagedHardwareSecurityModuleRoleAssignmentArgs() {}
 
     private ManagedHardwareSecurityModuleRoleAssignmentArgs(ManagedHardwareSecurityModuleRoleAssignmentArgs $) {
+        this.managedHsmId = $.managedHsmId;
         this.name = $.name;
         this.principalId = $.principalId;
         this.roleDefinitionId = $.roleDefinitionId;
@@ -117,6 +139,29 @@ public final class ManagedHardwareSecurityModuleRoleAssignmentArgs extends com.p
 
         public Builder(ManagedHardwareSecurityModuleRoleAssignmentArgs defaults) {
             $ = new ManagedHardwareSecurityModuleRoleAssignmentArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param managedHsmId The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
+         * *
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedHsmId(@Nullable Output<String> managedHsmId) {
+            $.managedHsmId = managedHsmId;
+            return this;
+        }
+
+        /**
+         * @param managedHsmId The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
+         * *
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedHsmId(String managedHsmId) {
+            return managedHsmId(Output.of(managedHsmId));
         }
 
         /**
@@ -204,22 +249,26 @@ public final class ManagedHardwareSecurityModuleRoleAssignmentArgs extends com.p
         }
 
         /**
-         * @param vaultBaseUrl The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider
+         * 
          */
-        public Builder vaultBaseUrl(Output<String> vaultBaseUrl) {
+        @Deprecated /* The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider */
+        public Builder vaultBaseUrl(@Nullable Output<String> vaultBaseUrl) {
             $.vaultBaseUrl = vaultBaseUrl;
             return this;
         }
 
         /**
-         * @param vaultBaseUrl The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider
+         * 
          */
+        @Deprecated /* The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider */
         public Builder vaultBaseUrl(String vaultBaseUrl) {
             return vaultBaseUrl(Output.of(vaultBaseUrl));
         }
@@ -233,9 +282,6 @@ public final class ManagedHardwareSecurityModuleRoleAssignmentArgs extends com.p
             }
             if ($.scope == null) {
                 throw new MissingRequiredPropertyException("ManagedHardwareSecurityModuleRoleAssignmentArgs", "scope");
-            }
-            if ($.vaultBaseUrl == null) {
-                throw new MissingRequiredPropertyException("ManagedHardwareSecurityModuleRoleAssignmentArgs", "vaultBaseUrl");
             }
             return $;
         }

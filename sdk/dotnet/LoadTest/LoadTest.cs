@@ -47,20 +47,6 @@ namespace Pulumi.Azure.LoadTest
     /// });
     /// ```
     /// 
-    /// ## Blocks Reference
-    /// 
-    /// ### `identity` Block
-    /// 
-    /// The `identity` block supports the following arguments:
-    /// 
-    /// * `type` - (Required) Specifies the type of Managed Identity that should be assigned to this Load Test. Possible values are `SystemAssigned`, `SystemAssigned, UserAssigned` and `UserAssigned`.
-    /// * `identity_ids` - (Optional) A list of the User Assigned Identity IDs that should be assigned to this Load Test.
-    /// 
-    /// In addition to the arguments defined above, the `identity` block exports the following attributes:
-    /// 
-    /// * `principal_id` - The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
-    /// * `tenant_id` - The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
-    /// 
     /// ## Import
     /// 
     /// An existing Load Test can be imported into Terraform using the `resource id`, e.g.
@@ -89,6 +75,12 @@ namespace Pulumi.Azure.LoadTest
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// An `encryption` block as defined below. Changing this forces a new Load Test to be created.
+        /// </summary>
+        [Output("encryption")]
+        public Output<Outputs.LoadTestEncryption?> Encryption { get; private set; } = null!;
 
         /// <summary>
         /// An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
@@ -173,6 +165,12 @@ namespace Pulumi.Azure.LoadTest
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// An `encryption` block as defined below. Changing this forces a new Load Test to be created.
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.LoadTestEncryptionArgs>? Encryption { get; set; }
+
+        /// <summary>
         /// An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
         /// </summary>
         [Input("identity")]
@@ -227,6 +225,12 @@ namespace Pulumi.Azure.LoadTest
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// An `encryption` block as defined below. Changing this forces a new Load Test to be created.
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.LoadTestEncryptionGetArgs>? Encryption { get; set; }
 
         /// <summary>
         /// An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.

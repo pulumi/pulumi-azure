@@ -24,6 +24,13 @@ namespace Pulumi.Azure.KeyVault
     public partial class ManagedHardwareSecurityModuleRoleAssignment : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
+        /// *
+        /// </summary>
+        [Output("managedHsmId")]
+        public Output<string> ManagedHsmId { get; private set; } = null!;
+
+        /// <summary>
         /// The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
         /// </summary>
         [Output("name")]
@@ -36,7 +43,7 @@ namespace Pulumi.Azure.KeyVault
         public Output<string> PrincipalId { get; private set; } = null!;
 
         /// <summary>
-        /// The resource id of created assignment resource.
+        /// (Deprecated) The resource id of created assignment resource.
         /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
@@ -53,9 +60,6 @@ namespace Pulumi.Azure.KeyVault
         [Output("scope")]
         public Output<string> Scope { get; private set; } = null!;
 
-        /// <summary>
-        /// The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
-        /// </summary>
         [Output("vaultBaseUrl")]
         public Output<string> VaultBaseUrl { get; private set; } = null!;
 
@@ -106,6 +110,13 @@ namespace Pulumi.Azure.KeyVault
     public sealed class ManagedHardwareSecurityModuleRoleAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
+        /// *
+        /// </summary>
+        [Input("managedHsmId")]
+        public Input<string>? ManagedHsmId { get; set; }
+
+        /// <summary>
         /// The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
         /// </summary>
         [Input("name")]
@@ -129,11 +140,8 @@ namespace Pulumi.Azure.KeyVault
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
 
-        /// <summary>
-        /// The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
-        /// </summary>
-        [Input("vaultBaseUrl", required: true)]
-        public Input<string> VaultBaseUrl { get; set; } = null!;
+        [Input("vaultBaseUrl")]
+        public Input<string>? VaultBaseUrl { get; set; }
 
         public ManagedHardwareSecurityModuleRoleAssignmentArgs()
         {
@@ -143,6 +151,13 @@ namespace Pulumi.Azure.KeyVault
 
     public sealed class ManagedHardwareSecurityModuleRoleAssignmentState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
+        /// *
+        /// </summary>
+        [Input("managedHsmId")]
+        public Input<string>? ManagedHsmId { get; set; }
+
         /// <summary>
         /// The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
         /// </summary>
@@ -156,7 +171,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
-        /// The resource id of created assignment resource.
+        /// (Deprecated) The resource id of created assignment resource.
         /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }
@@ -173,9 +188,6 @@ namespace Pulumi.Azure.KeyVault
         [Input("scope")]
         public Input<string>? Scope { get; set; }
 
-        /// <summary>
-        /// The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
-        /// </summary>
         [Input("vaultBaseUrl")]
         public Input<string>? VaultBaseUrl { get; set; }
 

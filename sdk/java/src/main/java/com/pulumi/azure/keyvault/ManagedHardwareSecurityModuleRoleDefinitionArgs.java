@@ -6,7 +6,6 @@ package com.pulumi.azure.keyvault;
 import com.pulumi.azure.keyvault.inputs.ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -31,6 +30,13 @@ public final class ManagedHardwareSecurityModuleRoleDefinitionArgs extends com.p
      */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
+    }
+
+    @Import(name="managedHsmId")
+    private @Nullable Output<String> managedHsmId;
+
+    public Optional<Output<String>> managedHsmId() {
+        return Optional.ofNullable(this.managedHsmId);
     }
 
     /**
@@ -82,21 +88,22 @@ public final class ManagedHardwareSecurityModuleRoleDefinitionArgs extends com.p
      * The base URL of the managed hardware security module resource. Changing this forces a new KeyVault Role Definition to be created.
      * 
      */
-    @Import(name="vaultBaseUrl", required=true)
-    private Output<String> vaultBaseUrl;
+    @Import(name="vaultBaseUrl")
+    private @Nullable Output<String> vaultBaseUrl;
 
     /**
      * @return The base URL of the managed hardware security module resource. Changing this forces a new KeyVault Role Definition to be created.
      * 
      */
-    public Output<String> vaultBaseUrl() {
-        return this.vaultBaseUrl;
+    public Optional<Output<String>> vaultBaseUrl() {
+        return Optional.ofNullable(this.vaultBaseUrl);
     }
 
     private ManagedHardwareSecurityModuleRoleDefinitionArgs() {}
 
     private ManagedHardwareSecurityModuleRoleDefinitionArgs(ManagedHardwareSecurityModuleRoleDefinitionArgs $) {
         this.description = $.description;
+        this.managedHsmId = $.managedHsmId;
         this.name = $.name;
         this.permissions = $.permissions;
         this.roleName = $.roleName;
@@ -140,6 +147,15 @@ public final class ManagedHardwareSecurityModuleRoleDefinitionArgs extends com.p
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        public Builder managedHsmId(@Nullable Output<String> managedHsmId) {
+            $.managedHsmId = managedHsmId;
+            return this;
+        }
+
+        public Builder managedHsmId(String managedHsmId) {
+            return managedHsmId(Output.of(managedHsmId));
         }
 
         /**
@@ -221,7 +237,7 @@ public final class ManagedHardwareSecurityModuleRoleDefinitionArgs extends com.p
          * @return builder
          * 
          */
-        public Builder vaultBaseUrl(Output<String> vaultBaseUrl) {
+        public Builder vaultBaseUrl(@Nullable Output<String> vaultBaseUrl) {
             $.vaultBaseUrl = vaultBaseUrl;
             return this;
         }
@@ -237,9 +253,6 @@ public final class ManagedHardwareSecurityModuleRoleDefinitionArgs extends com.p
         }
 
         public ManagedHardwareSecurityModuleRoleDefinitionArgs build() {
-            if ($.vaultBaseUrl == null) {
-                throw new MissingRequiredPropertyException("ManagedHardwareSecurityModuleRoleDefinitionArgs", "vaultBaseUrl");
-            }
             return $;
         }
     }

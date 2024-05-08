@@ -148,7 +148,7 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.compute.VirtualMachineIdentity>;
+    public readonly identity!: pulumi.Output<outputs.compute.VirtualMachineIdentity | undefined>;
     /**
      * Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
      */

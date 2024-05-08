@@ -18,6 +18,7 @@ class LoadTestArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 encryption: Optional[pulumi.Input['LoadTestEncryptionArgs']] = None,
                  identity: Optional[pulumi.Input['LoadTestIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -26,6 +27,7 @@ class LoadTestArgs:
         The set of arguments for constructing a LoadTest resource.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.
         :param pulumi.Input[str] description: Description of the resource. Changing this forces a new Load Test to be created.
+        :param pulumi.Input['LoadTestEncryptionArgs'] encryption: An `encryption` block as defined below. Changing this forces a new Load Test to be created.
         :param pulumi.Input['LoadTestIdentityArgs'] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
         :param pulumi.Input[str] location: The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
         :param pulumi.Input[str] name: Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
@@ -34,6 +36,8 @@ class LoadTestArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -66,6 +70,18 @@ class LoadTestArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional[pulumi.Input['LoadTestEncryptionArgs']]:
+        """
+        An `encryption` block as defined below. Changing this forces a new Load Test to be created.
+        """
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input['LoadTestEncryptionArgs']]):
+        pulumi.set(self, "encryption", value)
 
     @property
     @pulumi.getter
@@ -121,6 +137,7 @@ class _LoadTestState:
     def __init__(__self__, *,
                  data_plane_uri: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 encryption: Optional[pulumi.Input['LoadTestEncryptionArgs']] = None,
                  identity: Optional[pulumi.Input['LoadTestIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -130,6 +147,7 @@ class _LoadTestState:
         Input properties used for looking up and filtering LoadTest resources.
         :param pulumi.Input[str] data_plane_uri: Resource data plane URI.
         :param pulumi.Input[str] description: Description of the resource. Changing this forces a new Load Test to be created.
+        :param pulumi.Input['LoadTestEncryptionArgs'] encryption: An `encryption` block as defined below. Changing this forces a new Load Test to be created.
         :param pulumi.Input['LoadTestIdentityArgs'] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
         :param pulumi.Input[str] location: The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
         :param pulumi.Input[str] name: Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
@@ -140,6 +158,8 @@ class _LoadTestState:
             pulumi.set(__self__, "data_plane_uri", data_plane_uri)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -174,6 +194,18 @@ class _LoadTestState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional[pulumi.Input['LoadTestEncryptionArgs']]:
+        """
+        An `encryption` block as defined below. Changing this forces a new Load Test to be created.
+        """
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input['LoadTestEncryptionArgs']]):
+        pulumi.set(self, "encryption", value)
 
     @property
     @pulumi.getter
@@ -242,6 +274,7 @@ class LoadTest(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['LoadTestEncryptionArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['LoadTestIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -272,20 +305,6 @@ class LoadTest(pulumi.CustomResource):
             resource_group_name=example.name)
         ```
 
-        ## Blocks Reference
-
-        ### `identity` Block
-
-        The `identity` block supports the following arguments:
-
-        * `type` - (Required) Specifies the type of Managed Identity that should be assigned to this Load Test. Possible values are `SystemAssigned`, `SystemAssigned, UserAssigned` and `UserAssigned`.
-        * `identity_ids` - (Optional) A list of the User Assigned Identity IDs that should be assigned to this Load Test.
-
-        In addition to the arguments defined above, the `identity` block exports the following attributes:
-
-        * `principal_id` - The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
-        * `tenant_id` - The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
-
         ## Import
 
         An existing Load Test can be imported into Terraform using the `resource id`, e.g.
@@ -303,6 +322,7 @@ class LoadTest(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the resource. Changing this forces a new Load Test to be created.
+        :param pulumi.Input[pulumi.InputType['LoadTestEncryptionArgs']] encryption: An `encryption` block as defined below. Changing this forces a new Load Test to be created.
         :param pulumi.Input[pulumi.InputType['LoadTestIdentityArgs']] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
         :param pulumi.Input[str] location: The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
         :param pulumi.Input[str] name: Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
@@ -339,20 +359,6 @@ class LoadTest(pulumi.CustomResource):
             resource_group_name=example.name)
         ```
 
-        ## Blocks Reference
-
-        ### `identity` Block
-
-        The `identity` block supports the following arguments:
-
-        * `type` - (Required) Specifies the type of Managed Identity that should be assigned to this Load Test. Possible values are `SystemAssigned`, `SystemAssigned, UserAssigned` and `UserAssigned`.
-        * `identity_ids` - (Optional) A list of the User Assigned Identity IDs that should be assigned to this Load Test.
-
-        In addition to the arguments defined above, the `identity` block exports the following attributes:
-
-        * `principal_id` - The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
-        * `tenant_id` - The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
-
         ## Import
 
         An existing Load Test can be imported into Terraform using the `resource id`, e.g.
@@ -383,6 +389,7 @@ class LoadTest(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['LoadTestEncryptionArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['LoadTestIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -398,6 +405,7 @@ class LoadTest(pulumi.CustomResource):
             __props__ = LoadTestArgs.__new__(LoadTestArgs)
 
             __props__.__dict__["description"] = description
+            __props__.__dict__["encryption"] = encryption
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -418,6 +426,7 @@ class LoadTest(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             data_plane_uri: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            encryption: Optional[pulumi.Input[pulumi.InputType['LoadTestEncryptionArgs']]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['LoadTestIdentityArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -432,6 +441,7 @@ class LoadTest(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_plane_uri: Resource data plane URI.
         :param pulumi.Input[str] description: Description of the resource. Changing this forces a new Load Test to be created.
+        :param pulumi.Input[pulumi.InputType['LoadTestEncryptionArgs']] encryption: An `encryption` block as defined below. Changing this forces a new Load Test to be created.
         :param pulumi.Input[pulumi.InputType['LoadTestIdentityArgs']] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
         :param pulumi.Input[str] location: The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
         :param pulumi.Input[str] name: Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
@@ -444,6 +454,7 @@ class LoadTest(pulumi.CustomResource):
 
         __props__.__dict__["data_plane_uri"] = data_plane_uri
         __props__.__dict__["description"] = description
+        __props__.__dict__["encryption"] = encryption
         __props__.__dict__["identity"] = identity
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
@@ -466,6 +477,14 @@ class LoadTest(pulumi.CustomResource):
         Description of the resource. Changing this forces a new Load Test to be created.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> pulumi.Output[Optional['outputs.LoadTestEncryption']]:
+        """
+        An `encryption` block as defined below. Changing this forces a new Load Test to be created.
+        """
+        return pulumi.get(self, "encryption")
 
     @property
     @pulumi.getter

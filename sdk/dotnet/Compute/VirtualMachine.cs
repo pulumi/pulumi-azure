@@ -170,7 +170,7 @@ namespace Pulumi.Azure.Compute
         /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.VirtualMachineIdentity> Identity { get; private set; } = null!;
+        public Output<Outputs.VirtualMachineIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.

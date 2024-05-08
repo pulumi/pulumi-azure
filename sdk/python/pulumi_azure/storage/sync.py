@@ -104,6 +104,7 @@ class _SyncState:
                  incoming_traffic_policy: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 registered_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -111,6 +112,7 @@ class _SyncState:
         :param pulumi.Input[str] incoming_traffic_policy: Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`. Defaults to `AllowAllTraffic`.
         :param pulumi.Input[str] location: The Azure Region where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
         :param pulumi.Input[str] name: The name which should be used for this Storage Sync. Changing this forces a new Storage Sync to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] registered_servers: A list of registered servers owned by this Storage Sync.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Storage Sync.
         """
@@ -120,6 +122,8 @@ class _SyncState:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if registered_servers is not None:
+            pulumi.set(__self__, "registered_servers", registered_servers)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
@@ -160,6 +164,18 @@ class _SyncState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="registeredServers")
+    def registered_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of registered servers owned by this Storage Sync.
+        """
+        return pulumi.get(self, "registered_servers")
+
+    @registered_servers.setter
+    def registered_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "registered_servers", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -305,6 +321,7 @@ class Sync(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["registered_servers"] = None
         super(Sync, __self__).__init__(
             'azure:storage/sync:Sync',
             resource_name,
@@ -318,6 +335,7 @@ class Sync(pulumi.CustomResource):
             incoming_traffic_policy: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            registered_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Sync':
         """
@@ -330,6 +348,7 @@ class Sync(pulumi.CustomResource):
         :param pulumi.Input[str] incoming_traffic_policy: Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`. Defaults to `AllowAllTraffic`.
         :param pulumi.Input[str] location: The Azure Region where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
         :param pulumi.Input[str] name: The name which should be used for this Storage Sync. Changing this forces a new Storage Sync to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] registered_servers: A list of registered servers owned by this Storage Sync.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Storage Sync.
         """
@@ -340,6 +359,7 @@ class Sync(pulumi.CustomResource):
         __props__.__dict__["incoming_traffic_policy"] = incoming_traffic_policy
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
+        __props__.__dict__["registered_servers"] = registered_servers
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["tags"] = tags
         return Sync(resource_name, opts=opts, __props__=__props__)
@@ -367,6 +387,14 @@ class Sync(pulumi.CustomResource):
         The name which should be used for this Storage Sync. Changing this forces a new Storage Sync to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="registeredServers")
+    def registered_servers(self) -> pulumi.Output[Sequence[str]]:
+        """
+        A list of registered servers owned by this Storage Sync.
+        """
+        return pulumi.get(self, "registered_servers")
 
     @property
     @pulumi.getter(name="resourceGroupName")

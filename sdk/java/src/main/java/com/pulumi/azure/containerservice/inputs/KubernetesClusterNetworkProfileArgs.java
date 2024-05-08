@@ -240,6 +240,20 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         return Optional.ofNullable(this.networkPolicy);
     }
 
+    @Import(name="outboundIpAddressIds")
+    private @Nullable Output<List<String>> outboundIpAddressIds;
+
+    public Optional<Output<List<String>>> outboundIpAddressIds() {
+        return Optional.ofNullable(this.outboundIpAddressIds);
+    }
+
+    @Import(name="outboundIpPrefixIds")
+    private @Nullable Output<List<String>> outboundIpPrefixIds;
+
+    public Optional<Output<List<String>>> outboundIpPrefixIds() {
+        return Optional.ofNullable(this.outboundIpPrefixIds);
+    }
+
     /**
      * The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outbound_type` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
      * 
@@ -333,6 +347,8 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         this.networkPlugin = $.networkPlugin;
         this.networkPluginMode = $.networkPluginMode;
         this.networkPolicy = $.networkPolicy;
+        this.outboundIpAddressIds = $.outboundIpAddressIds;
+        this.outboundIpPrefixIds = $.outboundIpPrefixIds;
         this.outboundType = $.outboundType;
         this.podCidr = $.podCidr;
         this.podCidrs = $.podCidrs;
@@ -657,6 +673,32 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
          */
         public Builder networkPolicy(String networkPolicy) {
             return networkPolicy(Output.of(networkPolicy));
+        }
+
+        public Builder outboundIpAddressIds(@Nullable Output<List<String>> outboundIpAddressIds) {
+            $.outboundIpAddressIds = outboundIpAddressIds;
+            return this;
+        }
+
+        public Builder outboundIpAddressIds(List<String> outboundIpAddressIds) {
+            return outboundIpAddressIds(Output.of(outboundIpAddressIds));
+        }
+
+        public Builder outboundIpAddressIds(String... outboundIpAddressIds) {
+            return outboundIpAddressIds(List.of(outboundIpAddressIds));
+        }
+
+        public Builder outboundIpPrefixIds(@Nullable Output<List<String>> outboundIpPrefixIds) {
+            $.outboundIpPrefixIds = outboundIpPrefixIds;
+            return this;
+        }
+
+        public Builder outboundIpPrefixIds(List<String> outboundIpPrefixIds) {
+            return outboundIpPrefixIds(Output.of(outboundIpPrefixIds));
+        }
+
+        public Builder outboundIpPrefixIds(String... outboundIpPrefixIds) {
+            return outboundIpPrefixIds(List.of(outboundIpPrefixIds));
         }
 
         /**

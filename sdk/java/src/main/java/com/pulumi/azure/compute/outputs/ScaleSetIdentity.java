@@ -71,6 +71,7 @@ public final class ScaleSetIdentity {
      */
     private @Nullable List<String> identityIds;
     private @Nullable String principalId;
+    private @Nullable String tenantId;
     /**
      * @return Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set&#39;s Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
      * 
@@ -140,6 +141,9 @@ public final class ScaleSetIdentity {
     public Optional<String> principalId() {
         return Optional.ofNullable(this.principalId);
     }
+    public Optional<String> tenantId() {
+        return Optional.ofNullable(this.tenantId);
+    }
     /**
      * @return Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set&#39;s Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
      * 
@@ -159,12 +163,14 @@ public final class ScaleSetIdentity {
     public static final class Builder {
         private @Nullable List<String> identityIds;
         private @Nullable String principalId;
+        private @Nullable String tenantId;
         private String type;
         public Builder() {}
         public Builder(ScaleSetIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.identityIds = defaults.identityIds;
     	      this.principalId = defaults.principalId;
+    	      this.tenantId = defaults.tenantId;
     	      this.type = defaults.type;
         }
 
@@ -184,6 +190,12 @@ public final class ScaleSetIdentity {
             return this;
         }
         @CustomType.Setter
+        public Builder tenantId(@Nullable String tenantId) {
+
+            this.tenantId = tenantId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder type(String type) {
             if (type == null) {
               throw new MissingRequiredPropertyException("ScaleSetIdentity", "type");
@@ -195,6 +207,7 @@ public final class ScaleSetIdentity {
             final var _resultValue = new ScaleSetIdentity();
             _resultValue.identityIds = identityIds;
             _resultValue.principalId = principalId;
+            _resultValue.tenantId = tenantId;
             _resultValue.type = type;
             return _resultValue;
         }

@@ -29,6 +29,9 @@ namespace Pulumi.Azure.KeyVault
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        [Output("managedHsmId")]
+        public Output<string> ManagedHsmId { get; private set; } = null!;
+
         /// <summary>
         /// The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
         /// </summary>
@@ -73,7 +76,7 @@ namespace Pulumi.Azure.KeyVault
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ManagedHardwareSecurityModuleRoleDefinition(string name, ManagedHardwareSecurityModuleRoleDefinitionArgs args, CustomResourceOptions? options = null)
+        public ManagedHardwareSecurityModuleRoleDefinition(string name, ManagedHardwareSecurityModuleRoleDefinitionArgs? args = null, CustomResourceOptions? options = null)
             : base("azure:keyvault/managedHardwareSecurityModuleRoleDefinition:ManagedHardwareSecurityModuleRoleDefinition", name, args ?? new ManagedHardwareSecurityModuleRoleDefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -117,6 +120,9 @@ namespace Pulumi.Azure.KeyVault
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("managedHsmId")]
+        public Input<string>? ManagedHsmId { get; set; }
+
         /// <summary>
         /// The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
         /// </summary>
@@ -144,8 +150,8 @@ namespace Pulumi.Azure.KeyVault
         /// <summary>
         /// The base URL of the managed hardware security module resource. Changing this forces a new KeyVault Role Definition to be created.
         /// </summary>
-        [Input("vaultBaseUrl", required: true)]
-        public Input<string> VaultBaseUrl { get; set; } = null!;
+        [Input("vaultBaseUrl")]
+        public Input<string>? VaultBaseUrl { get; set; }
 
         public ManagedHardwareSecurityModuleRoleDefinitionArgs()
         {
@@ -160,6 +166,9 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("managedHsmId")]
+        public Input<string>? ManagedHsmId { get; set; }
 
         /// <summary>
         /// The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.

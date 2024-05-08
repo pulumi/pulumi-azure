@@ -17,22 +17,30 @@ class ManagedHardwareSecurityModuleRoleAssignmentArgs:
                  principal_id: pulumi.Input[str],
                  role_definition_id: pulumi.Input[str],
                  scope: pulumi.Input[str],
-                 vault_base_url: pulumi.Input[str],
-                 name: Optional[pulumi.Input[str]] = None):
+                 managed_hsm_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 vault_base_url: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ManagedHardwareSecurityModuleRoleAssignment resource.
         :param pulumi.Input[str] principal_id: The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new Managed Hardware Security Module to be created.
         :param pulumi.Input[str] role_definition_id: The resource ID of the role definition to assign. Changing this forces a new Managed Hardware Security Module to be created.
         :param pulumi.Input[str] scope: Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
-        :param pulumi.Input[str] vault_base_url: The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
+        :param pulumi.Input[str] managed_hsm_id: The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
+               *
         :param pulumi.Input[str] name: The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "role_definition_id", role_definition_id)
         pulumi.set(__self__, "scope", scope)
-        pulumi.set(__self__, "vault_base_url", vault_base_url)
+        if managed_hsm_id is not None:
+            pulumi.set(__self__, "managed_hsm_id", managed_hsm_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if vault_base_url is not None:
+            warnings.warn("""The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider""", DeprecationWarning)
+            pulumi.log.warn("""vault_base_url is deprecated: The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider""")
+        if vault_base_url is not None:
+            pulumi.set(__self__, "vault_base_url", vault_base_url)
 
     @property
     @pulumi.getter(name="principalId")
@@ -71,16 +79,17 @@ class ManagedHardwareSecurityModuleRoleAssignmentArgs:
         pulumi.set(self, "scope", value)
 
     @property
-    @pulumi.getter(name="vaultBaseUrl")
-    def vault_base_url(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="managedHsmId")
+    def managed_hsm_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
+        The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
+        *
         """
-        return pulumi.get(self, "vault_base_url")
+        return pulumi.get(self, "managed_hsm_id")
 
-    @vault_base_url.setter
-    def vault_base_url(self, value: pulumi.Input[str]):
-        pulumi.set(self, "vault_base_url", value)
+    @managed_hsm_id.setter
+    def managed_hsm_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_hsm_id", value)
 
     @property
     @pulumi.getter
@@ -94,10 +103,23 @@ class ManagedHardwareSecurityModuleRoleAssignmentArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter(name="vaultBaseUrl")
+    def vault_base_url(self) -> Optional[pulumi.Input[str]]:
+        warnings.warn("""The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider""", DeprecationWarning)
+        pulumi.log.warn("""vault_base_url is deprecated: The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider""")
+
+        return pulumi.get(self, "vault_base_url")
+
+    @vault_base_url.setter
+    def vault_base_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vault_base_url", value)
+
 
 @pulumi.input_type
 class _ManagedHardwareSecurityModuleRoleAssignmentState:
     def __init__(__self__, *,
+                 managed_hsm_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
@@ -106,13 +128,16 @@ class _ManagedHardwareSecurityModuleRoleAssignmentState:
                  vault_base_url: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ManagedHardwareSecurityModuleRoleAssignment resources.
+        :param pulumi.Input[str] managed_hsm_id: The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
+               *
         :param pulumi.Input[str] name: The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
         :param pulumi.Input[str] principal_id: The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new Managed Hardware Security Module to be created.
-        :param pulumi.Input[str] resource_id: The resource id of created assignment resource.
+        :param pulumi.Input[str] resource_id: (Deprecated) The resource id of created assignment resource.
         :param pulumi.Input[str] role_definition_id: The resource ID of the role definition to assign. Changing this forces a new Managed Hardware Security Module to be created.
         :param pulumi.Input[str] scope: Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
-        :param pulumi.Input[str] vault_base_url: The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
         """
+        if managed_hsm_id is not None:
+            pulumi.set(__self__, "managed_hsm_id", managed_hsm_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if principal_id is not None:
@@ -124,7 +149,23 @@ class _ManagedHardwareSecurityModuleRoleAssignmentState:
         if scope is not None:
             pulumi.set(__self__, "scope", scope)
         if vault_base_url is not None:
+            warnings.warn("""The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider""", DeprecationWarning)
+            pulumi.log.warn("""vault_base_url is deprecated: The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider""")
+        if vault_base_url is not None:
             pulumi.set(__self__, "vault_base_url", vault_base_url)
+
+    @property
+    @pulumi.getter(name="managedHsmId")
+    def managed_hsm_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
+        *
+        """
+        return pulumi.get(self, "managed_hsm_id")
+
+    @managed_hsm_id.setter
+    def managed_hsm_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_hsm_id", value)
 
     @property
     @pulumi.getter
@@ -154,7 +195,7 @@ class _ManagedHardwareSecurityModuleRoleAssignmentState:
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The resource id of created assignment resource.
+        (Deprecated) The resource id of created assignment resource.
         """
         return pulumi.get(self, "resource_id")
 
@@ -189,9 +230,9 @@ class _ManagedHardwareSecurityModuleRoleAssignmentState:
     @property
     @pulumi.getter(name="vaultBaseUrl")
     def vault_base_url(self) -> Optional[pulumi.Input[str]]:
-        """
-        The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
-        """
+        warnings.warn("""The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider""", DeprecationWarning)
+        pulumi.log.warn("""vault_base_url is deprecated: The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider""")
+
         return pulumi.get(self, "vault_base_url")
 
     @vault_base_url.setter
@@ -204,6 +245,7 @@ class ManagedHardwareSecurityModuleRoleAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 managed_hsm_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
                  role_definition_id: Optional[pulumi.Input[str]] = None,
@@ -223,11 +265,12 @@ class ManagedHardwareSecurityModuleRoleAssignment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] managed_hsm_id: The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
+               *
         :param pulumi.Input[str] name: The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
         :param pulumi.Input[str] principal_id: The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new Managed Hardware Security Module to be created.
         :param pulumi.Input[str] role_definition_id: The resource ID of the role definition to assign. Changing this forces a new Managed Hardware Security Module to be created.
         :param pulumi.Input[str] scope: Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
-        :param pulumi.Input[str] vault_base_url: The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
         """
         ...
     @overload
@@ -261,6 +304,7 @@ class ManagedHardwareSecurityModuleRoleAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 managed_hsm_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
                  role_definition_id: Optional[pulumi.Input[str]] = None,
@@ -275,6 +319,7 @@ class ManagedHardwareSecurityModuleRoleAssignment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ManagedHardwareSecurityModuleRoleAssignmentArgs.__new__(ManagedHardwareSecurityModuleRoleAssignmentArgs)
 
+            __props__.__dict__["managed_hsm_id"] = managed_hsm_id
             __props__.__dict__["name"] = name
             if principal_id is None and not opts.urn:
                 raise TypeError("Missing required property 'principal_id'")
@@ -285,8 +330,6 @@ class ManagedHardwareSecurityModuleRoleAssignment(pulumi.CustomResource):
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
-            if vault_base_url is None and not opts.urn:
-                raise TypeError("Missing required property 'vault_base_url'")
             __props__.__dict__["vault_base_url"] = vault_base_url
             __props__.__dict__["resource_id"] = None
         super(ManagedHardwareSecurityModuleRoleAssignment, __self__).__init__(
@@ -299,6 +342,7 @@ class ManagedHardwareSecurityModuleRoleAssignment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            managed_hsm_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             principal_id: Optional[pulumi.Input[str]] = None,
             resource_id: Optional[pulumi.Input[str]] = None,
@@ -312,17 +356,19 @@ class ManagedHardwareSecurityModuleRoleAssignment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] managed_hsm_id: The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
+               *
         :param pulumi.Input[str] name: The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
         :param pulumi.Input[str] principal_id: The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new Managed Hardware Security Module to be created.
-        :param pulumi.Input[str] resource_id: The resource id of created assignment resource.
+        :param pulumi.Input[str] resource_id: (Deprecated) The resource id of created assignment resource.
         :param pulumi.Input[str] role_definition_id: The resource ID of the role definition to assign. Changing this forces a new Managed Hardware Security Module to be created.
         :param pulumi.Input[str] scope: Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
-        :param pulumi.Input[str] vault_base_url: The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _ManagedHardwareSecurityModuleRoleAssignmentState.__new__(_ManagedHardwareSecurityModuleRoleAssignmentState)
 
+        __props__.__dict__["managed_hsm_id"] = managed_hsm_id
         __props__.__dict__["name"] = name
         __props__.__dict__["principal_id"] = principal_id
         __props__.__dict__["resource_id"] = resource_id
@@ -330,6 +376,15 @@ class ManagedHardwareSecurityModuleRoleAssignment(pulumi.CustomResource):
         __props__.__dict__["scope"] = scope
         __props__.__dict__["vault_base_url"] = vault_base_url
         return ManagedHardwareSecurityModuleRoleAssignment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="managedHsmId")
+    def managed_hsm_id(self) -> pulumi.Output[str]:
+        """
+        The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
+        *
+        """
+        return pulumi.get(self, "managed_hsm_id")
 
     @property
     @pulumi.getter
@@ -351,7 +406,7 @@ class ManagedHardwareSecurityModuleRoleAssignment(pulumi.CustomResource):
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[str]:
         """
-        The resource id of created assignment resource.
+        (Deprecated) The resource id of created assignment resource.
         """
         return pulumi.get(self, "resource_id")
 
@@ -374,8 +429,8 @@ class ManagedHardwareSecurityModuleRoleAssignment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="vaultBaseUrl")
     def vault_base_url(self) -> pulumi.Output[str]:
-        """
-        The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
-        """
+        warnings.warn("""The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider""", DeprecationWarning)
+        pulumi.log.warn("""vault_base_url is deprecated: The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider""")
+
         return pulumi.get(self, "vault_base_url")
 

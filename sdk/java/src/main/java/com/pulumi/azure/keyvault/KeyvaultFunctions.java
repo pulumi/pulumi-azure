@@ -1385,7 +1385,6 @@ public final class KeyvaultFunctions {
      *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModuleRoleDefinition(GetManagedHardwareSecurityModuleRoleDefinitionArgs.builder()
      *             .vaultBaseUrl(test.hsmUri())
      *             .name(&#34;21dbd100-6940-42c2-9190-5d6cb909625b&#34;)
-     *             .scope(&#34;/&#34;)
      *             .build());
      * 
      *         ctx.export(&#34;id&#34;, example.applyValue(getManagedHardwareSecurityModuleRoleDefinitionResult -&gt; getManagedHardwareSecurityModuleRoleDefinitionResult.resourceManagerId()));
@@ -1428,7 +1427,6 @@ public final class KeyvaultFunctions {
      *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModuleRoleDefinition(GetManagedHardwareSecurityModuleRoleDefinitionArgs.builder()
      *             .vaultBaseUrl(test.hsmUri())
      *             .name(&#34;21dbd100-6940-42c2-9190-5d6cb909625b&#34;)
-     *             .scope(&#34;/&#34;)
      *             .build());
      * 
      *         ctx.export(&#34;id&#34;, example.applyValue(getManagedHardwareSecurityModuleRoleDefinitionResult -&gt; getManagedHardwareSecurityModuleRoleDefinitionResult.resourceManagerId()));
@@ -1471,7 +1469,6 @@ public final class KeyvaultFunctions {
      *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModuleRoleDefinition(GetManagedHardwareSecurityModuleRoleDefinitionArgs.builder()
      *             .vaultBaseUrl(test.hsmUri())
      *             .name(&#34;21dbd100-6940-42c2-9190-5d6cb909625b&#34;)
-     *             .scope(&#34;/&#34;)
      *             .build());
      * 
      *         ctx.export(&#34;id&#34;, example.applyValue(getManagedHardwareSecurityModuleRoleDefinitionResult -&gt; getManagedHardwareSecurityModuleRoleDefinitionResult.resourceManagerId()));
@@ -1514,7 +1511,6 @@ public final class KeyvaultFunctions {
      *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModuleRoleDefinition(GetManagedHardwareSecurityModuleRoleDefinitionArgs.builder()
      *             .vaultBaseUrl(test.hsmUri())
      *             .name(&#34;21dbd100-6940-42c2-9190-5d6cb909625b&#34;)
-     *             .scope(&#34;/&#34;)
      *             .build());
      * 
      *         ctx.export(&#34;id&#34;, example.applyValue(getManagedHardwareSecurityModuleRoleDefinitionResult -&gt; getManagedHardwareSecurityModuleRoleDefinitionResult.resourceManagerId()));

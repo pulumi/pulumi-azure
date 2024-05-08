@@ -29,15 +29,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? EnvironmentVariables;
-        /// <summary>
-        /// A `gpu` block as defined below. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **Note:** Gpu resources are currently only supported in Linux containers.
-        /// </summary>
         public readonly Outputs.GroupContainerGpu? Gpu;
-        /// <summary>
-        /// A `gpu_limit` block as defined below.
-        /// </summary>
         public readonly Outputs.GroupContainerGpuLimit? GpuLimit;
         /// <summary>
         /// The container image name. Changing this forces a new resource to be created.

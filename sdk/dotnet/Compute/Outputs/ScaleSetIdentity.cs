@@ -54,13 +54,14 @@ namespace Pulumi.Azure.Compute.Outputs
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["principalId"] = example.Identity.Apply(identity =&gt; identity.PrincipalId),
+        ///         ["principalId"] = example.Identity.Apply(identity =&gt; identity?.PrincipalId),
         ///     };
         /// });
         /// ```
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         public readonly string? PrincipalId;
+        public readonly string? TenantId;
         /// <summary>
         /// Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
         /// </summary>
@@ -72,10 +73,13 @@ namespace Pulumi.Azure.Compute.Outputs
 
             string? principalId,
 
+            string? tenantId,
+
             string type)
         {
             IdentityIds = identityIds;
             PrincipalId = principalId;
+            TenantId = tenantId;
             Type = type;
         }
     }

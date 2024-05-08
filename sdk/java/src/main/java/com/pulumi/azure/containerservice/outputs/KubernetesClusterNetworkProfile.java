@@ -98,6 +98,8 @@ public final class KubernetesClusterNetworkProfile {
      * 
      */
     private @Nullable String networkPolicy;
+    private @Nullable List<String> outboundIpAddressIds;
+    private @Nullable List<String> outboundIpPrefixIds;
     /**
      * @return The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outbound_type` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
      * 
@@ -232,6 +234,12 @@ public final class KubernetesClusterNetworkProfile {
     public Optional<String> networkPolicy() {
         return Optional.ofNullable(this.networkPolicy);
     }
+    public List<String> outboundIpAddressIds() {
+        return this.outboundIpAddressIds == null ? List.of() : this.outboundIpAddressIds;
+    }
+    public List<String> outboundIpPrefixIds() {
+        return this.outboundIpPrefixIds == null ? List.of() : this.outboundIpPrefixIds;
+    }
     /**
      * @return The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outbound_type` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
      * 
@@ -290,6 +298,8 @@ public final class KubernetesClusterNetworkProfile {
         private String networkPlugin;
         private @Nullable String networkPluginMode;
         private @Nullable String networkPolicy;
+        private @Nullable List<String> outboundIpAddressIds;
+        private @Nullable List<String> outboundIpPrefixIds;
         private @Nullable String outboundType;
         private @Nullable String podCidr;
         private @Nullable List<String> podCidrs;
@@ -309,6 +319,8 @@ public final class KubernetesClusterNetworkProfile {
     	      this.networkPlugin = defaults.networkPlugin;
     	      this.networkPluginMode = defaults.networkPluginMode;
     	      this.networkPolicy = defaults.networkPolicy;
+    	      this.outboundIpAddressIds = defaults.outboundIpAddressIds;
+    	      this.outboundIpPrefixIds = defaults.outboundIpPrefixIds;
     	      this.outboundType = defaults.outboundType;
     	      this.podCidr = defaults.podCidr;
     	      this.podCidrs = defaults.podCidrs;
@@ -388,6 +400,24 @@ public final class KubernetesClusterNetworkProfile {
             return this;
         }
         @CustomType.Setter
+        public Builder outboundIpAddressIds(@Nullable List<String> outboundIpAddressIds) {
+
+            this.outboundIpAddressIds = outboundIpAddressIds;
+            return this;
+        }
+        public Builder outboundIpAddressIds(String... outboundIpAddressIds) {
+            return outboundIpAddressIds(List.of(outboundIpAddressIds));
+        }
+        @CustomType.Setter
+        public Builder outboundIpPrefixIds(@Nullable List<String> outboundIpPrefixIds) {
+
+            this.outboundIpPrefixIds = outboundIpPrefixIds;
+            return this;
+        }
+        public Builder outboundIpPrefixIds(String... outboundIpPrefixIds) {
+            return outboundIpPrefixIds(List.of(outboundIpPrefixIds));
+        }
+        @CustomType.Setter
         public Builder outboundType(@Nullable String outboundType) {
 
             this.outboundType = outboundType;
@@ -436,6 +466,8 @@ public final class KubernetesClusterNetworkProfile {
             _resultValue.networkPlugin = networkPlugin;
             _resultValue.networkPluginMode = networkPluginMode;
             _resultValue.networkPolicy = networkPolicy;
+            _resultValue.outboundIpAddressIds = outboundIpAddressIds;
+            _resultValue.outboundIpPrefixIds = outboundIpPrefixIds;
             _resultValue.outboundType = outboundType;
             _resultValue.podCidr = podCidr;
             _resultValue.podCidrs = podCidrs;

@@ -49,6 +49,7 @@ export class ManagedHardwareSecurityModuleRoleDefinition extends pulumi.CustomRe
      * Specifies a text description about this KeyVault Role Definition.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    public readonly managedHsmId!: pulumi.Output<string>;
     /**
      * The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
      */
@@ -81,13 +82,14 @@ export class ManagedHardwareSecurityModuleRoleDefinition extends pulumi.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ManagedHardwareSecurityModuleRoleDefinitionArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: ManagedHardwareSecurityModuleRoleDefinitionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ManagedHardwareSecurityModuleRoleDefinitionArgs | ManagedHardwareSecurityModuleRoleDefinitionState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedHardwareSecurityModuleRoleDefinitionState | undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["managedHsmId"] = state ? state.managedHsmId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["permissions"] = state ? state.permissions : undefined;
             resourceInputs["resourceManagerId"] = state ? state.resourceManagerId : undefined;
@@ -96,10 +98,8 @@ export class ManagedHardwareSecurityModuleRoleDefinition extends pulumi.CustomRe
             resourceInputs["vaultBaseUrl"] = state ? state.vaultBaseUrl : undefined;
         } else {
             const args = argsOrState as ManagedHardwareSecurityModuleRoleDefinitionArgs | undefined;
-            if ((!args || args.vaultBaseUrl === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'vaultBaseUrl'");
-            }
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["managedHsmId"] = args ? args.managedHsmId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["permissions"] = args ? args.permissions : undefined;
             resourceInputs["roleName"] = args ? args.roleName : undefined;
@@ -120,6 +120,7 @@ export interface ManagedHardwareSecurityModuleRoleDefinitionState {
      * Specifies a text description about this KeyVault Role Definition.
      */
     description?: pulumi.Input<string>;
+    managedHsmId?: pulumi.Input<string>;
     /**
      * The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
      */
@@ -154,6 +155,7 @@ export interface ManagedHardwareSecurityModuleRoleDefinitionArgs {
      * Specifies a text description about this KeyVault Role Definition.
      */
     description?: pulumi.Input<string>;
+    managedHsmId?: pulumi.Input<string>;
     /**
      * The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
      */
@@ -169,5 +171,5 @@ export interface ManagedHardwareSecurityModuleRoleDefinitionArgs {
     /**
      * The base URL of the managed hardware security module resource. Changing this forces a new KeyVault Role Definition to be created.
      */
-    vaultBaseUrl: pulumi.Input<string>;
+    vaultBaseUrl?: pulumi.Input<string>;
 }

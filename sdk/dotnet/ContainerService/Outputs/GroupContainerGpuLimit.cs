@@ -13,12 +13,9 @@ namespace Pulumi.Azure.ContainerService.Outputs
     [OutputType]
     public sealed class GroupContainerGpuLimit
     {
-        /// <summary>
-        /// The upper limit of the number of GPUs which should be assigned to this container.
-        /// </summary>
         public readonly int? Count;
         /// <summary>
-        /// The allowed SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`.
+        /// Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? Sku;
 

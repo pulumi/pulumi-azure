@@ -187,14 +187,14 @@ public class CustomerManagedKey extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.keyVaultId);
     }
     /**
-     * URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `key_vault_id`, or `key_vault_uri` must be specified.
+     * URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
      * 
      */
     @Export(name="keyVaultUri", refs={String.class}, tree="[0]")
     private Output<String> keyVaultUri;
 
     /**
-     * @return URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `key_vault_id`, or `key_vault_uri` must be specified.
+     * @return URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
      * 
      */
     public Output<String> keyVaultUri() {
@@ -213,6 +213,20 @@ public class CustomerManagedKey extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> keyVersion() {
         return Codegen.optional(this.keyVersion);
+    }
+    /**
+     * Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
+     * 
+     */
+    @Export(name="managedHsmKeyId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> managedHsmKeyId;
+
+    /**
+     * @return Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
+     * 
+     */
+    public Output<Optional<String>> managedHsmKeyId() {
+        return Codegen.optional(this.managedHsmKeyId);
     }
     /**
      * The ID of the Storage Account. Changing this forces a new resource to be created.

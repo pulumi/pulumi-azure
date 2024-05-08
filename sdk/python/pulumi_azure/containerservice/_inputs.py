@@ -1179,10 +1179,6 @@ class GroupContainerArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: A list of commands which should be run on the container. Changing this forces a new resource to be created.
         :param pulumi.Input[float] cpu_limit: The upper limit of the number of CPU cores of the containers.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
-        :param pulumi.Input['GroupContainerGpuArgs'] gpu: A `gpu` block as defined below. Changing this forces a new resource to be created.
-               
-               > **Note:** Gpu resources are currently only supported in Linux containers.
-        :param pulumi.Input['GroupContainerGpuLimitArgs'] gpu_limit: A `gpu_limit` block as defined below.
         :param pulumi.Input['GroupContainerLivenessProbeArgs'] liveness_probe: The definition of a readiness probe for this container as documented in the `liveness_probe` block below. Changing this forces a new resource to be created.
         :param pulumi.Input[float] memory_limit: The upper limit of the memory of the containers in GB.
         :param pulumi.Input[Sequence[pulumi.Input['GroupContainerPortArgs']]] ports: A set of public ports for the container. Changing this forces a new resource to be created. Set as documented in the `ports` block below.
@@ -1202,7 +1198,13 @@ class GroupContainerArgs:
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
         if gpu is not None:
+            warnings.warn("""The `gpu` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.""", DeprecationWarning)
+            pulumi.log.warn("""gpu is deprecated: The `gpu` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.""")
+        if gpu is not None:
             pulumi.set(__self__, "gpu", gpu)
+        if gpu_limit is not None:
+            warnings.warn("""The `gpu_limit` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.""", DeprecationWarning)
+            pulumi.log.warn("""gpu_limit is deprecated: The `gpu_limit` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.""")
         if gpu_limit is not None:
             pulumi.set(__self__, "gpu_limit", gpu_limit)
         if liveness_probe is not None:
@@ -1307,11 +1309,9 @@ class GroupContainerArgs:
     @property
     @pulumi.getter
     def gpu(self) -> Optional[pulumi.Input['GroupContainerGpuArgs']]:
-        """
-        A `gpu` block as defined below. Changing this forces a new resource to be created.
+        warnings.warn("""The `gpu` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.""", DeprecationWarning)
+        pulumi.log.warn("""gpu is deprecated: The `gpu` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.""")
 
-        > **Note:** Gpu resources are currently only supported in Linux containers.
-        """
         return pulumi.get(self, "gpu")
 
     @gpu.setter
@@ -1321,9 +1321,9 @@ class GroupContainerArgs:
     @property
     @pulumi.getter(name="gpuLimit")
     def gpu_limit(self) -> Optional[pulumi.Input['GroupContainerGpuLimitArgs']]:
-        """
-        A `gpu_limit` block as defined below.
-        """
+        warnings.warn("""The `gpu_limit` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.""", DeprecationWarning)
+        pulumi.log.warn("""gpu_limit is deprecated: The `gpu_limit` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.""")
+
         return pulumi.get(self, "gpu_limit")
 
     @gpu_limit.setter
@@ -1421,8 +1421,7 @@ class GroupContainerGpuArgs:
                  count: Optional[pulumi.Input[int]] = None,
                  sku: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[int] count: The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku: The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku: Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         """
         if count is not None:
             pulumi.set(__self__, "count", count)
@@ -1432,9 +1431,6 @@ class GroupContainerGpuArgs:
     @property
     @pulumi.getter
     def count(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "count")
 
     @count.setter
@@ -1445,7 +1441,7 @@ class GroupContainerGpuArgs:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
-        The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+        Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku")
 
@@ -1460,8 +1456,7 @@ class GroupContainerGpuLimitArgs:
                  count: Optional[pulumi.Input[int]] = None,
                  sku: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[int] count: The upper limit of the number of GPUs which should be assigned to this container.
-        :param pulumi.Input[str] sku: The allowed SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`.
+        :param pulumi.Input[str] sku: Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         """
         if count is not None:
             pulumi.set(__self__, "count", count)
@@ -1471,9 +1466,6 @@ class GroupContainerGpuLimitArgs:
     @property
     @pulumi.getter
     def count(self) -> Optional[pulumi.Input[int]]:
-        """
-        The upper limit of the number of GPUs which should be assigned to this container.
-        """
         return pulumi.get(self, "count")
 
     @count.setter
@@ -1484,7 +1476,7 @@ class GroupContainerGpuLimitArgs:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
-        The allowed SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`.
+        Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku")
 
@@ -6495,6 +6487,8 @@ class KubernetesClusterNetworkProfileArgs:
                  network_mode: Optional[pulumi.Input[str]] = None,
                  network_plugin_mode: Optional[pulumi.Input[str]] = None,
                  network_policy: Optional[pulumi.Input[str]] = None,
+                 outbound_ip_address_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 outbound_ip_prefix_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  outbound_type: Optional[pulumi.Input[str]] = None,
                  pod_cidr: Optional[pulumi.Input[str]] = None,
                  pod_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -6568,6 +6562,10 @@ class KubernetesClusterNetworkProfileArgs:
             pulumi.set(__self__, "network_plugin_mode", network_plugin_mode)
         if network_policy is not None:
             pulumi.set(__self__, "network_policy", network_policy)
+        if outbound_ip_address_ids is not None:
+            pulumi.set(__self__, "outbound_ip_address_ids", outbound_ip_address_ids)
+        if outbound_ip_prefix_ids is not None:
+            pulumi.set(__self__, "outbound_ip_prefix_ids", outbound_ip_prefix_ids)
         if outbound_type is not None:
             pulumi.set(__self__, "outbound_type", outbound_type)
         if pod_cidr is not None:
@@ -6737,6 +6735,24 @@ class KubernetesClusterNetworkProfileArgs:
     @network_policy.setter
     def network_policy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "network_policy", value)
+
+    @property
+    @pulumi.getter(name="outboundIpAddressIds")
+    def outbound_ip_address_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "outbound_ip_address_ids")
+
+    @outbound_ip_address_ids.setter
+    def outbound_ip_address_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "outbound_ip_address_ids", value)
+
+    @property
+    @pulumi.getter(name="outboundIpPrefixIds")
+    def outbound_ip_prefix_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "outbound_ip_prefix_ids")
+
+    @outbound_ip_prefix_ids.setter
+    def outbound_ip_prefix_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "outbound_ip_prefix_ids", value)
 
     @property
     @pulumi.getter(name="outboundType")
@@ -8486,10 +8502,12 @@ class RegistryEncryptionArgs:
         """
         :param pulumi.Input[str] identity_client_id: The client ID of the managed identity associated with the encryption key.
         :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key.
-        :param pulumi.Input[bool] enabled: Boolean value that indicates whether encryption is enabled.
         """
         pulumi.set(__self__, "identity_client_id", identity_client_id)
         pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if enabled is not None:
+            warnings.warn("""The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider.""", DeprecationWarning)
+            pulumi.log.warn("""enabled is deprecated: The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider.""")
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
@@ -8520,9 +8538,9 @@ class RegistryEncryptionArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean value that indicates whether encryption is enabled.
-        """
+        warnings.warn("""The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider.""", DeprecationWarning)
+        pulumi.log.warn("""enabled is deprecated: The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider.""")
+
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -8697,8 +8715,8 @@ class RegistryNetworkRuleSetArgs:
         if ip_rules is not None:
             pulumi.set(__self__, "ip_rules", ip_rules)
         if virtual_networks is not None:
-            warnings.warn(""" This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead""", DeprecationWarning)
-            pulumi.log.warn("""virtual_networks is deprecated:  This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead""")
+            warnings.warn("""The property `virtual_network` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""virtual_networks is deprecated: The property `virtual_network` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider.""")
         if virtual_networks is not None:
             pulumi.set(__self__, "virtual_networks", virtual_networks)
 
@@ -8733,8 +8751,8 @@ class RegistryNetworkRuleSetArgs:
     @property
     @pulumi.getter(name="virtualNetworks")
     def virtual_networks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetVirtualNetworkArgs']]]]:
-        warnings.warn(""" This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead""", DeprecationWarning)
-        pulumi.log.warn("""virtual_networks is deprecated:  This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead""")
+        warnings.warn("""The property `virtual_network` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""virtual_networks is deprecated: The property `virtual_network` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider.""")
 
         return pulumi.get(self, "virtual_networks")
 

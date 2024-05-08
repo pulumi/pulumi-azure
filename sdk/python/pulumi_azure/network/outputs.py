@@ -6505,7 +6505,7 @@ class NetworkConnectionMonitorEndpoint(dict):
         :param 'NetworkConnectionMonitorEndpointFilterArgs' filter: A `filter` block as defined below.
         :param Sequence[str] included_ip_addresses: A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be included to the Network Connection Monitor endpoint.
         :param str target_resource_id: The resource ID which is used as the endpoint by the Network Connection Monitor.
-        :param str target_resource_type: The endpoint type of the Network Connection Monitor. Possible values are `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
+        :param str target_resource_type: The endpoint type of the Network Connection Monitor. Possible values are `AzureArcVM`, `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
         """
         pulumi.set(__self__, "name", name)
         if address is not None:
@@ -6583,7 +6583,7 @@ class NetworkConnectionMonitorEndpoint(dict):
     @pulumi.getter(name="targetResourceType")
     def target_resource_type(self) -> Optional[str]:
         """
-        The endpoint type of the Network Connection Monitor. Possible values are `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
+        The endpoint type of the Network Connection Monitor. Possible values are `AzureArcVM`, `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
         """
         return pulumi.get(self, "target_resource_type")
 

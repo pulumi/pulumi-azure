@@ -17,30 +17,64 @@ public final class LoadTestIdentityArgs extends com.pulumi.resources.ResourceArg
 
     public static final LoadTestIdentityArgs Empty = new LoadTestIdentityArgs();
 
+    /**
+     * A list of the User Assigned Identity IDs that should be assigned to this Load Test.
+     * 
+     */
     @Import(name="identityIds")
     private @Nullable Output<List<String>> identityIds;
 
+    /**
+     * @return A list of the User Assigned Identity IDs that should be assigned to this Load Test.
+     * 
+     */
     public Optional<Output<List<String>>> identityIds() {
         return Optional.ofNullable(this.identityIds);
     }
 
+    /**
+     * The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
+     * *
+     * 
+     */
     @Import(name="principalId")
     private @Nullable Output<String> principalId;
 
+    /**
+     * @return The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
+     * *
+     * 
+     */
     public Optional<Output<String>> principalId() {
         return Optional.ofNullable(this.principalId);
     }
 
+    /**
+     * The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
+     * 
+     */
     @Import(name="tenantId")
     private @Nullable Output<String> tenantId;
 
+    /**
+     * @return The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
+     * 
+     */
     public Optional<Output<String>> tenantId() {
         return Optional.ofNullable(this.tenantId);
     }
 
+    /**
+     * Specifies the type of Managed Identity that should be assigned to this Load Test Encryption. Possible values are `SystemAssigned` or `UserAssigned`. Changing this forces a new Load Test to be created.
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return Specifies the type of Managed Identity that should be assigned to this Load Test Encryption. Possible values are `SystemAssigned` or `UserAssigned`. Changing this forces a new Load Test to be created.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
@@ -72,42 +106,98 @@ public final class LoadTestIdentityArgs extends com.pulumi.resources.ResourceArg
             $ = new LoadTestIdentityArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param identityIds A list of the User Assigned Identity IDs that should be assigned to this Load Test.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identityIds(@Nullable Output<List<String>> identityIds) {
             $.identityIds = identityIds;
             return this;
         }
 
+        /**
+         * @param identityIds A list of the User Assigned Identity IDs that should be assigned to this Load Test.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identityIds(List<String> identityIds) {
             return identityIds(Output.of(identityIds));
         }
 
+        /**
+         * @param identityIds A list of the User Assigned Identity IDs that should be assigned to this Load Test.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identityIds(String... identityIds) {
             return identityIds(List.of(identityIds));
         }
 
+        /**
+         * @param principalId The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
+         * *
+         * 
+         * @return builder
+         * 
+         */
         public Builder principalId(@Nullable Output<String> principalId) {
             $.principalId = principalId;
             return this;
         }
 
+        /**
+         * @param principalId The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
+         * *
+         * 
+         * @return builder
+         * 
+         */
         public Builder principalId(String principalId) {
             return principalId(Output.of(principalId));
         }
 
+        /**
+         * @param tenantId The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tenantId(@Nullable Output<String> tenantId) {
             $.tenantId = tenantId;
             return this;
         }
 
+        /**
+         * @param tenantId The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tenantId(String tenantId) {
             return tenantId(Output.of(tenantId));
         }
 
+        /**
+         * @param type Specifies the type of Managed Identity that should be assigned to this Load Test Encryption. Possible values are `SystemAssigned` or `UserAssigned`. Changing this forces a new Load Test to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type Specifies the type of Managed Identity that should be assigned to this Load Test Encryption. Possible values are `SystemAssigned` or `UserAssigned`. Changing this forces a new Load Test to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

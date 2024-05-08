@@ -32,6 +32,13 @@ public final class ManagedHardwareSecurityModuleRoleDefinitionState extends com.
         return Optional.ofNullable(this.description);
     }
 
+    @Import(name="managedHsmId")
+    private @Nullable Output<String> managedHsmId;
+
+    public Optional<Output<String>> managedHsmId() {
+        return Optional.ofNullable(this.managedHsmId);
+    }
+
     /**
      * The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
      * 
@@ -126,6 +133,7 @@ public final class ManagedHardwareSecurityModuleRoleDefinitionState extends com.
 
     private ManagedHardwareSecurityModuleRoleDefinitionState(ManagedHardwareSecurityModuleRoleDefinitionState $) {
         this.description = $.description;
+        this.managedHsmId = $.managedHsmId;
         this.name = $.name;
         this.permissions = $.permissions;
         this.resourceManagerId = $.resourceManagerId;
@@ -171,6 +179,15 @@ public final class ManagedHardwareSecurityModuleRoleDefinitionState extends com.
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        public Builder managedHsmId(@Nullable Output<String> managedHsmId) {
+            $.managedHsmId = managedHsmId;
+            return this;
+        }
+
+        public Builder managedHsmId(String managedHsmId) {
+            return managedHsmId(Output.of(managedHsmId));
         }
 
         /**

@@ -13,11 +13,328 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type LoadTestEncryption struct {
+	// An `identity` block as defined below. Changing this forces a new Load Test to be created.
+	Identity LoadTestEncryptionIdentity `pulumi:"identity"`
+	// The URI specifying the Key vault and key to be used to encrypt data in this resource. The URI should include the key version. Changing this forces a new Load Test to be created.
+	KeyUrl string `pulumi:"keyUrl"`
+}
+
+// LoadTestEncryptionInput is an input type that accepts LoadTestEncryptionArgs and LoadTestEncryptionOutput values.
+// You can construct a concrete instance of `LoadTestEncryptionInput` via:
+//
+//	LoadTestEncryptionArgs{...}
+type LoadTestEncryptionInput interface {
+	pulumi.Input
+
+	ToLoadTestEncryptionOutput() LoadTestEncryptionOutput
+	ToLoadTestEncryptionOutputWithContext(context.Context) LoadTestEncryptionOutput
+}
+
+type LoadTestEncryptionArgs struct {
+	// An `identity` block as defined below. Changing this forces a new Load Test to be created.
+	Identity LoadTestEncryptionIdentityInput `pulumi:"identity"`
+	// The URI specifying the Key vault and key to be used to encrypt data in this resource. The URI should include the key version. Changing this forces a new Load Test to be created.
+	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
+}
+
+func (LoadTestEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadTestEncryption)(nil)).Elem()
+}
+
+func (i LoadTestEncryptionArgs) ToLoadTestEncryptionOutput() LoadTestEncryptionOutput {
+	return i.ToLoadTestEncryptionOutputWithContext(context.Background())
+}
+
+func (i LoadTestEncryptionArgs) ToLoadTestEncryptionOutputWithContext(ctx context.Context) LoadTestEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadTestEncryptionOutput)
+}
+
+func (i LoadTestEncryptionArgs) ToLoadTestEncryptionPtrOutput() LoadTestEncryptionPtrOutput {
+	return i.ToLoadTestEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i LoadTestEncryptionArgs) ToLoadTestEncryptionPtrOutputWithContext(ctx context.Context) LoadTestEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadTestEncryptionOutput).ToLoadTestEncryptionPtrOutputWithContext(ctx)
+}
+
+// LoadTestEncryptionPtrInput is an input type that accepts LoadTestEncryptionArgs, LoadTestEncryptionPtr and LoadTestEncryptionPtrOutput values.
+// You can construct a concrete instance of `LoadTestEncryptionPtrInput` via:
+//
+//	        LoadTestEncryptionArgs{...}
+//
+//	or:
+//
+//	        nil
+type LoadTestEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToLoadTestEncryptionPtrOutput() LoadTestEncryptionPtrOutput
+	ToLoadTestEncryptionPtrOutputWithContext(context.Context) LoadTestEncryptionPtrOutput
+}
+
+type loadTestEncryptionPtrType LoadTestEncryptionArgs
+
+func LoadTestEncryptionPtr(v *LoadTestEncryptionArgs) LoadTestEncryptionPtrInput {
+	return (*loadTestEncryptionPtrType)(v)
+}
+
+func (*loadTestEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadTestEncryption)(nil)).Elem()
+}
+
+func (i *loadTestEncryptionPtrType) ToLoadTestEncryptionPtrOutput() LoadTestEncryptionPtrOutput {
+	return i.ToLoadTestEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *loadTestEncryptionPtrType) ToLoadTestEncryptionPtrOutputWithContext(ctx context.Context) LoadTestEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadTestEncryptionPtrOutput)
+}
+
+type LoadTestEncryptionOutput struct{ *pulumi.OutputState }
+
+func (LoadTestEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadTestEncryption)(nil)).Elem()
+}
+
+func (o LoadTestEncryptionOutput) ToLoadTestEncryptionOutput() LoadTestEncryptionOutput {
+	return o
+}
+
+func (o LoadTestEncryptionOutput) ToLoadTestEncryptionOutputWithContext(ctx context.Context) LoadTestEncryptionOutput {
+	return o
+}
+
+func (o LoadTestEncryptionOutput) ToLoadTestEncryptionPtrOutput() LoadTestEncryptionPtrOutput {
+	return o.ToLoadTestEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o LoadTestEncryptionOutput) ToLoadTestEncryptionPtrOutputWithContext(ctx context.Context) LoadTestEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadTestEncryption) *LoadTestEncryption {
+		return &v
+	}).(LoadTestEncryptionPtrOutput)
+}
+
+// An `identity` block as defined below. Changing this forces a new Load Test to be created.
+func (o LoadTestEncryptionOutput) Identity() LoadTestEncryptionIdentityOutput {
+	return o.ApplyT(func(v LoadTestEncryption) LoadTestEncryptionIdentity { return v.Identity }).(LoadTestEncryptionIdentityOutput)
+}
+
+// The URI specifying the Key vault and key to be used to encrypt data in this resource. The URI should include the key version. Changing this forces a new Load Test to be created.
+func (o LoadTestEncryptionOutput) KeyUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LoadTestEncryption) string { return v.KeyUrl }).(pulumi.StringOutput)
+}
+
+type LoadTestEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (LoadTestEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadTestEncryption)(nil)).Elem()
+}
+
+func (o LoadTestEncryptionPtrOutput) ToLoadTestEncryptionPtrOutput() LoadTestEncryptionPtrOutput {
+	return o
+}
+
+func (o LoadTestEncryptionPtrOutput) ToLoadTestEncryptionPtrOutputWithContext(ctx context.Context) LoadTestEncryptionPtrOutput {
+	return o
+}
+
+func (o LoadTestEncryptionPtrOutput) Elem() LoadTestEncryptionOutput {
+	return o.ApplyT(func(v *LoadTestEncryption) LoadTestEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret LoadTestEncryption
+		return ret
+	}).(LoadTestEncryptionOutput)
+}
+
+// An `identity` block as defined below. Changing this forces a new Load Test to be created.
+func (o LoadTestEncryptionPtrOutput) Identity() LoadTestEncryptionIdentityPtrOutput {
+	return o.ApplyT(func(v *LoadTestEncryption) *LoadTestEncryptionIdentity {
+		if v == nil {
+			return nil
+		}
+		return &v.Identity
+	}).(LoadTestEncryptionIdentityPtrOutput)
+}
+
+// The URI specifying the Key vault and key to be used to encrypt data in this resource. The URI should include the key version. Changing this forces a new Load Test to be created.
+func (o LoadTestEncryptionPtrOutput) KeyUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadTestEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+type LoadTestEncryptionIdentity struct {
+	// The User Assigned Identity ID that should be assigned to this Load Test Encryption. Changing this forces a new Load Test to be created.
+	IdentityId string `pulumi:"identityId"`
+	// Specifies the type of Managed Identity that should be assigned to this Load Test Encryption. Possible values are `SystemAssigned` or `UserAssigned`. Changing this forces a new Load Test to be created.
+	Type string `pulumi:"type"`
+}
+
+// LoadTestEncryptionIdentityInput is an input type that accepts LoadTestEncryptionIdentityArgs and LoadTestEncryptionIdentityOutput values.
+// You can construct a concrete instance of `LoadTestEncryptionIdentityInput` via:
+//
+//	LoadTestEncryptionIdentityArgs{...}
+type LoadTestEncryptionIdentityInput interface {
+	pulumi.Input
+
+	ToLoadTestEncryptionIdentityOutput() LoadTestEncryptionIdentityOutput
+	ToLoadTestEncryptionIdentityOutputWithContext(context.Context) LoadTestEncryptionIdentityOutput
+}
+
+type LoadTestEncryptionIdentityArgs struct {
+	// The User Assigned Identity ID that should be assigned to this Load Test Encryption. Changing this forces a new Load Test to be created.
+	IdentityId pulumi.StringInput `pulumi:"identityId"`
+	// Specifies the type of Managed Identity that should be assigned to this Load Test Encryption. Possible values are `SystemAssigned` or `UserAssigned`. Changing this forces a new Load Test to be created.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (LoadTestEncryptionIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadTestEncryptionIdentity)(nil)).Elem()
+}
+
+func (i LoadTestEncryptionIdentityArgs) ToLoadTestEncryptionIdentityOutput() LoadTestEncryptionIdentityOutput {
+	return i.ToLoadTestEncryptionIdentityOutputWithContext(context.Background())
+}
+
+func (i LoadTestEncryptionIdentityArgs) ToLoadTestEncryptionIdentityOutputWithContext(ctx context.Context) LoadTestEncryptionIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadTestEncryptionIdentityOutput)
+}
+
+func (i LoadTestEncryptionIdentityArgs) ToLoadTestEncryptionIdentityPtrOutput() LoadTestEncryptionIdentityPtrOutput {
+	return i.ToLoadTestEncryptionIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i LoadTestEncryptionIdentityArgs) ToLoadTestEncryptionIdentityPtrOutputWithContext(ctx context.Context) LoadTestEncryptionIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadTestEncryptionIdentityOutput).ToLoadTestEncryptionIdentityPtrOutputWithContext(ctx)
+}
+
+// LoadTestEncryptionIdentityPtrInput is an input type that accepts LoadTestEncryptionIdentityArgs, LoadTestEncryptionIdentityPtr and LoadTestEncryptionIdentityPtrOutput values.
+// You can construct a concrete instance of `LoadTestEncryptionIdentityPtrInput` via:
+//
+//	        LoadTestEncryptionIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type LoadTestEncryptionIdentityPtrInput interface {
+	pulumi.Input
+
+	ToLoadTestEncryptionIdentityPtrOutput() LoadTestEncryptionIdentityPtrOutput
+	ToLoadTestEncryptionIdentityPtrOutputWithContext(context.Context) LoadTestEncryptionIdentityPtrOutput
+}
+
+type loadTestEncryptionIdentityPtrType LoadTestEncryptionIdentityArgs
+
+func LoadTestEncryptionIdentityPtr(v *LoadTestEncryptionIdentityArgs) LoadTestEncryptionIdentityPtrInput {
+	return (*loadTestEncryptionIdentityPtrType)(v)
+}
+
+func (*loadTestEncryptionIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadTestEncryptionIdentity)(nil)).Elem()
+}
+
+func (i *loadTestEncryptionIdentityPtrType) ToLoadTestEncryptionIdentityPtrOutput() LoadTestEncryptionIdentityPtrOutput {
+	return i.ToLoadTestEncryptionIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *loadTestEncryptionIdentityPtrType) ToLoadTestEncryptionIdentityPtrOutputWithContext(ctx context.Context) LoadTestEncryptionIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadTestEncryptionIdentityPtrOutput)
+}
+
+type LoadTestEncryptionIdentityOutput struct{ *pulumi.OutputState }
+
+func (LoadTestEncryptionIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadTestEncryptionIdentity)(nil)).Elem()
+}
+
+func (o LoadTestEncryptionIdentityOutput) ToLoadTestEncryptionIdentityOutput() LoadTestEncryptionIdentityOutput {
+	return o
+}
+
+func (o LoadTestEncryptionIdentityOutput) ToLoadTestEncryptionIdentityOutputWithContext(ctx context.Context) LoadTestEncryptionIdentityOutput {
+	return o
+}
+
+func (o LoadTestEncryptionIdentityOutput) ToLoadTestEncryptionIdentityPtrOutput() LoadTestEncryptionIdentityPtrOutput {
+	return o.ToLoadTestEncryptionIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o LoadTestEncryptionIdentityOutput) ToLoadTestEncryptionIdentityPtrOutputWithContext(ctx context.Context) LoadTestEncryptionIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadTestEncryptionIdentity) *LoadTestEncryptionIdentity {
+		return &v
+	}).(LoadTestEncryptionIdentityPtrOutput)
+}
+
+// The User Assigned Identity ID that should be assigned to this Load Test Encryption. Changing this forces a new Load Test to be created.
+func (o LoadTestEncryptionIdentityOutput) IdentityId() pulumi.StringOutput {
+	return o.ApplyT(func(v LoadTestEncryptionIdentity) string { return v.IdentityId }).(pulumi.StringOutput)
+}
+
+// Specifies the type of Managed Identity that should be assigned to this Load Test Encryption. Possible values are `SystemAssigned` or `UserAssigned`. Changing this forces a new Load Test to be created.
+func (o LoadTestEncryptionIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LoadTestEncryptionIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type LoadTestEncryptionIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (LoadTestEncryptionIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadTestEncryptionIdentity)(nil)).Elem()
+}
+
+func (o LoadTestEncryptionIdentityPtrOutput) ToLoadTestEncryptionIdentityPtrOutput() LoadTestEncryptionIdentityPtrOutput {
+	return o
+}
+
+func (o LoadTestEncryptionIdentityPtrOutput) ToLoadTestEncryptionIdentityPtrOutputWithContext(ctx context.Context) LoadTestEncryptionIdentityPtrOutput {
+	return o
+}
+
+func (o LoadTestEncryptionIdentityPtrOutput) Elem() LoadTestEncryptionIdentityOutput {
+	return o.ApplyT(func(v *LoadTestEncryptionIdentity) LoadTestEncryptionIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret LoadTestEncryptionIdentity
+		return ret
+	}).(LoadTestEncryptionIdentityOutput)
+}
+
+// The User Assigned Identity ID that should be assigned to this Load Test Encryption. Changing this forces a new Load Test to be created.
+func (o LoadTestEncryptionIdentityPtrOutput) IdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadTestEncryptionIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IdentityId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Identity that should be assigned to this Load Test Encryption. Possible values are `SystemAssigned` or `UserAssigned`. Changing this forces a new Load Test to be created.
+func (o LoadTestEncryptionIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadTestEncryptionIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type LoadTestIdentity struct {
+	// A list of the User Assigned Identity IDs that should be assigned to this Load Test.
 	IdentityIds []string `pulumi:"identityIds"`
-	PrincipalId *string  `pulumi:"principalId"`
-	TenantId    *string  `pulumi:"tenantId"`
-	Type        string   `pulumi:"type"`
+	// The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
+	// *
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
+	TenantId *string `pulumi:"tenantId"`
+	// Specifies the type of Managed Identity that should be assigned to this Load Test Encryption. Possible values are `SystemAssigned` or `UserAssigned`. Changing this forces a new Load Test to be created.
+	Type string `pulumi:"type"`
 }
 
 // LoadTestIdentityInput is an input type that accepts LoadTestIdentityArgs and LoadTestIdentityOutput values.
@@ -32,10 +349,15 @@ type LoadTestIdentityInput interface {
 }
 
 type LoadTestIdentityArgs struct {
+	// A list of the User Assigned Identity IDs that should be assigned to this Load Test.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
-	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
-	Type        pulumi.StringInput      `pulumi:"type"`
+	// The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
+	// *
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Specifies the type of Managed Identity that should be assigned to this Load Test Encryption. Possible values are `SystemAssigned` or `UserAssigned`. Changing this forces a new Load Test to be created.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (LoadTestIdentityArgs) ElementType() reflect.Type {
@@ -115,18 +437,23 @@ func (o LoadTestIdentityOutput) ToLoadTestIdentityPtrOutputWithContext(ctx conte
 	}).(LoadTestIdentityPtrOutput)
 }
 
+// A list of the User Assigned Identity IDs that should be assigned to this Load Test.
 func (o LoadTestIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LoadTestIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
+// The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
+// *
 func (o LoadTestIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadTestIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
+// The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
 func (o LoadTestIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadTestIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the type of Managed Identity that should be assigned to this Load Test Encryption. Possible values are `SystemAssigned` or `UserAssigned`. Changing this forces a new Load Test to be created.
 func (o LoadTestIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadTestIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -155,6 +482,7 @@ func (o LoadTestIdentityPtrOutput) Elem() LoadTestIdentityOutput {
 	}).(LoadTestIdentityOutput)
 }
 
+// A list of the User Assigned Identity IDs that should be assigned to this Load Test.
 func (o LoadTestIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LoadTestIdentity) []string {
 		if v == nil {
@@ -164,6 +492,8 @@ func (o LoadTestIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
+// *
 func (o LoadTestIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadTestIdentity) *string {
 		if v == nil {
@@ -173,6 +503,7 @@ func (o LoadTestIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
 func (o LoadTestIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadTestIdentity) *string {
 		if v == nil {
@@ -182,6 +513,7 @@ func (o LoadTestIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the type of Managed Identity that should be assigned to this Load Test Encryption. Possible values are `SystemAssigned` or `UserAssigned`. Changing this forces a new Load Test to be created.
 func (o LoadTestIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadTestIdentity) *string {
 		if v == nil {
@@ -192,8 +524,16 @@ func (o LoadTestIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadTestEncryptionInput)(nil)).Elem(), LoadTestEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadTestEncryptionPtrInput)(nil)).Elem(), LoadTestEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadTestEncryptionIdentityInput)(nil)).Elem(), LoadTestEncryptionIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadTestEncryptionIdentityPtrInput)(nil)).Elem(), LoadTestEncryptionIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadTestIdentityInput)(nil)).Elem(), LoadTestIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadTestIdentityPtrInput)(nil)).Elem(), LoadTestIdentityArgs{})
+	pulumi.RegisterOutputType(LoadTestEncryptionOutput{})
+	pulumi.RegisterOutputType(LoadTestEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(LoadTestEncryptionIdentityOutput{})
+	pulumi.RegisterOutputType(LoadTestEncryptionIdentityPtrOutput{})
 	pulumi.RegisterOutputType(LoadTestIdentityOutput{})
 	pulumi.RegisterOutputType(LoadTestIdentityPtrOutput{})
 }

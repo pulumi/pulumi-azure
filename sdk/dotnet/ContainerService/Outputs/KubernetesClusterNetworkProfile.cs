@@ -81,6 +81,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// &gt; **Note:** When `network_policy` is set to `cilium`, the `ebpf_data_plane` field must be set to `cilium`.
         /// </summary>
         public readonly string? NetworkPolicy;
+        public readonly ImmutableArray<string> OutboundIpAddressIds;
+        public readonly ImmutableArray<string> OutboundIpPrefixIds;
         /// <summary>
         /// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outbound_type` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
         /// </summary>
@@ -128,6 +130,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             string? networkPolicy,
 
+            ImmutableArray<string> outboundIpAddressIds,
+
+            ImmutableArray<string> outboundIpPrefixIds,
+
             string? outboundType,
 
             string? podCidr,
@@ -149,6 +155,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
             NetworkPlugin = networkPlugin;
             NetworkPluginMode = networkPluginMode;
             NetworkPolicy = networkPolicy;
+            OutboundIpAddressIds = outboundIpAddressIds;
+            OutboundIpPrefixIds = outboundIpPrefixIds;
             OutboundType = outboundType;
             PodCidr = podCidr;
             PodCidrs = podCidrs;

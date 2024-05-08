@@ -33,20 +33,6 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ## Blocks Reference
- *
- * ### `identity` Block
- *
- * The `identity` block supports the following arguments:
- *
- * * `type` - (Required) Specifies the type of Managed Identity that should be assigned to this Load Test. Possible values are `SystemAssigned`, `SystemAssigned, UserAssigned` and `UserAssigned`.
- * * `identityIds` - (Optional) A list of the User Assigned Identity IDs that should be assigned to this Load Test.
- *
- * In addition to the arguments defined above, the `identity` block exports the following attributes:
- *
- * * `principalId` - The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
- * * `tenantId` - The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
- *
  * ## Import
  *
  * An existing Load Test can be imported into Terraform using the `resource id`, e.g.
@@ -98,6 +84,10 @@ export class LoadTest extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * An `encryption` block as defined below. Changing this forces a new Load Test to be created.
+     */
+    public readonly encryption!: pulumi.Output<outputs.loadtest.LoadTestEncryption | undefined>;
+    /**
      * An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
      */
     public readonly identity!: pulumi.Output<outputs.loadtest.LoadTestIdentity | undefined>;
@@ -133,6 +123,7 @@ export class LoadTest extends pulumi.CustomResource {
             const state = argsOrState as LoadTestState | undefined;
             resourceInputs["dataPlaneUri"] = state ? state.dataPlaneUri : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["encryption"] = state ? state.encryption : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -144,6 +135,7 @@ export class LoadTest extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["encryption"] = args ? args.encryption : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -168,6 +160,10 @@ export interface LoadTestState {
      * Description of the resource. Changing this forces a new Load Test to be created.
      */
     description?: pulumi.Input<string>;
+    /**
+     * An `encryption` block as defined below. Changing this forces a new Load Test to be created.
+     */
+    encryption?: pulumi.Input<inputs.loadtest.LoadTestEncryption>;
     /**
      * An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
      */
@@ -198,6 +194,10 @@ export interface LoadTestArgs {
      * Description of the resource. Changing this forces a new Load Test to be created.
      */
     description?: pulumi.Input<string>;
+    /**
+     * An `encryption` block as defined below. Changing this forces a new Load Test to be created.
+     */
+    encryption?: pulumi.Input<inputs.loadtest.LoadTestEncryption>;
     /**
      * An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
      */

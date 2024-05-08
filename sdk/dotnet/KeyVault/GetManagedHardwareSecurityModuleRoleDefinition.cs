@@ -13,12 +13,58 @@ namespace Pulumi.Azure.KeyVault
     {
         /// <summary>
         /// Use this data source to access information about an existing KeyVault Role Definition.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.KeyVault.GetManagedHardwareSecurityModuleRoleDefinition.Invoke(new()
+        ///     {
+        ///         VaultBaseUrl = test.HsmUri,
+        ///         Name = "21dbd100-6940-42c2-9190-5d6cb909625b",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getManagedHardwareSecurityModuleRoleDefinitionResult =&gt; getManagedHardwareSecurityModuleRoleDefinitionResult.ResourceManagerId),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetManagedHardwareSecurityModuleRoleDefinitionResult> InvokeAsync(GetManagedHardwareSecurityModuleRoleDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedHardwareSecurityModuleRoleDefinitionResult>("azure:keyvault/getManagedHardwareSecurityModuleRoleDefinition:getManagedHardwareSecurityModuleRoleDefinition", args ?? new GetManagedHardwareSecurityModuleRoleDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing KeyVault Role Definition.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.KeyVault.GetManagedHardwareSecurityModuleRoleDefinition.Invoke(new()
+        ///     {
+        ///         VaultBaseUrl = test.HsmUri,
+        ///         Name = "21dbd100-6940-42c2-9190-5d6cb909625b",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getManagedHardwareSecurityModuleRoleDefinitionResult =&gt; getManagedHardwareSecurityModuleRoleDefinitionResult.ResourceManagerId),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetManagedHardwareSecurityModuleRoleDefinitionResult> Invoke(GetManagedHardwareSecurityModuleRoleDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedHardwareSecurityModuleRoleDefinitionResult>("azure:keyvault/getManagedHardwareSecurityModuleRoleDefinition:getManagedHardwareSecurityModuleRoleDefinition", args ?? new GetManagedHardwareSecurityModuleRoleDefinitionInvokeArgs(), options.WithDefaults());
@@ -27,6 +73,9 @@ namespace Pulumi.Azure.KeyVault
 
     public sealed class GetManagedHardwareSecurityModuleRoleDefinitionArgs : global::Pulumi.InvokeArgs
     {
+        [Input("managedHsmId")]
+        public string? ManagedHsmId { get; set; }
+
         /// <summary>
         /// The name in UUID notation of this KeyVault Role Definition.
         /// </summary>
@@ -36,8 +85,8 @@ namespace Pulumi.Azure.KeyVault
         /// <summary>
         /// Specify the base URL of the Managed HSM resource.
         /// </summary>
-        [Input("vaultBaseUrl", required: true)]
-        public string VaultBaseUrl { get; set; } = null!;
+        [Input("vaultBaseUrl")]
+        public string? VaultBaseUrl { get; set; }
 
         public GetManagedHardwareSecurityModuleRoleDefinitionArgs()
         {
@@ -47,6 +96,9 @@ namespace Pulumi.Azure.KeyVault
 
     public sealed class GetManagedHardwareSecurityModuleRoleDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("managedHsmId")]
+        public Input<string>? ManagedHsmId { get; set; }
+
         /// <summary>
         /// The name in UUID notation of this KeyVault Role Definition.
         /// </summary>
@@ -56,8 +108,8 @@ namespace Pulumi.Azure.KeyVault
         /// <summary>
         /// Specify the base URL of the Managed HSM resource.
         /// </summary>
-        [Input("vaultBaseUrl", required: true)]
-        public Input<string> VaultBaseUrl { get; set; } = null!;
+        [Input("vaultBaseUrl")]
+        public Input<string>? VaultBaseUrl { get; set; }
 
         public GetManagedHardwareSecurityModuleRoleDefinitionInvokeArgs()
         {
@@ -81,6 +133,7 @@ namespace Pulumi.Azure.KeyVault
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string ManagedHsmId;
         public readonly string Name;
         /// <summary>
         /// A `permission` block as defined below.
@@ -108,6 +161,8 @@ namespace Pulumi.Azure.KeyVault
 
             string id,
 
+            string managedHsmId,
+
             string name,
 
             ImmutableArray<Outputs.GetManagedHardwareSecurityModuleRoleDefinitionPermissionResult> permissions,
@@ -123,6 +178,7 @@ namespace Pulumi.Azure.KeyVault
             AssignableScopes = assignableScopes;
             Description = description;
             Id = id;
+            ManagedHsmId = managedHsmId;
             Name = name;
             Permissions = permissions;
             ResourceManagerId = resourceManagerId;

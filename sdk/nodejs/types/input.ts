@@ -15552,20 +15552,6 @@ export namespace batch {
         ipRange: pulumi.Input<string>;
     }
 
-    export interface GetAccountEncryption {
-        /**
-         * The full URL path of the Key Vault Key used to encrypt data for this Batch account.
-         */
-        keyVaultKeyId: string;
-    }
-
-    export interface GetAccountEncryptionArgs {
-        /**
-         * The full URL path of the Key Vault Key used to encrypt data for this Batch account.
-         */
-        keyVaultKeyId: pulumi.Input<string>;
-    }
-
     export interface PoolAutoScale {
         /**
          * The interval to wait before evaluating if the pool needs to be scaled. Defaults to `PT15M`.
@@ -19640,11 +19626,12 @@ export namespace compute {
          *         settings: "{\"port\": 50342}",
          *     }],
          * });
-         * export const principalId = example.identity.apply(identity => identity.principalId);
+         * export const principalId = example.identity.apply(identity => identity?.principalId);
          * ```
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
         /**
          * Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
          */
@@ -20205,6 +20192,7 @@ export namespace compute {
          * The Principal ID associated with this Managed Service Identity.
          */
         principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
         /**
          * Specifies the type of Managed Service Identity that should be configured on this Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          *
@@ -22686,13 +22674,11 @@ export namespace containerservice {
          */
         environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * A `gpu` block as defined below. Changing this forces a new resource to be created.
-         *
-         * > **Note:** Gpu resources are currently only supported in Linux containers.
+         * @deprecated The `gpu` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.
          */
         gpu?: pulumi.Input<inputs.containerservice.GroupContainerGpu>;
         /**
-         * A `gpuLimit` block as defined below.
+         * @deprecated The `gpuLimit` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.
          */
         gpuLimit?: pulumi.Input<inputs.containerservice.GroupContainerGpuLimit>;
         /**
@@ -22738,23 +22724,17 @@ export namespace containerservice {
     }
 
     export interface GroupContainerGpu {
-        /**
-         * The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
-         */
         count?: pulumi.Input<number>;
         /**
-         * The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+         * Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
          */
         sku?: pulumi.Input<string>;
     }
 
     export interface GroupContainerGpuLimit {
-        /**
-         * The upper limit of the number of GPUs which should be assigned to this container.
-         */
         count?: pulumi.Input<number>;
         /**
-         * The allowed SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`.
+         * Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
          */
         sku?: pulumi.Input<string>;
     }
@@ -24184,6 +24164,8 @@ export namespace containerservice {
          * > **Note:** When `networkPolicy` is set to `cilium`, the `ebpfDataPlane` field must be set to `cilium`.
          */
         networkPolicy?: pulumi.Input<string>;
+        outboundIpAddressIds?: pulumi.Input<pulumi.Input<string>[]>;
+        outboundIpPrefixIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outboundType` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
          */
@@ -24661,7 +24643,7 @@ export namespace containerservice {
 
     export interface RegistryEncryption {
         /**
-         * Boolean value that indicates whether encryption is enabled.
+         * @deprecated The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider.
          */
         enabled?: pulumi.Input<boolean>;
         /**
@@ -24730,7 +24712,7 @@ export namespace containerservice {
          */
         ipRules?: pulumi.Input<pulumi.Input<inputs.containerservice.RegistryNetworkRuleSetIpRule>[]>;
         /**
-         * @deprecated  This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead
+         * @deprecated The property `virtualNetwork` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider.
          */
         virtualNetworks?: pulumi.Input<pulumi.Input<inputs.containerservice.RegistryNetworkRuleSetVirtualNetwork>[]>;
     }
@@ -35699,10 +35681,45 @@ export namespace lighthouse {
 }
 
 export namespace loadtest {
+    export interface LoadTestEncryption {
+        /**
+         * An `identity` block as defined below. Changing this forces a new Load Test to be created.
+         */
+        identity: pulumi.Input<inputs.loadtest.LoadTestEncryptionIdentity>;
+        /**
+         * The URI specifying the Key vault and key to be used to encrypt data in this resource. The URI should include the key version. Changing this forces a new Load Test to be created.
+         */
+        keyUrl: pulumi.Input<string>;
+    }
+
+    export interface LoadTestEncryptionIdentity {
+        /**
+         * The User Assigned Identity ID that should be assigned to this Load Test Encryption. Changing this forces a new Load Test to be created.
+         */
+        identityId: pulumi.Input<string>;
+        /**
+         * Specifies the type of Managed Identity that should be assigned to this Load Test Encryption. Possible values are `SystemAssigned` or `UserAssigned`. Changing this forces a new Load Test to be created.
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface LoadTestIdentity {
+        /**
+         * A list of the User Assigned Identity IDs that should be assigned to this Load Test.
+         */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
+         * *
+         */
         principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
+         */
         tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the type of Managed Identity that should be assigned to this Load Test Encryption. Possible values are `SystemAssigned` or `UserAssigned`. Changing this forces a new Load Test to be created.
+         */
         type: pulumi.Input<string>;
     }
 }
@@ -44306,7 +44323,7 @@ export namespace network {
          */
         targetResourceId?: pulumi.Input<string>;
         /**
-         * The endpoint type of the Network Connection Monitor. Possible values are `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
+         * The endpoint type of the Network Connection Monitor. Possible values are `AzureArcVM`, `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
          */
         targetResourceType?: pulumi.Input<string>;
     }
@@ -49903,9 +49920,13 @@ export namespace storage {
 
     export interface AccountCustomerManagedKey {
         /**
-         * The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
+         * The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
          */
-        keyVaultKeyId: pulumi.Input<string>;
+        keyVaultKeyId?: pulumi.Input<string>;
+        /**
+         * The ID of the managed HSM Key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
+         */
+        managedHsmKeyId?: pulumi.Input<string>;
         /**
          * The ID of a user assigned identity.
          *

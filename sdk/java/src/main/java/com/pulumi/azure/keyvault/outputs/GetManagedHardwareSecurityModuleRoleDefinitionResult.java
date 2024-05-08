@@ -27,6 +27,7 @@ public final class GetManagedHardwareSecurityModuleRoleDefinitionResult {
      * 
      */
     private String id;
+    private String managedHsmId;
     private String name;
     /**
      * @return A `permission` block as defined below.
@@ -71,6 +72,9 @@ public final class GetManagedHardwareSecurityModuleRoleDefinitionResult {
      */
     public String id() {
         return this.id;
+    }
+    public String managedHsmId() {
+        return this.managedHsmId;
     }
     public String name() {
         return this.name;
@@ -119,6 +123,7 @@ public final class GetManagedHardwareSecurityModuleRoleDefinitionResult {
         private List<String> assignableScopes;
         private String description;
         private String id;
+        private String managedHsmId;
         private String name;
         private List<GetManagedHardwareSecurityModuleRoleDefinitionPermission> permissions;
         private String resourceManagerId;
@@ -131,6 +136,7 @@ public final class GetManagedHardwareSecurityModuleRoleDefinitionResult {
     	      this.assignableScopes = defaults.assignableScopes;
     	      this.description = defaults.description;
     	      this.id = defaults.id;
+    	      this.managedHsmId = defaults.managedHsmId;
     	      this.name = defaults.name;
     	      this.permissions = defaults.permissions;
     	      this.resourceManagerId = defaults.resourceManagerId;
@@ -164,6 +170,14 @@ public final class GetManagedHardwareSecurityModuleRoleDefinitionResult {
               throw new MissingRequiredPropertyException("GetManagedHardwareSecurityModuleRoleDefinitionResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder managedHsmId(String managedHsmId) {
+            if (managedHsmId == null) {
+              throw new MissingRequiredPropertyException("GetManagedHardwareSecurityModuleRoleDefinitionResult", "managedHsmId");
+            }
+            this.managedHsmId = managedHsmId;
             return this;
         }
         @CustomType.Setter
@@ -222,6 +236,7 @@ public final class GetManagedHardwareSecurityModuleRoleDefinitionResult {
             _resultValue.assignableScopes = assignableScopes;
             _resultValue.description = description;
             _resultValue.id = id;
+            _resultValue.managedHsmId = managedHsmId;
             _resultValue.name = name;
             _resultValue.permissions = permissions;
             _resultValue.resourceManagerId = resourceManagerId;

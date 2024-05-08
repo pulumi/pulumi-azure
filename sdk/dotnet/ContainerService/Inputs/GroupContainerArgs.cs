@@ -48,17 +48,9 @@ namespace Pulumi.Azure.ContainerService.Inputs
             set => _environmentVariables = value;
         }
 
-        /// <summary>
-        /// A `gpu` block as defined below. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **Note:** Gpu resources are currently only supported in Linux containers.
-        /// </summary>
         [Input("gpu")]
         public Input<Inputs.GroupContainerGpuArgs>? Gpu { get; set; }
 
-        /// <summary>
-        /// A `gpu_limit` block as defined below.
-        /// </summary>
         [Input("gpuLimit")]
         public Input<Inputs.GroupContainerGpuLimitArgs>? GpuLimit { get; set; }
 

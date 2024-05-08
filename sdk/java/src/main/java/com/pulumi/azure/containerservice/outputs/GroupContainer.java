@@ -43,16 +43,18 @@ public final class GroupContainer {
      */
     private @Nullable Map<String,String> environmentVariables;
     /**
-     * @return A `gpu` block as defined below. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** Gpu resources are currently only supported in Linux containers.
+     * @deprecated
+     * The `gpu` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.
      * 
      */
+    @Deprecated /* The `gpu` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider. */
     private @Nullable GroupContainerGpu gpu;
     /**
-     * @return A `gpu_limit` block as defined below.
+     * @deprecated
+     * The `gpu_limit` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.
      * 
      */
+    @Deprecated /* The `gpu_limit` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider. */
     private @Nullable GroupContainerGpuLimit gpuLimit;
     /**
      * @return The container image name. Changing this forces a new resource to be created.
@@ -135,18 +137,20 @@ public final class GroupContainer {
         return this.environmentVariables == null ? Map.of() : this.environmentVariables;
     }
     /**
-     * @return A `gpu` block as defined below. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** Gpu resources are currently only supported in Linux containers.
+     * @deprecated
+     * The `gpu` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.
      * 
      */
+    @Deprecated /* The `gpu` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider. */
     public Optional<GroupContainerGpu> gpu() {
         return Optional.ofNullable(this.gpu);
     }
     /**
-     * @return A `gpu_limit` block as defined below.
+     * @deprecated
+     * The `gpu_limit` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.
      * 
      */
+    @Deprecated /* The `gpu_limit` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider. */
     public Optional<GroupContainerGpuLimit> gpuLimit() {
         return Optional.ofNullable(this.gpuLimit);
     }

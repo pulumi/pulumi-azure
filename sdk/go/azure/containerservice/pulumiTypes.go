@@ -2427,11 +2427,9 @@ type GroupContainer struct {
 	CpuLimit *float64 `pulumi:"cpuLimit"`
 	// A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
-	// A `gpu` block as defined below. Changing this forces a new resource to be created.
-	//
-	// > **Note:** Gpu resources are currently only supported in Linux containers.
+	// Deprecated: The `gpu` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.
 	Gpu *GroupContainerGpu `pulumi:"gpu"`
-	// A `gpuLimit` block as defined below.
+	// Deprecated: The `gpuLimit` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.
 	GpuLimit *GroupContainerGpuLimit `pulumi:"gpuLimit"`
 	// The container image name. Changing this forces a new resource to be created.
 	Image string `pulumi:"image"`
@@ -2475,11 +2473,9 @@ type GroupContainerArgs struct {
 	CpuLimit pulumi.Float64PtrInput `pulumi:"cpuLimit"`
 	// A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
 	EnvironmentVariables pulumi.StringMapInput `pulumi:"environmentVariables"`
-	// A `gpu` block as defined below. Changing this forces a new resource to be created.
-	//
-	// > **Note:** Gpu resources are currently only supported in Linux containers.
+	// Deprecated: The `gpu` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.
 	Gpu GroupContainerGpuPtrInput `pulumi:"gpu"`
-	// A `gpuLimit` block as defined below.
+	// Deprecated: The `gpuLimit` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.
 	GpuLimit GroupContainerGpuLimitPtrInput `pulumi:"gpuLimit"`
 	// The container image name. Changing this forces a new resource to be created.
 	Image pulumi.StringInput `pulumi:"image"`
@@ -2574,14 +2570,12 @@ func (o GroupContainerOutput) EnvironmentVariables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GroupContainer) map[string]string { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
 }
 
-// A `gpu` block as defined below. Changing this forces a new resource to be created.
-//
-// > **Note:** Gpu resources are currently only supported in Linux containers.
+// Deprecated: The `gpu` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.
 func (o GroupContainerOutput) Gpu() GroupContainerGpuPtrOutput {
 	return o.ApplyT(func(v GroupContainer) *GroupContainerGpu { return v.Gpu }).(GroupContainerGpuPtrOutput)
 }
 
-// A `gpuLimit` block as defined below.
+// Deprecated: The `gpuLimit` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.
 func (o GroupContainerOutput) GpuLimit() GroupContainerGpuLimitPtrOutput {
 	return o.ApplyT(func(v GroupContainer) *GroupContainerGpuLimit { return v.GpuLimit }).(GroupContainerGpuLimitPtrOutput)
 }
@@ -2657,9 +2651,8 @@ func (o GroupContainerArrayOutput) Index(i pulumi.IntInput) GroupContainerOutput
 }
 
 type GroupContainerGpu struct {
-	// The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
 	Count *int `pulumi:"count"`
-	// The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+	// Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
 	Sku *string `pulumi:"sku"`
 }
 
@@ -2675,9 +2668,8 @@ type GroupContainerGpuInput interface {
 }
 
 type GroupContainerGpuArgs struct {
-	// The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
 	Count pulumi.IntPtrInput `pulumi:"count"`
-	// The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+	// Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
 	Sku pulumi.StringPtrInput `pulumi:"sku"`
 }
 
@@ -2758,12 +2750,11 @@ func (o GroupContainerGpuOutput) ToGroupContainerGpuPtrOutputWithContext(ctx con
 	}).(GroupContainerGpuPtrOutput)
 }
 
-// The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
 func (o GroupContainerGpuOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupContainerGpu) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+// Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
 func (o GroupContainerGpuOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupContainerGpu) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
@@ -2792,7 +2783,6 @@ func (o GroupContainerGpuPtrOutput) Elem() GroupContainerGpuOutput {
 	}).(GroupContainerGpuOutput)
 }
 
-// The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
 func (o GroupContainerGpuPtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GroupContainerGpu) *int {
 		if v == nil {
@@ -2802,7 +2792,7 @@ func (o GroupContainerGpuPtrOutput) Count() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+// Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
 func (o GroupContainerGpuPtrOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupContainerGpu) *string {
 		if v == nil {
@@ -2813,9 +2803,8 @@ func (o GroupContainerGpuPtrOutput) Sku() pulumi.StringPtrOutput {
 }
 
 type GroupContainerGpuLimit struct {
-	// The upper limit of the number of GPUs which should be assigned to this container.
 	Count *int `pulumi:"count"`
-	// The allowed SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`.
+	// Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
 	Sku *string `pulumi:"sku"`
 }
 
@@ -2831,9 +2820,8 @@ type GroupContainerGpuLimitInput interface {
 }
 
 type GroupContainerGpuLimitArgs struct {
-	// The upper limit of the number of GPUs which should be assigned to this container.
 	Count pulumi.IntPtrInput `pulumi:"count"`
-	// The allowed SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`.
+	// Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
 	Sku pulumi.StringPtrInput `pulumi:"sku"`
 }
 
@@ -2914,12 +2902,11 @@ func (o GroupContainerGpuLimitOutput) ToGroupContainerGpuLimitPtrOutputWithConte
 	}).(GroupContainerGpuLimitPtrOutput)
 }
 
-// The upper limit of the number of GPUs which should be assigned to this container.
 func (o GroupContainerGpuLimitOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupContainerGpuLimit) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// The allowed SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`.
+// Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
 func (o GroupContainerGpuLimitOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupContainerGpuLimit) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
@@ -2948,7 +2935,6 @@ func (o GroupContainerGpuLimitPtrOutput) Elem() GroupContainerGpuLimitOutput {
 	}).(GroupContainerGpuLimitOutput)
 }
 
-// The upper limit of the number of GPUs which should be assigned to this container.
 func (o GroupContainerGpuLimitPtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GroupContainerGpuLimit) *int {
 		if v == nil {
@@ -2958,7 +2944,7 @@ func (o GroupContainerGpuLimitPtrOutput) Count() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The allowed SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`.
+// Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
 func (o GroupContainerGpuLimitPtrOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupContainerGpuLimit) *string {
 		if v == nil {
@@ -13763,7 +13749,9 @@ type KubernetesClusterNetworkProfile struct {
 	// > **Note:** When `networkPolicy` is set to `azure`, the `networkPlugin` field can only be set to `azure`.
 	//
 	// > **Note:** When `networkPolicy` is set to `cilium`, the `ebpfDataPlane` field must be set to `cilium`.
-	NetworkPolicy *string `pulumi:"networkPolicy"`
+	NetworkPolicy        *string  `pulumi:"networkPolicy"`
+	OutboundIpAddressIds []string `pulumi:"outboundIpAddressIds"`
+	OutboundIpPrefixIds  []string `pulumi:"outboundIpPrefixIds"`
 	// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outboundType` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
 	OutboundType *string `pulumi:"outboundType"`
 	// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet` or `networkPluginMode` is set to `overlay`. Changing this forces a new resource to be created.
@@ -13837,7 +13825,9 @@ type KubernetesClusterNetworkProfileArgs struct {
 	// > **Note:** When `networkPolicy` is set to `azure`, the `networkPlugin` field can only be set to `azure`.
 	//
 	// > **Note:** When `networkPolicy` is set to `cilium`, the `ebpfDataPlane` field must be set to `cilium`.
-	NetworkPolicy pulumi.StringPtrInput `pulumi:"networkPolicy"`
+	NetworkPolicy        pulumi.StringPtrInput   `pulumi:"networkPolicy"`
+	OutboundIpAddressIds pulumi.StringArrayInput `pulumi:"outboundIpAddressIds"`
+	OutboundIpPrefixIds  pulumi.StringArrayInput `pulumi:"outboundIpPrefixIds"`
 	// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outboundType` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
 	OutboundType pulumi.StringPtrInput `pulumi:"outboundType"`
 	// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet` or `networkPluginMode` is set to `overlay`. Changing this forces a new resource to be created.
@@ -14012,6 +14002,14 @@ func (o KubernetesClusterNetworkProfileOutput) NetworkPluginMode() pulumi.String
 // > **Note:** When `networkPolicy` is set to `cilium`, the `ebpfDataPlane` field must be set to `cilium`.
 func (o KubernetesClusterNetworkProfileOutput) NetworkPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.NetworkPolicy }).(pulumi.StringPtrOutput)
+}
+
+func (o KubernetesClusterNetworkProfileOutput) OutboundIpAddressIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) []string { return v.OutboundIpAddressIds }).(pulumi.StringArrayOutput)
+}
+
+func (o KubernetesClusterNetworkProfileOutput) OutboundIpPrefixIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) []string { return v.OutboundIpPrefixIds }).(pulumi.StringArrayOutput)
 }
 
 // The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outboundType` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
@@ -14199,6 +14197,24 @@ func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPolicy() pulumi.StringP
 		}
 		return v.NetworkPolicy
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o KubernetesClusterNetworkProfilePtrOutput) OutboundIpAddressIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.OutboundIpAddressIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o KubernetesClusterNetworkProfilePtrOutput) OutboundIpPrefixIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.OutboundIpPrefixIds
+	}).(pulumi.StringArrayOutput)
 }
 
 // The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outboundType` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
@@ -18319,7 +18335,7 @@ func (o KubernetesFleetManagerHubProfilePtrOutput) KubernetesVersion() pulumi.St
 }
 
 type RegistryEncryption struct {
-	// Boolean value that indicates whether encryption is enabled.
+	// Deprecated: The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider.
 	Enabled *bool `pulumi:"enabled"`
 	// The client ID of the managed identity associated with the encryption key.
 	IdentityClientId string `pulumi:"identityClientId"`
@@ -18339,7 +18355,7 @@ type RegistryEncryptionInput interface {
 }
 
 type RegistryEncryptionArgs struct {
-	// Boolean value that indicates whether encryption is enabled.
+	// Deprecated: The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// The client ID of the managed identity associated with the encryption key.
 	IdentityClientId pulumi.StringInput `pulumi:"identityClientId"`
@@ -18424,7 +18440,7 @@ func (o RegistryEncryptionOutput) ToRegistryEncryptionPtrOutputWithContext(ctx c
 	}).(RegistryEncryptionPtrOutput)
 }
 
-// Boolean value that indicates whether encryption is enabled.
+// Deprecated: The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider.
 func (o RegistryEncryptionOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RegistryEncryption) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -18463,7 +18479,7 @@ func (o RegistryEncryptionPtrOutput) Elem() RegistryEncryptionOutput {
 	}).(RegistryEncryptionOutput)
 }
 
-// Boolean value that indicates whether encryption is enabled.
+// Deprecated: The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider.
 func (o RegistryEncryptionPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RegistryEncryption) *bool {
 		if v == nil {
@@ -18834,7 +18850,7 @@ type RegistryNetworkRuleSet struct {
 	//
 	// > **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
 	IpRules []RegistryNetworkRuleSetIpRule `pulumi:"ipRules"`
-	// Deprecated:  This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead
+	// Deprecated: The property `virtualNetwork` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider.
 	VirtualNetworks []RegistryNetworkRuleSetVirtualNetwork `pulumi:"virtualNetworks"`
 }
 
@@ -18858,7 +18874,7 @@ type RegistryNetworkRuleSetArgs struct {
 	//
 	// > **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
 	IpRules RegistryNetworkRuleSetIpRuleArrayInput `pulumi:"ipRules"`
-	// Deprecated:  This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead
+	// Deprecated: The property `virtualNetwork` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider.
 	VirtualNetworks RegistryNetworkRuleSetVirtualNetworkArrayInput `pulumi:"virtualNetworks"`
 }
 
@@ -18953,7 +18969,7 @@ func (o RegistryNetworkRuleSetOutput) IpRules() RegistryNetworkRuleSetIpRuleArra
 	return o.ApplyT(func(v RegistryNetworkRuleSet) []RegistryNetworkRuleSetIpRule { return v.IpRules }).(RegistryNetworkRuleSetIpRuleArrayOutput)
 }
 
-// Deprecated:  This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead
+// Deprecated: The property `virtualNetwork` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider.
 func (o RegistryNetworkRuleSetOutput) VirtualNetworks() RegistryNetworkRuleSetVirtualNetworkArrayOutput {
 	return o.ApplyT(func(v RegistryNetworkRuleSet) []RegistryNetworkRuleSetVirtualNetwork { return v.VirtualNetworks }).(RegistryNetworkRuleSetVirtualNetworkArrayOutput)
 }
@@ -19006,7 +19022,7 @@ func (o RegistryNetworkRuleSetPtrOutput) IpRules() RegistryNetworkRuleSetIpRuleA
 	}).(RegistryNetworkRuleSetIpRuleArrayOutput)
 }
 
-// Deprecated:  This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead
+// Deprecated: The property `virtualNetwork` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider.
 func (o RegistryNetworkRuleSetPtrOutput) VirtualNetworks() RegistryNetworkRuleSetVirtualNetworkArrayOutput {
 	return o.ApplyT(func(v *RegistryNetworkRuleSet) []RegistryNetworkRuleSetVirtualNetwork {
 		if v == nil {

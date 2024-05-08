@@ -599,10 +599,12 @@ class AccountCustomerManagedKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "keyVaultKeyId":
-            suggest = "key_vault_key_id"
-        elif key == "userAssignedIdentityId":
+        if key == "userAssignedIdentityId":
             suggest = "user_assigned_identity_id"
+        elif key == "keyVaultKeyId":
+            suggest = "key_vault_key_id"
+        elif key == "managedHsmKeyId":
+            suggest = "managed_hsm_key_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AccountCustomerManagedKey. Access the value via the '{suggest}' property getter instead.")
@@ -616,24 +618,21 @@ class AccountCustomerManagedKey(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 key_vault_key_id: str,
-                 user_assigned_identity_id: str):
+                 user_assigned_identity_id: str,
+                 key_vault_key_id: Optional[str] = None,
+                 managed_hsm_key_id: Optional[str] = None):
         """
-        :param str key_vault_key_id: The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
         :param str user_assigned_identity_id: The ID of a user assigned identity.
                
                > **NOTE:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
+        :param str key_vault_key_id: The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `key_vault_key_id` and `managed_hsm_key_id` may be specified.
+        :param str managed_hsm_key_id: The ID of the managed HSM Key. Exactly one of `key_vault_key_id` and `managed_hsm_key_id` may be specified.
         """
-        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
-
-    @property
-    @pulumi.getter(name="keyVaultKeyId")
-    def key_vault_key_id(self) -> str:
-        """
-        The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
-        """
-        return pulumi.get(self, "key_vault_key_id")
+        if key_vault_key_id is not None:
+            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if managed_hsm_key_id is not None:
+            pulumi.set(__self__, "managed_hsm_key_id", managed_hsm_key_id)
 
     @property
     @pulumi.getter(name="userAssignedIdentityId")
@@ -644,6 +643,22 @@ class AccountCustomerManagedKey(dict):
         > **NOTE:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
         """
         return pulumi.get(self, "user_assigned_identity_id")
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> Optional[str]:
+        """
+        The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `key_vault_key_id` and `managed_hsm_key_id` may be specified.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @property
+    @pulumi.getter(name="managedHsmKeyId")
+    def managed_hsm_key_id(self) -> Optional[str]:
+        """
+        The ID of the managed HSM Key. Exactly one of `key_vault_key_id` and `managed_hsm_key_id` may be specified.
+        """
+        return pulumi.get(self, "managed_hsm_key_id")
 
 
 @pulumi.output_type
