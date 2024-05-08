@@ -21,10 +21,6 @@ func skipIfShort(t *testing.T) {
 	}
 }
 
-func getEnviron(t *testing.T) string {
-	env := os.Getenv("ARM_ENVIRONMENT")
-	return env
-}
 
 func getLocation(t *testing.T) string {
 	azureLocation := os.Getenv("ARM_LOCATION")
@@ -46,15 +42,11 @@ func getCwd(t *testing.T) string {
 }
 
 func getBaseOptions(t *testing.T) integration.ProgramTestOptions {
-	config := map[string]string{}
-	environ := getEnviron(t)
-	if environ != "" {
-		config["azure:environment"] = environ
-	}
 	azureLocation := getLocation(t)
-	config["azure:location"] = azureLocation
 	return integration.ProgramTestOptions{
-		Config: config,
+		Config: map[string]string{
+			"azure:location": azureLocation,
+		},
 	}
 }
 
