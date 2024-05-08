@@ -124,7 +124,7 @@ export class Frontdoor extends pulumi.CustomResource {
     /**
      * A `backendPoolSettings` block as defined below.
      */
-    public readonly backendPoolSettings!: pulumi.Output<outputs.frontdoor.FrontdoorBackendPoolSetting[] | undefined>;
+    public readonly backendPoolSettings!: pulumi.Output<outputs.frontdoor.FrontdoorBackendPoolSetting[]>;
     /**
      * A `backendPool` block as defined below.
      *

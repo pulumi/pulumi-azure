@@ -189,14 +189,14 @@ public class Frontdoor extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="backendPoolSettings", refs={List.class,FrontdoorBackendPoolSetting.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<FrontdoorBackendPoolSetting>> backendPoolSettings;
+    private Output<List<FrontdoorBackendPoolSetting>> backendPoolSettings;
 
     /**
      * @return A `backend_pool_settings` block as defined below.
      * 
      */
-    public Output<Optional<List<FrontdoorBackendPoolSetting>>> backendPoolSettings() {
-        return Codegen.optional(this.backendPoolSettings);
+    public Output<List<FrontdoorBackendPoolSetting>> backendPoolSettings() {
+        return this.backendPoolSettings;
     }
     /**
      * A `backend_pool` block as defined below.

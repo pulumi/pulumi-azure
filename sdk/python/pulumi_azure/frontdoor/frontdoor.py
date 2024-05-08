@@ -866,7 +866,7 @@ class Frontdoor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backendPoolSettings")
-    def backend_pool_settings(self) -> pulumi.Output[Optional[Sequence['outputs.FrontdoorBackendPoolSetting']]]:
+    def backend_pool_settings(self) -> pulumi.Output[Sequence['outputs.FrontdoorBackendPoolSetting']]:
         """
         A `backend_pool_settings` block as defined below.
         """
