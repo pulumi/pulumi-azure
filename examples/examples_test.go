@@ -24,7 +24,8 @@ func skipIfShort(t *testing.T) {
 func getEnviron(t *testing.T) string {
 	env := os.Getenv("ARM_ENVIRONMENT")
 	if env == "" {
-		t.Skipf("Skipping test due to missing ARM_ENVIRONMENT environment variable")
+		t.Error("Please set ARM_ENVIRONMENT environment variable.")
+		t.FailNow()
 	}
 
 	return env
