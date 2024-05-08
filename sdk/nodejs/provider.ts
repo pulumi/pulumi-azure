@@ -60,7 +60,7 @@ export class Provider extends pulumi.ProviderResource {
     public readonly clientSecretFilePath!: pulumi.Output<string | undefined>;
     /**
      * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
-     * used and should not be specified when `metadata_host` is specified.
+     * used and should not be specified when `metadataHost` is specified.
      */
     public readonly environment!: pulumi.Output<string | undefined>;
     /**
@@ -189,13 +189,10 @@ export interface ProviderArgs {
      * This will disable the x-ms-correlation-request-id header.
      */
     disableCorrelationRequestId?: pulumi.Input<boolean>;
-    /**
-     * This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
-     */
     disableTerraformPartnerId?: pulumi.Input<boolean>;
     /**
      * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
-     * used and should not be specified when `metadata_host` is specified.
+     * used and should not be specified when `metadataHost` is specified.
      */
     environment?: pulumi.Input<string>;
     features?: pulumi.Input<inputs.ProviderFeatures>;
