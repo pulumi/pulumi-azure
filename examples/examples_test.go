@@ -46,8 +46,7 @@ func getCwd(t *testing.T) string {
 }
 
 func getBaseOptions(t *testing.T) integration.ProgramTestOptions {
-	config := map[string]string{
-	}
+	config := map[string]string{}
 	environ := getEnviron(t)
 	if environ != "" {
 		config["azure:environment"] = environ
