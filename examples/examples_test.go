@@ -21,14 +21,6 @@ func skipIfShort(t *testing.T) {
 	}
 }
 
-func getEnviron(t *testing.T) string {
-	env := os.Getenv("ARM_ENVIRONMENT")
-	if env == "" {
-		t.Skipf("Skipping test due to missing ARM_ENVIRONMENT environment variable")
-	}
-
-	return env
-}
 
 func getLocation(t *testing.T) string {
 	azureLocation := os.Getenv("ARM_LOCATION")
@@ -50,12 +42,10 @@ func getCwd(t *testing.T) string {
 }
 
 func getBaseOptions(t *testing.T) integration.ProgramTestOptions {
-	environ := getEnviron(t)
 	azureLocation := getLocation(t)
 	return integration.ProgramTestOptions{
 		Config: map[string]string{
-			"azure:environment": environ,
-			"azure:location":    azureLocation,
+			"azure:location": azureLocation,
 		},
 	}
 }
