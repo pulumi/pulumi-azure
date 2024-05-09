@@ -55,7 +55,6 @@ class ProviderArgs:
         :param pulumi.Input[str] client_secret_file_path: The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
                using a Client Secret.
         :param pulumi.Input[bool] disable_correlation_request_id: This will disable the x-ms-correlation-request-id header.
-        :param pulumi.Input[bool] disable_terraform_partner_id: This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
         :param pulumi.Input[str] environment: The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
                used and should not be specified when `metadata_host` is specified.
         :param pulumi.Input[str] metadata_host: The Hostname which should be used for the Azure Metadata Service.
@@ -254,9 +253,6 @@ class ProviderArgs:
     @property
     @pulumi.getter(name="disableTerraformPartnerId")
     def disable_terraform_partner_id(self) -> Optional[pulumi.Input[bool]]:
-        """
-        This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
-        """
         return pulumi.get(self, "disable_terraform_partner_id")
 
     @disable_terraform_partner_id.setter
@@ -522,7 +518,6 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] client_secret_file_path: The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
                using a Client Secret.
         :param pulumi.Input[bool] disable_correlation_request_id: This will disable the x-ms-correlation-request-id header.
-        :param pulumi.Input[bool] disable_terraform_partner_id: This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
         :param pulumi.Input[str] environment: The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
                used and should not be specified when `metadata_host` is specified.
         :param pulumi.Input[str] metadata_host: The Hostname which should be used for the Azure Metadata Service.
