@@ -46,12 +46,6 @@ jobs:
     - uses: pulumi/provider-version-action@v1
       with:
         set-env: 'PROVIDER_VERSION'
-    - name: Checkout Scripts Repo
-      uses: actions/checkout@v4
-      with:
-        path: ci-scripts
-        repository: pulumi/scripts
-        ref: deca2c5c6015ad7aaea6f572a1c2b198ca323592
     - name: Install Go
       uses: actions/setup-go@v5
       with:
@@ -114,7 +108,7 @@ jobs:
     - name: Build SDK
       run: make build_${{ matrix.language }}
     - name: Check worktree clean
-      run: ./ci-scripts/ci/check-worktree-is-clean
+      uses: pulumi/git-status-check-action@v1
     - name: Compress SDK folder
       run: tar -zcf sdk/${{ matrix.language }}.tar.gz -C sdk/${{ matrix.language }} .
     - name: Upload artifacts
@@ -161,12 +155,6 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_CORP_S3_UPLOAD_ACCESS_KEY_ID }}
         aws-region: us-west-2
         aws-secret-access-key: ${{ secrets.AWS_CORP_S3_UPLOAD_SECRET_ACCESS_KEY }}
-    - name: Checkout Scripts Repo
-      uses: actions/checkout@v4
-      with:
-        path: ci-scripts
-        repository: pulumi/scripts
-        ref: deca2c5c6015ad7aaea6f572a1c2b198ca323592
     - name: Install Go
       uses: actions/setup-go@v5
       with:
@@ -223,12 +211,6 @@ jobs:
         path: |
           .pulumi/examples-cache
         key: ${{ runner.os }}-${{ hashFiles('provider/go.sum') }}
-    - name: Checkout Scripts Repo
-      uses: actions/checkout@v4
-      with:
-        path: ci-scripts
-        repository: pulumi/scripts
-        ref: deca2c5c6015ad7aaea6f572a1c2b198ca323592
     - name: Prepare upstream code
       run: make upstream
     - name: Install Go
@@ -282,33 +264,6 @@ jobs:
 
 
           Maintainer note: consult the [runbook](https://github.com/pulumi/platform-providers-team/blob/main/playbooks/tf-provider-updating.md) for dealing with any breaking changes.
-
-    - if: github.event_name == 'pull_request'
-      name: Check Configuration section
-      run: |
-        sed -n '/## Configuration/,$p' README.md | sed -n '/## Reference/q;p' >> config_section.txt
-        jq -r '.config | select(.variables) | .variables | keys[]' < provider/cmd/pulumi-resource-${{ env.PROVIDER }}/schema.json >> keys.txt
-        EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
-        {
-          echo "MISSING_CONFIG<<$EOF";
-          xargs -I {} sh -c "grep -q {} config_section.txt || echo \\\`{}\\\` not found in Configuration section" < keys.txt
-          echo "$EOF";
-        } >> "$GITHUB_ENV"
-
-    - if: github.event_name == 'pull_request' && github.actor != 'dependabot[bot]'
-      name: Comment on PR with Details of Configuration check
-      uses: thollander/actions-comment-pull-request@v2
-      with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        comment_tag: configurationCheck
-        message: >+
-          ### Is README.md missing any configuration options?
-
-          ${{ env.MISSING_CONFIG || 'No missing config!' }}
-
-
-          ${{ env.MISSING_CONFIG && 'Please add a description for each of these options to `README.md`.' }}
-          ${{ env.MISSING_CONFIG && 'Details about them can be found in either the upstream docs or `schema.json`.' }}
 
     - name: Tar provider binaries
       run: tar -zcf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
@@ -392,10 +347,13 @@ jobs:
     needs: publish
     runs-on: ubuntu-latest
     steps:
+    - id: version
+      uses: pulumi/provider-version-action@v1
     - name: Publish SDKs
-      uses: pulumi/pulumi-package-publisher@v0.0.14
+      uses: pulumi/pulumi-package-publisher@v0.0.15
       with:
         sdk: all
+        version: ${{ steps.version.outputs.version }}
     - env:
         SLACK_CHANNEL: provider-upgrade-publish-status
         SLACK_COLOR: "#FF0000"
@@ -438,12 +396,6 @@ jobs:
     - uses: pulumi/provider-version-action@v1
       with:
         set-env: 'PROVIDER_VERSION'
-    - name: Checkout Scripts Repo
-      uses: actions/checkout@v4
-      with:
-        path: ci-scripts
-        repository: pulumi/scripts
-        ref: deca2c5c6015ad7aaea6f572a1c2b198ca323592
     - name: Install Go
       uses: actions/setup-go@v5
       with:
