@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -57,72 +58,73 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleMover = new Mover(&#34;exampleMover&#34;, MoverArgs.builder()        
- *             .name(&#34;example-ssm&#34;)
+ *         var exampleMover = new Mover("exampleMover", MoverArgs.builder()        
+ *             .name("example-ssm")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleMoverAgent = new MoverAgent(&#34;exampleMoverAgent&#34;, MoverAgentArgs.builder()        
- *             .name(&#34;example-agent&#34;)
+ *         var exampleMoverAgent = new MoverAgent("exampleMoverAgent", MoverAgentArgs.builder()        
+ *             .name("example-agent")
  *             .storageMoverId(exampleMover.id())
- *             .arcVirtualMachineId(example.id().applyValue(id -&gt; String.format(&#34;%s/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName&#34;, id)))
- *             .arcVirtualMachineUuid(&#34;3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9&#34;)
+ *             .arcVirtualMachineId(example.id().applyValue(id -> String.format("%s/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName", id)))
+ *             .arcVirtualMachineUuid("3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;examplesa&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("examplesa")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .allowNestedItemsToBePublic(true)
  *             .build());
  * 
- *         var exampleContainer = new Container(&#34;exampleContainer&#34;, ContainerArgs.builder()        
- *             .name(&#34;acccontainer&#34;)
+ *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()        
+ *             .name("acccontainer")
  *             .storageAccountName(exampleAccount.name())
- *             .containerAccessType(&#34;blob&#34;)
+ *             .containerAccessType("blob")
  *             .build());
  * 
- *         var exampleMoverTargetEndpoint = new MoverTargetEndpoint(&#34;exampleMoverTargetEndpoint&#34;, MoverTargetEndpointArgs.builder()        
- *             .name(&#34;example-smte&#34;)
+ *         var exampleMoverTargetEndpoint = new MoverTargetEndpoint("exampleMoverTargetEndpoint", MoverTargetEndpointArgs.builder()        
+ *             .name("example-smte")
  *             .storageMoverId(exampleMover.id())
  *             .storageAccountId(exampleAccount.id())
  *             .storageContainerName(exampleContainer.name())
  *             .build());
  * 
- *         var exampleMoverSourceEndpoint = new MoverSourceEndpoint(&#34;exampleMoverSourceEndpoint&#34;, MoverSourceEndpointArgs.builder()        
- *             .name(&#34;example-smse&#34;)
+ *         var exampleMoverSourceEndpoint = new MoverSourceEndpoint("exampleMoverSourceEndpoint", MoverSourceEndpointArgs.builder()        
+ *             .name("example-smse")
  *             .storageMoverId(exampleMover.id())
- *             .host(&#34;192.168.0.1&#34;)
+ *             .host("192.168.0.1")
  *             .build());
  * 
- *         var exampleMoverProject = new MoverProject(&#34;exampleMoverProject&#34;, MoverProjectArgs.builder()        
- *             .name(&#34;example-sp&#34;)
+ *         var exampleMoverProject = new MoverProject("exampleMoverProject", MoverProjectArgs.builder()        
+ *             .name("example-sp")
  *             .storageMoverId(exampleMover.id())
  *             .build());
  * 
- *         var exampleMoverJobDefinition = new MoverJobDefinition(&#34;exampleMoverJobDefinition&#34;, MoverJobDefinitionArgs.builder()        
- *             .name(&#34;example-sjd&#34;)
+ *         var exampleMoverJobDefinition = new MoverJobDefinition("exampleMoverJobDefinition", MoverJobDefinitionArgs.builder()        
+ *             .name("example-sjd")
  *             .storageMoverProjectId(exampleMoverProject.id())
  *             .agentName(exampleMoverAgent.name())
- *             .copyMode(&#34;Additive&#34;)
+ *             .copyMode("Additive")
  *             .sourceName(exampleMoverSourceEndpoint.name())
- *             .sourceSubPath(&#34;/&#34;)
+ *             .sourceSubPath("/")
  *             .targetName(exampleMoverTargetEndpoint.name())
- *             .targetSubPath(&#34;/&#34;)
- *             .description(&#34;Example Job Definition Description&#34;)
+ *             .targetSubPath("/")
+ *             .description("Example Job Definition Description")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

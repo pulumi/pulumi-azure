@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,31 +53,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleInsights = new Insights(&#34;exampleInsights&#34;, InsightsArgs.builder()        
- *             .name(&#34;example-appinsights&#34;)
+ *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()        
+ *             .name("example-appinsights")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .applicationType(&#34;web&#34;)
+ *             .applicationType("web")
  *             .build());
  * 
- *         var exampleActionGroup = new ActionGroup(&#34;exampleActionGroup&#34;, ActionGroupArgs.builder()        
- *             .name(&#34;example-action-group&#34;)
+ *         var exampleActionGroup = new ActionGroup("exampleActionGroup", ActionGroupArgs.builder()        
+ *             .name("example-action-group")
  *             .resourceGroupName(example.name())
- *             .shortName(&#34;example&#34;)
+ *             .shortName("example")
  *             .build());
  * 
- *         var exampleSmartDetectorAlertRule = new SmartDetectorAlertRule(&#34;exampleSmartDetectorAlertRule&#34;, SmartDetectorAlertRuleArgs.builder()        
- *             .name(&#34;example-smart-detector-alert-rule&#34;)
+ *         var exampleSmartDetectorAlertRule = new SmartDetectorAlertRule("exampleSmartDetectorAlertRule", SmartDetectorAlertRuleArgs.builder()        
+ *             .name("example-smart-detector-alert-rule")
  *             .resourceGroupName(example.name())
- *             .severity(&#34;Sev0&#34;)
+ *             .severity("Sev0")
  *             .scopeResourceIds(exampleInsights.id())
- *             .frequency(&#34;PT1M&#34;)
- *             .detectorType(&#34;FailureAnomaliesDetector&#34;)
+ *             .frequency("PT1M")
+ *             .detectorType("FailureAnomaliesDetector")
  *             .actionGroup(SmartDetectorAlertRuleActionGroupArgs.builder()
  *                 .ids(exampleActionGroup.id())
  *                 .build())
@@ -84,7 +85,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

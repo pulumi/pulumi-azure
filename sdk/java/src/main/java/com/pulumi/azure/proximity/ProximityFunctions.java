@@ -20,7 +20,8 @@ public final class ProximityFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -42,14 +43,15 @@ public final class ProximityFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ProximityFunctions.getPlacementGroup(GetPlacementGroupArgs.builder()
-     *             .name(&#34;tf-appsecuritygroup&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
+     *             .name("tf-appsecuritygroup")
+     *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;proximityPlacementGroupId&#34;, example.applyValue(getPlacementGroupResult -&gt; getPlacementGroupResult.id()));
+     *         ctx.export("proximityPlacementGroupId", example.applyValue(getPlacementGroupResult -> getPlacementGroupResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -62,7 +64,8 @@ public final class ProximityFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -84,14 +87,15 @@ public final class ProximityFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ProximityFunctions.getPlacementGroup(GetPlacementGroupArgs.builder()
-     *             .name(&#34;tf-appsecuritygroup&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
+     *             .name("tf-appsecuritygroup")
+     *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;proximityPlacementGroupId&#34;, example.applyValue(getPlacementGroupResult -&gt; getPlacementGroupResult.id()));
+     *         ctx.export("proximityPlacementGroupId", example.applyValue(getPlacementGroupResult -> getPlacementGroupResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -104,7 +108,8 @@ public final class ProximityFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -126,14 +131,15 @@ public final class ProximityFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ProximityFunctions.getPlacementGroup(GetPlacementGroupArgs.builder()
-     *             .name(&#34;tf-appsecuritygroup&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
+     *             .name("tf-appsecuritygroup")
+     *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;proximityPlacementGroupId&#34;, example.applyValue(getPlacementGroupResult -&gt; getPlacementGroupResult.id()));
+     *         ctx.export("proximityPlacementGroupId", example.applyValue(getPlacementGroupResult -> getPlacementGroupResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -146,7 +152,8 @@ public final class ProximityFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -168,14 +175,15 @@ public final class ProximityFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ProximityFunctions.getPlacementGroup(GetPlacementGroupArgs.builder()
-     *             .name(&#34;tf-appsecuritygroup&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
+     *             .name("tf-appsecuritygroup")
+     *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;proximityPlacementGroupId&#34;, example.applyValue(getPlacementGroupResult -&gt; getPlacementGroupResult.id()));
+     *         ctx.export("proximityPlacementGroupId", example.applyValue(getPlacementGroupResult -> getPlacementGroupResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

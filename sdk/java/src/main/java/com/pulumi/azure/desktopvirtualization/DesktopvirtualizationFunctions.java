@@ -26,7 +26,8 @@ public final class DesktopvirtualizationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -48,14 +49,15 @@ public final class DesktopvirtualizationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DesktopvirtualizationFunctions.getApplicationGroup(GetApplicationGroupArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getApplicationGroupResult -&gt; getApplicationGroupResult.id()));
+     *         ctx.export("id", example.applyValue(getApplicationGroupResult -> getApplicationGroupResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -68,7 +70,8 @@ public final class DesktopvirtualizationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -90,14 +93,15 @@ public final class DesktopvirtualizationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DesktopvirtualizationFunctions.getApplicationGroup(GetApplicationGroupArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getApplicationGroupResult -&gt; getApplicationGroupResult.id()));
+     *         ctx.export("id", example.applyValue(getApplicationGroupResult -> getApplicationGroupResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -110,7 +114,8 @@ public final class DesktopvirtualizationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -132,14 +137,15 @@ public final class DesktopvirtualizationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DesktopvirtualizationFunctions.getApplicationGroup(GetApplicationGroupArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getApplicationGroupResult -&gt; getApplicationGroupResult.id()));
+     *         ctx.export("id", example.applyValue(getApplicationGroupResult -> getApplicationGroupResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -152,7 +158,8 @@ public final class DesktopvirtualizationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -174,14 +181,15 @@ public final class DesktopvirtualizationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DesktopvirtualizationFunctions.getApplicationGroup(GetApplicationGroupArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getApplicationGroupResult -&gt; getApplicationGroupResult.id()));
+     *         ctx.export("id", example.applyValue(getApplicationGroupResult -> getApplicationGroupResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -194,7 +202,8 @@ public final class DesktopvirtualizationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -216,13 +225,14 @@ public final class DesktopvirtualizationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DesktopvirtualizationFunctions.getHostPool(GetHostPoolArgs.builder()
-     *             .name(&#34;example-pool&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-pool")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -235,7 +245,8 @@ public final class DesktopvirtualizationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -257,13 +268,14 @@ public final class DesktopvirtualizationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DesktopvirtualizationFunctions.getHostPool(GetHostPoolArgs.builder()
-     *             .name(&#34;example-pool&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-pool")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -276,7 +288,8 @@ public final class DesktopvirtualizationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -298,13 +311,14 @@ public final class DesktopvirtualizationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DesktopvirtualizationFunctions.getHostPool(GetHostPoolArgs.builder()
-     *             .name(&#34;example-pool&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-pool")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -317,7 +331,8 @@ public final class DesktopvirtualizationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -339,13 +354,14 @@ public final class DesktopvirtualizationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DesktopvirtualizationFunctions.getHostPool(GetHostPoolArgs.builder()
-     *             .name(&#34;example-pool&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-pool")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -358,7 +374,8 @@ public final class DesktopvirtualizationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -380,14 +397,15 @@ public final class DesktopvirtualizationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DesktopvirtualizationFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getWorkspaceResult -&gt; getWorkspaceResult.id()));
+     *         ctx.export("id", example.applyValue(getWorkspaceResult -> getWorkspaceResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -400,7 +418,8 @@ public final class DesktopvirtualizationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -422,14 +441,15 @@ public final class DesktopvirtualizationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DesktopvirtualizationFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getWorkspaceResult -&gt; getWorkspaceResult.id()));
+     *         ctx.export("id", example.applyValue(getWorkspaceResult -> getWorkspaceResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -442,7 +462,8 @@ public final class DesktopvirtualizationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -464,14 +485,15 @@ public final class DesktopvirtualizationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DesktopvirtualizationFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getWorkspaceResult -&gt; getWorkspaceResult.id()));
+     *         ctx.export("id", example.applyValue(getWorkspaceResult -> getWorkspaceResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -484,7 +506,8 @@ public final class DesktopvirtualizationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -506,14 +529,15 @@ public final class DesktopvirtualizationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DesktopvirtualizationFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getWorkspaceResult -&gt; getWorkspaceResult.id()));
+     *         ctx.export("id", example.applyValue(getWorkspaceResult -> getWorkspaceResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

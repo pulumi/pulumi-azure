@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -63,45 +64,45 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getSubscription();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-PEASGAsso&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-PEASGAsso")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;examplevnet&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("examplevnet")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .addressSpaces(&#34;10.5.0.0/16&#34;)
+ *             .addressSpaces("10.5.0.0/16")
  *             .build());
  * 
- *         var service = new Subnet(&#34;service&#34;, SubnetArgs.builder()        
- *             .name(&#34;examplenetservice&#34;)
+ *         var service = new Subnet("service", SubnetArgs.builder()        
+ *             .name("examplenetservice")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.5.1.0/24&#34;)
+ *             .addressPrefixes("10.5.1.0/24")
  *             .enforcePrivateLinkServiceNetworkPolicies(true)
  *             .build());
  * 
- *         var endpoint = new Subnet(&#34;endpoint&#34;, SubnetArgs.builder()        
- *             .name(&#34;examplenetendpoint&#34;)
+ *         var endpoint = new Subnet("endpoint", SubnetArgs.builder()        
+ *             .name("examplenetendpoint")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.5.2.0/24&#34;)
+ *             .addressPrefixes("10.5.2.0/24")
  *             .enforcePrivateLinkEndpointNetworkPolicies(true)
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
- *             .name(&#34;examplepip&#34;)
- *             .sku(&#34;Standard&#34;)
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *             .name("examplepip")
+ *             .sku("Standard")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .allocationMethod(&#34;Static&#34;)
+ *             .allocationMethod("Static")
  *             .build());
  * 
- *         var exampleLoadBalancer = new LoadBalancer(&#34;exampleLoadBalancer&#34;, LoadBalancerArgs.builder()        
- *             .name(&#34;examplelb&#34;)
- *             .sku(&#34;Standard&#34;)
+ *         var exampleLoadBalancer = new LoadBalancer("exampleLoadBalancer", LoadBalancerArgs.builder()        
+ *             .name("examplelb")
+ *             .sku("Standard")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .frontendIpConfigurations(LoadBalancerFrontendIpConfigurationArgs.builder()
@@ -110,22 +111,22 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleLinkService = new LinkService(&#34;exampleLinkService&#34;, LinkServiceArgs.builder()        
- *             .name(&#34;examplePLS&#34;)
+ *         var exampleLinkService = new LinkService("exampleLinkService", LinkServiceArgs.builder()        
+ *             .name("examplePLS")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .autoApprovalSubscriptionIds(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.subscriptionId()))
- *             .visibilitySubscriptionIds(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.subscriptionId()))
+ *             .autoApprovalSubscriptionIds(current.applyValue(getSubscriptionResult -> getSubscriptionResult.subscriptionId()))
+ *             .visibilitySubscriptionIds(current.applyValue(getSubscriptionResult -> getSubscriptionResult.subscriptionId()))
  *             .natIpConfigurations(LinkServiceNatIpConfigurationArgs.builder()
- *                 .name(&#34;primaryIpConfiguration&#34;)
+ *                 .name("primaryIpConfiguration")
  *                 .primary(true)
  *                 .subnetId(service.id())
  *                 .build())
- *             .loadBalancerFrontendIpConfigurationIds(exampleLoadBalancer.frontendIpConfigurations().applyValue(frontendIpConfigurations -&gt; frontendIpConfigurations[0].id()))
+ *             .loadBalancerFrontendIpConfigurationIds(exampleLoadBalancer.frontendIpConfigurations().applyValue(frontendIpConfigurations -> frontendIpConfigurations[0].id()))
  *             .build());
  * 
- *         var exampleEndpoint = new Endpoint(&#34;exampleEndpoint&#34;, EndpointArgs.builder()        
- *             .name(&#34;example-privatelink&#34;)
+ *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()        
+ *             .name("example-privatelink")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .subnetId(endpoint.id())
@@ -136,20 +137,21 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleApplicationSecurityGroup = new ApplicationSecurityGroup(&#34;exampleApplicationSecurityGroup&#34;, ApplicationSecurityGroupArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleApplicationSecurityGroup = new ApplicationSecurityGroup("exampleApplicationSecurityGroup", ApplicationSecurityGroupArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleApplicationSecurityGroupAssociation = new ApplicationSecurityGroupAssociation(&#34;exampleApplicationSecurityGroupAssociation&#34;, ApplicationSecurityGroupAssociationArgs.builder()        
+ *         var exampleApplicationSecurityGroupAssociation = new ApplicationSecurityGroupAssociation("exampleApplicationSecurityGroupAssociation", ApplicationSecurityGroupAssociationArgs.builder()        
  *             .privateEndpointId(exampleEndpoint.id())
  *             .applicationSecurityGroupId(exampleApplicationSecurityGroup.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

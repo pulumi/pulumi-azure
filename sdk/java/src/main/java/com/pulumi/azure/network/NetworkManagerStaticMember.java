@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,48 +52,49 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
  *         final var current = CoreFunctions.getSubscription();
  * 
- *         var exampleNetworkManager = new NetworkManager(&#34;exampleNetworkManager&#34;, NetworkManagerArgs.builder()        
- *             .name(&#34;example-network-manager&#34;)
+ *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()        
+ *             .name("example-network-manager")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .scope(NetworkManagerScopeArgs.builder()
- *                 .subscriptionIds(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+ *                 .subscriptionIds(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *                 .build())
  *             .scopeAccesses(            
- *                 &#34;Connectivity&#34;,
- *                 &#34;SecurityAdmin&#34;)
- *             .description(&#34;example network manager&#34;)
+ *                 "Connectivity",
+ *                 "SecurityAdmin")
+ *             .description("example network manager")
  *             .build());
  * 
- *         var exampleNetworkManagerNetworkGroup = new NetworkManagerNetworkGroup(&#34;exampleNetworkManagerNetworkGroup&#34;, NetworkManagerNetworkGroupArgs.builder()        
- *             .name(&#34;example-group&#34;)
+ *         var exampleNetworkManagerNetworkGroup = new NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", NetworkManagerNetworkGroupArgs.builder()        
+ *             .name("example-group")
  *             .networkManagerId(exampleNetworkManager.id())
- *             .description(&#34;example network group&#34;)
+ *             .description("example network group")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-vnet&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example-vnet")
  *             .resourceGroupName(example.name())
- *             .addressSpaces(&#34;192.168.1.0/24&#34;)
+ *             .addressSpaces("192.168.1.0/24")
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleNetworkManagerStaticMember = new NetworkManagerStaticMember(&#34;exampleNetworkManagerStaticMember&#34;, NetworkManagerStaticMemberArgs.builder()        
- *             .name(&#34;example-nmsm&#34;)
+ *         var exampleNetworkManagerStaticMember = new NetworkManagerStaticMember("exampleNetworkManagerStaticMember", NetworkManagerStaticMemberArgs.builder()        
+ *             .name("example-nmsm")
  *             .networkGroupId(exampleNetworkManagerNetworkGroup.id())
  *             .targetVirtualNetworkId(exampleVirtualNetwork.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,27 +49,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;workflow-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("workflow-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleWorkflow = new Workflow(&#34;exampleWorkflow&#34;, WorkflowArgs.builder()        
- *             .name(&#34;workflow1&#34;)
+ *         var exampleWorkflow = new Workflow("exampleWorkflow", WorkflowArgs.builder()        
+ *             .name("workflow1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleActionHttp = new ActionHttp(&#34;exampleActionHttp&#34;, ActionHttpArgs.builder()        
- *             .name(&#34;webhook&#34;)
+ *         var exampleActionHttp = new ActionHttp("exampleActionHttp", ActionHttpArgs.builder()        
+ *             .name("webhook")
  *             .logicAppId(exampleWorkflow.id())
- *             .method(&#34;GET&#34;)
- *             .uri(&#34;http://example.com/some-webhook&#34;)
+ *             .method("GET")
+ *             .uri("http://example.com/some-webhook")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

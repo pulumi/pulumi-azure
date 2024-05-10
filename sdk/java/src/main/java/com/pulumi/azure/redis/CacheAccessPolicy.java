@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,35 +46,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;East US&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("East US")
  *             .build());
  * 
- *         var exampleCache = new Cache(&#34;exampleCache&#34;, CacheArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleCache = new Cache("exampleCache", CacheArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .capacity(1)
- *             .family(&#34;P&#34;)
- *             .skuName(&#34;Premium&#34;)
+ *             .family("P")
+ *             .skuName("Premium")
  *             .enableNonSslPort(false)
  *             .redisConfiguration(CacheRedisConfigurationArgs.builder()
  *                 .maxmemoryReserved(2)
  *                 .maxmemoryDelta(2)
- *                 .maxmemoryPolicy(&#34;allkeys-lru&#34;)
+ *                 .maxmemoryPolicy("allkeys-lru")
  *                 .build())
  *             .build());
  * 
- *         var exampleCacheAccessPolicy = new CacheAccessPolicy(&#34;exampleCacheAccessPolicy&#34;, CacheAccessPolicyArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleCacheAccessPolicy = new CacheAccessPolicy("exampleCacheAccessPolicy", CacheAccessPolicyArgs.builder()        
+ *             .name("example")
  *             .redisCacheId(exampleCache.id())
- *             .permissions(&#34;+@read +@connection +cluster|info&#34;)
+ *             .permissions("+{@literal @}read +{@literal @}connection +cluster|info")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

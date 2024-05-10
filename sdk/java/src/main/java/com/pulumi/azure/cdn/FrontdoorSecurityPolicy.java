@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,63 +57,63 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-cdn-frontdoor&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-cdn-frontdoor")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFrontdoorProfile = new FrontdoorProfile(&#34;exampleFrontdoorProfile&#34;, FrontdoorProfileArgs.builder()        
- *             .name(&#34;example-profile&#34;)
+ *         var exampleFrontdoorProfile = new FrontdoorProfile("exampleFrontdoorProfile", FrontdoorProfileArgs.builder()        
+ *             .name("example-profile")
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;Standard_AzureFrontDoor&#34;)
+ *             .skuName("Standard_AzureFrontDoor")
  *             .build());
  * 
- *         var exampleFrontdoorFirewallPolicy = new FrontdoorFirewallPolicy(&#34;exampleFrontdoorFirewallPolicy&#34;, FrontdoorFirewallPolicyArgs.builder()        
- *             .name(&#34;exampleWAF&#34;)
+ *         var exampleFrontdoorFirewallPolicy = new FrontdoorFirewallPolicy("exampleFrontdoorFirewallPolicy", FrontdoorFirewallPolicyArgs.builder()        
+ *             .name("exampleWAF")
  *             .resourceGroupName(example.name())
  *             .skuName(exampleFrontdoorProfile.skuName())
  *             .enabled(true)
- *             .mode(&#34;Prevention&#34;)
- *             .redirectUrl(&#34;https://www.contoso.com&#34;)
+ *             .mode("Prevention")
+ *             .redirectUrl("https://www.contoso.com")
  *             .customBlockResponseStatusCode(403)
- *             .customBlockResponseBody(&#34;PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==&#34;)
+ *             .customBlockResponseBody("PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==")
  *             .customRules(FrontdoorFirewallPolicyCustomRuleArgs.builder()
- *                 .name(&#34;Rule1&#34;)
+ *                 .name("Rule1")
  *                 .enabled(true)
  *                 .priority(1)
  *                 .rateLimitDurationInMinutes(1)
  *                 .rateLimitThreshold(10)
- *                 .type(&#34;MatchRule&#34;)
- *                 .action(&#34;Block&#34;)
+ *                 .type("MatchRule")
+ *                 .action("Block")
  *                 .matchConditions(FrontdoorFirewallPolicyCustomRuleMatchConditionArgs.builder()
- *                     .matchVariable(&#34;RemoteAddr&#34;)
- *                     .operator(&#34;IPMatch&#34;)
+ *                     .matchVariable("RemoteAddr")
+ *                     .operator("IPMatch")
  *                     .negationCondition(false)
  *                     .matchValues(                    
- *                         &#34;192.168.1.0/24&#34;,
- *                         &#34;10.0.1.0/24&#34;)
+ *                         "192.168.1.0/24",
+ *                         "10.0.1.0/24")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
- *             .name(&#34;sub-domain.domain.com&#34;)
+ *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()        
+ *             .name("sub-domain.domain.com")
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleFrontdoorCustomDomain = new FrontdoorCustomDomain(&#34;exampleFrontdoorCustomDomain&#34;, FrontdoorCustomDomainArgs.builder()        
- *             .name(&#34;example-customDomain&#34;)
+ *         var exampleFrontdoorCustomDomain = new FrontdoorCustomDomain("exampleFrontdoorCustomDomain", FrontdoorCustomDomainArgs.builder()        
+ *             .name("example-customDomain")
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .dnsZoneId(exampleZone.id())
- *             .hostName(&#34;contoso.fabrikam.com&#34;)
+ *             .hostName("contoso.fabrikam.com")
  *             .tls(FrontdoorCustomDomainTlsArgs.builder()
- *                 .certificateType(&#34;ManagedCertificate&#34;)
- *                 .minimumTlsVersion(&#34;TLS12&#34;)
+ *                 .certificateType("ManagedCertificate")
+ *                 .minimumTlsVersion("TLS12")
  *                 .build())
  *             .build());
  * 
- *         var exampleFrontdoorSecurityPolicy = new FrontdoorSecurityPolicy(&#34;exampleFrontdoorSecurityPolicy&#34;, FrontdoorSecurityPolicyArgs.builder()        
- *             .name(&#34;Example-Security-Policy&#34;)
+ *         var exampleFrontdoorSecurityPolicy = new FrontdoorSecurityPolicy("exampleFrontdoorSecurityPolicy", FrontdoorSecurityPolicyArgs.builder()        
+ *             .name("Example-Security-Policy")
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .securityPolicies(FrontdoorSecurityPolicySecurityPoliciesArgs.builder()
  *                 .firewall(FrontdoorSecurityPolicySecurityPoliciesFirewallArgs.builder()
@@ -121,7 +122,7 @@ import javax.annotation.Nullable;
  *                         .domains(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs.builder()
  *                             .cdnFrontdoorDomainId(exampleFrontdoorCustomDomain.id())
  *                             .build())
- *                         .patternsToMatch(&#34;/*&#34;)
+ *                         .patternsToMatch("/*")
  *                         .build())
  *                     .build())
  *                 .build())
@@ -129,7 +130,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

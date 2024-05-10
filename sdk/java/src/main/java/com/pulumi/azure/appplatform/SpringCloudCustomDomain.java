@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,44 +52,45 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;rg-example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("rg-example")
+ *             .location("West Europe")
  *             .build());
  * 
  *         final var example = DnsFunctions.getZone(GetZoneArgs.builder()
- *             .name(&#34;mydomain.com&#34;)
+ *             .name("mydomain.com")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleSpringCloudService = new SpringCloudService(&#34;exampleSpringCloudService&#34;, SpringCloudServiceArgs.builder()        
- *             .name(&#34;example-springcloud&#34;)
+ *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()        
+ *             .name("example-springcloud")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .build());
  * 
- *         var exampleSpringCloudApp = new SpringCloudApp(&#34;exampleSpringCloudApp&#34;, SpringCloudAppArgs.builder()        
- *             .name(&#34;example-springcloudapp&#34;)
+ *         var exampleSpringCloudApp = new SpringCloudApp("exampleSpringCloudApp", SpringCloudAppArgs.builder()        
+ *             .name("example-springcloudapp")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .serviceName(exampleSpringCloudService.name())
  *             .build());
  * 
- *         var exampleCNameRecord = new CNameRecord(&#34;exampleCNameRecord&#34;, CNameRecordArgs.builder()        
- *             .name(&#34;record1&#34;)
- *             .zoneName(example.applyValue(getZoneResult -&gt; getZoneResult).applyValue(example -&gt; example.applyValue(getZoneResult -&gt; getZoneResult.name())))
- *             .resourceGroupName(example.applyValue(getZoneResult -&gt; getZoneResult).applyValue(example -&gt; example.applyValue(getZoneResult -&gt; getZoneResult.resourceGroupName())))
+ *         var exampleCNameRecord = new CNameRecord("exampleCNameRecord", CNameRecordArgs.builder()        
+ *             .name("record1")
+ *             .zoneName(example.applyValue(getZoneResult -> getZoneResult).applyValue(example -> example.applyValue(getZoneResult -> getZoneResult.name())))
+ *             .resourceGroupName(example.applyValue(getZoneResult -> getZoneResult).applyValue(example -> example.applyValue(getZoneResult -> getZoneResult.resourceGroupName())))
  *             .ttl(300)
  *             .record(exampleSpringCloudApp.fqdn())
  *             .build());
  * 
- *         var exampleSpringCloudCustomDomain = new SpringCloudCustomDomain(&#34;exampleSpringCloudCustomDomain&#34;, SpringCloudCustomDomainArgs.builder()        
- *             .name(StdFunctions.join().applyValue(invoke -&gt; invoke.result()))
+ *         var exampleSpringCloudCustomDomain = new SpringCloudCustomDomain("exampleSpringCloudCustomDomain", SpringCloudCustomDomainArgs.builder()        
+ *             .name(StdFunctions.join().applyValue(invoke -> invoke.result()))
  *             .springCloudAppId(exampleSpringCloudApp.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

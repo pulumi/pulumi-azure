@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,42 +55,43 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleSpringCloudService = new SpringCloudService(&#34;exampleSpringCloudService&#34;, SpringCloudServiceArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;E0&#34;)
+ *             .skuName("E0")
  *             .build());
  * 
- *         var exampleSpringCloudApp = new SpringCloudApp(&#34;exampleSpringCloudApp&#34;, SpringCloudAppArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleSpringCloudApp = new SpringCloudApp("exampleSpringCloudApp", SpringCloudAppArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(exampleSpringCloudService.resourceGroupName())
  *             .serviceName(exampleSpringCloudService.name())
  *             .build());
  * 
- *         var exampleSpringCloudBuildDeployment = new SpringCloudBuildDeployment(&#34;exampleSpringCloudBuildDeployment&#34;, SpringCloudBuildDeploymentArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleSpringCloudBuildDeployment = new SpringCloudBuildDeployment("exampleSpringCloudBuildDeployment", SpringCloudBuildDeploymentArgs.builder()        
+ *             .name("example")
  *             .springCloudAppId(exampleSpringCloudApp.id())
- *             .buildResultId(&#34;&lt;default&gt;&#34;)
+ *             .buildResultId("<default>")
  *             .instanceCount(2)
  *             .environmentVariables(Map.ofEntries(
- *                 Map.entry(&#34;Foo&#34;, &#34;Bar&#34;),
- *                 Map.entry(&#34;Env&#34;, &#34;Staging&#34;)
+ *                 Map.entry("Foo", "Bar"),
+ *                 Map.entry("Env", "Staging")
  *             ))
  *             .quota(SpringCloudBuildDeploymentQuotaArgs.builder()
- *                 .cpu(&#34;2&#34;)
- *                 .memory(&#34;4Gi&#34;)
+ *                 .cpu("2")
+ *                 .memory("4Gi")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

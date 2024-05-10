@@ -24,7 +24,8 @@ public final class HybridFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -46,14 +47,15 @@ public final class HybridFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = HybridFunctions.getComputeMachine(GetComputeMachineArgs.builder()
-     *             .name(&#34;existing-hcmachine&#34;)
-     *             .resourceGroupName(&#34;existing-rg&#34;)
+     *             .name("existing-hcmachine")
+     *             .resourceGroupName("existing-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getComputeMachineResult -&gt; getComputeMachineResult.id()));
+     *         ctx.export("id", example.applyValue(getComputeMachineResult -> getComputeMachineResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -70,7 +72,8 @@ public final class HybridFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -92,14 +95,15 @@ public final class HybridFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = HybridFunctions.getComputeMachine(GetComputeMachineArgs.builder()
-     *             .name(&#34;existing-hcmachine&#34;)
-     *             .resourceGroupName(&#34;existing-rg&#34;)
+     *             .name("existing-hcmachine")
+     *             .resourceGroupName("existing-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getComputeMachineResult -&gt; getComputeMachineResult.id()));
+     *         ctx.export("id", example.applyValue(getComputeMachineResult -> getComputeMachineResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -116,7 +120,8 @@ public final class HybridFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -138,14 +143,15 @@ public final class HybridFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = HybridFunctions.getComputeMachine(GetComputeMachineArgs.builder()
-     *             .name(&#34;existing-hcmachine&#34;)
-     *             .resourceGroupName(&#34;existing-rg&#34;)
+     *             .name("existing-hcmachine")
+     *             .resourceGroupName("existing-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getComputeMachineResult -&gt; getComputeMachineResult.id()));
+     *         ctx.export("id", example.applyValue(getComputeMachineResult -> getComputeMachineResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -162,7 +168,8 @@ public final class HybridFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -184,14 +191,15 @@ public final class HybridFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = HybridFunctions.getComputeMachine(GetComputeMachineArgs.builder()
-     *             .name(&#34;existing-hcmachine&#34;)
-     *             .resourceGroupName(&#34;existing-rg&#34;)
+     *             .name("existing-hcmachine")
+     *             .resourceGroupName("existing-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getComputeMachineResult -&gt; getComputeMachineResult.id()));
+     *         ctx.export("id", example.applyValue(getComputeMachineResult -> getComputeMachineResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

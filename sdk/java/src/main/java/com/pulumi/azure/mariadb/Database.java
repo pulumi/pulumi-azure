@@ -17,7 +17,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,36 +43,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;tfex-mariadb-database-RG&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("tfex-mariadb-database-RG")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
- *             .name(&#34;mariadb-svr&#34;)
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+ *             .name("mariadb-svr")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;B_Gen5_2&#34;)
+ *             .skuName("B_Gen5_2")
  *             .storageMb(51200)
  *             .backupRetentionDays(7)
  *             .geoRedundantBackupEnabled(false)
- *             .administratorLogin(&#34;acctestun&#34;)
- *             .administratorLoginPassword(&#34;H@Sh1CoR3!&#34;)
- *             .version(&#34;10.2&#34;)
+ *             .administratorLogin("acctestun")
+ *             .administratorLoginPassword("H{@literal @}Sh1CoR3!")
+ *             .version("10.2")
  *             .sslEnforcementEnabled(true)
  *             .build());
  * 
- *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
- *             .name(&#34;mariadb_database&#34;)
+ *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()        
+ *             .name("mariadb_database")
  *             .resourceGroupName(example.name())
  *             .serverName(exampleServer.name())
- *             .charset(&#34;utf8mb4&#34;)
- *             .collation(&#34;utf8mb4_unicode_520_ci&#34;)
+ *             .charset("utf8mb4")
+ *             .collation("utf8mb4_unicode_520_ci")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

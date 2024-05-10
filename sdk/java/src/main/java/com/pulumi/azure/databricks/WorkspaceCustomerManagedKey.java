@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,85 +56,86 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
- *             .name(&#34;databricks-test&#34;)
+ *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()        
+ *             .name("databricks-test")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .sku(&#34;premium&#34;)
+ *             .sku("premium")
  *             .customerManagedKeyEnabled(true)
- *             .tags(Map.of(&#34;Environment&#34;, &#34;Production&#34;))
+ *             .tags(Map.of("Environment", "Production"))
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;examplekeyvault&#34;)
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("examplekeyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .skuName(&#34;premium&#34;)
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .skuName("premium")
  *             .purgeProtectionEnabled(true)
  *             .softDeleteRetentionDays(7)
  *             .build());
  * 
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
- *             .name(&#34;example-certificate&#34;)
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *             .name("example-certificate")
  *             .keyVaultId(exampleKeyVault.id())
- *             .keyType(&#34;RSA&#34;)
+ *             .keyType("RSA")
  *             .keySize(2048)
  *             .keyOpts(            
- *                 &#34;decrypt&#34;,
- *                 &#34;encrypt&#34;,
- *                 &#34;sign&#34;,
- *                 &#34;unwrapKey&#34;,
- *                 &#34;verify&#34;,
- *                 &#34;wrapKey&#34;)
+ *                 "decrypt",
+ *                 "encrypt",
+ *                 "sign",
+ *                 "unwrapKey",
+ *                 "verify",
+ *                 "wrapKey")
  *             .build());
  * 
- *         var exampleWorkspaceRootDbfsCustomerManagedKey = new WorkspaceRootDbfsCustomerManagedKey(&#34;exampleWorkspaceRootDbfsCustomerManagedKey&#34;, WorkspaceRootDbfsCustomerManagedKeyArgs.builder()        
+ *         var exampleWorkspaceRootDbfsCustomerManagedKey = new WorkspaceRootDbfsCustomerManagedKey("exampleWorkspaceRootDbfsCustomerManagedKey", WorkspaceRootDbfsCustomerManagedKeyArgs.builder()        
  *             .workspaceId(exampleWorkspace.id())
  *             .keyVaultKeyId(exampleKey.id())
  *             .build());
  * 
- *         var terraform = new AccessPolicy(&#34;terraform&#34;, AccessPolicyArgs.builder()        
+ *         var terraform = new AccessPolicy("terraform", AccessPolicyArgs.builder()        
  *             .keyVaultId(exampleKeyVault.id())
  *             .tenantId(exampleKeyVault.tenantId())
- *             .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *             .keyPermissions(            
- *                 &#34;Create&#34;,
- *                 &#34;Delete&#34;,
- *                 &#34;Get&#34;,
- *                 &#34;Purge&#34;,
- *                 &#34;Recover&#34;,
- *                 &#34;Update&#34;,
- *                 &#34;List&#34;,
- *                 &#34;Decrypt&#34;,
- *                 &#34;Sign&#34;,
- *                 &#34;GetRotationPolicy&#34;)
+ *                 "Create",
+ *                 "Delete",
+ *                 "Get",
+ *                 "Purge",
+ *                 "Recover",
+ *                 "Update",
+ *                 "List",
+ *                 "Decrypt",
+ *                 "Sign",
+ *                 "GetRotationPolicy")
  *             .build());
  * 
- *         var databricks = new AccessPolicy(&#34;databricks&#34;, AccessPolicyArgs.builder()        
+ *         var databricks = new AccessPolicy("databricks", AccessPolicyArgs.builder()        
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(exampleWorkspace.storageAccountIdentities().applyValue(storageAccountIdentities -&gt; storageAccountIdentities[0].tenantId()))
- *             .objectId(exampleWorkspace.storageAccountIdentities().applyValue(storageAccountIdentities -&gt; storageAccountIdentities[0].principalId()))
+ *             .tenantId(exampleWorkspace.storageAccountIdentities().applyValue(storageAccountIdentities -> storageAccountIdentities[0].tenantId()))
+ *             .objectId(exampleWorkspace.storageAccountIdentities().applyValue(storageAccountIdentities -> storageAccountIdentities[0].principalId()))
  *             .keyPermissions(            
- *                 &#34;Create&#34;,
- *                 &#34;Delete&#34;,
- *                 &#34;Get&#34;,
- *                 &#34;Purge&#34;,
- *                 &#34;Recover&#34;,
- *                 &#34;Update&#34;,
- *                 &#34;List&#34;,
- *                 &#34;Decrypt&#34;,
- *                 &#34;Sign&#34;)
+ *                 "Create",
+ *                 "Delete",
+ *                 "Get",
+ *                 "Purge",
+ *                 "Recover",
+ *                 "Update",
+ *                 "List",
+ *                 "Decrypt",
+ *                 "Sign")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Example HCL Configurations

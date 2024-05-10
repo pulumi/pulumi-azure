@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,43 +53,44 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleContainer = new Container(&#34;exampleContainer&#34;, ContainerArgs.builder()        
- *             .name(&#34;examplecontainer&#34;)
+ *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()        
+ *             .name("examplecontainer")
  *             .storageAccountName(exampleAccount.name())
  *             .build());
  * 
- *         var exampleAccountCostManagementExport = new AccountCostManagementExport(&#34;exampleAccountCostManagementExport&#34;, AccountCostManagementExportArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .billingAccountId(&#34;example&#34;)
- *             .recurrenceType(&#34;Monthly&#34;)
- *             .recurrencePeriodStartDate(&#34;2020-08-18T00:00:00Z&#34;)
- *             .recurrencePeriodEndDate(&#34;2020-09-18T00:00:00Z&#34;)
+ *         var exampleAccountCostManagementExport = new AccountCostManagementExport("exampleAccountCostManagementExport", AccountCostManagementExportArgs.builder()        
+ *             .name("example")
+ *             .billingAccountId("example")
+ *             .recurrenceType("Monthly")
+ *             .recurrencePeriodStartDate("2020-08-18T00:00:00Z")
+ *             .recurrencePeriodEndDate("2020-09-18T00:00:00Z")
  *             .exportDataStorageLocation(AccountCostManagementExportExportDataStorageLocationArgs.builder()
  *                 .containerId(exampleContainer.resourceManagerId())
- *                 .rootFolderPath(&#34;/root/updated&#34;)
+ *                 .rootFolderPath("/root/updated")
  *                 .build())
  *             .exportDataOptions(AccountCostManagementExportExportDataOptionsArgs.builder()
- *                 .type(&#34;Usage&#34;)
- *                 .timeFrame(&#34;WeekToDate&#34;)
+ *                 .type("Usage")
+ *                 .timeFrame("WeekToDate")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

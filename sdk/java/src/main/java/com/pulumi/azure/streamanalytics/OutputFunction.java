@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,66 +55,67 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;examplestorageaccount&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("examplestorageaccount")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var examplePlan = new Plan(&#34;examplePlan&#34;, PlanArgs.builder()        
- *             .name(&#34;exampleappserviceplan&#34;)
+ *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()        
+ *             .name("exampleappserviceplan")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .kind(&#34;FunctionApp&#34;)
+ *             .kind("FunctionApp")
  *             .reserved(true)
  *             .sku(PlanSkuArgs.builder()
- *                 .tier(&#34;Dynamic&#34;)
- *                 .size(&#34;Y1&#34;)
+ *                 .tier("Dynamic")
+ *                 .size("Y1")
  *                 .build())
  *             .build());
  * 
- *         var exampleFunctionApp = new FunctionApp(&#34;exampleFunctionApp&#34;, FunctionAppArgs.builder()        
- *             .name(&#34;examplefunctionapp&#34;)
+ *         var exampleFunctionApp = new FunctionApp("exampleFunctionApp", FunctionAppArgs.builder()        
+ *             .name("examplefunctionapp")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
  *             .storageAccountName(exampleAccount.name())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
- *             .osType(&#34;linux&#34;)
- *             .version(&#34;~3&#34;)
+ *             .osType("linux")
+ *             .version("~3")
  *             .build());
  * 
- *         var exampleJob = new Job(&#34;exampleJob&#34;, JobArgs.builder()        
- *             .name(&#34;examplestreamanalyticsjob&#34;)
+ *         var exampleJob = new Job("exampleJob", JobArgs.builder()        
+ *             .name("examplestreamanalyticsjob")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .streamingUnits(3)
- *             .transformationQuery(&#34;&#34;&#34;
+ *             .transformationQuery("""
  *     SELECT *
  *     INTO [YourOutputAlias]
  *     FROM [YourInputAlias]
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
- *         var exampleOutputFunction = new OutputFunction(&#34;exampleOutputFunction&#34;, OutputFunctionArgs.builder()        
- *             .name(&#34;exampleoutput&#34;)
+ *         var exampleOutputFunction = new OutputFunction("exampleOutputFunction", OutputFunctionArgs.builder()        
+ *             .name("exampleoutput")
  *             .resourceGroupName(exampleJob.resourceGroupName())
  *             .streamAnalyticsJobName(exampleJob.name())
  *             .functionApp(exampleFunctionApp.name())
- *             .functionName(&#34;examplefunctionname&#34;)
- *             .apiKey(&#34;exampleapikey&#34;)
+ *             .functionName("examplefunctionname")
+ *             .apiKey("exampleapikey")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -57,81 +58,82 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleActionGroup = new ActionGroup(&#34;exampleActionGroup&#34;, ActionGroupArgs.builder()        
- *             .name(&#34;example-mag&#34;)
+ *         var exampleActionGroup = new ActionGroup("exampleActionGroup", ActionGroupArgs.builder()        
+ *             .name("example-mag")
  *             .resourceGroupName(example.name())
- *             .shortName(&#34;testag&#34;)
+ *             .shortName("testag")
  *             .build());
  * 
- *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
- *             .name(&#34;example-amw&#34;)
+ *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()        
+ *             .name("example-amw")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleKubernetesCluster = new KubernetesCluster(&#34;exampleKubernetesCluster&#34;, KubernetesClusterArgs.builder()        
- *             .name(&#34;example-cluster&#34;)
+ *         var exampleKubernetesCluster = new KubernetesCluster("exampleKubernetesCluster", KubernetesClusterArgs.builder()        
+ *             .name("example-cluster")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .dnsPrefix(&#34;example-aks&#34;)
+ *             .dnsPrefix("example-aks")
  *             .defaultNodePool(KubernetesClusterDefaultNodePoolArgs.builder()
- *                 .name(&#34;default&#34;)
+ *                 .name("default")
  *                 .nodeCount(1)
- *                 .vmSize(&#34;Standard_DS2_v2&#34;)
+ *                 .vmSize("Standard_DS2_v2")
  *                 .enableHostEncryption(true)
  *                 .build())
  *             .identity(KubernetesClusterIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
- *         var exampleAlertPrometheusRuleGroup = new AlertPrometheusRuleGroup(&#34;exampleAlertPrometheusRuleGroup&#34;, AlertPrometheusRuleGroupArgs.builder()        
- *             .name(&#34;example-amprg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleAlertPrometheusRuleGroup = new AlertPrometheusRuleGroup("exampleAlertPrometheusRuleGroup", AlertPrometheusRuleGroupArgs.builder()        
+ *             .name("example-amprg")
+ *             .location("West Europe")
  *             .resourceGroupName(example.name())
  *             .clusterName(exampleKubernetesCluster.name())
- *             .description(&#34;This is the description of the following rule group&#34;)
+ *             .description("This is the description of the following rule group")
  *             .ruleGroupEnabled(false)
- *             .interval(&#34;PT1M&#34;)
+ *             .interval("PT1M")
  *             .scopes(exampleWorkspace.id())
  *             .rules(            
  *                 AlertPrometheusRuleGroupRuleArgs.builder()
  *                     .enabled(false)
- *                     .expression(&#34;&#34;&#34;
- * histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=&#34;billing-processing&#34;}[5m])) by (job_type))
- *                     &#34;&#34;&#34;)
- *                     .record(&#34;job_type:billing_jobs_duration_seconds:99p5m&#34;)
- *                     .labels(Map.of(&#34;team&#34;, &#34;prod&#34;))
+ *                     .expression("""
+ * histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service="billing-processing"}[5m])) by (job_type))
+ *                     """)
+ *                     .record("job_type:billing_jobs_duration_seconds:99p5m")
+ *                     .labels(Map.of("team", "prod"))
  *                     .build(),
  *                 AlertPrometheusRuleGroupRuleArgs.builder()
- *                     .alert(&#34;Billing_Processing_Very_Slow&#34;)
+ *                     .alert("Billing_Processing_Very_Slow")
  *                     .enabled(true)
- *                     .expression(&#34;&#34;&#34;
- * histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=&#34;billing-processing&#34;}[5m])) by (job_type))
- *                     &#34;&#34;&#34;)
- *                     .for_(&#34;PT5M&#34;)
+ *                     .expression("""
+ * histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service="billing-processing"}[5m])) by (job_type))
+ *                     """)
+ *                     .for_("PT5M")
  *                     .severity(2)
  *                     .actions(AlertPrometheusRuleGroupRuleActionArgs.builder()
  *                         .actionGroupId(exampleActionGroup.id())
  *                         .build())
  *                     .alertResolution(AlertPrometheusRuleGroupRuleAlertResolutionArgs.builder()
  *                         .autoResolved(true)
- *                         .timeToResolve(&#34;PT10M&#34;)
+ *                         .timeToResolve("PT10M")
  *                         .build())
- *                     .annotations(Map.of(&#34;annotationName&#34;, &#34;annotationValue&#34;))
- *                     .labels(Map.of(&#34;team&#34;, &#34;prod&#34;))
+ *                     .annotations(Map.of("annotationName", "annotationValue"))
+ *                     .labels(Map.of("team", "prod"))
  *                     .build())
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .tags(Map.of("key", "value"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

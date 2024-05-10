@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,28 +45,29 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = ApimanagementFunctions.getApi(GetApiArgs.builder()
- *             .name(&#34;my-api&#34;)
- *             .apiManagementName(&#34;example-apim&#34;)
- *             .resourceGroupName(&#34;search-service&#34;)
- *             .revision(&#34;2&#34;)
+ *             .name("my-api")
+ *             .apiManagementName("example-apim")
+ *             .resourceGroupName("search-service")
+ *             .revision("2")
  *             .build());
  * 
- *         var exampleApiPolicy = new ApiPolicy(&#34;exampleApiPolicy&#34;, ApiPolicyArgs.builder()        
- *             .apiName(example.applyValue(getApiResult -&gt; getApiResult.name()))
- *             .apiManagementName(example.applyValue(getApiResult -&gt; getApiResult.apiManagementName()))
- *             .resourceGroupName(example.applyValue(getApiResult -&gt; getApiResult.resourceGroupName()))
- *             .xmlContent(&#34;&#34;&#34;
- * &lt;policies&gt;
- *   &lt;inbound&gt;
- *     &lt;find-and-replace from=&#34;xyz&#34; to=&#34;abc&#34; /&gt;
- *   &lt;/inbound&gt;
- * &lt;/policies&gt;
- *             &#34;&#34;&#34;)
+ *         var exampleApiPolicy = new ApiPolicy("exampleApiPolicy", ApiPolicyArgs.builder()        
+ *             .apiName(example.applyValue(getApiResult -> getApiResult.name()))
+ *             .apiManagementName(example.applyValue(getApiResult -> getApiResult.apiManagementName()))
+ *             .resourceGroupName(example.applyValue(getApiResult -> getApiResult.resourceGroupName()))
+ *             .xmlContent("""
+ * <policies>
+ *   <inbound>
+ *     <find-and-replace from="xyz" to="abc" />
+ *   </inbound>
+ * </policies>
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

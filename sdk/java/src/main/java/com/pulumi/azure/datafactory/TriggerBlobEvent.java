@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,58 +55,59 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFactory = new Factory(&#34;exampleFactory&#34;, FactoryArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var examplePipeline = new Pipeline(&#34;examplePipeline&#34;, PipelineArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var examplePipeline = new Pipeline("examplePipeline", PipelineArgs.builder()        
+ *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleTriggerBlobEvent = new TriggerBlobEvent(&#34;exampleTriggerBlobEvent&#34;, TriggerBlobEventArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleTriggerBlobEvent = new TriggerBlobEvent("exampleTriggerBlobEvent", TriggerBlobEventArgs.builder()        
+ *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .storageAccountId(exampleAccount.id())
  *             .events(            
- *                 &#34;Microsoft.Storage.BlobCreated&#34;,
- *                 &#34;Microsoft.Storage.BlobDeleted&#34;)
- *             .blobPathEndsWith(&#34;.txt&#34;)
+ *                 "Microsoft.Storage.BlobCreated",
+ *                 "Microsoft.Storage.BlobDeleted")
+ *             .blobPathEndsWith(".txt")
  *             .ignoreEmptyBlobs(true)
  *             .activated(true)
  *             .annotations(            
- *                 &#34;test1&#34;,
- *                 &#34;test2&#34;,
- *                 &#34;test3&#34;)
- *             .description(&#34;example description&#34;)
+ *                 "test1",
+ *                 "test2",
+ *                 "test3")
+ *             .description("example description")
  *             .pipelines(TriggerBlobEventPipelineArgs.builder()
  *                 .name(examplePipeline.name())
- *                 .parameters(Map.of(&#34;Env&#34;, &#34;Prod&#34;))
+ *                 .parameters(Map.of("Env", "Prod"))
  *                 .build())
  *             .additionalProperties(Map.ofEntries(
- *                 Map.entry(&#34;foo&#34;, &#34;foo1&#34;),
- *                 Map.entry(&#34;bar&#34;, &#34;bar2&#34;)
+ *                 Map.entry("foo", "foo1"),
+ *                 Map.entry("bar", "bar2")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

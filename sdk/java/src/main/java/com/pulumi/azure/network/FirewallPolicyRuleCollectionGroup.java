@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,81 +54,82 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFirewallPolicy = new FirewallPolicy(&#34;exampleFirewallPolicy&#34;, FirewallPolicyArgs.builder()        
- *             .name(&#34;example-fwpolicy&#34;)
+ *         var exampleFirewallPolicy = new FirewallPolicy("exampleFirewallPolicy", FirewallPolicyArgs.builder()        
+ *             .name("example-fwpolicy")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleFirewallPolicyRuleCollectionGroup = new FirewallPolicyRuleCollectionGroup(&#34;exampleFirewallPolicyRuleCollectionGroup&#34;, FirewallPolicyRuleCollectionGroupArgs.builder()        
- *             .name(&#34;example-fwpolicy-rcg&#34;)
+ *         var exampleFirewallPolicyRuleCollectionGroup = new FirewallPolicyRuleCollectionGroup("exampleFirewallPolicyRuleCollectionGroup", FirewallPolicyRuleCollectionGroupArgs.builder()        
+ *             .name("example-fwpolicy-rcg")
  *             .firewallPolicyId(exampleFirewallPolicy.id())
  *             .priority(500)
  *             .applicationRuleCollections(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs.builder()
- *                 .name(&#34;app_rule_collection1&#34;)
+ *                 .name("app_rule_collection1")
  *                 .priority(500)
- *                 .action(&#34;Deny&#34;)
+ *                 .action("Deny")
  *                 .rules(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs.builder()
- *                     .name(&#34;app_rule_collection1_rule1&#34;)
+ *                     .name("app_rule_collection1_rule1")
  *                     .protocols(                    
  *                         FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs.builder()
- *                             .type(&#34;Http&#34;)
+ *                             .type("Http")
  *                             .port(80)
  *                             .build(),
  *                         FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs.builder()
- *                             .type(&#34;Https&#34;)
+ *                             .type("Https")
  *                             .port(443)
  *                             .build())
- *                     .sourceAddresses(&#34;10.0.0.1&#34;)
- *                     .destinationFqdns(&#34;*.microsoft.com&#34;)
+ *                     .sourceAddresses("10.0.0.1")
+ *                     .destinationFqdns("*.microsoft.com")
  *                     .build())
  *                 .build())
  *             .networkRuleCollections(FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs.builder()
- *                 .name(&#34;network_rule_collection1&#34;)
+ *                 .name("network_rule_collection1")
  *                 .priority(400)
- *                 .action(&#34;Deny&#34;)
+ *                 .action("Deny")
  *                 .rules(FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs.builder()
- *                     .name(&#34;network_rule_collection1_rule1&#34;)
+ *                     .name("network_rule_collection1_rule1")
  *                     .protocols(                    
- *                         &#34;TCP&#34;,
- *                         &#34;UDP&#34;)
- *                     .sourceAddresses(&#34;10.0.0.1&#34;)
+ *                         "TCP",
+ *                         "UDP")
+ *                     .sourceAddresses("10.0.0.1")
  *                     .destinationAddresses(                    
- *                         &#34;192.168.1.1&#34;,
- *                         &#34;192.168.1.2&#34;)
+ *                         "192.168.1.1",
+ *                         "192.168.1.2")
  *                     .destinationPorts(                    
- *                         &#34;80&#34;,
- *                         &#34;1000-2000&#34;)
+ *                         "80",
+ *                         "1000-2000")
  *                     .build())
  *                 .build())
  *             .natRuleCollections(FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs.builder()
- *                 .name(&#34;nat_rule_collection1&#34;)
+ *                 .name("nat_rule_collection1")
  *                 .priority(300)
- *                 .action(&#34;Dnat&#34;)
+ *                 .action("Dnat")
  *                 .rules(FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs.builder()
- *                     .name(&#34;nat_rule_collection1_rule1&#34;)
+ *                     .name("nat_rule_collection1_rule1")
  *                     .protocols(                    
- *                         &#34;TCP&#34;,
- *                         &#34;UDP&#34;)
+ *                         "TCP",
+ *                         "UDP")
  *                     .sourceAddresses(                    
- *                         &#34;10.0.0.1&#34;,
- *                         &#34;10.0.0.2&#34;)
- *                     .destinationAddress(&#34;192.168.1.1&#34;)
- *                     .destinationPorts(&#34;80&#34;)
- *                     .translatedAddress(&#34;192.168.0.1&#34;)
- *                     .translatedPort(&#34;8080&#34;)
+ *                         "10.0.0.1",
+ *                         "10.0.0.2")
+ *                     .destinationAddress("192.168.1.1")
+ *                     .destinationPorts("80")
+ *                     .translatedAddress("192.168.0.1")
+ *                     .translatedPort("8080")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

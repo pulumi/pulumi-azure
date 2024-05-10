@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,25 +54,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;tfex-recovery_vault&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("tfex-recovery_vault")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVault = new Vault(&#34;exampleVault&#34;, VaultArgs.builder()        
- *             .name(&#34;tfex-recovery-vault&#34;)
+ *         var exampleVault = new Vault("exampleVault", VaultArgs.builder()        
+ *             .name("tfex-recovery-vault")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .sku(&#34;Standard&#34;)
+ *             .sku("Standard")
  *             .build());
  * 
- *         var examplePolicyVM = new PolicyVM(&#34;examplePolicyVM&#34;, PolicyVMArgs.builder()        
- *             .name(&#34;tfex-recovery-vault-policy&#34;)
+ *         var examplePolicyVM = new PolicyVM("examplePolicyVM", PolicyVMArgs.builder()        
+ *             .name("tfex-recovery-vault-policy")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .recoveryVaultName(exampleVault.name())
  *             .backup(PolicyVMBackupArgs.builder()
- *                 .frequency(&#34;Daily&#34;)
- *                 .time(&#34;23:00&#34;)
+ *                 .frequency("Daily")
+ *                 .time("23:00")
  *                 .build())
  *             .retentionDaily(PolicyVMRetentionDailyArgs.builder()
  *                 .count(10)
@@ -79,20 +80,21 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         final var example = ComputeFunctions.getVirtualMachine(GetVirtualMachineArgs.builder()
- *             .name(&#34;example-vm&#34;)
+ *             .name("example-vm")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var vm1 = new ProtectedVM(&#34;vm1&#34;, ProtectedVMArgs.builder()        
+ *         var vm1 = new ProtectedVM("vm1", ProtectedVMArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .recoveryVaultName(exampleVault.name())
- *             .sourceVmId(example.applyValue(getVirtualMachineResult -&gt; getVirtualMachineResult).applyValue(example -&gt; example.applyValue(getVirtualMachineResult -&gt; getVirtualMachineResult.id())))
+ *             .sourceVmId(example.applyValue(getVirtualMachineResult -> getVirtualMachineResult).applyValue(example -> example.applyValue(getVirtualMachineResult -> getVirtualMachineResult.id())))
  *             .backupPolicyId(examplePolicyVM.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

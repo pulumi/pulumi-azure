@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** this example assumed the PFX file is located in the same directory at `certificate-to-import.pfx`.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -59,82 +60,84 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;examplekeyvault&#34;)
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("examplekeyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .skuName(&#34;premium&#34;)
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .skuName("premium")
  *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
- *                 .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *                 .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *                 .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *                 .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *                 .certificatePermissions(                
- *                     &#34;Create&#34;,
- *                     &#34;Delete&#34;,
- *                     &#34;DeleteIssuers&#34;,
- *                     &#34;Get&#34;,
- *                     &#34;GetIssuers&#34;,
- *                     &#34;Import&#34;,
- *                     &#34;List&#34;,
- *                     &#34;ListIssuers&#34;,
- *                     &#34;ManageContacts&#34;,
- *                     &#34;ManageIssuers&#34;,
- *                     &#34;SetIssuers&#34;,
- *                     &#34;Update&#34;)
+ *                     "Create",
+ *                     "Delete",
+ *                     "DeleteIssuers",
+ *                     "Get",
+ *                     "GetIssuers",
+ *                     "Import",
+ *                     "List",
+ *                     "ListIssuers",
+ *                     "ManageContacts",
+ *                     "ManageIssuers",
+ *                     "SetIssuers",
+ *                     "Update")
  *                 .keyPermissions(                
- *                     &#34;Backup&#34;,
- *                     &#34;Create&#34;,
- *                     &#34;Decrypt&#34;,
- *                     &#34;Delete&#34;,
- *                     &#34;Encrypt&#34;,
- *                     &#34;Get&#34;,
- *                     &#34;Import&#34;,
- *                     &#34;List&#34;,
- *                     &#34;Purge&#34;,
- *                     &#34;Recover&#34;,
- *                     &#34;Restore&#34;,
- *                     &#34;Sign&#34;,
- *                     &#34;UnwrapKey&#34;,
- *                     &#34;Update&#34;,
- *                     &#34;Verify&#34;,
- *                     &#34;WrapKey&#34;)
+ *                     "Backup",
+ *                     "Create",
+ *                     "Decrypt",
+ *                     "Delete",
+ *                     "Encrypt",
+ *                     "Get",
+ *                     "Import",
+ *                     "List",
+ *                     "Purge",
+ *                     "Recover",
+ *                     "Restore",
+ *                     "Sign",
+ *                     "UnwrapKey",
+ *                     "Update",
+ *                     "Verify",
+ *                     "WrapKey")
  *                 .secretPermissions(                
- *                     &#34;Backup&#34;,
- *                     &#34;Delete&#34;,
- *                     &#34;Get&#34;,
- *                     &#34;List&#34;,
- *                     &#34;Purge&#34;,
- *                     &#34;Recover&#34;,
- *                     &#34;Restore&#34;,
- *                     &#34;Set&#34;)
+ *                     "Backup",
+ *                     "Delete",
+ *                     "Get",
+ *                     "List",
+ *                     "Purge",
+ *                     "Recover",
+ *                     "Restore",
+ *                     "Set")
  *                 .build())
  *             .build());
  * 
- *         var exampleCertificate = new Certificate(&#34;exampleCertificate&#34;, CertificateArgs.builder()        
- *             .name(&#34;imported-cert&#34;)
+ *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()        
+ *             .name("imported-cert")
  *             .keyVaultId(exampleKeyVault.id())
  *             .certificate(CertificateCertificateArgs.builder()
  *                 .contents(StdFunctions.filebase64(Filebase64Args.builder()
- *                     .input(&#34;certificate-to-import.pfx&#34;)
+ *                     .input("certificate-to-import.pfx")
  *                     .build()).result())
- *                 .password(&#34;&#34;)
+ *                 .password("")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Generating a new certificate
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -169,103 +172,103 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;examplekeyvault&#34;)
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("examplekeyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .skuName(&#34;standard&#34;)
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .skuName("standard")
  *             .softDeleteRetentionDays(7)
  *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
- *                 .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *                 .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *                 .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *                 .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *                 .certificatePermissions(                
- *                     &#34;Create&#34;,
- *                     &#34;Delete&#34;,
- *                     &#34;DeleteIssuers&#34;,
- *                     &#34;Get&#34;,
- *                     &#34;GetIssuers&#34;,
- *                     &#34;Import&#34;,
- *                     &#34;List&#34;,
- *                     &#34;ListIssuers&#34;,
- *                     &#34;ManageContacts&#34;,
- *                     &#34;ManageIssuers&#34;,
- *                     &#34;Purge&#34;,
- *                     &#34;SetIssuers&#34;,
- *                     &#34;Update&#34;)
+ *                     "Create",
+ *                     "Delete",
+ *                     "DeleteIssuers",
+ *                     "Get",
+ *                     "GetIssuers",
+ *                     "Import",
+ *                     "List",
+ *                     "ListIssuers",
+ *                     "ManageContacts",
+ *                     "ManageIssuers",
+ *                     "Purge",
+ *                     "SetIssuers",
+ *                     "Update")
  *                 .keyPermissions(                
- *                     &#34;Backup&#34;,
- *                     &#34;Create&#34;,
- *                     &#34;Decrypt&#34;,
- *                     &#34;Delete&#34;,
- *                     &#34;Encrypt&#34;,
- *                     &#34;Get&#34;,
- *                     &#34;Import&#34;,
- *                     &#34;List&#34;,
- *                     &#34;Purge&#34;,
- *                     &#34;Recover&#34;,
- *                     &#34;Restore&#34;,
- *                     &#34;Sign&#34;,
- *                     &#34;UnwrapKey&#34;,
- *                     &#34;Update&#34;,
- *                     &#34;Verify&#34;,
- *                     &#34;WrapKey&#34;)
+ *                     "Backup",
+ *                     "Create",
+ *                     "Decrypt",
+ *                     "Delete",
+ *                     "Encrypt",
+ *                     "Get",
+ *                     "Import",
+ *                     "List",
+ *                     "Purge",
+ *                     "Recover",
+ *                     "Restore",
+ *                     "Sign",
+ *                     "UnwrapKey",
+ *                     "Update",
+ *                     "Verify",
+ *                     "WrapKey")
  *                 .secretPermissions(                
- *                     &#34;Backup&#34;,
- *                     &#34;Delete&#34;,
- *                     &#34;Get&#34;,
- *                     &#34;List&#34;,
- *                     &#34;Purge&#34;,
- *                     &#34;Recover&#34;,
- *                     &#34;Restore&#34;,
- *                     &#34;Set&#34;)
+ *                     "Backup",
+ *                     "Delete",
+ *                     "Get",
+ *                     "List",
+ *                     "Purge",
+ *                     "Recover",
+ *                     "Restore",
+ *                     "Set")
  *                 .build())
  *             .build());
  * 
- *         var exampleCertificate = new Certificate(&#34;exampleCertificate&#34;, CertificateArgs.builder()        
- *             .name(&#34;generated-cert&#34;)
+ *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()        
+ *             .name("generated-cert")
  *             .keyVaultId(exampleKeyVault.id())
  *             .certificatePolicy(CertificateCertificatePolicyArgs.builder()
  *                 .issuerParameters(CertificateCertificatePolicyIssuerParametersArgs.builder()
- *                     .name(&#34;Self&#34;)
+ *                     .name("Self")
  *                     .build())
  *                 .keyProperties(CertificateCertificatePolicyKeyPropertiesArgs.builder()
  *                     .exportable(true)
  *                     .keySize(2048)
- *                     .keyType(&#34;RSA&#34;)
+ *                     .keyType("RSA")
  *                     .reuseKey(true)
  *                     .build())
  *                 .lifetimeActions(CertificateCertificatePolicyLifetimeActionArgs.builder()
  *                     .action(CertificateCertificatePolicyLifetimeActionActionArgs.builder()
- *                         .actionType(&#34;AutoRenew&#34;)
+ *                         .actionType("AutoRenew")
  *                         .build())
  *                     .trigger(CertificateCertificatePolicyLifetimeActionTriggerArgs.builder()
  *                         .daysBeforeExpiry(30)
  *                         .build())
  *                     .build())
  *                 .secretProperties(CertificateCertificatePolicySecretPropertiesArgs.builder()
- *                     .contentType(&#34;application/x-pkcs12&#34;)
+ *                     .contentType("application/x-pkcs12")
  *                     .build())
  *                 .x509CertificateProperties(CertificateCertificatePolicyX509CertificatePropertiesArgs.builder()
- *                     .extendedKeyUsages(&#34;1.3.6.1.5.5.7.3.1&#34;)
+ *                     .extendedKeyUsages("1.3.6.1.5.5.7.3.1")
  *                     .keyUsages(                    
- *                         &#34;cRLSign&#34;,
- *                         &#34;dataEncipherment&#34;,
- *                         &#34;digitalSignature&#34;,
- *                         &#34;keyAgreement&#34;,
- *                         &#34;keyCertSign&#34;,
- *                         &#34;keyEncipherment&#34;)
+ *                         "cRLSign",
+ *                         "dataEncipherment",
+ *                         "digitalSignature",
+ *                         "keyAgreement",
+ *                         "keyCertSign",
+ *                         "keyEncipherment")
  *                     .subjectAlternativeNames(CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs.builder()
  *                         .dnsNames(                        
- *                             &#34;internal.contoso.com&#34;,
- *                             &#34;domain.hello.world&#34;)
+ *                             "internal.contoso.com",
+ *                             "domain.hello.world")
  *                         .build())
- *                     .subject(&#34;CN=hello-world&#34;)
+ *                     .subject("CN=hello-world")
  *                     .validityInMonths(12)
  *                     .build())
  *                 .build())
@@ -273,7 +276,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

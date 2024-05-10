@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,21 +45,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RouteFilter(&#34;example&#34;, RouteFilterArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .resourceGroupName(&#34;example&#34;)
- *             .location(&#34;East US&#34;)
+ *         var example = new RouteFilter("example", RouteFilterArgs.builder()        
+ *             .name("example")
+ *             .resourceGroupName("example")
+ *             .location("East US")
  *             .rule(RouteFilterRuleArgs.builder()
- *                 .name(&#34;rule&#34;)
- *                 .access(&#34;Allow&#34;)
- *                 .ruleType(&#34;Community&#34;)
- *                 .communities(&#34;12076:52004&#34;)
+ *                 .name("rule")
+ *                 .access("Allow")
+ *                 .ruleType("Community")
+ *                 .communities("12076:52004")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

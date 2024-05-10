@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -68,120 +69,120 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var deploy = new ResourceGroup(&#34;deploy&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var deploy = new ResourceGroup("deploy", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var deployVirtualNetwork = new VirtualNetwork(&#34;deployVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;deploy-vnet&#34;)
+ *         var deployVirtualNetwork = new VirtualNetwork("deployVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("deploy-vnet")
  *             .location(deploy.location())
  *             .resourceGroupName(deploy.name())
- *             .addressSpaces(&#34;10.0.1.0/16&#34;)
+ *             .addressSpaces("10.0.1.0/16")
  *             .build());
  * 
- *         var deploySubnet = new Subnet(&#34;deploySubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;deploy-subnet&#34;)
+ *         var deploySubnet = new Subnet("deploySubnet", SubnetArgs.builder()        
+ *             .name("deploy-subnet")
  *             .resourceGroupName(deploy.name())
  *             .virtualNetworkName(deployVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.1.0/24&#34;)
+ *             .addressPrefixes("10.0.1.0/24")
  *             .build());
  * 
- *         var deployNetworkSecurityGroup = new NetworkSecurityGroup(&#34;deployNetworkSecurityGroup&#34;, NetworkSecurityGroupArgs.builder()        
- *             .name(&#34;deploy-nsg&#34;)
+ *         var deployNetworkSecurityGroup = new NetworkSecurityGroup("deployNetworkSecurityGroup", NetworkSecurityGroupArgs.builder()        
+ *             .name("deploy-nsg")
  *             .location(deploy.location())
  *             .resourceGroupName(deploy.name())
  *             .securityRules(            
  *                 NetworkSecurityGroupSecurityRuleArgs.builder()
- *                     .name(&#34;AllowSyncWithAzureAD&#34;)
+ *                     .name("AllowSyncWithAzureAD")
  *                     .priority(101)
- *                     .direction(&#34;Inbound&#34;)
- *                     .access(&#34;Allow&#34;)
- *                     .protocol(&#34;Tcp&#34;)
- *                     .sourcePortRange(&#34;*&#34;)
- *                     .destinationPortRange(&#34;443&#34;)
- *                     .sourceAddressPrefix(&#34;AzureActiveDirectoryDomainServices&#34;)
- *                     .destinationAddressPrefix(&#34;*&#34;)
+ *                     .direction("Inbound")
+ *                     .access("Allow")
+ *                     .protocol("Tcp")
+ *                     .sourcePortRange("*")
+ *                     .destinationPortRange("443")
+ *                     .sourceAddressPrefix("AzureActiveDirectoryDomainServices")
+ *                     .destinationAddressPrefix("*")
  *                     .build(),
  *                 NetworkSecurityGroupSecurityRuleArgs.builder()
- *                     .name(&#34;AllowRD&#34;)
+ *                     .name("AllowRD")
  *                     .priority(201)
- *                     .direction(&#34;Inbound&#34;)
- *                     .access(&#34;Allow&#34;)
- *                     .protocol(&#34;Tcp&#34;)
- *                     .sourcePortRange(&#34;*&#34;)
- *                     .destinationPortRange(&#34;3389&#34;)
- *                     .sourceAddressPrefix(&#34;CorpNetSaw&#34;)
- *                     .destinationAddressPrefix(&#34;*&#34;)
+ *                     .direction("Inbound")
+ *                     .access("Allow")
+ *                     .protocol("Tcp")
+ *                     .sourcePortRange("*")
+ *                     .destinationPortRange("3389")
+ *                     .sourceAddressPrefix("CorpNetSaw")
+ *                     .destinationAddressPrefix("*")
  *                     .build(),
  *                 NetworkSecurityGroupSecurityRuleArgs.builder()
- *                     .name(&#34;AllowPSRemoting&#34;)
+ *                     .name("AllowPSRemoting")
  *                     .priority(301)
- *                     .direction(&#34;Inbound&#34;)
- *                     .access(&#34;Allow&#34;)
- *                     .protocol(&#34;Tcp&#34;)
- *                     .sourcePortRange(&#34;*&#34;)
- *                     .destinationPortRange(&#34;5986&#34;)
- *                     .sourceAddressPrefix(&#34;AzureActiveDirectoryDomainServices&#34;)
- *                     .destinationAddressPrefix(&#34;*&#34;)
+ *                     .direction("Inbound")
+ *                     .access("Allow")
+ *                     .protocol("Tcp")
+ *                     .sourcePortRange("*")
+ *                     .destinationPortRange("5986")
+ *                     .sourceAddressPrefix("AzureActiveDirectoryDomainServices")
+ *                     .destinationAddressPrefix("*")
  *                     .build(),
  *                 NetworkSecurityGroupSecurityRuleArgs.builder()
- *                     .name(&#34;AllowLDAPS&#34;)
+ *                     .name("AllowLDAPS")
  *                     .priority(401)
- *                     .direction(&#34;Inbound&#34;)
- *                     .access(&#34;Allow&#34;)
- *                     .protocol(&#34;Tcp&#34;)
- *                     .sourcePortRange(&#34;*&#34;)
- *                     .destinationPortRange(&#34;636&#34;)
- *                     .sourceAddressPrefix(&#34;*&#34;)
- *                     .destinationAddressPrefix(&#34;*&#34;)
+ *                     .direction("Inbound")
+ *                     .access("Allow")
+ *                     .protocol("Tcp")
+ *                     .sourcePortRange("*")
+ *                     .destinationPortRange("636")
+ *                     .sourceAddressPrefix("*")
+ *                     .destinationAddressPrefix("*")
  *                     .build())
  *             .build());
  * 
- *         var deploySubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation(&#34;deploySubnetNetworkSecurityGroupAssociation&#34;, SubnetNetworkSecurityGroupAssociationArgs.builder()        
+ *         var deploySubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation("deploySubnetNetworkSecurityGroupAssociation", SubnetNetworkSecurityGroupAssociationArgs.builder()        
  *             .subnetId(deploySubnet.id())
  *             .networkSecurityGroupId(deployNetworkSecurityGroup.id())
  *             .build());
  * 
- *         var dcAdmins = new Group(&#34;dcAdmins&#34;, GroupArgs.builder()        
- *             .displayName(&#34;AAD DC Administrators&#34;)
+ *         var dcAdmins = new Group("dcAdmins", GroupArgs.builder()        
+ *             .displayName("AAD DC Administrators")
  *             .securityEnabled(true)
  *             .build());
  * 
- *         var admin = new User(&#34;admin&#34;, UserArgs.builder()        
- *             .userPrincipalName(&#34;dc-admin@hashicorp-example.com&#34;)
- *             .displayName(&#34;DC Administrator&#34;)
- *             .password(&#34;Pa55w0Rd!!1&#34;)
+ *         var admin = new User("admin", UserArgs.builder()        
+ *             .userPrincipalName("dc-admin{@literal @}hashicorp-example.com")
+ *             .displayName("DC Administrator")
+ *             .password("Pa55w0Rd!!1")
  *             .build());
  * 
- *         var adminGroupMember = new GroupMember(&#34;adminGroupMember&#34;, GroupMemberArgs.builder()        
+ *         var adminGroupMember = new GroupMember("adminGroupMember", GroupMemberArgs.builder()        
  *             .groupObjectId(dcAdmins.objectId())
  *             .memberObjectId(admin.objectId())
  *             .build());
  * 
- *         var example = new ServicePrincipal(&#34;example&#34;, ServicePrincipalArgs.builder()        
- *             .applicationId(&#34;2565bd9d-da50-47d4-8b85-4c97f669dc36&#34;)
+ *         var example = new ServicePrincipal("example", ServicePrincipalArgs.builder()        
+ *             .applicationId("2565bd9d-da50-47d4-8b85-4c97f669dc36")
  *             .build());
  * 
- *         var aadds = new ResourceGroup(&#34;aadds&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;aadds-rg&#34;)
- *             .location(&#34;westeurope&#34;)
+ *         var aadds = new ResourceGroup("aadds", ResourceGroupArgs.builder()        
+ *             .name("aadds-rg")
+ *             .location("westeurope")
  *             .build());
  * 
- *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .name(&#34;example-aadds&#34;)
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *             .name("example-aadds")
  *             .location(aadds.location())
  *             .resourceGroupName(aadds.name())
- *             .domainName(&#34;widgetslogin.net&#34;)
- *             .sku(&#34;Enterprise&#34;)
+ *             .domainName("widgetslogin.net")
+ *             .sku("Enterprise")
  *             .filteredSyncEnabled(false)
  *             .initialReplicaSet(ServiceInitialReplicaSetArgs.builder()
  *                 .subnetId(deploySubnet.id())
  *                 .build())
  *             .notifications(ServiceNotificationsArgs.builder()
  *                 .additionalRecipients(                
- *                     &#34;notifyA@example.net&#34;,
- *                     &#34;notifyB@example.org&#34;)
+ *                     "notifyA{@literal @}example.net",
+ *                     "notifyB{@literal @}example.org")
  *                 .notifyDcAdmins(true)
  *                 .notifyGlobalAdmins(true)
  *                 .build())
@@ -190,12 +191,13 @@ import javax.annotation.Nullable;
  *                 .syncNtlmPasswords(true)
  *                 .syncOnPremPasswords(true)
  *                 .build())
- *             .tags(Map.of(&#34;Environment&#34;, &#34;prod&#34;))
+ *             .tags(Map.of("Environment", "prod"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

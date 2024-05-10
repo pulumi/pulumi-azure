@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -58,65 +59,66 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;example-dsa&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("example-dsa")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .identity(AccountIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
- *         var exampleShare = new Share(&#34;exampleShare&#34;, ShareArgs.builder()        
- *             .name(&#34;example_ds&#34;)
+ *         var exampleShare = new Share("exampleShare", ShareArgs.builder()        
+ *             .name("example_ds")
  *             .accountId(exampleAccount.id())
- *             .kind(&#34;CopyBased&#34;)
+ *             .kind("CopyBased")
  *             .build());
  * 
- *         var exampleAccount2 = new Account(&#34;exampleAccount2&#34;, AccountArgs.builder()        
- *             .name(&#34;examplestr&#34;)
+ *         var exampleAccount2 = new Account("exampleAccount2", AccountArgs.builder()        
+ *             .name("examplestr")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;RAGRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("RAGRS")
  *             .build());
  * 
- *         var exampleContainer = new Container(&#34;exampleContainer&#34;, ContainerArgs.builder()        
- *             .name(&#34;example-sc&#34;)
+ *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()        
+ *             .name("example-sc")
  *             .storageAccountName(exampleAccount2.name())
- *             .containerAccessType(&#34;container&#34;)
+ *             .containerAccessType("container")
  *             .build());
  * 
  *         final var example = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
  *             .displayName(exampleAccount.name())
  *             .build());
  * 
- *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()        
  *             .scope(exampleAccount2.id())
- *             .roleDefinitionName(&#34;Storage Blob Data Reader&#34;)
- *             .principalId(example.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult).applyValue(example -&gt; example.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.objectId())))
+ *             .roleDefinitionName("Storage Blob Data Reader")
+ *             .principalId(example.applyValue(getServicePrincipalResult -> getServicePrincipalResult).applyValue(example -> example.applyValue(getServicePrincipalResult -> getServicePrincipalResult.objectId())))
  *             .build());
  * 
- *         var exampleDatasetBlobStorage = new DatasetBlobStorage(&#34;exampleDatasetBlobStorage&#34;, DatasetBlobStorageArgs.builder()        
- *             .name(&#34;example-dsbsds-file&#34;)
+ *         var exampleDatasetBlobStorage = new DatasetBlobStorage("exampleDatasetBlobStorage", DatasetBlobStorageArgs.builder()        
+ *             .name("example-dsbsds-file")
  *             .dataShareId(exampleShare.id())
  *             .containerName(exampleContainer.name())
  *             .storageAccount(DatasetBlobStorageStorageAccountArgs.builder()
  *                 .name(exampleAccount2.name())
  *                 .resourceGroupName(exampleAccount2.resourceGroupName())
- *                 .subscriptionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
+ *                 .subscriptionId("00000000-0000-0000-0000-000000000000")
  *                 .build())
- *             .filePath(&#34;myfile.txt&#34;)
+ *             .filePath("myfile.txt")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

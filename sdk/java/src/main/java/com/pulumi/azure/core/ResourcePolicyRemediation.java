@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,55 +56,56 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;resourcegroup1&#34;)
- *             .location(&#34;West US&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("resourcegroup1")
+ *             .location("West US")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;vnet1&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("vnet1")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *             .addressSpaces("10.0.0.0/16")
  *             .build());
  * 
- *         var exampleDefinition = new Definition(&#34;exampleDefinition&#34;, DefinitionArgs.builder()        
- *             .name(&#34;only-deploy-in-westeurope&#34;)
- *             .policyType(&#34;Custom&#34;)
- *             .mode(&#34;All&#34;)
- *             .displayName(&#34;my-policy-definition&#34;)
+ *         var exampleDefinition = new Definition("exampleDefinition", DefinitionArgs.builder()        
+ *             .name("only-deploy-in-westeurope")
+ *             .policyType("Custom")
+ *             .mode("All")
+ *             .displayName("my-policy-definition")
  *             .build());
  * 
- *         var exampleResourcePolicyAssignment = new ResourcePolicyAssignment(&#34;exampleResourcePolicyAssignment&#34;, ResourcePolicyAssignmentArgs.builder()        
- *             .name(&#34;assignment1&#34;)
+ *         var exampleResourcePolicyAssignment = new ResourcePolicyAssignment("exampleResourcePolicyAssignment", ResourcePolicyAssignmentArgs.builder()        
+ *             .name("assignment1")
  *             .resourceId(exampleVirtualNetwork.id())
  *             .policyDefinitionId(exampleDefinition.id())
- *             .parameters(example.location().applyValue(location -&gt; serializeJson(
+ *             .parameters(example.location().applyValue(location -> serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;listOfAllowedLocations&#34;, jsonObject(
- *                         jsonProperty(&#34;value&#34;, jsonArray(
+ *                     jsonProperty("listOfAllowedLocations", jsonObject(
+ *                         jsonProperty("value", jsonArray(
  *                             location, 
- *                             &#34;East US&#34;
+ *                             "East US"
  *                         ))
  *                     ))
  *                 ))))
  *             .build());
  * 
- *         var exampleResourceGroupPolicyAssignment = new ResourceGroupPolicyAssignment(&#34;exampleResourceGroupPolicyAssignment&#34;, ResourceGroupPolicyAssignmentArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleResourceGroupPolicyAssignment = new ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment", ResourceGroupPolicyAssignmentArgs.builder()        
+ *             .name("example")
  *             .resourceGroupId(example.id())
  *             .policyDefinitionId(exampleDefinition.id())
  *             .build());
  * 
- *         var exampleResourcePolicyRemediation = new ResourcePolicyRemediation(&#34;exampleResourcePolicyRemediation&#34;, ResourcePolicyRemediationArgs.builder()        
- *             .name(&#34;remediation1&#34;)
+ *         var exampleResourcePolicyRemediation = new ResourcePolicyRemediation("exampleResourcePolicyRemediation", ResourcePolicyRemediationArgs.builder()        
+ *             .name("remediation1")
  *             .resourceId(exampleVirtualNetwork.id())
  *             .policyAssignmentId(exampleResourceGroupPolicyAssignment.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

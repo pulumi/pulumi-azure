@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,31 +50,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;snapshot-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("snapshot-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleManagedDisk = new ManagedDisk(&#34;exampleManagedDisk&#34;, ManagedDiskArgs.builder()        
- *             .name(&#34;managed-disk&#34;)
+ *         var exampleManagedDisk = new ManagedDisk("exampleManagedDisk", ManagedDiskArgs.builder()        
+ *             .name("managed-disk")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .storageAccountType(&#34;Standard_LRS&#34;)
- *             .createOption(&#34;Empty&#34;)
- *             .diskSizeGb(&#34;10&#34;)
+ *             .storageAccountType("Standard_LRS")
+ *             .createOption("Empty")
+ *             .diskSizeGb("10")
  *             .build());
  * 
- *         var exampleSnapshot = new Snapshot(&#34;exampleSnapshot&#34;, SnapshotArgs.builder()        
- *             .name(&#34;snapshot&#34;)
+ *         var exampleSnapshot = new Snapshot("exampleSnapshot", SnapshotArgs.builder()        
+ *             .name("snapshot")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .createOption(&#34;Copy&#34;)
+ *             .createOption("Copy")
  *             .sourceUri(exampleManagedDisk.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,16 +45,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new ResourceGroup(&#34;test&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var test = new ResourceGroup("test", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var example = new PostgresqlCluster(&#34;example&#34;, PostgresqlClusterArgs.builder()        
- *             .name(&#34;examplecluster&#34;)
+ *         var example = new PostgresqlCluster("example", PostgresqlClusterArgs.builder()        
+ *             .name("examplecluster")
  *             .resourceGroupName(exampleAzurermResourceGroup.name())
  *             .location(exampleAzurermResourceGroup.location())
- *             .administratorLoginPassword(&#34;H@Sh1CoR3!&#34;)
+ *             .administratorLoginPassword("H{@literal @}Sh1CoR3!")
  *             .coordinatorStorageQuotaInMb(131072)
  *             .coordinatorVcoreCount(2)
  *             .nodeCount(2)
@@ -61,15 +62,16 @@ import javax.annotation.Nullable;
  *             .nodeVcores(2)
  *             .build());
  * 
- *         var examplePostgresqlCoordinatorConfiguration = new PostgresqlCoordinatorConfiguration(&#34;examplePostgresqlCoordinatorConfiguration&#34;, PostgresqlCoordinatorConfigurationArgs.builder()        
- *             .name(&#34;array_nulls&#34;)
+ *         var examplePostgresqlCoordinatorConfiguration = new PostgresqlCoordinatorConfiguration("examplePostgresqlCoordinatorConfiguration", PostgresqlCoordinatorConfigurationArgs.builder()        
+ *             .name("array_nulls")
  *             .clusterId(example.id())
- *             .value(&#34;on&#34;)
+ *             .value("on")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

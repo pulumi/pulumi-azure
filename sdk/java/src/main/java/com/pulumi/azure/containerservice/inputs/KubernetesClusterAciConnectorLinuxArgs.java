@@ -41,7 +41,8 @@ public final class KubernetesClusterAciConnectorLinuxArgs extends com.pulumi.res
      * &gt; **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -64,19 +65,20 @@ public final class KubernetesClusterAciConnectorLinuxArgs extends com.pulumi.res
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var virtual = new Subnet(&#34;virtual&#34;, SubnetArgs.builder()        
+     *         var virtual = new Subnet("virtual", SubnetArgs.builder()        
      *             .delegations(SubnetDelegationArgs.builder()
-     *                 .name(&#34;aciDelegation&#34;)
+     *                 .name("aciDelegation")
      *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
-     *                     .name(&#34;Microsoft.ContainerInstance/containerGroups&#34;)
-     *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/action&#34;)
+     *                     .name("Microsoft.ContainerInstance/containerGroups")
+     *                     .actions("Microsoft.Network/virtualNetworks/subnets/action")
      *                     .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -91,7 +93,8 @@ public final class KubernetesClusterAciConnectorLinuxArgs extends com.pulumi.res
      * &gt; **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -114,19 +117,20 @@ public final class KubernetesClusterAciConnectorLinuxArgs extends com.pulumi.res
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var virtual = new Subnet(&#34;virtual&#34;, SubnetArgs.builder()        
+     *         var virtual = new Subnet("virtual", SubnetArgs.builder()        
      *             .delegations(SubnetDelegationArgs.builder()
-     *                 .name(&#34;aciDelegation&#34;)
+     *                 .name("aciDelegation")
      *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
-     *                     .name(&#34;Microsoft.ContainerInstance/containerGroups&#34;)
-     *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/action&#34;)
+     *                     .name("Microsoft.ContainerInstance/containerGroups")
+     *                     .actions("Microsoft.Network/virtualNetworks/subnets/action")
      *                     .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -198,7 +202,8 @@ public final class KubernetesClusterAciConnectorLinuxArgs extends com.pulumi.res
          * &gt; **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
          * 
          * &lt;!--Start PulumiCodeChooser --&gt;
-         * ```java
+         * <pre>
+         * {@code
          * package generated_program;
          * 
          * import com.pulumi.Context;
@@ -221,19 +226,20 @@ public final class KubernetesClusterAciConnectorLinuxArgs extends com.pulumi.res
          *     }
          * 
          *     public static void stack(Context ctx) {
-         *         var virtual = new Subnet(&#34;virtual&#34;, SubnetArgs.builder()        
+         *         var virtual = new Subnet("virtual", SubnetArgs.builder()        
          *             .delegations(SubnetDelegationArgs.builder()
-         *                 .name(&#34;aciDelegation&#34;)
+         *                 .name("aciDelegation")
          *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
-         *                     .name(&#34;Microsoft.ContainerInstance/containerGroups&#34;)
-         *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/action&#34;)
+         *                     .name("Microsoft.ContainerInstance/containerGroups")
+         *                     .actions("Microsoft.Network/virtualNetworks/subnets/action")
          *                     .build())
          *                 .build())
          *             .build());
          * 
          *     }
          * }
-         * ```
+         * }
+         * </pre>
          * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
@@ -252,7 +258,8 @@ public final class KubernetesClusterAciConnectorLinuxArgs extends com.pulumi.res
          * &gt; **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
          * 
          * &lt;!--Start PulumiCodeChooser --&gt;
-         * ```java
+         * <pre>
+         * {@code
          * package generated_program;
          * 
          * import com.pulumi.Context;
@@ -275,19 +282,20 @@ public final class KubernetesClusterAciConnectorLinuxArgs extends com.pulumi.res
          *     }
          * 
          *     public static void stack(Context ctx) {
-         *         var virtual = new Subnet(&#34;virtual&#34;, SubnetArgs.builder()        
+         *         var virtual = new Subnet("virtual", SubnetArgs.builder()        
          *             .delegations(SubnetDelegationArgs.builder()
-         *                 .name(&#34;aciDelegation&#34;)
+         *                 .name("aciDelegation")
          *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
-         *                     .name(&#34;Microsoft.ContainerInstance/containerGroups&#34;)
-         *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/action&#34;)
+         *                     .name("Microsoft.ContainerInstance/containerGroups")
+         *                     .actions("Microsoft.Network/virtualNetworks/subnets/action")
          *                     .build())
          *                 .build())
          *             .build());
          * 
          *     }
          * }
-         * ```
+         * }
+         * </pre>
          * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder

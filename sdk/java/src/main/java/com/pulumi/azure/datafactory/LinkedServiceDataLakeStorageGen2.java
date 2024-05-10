@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,31 +50,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFactory = new Factory(&#34;exampleFactory&#34;, FactoryArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleLinkedServiceDataLakeStorageGen2 = new LinkedServiceDataLakeStorageGen2(&#34;exampleLinkedServiceDataLakeStorageGen2&#34;, LinkedServiceDataLakeStorageGen2Args.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleLinkedServiceDataLakeStorageGen2 = new LinkedServiceDataLakeStorageGen2("exampleLinkedServiceDataLakeStorageGen2", LinkedServiceDataLakeStorageGen2Args.builder()        
+ *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
- *             .servicePrincipalId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.clientId()))
- *             .servicePrincipalKey(&#34;exampleKey&#34;)
- *             .tenant(&#34;11111111-1111-1111-1111-111111111111&#34;)
- *             .url(&#34;https://datalakestoragegen2&#34;)
+ *             .servicePrincipalId(current.applyValue(getClientConfigResult -> getClientConfigResult.clientId()))
+ *             .servicePrincipalKey("exampleKey")
+ *             .tenant("11111111-1111-1111-1111-111111111111")
+ *             .url("https://datalakestoragegen2")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

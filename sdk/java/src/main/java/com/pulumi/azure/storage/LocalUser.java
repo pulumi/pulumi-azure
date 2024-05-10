@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,39 +55,39 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-rg&#34;)
- *             .location(&#34;WestEurope&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-rg")
+ *             .location("WestEurope")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;example-account&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("example-account")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountKind(&#34;StorageV2&#34;)
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountKind("StorageV2")
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .isHnsEnabled(true)
  *             .build());
  * 
- *         var exampleContainer = new Container(&#34;exampleContainer&#34;, ContainerArgs.builder()        
- *             .name(&#34;example-container&#34;)
+ *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()        
+ *             .name("example-container")
  *             .storageAccountName(exampleAccount.name())
  *             .build());
  * 
- *         var exampleLocalUser = new LocalUser(&#34;exampleLocalUser&#34;, LocalUserArgs.builder()        
- *             .name(&#34;user1&#34;)
+ *         var exampleLocalUser = new LocalUser("exampleLocalUser", LocalUserArgs.builder()        
+ *             .name("user1")
  *             .storageAccountId(exampleAccount.id())
  *             .sshKeyEnabled(true)
  *             .sshPasswordEnabled(true)
- *             .homeDirectory(&#34;example_path&#34;)
+ *             .homeDirectory("example_path")
  *             .sshAuthorizedKeys(            
  *                 LocalUserSshAuthorizedKeyArgs.builder()
- *                     .description(&#34;key1&#34;)
+ *                     .description("key1")
  *                     .key(firstPublicKey)
  *                     .build(),
  *                 LocalUserSshAuthorizedKeyArgs.builder()
- *                     .description(&#34;key2&#34;)
+ *                     .description("key2")
  *                     .key(secondPublicKey)
  *                     .build())
  *             .permissionScopes(LocalUserPermissionScopeArgs.builder()
@@ -94,14 +95,15 @@ import javax.annotation.Nullable;
  *                     .read(true)
  *                     .create(true)
  *                     .build())
- *                 .service(&#34;blob&#34;)
+ *                 .service("blob")
  *                 .resourceName(exampleContainer.name())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

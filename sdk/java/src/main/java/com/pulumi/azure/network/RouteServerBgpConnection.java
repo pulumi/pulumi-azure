@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,54 +52,55 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-vn&#34;)
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example-vn")
+ *             .addressSpaces("10.0.0.0/16")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *             .tags(Map.of("environment", "Production"))
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;RouteServerSubnet&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("RouteServerSubnet")
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .resourceGroupName(example.name())
- *             .addressPrefixes(&#34;10.0.1.0/24&#34;)
+ *             .addressPrefixes("10.0.1.0/24")
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
- *             .name(&#34;example-pip&#34;)
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *             .name("example-pip")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .allocationMethod(&#34;Static&#34;)
- *             .sku(&#34;Standard&#34;)
+ *             .allocationMethod("Static")
+ *             .sku("Standard")
  *             .build());
  * 
- *         var exampleRouteServer = new RouteServer(&#34;exampleRouteServer&#34;, RouteServerArgs.builder()        
- *             .name(&#34;example-routerserver&#34;)
+ *         var exampleRouteServer = new RouteServer("exampleRouteServer", RouteServerArgs.builder()        
+ *             .name("example-routerserver")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .sku(&#34;Standard&#34;)
+ *             .sku("Standard")
  *             .publicIpAddressId(examplePublicIp.id())
  *             .subnetId(exampleSubnet.id())
  *             .branchToBranchTrafficEnabled(true)
  *             .build());
  * 
- *         var exampleRouteServerBgpConnection = new RouteServerBgpConnection(&#34;exampleRouteServerBgpConnection&#34;, RouteServerBgpConnectionArgs.builder()        
- *             .name(&#34;example-rs-bgpconnection&#34;)
+ *         var exampleRouteServerBgpConnection = new RouteServerBgpConnection("exampleRouteServerBgpConnection", RouteServerBgpConnectionArgs.builder()        
+ *             .name("example-rs-bgpconnection")
  *             .routeServerId(exampleRouteServer.id())
  *             .peerAsn(65501)
- *             .peerIp(&#34;169.254.21.5&#34;)
+ *             .peerIp("169.254.21.5")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

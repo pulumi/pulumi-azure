@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,34 +49,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var acr = new Registry(&#34;acr&#34;, RegistryArgs.builder()        
- *             .name(&#34;containerRegistry1&#34;)
+ *         var acr = new Registry("acr", RegistryArgs.builder()        
+ *             .name("containerRegistry1")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .sku(&#34;Standard&#34;)
+ *             .sku("Standard")
  *             .adminEnabled(false)
  *             .build());
  * 
- *         var webhook = new RegistryWebhook(&#34;webhook&#34;, RegistryWebhookArgs.builder()        
- *             .name(&#34;mywebhook&#34;)
+ *         var webhook = new RegistryWebhook("webhook", RegistryWebhookArgs.builder()        
+ *             .name("mywebhook")
  *             .resourceGroupName(example.name())
  *             .registryName(acr.name())
  *             .location(example.location())
- *             .serviceUri(&#34;https://mywebhookreceiver.example/mytag&#34;)
- *             .status(&#34;enabled&#34;)
- *             .scope(&#34;mytag:*&#34;)
- *             .actions(&#34;push&#34;)
- *             .customHeaders(Map.of(&#34;Content-Type&#34;, &#34;application/json&#34;))
+ *             .serviceUri("https://mywebhookreceiver.example/mytag")
+ *             .status("enabled")
+ *             .scope("mytag:*")
+ *             .actions("push")
+ *             .customHeaders(Map.of("Content-Type", "application/json"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

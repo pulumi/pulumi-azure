@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,44 +52,44 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;storageaccountname&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("storageaccountname")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleBackupVault = new BackupVault(&#34;exampleBackupVault&#34;, BackupVaultArgs.builder()        
- *             .name(&#34;example-backup-vault&#34;)
+ *         var exampleBackupVault = new BackupVault("exampleBackupVault", BackupVaultArgs.builder()        
+ *             .name("example-backup-vault")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .datastoreType(&#34;VaultStore&#34;)
- *             .redundancy(&#34;LocallyRedundant&#34;)
+ *             .datastoreType("VaultStore")
+ *             .redundancy("LocallyRedundant")
  *             .identity(BackupVaultIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
- *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()        
  *             .scope(exampleAccount.id())
- *             .roleDefinitionName(&#34;Storage Account Backup Contributor&#34;)
- *             .principalId(exampleBackupVault.identity().applyValue(identity -&gt; identity.principalId()))
+ *             .roleDefinitionName("Storage Account Backup Contributor")
+ *             .principalId(exampleBackupVault.identity().applyValue(identity -> identity.principalId()))
  *             .build());
  * 
- *         var exampleBackupPolicyBlobStorage = new BackupPolicyBlobStorage(&#34;exampleBackupPolicyBlobStorage&#34;, BackupPolicyBlobStorageArgs.builder()        
- *             .name(&#34;example-backup-policy&#34;)
+ *         var exampleBackupPolicyBlobStorage = new BackupPolicyBlobStorage("exampleBackupPolicyBlobStorage", BackupPolicyBlobStorageArgs.builder()        
+ *             .name("example-backup-policy")
  *             .vaultId(exampleBackupVault.id())
- *             .retentionDuration(&#34;P30D&#34;)
+ *             .retentionDuration("P30D")
  *             .build());
  * 
- *         var exampleBackupInstanceBlogStorage = new BackupInstanceBlogStorage(&#34;exampleBackupInstanceBlogStorage&#34;, BackupInstanceBlogStorageArgs.builder()        
- *             .name(&#34;example-backup-instance&#34;)
+ *         var exampleBackupInstanceBlogStorage = new BackupInstanceBlogStorage("exampleBackupInstanceBlogStorage", BackupInstanceBlogStorageArgs.builder()        
+ *             .name("example-backup-instance")
  *             .vaultId(exampleBackupVault.id())
  *             .location(example.location())
  *             .storageAccountId(exampleAccount.id())
@@ -97,7 +98,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

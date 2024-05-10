@@ -46,7 +46,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -83,57 +84,57 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-network&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example-network")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .addressSpaces(&#34;10.254.0.0/16&#34;)
+ *             .addressSpaces("10.254.0.0/16")
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.254.0.0/24&#34;)
+ *             .addressPrefixes("10.254.0.0/24")
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
- *             .name(&#34;example-pip&#34;)
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *             .name("example-pip")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .allocationMethod(&#34;Dynamic&#34;)
+ *             .allocationMethod("Dynamic")
  *             .build());
  * 
- *         final var backendAddressPoolName = exampleVirtualNetwork.name().applyValue(name -&gt; String.format(&#34;%s-beap&#34;, name));
+ *         final var backendAddressPoolName = exampleVirtualNetwork.name().applyValue(name -> String.format("%s-beap", name));
  * 
- *         final var frontendPortName = exampleVirtualNetwork.name().applyValue(name -&gt; String.format(&#34;%s-feport&#34;, name));
+ *         final var frontendPortName = exampleVirtualNetwork.name().applyValue(name -> String.format("%s-feport", name));
  * 
- *         final var frontendIpConfigurationName = exampleVirtualNetwork.name().applyValue(name -&gt; String.format(&#34;%s-feip&#34;, name));
+ *         final var frontendIpConfigurationName = exampleVirtualNetwork.name().applyValue(name -> String.format("%s-feip", name));
  * 
- *         final var httpSettingName = exampleVirtualNetwork.name().applyValue(name -&gt; String.format(&#34;%s-be-htst&#34;, name));
+ *         final var httpSettingName = exampleVirtualNetwork.name().applyValue(name -> String.format("%s-be-htst", name));
  * 
- *         final var listenerName = exampleVirtualNetwork.name().applyValue(name -&gt; String.format(&#34;%s-httplstn&#34;, name));
+ *         final var listenerName = exampleVirtualNetwork.name().applyValue(name -> String.format("%s-httplstn", name));
  * 
- *         final var requestRoutingRuleName = exampleVirtualNetwork.name().applyValue(name -&gt; String.format(&#34;%s-rqrt&#34;, name));
+ *         final var requestRoutingRuleName = exampleVirtualNetwork.name().applyValue(name -> String.format("%s-rqrt", name));
  * 
- *         final var redirectConfigurationName = exampleVirtualNetwork.name().applyValue(name -&gt; String.format(&#34;%s-rdrcfg&#34;, name));
+ *         final var redirectConfigurationName = exampleVirtualNetwork.name().applyValue(name -> String.format("%s-rdrcfg", name));
  * 
- *         var network = new ApplicationGateway(&#34;network&#34;, ApplicationGatewayArgs.builder()        
- *             .name(&#34;example-appgateway&#34;)
+ *         var network = new ApplicationGateway("network", ApplicationGatewayArgs.builder()        
+ *             .name("example-appgateway")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .sku(ApplicationGatewaySkuArgs.builder()
- *                 .name(&#34;Standard_v2&#34;)
- *                 .tier(&#34;Standard_v2&#34;)
+ *                 .name("Standard_v2")
+ *                 .tier("Standard_v2")
  *                 .capacity(2)
  *                 .build())
  *             .gatewayIpConfigurations(ApplicationGatewayGatewayIpConfigurationArgs.builder()
- *                 .name(&#34;my-gateway-ip-configuration&#34;)
+ *                 .name("my-gateway-ip-configuration")
  *                 .subnetId(exampleSubnet.id())
  *                 .build())
  *             .frontendPorts(ApplicationGatewayFrontendPortArgs.builder()
@@ -149,22 +150,22 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .backendHttpSettings(ApplicationGatewayBackendHttpSettingArgs.builder()
  *                 .name(httpSettingName)
- *                 .cookieBasedAffinity(&#34;Disabled&#34;)
- *                 .path(&#34;/path1/&#34;)
+ *                 .cookieBasedAffinity("Disabled")
+ *                 .path("/path1/")
  *                 .port(80)
- *                 .protocol(&#34;Http&#34;)
+ *                 .protocol("Http")
  *                 .requestTimeout(60)
  *                 .build())
  *             .httpListeners(ApplicationGatewayHttpListenerArgs.builder()
  *                 .name(listenerName)
  *                 .frontendIpConfigurationName(frontendIpConfigurationName)
  *                 .frontendPortName(frontendPortName)
- *                 .protocol(&#34;Http&#34;)
+ *                 .protocol("Http")
  *                 .build())
  *             .requestRoutingRules(ApplicationGatewayRequestRoutingRuleArgs.builder()
  *                 .name(requestRoutingRuleName)
  *                 .priority(9)
- *                 .ruleType(&#34;Basic&#34;)
+ *                 .ruleType("Basic")
  *                 .httpListenerName(listenerName)
  *                 .backendAddressPoolName(backendAddressPoolName)
  *                 .backendHttpSettingsName(httpSettingName)
@@ -173,7 +174,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

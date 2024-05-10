@@ -17,7 +17,8 @@ import javax.annotation.Nullable;
  * Manages a Healthcare Med Tech Service Fhir Destination.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,55 +56,55 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-rg")
+ *             .location("West Europe")
  *             .build());
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
- *             .name(&#34;exampleworkspace&#34;)
+ *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()        
+ *             .name("exampleworkspace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleEventHubNamespace = new EventHubNamespace(&#34;exampleEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
- *             .name(&#34;example-ehn&#34;)
+ *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()        
+ *             .name("example-ehn")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;Standard&#34;)
+ *             .sku("Standard")
  *             .build());
  * 
- *         var exampleEventHub = new EventHub(&#34;exampleEventHub&#34;, EventHubArgs.builder()        
- *             .name(&#34;example-eh&#34;)
+ *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()        
+ *             .name("example-eh")
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .resourceGroupName(example.name())
  *             .partitionCount(1)
  *             .messageRetention(1)
  *             .build());
  * 
- *         var exampleConsumerGroup = new ConsumerGroup(&#34;exampleConsumerGroup&#34;, ConsumerGroupArgs.builder()        
- *             .name(&#34;$default&#34;)
+ *         var exampleConsumerGroup = new ConsumerGroup("exampleConsumerGroup", ConsumerGroupArgs.builder()        
+ *             .name("$default")
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .eventhubName(exampleEventHub.name())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleFhirService = new FhirService(&#34;exampleFhirService&#34;, FhirServiceArgs.builder()        
- *             .name(&#34;examplefhir&#34;)
+ *         var exampleFhirService = new FhirService("exampleFhirService", FhirServiceArgs.builder()        
+ *             .name("examplefhir")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .workspaceId(exampleWorkspace.id())
- *             .kind(&#34;fhir-R4&#34;)
+ *             .kind("fhir-R4")
  *             .authentication(FhirServiceAuthenticationArgs.builder()
- *                 .authority(&#34;https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;)
- *                 .audience(&#34;https://examplefhir.fhir.azurehealthcareapis.com&#34;)
+ *                 .authority("https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")
+ *                 .audience("https://examplefhir.fhir.azurehealthcareapis.com")
  *                 .build())
  *             .build());
  * 
- *         var exampleMedtechService = new MedtechService(&#34;exampleMedtechService&#34;, MedtechServiceArgs.builder()        
- *             .name(&#34;examplemt&#34;)
+ *         var exampleMedtechService = new MedtechService("exampleMedtechService", MedtechServiceArgs.builder()        
+ *             .name("examplemt")
  *             .workspaceId(exampleWorkspace.id())
  *             .location(example.location())
  *             .eventhubNamespaceName(exampleEventHubNamespace.name())
@@ -111,36 +112,36 @@ import javax.annotation.Nullable;
  *             .eventhubConsumerGroupName(exampleConsumerGroup.name())
  *             .deviceMappingJson(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;templateType&#34;, &#34;CollectionContent&#34;),
- *                     jsonProperty(&#34;template&#34;, jsonArray(
+ *                     jsonProperty("templateType", "CollectionContent"),
+ *                     jsonProperty("template", jsonArray(
  *                     ))
  *                 )))
  *             .build());
  * 
- *         var exampleMedtechServiceFhirDestination = new MedtechServiceFhirDestination(&#34;exampleMedtechServiceFhirDestination&#34;, MedtechServiceFhirDestinationArgs.builder()        
- *             .name(&#34;examplemtdes&#34;)
- *             .location(&#34;east us&#34;)
+ *         var exampleMedtechServiceFhirDestination = new MedtechServiceFhirDestination("exampleMedtechServiceFhirDestination", MedtechServiceFhirDestinationArgs.builder()        
+ *             .name("examplemtdes")
+ *             .location("east us")
  *             .medtechServiceId(exampleMedtechService.id())
  *             .destinationFhirServiceId(exampleFhirService.id())
- *             .destinationIdentityResolutionType(&#34;Create&#34;)
+ *             .destinationIdentityResolutionType("Create")
  *             .destinationFhirMappingJson(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;templateType&#34;, &#34;CollectionFhirTemplate&#34;),
- *                     jsonProperty(&#34;template&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;templateType&#34;, &#34;CodeValueFhir&#34;),
- *                         jsonProperty(&#34;template&#34;, jsonObject(
- *                             jsonProperty(&#34;codes&#34;, jsonArray(jsonObject(
- *                                 jsonProperty(&#34;code&#34;, &#34;8867-4&#34;),
- *                                 jsonProperty(&#34;system&#34;, &#34;http://loinc.org&#34;),
- *                                 jsonProperty(&#34;display&#34;, &#34;Heart rate&#34;)
+ *                     jsonProperty("templateType", "CollectionFhirTemplate"),
+ *                     jsonProperty("template", jsonArray(jsonObject(
+ *                         jsonProperty("templateType", "CodeValueFhir"),
+ *                         jsonProperty("template", jsonObject(
+ *                             jsonProperty("codes", jsonArray(jsonObject(
+ *                                 jsonProperty("code", "8867-4"),
+ *                                 jsonProperty("system", "http://loinc.org"),
+ *                                 jsonProperty("display", "Heart rate")
  *                             ))),
- *                             jsonProperty(&#34;periodInterval&#34;, 60),
- *                             jsonProperty(&#34;typeName&#34;, &#34;heartrate&#34;),
- *                             jsonProperty(&#34;value&#34;, jsonObject(
- *                                 jsonProperty(&#34;defaultPeriod&#34;, 5000),
- *                                 jsonProperty(&#34;unit&#34;, &#34;count/min&#34;),
- *                                 jsonProperty(&#34;valueName&#34;, &#34;hr&#34;),
- *                                 jsonProperty(&#34;valueType&#34;, &#34;SampledData&#34;)
+ *                             jsonProperty("periodInterval", 60),
+ *                             jsonProperty("typeName", "heartrate"),
+ *                             jsonProperty("value", jsonObject(
+ *                                 jsonProperty("defaultPeriod", 5000),
+ *                                 jsonProperty("unit", "count/min"),
+ *                                 jsonProperty("valueName", "hr"),
+ *                                 jsonProperty("valueType", "SampledData")
  *                             ))
  *                         ))
  *                     )))
@@ -149,7 +150,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

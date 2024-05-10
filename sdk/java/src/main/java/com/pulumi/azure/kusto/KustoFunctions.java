@@ -23,7 +23,8 @@ public final class KustoFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -45,13 +46,14 @@ public final class KustoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KustoFunctions.getCluster(GetClusterArgs.builder()
-     *             .name(&#34;kustocluster&#34;)
-     *             .resourceGroupName(&#34;test_resource_group&#34;)
+     *             .name("kustocluster")
+     *             .resourceGroupName("test_resource_group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -64,7 +66,8 @@ public final class KustoFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -86,13 +89,14 @@ public final class KustoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KustoFunctions.getCluster(GetClusterArgs.builder()
-     *             .name(&#34;kustocluster&#34;)
-     *             .resourceGroupName(&#34;test_resource_group&#34;)
+     *             .name("kustocluster")
+     *             .resourceGroupName("test_resource_group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -105,7 +109,8 @@ public final class KustoFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -127,13 +132,14 @@ public final class KustoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KustoFunctions.getCluster(GetClusterArgs.builder()
-     *             .name(&#34;kustocluster&#34;)
-     *             .resourceGroupName(&#34;test_resource_group&#34;)
+     *             .name("kustocluster")
+     *             .resourceGroupName("test_resource_group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -146,7 +152,8 @@ public final class KustoFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -168,13 +175,14 @@ public final class KustoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KustoFunctions.getCluster(GetClusterArgs.builder()
-     *             .name(&#34;kustocluster&#34;)
-     *             .resourceGroupName(&#34;test_resource_group&#34;)
+     *             .name("kustocluster")
+     *             .resourceGroupName("test_resource_group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -187,7 +195,8 @@ public final class KustoFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -209,14 +218,15 @@ public final class KustoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KustoFunctions.getDatabase(GetDatabaseArgs.builder()
-     *             .name(&#34;my-kusto-database&#34;)
-     *             .resourceGroupName(&#34;test_resource_group&#34;)
-     *             .clusterName(&#34;test_cluster&#34;)
+     *             .name("my-kusto-database")
+     *             .resourceGroupName("test_resource_group")
+     *             .clusterName("test_cluster")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -229,7 +239,8 @@ public final class KustoFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -251,14 +262,15 @@ public final class KustoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KustoFunctions.getDatabase(GetDatabaseArgs.builder()
-     *             .name(&#34;my-kusto-database&#34;)
-     *             .resourceGroupName(&#34;test_resource_group&#34;)
-     *             .clusterName(&#34;test_cluster&#34;)
+     *             .name("my-kusto-database")
+     *             .resourceGroupName("test_resource_group")
+     *             .clusterName("test_cluster")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -271,7 +283,8 @@ public final class KustoFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -293,14 +306,15 @@ public final class KustoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KustoFunctions.getDatabase(GetDatabaseArgs.builder()
-     *             .name(&#34;my-kusto-database&#34;)
-     *             .resourceGroupName(&#34;test_resource_group&#34;)
-     *             .clusterName(&#34;test_cluster&#34;)
+     *             .name("my-kusto-database")
+     *             .resourceGroupName("test_resource_group")
+     *             .clusterName("test_cluster")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -313,7 +327,8 @@ public final class KustoFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -335,14 +350,15 @@ public final class KustoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KustoFunctions.getDatabase(GetDatabaseArgs.builder()
-     *             .name(&#34;my-kusto-database&#34;)
-     *             .resourceGroupName(&#34;test_resource_group&#34;)
-     *             .clusterName(&#34;test_cluster&#34;)
+     *             .name("my-kusto-database")
+     *             .resourceGroupName("test_resource_group")
+     *             .clusterName("test_cluster")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

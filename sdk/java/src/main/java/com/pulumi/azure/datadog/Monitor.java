@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ### Monitor creation with linking to Datadog organization
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,32 +54,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-datadog&#34;)
- *             .location(&#34;West US 2&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-datadog")
+ *             .location("West US 2")
  *             .build());
  * 
- *         var exampleMonitor = new Monitor(&#34;exampleMonitor&#34;, MonitorArgs.builder()        
- *             .name(&#34;example-monitor&#34;)
+ *         var exampleMonitor = new Monitor("exampleMonitor", MonitorArgs.builder()        
+ *             .name("example-monitor")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .datadogOrganization(MonitorDatadogOrganizationArgs.builder()
- *                 .apiKey(&#34;XXXX&#34;)
- *                 .applicationKey(&#34;XXXX&#34;)
+ *                 .apiKey("XXXX")
+ *                 .applicationKey("XXXX")
  *                 .build())
  *             .user(MonitorUserArgs.builder()
- *                 .name(&#34;Example&#34;)
- *                 .email(&#34;abc@xyz.com&#34;)
+ *                 .name("Example")
+ *                 .email("abc{@literal @}xyz.com")
  *                 .build())
- *             .skuName(&#34;Linked&#34;)
+ *             .skuName("Linked")
  *             .identity(MonitorIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Role Assignment
@@ -88,7 +90,8 @@ import javax.annotation.Nullable;
  * ### Role assignment on the monitor created
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -116,18 +119,19 @@ import javax.annotation.Nullable;
  *         final var primary = CoreFunctions.getSubscription();
  * 
  *         final var monitoringReader = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
- *             .name(&#34;Monitoring Reader&#34;)
+ *             .name("Monitoring Reader")
  *             .build());
  * 
- *         var example = new Assignment(&#34;example&#34;, AssignmentArgs.builder()        
- *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
- *             .roleDefinitionId(monitoringReader.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult.roleDefinitionId()))
+ *         var example = new Assignment("example", AssignmentArgs.builder()        
+ *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *             .roleDefinitionId(monitoringReader.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.roleDefinitionId()))
  *             .principalId(exampleAzurermDatadogMonitor.identity()[0].principalId())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

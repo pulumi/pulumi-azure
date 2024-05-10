@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,28 +49,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-sapvis&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-sapvis")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleDiscoveryVirtualInstance = new DiscoveryVirtualInstance(&#34;exampleDiscoveryVirtualInstance&#34;, DiscoveryVirtualInstanceArgs.builder()        
- *             .name(&#34;X01&#34;)
+ *         var exampleDiscoveryVirtualInstance = new DiscoveryVirtualInstance("exampleDiscoveryVirtualInstance", DiscoveryVirtualInstanceArgs.builder()        
+ *             .name("X01")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .environment(&#34;NonProd&#34;)
- *             .sapProduct(&#34;S4HANA&#34;)
- *             .centralServerVirtualMachineId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleRG/providers/Microsoft.Compute/virtualMachines/csvm1&#34;)
- *             .managedStorageAccountName(&#34;managedsa&#34;)
+ *             .environment("NonProd")
+ *             .sapProduct("S4HANA")
+ *             .centralServerVirtualMachineId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleRG/providers/Microsoft.Compute/virtualMachines/csvm1")
+ *             .managedStorageAccountName("managedsa")
  *             .identity(DiscoveryVirtualInstanceIdentityArgs.builder()
- *                 .type(&#34;UserAssigned&#34;)
- *                 .identityIds(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai1&#34;)
+ *                 .type("UserAssigned")
+ *                 .identityIds("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai1")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

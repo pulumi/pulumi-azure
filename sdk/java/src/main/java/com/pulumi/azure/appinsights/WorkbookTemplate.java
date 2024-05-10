@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,79 +50,80 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleWorkbookTemplate = new WorkbookTemplate(&#34;exampleWorkbookTemplate&#34;, WorkbookTemplateArgs.builder()        
- *             .name(&#34;example-aiwt&#34;)
+ *         var exampleWorkbookTemplate = new WorkbookTemplate("exampleWorkbookTemplate", WorkbookTemplateArgs.builder()        
+ *             .name("example-aiwt")
  *             .resourceGroupName(example.name())
- *             .location(&#34;West Europe&#34;)
- *             .author(&#34;test author&#34;)
+ *             .location("West Europe")
+ *             .author("test author")
  *             .priority(1)
  *             .galleries(WorkbookTemplateGalleryArgs.builder()
- *                 .category(&#34;workbook&#34;)
- *                 .name(&#34;test&#34;)
+ *                 .category("workbook")
+ *                 .name("test")
  *                 .order(100)
- *                 .resourceType(&#34;microsoft.insights/components&#34;)
- *                 .type(&#34;tsg&#34;)
+ *                 .resourceType("microsoft.insights/components")
+ *                 .type("tsg")
  *                 .build())
  *             .templateData(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;version&#34;, &#34;Notebook/1.0&#34;),
- *                     jsonProperty(&#34;items&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;type&#34;, 1),
- *                         jsonProperty(&#34;content&#34;, jsonObject(
- *                             jsonProperty(&#34;json&#34;, &#34;&#34;&#34;
+ *                     jsonProperty("version", "Notebook/1.0"),
+ *                     jsonProperty("items", jsonArray(jsonObject(
+ *                         jsonProperty("type", 1),
+ *                         jsonProperty("content", jsonObject(
+ *                             jsonProperty("json", """
  * ## New workbook
  * ---
  * 
- * Welcome to your new workbook.                            &#34;&#34;&#34;)
+ * Welcome to your new workbook.                            """)
  *                         )),
- *                         jsonProperty(&#34;name&#34;, &#34;text - 2&#34;)
+ *                         jsonProperty("name", "text - 2")
  *                     ))),
- *                     jsonProperty(&#34;styleSettings&#34;, jsonObject(
+ *                     jsonProperty("styleSettings", jsonObject(
  * 
  *                     )),
- *                     jsonProperty(&#34;$schema&#34;, &#34;https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json&#34;)
+ *                     jsonProperty("$schema", "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json")
  *                 )))
  *             .localized(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;ar&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;galleries&#34;, jsonArray(jsonObject(
- *                             jsonProperty(&#34;name&#34;, &#34;test&#34;),
- *                             jsonProperty(&#34;category&#34;, &#34;Failures&#34;),
- *                             jsonProperty(&#34;type&#34;, &#34;tsg&#34;),
- *                             jsonProperty(&#34;resourceType&#34;, &#34;microsoft.insights/components&#34;),
- *                             jsonProperty(&#34;order&#34;, 100)
+ *                     jsonProperty("ar", jsonArray(jsonObject(
+ *                         jsonProperty("galleries", jsonArray(jsonObject(
+ *                             jsonProperty("name", "test"),
+ *                             jsonProperty("category", "Failures"),
+ *                             jsonProperty("type", "tsg"),
+ *                             jsonProperty("resourceType", "microsoft.insights/components"),
+ *                             jsonProperty("order", 100)
  *                         ))),
- *                         jsonProperty(&#34;templateData&#34;, jsonObject(
- *                             jsonProperty(&#34;version&#34;, &#34;Notebook/1.0&#34;),
- *                             jsonProperty(&#34;items&#34;, jsonArray(jsonObject(
- *                                 jsonProperty(&#34;type&#34;, 1),
- *                                 jsonProperty(&#34;content&#34;, jsonObject(
- *                                     jsonProperty(&#34;json&#34;, &#34;&#34;&#34;
+ *                         jsonProperty("templateData", jsonObject(
+ *                             jsonProperty("version", "Notebook/1.0"),
+ *                             jsonProperty("items", jsonArray(jsonObject(
+ *                                 jsonProperty("type", 1),
+ *                                 jsonProperty("content", jsonObject(
+ *                                     jsonProperty("json", """
  * ## New workbook
  * ---
  * 
- * Welcome to your new workbook.                                    &#34;&#34;&#34;)
+ * Welcome to your new workbook.                                    """)
  *                                 )),
- *                                 jsonProperty(&#34;name&#34;, &#34;text - 2&#34;)
+ *                                 jsonProperty("name", "text - 2")
  *                             ))),
- *                             jsonProperty(&#34;styleSettings&#34;, jsonObject(
+ *                             jsonProperty("styleSettings", jsonObject(
  * 
  *                             )),
- *                             jsonProperty(&#34;$schema&#34;, &#34;https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json&#34;)
+ *                             jsonProperty("$schema", "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json")
  *                         ))
  *                     )))
  *                 )))
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .tags(Map.of("key", "value"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

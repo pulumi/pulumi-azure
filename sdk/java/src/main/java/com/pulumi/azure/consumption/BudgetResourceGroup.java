@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,63 +54,64 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;eastus&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example")
+ *             .location("eastus")
  *             .build());
  * 
- *         var exampleActionGroup = new ActionGroup(&#34;exampleActionGroup&#34;, ActionGroupArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleActionGroup = new ActionGroup("exampleActionGroup", ActionGroupArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
- *             .shortName(&#34;example&#34;)
+ *             .shortName("example")
  *             .build());
  * 
- *         var exampleBudgetResourceGroup = new BudgetResourceGroup(&#34;exampleBudgetResourceGroup&#34;, BudgetResourceGroupArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleBudgetResourceGroup = new BudgetResourceGroup("exampleBudgetResourceGroup", BudgetResourceGroupArgs.builder()        
+ *             .name("example")
  *             .resourceGroupId(example.id())
  *             .amount(1000)
- *             .timeGrain(&#34;Monthly&#34;)
+ *             .timeGrain("Monthly")
  *             .timePeriod(BudgetResourceGroupTimePeriodArgs.builder()
- *                 .startDate(&#34;2022-06-01T00:00:00Z&#34;)
- *                 .endDate(&#34;2022-07-01T00:00:00Z&#34;)
+ *                 .startDate("2022-06-01T00:00:00Z")
+ *                 .endDate("2022-07-01T00:00:00Z")
  *                 .build())
  *             .filter(BudgetResourceGroupFilterArgs.builder()
  *                 .dimensions(BudgetResourceGroupFilterDimensionArgs.builder()
- *                     .name(&#34;ResourceId&#34;)
+ *                     .name("ResourceId")
  *                     .values(exampleActionGroup.id())
  *                     .build())
  *                 .tags(BudgetResourceGroupFilterTagArgs.builder()
- *                     .name(&#34;foo&#34;)
+ *                     .name("foo")
  *                     .values(                    
- *                         &#34;bar&#34;,
- *                         &#34;baz&#34;)
+ *                         "bar",
+ *                         "baz")
  *                     .build())
  *                 .build())
  *             .notifications(            
  *                 BudgetResourceGroupNotificationArgs.builder()
  *                     .enabled(true)
  *                     .threshold(90)
- *                     .operator(&#34;EqualTo&#34;)
- *                     .thresholdType(&#34;Forecasted&#34;)
+ *                     .operator("EqualTo")
+ *                     .thresholdType("Forecasted")
  *                     .contactEmails(                    
- *                         &#34;foo@example.com&#34;,
- *                         &#34;bar@example.com&#34;)
+ *                         "foo{@literal @}example.com",
+ *                         "bar{@literal @}example.com")
  *                     .contactGroups(exampleActionGroup.id())
- *                     .contactRoles(&#34;Owner&#34;)
+ *                     .contactRoles("Owner")
  *                     .build(),
  *                 BudgetResourceGroupNotificationArgs.builder()
  *                     .enabled(false)
  *                     .threshold(100)
- *                     .operator(&#34;GreaterThan&#34;)
+ *                     .operator("GreaterThan")
  *                     .contactEmails(                    
- *                         &#34;foo@example.com&#34;,
- *                         &#34;bar@example.com&#34;)
+ *                         "foo{@literal @}example.com",
+ *                         "bar{@literal @}example.com")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -20,7 +20,8 @@ public final class AppinsightsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -42,14 +43,15 @@ public final class AppinsightsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppinsightsFunctions.getInsights(GetInsightsArgs.builder()
-     *             .name(&#34;production&#34;)
-     *             .resourceGroupName(&#34;networking&#34;)
+     *             .name("production")
+     *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export(&#34;applicationInsightsInstrumentationKey&#34;, example.applyValue(getInsightsResult -&gt; getInsightsResult.instrumentationKey()));
+     *         ctx.export("applicationInsightsInstrumentationKey", example.applyValue(getInsightsResult -> getInsightsResult.instrumentationKey()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -62,7 +64,8 @@ public final class AppinsightsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -84,14 +87,15 @@ public final class AppinsightsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppinsightsFunctions.getInsights(GetInsightsArgs.builder()
-     *             .name(&#34;production&#34;)
-     *             .resourceGroupName(&#34;networking&#34;)
+     *             .name("production")
+     *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export(&#34;applicationInsightsInstrumentationKey&#34;, example.applyValue(getInsightsResult -&gt; getInsightsResult.instrumentationKey()));
+     *         ctx.export("applicationInsightsInstrumentationKey", example.applyValue(getInsightsResult -> getInsightsResult.instrumentationKey()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -104,7 +108,8 @@ public final class AppinsightsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -126,14 +131,15 @@ public final class AppinsightsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppinsightsFunctions.getInsights(GetInsightsArgs.builder()
-     *             .name(&#34;production&#34;)
-     *             .resourceGroupName(&#34;networking&#34;)
+     *             .name("production")
+     *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export(&#34;applicationInsightsInstrumentationKey&#34;, example.applyValue(getInsightsResult -&gt; getInsightsResult.instrumentationKey()));
+     *         ctx.export("applicationInsightsInstrumentationKey", example.applyValue(getInsightsResult -> getInsightsResult.instrumentationKey()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -146,7 +152,8 @@ public final class AppinsightsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -168,14 +175,15 @@ public final class AppinsightsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppinsightsFunctions.getInsights(GetInsightsArgs.builder()
-     *             .name(&#34;production&#34;)
-     *             .resourceGroupName(&#34;networking&#34;)
+     *             .name("production")
+     *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export(&#34;applicationInsightsInstrumentationKey&#34;, example.applyValue(getInsightsResult -&gt; getInsightsResult.instrumentationKey()));
+     *         ctx.export("applicationInsightsInstrumentationKey", example.applyValue(getInsightsResult -> getInsightsResult.instrumentationKey()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

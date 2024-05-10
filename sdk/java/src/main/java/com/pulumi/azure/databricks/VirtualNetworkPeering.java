@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,27 +52,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var remote = new VirtualNetwork(&#34;remote&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;remote-vnet&#34;)
+ *         var remote = new VirtualNetwork("remote", VirtualNetworkArgs.builder()        
+ *             .name("remote-vnet")
  *             .resourceGroupName(example.name())
- *             .addressSpaces(&#34;10.0.1.0/24&#34;)
+ *             .addressSpaces("10.0.1.0/24")
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
- *             .name(&#34;example-workspace&#34;)
+ *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()        
+ *             .name("example-workspace")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .sku(&#34;standard&#34;)
+ *             .sku("standard")
  *             .build());
  * 
- *         var exampleVirtualNetworkPeering = new VirtualNetworkPeering(&#34;exampleVirtualNetworkPeering&#34;, VirtualNetworkPeeringArgs.builder()        
- *             .name(&#34;databricks-vnet-peer&#34;)
+ *         var exampleVirtualNetworkPeering = new VirtualNetworkPeering("exampleVirtualNetworkPeering", VirtualNetworkPeeringArgs.builder()        
+ *             .name("databricks-vnet-peer")
  *             .resourceGroupName(example.name())
  *             .workspaceId(exampleWorkspace.id())
  *             .remoteAddressSpacePrefixes(remote.addressSpaces())
@@ -79,8 +80,8 @@ import javax.annotation.Nullable;
  *             .allowVirtualNetworkAccess(true)
  *             .build());
  * 
- *         var remoteVirtualNetworkPeering = new VirtualNetworkPeering(&#34;remoteVirtualNetworkPeering&#34;, VirtualNetworkPeeringArgs.builder()        
- *             .name(&#34;peer-to-databricks&#34;)
+ *         var remoteVirtualNetworkPeering = new VirtualNetworkPeering("remoteVirtualNetworkPeering", VirtualNetworkPeeringArgs.builder()        
+ *             .name("peer-to-databricks")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(remote.name())
  *             .remoteVirtualNetworkId(exampleVirtualNetworkPeering.virtualNetworkId())
@@ -89,7 +90,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

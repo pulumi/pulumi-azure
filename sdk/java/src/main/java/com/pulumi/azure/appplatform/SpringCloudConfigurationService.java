@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,38 +52,39 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleSpringCloudService = new SpringCloudService(&#34;exampleSpringCloudService&#34;, SpringCloudServiceArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;E0&#34;)
+ *             .skuName("E0")
  *             .build());
  * 
- *         var exampleSpringCloudConfigurationService = new SpringCloudConfigurationService(&#34;exampleSpringCloudConfigurationService&#34;, SpringCloudConfigurationServiceArgs.builder()        
- *             .name(&#34;default&#34;)
+ *         var exampleSpringCloudConfigurationService = new SpringCloudConfigurationService("exampleSpringCloudConfigurationService", SpringCloudConfigurationServiceArgs.builder()        
+ *             .name("default")
  *             .springCloudServiceId(exampleSpringCloudService.id())
  *             .repositories(SpringCloudConfigurationServiceRepositoryArgs.builder()
- *                 .name(&#34;fake&#34;)
- *                 .label(&#34;master&#34;)
- *                 .patterns(&#34;app/dev&#34;)
- *                 .uri(&#34;https://github.com/Azure-Samples/piggymetrics&#34;)
+ *                 .name("fake")
+ *                 .label("master")
+ *                 .patterns("app/dev")
+ *                 .uri("https://github.com/Azure-Samples/piggymetrics")
  *                 .searchPaths(                
- *                     &#34;dir1&#34;,
- *                     &#34;dir2&#34;)
+ *                     "dir1",
+ *                     "dir2")
  *                 .strictHostKeyChecking(false)
- *                 .username(&#34;adminuser&#34;)
- *                 .password(&#34;H@Sh1CoR3!&#34;)
+ *                 .username("adminuser")
+ *                 .password("H{@literal @}Sh1CoR3!")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

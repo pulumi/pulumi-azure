@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,23 +49,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleIntegrationAccount = new IntegrationAccount(&#34;exampleIntegrationAccount&#34;, IntegrationAccountArgs.builder()        
- *             .name(&#34;example-ia&#34;)
+ *         var exampleIntegrationAccount = new IntegrationAccount("exampleIntegrationAccount", IntegrationAccountArgs.builder()        
+ *             .name("example-ia")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;Standard&#34;)
+ *             .skuName("Standard")
  *             .build());
  * 
- *         var exampleIntegrationAccountBatchConfiguration = new IntegrationAccountBatchConfiguration(&#34;exampleIntegrationAccountBatchConfiguration&#34;, IntegrationAccountBatchConfigurationArgs.builder()        
- *             .name(&#34;exampleiabc&#34;)
+ *         var exampleIntegrationAccountBatchConfiguration = new IntegrationAccountBatchConfiguration("exampleIntegrationAccountBatchConfiguration", IntegrationAccountBatchConfigurationArgs.builder()        
+ *             .name("exampleiabc")
  *             .resourceGroupName(example.name())
  *             .integrationAccountName(exampleIntegrationAccount.name())
- *             .batchGroupName(&#34;TestBatchGroup&#34;)
+ *             .batchGroupName("TestBatchGroup")
  *             .releaseCriteria(IntegrationAccountBatchConfigurationReleaseCriteriaArgs.builder()
  *                 .messageCount(80)
  *                 .build())
@@ -72,7 +73,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

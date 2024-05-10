@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -64,90 +65,91 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("example")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-network&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example-network")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *             .addressSpaces("10.0.0.0/16")
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;example-subnet&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("example-subnet")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.0.0/24&#34;)
+ *             .addressPrefixes("10.0.0.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;diskspool&#34;)
+ *                 .name("diskspool")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .actions(&#34;Microsoft.Network/virtualNetworks/read&#34;)
- *                     .name(&#34;Microsoft.StoragePool/diskPools&#34;)
+ *                     .actions("Microsoft.Network/virtualNetworks/read")
+ *                     .name("Microsoft.StoragePool/diskPools")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleDiskPool = new DiskPool(&#34;exampleDiskPool&#34;, DiskPoolArgs.builder()        
- *             .name(&#34;example-pool&#34;)
+ *         var exampleDiskPool = new DiskPool("exampleDiskPool", DiskPoolArgs.builder()        
+ *             .name("example-pool")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .subnetId(exampleSubnet.id())
- *             .zones(&#34;1&#34;)
- *             .skuName(&#34;Basic_B1&#34;)
+ *             .zones("1")
+ *             .skuName("Basic_B1")
  *             .build());
  * 
- *         var exampleManagedDisk = new ManagedDisk(&#34;exampleManagedDisk&#34;, ManagedDiskArgs.builder()        
- *             .name(&#34;example-disk&#34;)
+ *         var exampleManagedDisk = new ManagedDisk("exampleManagedDisk", ManagedDiskArgs.builder()        
+ *             .name("example-disk")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
- *             .createOption(&#34;Empty&#34;)
- *             .storageAccountType(&#34;Premium_LRS&#34;)
+ *             .createOption("Empty")
+ *             .storageAccountType("Premium_LRS")
  *             .diskSizeGb(4)
  *             .maxShares(2)
- *             .zone(&#34;1&#34;)
+ *             .zone("1")
  *             .build());
  * 
  *         final var example = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
- *             .displayName(&#34;StoragePool Resource Provider&#34;)
+ *             .displayName("StoragePool Resource Provider")
  *             .build());
  * 
  *         final var roles =         
- *             &#34;Disk Pool Operator&#34;,
- *             &#34;Virtual Machine Contributor&#34;;
+ *             "Disk Pool Operator",
+ *             "Virtual Machine Contributor";
  * 
- *         for (var i = 0; i &lt; roles.length(); i++) {
- *             new Assignment(&#34;exampleAssignment-&#34; + i, AssignmentArgs.builder()            
- *                 .principalId(example.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.id()))
+ *         for (var i = 0; i < roles.length(); i++) {
+ *             new Assignment("exampleAssignment-" + i, AssignmentArgs.builder()            
+ *                 .principalId(example.applyValue(getServicePrincipalResult -> getServicePrincipalResult.id()))
  *                 .roleDefinitionName(roles[range.value()])
  *                 .scope(exampleManagedDisk.id())
  *                 .build());
  * 
  *         
  * }
- *         var exampleDiskPoolManagedDiskAttachment = new DiskPoolManagedDiskAttachment(&#34;exampleDiskPoolManagedDiskAttachment&#34;, DiskPoolManagedDiskAttachmentArgs.builder()        
+ *         var exampleDiskPoolManagedDiskAttachment = new DiskPoolManagedDiskAttachment("exampleDiskPoolManagedDiskAttachment", DiskPoolManagedDiskAttachmentArgs.builder()        
  *             .diskPoolId(exampleDiskPool.id())
  *             .managedDiskId(exampleManagedDisk.id())
  *             .build());
  * 
- *         var exampleDiskPoolIscsiTarget = new DiskPoolIscsiTarget(&#34;exampleDiskPoolIscsiTarget&#34;, DiskPoolIscsiTargetArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .aclMode(&#34;Dynamic&#34;)
+ *         var exampleDiskPoolIscsiTarget = new DiskPoolIscsiTarget("exampleDiskPoolIscsiTarget", DiskPoolIscsiTargetArgs.builder()        
+ *             .name("example")
+ *             .aclMode("Dynamic")
  *             .disksPoolId(exampleDiskPool.id())
- *             .targetIqn(&#34;iqn.2021-11.com.microsoft:test&#34;)
+ *             .targetIqn("iqn.2021-11.com.microsoft:test")
  *             .build());
  * 
- *         var exampleDiskPoolIscsiTargetLun = new DiskPoolIscsiTargetLun(&#34;exampleDiskPoolIscsiTargetLun&#34;, DiskPoolIscsiTargetLunArgs.builder()        
+ *         var exampleDiskPoolIscsiTargetLun = new DiskPoolIscsiTargetLun("exampleDiskPoolIscsiTargetLun", DiskPoolIscsiTargetLunArgs.builder()        
  *             .iscsiTargetId(exampleDiskPoolIscsiTarget.id())
  *             .diskPoolManagedDiskAttachmentId(exampleDiskPoolManagedDiskAttachment.id())
- *             .name(&#34;example-disk&#34;)
+ *             .name("example-disk")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,37 +50,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;rg-example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("rg-example")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleManagedInstance = new ManagedInstance(&#34;exampleManagedInstance&#34;, ManagedInstanceArgs.builder()        
- *             .name(&#34;managedsqlinstance&#34;)
+ *         var exampleManagedInstance = new ManagedInstance("exampleManagedInstance", ManagedInstanceArgs.builder()        
+ *             .name("managedsqlinstance")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .administratorLogin(&#34;mradministrator&#34;)
- *             .administratorLoginPassword(&#34;thisIsDog11&#34;)
- *             .licenseType(&#34;BasePrice&#34;)
+ *             .administratorLogin("mradministrator")
+ *             .administratorLoginPassword("thisIsDog11")
+ *             .licenseType("BasePrice")
  *             .subnetId(exampleAzurermSubnet.id())
- *             .skuName(&#34;GP_Gen5&#34;)
+ *             .skuName("GP_Gen5")
  *             .vcores(4)
  *             .storageSizeInGb(32)
  *             .build());
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleManagedInstanceActiveDirectoryAdministrator = new ManagedInstanceActiveDirectoryAdministrator(&#34;exampleManagedInstanceActiveDirectoryAdministrator&#34;, ManagedInstanceActiveDirectoryAdministratorArgs.builder()        
+ *         var exampleManagedInstanceActiveDirectoryAdministrator = new ManagedInstanceActiveDirectoryAdministrator("exampleManagedInstanceActiveDirectoryAdministrator", ManagedInstanceActiveDirectoryAdministratorArgs.builder()        
  *             .managedInstanceName(exampleManagedInstance.name())
  *             .resourceGroupName(example.name())
- *             .login(&#34;sqladmin&#34;)
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .login("sqladmin")
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

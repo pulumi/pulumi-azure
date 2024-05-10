@@ -34,7 +34,8 @@ import javax.annotation.Nullable;
  * This example provisions a basic Kubernetes Node Pool.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -61,38 +62,39 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleKubernetesCluster = new KubernetesCluster(&#34;exampleKubernetesCluster&#34;, KubernetesClusterArgs.builder()        
- *             .name(&#34;example-aks1&#34;)
+ *         var exampleKubernetesCluster = new KubernetesCluster("exampleKubernetesCluster", KubernetesClusterArgs.builder()        
+ *             .name("example-aks1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .dnsPrefix(&#34;exampleaks1&#34;)
+ *             .dnsPrefix("exampleaks1")
  *             .defaultNodePool(KubernetesClusterDefaultNodePoolArgs.builder()
- *                 .name(&#34;default&#34;)
+ *                 .name("default")
  *                 .nodeCount(1)
- *                 .vmSize(&#34;Standard_D2_v2&#34;)
+ *                 .vmSize("Standard_D2_v2")
  *                 .build())
  *             .servicePrincipal(KubernetesClusterServicePrincipalArgs.builder()
- *                 .clientId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *                 .clientSecret(&#34;00000000000000000000000000000000&#34;)
+ *                 .clientId("00000000-0000-0000-0000-000000000000")
+ *                 .clientSecret("00000000000000000000000000000000")
  *                 .build())
  *             .build());
  * 
- *         var exampleKubernetesClusterNodePool = new KubernetesClusterNodePool(&#34;exampleKubernetesClusterNodePool&#34;, KubernetesClusterNodePoolArgs.builder()        
- *             .name(&#34;internal&#34;)
+ *         var exampleKubernetesClusterNodePool = new KubernetesClusterNodePool("exampleKubernetesClusterNodePool", KubernetesClusterNodePoolArgs.builder()        
+ *             .name("internal")
  *             .kubernetesClusterId(exampleKubernetesCluster.id())
- *             .vmSize(&#34;Standard_DS2_v2&#34;)
+ *             .vmSize("Standard_DS2_v2")
  *             .nodeCount(1)
- *             .tags(Map.of(&#34;Environment&#34;, &#34;Production&#34;))
+ *             .tags(Map.of("Environment", "Production"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

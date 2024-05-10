@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,36 +49,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
  *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
- *             .name(&#34;example-apim&#34;)
+ *             .name("example-apim")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleApi = new Api(&#34;exampleApi&#34;, ApiArgs.builder()        
- *             .name(&#34;example-api&#34;)
+ *         var exampleApi = new Api("exampleApi", ApiArgs.builder()        
+ *             .name("example-api")
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .apiManagementName(example.applyValue(getServiceResult -&gt; getServiceResult).applyValue(example -&gt; example.applyValue(getServiceResult -&gt; getServiceResult.name())))
- *             .revision(&#34;1&#34;)
+ *             .apiManagementName(example.applyValue(getServiceResult -> getServiceResult).applyValue(example -> example.applyValue(getServiceResult -> getServiceResult.name())))
+ *             .revision("1")
  *             .build());
  * 
- *         var exampleTag = new Tag(&#34;exampleTag&#34;, TagArgs.builder()        
- *             .apiManagementId(example.applyValue(getServiceResult -&gt; getServiceResult).applyValue(example -&gt; example.applyValue(getServiceResult -&gt; getServiceResult.id())))
- *             .name(&#34;example-tag&#34;)
+ *         var exampleTag = new Tag("exampleTag", TagArgs.builder()        
+ *             .apiManagementId(example.applyValue(getServiceResult -> getServiceResult).applyValue(example -> example.applyValue(getServiceResult -> getServiceResult.id())))
+ *             .name("example-tag")
  *             .build());
  * 
- *         var exampleApiTag = new ApiTag(&#34;exampleApiTag&#34;, ApiTagArgs.builder()        
+ *         var exampleApiTag = new ApiTag("exampleApiTag", ApiTagArgs.builder()        
  *             .apiId(exampleApi.id())
  *             .name(exampleTag.name())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

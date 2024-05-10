@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -66,116 +67,116 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;B_Gen5_2&#34;)
+ *             .skuName("B_Gen5_2")
  *             .storageMb(5120)
  *             .backupRetentionDays(7)
  *             .geoRedundantBackupEnabled(false)
  *             .autoGrowEnabled(true)
- *             .administratorLogin(&#34;psqladmin&#34;)
- *             .administratorLoginPassword(&#34;H@Sh1CoR3!&#34;)
- *             .version(&#34;9.5&#34;)
+ *             .administratorLogin("psqladmin")
+ *             .administratorLoginPassword("H{@literal @}Sh1CoR3!")
+ *             .version("9.5")
  *             .sslEnforcementEnabled(true)
  *             .build());
  * 
- *         var exampleFirewallRule = new FirewallRule(&#34;exampleFirewallRule&#34;, FirewallRuleArgs.builder()        
- *             .name(&#34;AllowAllWindowsAzureIps&#34;)
+ *         var exampleFirewallRule = new FirewallRule("exampleFirewallRule", FirewallRuleArgs.builder()        
+ *             .name("AllowAllWindowsAzureIps")
  *             .resourceGroupName(example.name())
  *             .serverName(exampleServer.name())
- *             .startIpAddress(&#34;0.0.0.0&#34;)
- *             .endIpAddress(&#34;0.0.0.0&#34;)
+ *             .startIpAddress("0.0.0.0")
+ *             .endIpAddress("0.0.0.0")
  *             .build());
  * 
- *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .serverName(exampleServer.name())
- *             .charset(&#34;UTF8&#34;)
- *             .collation(&#34;English_United States.1252&#34;)
+ *             .charset("UTF8")
+ *             .collation("English_United States.1252")
  *             .build());
  * 
- *         var exampleBackupVault = new BackupVault(&#34;exampleBackupVault&#34;, BackupVaultArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleBackupVault = new BackupVault("exampleBackupVault", BackupVaultArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .datastoreType(&#34;VaultStore&#34;)
- *             .redundancy(&#34;LocallyRedundant&#34;)
+ *             .datastoreType("VaultStore")
+ *             .redundancy("LocallyRedundant")
  *             .identity(BackupVaultIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .skuName(&#34;premium&#34;)
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .skuName("premium")
  *             .softDeleteRetentionDays(7)
  *             .accessPolicies(            
  *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *                     .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *                     .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *                     .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *                     .keyPermissions(                    
- *                         &#34;Create&#34;,
- *                         &#34;Get&#34;)
+ *                         "Create",
+ *                         "Get")
  *                     .secretPermissions(                    
- *                         &#34;Set&#34;,
- *                         &#34;Get&#34;,
- *                         &#34;Delete&#34;,
- *                         &#34;Purge&#34;,
- *                         &#34;Recover&#34;)
+ *                         "Set",
+ *                         "Get",
+ *                         "Delete",
+ *                         "Purge",
+ *                         "Recover")
  *                     .build(),
  *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(exampleBackupVault.identity().applyValue(identity -&gt; identity.tenantId()))
- *                     .objectId(exampleBackupVault.identity().applyValue(identity -&gt; identity.principalId()))
+ *                     .tenantId(exampleBackupVault.identity().applyValue(identity -> identity.tenantId()))
+ *                     .objectId(exampleBackupVault.identity().applyValue(identity -> identity.principalId()))
  *                     .keyPermissions(                    
- *                         &#34;Create&#34;,
- *                         &#34;Get&#34;)
+ *                         "Create",
+ *                         "Get")
  *                     .secretPermissions(                    
- *                         &#34;Set&#34;,
- *                         &#34;Get&#34;,
- *                         &#34;Delete&#34;,
- *                         &#34;Purge&#34;,
- *                         &#34;Recover&#34;)
+ *                         "Set",
+ *                         "Get",
+ *                         "Delete",
+ *                         "Purge",
+ *                         "Recover")
  *                     .build())
  *             .build());
  * 
- *         var exampleSecret = new Secret(&#34;exampleSecret&#34;, SecretArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .value(Output.tuple(exampleServer.name(), exampleDatabase.name(), exampleServer.name()).applyValue(values -&gt; {
+ *         var exampleSecret = new Secret("exampleSecret", SecretArgs.builder()        
+ *             .name("example")
+ *             .value(Output.tuple(exampleServer.name(), exampleDatabase.name(), exampleServer.name()).applyValue(values -> {
  *                 var exampleServerName = values.t1;
  *                 var exampleDatabaseName = values.t2;
  *                 var exampleServerName1 = values.t3;
- *                 return String.format(&#34;Server=%s.postgres.database.azure.com;Database=%s;Port=5432;User Id=psqladmin@%s;Password=H@Sh1CoR3!;Ssl Mode=Require;&#34;, exampleServerName,exampleDatabaseName,exampleServerName1);
+ *                 return String.format("Server=%s.postgres.database.azure.com;Database=%s;Port=5432;User Id=psqladmin{@literal @}%s;Password=H{@literal @}Sh1CoR3!;Ssl Mode=Require;", exampleServerName,exampleDatabaseName,exampleServerName1);
  *             }))
  *             .keyVaultId(exampleKeyVault.id())
  *             .build());
  * 
- *         var exampleBackupPolicyPostgresql = new BackupPolicyPostgresql(&#34;exampleBackupPolicyPostgresql&#34;, BackupPolicyPostgresqlArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleBackupPolicyPostgresql = new BackupPolicyPostgresql("exampleBackupPolicyPostgresql", BackupPolicyPostgresqlArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .vaultName(exampleBackupVault.name())
- *             .backupRepeatingTimeIntervals(&#34;R/2021-05-23T02:30:00+00:00/P1W&#34;)
- *             .defaultRetentionDuration(&#34;P4M&#34;)
+ *             .backupRepeatingTimeIntervals("R/2021-05-23T02:30:00+00:00/P1W")
+ *             .defaultRetentionDuration("P4M")
  *             .build());
  * 
- *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()        
  *             .scope(exampleServer.id())
- *             .roleDefinitionName(&#34;Reader&#34;)
- *             .principalId(exampleBackupVault.identity().applyValue(identity -&gt; identity.principalId()))
+ *             .roleDefinitionName("Reader")
+ *             .principalId(exampleBackupVault.identity().applyValue(identity -> identity.principalId()))
  *             .build());
  * 
- *         var exampleBackupInstancePostgresql = new BackupInstancePostgresql(&#34;exampleBackupInstancePostgresql&#34;, BackupInstancePostgresqlArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleBackupInstancePostgresql = new BackupInstancePostgresql("exampleBackupInstancePostgresql", BackupInstancePostgresqlArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .vaultId(exampleBackupVault.id())
  *             .databaseId(exampleDatabase.id())
@@ -185,7 +186,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

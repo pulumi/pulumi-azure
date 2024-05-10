@@ -53,7 +53,8 @@ public final class KeyvaultFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -75,13 +76,14 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var contributor = KeyvaultFunctions.getAccessPolicy(GetAccessPolicyArgs.builder()
-     *             .name(&#34;Key Management&#34;)
+     *             .name("Key Management")
      *             .build());
      * 
-     *         ctx.export(&#34;accessPolicyKeyPermissions&#34;, contributor.applyValue(getAccessPolicyResult -&gt; getAccessPolicyResult.keyPermissions()));
+     *         ctx.export("accessPolicyKeyPermissions", contributor.applyValue(getAccessPolicyResult -> getAccessPolicyResult.keyPermissions()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -94,7 +96,8 @@ public final class KeyvaultFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -116,13 +119,14 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var contributor = KeyvaultFunctions.getAccessPolicy(GetAccessPolicyArgs.builder()
-     *             .name(&#34;Key Management&#34;)
+     *             .name("Key Management")
      *             .build());
      * 
-     *         ctx.export(&#34;accessPolicyKeyPermissions&#34;, contributor.applyValue(getAccessPolicyResult -&gt; getAccessPolicyResult.keyPermissions()));
+     *         ctx.export("accessPolicyKeyPermissions", contributor.applyValue(getAccessPolicyResult -> getAccessPolicyResult.keyPermissions()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -135,7 +139,8 @@ public final class KeyvaultFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -157,13 +162,14 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var contributor = KeyvaultFunctions.getAccessPolicy(GetAccessPolicyArgs.builder()
-     *             .name(&#34;Key Management&#34;)
+     *             .name("Key Management")
      *             .build());
      * 
-     *         ctx.export(&#34;accessPolicyKeyPermissions&#34;, contributor.applyValue(getAccessPolicyResult -&gt; getAccessPolicyResult.keyPermissions()));
+     *         ctx.export("accessPolicyKeyPermissions", contributor.applyValue(getAccessPolicyResult -> getAccessPolicyResult.keyPermissions()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -176,7 +182,8 @@ public final class KeyvaultFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -198,13 +205,14 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var contributor = KeyvaultFunctions.getAccessPolicy(GetAccessPolicyArgs.builder()
-     *             .name(&#34;Key Management&#34;)
+     *             .name("Key Management")
      *             .build());
      * 
-     *         ctx.export(&#34;accessPolicyKeyPermissions&#34;, contributor.applyValue(getAccessPolicyResult -&gt; getAccessPolicyResult.keyPermissions()));
+     *         ctx.export("accessPolicyKeyPermissions", contributor.applyValue(getAccessPolicyResult -> getAccessPolicyResult.keyPermissions()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -217,7 +225,8 @@ public final class KeyvaultFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -240,19 +249,20 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
-     *             .name(&#34;examplekv&#34;)
-     *             .resourceGroupName(&#34;some-resource-group&#34;)
+     *             .name("examplekv")
+     *             .resourceGroupName("some-resource-group")
      *             .build());
      * 
      *         final var exampleGetCertificate = KeyvaultFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .name(&#34;secret-sauce&#34;)
-     *             .keyVaultId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .name("secret-sauce")
+     *             .keyVaultId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;certificateThumbprint&#34;, exampleGetCertificate.applyValue(getCertificateResult -&gt; getCertificateResult.thumbprint()));
+     *         ctx.export("certificateThumbprint", exampleGetCertificate.applyValue(getCertificateResult -> getCertificateResult.thumbprint()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -265,7 +275,8 @@ public final class KeyvaultFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -288,19 +299,20 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
-     *             .name(&#34;examplekv&#34;)
-     *             .resourceGroupName(&#34;some-resource-group&#34;)
+     *             .name("examplekv")
+     *             .resourceGroupName("some-resource-group")
      *             .build());
      * 
      *         final var exampleGetCertificate = KeyvaultFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .name(&#34;secret-sauce&#34;)
-     *             .keyVaultId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .name("secret-sauce")
+     *             .keyVaultId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;certificateThumbprint&#34;, exampleGetCertificate.applyValue(getCertificateResult -&gt; getCertificateResult.thumbprint()));
+     *         ctx.export("certificateThumbprint", exampleGetCertificate.applyValue(getCertificateResult -> getCertificateResult.thumbprint()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -313,7 +325,8 @@ public final class KeyvaultFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -336,19 +349,20 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
-     *             .name(&#34;examplekv&#34;)
-     *             .resourceGroupName(&#34;some-resource-group&#34;)
+     *             .name("examplekv")
+     *             .resourceGroupName("some-resource-group")
      *             .build());
      * 
      *         final var exampleGetCertificate = KeyvaultFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .name(&#34;secret-sauce&#34;)
-     *             .keyVaultId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .name("secret-sauce")
+     *             .keyVaultId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;certificateThumbprint&#34;, exampleGetCertificate.applyValue(getCertificateResult -&gt; getCertificateResult.thumbprint()));
+     *         ctx.export("certificateThumbprint", exampleGetCertificate.applyValue(getCertificateResult -> getCertificateResult.thumbprint()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -361,7 +375,8 @@ public final class KeyvaultFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -384,19 +399,20 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
-     *             .name(&#34;examplekv&#34;)
-     *             .resourceGroupName(&#34;some-resource-group&#34;)
+     *             .name("examplekv")
+     *             .resourceGroupName("some-resource-group")
      *             .build());
      * 
      *         final var exampleGetCertificate = KeyvaultFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .name(&#34;secret-sauce&#34;)
-     *             .keyVaultId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .name("secret-sauce")
+     *             .keyVaultId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;certificateThumbprint&#34;, exampleGetCertificate.applyValue(getCertificateResult -&gt; getCertificateResult.thumbprint()));
+     *         ctx.export("certificateThumbprint", exampleGetCertificate.applyValue(getCertificateResult -> getCertificateResult.thumbprint()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -411,7 +427,8 @@ public final class KeyvaultFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -434,19 +451,20 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
-     *             .name(&#34;examplekv&#34;)
-     *             .resourceGroupName(&#34;some-resource-group&#34;)
+     *             .name("examplekv")
+     *             .resourceGroupName("some-resource-group")
      *             .build());
      * 
      *         final var exampleGetCertificateData = KeyvaultFunctions.getCertificateData(GetCertificateDataArgs.builder()
-     *             .name(&#34;secret-sauce&#34;)
-     *             .keyVaultId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .name("secret-sauce")
+     *             .keyVaultId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;examplePem&#34;, exampleGetCertificateData.applyValue(getCertificateDataResult -&gt; getCertificateDataResult.pem()));
+     *         ctx.export("examplePem", exampleGetCertificateData.applyValue(getCertificateDataResult -> getCertificateDataResult.pem()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -461,7 +479,8 @@ public final class KeyvaultFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -484,19 +503,20 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
-     *             .name(&#34;examplekv&#34;)
-     *             .resourceGroupName(&#34;some-resource-group&#34;)
+     *             .name("examplekv")
+     *             .resourceGroupName("some-resource-group")
      *             .build());
      * 
      *         final var exampleGetCertificateData = KeyvaultFunctions.getCertificateData(GetCertificateDataArgs.builder()
-     *             .name(&#34;secret-sauce&#34;)
-     *             .keyVaultId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .name("secret-sauce")
+     *             .keyVaultId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;examplePem&#34;, exampleGetCertificateData.applyValue(getCertificateDataResult -&gt; getCertificateDataResult.pem()));
+     *         ctx.export("examplePem", exampleGetCertificateData.applyValue(getCertificateDataResult -> getCertificateDataResult.pem()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -511,7 +531,8 @@ public final class KeyvaultFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -534,19 +555,20 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
-     *             .name(&#34;examplekv&#34;)
-     *             .resourceGroupName(&#34;some-resource-group&#34;)
+     *             .name("examplekv")
+     *             .resourceGroupName("some-resource-group")
      *             .build());
      * 
      *         final var exampleGetCertificateData = KeyvaultFunctions.getCertificateData(GetCertificateDataArgs.builder()
-     *             .name(&#34;secret-sauce&#34;)
-     *             .keyVaultId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .name("secret-sauce")
+     *             .keyVaultId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;examplePem&#34;, exampleGetCertificateData.applyValue(getCertificateDataResult -&gt; getCertificateDataResult.pem()));
+     *         ctx.export("examplePem", exampleGetCertificateData.applyValue(getCertificateDataResult -> getCertificateDataResult.pem()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -561,7 +583,8 @@ public final class KeyvaultFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -584,19 +607,20 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
-     *             .name(&#34;examplekv&#34;)
-     *             .resourceGroupName(&#34;some-resource-group&#34;)
+     *             .name("examplekv")
+     *             .resourceGroupName("some-resource-group")
      *             .build());
      * 
      *         final var exampleGetCertificateData = KeyvaultFunctions.getCertificateData(GetCertificateDataArgs.builder()
-     *             .name(&#34;secret-sauce&#34;)
-     *             .keyVaultId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .name("secret-sauce")
+     *             .keyVaultId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;examplePem&#34;, exampleGetCertificateData.applyValue(getCertificateDataResult -&gt; getCertificateDataResult.pem()));
+     *         ctx.export("examplePem", exampleGetCertificateData.applyValue(getCertificateDataResult -> getCertificateDataResult.pem()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -609,7 +633,8 @@ public final class KeyvaultFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -632,19 +657,20 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
-     *             .name(&#34;mykeyvault&#34;)
-     *             .resourceGroupName(&#34;some-resource-group&#34;)
+     *             .name("mykeyvault")
+     *             .resourceGroupName("some-resource-group")
      *             .build());
      * 
      *         final var exampleGetCertificateIssuer = KeyvaultFunctions.getCertificateIssuer(GetCertificateIssuerArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .keyVaultId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .name("existing")
+     *             .keyVaultId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleGetCertificateIssuer.applyValue(getCertificateIssuerResult -&gt; getCertificateIssuerResult.id()));
+     *         ctx.export("id", exampleGetCertificateIssuer.applyValue(getCertificateIssuerResult -> getCertificateIssuerResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -657,7 +683,8 @@ public final class KeyvaultFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -680,19 +707,20 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
-     *             .name(&#34;mykeyvault&#34;)
-     *             .resourceGroupName(&#34;some-resource-group&#34;)
+     *             .name("mykeyvault")
+     *             .resourceGroupName("some-resource-group")
      *             .build());
      * 
      *         final var exampleGetCertificateIssuer = KeyvaultFunctions.getCertificateIssuer(GetCertificateIssuerArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .keyVaultId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .name("existing")
+     *             .keyVaultId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleGetCertificateIssuer.applyValue(getCertificateIssuerResult -&gt; getCertificateIssuerResult.id()));
+     *         ctx.export("id", exampleGetCertificateIssuer.applyValue(getCertificateIssuerResult -> getCertificateIssuerResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -705,7 +733,8 @@ public final class KeyvaultFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -728,19 +757,20 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
-     *             .name(&#34;mykeyvault&#34;)
-     *             .resourceGroupName(&#34;some-resource-group&#34;)
+     *             .name("mykeyvault")
+     *             .resourceGroupName("some-resource-group")
      *             .build());
      * 
      *         final var exampleGetCertificateIssuer = KeyvaultFunctions.getCertificateIssuer(GetCertificateIssuerArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .keyVaultId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .name("existing")
+     *             .keyVaultId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleGetCertificateIssuer.applyValue(getCertificateIssuerResult -&gt; getCertificateIssuerResult.id()));
+     *         ctx.export("id", exampleGetCertificateIssuer.applyValue(getCertificateIssuerResult -> getCertificateIssuerResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -753,7 +783,8 @@ public final class KeyvaultFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -776,19 +807,20 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
-     *             .name(&#34;mykeyvault&#34;)
-     *             .resourceGroupName(&#34;some-resource-group&#34;)
+     *             .name("mykeyvault")
+     *             .resourceGroupName("some-resource-group")
      *             .build());
      * 
      *         final var exampleGetCertificateIssuer = KeyvaultFunctions.getCertificateIssuer(GetCertificateIssuerArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .keyVaultId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .name("existing")
+     *             .keyVaultId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleGetCertificateIssuer.applyValue(getCertificateIssuerResult -&gt; getCertificateIssuerResult.id()));
+     *         ctx.export("id", exampleGetCertificateIssuer.applyValue(getCertificateIssuerResult -> getCertificateIssuerResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -857,7 +889,8 @@ public final class KeyvaultFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -879,14 +912,15 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getKey(GetKeyArgs.builder()
-     *             .name(&#34;secret-sauce&#34;)
+     *             .name("secret-sauce")
      *             .keyVaultId(existing.id())
      *             .build());
      * 
-     *         ctx.export(&#34;keyType&#34;, example.applyValue(getKeyResult -&gt; getKeyResult.keyType()));
+     *         ctx.export("keyType", example.applyValue(getKeyResult -> getKeyResult.keyType()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -899,7 +933,8 @@ public final class KeyvaultFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -921,14 +956,15 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getKey(GetKeyArgs.builder()
-     *             .name(&#34;secret-sauce&#34;)
+     *             .name("secret-sauce")
      *             .keyVaultId(existing.id())
      *             .build());
      * 
-     *         ctx.export(&#34;keyType&#34;, example.applyValue(getKeyResult -&gt; getKeyResult.keyType()));
+     *         ctx.export("keyType", example.applyValue(getKeyResult -> getKeyResult.keyType()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -941,7 +977,8 @@ public final class KeyvaultFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -963,14 +1000,15 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getKey(GetKeyArgs.builder()
-     *             .name(&#34;secret-sauce&#34;)
+     *             .name("secret-sauce")
      *             .keyVaultId(existing.id())
      *             .build());
      * 
-     *         ctx.export(&#34;keyType&#34;, example.applyValue(getKeyResult -&gt; getKeyResult.keyType()));
+     *         ctx.export("keyType", example.applyValue(getKeyResult -> getKeyResult.keyType()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -983,7 +1021,8 @@ public final class KeyvaultFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1005,14 +1044,15 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getKey(GetKeyArgs.builder()
-     *             .name(&#34;secret-sauce&#34;)
+     *             .name("secret-sauce")
      *             .keyVaultId(existing.id())
      *             .build());
      * 
-     *         ctx.export(&#34;keyType&#34;, example.applyValue(getKeyResult -&gt; getKeyResult.keyType()));
+     *         ctx.export("keyType", example.applyValue(getKeyResult -> getKeyResult.keyType()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1025,7 +1065,8 @@ public final class KeyvaultFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1047,14 +1088,15 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
-     *             .name(&#34;mykeyvault&#34;)
-     *             .resourceGroupName(&#34;some-resource-group&#34;)
+     *             .name("mykeyvault")
+     *             .resourceGroupName("some-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;vaultUri&#34;, example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.vaultUri()));
+     *         ctx.export("vaultUri", example.applyValue(getKeyVaultResult -> getKeyVaultResult.vaultUri()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1067,7 +1109,8 @@ public final class KeyvaultFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1089,14 +1132,15 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
-     *             .name(&#34;mykeyvault&#34;)
-     *             .resourceGroupName(&#34;some-resource-group&#34;)
+     *             .name("mykeyvault")
+     *             .resourceGroupName("some-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;vaultUri&#34;, example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.vaultUri()));
+     *         ctx.export("vaultUri", example.applyValue(getKeyVaultResult -> getKeyVaultResult.vaultUri()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1109,7 +1153,8 @@ public final class KeyvaultFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1131,14 +1176,15 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
-     *             .name(&#34;mykeyvault&#34;)
-     *             .resourceGroupName(&#34;some-resource-group&#34;)
+     *             .name("mykeyvault")
+     *             .resourceGroupName("some-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;vaultUri&#34;, example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.vaultUri()));
+     *         ctx.export("vaultUri", example.applyValue(getKeyVaultResult -> getKeyVaultResult.vaultUri()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1151,7 +1197,8 @@ public final class KeyvaultFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1173,14 +1220,15 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
-     *             .name(&#34;mykeyvault&#34;)
-     *             .resourceGroupName(&#34;some-resource-group&#34;)
+     *             .name("mykeyvault")
+     *             .resourceGroupName("some-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;vaultUri&#34;, example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.vaultUri()));
+     *         ctx.export("vaultUri", example.applyValue(getKeyVaultResult -> getKeyVaultResult.vaultUri()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1193,7 +1241,8 @@ public final class KeyvaultFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1215,14 +1264,15 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModule(GetManagedHardwareSecurityModuleArgs.builder()
-     *             .name(&#34;mykeyvaultHsm&#34;)
-     *             .resourceGroupName(&#34;some-resource-group&#34;)
+     *             .name("mykeyvaultHsm")
+     *             .resourceGroupName("some-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;hsmUri&#34;, example.applyValue(getManagedHardwareSecurityModuleResult -&gt; getManagedHardwareSecurityModuleResult.hsmUri()));
+     *         ctx.export("hsmUri", example.applyValue(getManagedHardwareSecurityModuleResult -> getManagedHardwareSecurityModuleResult.hsmUri()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1235,7 +1285,8 @@ public final class KeyvaultFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1257,14 +1308,15 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModule(GetManagedHardwareSecurityModuleArgs.builder()
-     *             .name(&#34;mykeyvaultHsm&#34;)
-     *             .resourceGroupName(&#34;some-resource-group&#34;)
+     *             .name("mykeyvaultHsm")
+     *             .resourceGroupName("some-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;hsmUri&#34;, example.applyValue(getManagedHardwareSecurityModuleResult -&gt; getManagedHardwareSecurityModuleResult.hsmUri()));
+     *         ctx.export("hsmUri", example.applyValue(getManagedHardwareSecurityModuleResult -> getManagedHardwareSecurityModuleResult.hsmUri()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1277,7 +1329,8 @@ public final class KeyvaultFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1299,14 +1352,15 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModule(GetManagedHardwareSecurityModuleArgs.builder()
-     *             .name(&#34;mykeyvaultHsm&#34;)
-     *             .resourceGroupName(&#34;some-resource-group&#34;)
+     *             .name("mykeyvaultHsm")
+     *             .resourceGroupName("some-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;hsmUri&#34;, example.applyValue(getManagedHardwareSecurityModuleResult -&gt; getManagedHardwareSecurityModuleResult.hsmUri()));
+     *         ctx.export("hsmUri", example.applyValue(getManagedHardwareSecurityModuleResult -> getManagedHardwareSecurityModuleResult.hsmUri()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1319,7 +1373,8 @@ public final class KeyvaultFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1341,14 +1396,15 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModule(GetManagedHardwareSecurityModuleArgs.builder()
-     *             .name(&#34;mykeyvaultHsm&#34;)
-     *             .resourceGroupName(&#34;some-resource-group&#34;)
+     *             .name("mykeyvaultHsm")
+     *             .resourceGroupName("some-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;hsmUri&#34;, example.applyValue(getManagedHardwareSecurityModuleResult -&gt; getManagedHardwareSecurityModuleResult.hsmUri()));
+     *         ctx.export("hsmUri", example.applyValue(getManagedHardwareSecurityModuleResult -> getManagedHardwareSecurityModuleResult.hsmUri()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1361,7 +1417,8 @@ public final class KeyvaultFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1384,13 +1441,14 @@ public final class KeyvaultFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModuleRoleDefinition(GetManagedHardwareSecurityModuleRoleDefinitionArgs.builder()
      *             .vaultBaseUrl(test.hsmUri())
-     *             .name(&#34;21dbd100-6940-42c2-9190-5d6cb909625b&#34;)
+     *             .name("21dbd100-6940-42c2-9190-5d6cb909625b")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getManagedHardwareSecurityModuleRoleDefinitionResult -&gt; getManagedHardwareSecurityModuleRoleDefinitionResult.resourceManagerId()));
+     *         ctx.export("id", example.applyValue(getManagedHardwareSecurityModuleRoleDefinitionResult -> getManagedHardwareSecurityModuleRoleDefinitionResult.resourceManagerId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1403,7 +1461,8 @@ public final class KeyvaultFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1426,13 +1485,14 @@ public final class KeyvaultFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModuleRoleDefinition(GetManagedHardwareSecurityModuleRoleDefinitionArgs.builder()
      *             .vaultBaseUrl(test.hsmUri())
-     *             .name(&#34;21dbd100-6940-42c2-9190-5d6cb909625b&#34;)
+     *             .name("21dbd100-6940-42c2-9190-5d6cb909625b")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getManagedHardwareSecurityModuleRoleDefinitionResult -&gt; getManagedHardwareSecurityModuleRoleDefinitionResult.resourceManagerId()));
+     *         ctx.export("id", example.applyValue(getManagedHardwareSecurityModuleRoleDefinitionResult -> getManagedHardwareSecurityModuleRoleDefinitionResult.resourceManagerId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1445,7 +1505,8 @@ public final class KeyvaultFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1468,13 +1529,14 @@ public final class KeyvaultFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModuleRoleDefinition(GetManagedHardwareSecurityModuleRoleDefinitionArgs.builder()
      *             .vaultBaseUrl(test.hsmUri())
-     *             .name(&#34;21dbd100-6940-42c2-9190-5d6cb909625b&#34;)
+     *             .name("21dbd100-6940-42c2-9190-5d6cb909625b")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getManagedHardwareSecurityModuleRoleDefinitionResult -&gt; getManagedHardwareSecurityModuleRoleDefinitionResult.resourceManagerId()));
+     *         ctx.export("id", example.applyValue(getManagedHardwareSecurityModuleRoleDefinitionResult -> getManagedHardwareSecurityModuleRoleDefinitionResult.resourceManagerId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1487,7 +1549,8 @@ public final class KeyvaultFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1510,13 +1573,14 @@ public final class KeyvaultFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModuleRoleDefinition(GetManagedHardwareSecurityModuleRoleDefinitionArgs.builder()
      *             .vaultBaseUrl(test.hsmUri())
-     *             .name(&#34;21dbd100-6940-42c2-9190-5d6cb909625b&#34;)
+     *             .name("21dbd100-6940-42c2-9190-5d6cb909625b")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getManagedHardwareSecurityModuleRoleDefinitionResult -&gt; getManagedHardwareSecurityModuleRoleDefinitionResult.resourceManagerId()));
+     *         ctx.export("id", example.applyValue(getManagedHardwareSecurityModuleRoleDefinitionResult -> getManagedHardwareSecurityModuleRoleDefinitionResult.resourceManagerId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1529,7 +1593,8 @@ public final class KeyvaultFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1551,14 +1616,15 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getSecret(GetSecretArgs.builder()
-     *             .name(&#34;secret-sauce&#34;)
+     *             .name("secret-sauce")
      *             .keyVaultId(existing.id())
      *             .build());
      * 
-     *         ctx.export(&#34;secretValue&#34;, example.applyValue(getSecretResult -&gt; getSecretResult.value()));
+     *         ctx.export("secretValue", example.applyValue(getSecretResult -> getSecretResult.value()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1571,7 +1637,8 @@ public final class KeyvaultFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1593,14 +1660,15 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getSecret(GetSecretArgs.builder()
-     *             .name(&#34;secret-sauce&#34;)
+     *             .name("secret-sauce")
      *             .keyVaultId(existing.id())
      *             .build());
      * 
-     *         ctx.export(&#34;secretValue&#34;, example.applyValue(getSecretResult -&gt; getSecretResult.value()));
+     *         ctx.export("secretValue", example.applyValue(getSecretResult -> getSecretResult.value()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1613,7 +1681,8 @@ public final class KeyvaultFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1635,14 +1704,15 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getSecret(GetSecretArgs.builder()
-     *             .name(&#34;secret-sauce&#34;)
+     *             .name("secret-sauce")
      *             .keyVaultId(existing.id())
      *             .build());
      * 
-     *         ctx.export(&#34;secretValue&#34;, example.applyValue(getSecretResult -&gt; getSecretResult.value()));
+     *         ctx.export("secretValue", example.applyValue(getSecretResult -> getSecretResult.value()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1655,7 +1725,8 @@ public final class KeyvaultFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1677,14 +1748,15 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getSecret(GetSecretArgs.builder()
-     *             .name(&#34;secret-sauce&#34;)
+     *             .name("secret-sauce")
      *             .keyVaultId(existing.id())
      *             .build());
      * 
-     *         ctx.export(&#34;secretValue&#34;, example.applyValue(getSecretResult -&gt; getSecretResult.value()));
+     *         ctx.export("secretValue", example.applyValue(getSecretResult -> getSecretResult.value()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,58 +55,59 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;example-dsa&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("example-dsa")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .identity(AccountIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
- *         var exampleShare = new Share(&#34;exampleShare&#34;, ShareArgs.builder()        
- *             .name(&#34;example_ds&#34;)
+ *         var exampleShare = new Share("exampleShare", ShareArgs.builder()        
+ *             .name("example_ds")
  *             .accountId(exampleAccount.id())
- *             .kind(&#34;InPlace&#34;)
+ *             .kind("InPlace")
  *             .build());
  * 
- *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
- *             .name(&#34;examplekc&#34;)
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()        
+ *             .name("examplekc")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku(ClusterSkuArgs.builder()
- *                 .name(&#34;Dev(No SLA)_Standard_D11_v2&#34;)
+ *                 .name("Dev(No SLA)_Standard_D11_v2")
  *                 .capacity(1)
  *                 .build())
  *             .build());
  * 
- *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
- *             .name(&#34;examplekd&#34;)
+ *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()        
+ *             .name("examplekd")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .clusterName(exampleCluster.name())
  *             .build());
  * 
- *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()        
  *             .scope(exampleCluster.id())
- *             .roleDefinitionName(&#34;Contributor&#34;)
- *             .principalId(exampleAccount.identity().applyValue(identity -&gt; identity.principalId()))
+ *             .roleDefinitionName("Contributor")
+ *             .principalId(exampleAccount.identity().applyValue(identity -> identity.principalId()))
  *             .build());
  * 
- *         var exampleDatasetKustoDatabase = new DatasetKustoDatabase(&#34;exampleDatasetKustoDatabase&#34;, DatasetKustoDatabaseArgs.builder()        
- *             .name(&#34;example-dskd&#34;)
+ *         var exampleDatasetKustoDatabase = new DatasetKustoDatabase("exampleDatasetKustoDatabase", DatasetKustoDatabaseArgs.builder()        
+ *             .name("example-dskd")
  *             .shareId(exampleShare.id())
  *             .kustoDatabaseId(exampleDatabase.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

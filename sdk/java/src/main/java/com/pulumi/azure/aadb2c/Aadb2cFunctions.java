@@ -20,7 +20,8 @@ public final class Aadb2cFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -42,14 +43,15 @@ public final class Aadb2cFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Aadb2cFunctions.getDirectory(GetDirectoryArgs.builder()
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .domainName(&#34;exampleb2ctenant.onmicrosoft.com&#34;)
+     *             .resourceGroupName("example-rg")
+     *             .domainName("exampleb2ctenant.onmicrosoft.com")
      *             .build());
      * 
-     *         ctx.export(&#34;tenantId&#34;, example.applyValue(getDirectoryResult -&gt; getDirectoryResult.tenantId()));
+     *         ctx.export("tenantId", example.applyValue(getDirectoryResult -> getDirectoryResult.tenantId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -62,7 +64,8 @@ public final class Aadb2cFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -84,14 +87,15 @@ public final class Aadb2cFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Aadb2cFunctions.getDirectory(GetDirectoryArgs.builder()
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .domainName(&#34;exampleb2ctenant.onmicrosoft.com&#34;)
+     *             .resourceGroupName("example-rg")
+     *             .domainName("exampleb2ctenant.onmicrosoft.com")
      *             .build());
      * 
-     *         ctx.export(&#34;tenantId&#34;, example.applyValue(getDirectoryResult -&gt; getDirectoryResult.tenantId()));
+     *         ctx.export("tenantId", example.applyValue(getDirectoryResult -> getDirectoryResult.tenantId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -104,7 +108,8 @@ public final class Aadb2cFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -126,14 +131,15 @@ public final class Aadb2cFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Aadb2cFunctions.getDirectory(GetDirectoryArgs.builder()
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .domainName(&#34;exampleb2ctenant.onmicrosoft.com&#34;)
+     *             .resourceGroupName("example-rg")
+     *             .domainName("exampleb2ctenant.onmicrosoft.com")
      *             .build());
      * 
-     *         ctx.export(&#34;tenantId&#34;, example.applyValue(getDirectoryResult -&gt; getDirectoryResult.tenantId()));
+     *         ctx.export("tenantId", example.applyValue(getDirectoryResult -> getDirectoryResult.tenantId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -146,7 +152,8 @@ public final class Aadb2cFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -168,14 +175,15 @@ public final class Aadb2cFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Aadb2cFunctions.getDirectory(GetDirectoryArgs.builder()
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .domainName(&#34;exampleb2ctenant.onmicrosoft.com&#34;)
+     *             .resourceGroupName("example-rg")
+     *             .domainName("exampleb2ctenant.onmicrosoft.com")
      *             .build());
      * 
-     *         ctx.export(&#34;tenantId&#34;, example.applyValue(getDirectoryResult -&gt; getDirectoryResult.tenantId()));
+     *         ctx.export("tenantId", example.applyValue(getDirectoryResult -> getDirectoryResult.tenantId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

@@ -22,7 +22,8 @@ public final class TrafficmanagerFunctions {
      * ### World)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -44,13 +45,14 @@ public final class TrafficmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getTrafficManager(GetTrafficManagerArgs.builder()
-     *             .name(&#34;World&#34;)
+     *             .name("World")
      *             .build());
      * 
-     *         ctx.export(&#34;locationCode&#34;, example.applyValue(getTrafficManagerResult -&gt; getTrafficManagerResult.id()));
+     *         ctx.export("locationCode", example.applyValue(getTrafficManagerResult -> getTrafficManagerResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
@@ -69,7 +71,8 @@ public final class TrafficmanagerFunctions {
      * ### World)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -91,13 +94,14 @@ public final class TrafficmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getTrafficManager(GetTrafficManagerArgs.builder()
-     *             .name(&#34;World&#34;)
+     *             .name("World")
      *             .build());
      * 
-     *         ctx.export(&#34;locationCode&#34;, example.applyValue(getTrafficManagerResult -&gt; getTrafficManagerResult.id()));
+     *         ctx.export("locationCode", example.applyValue(getTrafficManagerResult -> getTrafficManagerResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
@@ -116,7 +120,8 @@ public final class TrafficmanagerFunctions {
      * ### World)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -138,13 +143,14 @@ public final class TrafficmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getTrafficManager(GetTrafficManagerArgs.builder()
-     *             .name(&#34;World&#34;)
+     *             .name("World")
      *             .build());
      * 
-     *         ctx.export(&#34;locationCode&#34;, example.applyValue(getTrafficManagerResult -&gt; getTrafficManagerResult.id()));
+     *         ctx.export("locationCode", example.applyValue(getTrafficManagerResult -> getTrafficManagerResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
@@ -163,7 +169,8 @@ public final class TrafficmanagerFunctions {
      * ### World)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -185,13 +192,14 @@ public final class TrafficmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getTrafficManager(GetTrafficManagerArgs.builder()
-     *             .name(&#34;World&#34;)
+     *             .name("World")
      *             .build());
      * 
-     *         ctx.export(&#34;locationCode&#34;, example.applyValue(getTrafficManagerResult -&gt; getTrafficManagerResult.id()));
+     *         ctx.export("locationCode", example.applyValue(getTrafficManagerResult -> getTrafficManagerResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated

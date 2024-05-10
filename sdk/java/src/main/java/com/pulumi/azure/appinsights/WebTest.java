@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,44 +50,45 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;tf-test&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("tf-test")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleInsights = new Insights(&#34;exampleInsights&#34;, InsightsArgs.builder()        
- *             .name(&#34;tf-test-appinsights&#34;)
+ *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()        
+ *             .name("tf-test-appinsights")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .applicationType(&#34;web&#34;)
+ *             .applicationType("web")
  *             .build());
  * 
- *         var exampleWebTest = new WebTest(&#34;exampleWebTest&#34;, WebTestArgs.builder()        
- *             .name(&#34;tf-test-appinsights-webtest&#34;)
+ *         var exampleWebTest = new WebTest("exampleWebTest", WebTestArgs.builder()        
+ *             .name("tf-test-appinsights-webtest")
  *             .location(exampleInsights.location())
  *             .resourceGroupName(example.name())
  *             .applicationInsightsId(exampleInsights.id())
- *             .kind(&#34;ping&#34;)
+ *             .kind("ping")
  *             .frequency(300)
  *             .timeout(60)
  *             .enabled(true)
  *             .geoLocations(            
- *                 &#34;us-tx-sn1-azr&#34;,
- *                 &#34;us-il-ch1-azr&#34;)
- *             .configuration(&#34;&#34;&#34;
- * &lt;WebTest Name=&#34;WebTest1&#34; Id=&#34;ABD48585-0831-40CB-9069-682EA6BB3583&#34; Enabled=&#34;True&#34; CssProjectStructure=&#34;&#34; CssIteration=&#34;&#34; Timeout=&#34;0&#34; WorkItemIds=&#34;&#34; xmlns=&#34;http://microsoft.com/schemas/VisualStudio/TeamTest/2010&#34; Description=&#34;&#34; CredentialUserName=&#34;&#34; CredentialPassword=&#34;&#34; PreAuthenticate=&#34;True&#34; Proxy=&#34;default&#34; StopOnError=&#34;False&#34; RecordedResultFile=&#34;&#34; ResultsLocale=&#34;&#34;&gt;
- *   &lt;Items&gt;
- *     &lt;Request Method=&#34;GET&#34; Guid=&#34;a5f10126-e4cd-570d-961c-cea43999a200&#34; Version=&#34;1.1&#34; Url=&#34;http://microsoft.com&#34; ThinkTime=&#34;0&#34; Timeout=&#34;300&#34; ParseDependentRequests=&#34;True&#34; FollowRedirects=&#34;True&#34; RecordResult=&#34;True&#34; Cache=&#34;False&#34; ResponseTimeGoal=&#34;0&#34; Encoding=&#34;utf-8&#34; ExpectedHttpStatusCode=&#34;200&#34; ExpectedResponseUrl=&#34;&#34; ReportingName=&#34;&#34; IgnoreHttpStatusCode=&#34;False&#34; /&gt;
- *   &lt;/Items&gt;
- * &lt;/WebTest&gt;
- *             &#34;&#34;&#34;)
+ *                 "us-tx-sn1-azr",
+ *                 "us-il-ch1-azr")
+ *             .configuration("""
+ * <WebTest Name="WebTest1" Id="ABD48585-0831-40CB-9069-682EA6BB3583" Enabled="True" CssProjectStructure="" CssIteration="" Timeout="0" WorkItemIds="" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" Description="" CredentialUserName="" CredentialPassword="" PreAuthenticate="True" Proxy="default" StopOnError="False" RecordedResultFile="" ResultsLocale="">
+ *   <Items>
+ *     <Request Method="GET" Guid="a5f10126-e4cd-570d-961c-cea43999a200" Version="1.1" Url="http://microsoft.com" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="200" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False" />
+ *   </Items>
+ * </WebTest>
+ *             """)
  *             .build());
  * 
- *         ctx.export(&#34;webtestId&#34;, exampleWebTest.id());
- *         ctx.export(&#34;webtestsSyntheticId&#34;, exampleWebTest.syntheticMonitorId());
+ *         ctx.export("webtestId", exampleWebTest.id());
+ *         ctx.export("webtestsSyntheticId", exampleWebTest.syntheticMonitorId());
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -64,7 +64,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -86,14 +87,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getAppService(GetAppServiceArgs.builder()
-     *             .name(&#34;search-app-service&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
+     *             .name("search-app-service")
+     *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export(&#34;appServiceId&#34;, example.applyValue(getAppServiceResult -&gt; getAppServiceResult.id()));
+     *         ctx.export("appServiceId", example.applyValue(getAppServiceResult -> getAppServiceResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -108,7 +110,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -130,14 +133,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getAppService(GetAppServiceArgs.builder()
-     *             .name(&#34;search-app-service&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
+     *             .name("search-app-service")
+     *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export(&#34;appServiceId&#34;, example.applyValue(getAppServiceResult -&gt; getAppServiceResult.id()));
+     *         ctx.export("appServiceId", example.applyValue(getAppServiceResult -> getAppServiceResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -152,7 +156,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -174,14 +179,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getAppService(GetAppServiceArgs.builder()
-     *             .name(&#34;search-app-service&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
+     *             .name("search-app-service")
+     *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export(&#34;appServiceId&#34;, example.applyValue(getAppServiceResult -&gt; getAppServiceResult.id()));
+     *         ctx.export("appServiceId", example.applyValue(getAppServiceResult -> getAppServiceResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -196,7 +202,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -218,14 +225,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getAppService(GetAppServiceArgs.builder()
-     *             .name(&#34;search-app-service&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
+     *             .name("search-app-service")
+     *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export(&#34;appServiceId&#34;, example.applyValue(getAppServiceResult -&gt; getAppServiceResult.id()));
+     *         ctx.export("appServiceId", example.applyValue(getAppServiceResult -> getAppServiceResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -238,7 +246,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -260,14 +269,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getAppServiceEnvironment(GetAppServiceEnvironmentArgs.builder()
-     *             .name(&#34;existing-ase&#34;)
-     *             .resourceGroupName(&#34;existing-rg&#34;)
+     *             .name("existing-ase")
+     *             .resourceGroupName("existing-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAppServiceEnvironmentResult -&gt; getAppServiceEnvironmentResult.id()));
+     *         ctx.export("id", example.applyValue(getAppServiceEnvironmentResult -> getAppServiceEnvironmentResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -280,7 +290,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -302,14 +313,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getAppServiceEnvironment(GetAppServiceEnvironmentArgs.builder()
-     *             .name(&#34;existing-ase&#34;)
-     *             .resourceGroupName(&#34;existing-rg&#34;)
+     *             .name("existing-ase")
+     *             .resourceGroupName("existing-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAppServiceEnvironmentResult -&gt; getAppServiceEnvironmentResult.id()));
+     *         ctx.export("id", example.applyValue(getAppServiceEnvironmentResult -> getAppServiceEnvironmentResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -322,7 +334,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -344,14 +357,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getAppServiceEnvironment(GetAppServiceEnvironmentArgs.builder()
-     *             .name(&#34;existing-ase&#34;)
-     *             .resourceGroupName(&#34;existing-rg&#34;)
+     *             .name("existing-ase")
+     *             .resourceGroupName("existing-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAppServiceEnvironmentResult -&gt; getAppServiceEnvironmentResult.id()));
+     *         ctx.export("id", example.applyValue(getAppServiceEnvironmentResult -> getAppServiceEnvironmentResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -364,7 +378,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -386,14 +401,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getAppServiceEnvironment(GetAppServiceEnvironmentArgs.builder()
-     *             .name(&#34;existing-ase&#34;)
-     *             .resourceGroupName(&#34;existing-rg&#34;)
+     *             .name("existing-ase")
+     *             .resourceGroupName("existing-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAppServiceEnvironmentResult -&gt; getAppServiceEnvironmentResult.id()));
+     *         ctx.export("id", example.applyValue(getAppServiceEnvironmentResult -> getAppServiceEnvironmentResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -408,7 +424,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -430,14 +447,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getAppServicePlan(GetAppServicePlanArgs.builder()
-     *             .name(&#34;search-app-service-plan&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
+     *             .name("search-app-service-plan")
+     *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export(&#34;appServicePlanId&#34;, example.applyValue(getAppServicePlanResult -&gt; getAppServicePlanResult.id()));
+     *         ctx.export("appServicePlanId", example.applyValue(getAppServicePlanResult -> getAppServicePlanResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -452,7 +470,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -474,14 +493,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getAppServicePlan(GetAppServicePlanArgs.builder()
-     *             .name(&#34;search-app-service-plan&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
+     *             .name("search-app-service-plan")
+     *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export(&#34;appServicePlanId&#34;, example.applyValue(getAppServicePlanResult -&gt; getAppServicePlanResult.id()));
+     *         ctx.export("appServicePlanId", example.applyValue(getAppServicePlanResult -> getAppServicePlanResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -496,7 +516,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -518,14 +539,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getAppServicePlan(GetAppServicePlanArgs.builder()
-     *             .name(&#34;search-app-service-plan&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
+     *             .name("search-app-service-plan")
+     *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export(&#34;appServicePlanId&#34;, example.applyValue(getAppServicePlanResult -&gt; getAppServicePlanResult.id()));
+     *         ctx.export("appServicePlanId", example.applyValue(getAppServicePlanResult -> getAppServicePlanResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -540,7 +562,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -562,14 +585,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getAppServicePlan(GetAppServicePlanArgs.builder()
-     *             .name(&#34;search-app-service-plan&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
+     *             .name("search-app-service-plan")
+     *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export(&#34;appServicePlanId&#34;, example.applyValue(getAppServicePlanResult -&gt; getAppServicePlanResult.id()));
+     *         ctx.export("appServicePlanId", example.applyValue(getAppServicePlanResult -> getAppServicePlanResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -582,7 +606,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -604,14 +629,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .name(&#34;example-app-service-certificate&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-app-service-certificate")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;appServiceCertificateId&#34;, example.applyValue(getCertificateResult -&gt; getCertificateResult.id()));
+     *         ctx.export("appServiceCertificateId", example.applyValue(getCertificateResult -> getCertificateResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -624,7 +650,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -646,14 +673,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .name(&#34;example-app-service-certificate&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-app-service-certificate")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;appServiceCertificateId&#34;, example.applyValue(getCertificateResult -&gt; getCertificateResult.id()));
+     *         ctx.export("appServiceCertificateId", example.applyValue(getCertificateResult -> getCertificateResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -666,7 +694,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -688,14 +717,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .name(&#34;example-app-service-certificate&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-app-service-certificate")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;appServiceCertificateId&#34;, example.applyValue(getCertificateResult -&gt; getCertificateResult.id()));
+     *         ctx.export("appServiceCertificateId", example.applyValue(getCertificateResult -> getCertificateResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -708,7 +738,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -730,14 +761,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .name(&#34;example-app-service-certificate&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-app-service-certificate")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;appServiceCertificateId&#34;, example.applyValue(getCertificateResult -&gt; getCertificateResult.id()));
+     *         ctx.export("appServiceCertificateId", example.applyValue(getCertificateResult -> getCertificateResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -750,7 +782,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -772,14 +805,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getCertificateOrder(GetCertificateOrderArgs.builder()
-     *             .name(&#34;example-cert-order&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-cert-order")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;certificateOrderId&#34;, example.applyValue(getCertificateOrderResult -&gt; getCertificateOrderResult.id()));
+     *         ctx.export("certificateOrderId", example.applyValue(getCertificateOrderResult -> getCertificateOrderResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -792,7 +826,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -814,14 +849,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getCertificateOrder(GetCertificateOrderArgs.builder()
-     *             .name(&#34;example-cert-order&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-cert-order")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;certificateOrderId&#34;, example.applyValue(getCertificateOrderResult -&gt; getCertificateOrderResult.id()));
+     *         ctx.export("certificateOrderId", example.applyValue(getCertificateOrderResult -> getCertificateOrderResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -834,7 +870,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -856,14 +893,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getCertificateOrder(GetCertificateOrderArgs.builder()
-     *             .name(&#34;example-cert-order&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-cert-order")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;certificateOrderId&#34;, example.applyValue(getCertificateOrderResult -&gt; getCertificateOrderResult.id()));
+     *         ctx.export("certificateOrderId", example.applyValue(getCertificateOrderResult -> getCertificateOrderResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -876,7 +914,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -898,14 +937,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getCertificateOrder(GetCertificateOrderArgs.builder()
-     *             .name(&#34;example-cert-order&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-cert-order")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;certificateOrderId&#34;, example.applyValue(getCertificateOrderResult -&gt; getCertificateOrderResult.id()));
+     *         ctx.export("certificateOrderId", example.applyValue(getCertificateOrderResult -> getCertificateOrderResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -918,7 +958,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -940,14 +981,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getEnvironmentV3(GetEnvironmentV3Args.builder()
-     *             .name(&#34;example-ASE&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
+     *             .name("example-ASE")
+     *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getEnvironmentV3Result -&gt; getEnvironmentV3Result.id()));
+     *         ctx.export("id", example.applyValue(getEnvironmentV3Result -> getEnvironmentV3Result.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -960,7 +1002,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -982,14 +1025,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getEnvironmentV3(GetEnvironmentV3Args.builder()
-     *             .name(&#34;example-ASE&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
+     *             .name("example-ASE")
+     *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getEnvironmentV3Result -&gt; getEnvironmentV3Result.id()));
+     *         ctx.export("id", example.applyValue(getEnvironmentV3Result -> getEnvironmentV3Result.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1002,7 +1046,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1024,14 +1069,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getEnvironmentV3(GetEnvironmentV3Args.builder()
-     *             .name(&#34;example-ASE&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
+     *             .name("example-ASE")
+     *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getEnvironmentV3Result -&gt; getEnvironmentV3Result.id()));
+     *         ctx.export("id", example.applyValue(getEnvironmentV3Result -> getEnvironmentV3Result.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1044,7 +1090,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1066,14 +1113,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getEnvironmentV3(GetEnvironmentV3Args.builder()
-     *             .name(&#34;example-ASE&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
+     *             .name("example-ASE")
+     *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getEnvironmentV3Result -&gt; getEnvironmentV3Result.id()));
+     *         ctx.export("id", example.applyValue(getEnvironmentV3Result -> getEnvironmentV3Result.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1088,7 +1136,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1110,13 +1159,14 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getFunctionApp(GetFunctionAppArgs.builder()
-     *             .name(&#34;test-azure-functions&#34;)
+     *             .name("test-azure-functions")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1131,7 +1181,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1153,13 +1204,14 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getFunctionApp(GetFunctionAppArgs.builder()
-     *             .name(&#34;test-azure-functions&#34;)
+     *             .name("test-azure-functions")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1174,7 +1226,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1196,13 +1249,14 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getFunctionApp(GetFunctionAppArgs.builder()
-     *             .name(&#34;test-azure-functions&#34;)
+     *             .name("test-azure-functions")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1217,7 +1271,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1239,13 +1294,14 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getFunctionApp(GetFunctionAppArgs.builder()
-     *             .name(&#34;test-azure-functions&#34;)
+     *             .name("test-azure-functions")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1258,7 +1314,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1280,13 +1337,14 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getFunctionAppHostKeys(GetFunctionAppHostKeysArgs.builder()
-     *             .name(&#34;example-function&#34;)
+     *             .name("example-function")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1299,7 +1357,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1321,13 +1380,14 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getFunctionAppHostKeys(GetFunctionAppHostKeysArgs.builder()
-     *             .name(&#34;example-function&#34;)
+     *             .name("example-function")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1340,7 +1400,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1362,13 +1423,14 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getFunctionAppHostKeys(GetFunctionAppHostKeysArgs.builder()
-     *             .name(&#34;example-function&#34;)
+     *             .name("example-function")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1381,7 +1443,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1403,13 +1466,14 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getFunctionAppHostKeys(GetFunctionAppHostKeysArgs.builder()
-     *             .name(&#34;example-function&#34;)
+     *             .name("example-function")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1422,7 +1486,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1444,14 +1509,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getLinuxFunctionApp(GetLinuxFunctionAppArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getLinuxFunctionAppResult -&gt; getLinuxFunctionAppResult.id()));
+     *         ctx.export("id", example.applyValue(getLinuxFunctionAppResult -> getLinuxFunctionAppResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1464,7 +1530,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1486,14 +1553,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getLinuxFunctionApp(GetLinuxFunctionAppArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getLinuxFunctionAppResult -&gt; getLinuxFunctionAppResult.id()));
+     *         ctx.export("id", example.applyValue(getLinuxFunctionAppResult -> getLinuxFunctionAppResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1506,7 +1574,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1528,14 +1597,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getLinuxFunctionApp(GetLinuxFunctionAppArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getLinuxFunctionAppResult -&gt; getLinuxFunctionAppResult.id()));
+     *         ctx.export("id", example.applyValue(getLinuxFunctionAppResult -> getLinuxFunctionAppResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1548,7 +1618,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1570,14 +1641,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getLinuxFunctionApp(GetLinuxFunctionAppArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getLinuxFunctionAppResult -&gt; getLinuxFunctionAppResult.id()));
+     *         ctx.export("id", example.applyValue(getLinuxFunctionAppResult -> getLinuxFunctionAppResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1590,7 +1662,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1612,14 +1685,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getLinuxWebApp(GetLinuxWebAppArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getLinuxWebAppResult -&gt; getLinuxWebAppResult.id()));
+     *         ctx.export("id", example.applyValue(getLinuxWebAppResult -> getLinuxWebAppResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1632,7 +1706,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1654,14 +1729,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getLinuxWebApp(GetLinuxWebAppArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getLinuxWebAppResult -&gt; getLinuxWebAppResult.id()));
+     *         ctx.export("id", example.applyValue(getLinuxWebAppResult -> getLinuxWebAppResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1674,7 +1750,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1696,14 +1773,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getLinuxWebApp(GetLinuxWebAppArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getLinuxWebAppResult -&gt; getLinuxWebAppResult.id()));
+     *         ctx.export("id", example.applyValue(getLinuxWebAppResult -> getLinuxWebAppResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1716,7 +1794,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1738,14 +1817,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getLinuxWebApp(GetLinuxWebAppArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getLinuxWebAppResult -&gt; getLinuxWebAppResult.id()));
+     *         ctx.export("id", example.applyValue(getLinuxWebAppResult -> getLinuxWebAppResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1758,7 +1838,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1780,14 +1861,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getServicePlan(GetServicePlanArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getServicePlanResult -&gt; getServicePlanResult.id()));
+     *         ctx.export("id", example.applyValue(getServicePlanResult -> getServicePlanResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1800,7 +1882,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1822,14 +1905,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getServicePlan(GetServicePlanArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getServicePlanResult -&gt; getServicePlanResult.id()));
+     *         ctx.export("id", example.applyValue(getServicePlanResult -> getServicePlanResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1842,7 +1926,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1864,14 +1949,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getServicePlan(GetServicePlanArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getServicePlanResult -&gt; getServicePlanResult.id()));
+     *         ctx.export("id", example.applyValue(getServicePlanResult -> getServicePlanResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1884,7 +1970,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1906,14 +1993,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getServicePlan(GetServicePlanArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getServicePlanResult -&gt; getServicePlanResult.id()));
+     *         ctx.export("id", example.applyValue(getServicePlanResult -> getServicePlanResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1924,7 +2012,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1946,13 +2035,14 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getSourceControlToken(GetSourceControlTokenArgs.builder()
-     *             .type(&#34;GitHub&#34;)
+     *             .type("GitHub")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleAzurermAppServiceGithubToken.id());
+     *         ctx.export("id", exampleAzurermAppServiceGithubToken.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1963,7 +2053,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1985,13 +2076,14 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getSourceControlToken(GetSourceControlTokenArgs.builder()
-     *             .type(&#34;GitHub&#34;)
+     *             .type("GitHub")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleAzurermAppServiceGithubToken.id());
+     *         ctx.export("id", exampleAzurermAppServiceGithubToken.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2002,7 +2094,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2024,13 +2117,14 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getSourceControlToken(GetSourceControlTokenArgs.builder()
-     *             .type(&#34;GitHub&#34;)
+     *             .type("GitHub")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleAzurermAppServiceGithubToken.id());
+     *         ctx.export("id", exampleAzurermAppServiceGithubToken.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2041,7 +2135,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2063,13 +2158,14 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getSourceControlToken(GetSourceControlTokenArgs.builder()
-     *             .type(&#34;GitHub&#34;)
+     *             .type("GitHub")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleAzurermAppServiceGithubToken.id());
+     *         ctx.export("id", exampleAzurermAppServiceGithubToken.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2082,7 +2178,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2104,13 +2201,14 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getStaticWebApp(GetStaticWebAppArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2123,7 +2221,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2145,13 +2244,14 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getStaticWebApp(GetStaticWebAppArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2164,7 +2264,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2186,13 +2287,14 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getStaticWebApp(GetStaticWebAppArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2205,7 +2307,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2227,13 +2330,14 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getStaticWebApp(GetStaticWebAppArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2246,7 +2350,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2268,14 +2373,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getWindowsFunctionApp(GetWindowsFunctionAppArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getWindowsFunctionAppResult -&gt; getWindowsFunctionAppResult.id()));
+     *         ctx.export("id", example.applyValue(getWindowsFunctionAppResult -> getWindowsFunctionAppResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2288,7 +2394,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2310,14 +2417,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getWindowsFunctionApp(GetWindowsFunctionAppArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getWindowsFunctionAppResult -&gt; getWindowsFunctionAppResult.id()));
+     *         ctx.export("id", example.applyValue(getWindowsFunctionAppResult -> getWindowsFunctionAppResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2330,7 +2438,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2352,14 +2461,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getWindowsFunctionApp(GetWindowsFunctionAppArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getWindowsFunctionAppResult -&gt; getWindowsFunctionAppResult.id()));
+     *         ctx.export("id", example.applyValue(getWindowsFunctionAppResult -> getWindowsFunctionAppResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2372,7 +2482,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2394,14 +2505,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getWindowsFunctionApp(GetWindowsFunctionAppArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getWindowsFunctionAppResult -&gt; getWindowsFunctionAppResult.id()));
+     *         ctx.export("id", example.applyValue(getWindowsFunctionAppResult -> getWindowsFunctionAppResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2414,7 +2526,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2436,14 +2549,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getWindowsWebApp(GetWindowsWebAppArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getWindowsWebAppResult -&gt; getWindowsWebAppResult.id()));
+     *         ctx.export("id", example.applyValue(getWindowsWebAppResult -> getWindowsWebAppResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2456,7 +2570,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2478,14 +2593,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getWindowsWebApp(GetWindowsWebAppArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getWindowsWebAppResult -&gt; getWindowsWebAppResult.id()));
+     *         ctx.export("id", example.applyValue(getWindowsWebAppResult -> getWindowsWebAppResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2498,7 +2614,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2520,14 +2637,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getWindowsWebApp(GetWindowsWebAppArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getWindowsWebAppResult -&gt; getWindowsWebAppResult.id()));
+     *         ctx.export("id", example.applyValue(getWindowsWebAppResult -> getWindowsWebAppResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2540,7 +2658,8 @@ public final class AppserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2562,14 +2681,15 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getWindowsWebApp(GetWindowsWebAppArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getWindowsWebAppResult -&gt; getWindowsWebAppResult.id()));
+     *         ctx.export("id", example.applyValue(getWindowsWebAppResult -> getWindowsWebAppResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

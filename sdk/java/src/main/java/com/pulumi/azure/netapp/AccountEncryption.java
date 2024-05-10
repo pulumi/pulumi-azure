@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,77 +57,77 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
- *             .name(&#34;anf-user-assigned-identity&#34;)
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()        
+ *             .name("anf-user-assigned-identity")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;anfcmkakv&#34;)
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("anfcmkakv")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .enabledForDiskEncryption(true)
  *             .enabledForDeployment(true)
  *             .enabledForTemplateDeployment(true)
  *             .purgeProtectionEnabled(true)
- *             .tenantId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .skuName(&#34;standard&#34;)
+ *             .tenantId("00000000-0000-0000-0000-000000000000")
+ *             .skuName("standard")
  *             .accessPolicies(            
  *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *                     .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *                     .tenantId("00000000-0000-0000-0000-000000000000")
+ *                     .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *                     .keyPermissions(                    
- *                         &#34;Get&#34;,
- *                         &#34;Create&#34;,
- *                         &#34;Delete&#34;,
- *                         &#34;WrapKey&#34;,
- *                         &#34;UnwrapKey&#34;,
- *                         &#34;GetRotationPolicy&#34;,
- *                         &#34;SetRotationPolicy&#34;)
+ *                         "Get",
+ *                         "Create",
+ *                         "Delete",
+ *                         "WrapKey",
+ *                         "UnwrapKey",
+ *                         "GetRotationPolicy",
+ *                         "SetRotationPolicy")
  *                     .build(),
  *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(&#34;00000000-0000-0000-0000-000000000000&#34;)
+ *                     .tenantId("00000000-0000-0000-0000-000000000000")
  *                     .objectId(exampleUserAssignedIdentity.principalId())
  *                     .keyPermissions(                    
- *                         &#34;Get&#34;,
- *                         &#34;Encrypt&#34;,
- *                         &#34;Decrypt&#34;)
+ *                         "Get",
+ *                         "Encrypt",
+ *                         "Decrypt")
  *                     .build())
  *             .build());
  * 
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
- *             .name(&#34;anfencryptionkey&#34;)
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *             .name("anfencryptionkey")
  *             .keyVaultId(exampleKeyVault.id())
- *             .keyType(&#34;RSA&#34;)
+ *             .keyType("RSA")
  *             .keySize(2048)
  *             .keyOpts(            
- *                 &#34;decrypt&#34;,
- *                 &#34;encrypt&#34;,
- *                 &#34;sign&#34;,
- *                 &#34;unwrapKey&#34;,
- *                 &#34;verify&#34;,
- *                 &#34;wrapKey&#34;)
+ *                 "decrypt",
+ *                 "encrypt",
+ *                 "sign",
+ *                 "unwrapKey",
+ *                 "verify",
+ *                 "wrapKey")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;netappaccount&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("netappaccount")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .identity(AccountIdentityArgs.builder()
- *                 .type(&#34;UserAssigned&#34;)
+ *                 .type("UserAssigned")
  *                 .identityIds(exampleUserAssignedIdentity.id())
  *                 .build())
  *             .build());
  * 
- *         var exampleAccountEncryption = new AccountEncryption(&#34;exampleAccountEncryption&#34;, AccountEncryptionArgs.builder()        
+ *         var exampleAccountEncryption = new AccountEncryption("exampleAccountEncryption", AccountEncryptionArgs.builder()        
  *             .netappAccountId(exampleAccount.id())
  *             .userAssignedIdentityId(exampleUserAssignedIdentity.id())
  *             .encryptionKey(exampleKey.versionlessId())
@@ -134,7 +135,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * ### With App Service Plan)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -57,46 +58,47 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;azure-functions-test-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("azure-functions-test-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;functionsapptestsa&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("functionsapptestsa")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var examplePlan = new Plan(&#34;examplePlan&#34;, PlanArgs.builder()        
- *             .name(&#34;azure-functions-test-service-plan&#34;)
+ *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()        
+ *             .name("azure-functions-test-service-plan")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .kind(&#34;elastic&#34;)
+ *             .kind("elastic")
  *             .sku(PlanSkuArgs.builder()
- *                 .tier(&#34;WorkflowStandard&#34;)
- *                 .size(&#34;WS1&#34;)
+ *                 .tier("WorkflowStandard")
+ *                 .size("WS1")
  *                 .build())
  *             .build());
  * 
- *         var exampleStandard = new Standard(&#34;exampleStandard&#34;, StandardArgs.builder()        
- *             .name(&#34;test-azure-functions&#34;)
+ *         var exampleStandard = new Standard("exampleStandard", StandardArgs.builder()        
+ *             .name("test-azure-functions")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
  *             .storageAccountName(exampleAccount.name())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
  *             .appSettings(Map.ofEntries(
- *                 Map.entry(&#34;FUNCTIONS_WORKER_RUNTIME&#34;, &#34;node&#34;),
- *                 Map.entry(&#34;WEBSITE_NODE_DEFAULT_VERSION&#34;, &#34;~18&#34;)
+ *                 Map.entry("FUNCTIONS_WORKER_RUNTIME", "node"),
+ *                 Map.entry("WEBSITE_NODE_DEFAULT_VERSION", "~18")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### For Container Mode)
@@ -104,7 +106,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** You must set `azure.appservice.Plan` `kind` to `Linux` and `reserved` to `true` when used with `linux_fx_version`
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -133,51 +136,52 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;azure-functions-test-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("azure-functions-test-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;functionsapptestsa&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("functionsapptestsa")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var examplePlan = new Plan(&#34;examplePlan&#34;, PlanArgs.builder()        
- *             .name(&#34;azure-functions-test-service-plan&#34;)
+ *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()        
+ *             .name("azure-functions-test-service-plan")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .kind(&#34;Linux&#34;)
+ *             .kind("Linux")
  *             .reserved(true)
  *             .sku(PlanSkuArgs.builder()
- *                 .tier(&#34;WorkflowStandard&#34;)
- *                 .size(&#34;WS1&#34;)
+ *                 .tier("WorkflowStandard")
+ *                 .size("WS1")
  *                 .build())
  *             .build());
  * 
- *         var exampleStandard = new Standard(&#34;exampleStandard&#34;, StandardArgs.builder()        
- *             .name(&#34;test-azure-functions&#34;)
+ *         var exampleStandard = new Standard("exampleStandard", StandardArgs.builder()        
+ *             .name("test-azure-functions")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
  *             .storageAccountName(exampleAccount.name())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
  *             .siteConfig(StandardSiteConfigArgs.builder()
- *                 .linuxFxVersion(&#34;DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice&#34;)
+ *                 .linuxFxVersion("DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice")
  *                 .build())
  *             .appSettings(Map.ofEntries(
- *                 Map.entry(&#34;DOCKER_REGISTRY_SERVER_URL&#34;, &#34;https://&lt;server-name&gt;.azurecr.io&#34;),
- *                 Map.entry(&#34;DOCKER_REGISTRY_SERVER_USERNAME&#34;, &#34;username&#34;),
- *                 Map.entry(&#34;DOCKER_REGISTRY_SERVER_PASSWORD&#34;, &#34;password&#34;)
+ *                 Map.entry("DOCKER_REGISTRY_SERVER_URL", "https://<server-name>.azurecr.io"),
+ *                 Map.entry("DOCKER_REGISTRY_SERVER_USERNAME", "username"),
+ *                 Map.entry("DOCKER_REGISTRY_SERVER_PASSWORD", "password")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

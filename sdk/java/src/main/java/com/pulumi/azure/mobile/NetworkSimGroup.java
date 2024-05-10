@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,49 +54,50 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleNetwork = new Network(&#34;exampleNetwork&#34;, NetworkArgs.builder()        
- *             .name(&#34;example-mn&#34;)
+ *         var exampleNetwork = new Network("exampleNetwork", NetworkArgs.builder()        
+ *             .name("example-mn")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .mobileCountryCode(&#34;001&#34;)
- *             .mobileNetworkCode(&#34;01&#34;)
+ *             .mobileCountryCode("001")
+ *             .mobileNetworkCode("01")
  *             .build());
  * 
  *         final var example = AuthorizationFunctions.getUserAssignedIdentity(GetUserAssignedIdentityArgs.builder()
- *             .name(&#34;name_of_user_assigned_identity&#34;)
- *             .resourceGroupName(&#34;name_of_resource_group&#34;)
+ *             .name("name_of_user_assigned_identity")
+ *             .resourceGroupName("name_of_resource_group")
  *             .build());
  * 
  *         final var exampleGetKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
- *             .name(&#34;example-kv&#34;)
- *             .resourceGroupName(&#34;some-resource-group&#34;)
+ *             .name("example-kv")
+ *             .resourceGroupName("some-resource-group")
  *             .build());
  * 
  *         final var exampleGetKey = KeyvaultFunctions.getKey(GetKeyArgs.builder()
- *             .name(&#34;example-key&#34;)
- *             .keyVaultId(exampleGetKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+ *             .name("example-key")
+ *             .keyVaultId(exampleGetKeyVault.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
  *             .build());
  * 
- *         var exampleNetworkSimGroup = new NetworkSimGroup(&#34;exampleNetworkSimGroup&#34;, NetworkSimGroupArgs.builder()        
- *             .name(&#34;example-mnsg&#34;)
+ *         var exampleNetworkSimGroup = new NetworkSimGroup("exampleNetworkSimGroup", NetworkSimGroupArgs.builder()        
+ *             .name("example-mnsg")
  *             .location(exampleResourceGroup.location())
  *             .mobileNetworkId(exampleNetwork.id())
- *             .encryptionKeyUrl(exampleGetKey.applyValue(getKeyResult -&gt; getKeyResult.id()))
+ *             .encryptionKeyUrl(exampleGetKey.applyValue(getKeyResult -> getKeyResult.id()))
  *             .identity(NetworkSimGroupIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned, UserAssigned&#34;)
- *                 .identityIds(example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.id()))
+ *                 .type("SystemAssigned, UserAssigned")
+ *                 .identityIds(example.applyValue(getUserAssignedIdentityResult -> getUserAssignedIdentityResult.id()))
  *                 .build())
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .tags(Map.of("key", "value"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

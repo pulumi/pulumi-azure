@@ -20,7 +20,8 @@ public final class ManagedapplicationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -42,14 +43,15 @@ public final class ManagedapplicationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ManagedapplicationFunctions.getDefinition(GetDefinitionArgs.builder()
-     *             .name(&#34;examplemanagedappdef&#34;)
-     *             .resourceGroupName(&#34;exampleresources&#34;)
+     *             .name("examplemanagedappdef")
+     *             .resourceGroupName("exampleresources")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDefinitionResult -&gt; getDefinitionResult.id()));
+     *         ctx.export("id", example.applyValue(getDefinitionResult -> getDefinitionResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -62,7 +64,8 @@ public final class ManagedapplicationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -84,14 +87,15 @@ public final class ManagedapplicationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ManagedapplicationFunctions.getDefinition(GetDefinitionArgs.builder()
-     *             .name(&#34;examplemanagedappdef&#34;)
-     *             .resourceGroupName(&#34;exampleresources&#34;)
+     *             .name("examplemanagedappdef")
+     *             .resourceGroupName("exampleresources")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDefinitionResult -&gt; getDefinitionResult.id()));
+     *         ctx.export("id", example.applyValue(getDefinitionResult -> getDefinitionResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -104,7 +108,8 @@ public final class ManagedapplicationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -126,14 +131,15 @@ public final class ManagedapplicationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ManagedapplicationFunctions.getDefinition(GetDefinitionArgs.builder()
-     *             .name(&#34;examplemanagedappdef&#34;)
-     *             .resourceGroupName(&#34;exampleresources&#34;)
+     *             .name("examplemanagedappdef")
+     *             .resourceGroupName("exampleresources")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDefinitionResult -&gt; getDefinitionResult.id()));
+     *         ctx.export("id", example.applyValue(getDefinitionResult -> getDefinitionResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -146,7 +152,8 @@ public final class ManagedapplicationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -168,14 +175,15 @@ public final class ManagedapplicationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ManagedapplicationFunctions.getDefinition(GetDefinitionArgs.builder()
-     *             .name(&#34;examplemanagedappdef&#34;)
-     *             .resourceGroupName(&#34;exampleresources&#34;)
+     *             .name("examplemanagedappdef")
+     *             .resourceGroupName("exampleresources")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDefinitionResult -&gt; getDefinitionResult.id()));
+     *         ctx.export("id", example.applyValue(getDefinitionResult -> getDefinitionResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

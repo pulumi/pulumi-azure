@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -60,44 +61,44 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var test = new NetworkSecurityGroup(&#34;test&#34;, NetworkSecurityGroupArgs.builder()        
- *             .name(&#34;acctestnsg&#34;)
+ *         var test = new NetworkSecurityGroup("test", NetworkSecurityGroupArgs.builder()        
+ *             .name("acctestnsg")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var testNetworkWatcher = new NetworkWatcher(&#34;testNetworkWatcher&#34;, NetworkWatcherArgs.builder()        
- *             .name(&#34;acctestnw&#34;)
+ *         var testNetworkWatcher = new NetworkWatcher("testNetworkWatcher", NetworkWatcherArgs.builder()        
+ *             .name("acctestnw")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var testAccount = new Account(&#34;testAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;acctestsa&#34;)
+ *         var testAccount = new Account("testAccount", AccountArgs.builder()        
+ *             .name("acctestsa")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountKind(&#34;StorageV2&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountKind("StorageV2")
+ *             .accountReplicationType("LRS")
  *             .enableHttpsTrafficOnly(true)
  *             .build());
  * 
- *         var testAnalyticsWorkspace = new AnalyticsWorkspace(&#34;testAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
- *             .name(&#34;acctestlaw&#34;)
+ *         var testAnalyticsWorkspace = new AnalyticsWorkspace("testAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()        
+ *             .name("acctestlaw")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;PerGB2018&#34;)
+ *             .sku("PerGB2018")
  *             .build());
  * 
- *         var testNetworkWatcherFlowLog = new NetworkWatcherFlowLog(&#34;testNetworkWatcherFlowLog&#34;, NetworkWatcherFlowLogArgs.builder()        
+ *         var testNetworkWatcherFlowLog = new NetworkWatcherFlowLog("testNetworkWatcherFlowLog", NetworkWatcherFlowLogArgs.builder()        
  *             .networkWatcherName(testNetworkWatcher.name())
  *             .resourceGroupName(example.name())
- *             .name(&#34;example-log&#34;)
+ *             .name("example-log")
  *             .networkSecurityGroupId(test.id())
  *             .storageAccountId(testAccount.id())
  *             .enabled(true)
@@ -116,7 +117,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

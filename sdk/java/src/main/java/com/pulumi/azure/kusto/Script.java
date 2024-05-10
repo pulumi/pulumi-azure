@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -59,56 +60,56 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("example")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()        
+ *             .name("example")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .sku(ClusterSkuArgs.builder()
- *                 .name(&#34;Dev(No SLA)_Standard_D11_v2&#34;)
+ *                 .name("Dev(No SLA)_Standard_D11_v2")
  *                 .capacity(1)
  *                 .build())
  *             .build());
  * 
- *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .clusterName(exampleCluster.name())
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleContainer = new Container(&#34;exampleContainer&#34;, ContainerArgs.builder()        
- *             .name(&#34;setup-files&#34;)
+ *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()        
+ *             .name("setup-files")
  *             .storageAccountName(exampleAccount.name())
- *             .containerAccessType(&#34;private&#34;)
+ *             .containerAccessType("private")
  *             .build());
  * 
- *         var exampleBlob = new Blob(&#34;exampleBlob&#34;, BlobArgs.builder()        
- *             .name(&#34;script.txt&#34;)
+ *         var exampleBlob = new Blob("exampleBlob", BlobArgs.builder()        
+ *             .name("script.txt")
  *             .storageAccountName(exampleAccount.name())
  *             .storageContainerName(exampleContainer.name())
- *             .type(&#34;Block&#34;)
- *             .sourceContent(&#34;.create table MyTable (Level:string, Timestamp:datetime, UserId:string, TraceId:string, Message:string, ProcessId:int32)&#34;)
+ *             .type("Block")
+ *             .sourceContent(".create table MyTable (Level:string, Timestamp:datetime, UserId:string, TraceId:string, Message:string, ProcessId:int32)")
  *             .build());
  * 
  *         final var example = StorageFunctions.getAccountBlobContainerSAS(GetAccountBlobContainerSASArgs.builder()
  *             .connectionString(exampleAccount.primaryConnectionString())
  *             .containerName(exampleContainer.name())
  *             .httpsOnly(true)
- *             .start(&#34;2017-03-21&#34;)
- *             .expiry(&#34;2022-03-21&#34;)
+ *             .start("2017-03-21")
+ *             .expiry("2022-03-21")
  *             .permissions(GetAccountBlobContainerSASPermissionsArgs.builder()
  *                 .read(true)
  *                 .add(false)
@@ -119,18 +120,19 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleScript = new Script(&#34;exampleScript&#34;, ScriptArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleScript = new Script("exampleScript", ScriptArgs.builder()        
+ *             .name("example")
  *             .databaseId(exampleDatabase.id())
  *             .url(exampleBlob.id())
- *             .sasToken(example.applyValue(getAccountBlobContainerSASResult -&gt; getAccountBlobContainerSASResult).applyValue(example -&gt; example.applyValue(getAccountBlobContainerSASResult -&gt; getAccountBlobContainerSASResult.sas())))
+ *             .sasToken(example.applyValue(getAccountBlobContainerSASResult -> getAccountBlobContainerSASResult).applyValue(example -> example.applyValue(getAccountBlobContainerSASResult -> getAccountBlobContainerSASResult.sas())))
  *             .continueOnErrorsEnabled(true)
- *             .forceAnUpdateWhenValueChanged(&#34;first&#34;)
+ *             .forceAnUpdateWhenValueChanged("first")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

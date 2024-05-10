@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,42 +45,43 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .name(&#34;example-apim&#34;)
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *             .name("example-apim")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .publisherName(&#34;My Company&#34;)
- *             .publisherEmail(&#34;company@terraform.io&#34;)
- *             .skuName(&#34;Developer_1&#34;)
+ *             .publisherName("My Company")
+ *             .publisherEmail("company{@literal @}terraform.io")
+ *             .skuName("Developer_1")
  *             .build());
  * 
- *         var exampleEmailTemplate = new EmailTemplate(&#34;exampleEmailTemplate&#34;, EmailTemplateArgs.builder()        
- *             .templateName(&#34;ConfirmSignUpIdentityDefault&#34;)
+ *         var exampleEmailTemplate = new EmailTemplate("exampleEmailTemplate", EmailTemplateArgs.builder()        
+ *             .templateName("ConfirmSignUpIdentityDefault")
  *             .resourceGroupName(example.name())
  *             .apiManagementName(exampleService.name())
- *             .subject(&#34;Customized confirmation email for your new $OrganizationName API account&#34;)
- *             .body(&#34;&#34;&#34;
- * &lt;!DOCTYPE html &gt;
- * &lt;html&gt;
- * &lt;head&gt;
- *   &lt;meta charset=&#34;UTF-8&#34; /&gt;
- *   &lt;title&gt;Customized Letter Title&lt;/title&gt;
- * &lt;/head&gt;
- * &lt;body&gt;
- *   &lt;p style=&#34;font-size:12pt;font-family:&#39;Segoe UI&#39;&#34;&gt;Dear $DevFirstName $DevLastName,&lt;/p&gt;
- * &lt;/body&gt;
- * &lt;/html&gt;
- *             &#34;&#34;&#34;)
+ *             .subject("Customized confirmation email for your new $OrganizationName API account")
+ *             .body("""
+ * <!DOCTYPE html >
+ * <html>
+ * <head>
+ *   <meta charset="UTF-8" />
+ *   <title>Customized Letter Title</title>
+ * </head>
+ * <body>
+ *   <p style="font-size:12pt;font-family:'Segoe UI'">Dear $DevFirstName $DevLastName,</p>
+ * </body>
+ * </html>
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

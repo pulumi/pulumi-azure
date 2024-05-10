@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,28 +50,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleRouteTable = new RouteTable(&#34;exampleRouteTable&#34;, RouteTableArgs.builder()        
- *             .name(&#34;acceptanceTestRouteTable1&#34;)
+ *         var exampleRouteTable = new RouteTable("exampleRouteTable", RouteTableArgs.builder()        
+ *             .name("acceptanceTestRouteTable1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleRoute = new Route(&#34;exampleRoute&#34;, RouteArgs.builder()        
- *             .name(&#34;acceptanceTestRoute1&#34;)
+ *         var exampleRoute = new Route("exampleRoute", RouteArgs.builder()        
+ *             .name("acceptanceTestRoute1")
  *             .resourceGroupName(example.name())
  *             .routeTableName(exampleRouteTable.name())
- *             .addressPrefix(&#34;10.1.0.0/16&#34;)
- *             .nextHopType(&#34;VnetLocal&#34;)
+ *             .addressPrefix("10.1.0.0/16")
+ *             .nextHopType("VnetLocal")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

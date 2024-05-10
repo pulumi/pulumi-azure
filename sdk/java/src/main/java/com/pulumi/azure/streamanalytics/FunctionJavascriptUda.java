@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,18 +51,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = CoreFunctions.getResourceGroup(GetResourceGroupArgs.builder()
- *             .name(&#34;example-resources&#34;)
+ *             .name("example-resources")
  *             .build());
  * 
  *         final var exampleGetJob = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
- *             .name(&#34;example-job&#34;)
- *             .resourceGroupName(example.applyValue(getResourceGroupResult -&gt; getResourceGroupResult.name()))
+ *             .name("example-job")
+ *             .resourceGroupName(example.applyValue(getResourceGroupResult -> getResourceGroupResult.name()))
  *             .build());
  * 
- *         var exampleFunctionJavascriptUda = new FunctionJavascriptUda(&#34;exampleFunctionJavascriptUda&#34;, FunctionJavascriptUdaArgs.builder()        
- *             .name(&#34;example-javascript-function&#34;)
- *             .streamAnalyticsJobId(exampleGetJob.applyValue(getJobResult -&gt; getJobResult.id()))
- *             .script(&#34;&#34;&#34;
+ *         var exampleFunctionJavascriptUda = new FunctionJavascriptUda("exampleFunctionJavascriptUda", FunctionJavascriptUdaArgs.builder()        
+ *             .name("example-javascript-function")
+ *             .streamAnalyticsJobId(exampleGetJob.applyValue(getJobResult -> getJobResult.id()))
+ *             .script("""
  * function main() {
  *     this.init = function () {
  *         this.state = 0;
@@ -75,18 +76,19 @@ import javax.annotation.Nullable;
  *         return this.state;
  *     }
  * }
- *             &#34;&#34;&#34;)
+ *             """)
  *             .inputs(FunctionJavascriptUdaInputArgs.builder()
- *                 .type(&#34;bigint&#34;)
+ *                 .type("bigint")
  *                 .build())
  *             .output(FunctionJavascriptUdaOutputArgs.builder()
- *                 .type(&#34;bigint&#34;)
+ *                 .type("bigint")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

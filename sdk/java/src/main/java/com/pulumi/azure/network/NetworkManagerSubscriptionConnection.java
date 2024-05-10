@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,33 +49,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
  *         final var current = CoreFunctions.getSubscription();
  * 
- *         var exampleNetworkManager = new NetworkManager(&#34;exampleNetworkManager&#34;, NetworkManagerArgs.builder()        
- *             .name(&#34;example-networkmanager&#34;)
+ *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()        
+ *             .name("example-networkmanager")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .scope(NetworkManagerScopeArgs.builder()
- *                 .subscriptionIds(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+ *                 .subscriptionIds(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *                 .build())
- *             .scopeAccesses(&#34;SecurityAdmin&#34;)
+ *             .scopeAccesses("SecurityAdmin")
  *             .build());
  * 
- *         var exampleNetworkManagerSubscriptionConnection = new NetworkManagerSubscriptionConnection(&#34;exampleNetworkManagerSubscriptionConnection&#34;, NetworkManagerSubscriptionConnectionArgs.builder()        
- *             .name(&#34;example-nsnmc&#34;)
- *             .subscriptionId(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+ *         var exampleNetworkManagerSubscriptionConnection = new NetworkManagerSubscriptionConnection("exampleNetworkManagerSubscriptionConnection", NetworkManagerSubscriptionConnectionArgs.builder()        
+ *             .name("example-nsnmc")
+ *             .subscriptionId(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *             .networkManagerId(exampleNetworkManager.id())
- *             .description(&#34;example&#34;)
+ *             .description("example")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

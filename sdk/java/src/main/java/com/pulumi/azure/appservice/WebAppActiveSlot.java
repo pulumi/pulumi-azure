@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Windows Web App
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,46 +55,48 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleServicePlan = new ServicePlan(&#34;exampleServicePlan&#34;, ServicePlanArgs.builder()        
- *             .name(&#34;example-plan&#34;)
+ *         var exampleServicePlan = new ServicePlan("exampleServicePlan", ServicePlanArgs.builder()        
+ *             .name("example-plan")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .osType(&#34;Windows&#34;)
- *             .skuName(&#34;P1v2&#34;)
+ *             .osType("Windows")
+ *             .skuName("P1v2")
  *             .build());
  * 
- *         var exampleWindowsWebApp = new WindowsWebApp(&#34;exampleWindowsWebApp&#34;, WindowsWebAppArgs.builder()        
- *             .name(&#34;example-windows-web-app&#34;)
+ *         var exampleWindowsWebApp = new WindowsWebApp("exampleWindowsWebApp", WindowsWebAppArgs.builder()        
+ *             .name("example-windows-web-app")
  *             .resourceGroupName(example.name())
  *             .location(exampleServicePlan.location())
  *             .servicePlanId(exampleServicePlan.id())
  *             .siteConfig()
  *             .build());
  * 
- *         var exampleWindowsWebAppSlot = new WindowsWebAppSlot(&#34;exampleWindowsWebAppSlot&#34;, WindowsWebAppSlotArgs.builder()        
- *             .name(&#34;example-windows-web-app-slot&#34;)
+ *         var exampleWindowsWebAppSlot = new WindowsWebAppSlot("exampleWindowsWebAppSlot", WindowsWebAppSlotArgs.builder()        
+ *             .name("example-windows-web-app-slot")
  *             .appServiceId(exampleWindowsWebApp.name())
  *             .siteConfig()
  *             .build());
  * 
- *         var exampleWebAppActiveSlot = new WebAppActiveSlot(&#34;exampleWebAppActiveSlot&#34;, WebAppActiveSlotArgs.builder()        
+ *         var exampleWebAppActiveSlot = new WebAppActiveSlot("exampleWebAppActiveSlot", WebAppActiveSlotArgs.builder()        
  *             .slotId(exampleWindowsWebAppSlot.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Linux Web App
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -124,42 +127,43 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleServicePlan = new ServicePlan(&#34;exampleServicePlan&#34;, ServicePlanArgs.builder()        
- *             .name(&#34;example-plan&#34;)
+ *         var exampleServicePlan = new ServicePlan("exampleServicePlan", ServicePlanArgs.builder()        
+ *             .name("example-plan")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .osType(&#34;Linux&#34;)
- *             .skuName(&#34;P1v2&#34;)
+ *             .osType("Linux")
+ *             .skuName("P1v2")
  *             .build());
  * 
- *         var exampleLinuxWebApp = new LinuxWebApp(&#34;exampleLinuxWebApp&#34;, LinuxWebAppArgs.builder()        
- *             .name(&#34;example-linux-web-app&#34;)
+ *         var exampleLinuxWebApp = new LinuxWebApp("exampleLinuxWebApp", LinuxWebAppArgs.builder()        
+ *             .name("example-linux-web-app")
  *             .resourceGroupName(example.name())
  *             .location(exampleServicePlan.location())
  *             .servicePlanId(exampleServicePlan.id())
  *             .siteConfig()
  *             .build());
  * 
- *         var exampleLinuxWebAppSlot = new LinuxWebAppSlot(&#34;exampleLinuxWebAppSlot&#34;, LinuxWebAppSlotArgs.builder()        
- *             .name(&#34;example-linux-web-app-slot&#34;)
+ *         var exampleLinuxWebAppSlot = new LinuxWebAppSlot("exampleLinuxWebAppSlot", LinuxWebAppSlotArgs.builder()        
+ *             .name("example-linux-web-app-slot")
  *             .appServiceName(exampleLinuxWebApp.name())
  *             .location(exampleServicePlan.location())
  *             .servicePlanId(exampleServicePlan.id())
  *             .siteConfig()
  *             .build());
  * 
- *         var exampleWebAppActiveSlot = new WebAppActiveSlot(&#34;exampleWebAppActiveSlot&#34;, WebAppActiveSlotArgs.builder()        
+ *         var exampleWebAppActiveSlot = new WebAppActiveSlot("exampleWebAppActiveSlot", WebAppActiveSlotArgs.builder()        
  *             .slotId(exampleLinuxWebAppSlot.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

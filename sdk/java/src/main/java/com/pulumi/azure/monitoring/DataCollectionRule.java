@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -75,187 +76,188 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
- *             .name(&#34;example-uai&#34;)
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()        
+ *             .name("example-uai")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
- *             .name(&#34;example-workspace&#34;)
+ *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()        
+ *             .name("example-workspace")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleAnalyticsSolution = new AnalyticsSolution(&#34;exampleAnalyticsSolution&#34;, AnalyticsSolutionArgs.builder()        
- *             .solutionName(&#34;WindowsEventForwarding&#34;)
+ *         var exampleAnalyticsSolution = new AnalyticsSolution("exampleAnalyticsSolution", AnalyticsSolutionArgs.builder()        
+ *             .solutionName("WindowsEventForwarding")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .workspaceResourceId(exampleAnalyticsWorkspace.id())
  *             .workspaceName(exampleAnalyticsWorkspace.name())
  *             .plan(AnalyticsSolutionPlanArgs.builder()
- *                 .publisher(&#34;Microsoft&#34;)
- *                 .product(&#34;OMSGallery/WindowsEventForwarding&#34;)
+ *                 .publisher("Microsoft")
+ *                 .product("OMSGallery/WindowsEventForwarding")
  *                 .build())
  *             .build());
  * 
- *         var exampleEventHubNamespace = new EventHubNamespace(&#34;exampleEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
- *             .name(&#34;exeventns&#34;)
+ *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()        
+ *             .name("exeventns")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;Standard&#34;)
+ *             .sku("Standard")
  *             .capacity(1)
  *             .build());
  * 
- *         var exampleEventHub = new EventHub(&#34;exampleEventHub&#34;, EventHubArgs.builder()        
- *             .name(&#34;exevent2&#34;)
+ *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()        
+ *             .name("exevent2")
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .resourceGroupName(example.name())
  *             .partitionCount(2)
  *             .messageRetention(1)
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;examstorage&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("examstorage")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleContainer = new Container(&#34;exampleContainer&#34;, ContainerArgs.builder()        
- *             .name(&#34;examplecontainer&#34;)
+ *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()        
+ *             .name("examplecontainer")
  *             .storageAccountName(exampleAccount.name())
- *             .containerAccessType(&#34;private&#34;)
+ *             .containerAccessType("private")
  *             .build());
  * 
- *         var exampleDataCollectionEndpoint = new DataCollectionEndpoint(&#34;exampleDataCollectionEndpoint&#34;, DataCollectionEndpointArgs.builder()        
- *             .name(&#34;example-dcre&#34;)
+ *         var exampleDataCollectionEndpoint = new DataCollectionEndpoint("exampleDataCollectionEndpoint", DataCollectionEndpointArgs.builder()        
+ *             .name("example-dcre")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleDataCollectionRule = new DataCollectionRule(&#34;exampleDataCollectionRule&#34;, DataCollectionRuleArgs.builder()        
- *             .name(&#34;example-rule&#34;)
+ *         var exampleDataCollectionRule = new DataCollectionRule("exampleDataCollectionRule", DataCollectionRuleArgs.builder()        
+ *             .name("example-rule")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .dataCollectionEndpointId(exampleDataCollectionEndpoint.id())
  *             .destinations(DataCollectionRuleDestinationsArgs.builder()
  *                 .logAnalytics(DataCollectionRuleDestinationsLogAnalyticArgs.builder()
  *                     .workspaceResourceId(exampleAnalyticsWorkspace.id())
- *                     .name(&#34;example-destination-log&#34;)
+ *                     .name("example-destination-log")
  *                     .build())
  *                 .eventHub(DataCollectionRuleDestinationsEventHubArgs.builder()
  *                     .eventHubId(exampleEventHub.id())
- *                     .name(&#34;example-destination-eventhub&#34;)
+ *                     .name("example-destination-eventhub")
  *                     .build())
  *                 .storageBlobs(DataCollectionRuleDestinationsStorageBlobArgs.builder()
  *                     .storageAccountId(exampleAccount.id())
  *                     .containerName(exampleContainer.name())
- *                     .name(&#34;example-destination-storage&#34;)
+ *                     .name("example-destination-storage")
  *                     .build())
  *                 .azureMonitorMetrics(DataCollectionRuleDestinationsAzureMonitorMetricsArgs.builder()
- *                     .name(&#34;example-destination-metrics&#34;)
+ *                     .name("example-destination-metrics")
  *                     .build())
  *                 .build())
  *             .dataFlows(            
  *                 DataCollectionRuleDataFlowArgs.builder()
- *                     .streams(&#34;Microsoft-InsightsMetrics&#34;)
- *                     .destinations(&#34;example-destination-metrics&#34;)
+ *                     .streams("Microsoft-InsightsMetrics")
+ *                     .destinations("example-destination-metrics")
  *                     .build(),
  *                 DataCollectionRuleDataFlowArgs.builder()
  *                     .streams(                    
- *                         &#34;Microsoft-InsightsMetrics&#34;,
- *                         &#34;Microsoft-Syslog&#34;,
- *                         &#34;Microsoft-Perf&#34;)
- *                     .destinations(&#34;example-destination-log&#34;)
+ *                         "Microsoft-InsightsMetrics",
+ *                         "Microsoft-Syslog",
+ *                         "Microsoft-Perf")
+ *                     .destinations("example-destination-log")
  *                     .build(),
  *                 DataCollectionRuleDataFlowArgs.builder()
- *                     .streams(&#34;Custom-MyTableRawData&#34;)
- *                     .destinations(&#34;example-destination-log&#34;)
- *                     .outputStream(&#34;Microsoft-Syslog&#34;)
- *                     .transformKql(&#34;source | project TimeGenerated = Time, Computer, Message = AdditionalContext&#34;)
+ *                     .streams("Custom-MyTableRawData")
+ *                     .destinations("example-destination-log")
+ *                     .outputStream("Microsoft-Syslog")
+ *                     .transformKql("source | project TimeGenerated = Time, Computer, Message = AdditionalContext")
  *                     .build())
  *             .dataSources(DataCollectionRuleDataSourcesArgs.builder()
  *                 .syslogs(DataCollectionRuleDataSourcesSyslogArgs.builder()
- *                     .facilityNames(&#34;*&#34;)
- *                     .logLevels(&#34;*&#34;)
- *                     .name(&#34;example-datasource-syslog&#34;)
- *                     .streams(&#34;Microsoft-Syslog&#34;)
+ *                     .facilityNames("*")
+ *                     .logLevels("*")
+ *                     .name("example-datasource-syslog")
+ *                     .streams("Microsoft-Syslog")
  *                     .build())
  *                 .iisLogs(DataCollectionRuleDataSourcesIisLogArgs.builder()
- *                     .streams(&#34;Microsoft-W3CIISLog&#34;)
- *                     .name(&#34;example-datasource-iis&#34;)
- *                     .logDirectories(&#34;C:\\Logs\\W3SVC1&#34;)
+ *                     .streams("Microsoft-W3CIISLog")
+ *                     .name("example-datasource-iis")
+ *                     .logDirectories("C:\\Logs\\W3SVC1")
  *                     .build())
  *                 .logFiles(DataCollectionRuleDataSourcesLogFileArgs.builder()
- *                     .name(&#34;example-datasource-logfile&#34;)
- *                     .format(&#34;text&#34;)
- *                     .streams(&#34;Custom-MyTableRawData&#34;)
- *                     .filePatterns(&#34;C:\\JavaLogs\\*.log&#34;)
+ *                     .name("example-datasource-logfile")
+ *                     .format("text")
+ *                     .streams("Custom-MyTableRawData")
+ *                     .filePatterns("C:\\JavaLogs\\*.log")
  *                     .settings(DataCollectionRuleDataSourcesLogFileSettingsArgs.builder()
  *                         .text(DataCollectionRuleDataSourcesLogFileSettingsTextArgs.builder()
- *                             .recordStartTimestampFormat(&#34;ISO 8601&#34;)
+ *                             .recordStartTimestampFormat("ISO 8601")
  *                             .build())
  *                         .build())
  *                     .build())
  *                 .performanceCounters(DataCollectionRuleDataSourcesPerformanceCounterArgs.builder()
  *                     .streams(                    
- *                         &#34;Microsoft-Perf&#34;,
- *                         &#34;Microsoft-InsightsMetrics&#34;)
+ *                         "Microsoft-Perf",
+ *                         "Microsoft-InsightsMetrics")
  *                     .samplingFrequencyInSeconds(60)
- *                     .counterSpecifiers(&#34;Processor(*)\\% Processor Time&#34;)
- *                     .name(&#34;example-datasource-perfcounter&#34;)
+ *                     .counterSpecifiers("Processor(*)\\% Processor Time")
+ *                     .name("example-datasource-perfcounter")
  *                     .build())
  *                 .windowsEventLogs(DataCollectionRuleDataSourcesWindowsEventLogArgs.builder()
- *                     .streams(&#34;Microsoft-WindowsEvent&#34;)
- *                     .xPathQueries(&#34;*![System/Level=1]&#34;)
- *                     .name(&#34;example-datasource-wineventlog&#34;)
+ *                     .streams("Microsoft-WindowsEvent")
+ *                     .xPathQueries("*![System/Level=1]")
+ *                     .name("example-datasource-wineventlog")
  *                     .build())
  *                 .extensions(DataCollectionRuleDataSourcesExtensionArgs.builder()
- *                     .streams(&#34;Microsoft-WindowsEvent&#34;)
- *                     .inputDataSources(&#34;example-datasource-wineventlog&#34;)
- *                     .extensionName(&#34;example-extension-name&#34;)
+ *                     .streams("Microsoft-WindowsEvent")
+ *                     .inputDataSources("example-datasource-wineventlog")
+ *                     .extensionName("example-extension-name")
  *                     .extensionJson(serializeJson(
  *                         jsonObject(
- *                             jsonProperty(&#34;a&#34;, 1),
- *                             jsonProperty(&#34;b&#34;, &#34;hello&#34;)
+ *                             jsonProperty("a", 1),
+ *                             jsonProperty("b", "hello")
  *                         )))
- *                     .name(&#34;example-datasource-extension&#34;)
+ *                     .name("example-datasource-extension")
  *                     .build())
  *                 .build())
  *             .streamDeclarations(DataCollectionRuleStreamDeclarationArgs.builder()
- *                 .streamName(&#34;Custom-MyTableRawData&#34;)
+ *                 .streamName("Custom-MyTableRawData")
  *                 .columns(                
  *                     DataCollectionRuleStreamDeclarationColumnArgs.builder()
- *                         .name(&#34;Time&#34;)
- *                         .type(&#34;datetime&#34;)
+ *                         .name("Time")
+ *                         .type("datetime")
  *                         .build(),
  *                     DataCollectionRuleStreamDeclarationColumnArgs.builder()
- *                         .name(&#34;Computer&#34;)
- *                         .type(&#34;string&#34;)
+ *                         .name("Computer")
+ *                         .type("string")
  *                         .build(),
  *                     DataCollectionRuleStreamDeclarationColumnArgs.builder()
- *                         .name(&#34;AdditionalContext&#34;)
- *                         .type(&#34;string&#34;)
+ *                         .name("AdditionalContext")
+ *                         .type("string")
  *                         .build())
  *                 .build())
  *             .identity(DataCollectionRuleIdentityArgs.builder()
- *                 .type(&#34;UserAssigned&#34;)
+ *                 .type("UserAssigned")
  *                 .identityIds(exampleUserAssignedIdentity.id())
  *                 .build())
- *             .description(&#34;data collection rule example&#34;)
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .description("data collection rule example")
+ *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

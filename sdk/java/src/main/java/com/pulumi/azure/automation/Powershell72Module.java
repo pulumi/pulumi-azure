@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,29 +47,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;account1&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("account1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;Basic&#34;)
+ *             .skuName("Basic")
  *             .build());
  * 
- *         var examplePowershell72Module = new Powershell72Module(&#34;examplePowershell72Module&#34;, Powershell72ModuleArgs.builder()        
- *             .name(&#34;xActiveDirectory&#34;)
+ *         var examplePowershell72Module = new Powershell72Module("examplePowershell72Module", Powershell72ModuleArgs.builder()        
+ *             .name("xActiveDirectory")
  *             .automationAccountId(exampleAccount.id())
  *             .moduleLink(Powershell72ModuleModuleLinkArgs.builder()
- *                 .uri(&#34;https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg&#34;)
+ *                 .uri("https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

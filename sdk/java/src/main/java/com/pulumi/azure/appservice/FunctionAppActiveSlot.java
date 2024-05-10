@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Windows Function App
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,29 +57,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;windowsfunctionappsa&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("windowsfunctionappsa")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleServicePlan = new ServicePlan(&#34;exampleServicePlan&#34;, ServicePlanArgs.builder()        
- *             .name(&#34;example-app-service-plan&#34;)
+ *         var exampleServicePlan = new ServicePlan("exampleServicePlan", ServicePlanArgs.builder()        
+ *             .name("example-app-service-plan")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .osType(&#34;Windows&#34;)
- *             .skuName(&#34;Y1&#34;)
+ *             .osType("Windows")
+ *             .skuName("Y1")
  *             .build());
  * 
- *         var exampleWindowsFunctionApp = new WindowsFunctionApp(&#34;exampleWindowsFunctionApp&#34;, WindowsFunctionAppArgs.builder()        
- *             .name(&#34;example-windows-function-app&#34;)
+ *         var exampleWindowsFunctionApp = new WindowsFunctionApp("exampleWindowsFunctionApp", WindowsFunctionAppArgs.builder()        
+ *             .name("example-windows-function-app")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .storageAccountName(exampleAccount.name())
@@ -86,26 +87,28 @@ import javax.annotation.Nullable;
  *             .siteConfig()
  *             .build());
  * 
- *         var exampleWindowsFunctionAppSlot = new WindowsFunctionAppSlot(&#34;exampleWindowsFunctionAppSlot&#34;, WindowsFunctionAppSlotArgs.builder()        
- *             .name(&#34;example-windows-function-app-slot&#34;)
+ *         var exampleWindowsFunctionAppSlot = new WindowsFunctionAppSlot("exampleWindowsFunctionAppSlot", WindowsFunctionAppSlotArgs.builder()        
+ *             .name("example-windows-function-app-slot")
  *             .functionAppId(exampleWindowsFunctionApp.id())
  *             .storageAccountName(exampleAccount.name())
  *             .siteConfig()
  *             .build());
  * 
- *         var exampleFunctionAppActiveSlot = new FunctionAppActiveSlot(&#34;exampleFunctionAppActiveSlot&#34;, FunctionAppActiveSlotArgs.builder()        
+ *         var exampleFunctionAppActiveSlot = new FunctionAppActiveSlot("exampleFunctionAppActiveSlot", FunctionAppActiveSlotArgs.builder()        
  *             .slotId(exampleWindowsFunctionAppSlot.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Linux Function App
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -138,29 +141,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;linuxfunctionappsa&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("linuxfunctionappsa")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleServicePlan = new ServicePlan(&#34;exampleServicePlan&#34;, ServicePlanArgs.builder()        
- *             .name(&#34;example-app-service-plan&#34;)
+ *         var exampleServicePlan = new ServicePlan("exampleServicePlan", ServicePlanArgs.builder()        
+ *             .name("example-app-service-plan")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .osType(&#34;Linux&#34;)
- *             .skuName(&#34;Y1&#34;)
+ *             .osType("Linux")
+ *             .skuName("Y1")
  *             .build());
  * 
- *         var exampleLinuxFunctionApp = new LinuxFunctionApp(&#34;exampleLinuxFunctionApp&#34;, LinuxFunctionAppArgs.builder()        
- *             .name(&#34;example-linux-function-app&#34;)
+ *         var exampleLinuxFunctionApp = new LinuxFunctionApp("exampleLinuxFunctionApp", LinuxFunctionAppArgs.builder()        
+ *             .name("example-linux-function-app")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .servicePlanId(exampleServicePlan.id())
@@ -168,20 +171,21 @@ import javax.annotation.Nullable;
  *             .siteConfig()
  *             .build());
  * 
- *         var exampleLinuxFunctionAppSlot = new LinuxFunctionAppSlot(&#34;exampleLinuxFunctionAppSlot&#34;, LinuxFunctionAppSlotArgs.builder()        
- *             .name(&#34;example-linux-function-app-slot&#34;)
+ *         var exampleLinuxFunctionAppSlot = new LinuxFunctionAppSlot("exampleLinuxFunctionAppSlot", LinuxFunctionAppSlotArgs.builder()        
+ *             .name("example-linux-function-app-slot")
  *             .functionAppId(exampleLinuxFunctionApp.name())
  *             .storageAccountName(exampleAccount.name())
  *             .siteConfig()
  *             .build());
  * 
- *         var exampleFunctionAppActiveSlot = new FunctionAppActiveSlot(&#34;exampleFunctionAppActiveSlot&#34;, FunctionAppActiveSlotArgs.builder()        
+ *         var exampleFunctionAppActiveSlot = new FunctionAppActiveSlot("exampleFunctionAppActiveSlot", FunctionAppActiveSlotArgs.builder()        
  *             .slotId(exampleLinuxFunctionAppSlot.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

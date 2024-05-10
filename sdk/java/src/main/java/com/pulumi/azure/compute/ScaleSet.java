@@ -39,7 +39,8 @@ import javax.annotation.Nullable;
  * ### With Managed Disks (Recommended)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -85,140 +86,142 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;acctvn&#34;)
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("acctvn")
+ *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;acctsub&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("acctsub")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
+ *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
- *             .name(&#34;test&#34;)
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *             .name("test")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .allocationMethod(&#34;Static&#34;)
+ *             .allocationMethod("Static")
  *             .domainNameLabel(example.name())
- *             .tags(Map.of(&#34;environment&#34;, &#34;staging&#34;))
+ *             .tags(Map.of("environment", "staging"))
  *             .build());
  * 
- *         var exampleLoadBalancer = new LoadBalancer(&#34;exampleLoadBalancer&#34;, LoadBalancerArgs.builder()        
- *             .name(&#34;test&#34;)
+ *         var exampleLoadBalancer = new LoadBalancer("exampleLoadBalancer", LoadBalancerArgs.builder()        
+ *             .name("test")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .frontendIpConfigurations(LoadBalancerFrontendIpConfigurationArgs.builder()
- *                 .name(&#34;PublicIPAddress&#34;)
+ *                 .name("PublicIPAddress")
  *                 .publicIpAddressId(examplePublicIp.id())
  *                 .build())
  *             .build());
  * 
- *         var bpepool = new BackendAddressPool(&#34;bpepool&#34;, BackendAddressPoolArgs.builder()        
+ *         var bpepool = new BackendAddressPool("bpepool", BackendAddressPoolArgs.builder()        
  *             .loadbalancerId(exampleLoadBalancer.id())
- *             .name(&#34;BackEndAddressPool&#34;)
+ *             .name("BackEndAddressPool")
  *             .build());
  * 
- *         var lbnatpool = new NatPool(&#34;lbnatpool&#34;, NatPoolArgs.builder()        
+ *         var lbnatpool = new NatPool("lbnatpool", NatPoolArgs.builder()        
  *             .resourceGroupName(example.name())
- *             .name(&#34;ssh&#34;)
+ *             .name("ssh")
  *             .loadbalancerId(exampleLoadBalancer.id())
- *             .protocol(&#34;Tcp&#34;)
+ *             .protocol("Tcp")
  *             .frontendPortStart(50000)
  *             .frontendPortEnd(50119)
  *             .backendPort(22)
- *             .frontendIpConfigurationName(&#34;PublicIPAddress&#34;)
+ *             .frontendIpConfigurationName("PublicIPAddress")
  *             .build());
  * 
- *         var exampleProbe = new Probe(&#34;exampleProbe&#34;, ProbeArgs.builder()        
+ *         var exampleProbe = new Probe("exampleProbe", ProbeArgs.builder()        
  *             .loadbalancerId(exampleLoadBalancer.id())
- *             .name(&#34;http-probe&#34;)
- *             .protocol(&#34;Http&#34;)
- *             .requestPath(&#34;/health&#34;)
+ *             .name("http-probe")
+ *             .protocol("Http")
+ *             .requestPath("/health")
  *             .port(8080)
  *             .build());
  * 
- *         var exampleScaleSet = new ScaleSet(&#34;exampleScaleSet&#34;, ScaleSetArgs.builder()        
- *             .name(&#34;mytestscaleset-1&#34;)
+ *         var exampleScaleSet = new ScaleSet("exampleScaleSet", ScaleSetArgs.builder()        
+ *             .name("mytestscaleset-1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .automaticOsUpgrade(true)
- *             .upgradePolicyMode(&#34;Rolling&#34;)
+ *             .upgradePolicyMode("Rolling")
  *             .rollingUpgradePolicy(ScaleSetRollingUpgradePolicyArgs.builder()
  *                 .maxBatchInstancePercent(20)
  *                 .maxUnhealthyInstancePercent(20)
  *                 .maxUnhealthyUpgradedInstancePercent(5)
- *                 .pauseTimeBetweenBatches(&#34;PT0S&#34;)
+ *                 .pauseTimeBetweenBatches("PT0S")
  *                 .build())
  *             .healthProbeId(exampleProbe.id())
  *             .sku(ScaleSetSkuArgs.builder()
- *                 .name(&#34;Standard_F2&#34;)
- *                 .tier(&#34;Standard&#34;)
+ *                 .name("Standard_F2")
+ *                 .tier("Standard")
  *                 .capacity(2)
  *                 .build())
  *             .storageProfileImageReference(ScaleSetStorageProfileImageReferenceArgs.builder()
- *                 .publisher(&#34;Canonical&#34;)
- *                 .offer(&#34;0001-com-ubuntu-server-jammy&#34;)
- *                 .sku(&#34;22_04-lts&#34;)
- *                 .version(&#34;latest&#34;)
+ *                 .publisher("Canonical")
+ *                 .offer("0001-com-ubuntu-server-jammy")
+ *                 .sku("22_04-lts")
+ *                 .version("latest")
  *                 .build())
  *             .storageProfileOsDisk(ScaleSetStorageProfileOsDiskArgs.builder()
- *                 .name(&#34;&#34;)
- *                 .caching(&#34;ReadWrite&#34;)
- *                 .createOption(&#34;FromImage&#34;)
- *                 .managedDiskType(&#34;Standard_LRS&#34;)
+ *                 .name("")
+ *                 .caching("ReadWrite")
+ *                 .createOption("FromImage")
+ *                 .managedDiskType("Standard_LRS")
  *                 .build())
  *             .storageProfileDataDisks(ScaleSetStorageProfileDataDiskArgs.builder()
  *                 .lun(0)
- *                 .caching(&#34;ReadWrite&#34;)
- *                 .createOption(&#34;Empty&#34;)
+ *                 .caching("ReadWrite")
+ *                 .createOption("Empty")
  *                 .diskSizeGb(10)
  *                 .build())
  *             .osProfile(ScaleSetOsProfileArgs.builder()
- *                 .computerNamePrefix(&#34;testvm&#34;)
- *                 .adminUsername(&#34;myadmin&#34;)
+ *                 .computerNamePrefix("testvm")
+ *                 .adminUsername("myadmin")
  *                 .build())
  *             .osProfileLinuxConfig(ScaleSetOsProfileLinuxConfigArgs.builder()
  *                 .disablePasswordAuthentication(true)
  *                 .sshKeys(ScaleSetOsProfileLinuxConfigSshKeyArgs.builder()
- *                     .path(&#34;/home/myadmin/.ssh/authorized_keys&#34;)
+ *                     .path("/home/myadmin/.ssh/authorized_keys")
  *                     .keyData(StdFunctions.file(FileArgs.builder()
- *                         .input(&#34;~/.ssh/demo_key.pub&#34;)
+ *                         .input("~/.ssh/demo_key.pub")
  *                         .build()).result())
  *                     .build())
  *                 .build())
  *             .networkProfiles(ScaleSetNetworkProfileArgs.builder()
- *                 .name(&#34;mynetworkprofile&#34;)
+ *                 .name("mynetworkprofile")
  *                 .primary(true)
  *                 .ipConfigurations(ScaleSetNetworkProfileIpConfigurationArgs.builder()
- *                     .name(&#34;TestIPConfiguration&#34;)
+ *                     .name("TestIPConfiguration")
  *                     .primary(true)
  *                     .subnetId(exampleSubnet.id())
  *                     .loadBalancerBackendAddressPoolIds(bpepool.id())
  *                     .loadBalancerInboundNatRulesIds(lbnatpool.id())
  *                     .build())
  *                 .build())
- *             .tags(Map.of(&#34;environment&#34;, &#34;staging&#34;))
+ *             .tags(Map.of("environment", "staging"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Unmanaged Disks
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -255,99 +258,101 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;acctvn&#34;)
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("acctvn")
+ *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;acctsub&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("acctsub")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
+ *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;accsa&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("accsa")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
- *             .tags(Map.of(&#34;environment&#34;, &#34;staging&#34;))
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
+ *             .tags(Map.of("environment", "staging"))
  *             .build());
  * 
- *         var exampleContainer = new Container(&#34;exampleContainer&#34;, ContainerArgs.builder()        
- *             .name(&#34;vhds&#34;)
+ *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()        
+ *             .name("vhds")
  *             .storageAccountName(exampleAccount.name())
- *             .containerAccessType(&#34;private&#34;)
+ *             .containerAccessType("private")
  *             .build());
  * 
- *         var exampleScaleSet = new ScaleSet(&#34;exampleScaleSet&#34;, ScaleSetArgs.builder()        
- *             .name(&#34;mytestscaleset-1&#34;)
+ *         var exampleScaleSet = new ScaleSet("exampleScaleSet", ScaleSetArgs.builder()        
+ *             .name("mytestscaleset-1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .upgradePolicyMode(&#34;Manual&#34;)
+ *             .upgradePolicyMode("Manual")
  *             .sku(ScaleSetSkuArgs.builder()
- *                 .name(&#34;Standard_F2&#34;)
- *                 .tier(&#34;Standard&#34;)
+ *                 .name("Standard_F2")
+ *                 .tier("Standard")
  *                 .capacity(2)
  *                 .build())
  *             .osProfile(ScaleSetOsProfileArgs.builder()
- *                 .computerNamePrefix(&#34;testvm&#34;)
- *                 .adminUsername(&#34;myadmin&#34;)
+ *                 .computerNamePrefix("testvm")
+ *                 .adminUsername("myadmin")
  *                 .build())
  *             .osProfileLinuxConfig(ScaleSetOsProfileLinuxConfigArgs.builder()
  *                 .disablePasswordAuthentication(true)
  *                 .sshKeys(ScaleSetOsProfileLinuxConfigSshKeyArgs.builder()
- *                     .path(&#34;/home/myadmin/.ssh/authorized_keys&#34;)
+ *                     .path("/home/myadmin/.ssh/authorized_keys")
  *                     .keyData(StdFunctions.file(FileArgs.builder()
- *                         .input(&#34;~/.ssh/demo_key.pub&#34;)
+ *                         .input("~/.ssh/demo_key.pub")
  *                         .build()).result())
  *                     .build())
  *                 .build())
  *             .networkProfiles(ScaleSetNetworkProfileArgs.builder()
- *                 .name(&#34;TestNetworkProfile&#34;)
+ *                 .name("TestNetworkProfile")
  *                 .primary(true)
  *                 .ipConfigurations(ScaleSetNetworkProfileIpConfigurationArgs.builder()
- *                     .name(&#34;TestIPConfiguration&#34;)
+ *                     .name("TestIPConfiguration")
  *                     .primary(true)
  *                     .subnetId(exampleSubnet.id())
  *                     .build())
  *                 .build())
  *             .storageProfileOsDisk(ScaleSetStorageProfileOsDiskArgs.builder()
- *                 .name(&#34;osDiskProfile&#34;)
- *                 .caching(&#34;ReadWrite&#34;)
- *                 .createOption(&#34;FromImage&#34;)
- *                 .vhdContainers(Output.tuple(exampleAccount.primaryBlobEndpoint(), exampleContainer.name()).applyValue(values -&gt; {
+ *                 .name("osDiskProfile")
+ *                 .caching("ReadWrite")
+ *                 .createOption("FromImage")
+ *                 .vhdContainers(Output.tuple(exampleAccount.primaryBlobEndpoint(), exampleContainer.name()).applyValue(values -> {
  *                     var primaryBlobEndpoint = values.t1;
  *                     var name = values.t2;
- *                     return String.format(&#34;%s%s&#34;, primaryBlobEndpoint,name);
+ *                     return String.format("%s%s", primaryBlobEndpoint,name);
  *                 }))
  *                 .build())
  *             .storageProfileImageReference(ScaleSetStorageProfileImageReferenceArgs.builder()
- *                 .publisher(&#34;Canonical&#34;)
- *                 .offer(&#34;0001-com-ubuntu-server-jammy&#34;)
- *                 .sku(&#34;22_04-lts&#34;)
- *                 .version(&#34;latest&#34;)
+ *                 .publisher("Canonical")
+ *                 .offer("0001-com-ubuntu-server-jammy")
+ *                 .sku("22_04-lts")
+ *                 .version("latest")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Example of storage_profile_image_reference with id
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -371,12 +376,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Image(&#34;example&#34;, ImageArgs.builder()        
- *             .name(&#34;test&#34;)
+ *         var example = new Image("example", ImageArgs.builder()        
+ *             .name("test")
  *             .build());
  * 
- *         var exampleScaleSet = new ScaleSet(&#34;exampleScaleSet&#34;, ScaleSetArgs.builder()        
- *             .name(&#34;test&#34;)
+ *         var exampleScaleSet = new ScaleSet("exampleScaleSet", ScaleSetArgs.builder()        
+ *             .name("test")
  *             .storageProfileImageReference(ScaleSetStorageProfileImageReferenceArgs.builder()
  *                 .id(example.id())
  *                 .build())
@@ -384,7 +389,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

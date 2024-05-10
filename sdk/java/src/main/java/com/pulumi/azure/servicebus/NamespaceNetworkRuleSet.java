@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -57,51 +58,52 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleNamespace = new Namespace(&#34;exampleNamespace&#34;, NamespaceArgs.builder()        
- *             .name(&#34;example-sb-namespace&#34;)
+ *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()        
+ *             .name("example-sb-namespace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;Premium&#34;)
+ *             .sku("Premium")
  *             .capacity(1)
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-vnet&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example-vnet")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .addressSpaces(&#34;172.17.0.0/16&#34;)
+ *             .addressSpaces("172.17.0.0/16")
  *             .dnsServers(            
- *                 &#34;10.0.0.4&#34;,
- *                 &#34;10.0.0.5&#34;)
+ *                 "10.0.0.4",
+ *                 "10.0.0.5")
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;default&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("default")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;172.17.0.0/24&#34;)
- *             .serviceEndpoints(&#34;Microsoft.ServiceBus&#34;)
+ *             .addressPrefixes("172.17.0.0/24")
+ *             .serviceEndpoints("Microsoft.ServiceBus")
  *             .build());
  * 
- *         var exampleNamespaceNetworkRuleSet = new NamespaceNetworkRuleSet(&#34;exampleNamespaceNetworkRuleSet&#34;, NamespaceNetworkRuleSetArgs.builder()        
+ *         var exampleNamespaceNetworkRuleSet = new NamespaceNetworkRuleSet("exampleNamespaceNetworkRuleSet", NamespaceNetworkRuleSetArgs.builder()        
  *             .namespaceId(exampleNamespace.id())
- *             .defaultAction(&#34;Deny&#34;)
+ *             .defaultAction("Deny")
  *             .publicNetworkAccessEnabled(true)
  *             .networkRules(NamespaceNetworkRuleSetNetworkRuleArgs.builder()
  *                 .subnetId(exampleSubnet.id())
  *                 .ignoreMissingVnetServiceEndpoint(false)
  *                 .build())
- *             .ipRules(&#34;1.1.1.1&#34;)
+ *             .ipRules("1.1.1.1")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

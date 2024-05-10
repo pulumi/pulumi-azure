@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,25 +49,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;test-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("test-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleIPGroup = new IPGroup(&#34;exampleIPGroup&#34;, IPGroupArgs.builder()        
- *             .name(&#34;test-ipgroup&#34;)
+ *         var exampleIPGroup = new IPGroup("exampleIPGroup", IPGroupArgs.builder()        
+ *             .name("test-ipgroup")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleIPGroupCIDR = new IPGroupCIDR(&#34;exampleIPGroupCIDR&#34;, IPGroupCIDRArgs.builder()        
+ *         var exampleIPGroupCIDR = new IPGroupCIDR("exampleIPGroupCIDR", IPGroupCIDRArgs.builder()        
  *             .ipGroupId(exampleIPGroup.id())
- *             .cidr(&#34;10.10.10.0/24&#34;)
+ *             .cidr("10.10.10.0/24")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

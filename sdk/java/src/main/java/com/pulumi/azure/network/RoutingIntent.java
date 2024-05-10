@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,50 +53,51 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualWan = new VirtualWan(&#34;exampleVirtualWan&#34;, VirtualWanArgs.builder()        
- *             .name(&#34;example-vwan&#34;)
+ *         var exampleVirtualWan = new VirtualWan("exampleVirtualWan", VirtualWanArgs.builder()        
+ *             .name("example-vwan")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleVirtualHub = new VirtualHub(&#34;exampleVirtualHub&#34;, VirtualHubArgs.builder()        
- *             .name(&#34;example-vhub&#34;)
+ *         var exampleVirtualHub = new VirtualHub("exampleVirtualHub", VirtualHubArgs.builder()        
+ *             .name("example-vhub")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .virtualWanId(exampleVirtualWan.id())
- *             .addressPrefix(&#34;10.0.1.0/24&#34;)
+ *             .addressPrefix("10.0.1.0/24")
  *             .build());
  * 
- *         var exampleFirewall = new Firewall(&#34;exampleFirewall&#34;, FirewallArgs.builder()        
- *             .name(&#34;example-fw&#34;)
+ *         var exampleFirewall = new Firewall("exampleFirewall", FirewallArgs.builder()        
+ *             .name("example-fw")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;AZFW_Hub&#34;)
- *             .skuTier(&#34;Standard&#34;)
+ *             .skuName("AZFW_Hub")
+ *             .skuTier("Standard")
  *             .virtualHub(FirewallVirtualHubArgs.builder()
  *                 .virtualHubId(exampleVirtualHub.id())
  *                 .publicIpCount(1)
  *                 .build())
  *             .build());
  * 
- *         var exampleRoutingIntent = new RoutingIntent(&#34;exampleRoutingIntent&#34;, RoutingIntentArgs.builder()        
- *             .name(&#34;example-routingintent&#34;)
+ *         var exampleRoutingIntent = new RoutingIntent("exampleRoutingIntent", RoutingIntentArgs.builder()        
+ *             .name("example-routingintent")
  *             .virtualHubId(exampleVirtualHub.id())
  *             .routingPolicies(RoutingIntentRoutingPolicyArgs.builder()
- *                 .name(&#34;InternetTrafficPolicy&#34;)
- *                 .destinations(&#34;Internet&#34;)
+ *                 .name("InternetTrafficPolicy")
+ *                 .destinations("Internet")
  *                 .nextHop(exampleFirewall.id())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

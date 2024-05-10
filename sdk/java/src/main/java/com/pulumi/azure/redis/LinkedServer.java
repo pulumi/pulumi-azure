@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,57 +46,58 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example_primary = new ResourceGroup(&#34;example-primary&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources-primary&#34;)
- *             .location(&#34;East US&#34;)
+ *         var example_primary = new ResourceGroup("example-primary", ResourceGroupArgs.builder()        
+ *             .name("example-resources-primary")
+ *             .location("East US")
  *             .build());
  * 
- *         var example_primaryCache = new Cache(&#34;example-primaryCache&#34;, CacheArgs.builder()        
- *             .name(&#34;example-cache1&#34;)
+ *         var example_primaryCache = new Cache("example-primaryCache", CacheArgs.builder()        
+ *             .name("example-cache1")
  *             .location(example_primary.location())
  *             .resourceGroupName(example_primary.name())
  *             .capacity(1)
- *             .family(&#34;P&#34;)
- *             .skuName(&#34;Premium&#34;)
+ *             .family("P")
+ *             .skuName("Premium")
  *             .enableNonSslPort(false)
  *             .redisConfiguration(CacheRedisConfigurationArgs.builder()
  *                 .maxmemoryReserved(2)
  *                 .maxmemoryDelta(2)
- *                 .maxmemoryPolicy(&#34;allkeys-lru&#34;)
+ *                 .maxmemoryPolicy("allkeys-lru")
  *                 .build())
  *             .build());
  * 
- *         var example_secondary = new ResourceGroup(&#34;example-secondary&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources-secondary&#34;)
- *             .location(&#34;West US&#34;)
+ *         var example_secondary = new ResourceGroup("example-secondary", ResourceGroupArgs.builder()        
+ *             .name("example-resources-secondary")
+ *             .location("West US")
  *             .build());
  * 
- *         var example_secondaryCache = new Cache(&#34;example-secondaryCache&#34;, CacheArgs.builder()        
- *             .name(&#34;example-cache2&#34;)
+ *         var example_secondaryCache = new Cache("example-secondaryCache", CacheArgs.builder()        
+ *             .name("example-cache2")
  *             .location(example_secondary.location())
  *             .resourceGroupName(example_secondary.name())
  *             .capacity(1)
- *             .family(&#34;P&#34;)
- *             .skuName(&#34;Premium&#34;)
+ *             .family("P")
+ *             .skuName("Premium")
  *             .enableNonSslPort(false)
  *             .redisConfiguration(CacheRedisConfigurationArgs.builder()
  *                 .maxmemoryReserved(2)
  *                 .maxmemoryDelta(2)
- *                 .maxmemoryPolicy(&#34;allkeys-lru&#34;)
+ *                 .maxmemoryPolicy("allkeys-lru")
  *                 .build())
  *             .build());
  * 
- *         var example_link = new LinkedServer(&#34;example-link&#34;, LinkedServerArgs.builder()        
+ *         var example_link = new LinkedServer("example-link", LinkedServerArgs.builder()        
  *             .targetRedisCacheName(example_primaryCache.name())
  *             .resourceGroupName(example_primaryCache.resourceGroupName())
  *             .linkedRedisCacheId(example_secondaryCache.id())
  *             .linkedRedisCacheLocation(example_secondaryCache.location())
- *             .serverRole(&#34;Secondary&#34;)
+ *             .serverRole("Secondary")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

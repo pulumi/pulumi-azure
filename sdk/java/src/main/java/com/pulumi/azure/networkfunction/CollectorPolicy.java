@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -58,67 +59,68 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West US 2&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West US 2")
  *             .build());
  * 
- *         var exampleExpressRoutePort = new ExpressRoutePort(&#34;exampleExpressRoutePort&#34;, ExpressRoutePortArgs.builder()        
- *             .name(&#34;example-erp&#34;)
+ *         var exampleExpressRoutePort = new ExpressRoutePort("exampleExpressRoutePort", ExpressRoutePortArgs.builder()        
+ *             .name("example-erp")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .peeringLocation(&#34;Equinix-Seattle-SE2&#34;)
+ *             .peeringLocation("Equinix-Seattle-SE2")
  *             .bandwidthInGbps(10)
- *             .encapsulation(&#34;Dot1Q&#34;)
+ *             .encapsulation("Dot1Q")
  *             .build());
  * 
- *         var exampleExpressRouteCircuit = new ExpressRouteCircuit(&#34;exampleExpressRouteCircuit&#34;, ExpressRouteCircuitArgs.builder()        
- *             .name(&#34;example-erc&#34;)
+ *         var exampleExpressRouteCircuit = new ExpressRouteCircuit("exampleExpressRouteCircuit", ExpressRouteCircuitArgs.builder()        
+ *             .name("example-erc")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .expressRoutePortId(exampleExpressRoutePort.id())
  *             .bandwidthInGbps(1)
  *             .sku(ExpressRouteCircuitSkuArgs.builder()
- *                 .tier(&#34;Standard&#34;)
- *                 .family(&#34;MeteredData&#34;)
+ *                 .tier("Standard")
+ *                 .family("MeteredData")
  *                 .build())
  *             .build());
  * 
- *         var exampleExpressRouteCircuitPeering = new ExpressRouteCircuitPeering(&#34;exampleExpressRouteCircuitPeering&#34;, ExpressRouteCircuitPeeringArgs.builder()        
- *             .peeringType(&#34;MicrosoftPeering&#34;)
+ *         var exampleExpressRouteCircuitPeering = new ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering", ExpressRouteCircuitPeeringArgs.builder()        
+ *             .peeringType("MicrosoftPeering")
  *             .expressRouteCircuitName(exampleExpressRouteCircuit.name())
  *             .resourceGroupName(example.name())
  *             .peerAsn(100)
- *             .primaryPeerAddressPrefix(&#34;192.168.199.0/30&#34;)
- *             .secondaryPeerAddressPrefix(&#34;192.168.200.0/30&#34;)
+ *             .primaryPeerAddressPrefix("192.168.199.0/30")
+ *             .secondaryPeerAddressPrefix("192.168.200.0/30")
  *             .vlanId(300)
  *             .microsoftPeeringConfig(ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs.builder()
- *                 .advertisedPublicPrefixes(&#34;123.6.0.0/24&#34;)
+ *                 .advertisedPublicPrefixes("123.6.0.0/24")
  *                 .build())
  *             .build());
  * 
- *         var exampleAzureTrafficCollector = new AzureTrafficCollector(&#34;exampleAzureTrafficCollector&#34;, AzureTrafficCollectorArgs.builder()        
- *             .name(&#34;example-nfatc&#34;)
+ *         var exampleAzureTrafficCollector = new AzureTrafficCollector("exampleAzureTrafficCollector", AzureTrafficCollectorArgs.builder()        
+ *             .name("example-nfatc")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleCollectorPolicy = new CollectorPolicy(&#34;exampleCollectorPolicy&#34;, CollectorPolicyArgs.builder()        
- *             .name(&#34;example-nfcp&#34;)
+ *         var exampleCollectorPolicy = new CollectorPolicy("exampleCollectorPolicy", CollectorPolicyArgs.builder()        
+ *             .name("example-nfcp")
  *             .trafficCollectorId(exampleAzureTrafficCollector.id())
  *             .location(example.location())
  *             .ipfxEmission(CollectorPolicyIpfxEmissionArgs.builder()
- *                 .destinationTypes(&#34;AzureMonitor&#34;)
+ *                 .destinationTypes("AzureMonitor")
  *                 .build())
  *             .ipfxIngestion(CollectorPolicyIpfxIngestionArgs.builder()
  *                 .sourceResourceIds(exampleExpressRouteCircuit.id())
  *                 .build())
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .tags(Map.of("key", "value"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

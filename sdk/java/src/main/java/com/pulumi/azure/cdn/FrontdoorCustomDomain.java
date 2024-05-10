@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,36 +50,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-cdn-frontdoor&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-cdn-frontdoor")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
- *             .name(&#34;sub-domain.domain.com&#34;)
+ *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()        
+ *             .name("sub-domain.domain.com")
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleFrontdoorProfile = new FrontdoorProfile(&#34;exampleFrontdoorProfile&#34;, FrontdoorProfileArgs.builder()        
- *             .name(&#34;example-profile&#34;)
+ *         var exampleFrontdoorProfile = new FrontdoorProfile("exampleFrontdoorProfile", FrontdoorProfileArgs.builder()        
+ *             .name("example-profile")
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;Standard_AzureFrontDoor&#34;)
+ *             .skuName("Standard_AzureFrontDoor")
  *             .build());
  * 
- *         var exampleFrontdoorCustomDomain = new FrontdoorCustomDomain(&#34;exampleFrontdoorCustomDomain&#34;, FrontdoorCustomDomainArgs.builder()        
- *             .name(&#34;example-customDomain&#34;)
+ *         var exampleFrontdoorCustomDomain = new FrontdoorCustomDomain("exampleFrontdoorCustomDomain", FrontdoorCustomDomainArgs.builder()        
+ *             .name("example-customDomain")
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .dnsZoneId(exampleZone.id())
- *             .hostName(&#34;contoso.fabrikam.com&#34;)
+ *             .hostName("contoso.fabrikam.com")
  *             .tls(FrontdoorCustomDomainTlsArgs.builder()
- *                 .certificateType(&#34;ManagedCertificate&#34;)
- *                 .minimumTlsVersion(&#34;TLS12&#34;)
+ *                 .certificateType("ManagedCertificate")
+ *                 .minimumTlsVersion("TLS12")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Example DNS Auth TXT Record Usage
@@ -86,7 +88,8 @@ import javax.annotation.Nullable;
  * The name of your DNS TXT record should be in the format of `_dnsauth.&lt;your_subdomain&gt;`. So, for example, if we use the `host_name` in the example usage above you would create a DNS TXT record with the name of `_dnsauth.contoso` which contains the value of the Front Door Custom Domains `validation_token` field. See the [product documentation](https://learn.microsoft.com/azure/frontdoor/standard-premium/how-to-add-custom-domain) for more information.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -108,12 +111,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TxtRecord(&#34;example&#34;, TxtRecordArgs.builder()        
+ *         var example = new TxtRecord("example", TxtRecordArgs.builder()        
  *             .name(StdFunctions.join(JoinArgs.builder()
- *                 .separator(&#34;.&#34;)
+ *                 .separator(".")
  *                 .input(                
- *                     &#34;_dnsauth&#34;,
- *                     &#34;contoso&#34;)
+ *                     "_dnsauth",
+ *                     "contoso")
  *                 .build()).result())
  *             .zoneName(exampleAzurermDnsZone.name())
  *             .resourceGroupName(exampleAzurermResourceGroup.name())
@@ -125,7 +128,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Example CNAME Record Usage
@@ -133,7 +137,8 @@ import javax.annotation.Nullable;
  * !&gt;**IMPORTANT:** You **must** include the `depends_on` meta-argument which references both the `azure.cdn.FrontdoorRoute` and the `azure.cdn.FrontdoorSecurityPolicy` that are associated with your Custom Domain. The reason for these `depends_on` meta-arguments is because all of the resources for the Custom Domain need to be associated within Front Door before the CNAME record can be written to the domains DNS, else the CNAME validation will fail and Front Door will not enable traffic to the Domain.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -154,8 +159,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CNameRecord(&#34;example&#34;, CNameRecordArgs.builder()        
- *             .name(&#34;contoso&#34;)
+ *         var example = new CNameRecord("example", CNameRecordArgs.builder()        
+ *             .name("contoso")
  *             .zoneName(exampleAzurermDnsZone.name())
  *             .resourceGroupName(exampleAzurermResourceGroup.name())
  *             .ttl(3600)
@@ -164,7 +169,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

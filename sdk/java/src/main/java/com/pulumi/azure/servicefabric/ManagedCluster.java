@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,37 +52,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ManagedCluster(&#34;example&#34;, ManagedClusterArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .resourceGroupName(&#34;example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ManagedCluster("example", ManagedClusterArgs.builder()        
+ *             .name("example")
+ *             .resourceGroupName("example")
+ *             .location("West Europe")
  *             .httpGatewayPort(4567)
  *             .lbRules(ManagedClusterLbRuleArgs.builder()
  *                 .backendPort(38080)
  *                 .frontendPort(80)
- *                 .probeProtocol(&#34;http&#34;)
- *                 .probeRequestPath(&#34;/test&#34;)
- *                 .protocol(&#34;tcp&#34;)
+ *                 .probeProtocol("http")
+ *                 .probeRequestPath("/test")
+ *                 .protocol("tcp")
  *                 .build())
  *             .clientConnectionPort(12345)
  *             .nodeTypes(ManagedClusterNodeTypeArgs.builder()
  *                 .dataDiskSizeGb(130)
- *                 .name(&#34;test1&#34;)
+ *                 .name("test1")
  *                 .primary(true)
- *                 .applicationPortRange(&#34;30000-49000&#34;)
- *                 .ephemeralPortRange(&#34;10000-20000&#34;)
- *                 .vmSize(&#34;Standard_DS1_v2&#34;)
- *                 .vmImagePublisher(&#34;MicrosoftWindowsServer&#34;)
- *                 .vmImageSku(&#34;2019-Datacenter-with-Containers&#34;)
- *                 .vmImageOffer(&#34;WindowsServer&#34;)
- *                 .vmImageVersion(&#34;latest&#34;)
+ *                 .applicationPortRange("30000-49000")
+ *                 .ephemeralPortRange("10000-20000")
+ *                 .vmSize("Standard_DS1_v2")
+ *                 .vmImagePublisher("MicrosoftWindowsServer")
+ *                 .vmImageSku("2019-Datacenter-with-Containers")
+ *                 .vmImageOffer("WindowsServer")
+ *                 .vmImageVersion("latest")
  *                 .vmInstanceCount(5)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

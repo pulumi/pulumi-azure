@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,34 +52,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleSpringCloudService = new SpringCloudService(&#34;exampleSpringCloudService&#34;, SpringCloudServiceArgs.builder()        
- *             .name(&#34;example-springcloud&#34;)
+ *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()        
+ *             .name("example-springcloud")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .skuName(&#34;E0&#34;)
+ *             .skuName("E0")
  *             .build());
  * 
- *         var exampleSpringCloudBuilder = new SpringCloudBuilder(&#34;exampleSpringCloudBuilder&#34;, SpringCloudBuilderArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleSpringCloudBuilder = new SpringCloudBuilder("exampleSpringCloudBuilder", SpringCloudBuilderArgs.builder()        
+ *             .name("example")
  *             .springCloudServiceId(exampleSpringCloudService.id())
  *             .buildPackGroups(SpringCloudBuilderBuildPackGroupArgs.builder()
- *                 .name(&#34;mix&#34;)
- *                 .buildPackIds(&#34;tanzu-buildpacks/java-azure&#34;)
+ *                 .name("mix")
+ *                 .buildPackIds("tanzu-buildpacks/java-azure")
  *                 .build())
  *             .stack(SpringCloudBuilderStackArgs.builder()
- *                 .id(&#34;io.buildpacks.stacks.bionic&#34;)
- *                 .version(&#34;base&#34;)
+ *                 .id("io.buildpacks.stacks.bionic")
+ *                 .version("base")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

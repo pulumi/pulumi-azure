@@ -29,7 +29,8 @@ public final class IotFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -51,13 +52,14 @@ public final class IotFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getDps(GetDpsArgs.builder()
-     *             .name(&#34;iot_hub_dps_test&#34;)
-     *             .resourceGroupName(&#34;iothub_dps_rg&#34;)
+     *             .name("iot_hub_dps_test")
+     *             .resourceGroupName("iothub_dps_rg")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -70,7 +72,8 @@ public final class IotFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -92,13 +95,14 @@ public final class IotFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getDps(GetDpsArgs.builder()
-     *             .name(&#34;iot_hub_dps_test&#34;)
-     *             .resourceGroupName(&#34;iothub_dps_rg&#34;)
+     *             .name("iot_hub_dps_test")
+     *             .resourceGroupName("iothub_dps_rg")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -111,7 +115,8 @@ public final class IotFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -133,13 +138,14 @@ public final class IotFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getDps(GetDpsArgs.builder()
-     *             .name(&#34;iot_hub_dps_test&#34;)
-     *             .resourceGroupName(&#34;iothub_dps_rg&#34;)
+     *             .name("iot_hub_dps_test")
+     *             .resourceGroupName("iothub_dps_rg")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -152,7 +158,8 @@ public final class IotFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -174,13 +181,14 @@ public final class IotFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getDps(GetDpsArgs.builder()
-     *             .name(&#34;iot_hub_dps_test&#34;)
-     *             .resourceGroupName(&#34;iothub_dps_rg&#34;)
+     *             .name("iot_hub_dps_test")
+     *             .resourceGroupName("iothub_dps_rg")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -193,7 +201,8 @@ public final class IotFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -215,14 +224,15 @@ public final class IotFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getDpsSharedAccessPolicy(GetDpsSharedAccessPolicyArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .iothubDpsName(exampleAzurermIothubDps.name())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -235,7 +245,8 @@ public final class IotFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -257,14 +268,15 @@ public final class IotFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getDpsSharedAccessPolicy(GetDpsSharedAccessPolicyArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .iothubDpsName(exampleAzurermIothubDps.name())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -277,7 +289,8 @@ public final class IotFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -299,14 +312,15 @@ public final class IotFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getDpsSharedAccessPolicy(GetDpsSharedAccessPolicyArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .iothubDpsName(exampleAzurermIothubDps.name())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -319,7 +333,8 @@ public final class IotFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -341,14 +356,15 @@ public final class IotFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getDpsSharedAccessPolicy(GetDpsSharedAccessPolicyArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .iothubDpsName(exampleAzurermIothubDps.name())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -361,7 +377,8 @@ public final class IotFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -383,14 +400,15 @@ public final class IotFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getIotHub(GetIotHubArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getIotHubResult -&gt; getIotHubResult.id()));
+     *         ctx.export("id", example.applyValue(getIotHubResult -> getIotHubResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -403,7 +421,8 @@ public final class IotFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -425,14 +444,15 @@ public final class IotFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getIotHub(GetIotHubArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getIotHubResult -&gt; getIotHubResult.id()));
+     *         ctx.export("id", example.applyValue(getIotHubResult -> getIotHubResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -445,7 +465,8 @@ public final class IotFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -467,14 +488,15 @@ public final class IotFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getIotHub(GetIotHubArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getIotHubResult -&gt; getIotHubResult.id()));
+     *         ctx.export("id", example.applyValue(getIotHubResult -> getIotHubResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -487,7 +509,8 @@ public final class IotFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -509,14 +532,15 @@ public final class IotFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getIotHub(GetIotHubArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getIotHubResult -&gt; getIotHubResult.id()));
+     *         ctx.export("id", example.applyValue(getIotHubResult -> getIotHubResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -529,7 +553,8 @@ public final class IotFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -551,14 +576,15 @@ public final class IotFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getSharedAccessPolicy(GetSharedAccessPolicyArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .iothubName(exampleAzurermIothub.name())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -571,7 +597,8 @@ public final class IotFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -593,14 +620,15 @@ public final class IotFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getSharedAccessPolicy(GetSharedAccessPolicyArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .iothubName(exampleAzurermIothub.name())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -613,7 +641,8 @@ public final class IotFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -635,14 +664,15 @@ public final class IotFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getSharedAccessPolicy(GetSharedAccessPolicyArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .iothubName(exampleAzurermIothub.name())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -655,7 +685,8 @@ public final class IotFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -677,14 +708,15 @@ public final class IotFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getSharedAccessPolicy(GetSharedAccessPolicyArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .iothubName(exampleAzurermIothub.name())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

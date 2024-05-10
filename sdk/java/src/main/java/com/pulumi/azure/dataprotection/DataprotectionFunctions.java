@@ -20,7 +20,8 @@ public final class DataprotectionFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -42,15 +43,16 @@ public final class DataprotectionFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DataprotectionFunctions.getBackupVault(GetBackupVaultArgs.builder()
-     *             .name(&#34;existing-backup-vault&#34;)
-     *             .resourceGroupName(&#34;existing-resource-group&#34;)
+     *             .name("existing-backup-vault")
+     *             .resourceGroupName("existing-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;azurermDataProtectionBackupVaultId&#34;, exampleAzurermVpnGateway.id());
-     *         ctx.export(&#34;azurermDataProtectionBackupVaultPrincipalId&#34;, example.applyValue(getBackupVaultResult -&gt; getBackupVaultResult.identities()[0].principalId()));
+     *         ctx.export("azurermDataProtectionBackupVaultId", exampleAzurermVpnGateway.id());
+     *         ctx.export("azurermDataProtectionBackupVaultPrincipalId", example.applyValue(getBackupVaultResult -> getBackupVaultResult.identities()[0].principalId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -63,7 +65,8 @@ public final class DataprotectionFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -85,15 +88,16 @@ public final class DataprotectionFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DataprotectionFunctions.getBackupVault(GetBackupVaultArgs.builder()
-     *             .name(&#34;existing-backup-vault&#34;)
-     *             .resourceGroupName(&#34;existing-resource-group&#34;)
+     *             .name("existing-backup-vault")
+     *             .resourceGroupName("existing-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;azurermDataProtectionBackupVaultId&#34;, exampleAzurermVpnGateway.id());
-     *         ctx.export(&#34;azurermDataProtectionBackupVaultPrincipalId&#34;, example.applyValue(getBackupVaultResult -&gt; getBackupVaultResult.identities()[0].principalId()));
+     *         ctx.export("azurermDataProtectionBackupVaultId", exampleAzurermVpnGateway.id());
+     *         ctx.export("azurermDataProtectionBackupVaultPrincipalId", example.applyValue(getBackupVaultResult -> getBackupVaultResult.identities()[0].principalId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -106,7 +110,8 @@ public final class DataprotectionFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -128,15 +133,16 @@ public final class DataprotectionFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DataprotectionFunctions.getBackupVault(GetBackupVaultArgs.builder()
-     *             .name(&#34;existing-backup-vault&#34;)
-     *             .resourceGroupName(&#34;existing-resource-group&#34;)
+     *             .name("existing-backup-vault")
+     *             .resourceGroupName("existing-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;azurermDataProtectionBackupVaultId&#34;, exampleAzurermVpnGateway.id());
-     *         ctx.export(&#34;azurermDataProtectionBackupVaultPrincipalId&#34;, example.applyValue(getBackupVaultResult -&gt; getBackupVaultResult.identities()[0].principalId()));
+     *         ctx.export("azurermDataProtectionBackupVaultId", exampleAzurermVpnGateway.id());
+     *         ctx.export("azurermDataProtectionBackupVaultPrincipalId", example.applyValue(getBackupVaultResult -> getBackupVaultResult.identities()[0].principalId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -149,7 +155,8 @@ public final class DataprotectionFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -171,15 +178,16 @@ public final class DataprotectionFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DataprotectionFunctions.getBackupVault(GetBackupVaultArgs.builder()
-     *             .name(&#34;existing-backup-vault&#34;)
-     *             .resourceGroupName(&#34;existing-resource-group&#34;)
+     *             .name("existing-backup-vault")
+     *             .resourceGroupName("existing-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;azurermDataProtectionBackupVaultId&#34;, exampleAzurermVpnGateway.id());
-     *         ctx.export(&#34;azurermDataProtectionBackupVaultPrincipalId&#34;, example.applyValue(getBackupVaultResult -&gt; getBackupVaultResult.identities()[0].principalId()));
+     *         ctx.export("azurermDataProtectionBackupVaultId", exampleAzurermVpnGateway.id());
+     *         ctx.export("azurermDataProtectionBackupVaultPrincipalId", example.applyValue(getBackupVaultResult -> getBackupVaultResult.identities()[0].principalId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

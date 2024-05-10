@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,51 +53,52 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleRegistry = new Registry(&#34;exampleRegistry&#34;, RegistryArgs.builder()        
- *             .name(&#34;exampleacr&#34;)
+ *         var exampleRegistry = new Registry("exampleRegistry", RegistryArgs.builder()        
+ *             .name("exampleacr")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .sku(&#34;Premium&#34;)
+ *             .sku("Premium")
  *             .dataEndpointEnabled(true)
  *             .build());
  * 
- *         var exampleRegistryScopeMap = new RegistryScopeMap(&#34;exampleRegistryScopeMap&#34;, RegistryScopeMapArgs.builder()        
- *             .name(&#34;examplescopemap&#34;)
+ *         var exampleRegistryScopeMap = new RegistryScopeMap("exampleRegistryScopeMap", RegistryScopeMapArgs.builder()        
+ *             .name("examplescopemap")
  *             .containerRegistryName(exampleRegistry.name())
  *             .resourceGroupName(exampleRegistry.resourceGroupName())
  *             .actions(            
- *                 &#34;repositories/hello-world/content/delete&#34;,
- *                 &#34;repositories/hello-world/content/read&#34;,
- *                 &#34;repositories/hello-world/content/write&#34;,
- *                 &#34;repositories/hello-world/metadata/read&#34;,
- *                 &#34;repositories/hello-world/metadata/write&#34;,
- *                 &#34;gateway/examplecr/config/read&#34;,
- *                 &#34;gateway/examplecr/config/write&#34;,
- *                 &#34;gateway/examplecr/message/read&#34;,
- *                 &#34;gateway/examplecr/message/write&#34;)
+ *                 "repositories/hello-world/content/delete",
+ *                 "repositories/hello-world/content/read",
+ *                 "repositories/hello-world/content/write",
+ *                 "repositories/hello-world/metadata/read",
+ *                 "repositories/hello-world/metadata/write",
+ *                 "gateway/examplecr/config/read",
+ *                 "gateway/examplecr/config/write",
+ *                 "gateway/examplecr/message/read",
+ *                 "gateway/examplecr/message/write")
  *             .build());
  * 
- *         var exampleRegistryToken = new RegistryToken(&#34;exampleRegistryToken&#34;, RegistryTokenArgs.builder()        
- *             .name(&#34;exampletoken&#34;)
+ *         var exampleRegistryToken = new RegistryToken("exampleRegistryToken", RegistryTokenArgs.builder()        
+ *             .name("exampletoken")
  *             .containerRegistryName(exampleRegistry.name())
  *             .resourceGroupName(exampleRegistry.resourceGroupName())
  *             .scopeMapId(exampleRegistryScopeMap.id())
  *             .build());
  * 
- *         var exampleConnectedRegistry = new ConnectedRegistry(&#34;exampleConnectedRegistry&#34;, ConnectedRegistryArgs.builder()        
- *             .name(&#34;examplecr&#34;)
+ *         var exampleConnectedRegistry = new ConnectedRegistry("exampleConnectedRegistry", ConnectedRegistryArgs.builder()        
+ *             .name("examplecr")
  *             .containerRegistryId(exampleRegistry.id())
  *             .syncTokenId(exampleRegistryToken.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

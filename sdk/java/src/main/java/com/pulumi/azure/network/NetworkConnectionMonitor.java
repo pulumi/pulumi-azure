@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -74,127 +75,128 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-Watcher-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-Watcher-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleNetworkWatcher = new NetworkWatcher(&#34;exampleNetworkWatcher&#34;, NetworkWatcherArgs.builder()        
- *             .name(&#34;example-Watcher&#34;)
+ *         var exampleNetworkWatcher = new NetworkWatcher("exampleNetworkWatcher", NetworkWatcherArgs.builder()        
+ *             .name("example-Watcher")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-Vnet&#34;)
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example-Vnet")
+ *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;example-Subnet&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("example-Subnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
+ *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
- *         var exampleNetworkInterface = new NetworkInterface(&#34;exampleNetworkInterface&#34;, NetworkInterfaceArgs.builder()        
- *             .name(&#34;example-Nic&#34;)
+ *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()        
+ *             .name("example-Nic")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
- *                 .name(&#34;testconfiguration1&#34;)
+ *                 .name("testconfiguration1")
  *                 .subnetId(exampleSubnet.id())
- *                 .privateIpAddressAllocation(&#34;Dynamic&#34;)
+ *                 .privateIpAddressAllocation("Dynamic")
  *                 .build())
  *             .build());
  * 
- *         var exampleVirtualMachine = new VirtualMachine(&#34;exampleVirtualMachine&#34;, VirtualMachineArgs.builder()        
- *             .name(&#34;example-VM&#34;)
+ *         var exampleVirtualMachine = new VirtualMachine("exampleVirtualMachine", VirtualMachineArgs.builder()        
+ *             .name("example-VM")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .networkInterfaceIds(exampleNetworkInterface.id())
- *             .vmSize(&#34;Standard_D2s_v3&#34;)
+ *             .vmSize("Standard_D2s_v3")
  *             .storageImageReference(VirtualMachineStorageImageReferenceArgs.builder()
- *                 .publisher(&#34;Canonical&#34;)
- *                 .offer(&#34;0001-com-ubuntu-server-jammy&#34;)
- *                 .sku(&#34;22_04-lts&#34;)
- *                 .version(&#34;latest&#34;)
+ *                 .publisher("Canonical")
+ *                 .offer("0001-com-ubuntu-server-jammy")
+ *                 .sku("22_04-lts")
+ *                 .version("latest")
  *                 .build())
  *             .storageOsDisk(VirtualMachineStorageOsDiskArgs.builder()
- *                 .name(&#34;osdisk-example01&#34;)
- *                 .caching(&#34;ReadWrite&#34;)
- *                 .createOption(&#34;FromImage&#34;)
- *                 .managedDiskType(&#34;Standard_LRS&#34;)
+ *                 .name("osdisk-example01")
+ *                 .caching("ReadWrite")
+ *                 .createOption("FromImage")
+ *                 .managedDiskType("Standard_LRS")
  *                 .build())
  *             .osProfile(VirtualMachineOsProfileArgs.builder()
- *                 .computerName(&#34;hostnametest01&#34;)
- *                 .adminUsername(&#34;testadmin&#34;)
- *                 .adminPassword(&#34;Password1234!&#34;)
+ *                 .computerName("hostnametest01")
+ *                 .adminUsername("testadmin")
+ *                 .adminPassword("Password1234!")
  *                 .build())
  *             .osProfileLinuxConfig(VirtualMachineOsProfileLinuxConfigArgs.builder()
  *                 .disablePasswordAuthentication(false)
  *                 .build())
  *             .build());
  * 
- *         var exampleExtension = new Extension(&#34;exampleExtension&#34;, ExtensionArgs.builder()        
- *             .name(&#34;example-VMExtension&#34;)
+ *         var exampleExtension = new Extension("exampleExtension", ExtensionArgs.builder()        
+ *             .name("example-VMExtension")
  *             .virtualMachineId(exampleVirtualMachine.id())
- *             .publisher(&#34;Microsoft.Azure.NetworkWatcher&#34;)
- *             .type(&#34;NetworkWatcherAgentLinux&#34;)
- *             .typeHandlerVersion(&#34;1.4&#34;)
+ *             .publisher("Microsoft.Azure.NetworkWatcher")
+ *             .type("NetworkWatcherAgentLinux")
+ *             .typeHandlerVersion("1.4")
  *             .autoUpgradeMinorVersion(true)
  *             .build());
  * 
- *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
- *             .name(&#34;example-Workspace&#34;)
+ *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()        
+ *             .name("example-Workspace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;PerGB2018&#34;)
+ *             .sku("PerGB2018")
  *             .build());
  * 
- *         var exampleNetworkConnectionMonitor = new NetworkConnectionMonitor(&#34;exampleNetworkConnectionMonitor&#34;, NetworkConnectionMonitorArgs.builder()        
- *             .name(&#34;example-Monitor&#34;)
+ *         var exampleNetworkConnectionMonitor = new NetworkConnectionMonitor("exampleNetworkConnectionMonitor", NetworkConnectionMonitorArgs.builder()        
+ *             .name("example-Monitor")
  *             .networkWatcherId(exampleNetworkWatcher.id())
  *             .location(exampleNetworkWatcher.location())
  *             .endpoints(            
  *                 NetworkConnectionMonitorEndpointArgs.builder()
- *                     .name(&#34;source&#34;)
+ *                     .name("source")
  *                     .targetResourceId(exampleVirtualMachine.id())
  *                     .filter(NetworkConnectionMonitorEndpointFilterArgs.builder()
  *                         .items(NetworkConnectionMonitorEndpointFilterItemArgs.builder()
  *                             .address(exampleVirtualMachine.id())
- *                             .type(&#34;AgentAddress&#34;)
+ *                             .type("AgentAddress")
  *                             .build())
- *                         .type(&#34;Include&#34;)
+ *                         .type("Include")
  *                         .build())
  *                     .build(),
  *                 NetworkConnectionMonitorEndpointArgs.builder()
- *                     .name(&#34;destination&#34;)
- *                     .address(&#34;mycompany.io&#34;)
+ *                     .name("destination")
+ *                     .address("mycompany.io")
  *                     .build())
  *             .testConfigurations(NetworkConnectionMonitorTestConfigurationArgs.builder()
- *                 .name(&#34;tcpName&#34;)
- *                 .protocol(&#34;Tcp&#34;)
+ *                 .name("tcpName")
+ *                 .protocol("Tcp")
  *                 .testFrequencyInSeconds(60)
  *                 .tcpConfiguration(NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs.builder()
  *                     .port(80)
  *                     .build())
  *                 .build())
  *             .testGroups(NetworkConnectionMonitorTestGroupArgs.builder()
- *                 .name(&#34;exampletg&#34;)
- *                 .destinationEndpoints(&#34;destination&#34;)
- *                 .sourceEndpoints(&#34;source&#34;)
- *                 .testConfigurationNames(&#34;tcpName&#34;)
+ *                 .name("exampletg")
+ *                 .destinationEndpoints("destination")
+ *                 .sourceEndpoints("source")
+ *                 .testConfigurationNames("tcpName")
  *                 .build())
- *             .notes(&#34;examplenote&#34;)
+ *             .notes("examplenote")
  *             .outputWorkspaceResourceIds(exampleAnalyticsWorkspace.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

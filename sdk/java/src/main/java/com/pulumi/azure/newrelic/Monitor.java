@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,29 +49,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;East US&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("East US")
  *             .build());
  * 
- *         var exampleMonitor = new Monitor(&#34;exampleMonitor&#34;, MonitorArgs.builder()        
- *             .name(&#34;example-nrm&#34;)
+ *         var exampleMonitor = new Monitor("exampleMonitor", MonitorArgs.builder()        
+ *             .name("example-nrm")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .plan(MonitorPlanArgs.builder()
- *                 .effectiveDate(&#34;2023-06-06T00:00:00Z&#34;)
+ *                 .effectiveDate("2023-06-06T00:00:00Z")
  *                 .build())
  *             .user(MonitorUserArgs.builder()
- *                 .email(&#34;user@example.com&#34;)
- *                 .firstName(&#34;Example&#34;)
- *                 .lastName(&#34;User&#34;)
- *                 .phoneNumber(&#34;+12313803556&#34;)
+ *                 .email("user{@literal @}example.com")
+ *                 .firstName("Example")
+ *                 .lastName("User")
+ *                 .phoneNumber("+12313803556")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

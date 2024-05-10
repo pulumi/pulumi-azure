@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,61 +54,63 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;storageaccountname&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("storageaccountname")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;keyvaultname&#34;)
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("keyvaultname")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .skuName(&#34;standard&#34;)
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .skuName("standard")
  *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
- *                 .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *                 .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *                 .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *                 .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *                 .secretPermissions(                
- *                     &#34;Get&#34;,
- *                     &#34;Delete&#34;)
+ *                     "Get",
+ *                     "Delete")
  *                 .storagePermissions(                
- *                     &#34;Get&#34;,
- *                     &#34;List&#34;,
- *                     &#34;Set&#34;,
- *                     &#34;SetSAS&#34;,
- *                     &#34;GetSAS&#34;,
- *                     &#34;DeleteSAS&#34;,
- *                     &#34;Update&#34;,
- *                     &#34;RegenerateKey&#34;)
+ *                     "Get",
+ *                     "List",
+ *                     "Set",
+ *                     "SetSAS",
+ *                     "GetSAS",
+ *                     "DeleteSAS",
+ *                     "Update",
+ *                     "RegenerateKey")
  *                 .build())
  *             .build());
  * 
- *         var exampleManagedStorageAccount = new ManagedStorageAccount(&#34;exampleManagedStorageAccount&#34;, ManagedStorageAccountArgs.builder()        
- *             .name(&#34;examplemanagedstorage&#34;)
+ *         var exampleManagedStorageAccount = new ManagedStorageAccount("exampleManagedStorageAccount", ManagedStorageAccountArgs.builder()        
+ *             .name("examplemanagedstorage")
  *             .keyVaultId(exampleKeyVault.id())
  *             .storageAccountId(exampleAccount.id())
- *             .storageAccountKey(&#34;key1&#34;)
+ *             .storageAccountKey("key1")
  *             .regenerateKeyAutomatically(false)
- *             .regenerationPeriod(&#34;P1D&#34;)
+ *             .regenerationPeriod("P1D")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Automatically Regenerate Storage Account Access Key)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -143,64 +146,65 @@ import javax.annotation.Nullable;
  *         final var current = CoreFunctions.getClientConfig();
  * 
  *         final var test = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
- *             .applicationId(&#34;cfa8b339-82a2-471a-a3c9-0fc0be7a4093&#34;)
+ *             .applicationId("cfa8b339-82a2-471a-a3c9-0fc0be7a4093")
  *             .build());
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;storageaccountname&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("storageaccountname")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;keyvaultname&#34;)
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("keyvaultname")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .skuName(&#34;standard&#34;)
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .skuName("standard")
  *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
- *                 .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *                 .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *                 .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *                 .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *                 .secretPermissions(                
- *                     &#34;Get&#34;,
- *                     &#34;Delete&#34;)
+ *                     "Get",
+ *                     "Delete")
  *                 .storagePermissions(                
- *                     &#34;Get&#34;,
- *                     &#34;List&#34;,
- *                     &#34;Set&#34;,
- *                     &#34;SetSAS&#34;,
- *                     &#34;GetSAS&#34;,
- *                     &#34;DeleteSAS&#34;,
- *                     &#34;Update&#34;,
- *                     &#34;RegenerateKey&#34;)
+ *                     "Get",
+ *                     "List",
+ *                     "Set",
+ *                     "SetSAS",
+ *                     "GetSAS",
+ *                     "DeleteSAS",
+ *                     "Update",
+ *                     "RegenerateKey")
  *                 .build())
  *             .build());
  * 
- *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()        
  *             .scope(exampleAccount.id())
- *             .roleDefinitionName(&#34;Storage Account Key Operator Service Role&#34;)
- *             .principalId(test.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.id()))
+ *             .roleDefinitionName("Storage Account Key Operator Service Role")
+ *             .principalId(test.applyValue(getServicePrincipalResult -> getServicePrincipalResult.id()))
  *             .build());
  * 
- *         var exampleManagedStorageAccount = new ManagedStorageAccount(&#34;exampleManagedStorageAccount&#34;, ManagedStorageAccountArgs.builder()        
- *             .name(&#34;examplemanagedstorage&#34;)
+ *         var exampleManagedStorageAccount = new ManagedStorageAccount("exampleManagedStorageAccount", ManagedStorageAccountArgs.builder()        
+ *             .name("examplemanagedstorage")
  *             .keyVaultId(exampleKeyVault.id())
  *             .storageAccountId(exampleAccount.id())
- *             .storageAccountKey(&#34;key1&#34;)
+ *             .storageAccountKey("key1")
  *             .regenerateKeyAutomatically(true)
- *             .regenerationPeriod(&#34;P1D&#34;)
+ *             .regenerationPeriod("P1D")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

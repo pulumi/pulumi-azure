@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,52 +52,52 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleManagedDisk = new ManagedDisk(&#34;exampleManagedDisk&#34;, ManagedDiskArgs.builder()        
- *             .name(&#34;example-disk&#34;)
+ *         var exampleManagedDisk = new ManagedDisk("exampleManagedDisk", ManagedDiskArgs.builder()        
+ *             .name("example-disk")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .storageAccountType(&#34;Standard_LRS&#34;)
- *             .createOption(&#34;Empty&#34;)
- *             .diskSizeGb(&#34;1&#34;)
+ *             .storageAccountType("Standard_LRS")
+ *             .createOption("Empty")
+ *             .diskSizeGb("1")
  *             .build());
  * 
- *         var exampleBackupVault = new BackupVault(&#34;exampleBackupVault&#34;, BackupVaultArgs.builder()        
- *             .name(&#34;example-backup-vault&#34;)
+ *         var exampleBackupVault = new BackupVault("exampleBackupVault", BackupVaultArgs.builder()        
+ *             .name("example-backup-vault")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .datastoreType(&#34;VaultStore&#34;)
- *             .redundancy(&#34;LocallyRedundant&#34;)
+ *             .datastoreType("VaultStore")
+ *             .redundancy("LocallyRedundant")
  *             .identity(BackupVaultIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
- *         var example1 = new Assignment(&#34;example1&#34;, AssignmentArgs.builder()        
+ *         var example1 = new Assignment("example1", AssignmentArgs.builder()        
  *             .scope(example.id())
- *             .roleDefinitionName(&#34;Disk Snapshot Contributor&#34;)
- *             .principalId(exampleBackupVault.identity().applyValue(identity -&gt; identity.principalId()))
+ *             .roleDefinitionName("Disk Snapshot Contributor")
+ *             .principalId(exampleBackupVault.identity().applyValue(identity -> identity.principalId()))
  *             .build());
  * 
- *         var example2 = new Assignment(&#34;example2&#34;, AssignmentArgs.builder()        
+ *         var example2 = new Assignment("example2", AssignmentArgs.builder()        
  *             .scope(exampleManagedDisk.id())
- *             .roleDefinitionName(&#34;Disk Backup Reader&#34;)
- *             .principalId(exampleBackupVault.identity().applyValue(identity -&gt; identity.principalId()))
+ *             .roleDefinitionName("Disk Backup Reader")
+ *             .principalId(exampleBackupVault.identity().applyValue(identity -> identity.principalId()))
  *             .build());
  * 
- *         var exampleBackupPolicyDisk = new BackupPolicyDisk(&#34;exampleBackupPolicyDisk&#34;, BackupPolicyDiskArgs.builder()        
- *             .name(&#34;example-backup-policy&#34;)
+ *         var exampleBackupPolicyDisk = new BackupPolicyDisk("exampleBackupPolicyDisk", BackupPolicyDiskArgs.builder()        
+ *             .name("example-backup-policy")
  *             .vaultId(exampleBackupVault.id())
- *             .backupRepeatingTimeIntervals(&#34;R/2021-05-19T06:33:16+00:00/PT4H&#34;)
- *             .defaultRetentionDuration(&#34;P7D&#34;)
+ *             .backupRepeatingTimeIntervals("R/2021-05-19T06:33:16+00:00/PT4H")
+ *             .defaultRetentionDuration("P7D")
  *             .build());
  * 
- *         var exampleBackupInstanceDisk = new BackupInstanceDisk(&#34;exampleBackupInstanceDisk&#34;, BackupInstanceDiskArgs.builder()        
- *             .name(&#34;example-backup-instance&#34;)
+ *         var exampleBackupInstanceDisk = new BackupInstanceDisk("exampleBackupInstanceDisk", BackupInstanceDiskArgs.builder()        
+ *             .name("example-backup-instance")
  *             .location(exampleBackupVault.location())
  *             .vaultId(exampleBackupVault.id())
  *             .diskId(exampleManagedDisk.id())
@@ -106,7 +107,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

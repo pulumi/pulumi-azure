@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,40 +48,41 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleQueryPack = new QueryPack(&#34;exampleQueryPack&#34;, QueryPackArgs.builder()        
- *             .name(&#34;example-laqp&#34;)
+ *         var exampleQueryPack = new QueryPack("exampleQueryPack", QueryPackArgs.builder()        
+ *             .name("example-laqp")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleQueryPackQuery = new QueryPackQuery(&#34;exampleQueryPackQuery&#34;, QueryPackQueryArgs.builder()        
- *             .name(&#34;19952bc3-0bf9-49eb-b713-6b80e7a41847&#34;)
+ *         var exampleQueryPackQuery = new QueryPackQuery("exampleQueryPackQuery", QueryPackQueryArgs.builder()        
+ *             .name("19952bc3-0bf9-49eb-b713-6b80e7a41847")
  *             .queryPackId(exampleQueryPack.id())
- *             .body(&#34;&#34;&#34;
+ *             .body("""
  * let newExceptionsTimeRange = 1d;
  * let timeRangeToCheckBefore = 7d;
  * exceptions
- * | where timestamp &lt; ago(timeRangeToCheckBefore)
+ * | where timestamp < ago(timeRangeToCheckBefore)
  * | summarize count() by problemId
  * | join kind= rightanti (
  * exceptions
- * | where timestamp &gt;= ago(newExceptionsTimeRange)
+ * | where timestamp >= ago(newExceptionsTimeRange)
  * | extend stack = tostring(details[0].rawStack)
  * | summarize count(), dcount(user_AuthenticatedId), min(timestamp), max(timestamp), any(stack) by problemId  
  * ) on problemId 
  * | order by  count_ desc
- *             &#34;&#34;&#34;)
- *             .displayName(&#34;Exceptions - New in the last 24 hours&#34;)
+ *             """)
+ *             .displayName("Exceptions - New in the last 24 hours")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

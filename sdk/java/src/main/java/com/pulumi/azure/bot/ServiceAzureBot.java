@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,46 +52,47 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleInsights = new Insights(&#34;exampleInsights&#34;, InsightsArgs.builder()        
- *             .name(&#34;example-appinsights&#34;)
+ *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()        
+ *             .name("example-appinsights")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .applicationType(&#34;web&#34;)
+ *             .applicationType("web")
  *             .build());
  * 
- *         var exampleApiKey = new ApiKey(&#34;exampleApiKey&#34;, ApiKeyArgs.builder()        
- *             .name(&#34;example-appinsightsapikey&#34;)
+ *         var exampleApiKey = new ApiKey("exampleApiKey", ApiKeyArgs.builder()        
+ *             .name("example-appinsightsapikey")
  *             .applicationInsightsId(exampleInsights.id())
  *             .readPermissions(            
- *                 &#34;aggregate&#34;,
- *                 &#34;api&#34;,
- *                 &#34;draft&#34;,
- *                 &#34;extendqueries&#34;,
- *                 &#34;search&#34;)
+ *                 "aggregate",
+ *                 "api",
+ *                 "draft",
+ *                 "extendqueries",
+ *                 "search")
  *             .build());
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleServiceAzureBot = new ServiceAzureBot(&#34;exampleServiceAzureBot&#34;, ServiceAzureBotArgs.builder()        
- *             .name(&#34;exampleazurebot&#34;)
+ *         var exampleServiceAzureBot = new ServiceAzureBot("exampleServiceAzureBot", ServiceAzureBotArgs.builder()        
+ *             .name("exampleazurebot")
  *             .resourceGroupName(example.name())
- *             .location(&#34;global&#34;)
- *             .microsoftAppId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.clientId()))
- *             .sku(&#34;F0&#34;)
- *             .endpoint(&#34;https://example.com&#34;)
+ *             .location("global")
+ *             .microsoftAppId(current.applyValue(getClientConfigResult -> getClientConfigResult.clientId()))
+ *             .sku("F0")
+ *             .endpoint("https://example.com")
  *             .developerAppInsightsApiKey(exampleApiKey.apiKey())
  *             .developerAppInsightsApplicationId(exampleInsights.appId())
- *             .tags(Map.of(&#34;environment&#34;, &#34;test&#34;))
+ *             .tags(Map.of("environment", "test"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -46,7 +46,7 @@ public final class SpringCloudServiceConfigServerGitSettingRepository {
      */
     private @Nullable SpringCloudServiceConfigServerGitSettingRepositorySshAuth sshAuth;
     /**
-     * @return The URI of the Git repository that&#39;s used as the Config Server back end should be started with `http://`, `https://`, `git@`, or `ssh://`.
+     * @return The URI of the Git repository that&#39;s used as the Config Server back end should be started with `http://`, `https://`, `git{@literal @}`, or `ssh://`.
      * 
      */
     private String uri;
@@ -95,7 +95,7 @@ public final class SpringCloudServiceConfigServerGitSettingRepository {
         return Optional.ofNullable(this.sshAuth);
     }
     /**
-     * @return The URI of the Git repository that&#39;s used as the Config Server back end should be started with `http://`, `https://`, `git@`, or `ssh://`.
+     * @return The URI of the Git repository that&#39;s used as the Config Server back end should be started with `http://`, `https://`, `git{@literal @}`, or `ssh://`.
      * 
      */
     public String uri() {

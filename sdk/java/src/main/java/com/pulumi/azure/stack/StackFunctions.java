@@ -20,7 +20,8 @@ public final class StackFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -42,16 +43,17 @@ public final class StackFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StackFunctions.getHciCluster(GetHciClusterArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getHciClusterResult -&gt; getHciClusterResult.id()));
-     *         ctx.export(&#34;location&#34;, example.applyValue(getHciClusterResult -&gt; getHciClusterResult.location()));
-     *         ctx.export(&#34;clientId&#34;, example.applyValue(getHciClusterResult -&gt; getHciClusterResult.clientId()));
+     *         ctx.export("id", example.applyValue(getHciClusterResult -> getHciClusterResult.id()));
+     *         ctx.export("location", example.applyValue(getHciClusterResult -> getHciClusterResult.location()));
+     *         ctx.export("clientId", example.applyValue(getHciClusterResult -> getHciClusterResult.clientId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -64,7 +66,8 @@ public final class StackFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -86,16 +89,17 @@ public final class StackFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StackFunctions.getHciCluster(GetHciClusterArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getHciClusterResult -&gt; getHciClusterResult.id()));
-     *         ctx.export(&#34;location&#34;, example.applyValue(getHciClusterResult -&gt; getHciClusterResult.location()));
-     *         ctx.export(&#34;clientId&#34;, example.applyValue(getHciClusterResult -&gt; getHciClusterResult.clientId()));
+     *         ctx.export("id", example.applyValue(getHciClusterResult -> getHciClusterResult.id()));
+     *         ctx.export("location", example.applyValue(getHciClusterResult -> getHciClusterResult.location()));
+     *         ctx.export("clientId", example.applyValue(getHciClusterResult -> getHciClusterResult.clientId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -108,7 +112,8 @@ public final class StackFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -130,16 +135,17 @@ public final class StackFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StackFunctions.getHciCluster(GetHciClusterArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getHciClusterResult -&gt; getHciClusterResult.id()));
-     *         ctx.export(&#34;location&#34;, example.applyValue(getHciClusterResult -&gt; getHciClusterResult.location()));
-     *         ctx.export(&#34;clientId&#34;, example.applyValue(getHciClusterResult -&gt; getHciClusterResult.clientId()));
+     *         ctx.export("id", example.applyValue(getHciClusterResult -> getHciClusterResult.id()));
+     *         ctx.export("location", example.applyValue(getHciClusterResult -> getHciClusterResult.location()));
+     *         ctx.export("clientId", example.applyValue(getHciClusterResult -> getHciClusterResult.clientId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -152,7 +158,8 @@ public final class StackFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -174,16 +181,17 @@ public final class StackFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StackFunctions.getHciCluster(GetHciClusterArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getHciClusterResult -&gt; getHciClusterResult.id()));
-     *         ctx.export(&#34;location&#34;, example.applyValue(getHciClusterResult -&gt; getHciClusterResult.location()));
-     *         ctx.export(&#34;clientId&#34;, example.applyValue(getHciClusterResult -&gt; getHciClusterResult.clientId()));
+     *         ctx.export("id", example.applyValue(getHciClusterResult -> getHciClusterResult.id()));
+     *         ctx.export("location", example.applyValue(getHciClusterResult -> getHciClusterResult.location()));
+     *         ctx.export("clientId", example.applyValue(getHciClusterResult -> getHciClusterResult.clientId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

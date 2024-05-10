@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -57,33 +58,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualWan = new VirtualWan(&#34;exampleVirtualWan&#34;, VirtualWanArgs.builder()        
- *             .name(&#34;example-virtualwan&#34;)
+ *         var exampleVirtualWan = new VirtualWan("exampleVirtualWan", VirtualWanArgs.builder()        
+ *             .name("example-virtualwan")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleVirtualHub = new VirtualHub(&#34;exampleVirtualHub&#34;, VirtualHubArgs.builder()        
- *             .name(&#34;example-virtualhub&#34;)
+ *         var exampleVirtualHub = new VirtualHub("exampleVirtualHub", VirtualHubArgs.builder()        
+ *             .name("example-virtualhub")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .virtualWanId(exampleVirtualWan.id())
- *             .addressPrefix(&#34;10.0.0.0/23&#34;)
+ *             .addressPrefix("10.0.0.0/23")
  *             .build());
  * 
- *         var exampleVpnServerConfiguration = new VpnServerConfiguration(&#34;exampleVpnServerConfiguration&#34;, VpnServerConfigurationArgs.builder()        
- *             .name(&#34;example-config&#34;)
+ *         var exampleVpnServerConfiguration = new VpnServerConfiguration("exampleVpnServerConfiguration", VpnServerConfigurationArgs.builder()        
+ *             .name("example-config")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .vpnAuthenticationTypes(&#34;Certificate&#34;)
+ *             .vpnAuthenticationTypes("Certificate")
  *             .clientRootCertificates(VpnServerConfigurationClientRootCertificateArgs.builder()
- *                 .name(&#34;DigiCert-Federated-ID-Root-CA&#34;)
- *                 .publicCertData(&#34;&#34;&#34;
+ *                 .name("DigiCert-Federated-ID-Root-CA")
+ *                 .publicCertData("""
  * MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
  * MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
  * d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
@@ -104,28 +105,29 @@ import javax.annotation.Nullable;
  * uGLOhRJOFprPdoDIUBB+tmCl3oDcBy3vnUeOEioz8zAkprcb3GHwHAK+vHmmfgcn
  * WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
  * M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
- *                 &#34;&#34;&#34;)
+ *                 """)
  *                 .build())
  *             .build());
  * 
- *         var examplePointToPointVpnGateway = new PointToPointVpnGateway(&#34;examplePointToPointVpnGateway&#34;, PointToPointVpnGatewayArgs.builder()        
- *             .name(&#34;example-vpn-gateway&#34;)
+ *         var examplePointToPointVpnGateway = new PointToPointVpnGateway("examplePointToPointVpnGateway", PointToPointVpnGatewayArgs.builder()        
+ *             .name("example-vpn-gateway")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .virtualHubId(exampleVirtualHub.id())
  *             .vpnServerConfigurationId(exampleVpnServerConfiguration.id())
  *             .scaleUnit(1)
  *             .connectionConfiguration(PointToPointVpnGatewayConnectionConfigurationArgs.builder()
- *                 .name(&#34;example-gateway-config&#34;)
+ *                 .name("example-gateway-config")
  *                 .vpnClientAddressPool(PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs.builder()
- *                     .addressPrefixes(&#34;10.0.2.0/24&#34;)
+ *                     .addressPrefixes("10.0.2.0/24")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,27 +56,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleNetwork = new Network(&#34;exampleNetwork&#34;, NetworkArgs.builder()        
- *             .name(&#34;example-mn&#34;)
+ *         var exampleNetwork = new Network("exampleNetwork", NetworkArgs.builder()        
+ *             .name("example-mn")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .mobileCountryCode(&#34;001&#34;)
- *             .mobileNetworkCode(&#34;01&#34;)
+ *             .mobileCountryCode("001")
+ *             .mobileNetworkCode("01")
  *             .build());
  * 
- *         var exampleNetworkSimGroup = new NetworkSimGroup(&#34;exampleNetworkSimGroup&#34;, NetworkSimGroupArgs.builder()        
- *             .name(&#34;example-mnsg&#34;)
+ *         var exampleNetworkSimGroup = new NetworkSimGroup("exampleNetworkSimGroup", NetworkSimGroupArgs.builder()        
+ *             .name("example-mnsg")
  *             .location(example.location())
  *             .mobileNetworkId(exampleNetwork.id())
  *             .build());
  * 
- *         var exampleNetworkSlice = new NetworkSlice(&#34;exampleNetworkSlice&#34;, NetworkSliceArgs.builder()        
- *             .name(&#34;example-slice&#34;)
+ *         var exampleNetworkSlice = new NetworkSlice("exampleNetworkSlice", NetworkSliceArgs.builder()        
+ *             .name("example-slice")
  *             .mobileNetworkId(exampleNetwork.id())
  *             .location(example.location())
  *             .singleNetworkSliceSelectionAssistanceInformation(NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs.builder()
@@ -83,36 +84,37 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleNetworkAttachedDataNetwork = new NetworkAttachedDataNetwork(&#34;exampleNetworkAttachedDataNetwork&#34;, NetworkAttachedDataNetworkArgs.builder()        
+ *         var exampleNetworkAttachedDataNetwork = new NetworkAttachedDataNetwork("exampleNetworkAttachedDataNetwork", NetworkAttachedDataNetworkArgs.builder()        
  *             .mobileNetworkDataNetworkName(exampleAzurermMobileNetworkDataNetwork.name())
  *             .mobileNetworkPacketCoreDataPlaneId(exampleAzurermMobileNetworkPacketCoreDataPlane.id())
  *             .location(example.location())
- *             .dnsAddresses(&#34;1.1.1.1&#34;)
- *             .userEquipmentAddressPoolPrefixes(&#34;2.4.0.0/24&#34;)
- *             .userEquipmentStaticAddressPoolPrefixes(&#34;2.4.1.0/24&#34;)
- *             .userPlaneAccessName(&#34;test&#34;)
- *             .userPlaneAccessIpv4Address(&#34;10.204.141.4&#34;)
- *             .userPlaneAccessIpv4Gateway(&#34;10.204.141.1&#34;)
- *             .userPlaneAccessIpv4Subnet(&#34;10.204.141.0/24&#34;)
+ *             .dnsAddresses("1.1.1.1")
+ *             .userEquipmentAddressPoolPrefixes("2.4.0.0/24")
+ *             .userEquipmentStaticAddressPoolPrefixes("2.4.1.0/24")
+ *             .userPlaneAccessName("test")
+ *             .userPlaneAccessIpv4Address("10.204.141.4")
+ *             .userPlaneAccessIpv4Gateway("10.204.141.1")
+ *             .userPlaneAccessIpv4Subnet("10.204.141.0/24")
  *             .build());
  * 
- *         var exampleNetworkSim = new NetworkSim(&#34;exampleNetworkSim&#34;, NetworkSimArgs.builder()        
- *             .name(&#34;example-sim&#34;)
+ *         var exampleNetworkSim = new NetworkSim("exampleNetworkSim", NetworkSimArgs.builder()        
+ *             .name("example-sim")
  *             .mobileNetworkSimGroupId(exampleNetworkSimGroup.id())
- *             .authenticationKey(&#34;00000000000000000000000000000000&#34;)
- *             .integratedCircuitCardIdentifier(&#34;8900000000000000000&#34;)
- *             .internationalMobileSubscriberIdentity(&#34;000000000000000&#34;)
- *             .operatorKeyCode(&#34;00000000000000000000000000000000&#34;)
+ *             .authenticationKey("00000000000000000000000000000000")
+ *             .integratedCircuitCardIdentifier("8900000000000000000")
+ *             .internationalMobileSubscriberIdentity("000000000000000")
+ *             .operatorKeyCode("00000000000000000000000000000000")
  *             .staticIpConfigurations(NetworkSimStaticIpConfigurationArgs.builder()
  *                 .attachedDataNetworkId(test.id())
  *                 .sliceId(testAzurermMobileNetworkSlice.id())
- *                 .staticIpv4Address(&#34;2.4.0.1&#34;)
+ *                 .staticIpv4Address("2.4.0.1")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

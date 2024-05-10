@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -79,90 +80,90 @@ import javax.annotation.Nullable;
  * 
  *         final var exampleGetClientConfig = AzureadFunctions.getClientConfig();
  * 
- *         var exampleApplication = new Application(&#34;exampleApplication&#34;, ApplicationArgs.builder()        
- *             .displayName(&#34;example-aro&#34;)
+ *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()        
+ *             .displayName("example-aro")
  *             .build());
  * 
- *         var exampleServicePrincipal = new ServicePrincipal(&#34;exampleServicePrincipal&#34;, ServicePrincipalArgs.builder()        
+ *         var exampleServicePrincipal = new ServicePrincipal("exampleServicePrincipal", ServicePrincipalArgs.builder()        
  *             .clientId(exampleApplication.clientId())
  *             .build());
  * 
- *         var exampleServicePrincipalPassword = new ServicePrincipalPassword(&#34;exampleServicePrincipalPassword&#34;, ServicePrincipalPasswordArgs.builder()        
+ *         var exampleServicePrincipalPassword = new ServicePrincipalPassword("exampleServicePrincipalPassword", ServicePrincipalPasswordArgs.builder()        
  *             .servicePrincipalId(exampleServicePrincipal.objectId())
  *             .build());
  * 
  *         final var redhatopenshift = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
- *             .clientId(&#34;f1dd0a37-89c6-4e07-bcd1-ffd3d43d8875&#34;)
+ *             .clientId("f1dd0a37-89c6-4e07-bcd1-ffd3d43d8875")
  *             .build());
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West US&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West US")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-vnet&#34;)
- *             .addressSpaces(&#34;10.0.0.0/22&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example-vnet")
+ *             .addressSpaces("10.0.0.0/22")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var roleNetwork1 = new Assignment(&#34;roleNetwork1&#34;, AssignmentArgs.builder()        
+ *         var roleNetwork1 = new Assignment("roleNetwork1", AssignmentArgs.builder()        
  *             .scope(exampleVirtualNetwork.id())
- *             .roleDefinitionName(&#34;Network Contributor&#34;)
+ *             .roleDefinitionName("Network Contributor")
  *             .principalId(exampleServicePrincipal.objectId())
  *             .build());
  * 
- *         var roleNetwork2 = new Assignment(&#34;roleNetwork2&#34;, AssignmentArgs.builder()        
+ *         var roleNetwork2 = new Assignment("roleNetwork2", AssignmentArgs.builder()        
  *             .scope(exampleVirtualNetwork.id())
- *             .roleDefinitionName(&#34;Network Contributor&#34;)
- *             .principalId(redhatopenshift.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.objectId()))
+ *             .roleDefinitionName("Network Contributor")
+ *             .principalId(redhatopenshift.applyValue(getServicePrincipalResult -> getServicePrincipalResult.objectId()))
  *             .build());
  * 
- *         var mainSubnet = new Subnet(&#34;mainSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;main-subnet&#34;)
+ *         var mainSubnet = new Subnet("mainSubnet", SubnetArgs.builder()        
+ *             .name("main-subnet")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.0.0/23&#34;)
+ *             .addressPrefixes("10.0.0.0/23")
  *             .serviceEndpoints(            
- *                 &#34;Microsoft.Storage&#34;,
- *                 &#34;Microsoft.ContainerRegistry&#34;)
+ *                 "Microsoft.Storage",
+ *                 "Microsoft.ContainerRegistry")
  *             .build());
  * 
- *         var workerSubnet = new Subnet(&#34;workerSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;worker-subnet&#34;)
+ *         var workerSubnet = new Subnet("workerSubnet", SubnetArgs.builder()        
+ *             .name("worker-subnet")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.2.0/23&#34;)
+ *             .addressPrefixes("10.0.2.0/23")
  *             .serviceEndpoints(            
- *                 &#34;Microsoft.Storage&#34;,
- *                 &#34;Microsoft.ContainerRegistry&#34;)
+ *                 "Microsoft.Storage",
+ *                 "Microsoft.ContainerRegistry")
  *             .build());
  * 
- *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
- *             .name(&#34;examplearo&#34;)
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()        
+ *             .name("examplearo")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .clusterProfile(ClusterClusterProfileArgs.builder()
- *                 .domain(&#34;aro-example.com&#34;)
- *                 .version(&#34;4.13.23&#34;)
+ *                 .domain("aro-example.com")
+ *                 .version("4.13.23")
  *                 .build())
  *             .networkProfile(ClusterNetworkProfileArgs.builder()
- *                 .podCidr(&#34;10.128.0.0/14&#34;)
- *                 .serviceCidr(&#34;172.30.0.0/16&#34;)
+ *                 .podCidr("10.128.0.0/14")
+ *                 .serviceCidr("172.30.0.0/16")
  *                 .build())
  *             .mainProfile(ClusterMainProfileArgs.builder()
- *                 .vmSize(&#34;Standard_D8s_v3&#34;)
+ *                 .vmSize("Standard_D8s_v3")
  *                 .subnetId(mainSubnet.id())
  *                 .build())
  *             .apiServerProfile(ClusterApiServerProfileArgs.builder()
- *                 .visibility(&#34;Public&#34;)
+ *                 .visibility("Public")
  *                 .build())
  *             .ingressProfile(ClusterIngressProfileArgs.builder()
- *                 .visibility(&#34;Public&#34;)
+ *                 .visibility("Public")
  *                 .build())
  *             .workerProfile(ClusterWorkerProfileArgs.builder()
- *                 .vmSize(&#34;Standard_D4s_v3&#34;)
+ *                 .vmSize("Standard_D4s_v3")
  *                 .diskSizeGb(128)
  *                 .nodeCount(3)
  *                 .subnetId(workerSubnet.id())
@@ -173,10 +174,11 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         ctx.export(&#34;consoleUrl&#34;, exampleCluster.consoleUrl());
+ *         ctx.export("consoleUrl", exampleCluster.consoleUrl());
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

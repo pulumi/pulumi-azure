@@ -23,7 +23,8 @@ public final class ManagementFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -45,13 +46,14 @@ public final class ManagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ManagementFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
+     *             .name("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export(&#34;displayName&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.displayName()));
+     *         ctx.export("displayName", example.applyValue(getGroupResult -> getGroupResult.displayName()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -64,7 +66,8 @@ public final class ManagementFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -86,13 +89,14 @@ public final class ManagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ManagementFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
+     *             .name("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export(&#34;displayName&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.displayName()));
+     *         ctx.export("displayName", example.applyValue(getGroupResult -> getGroupResult.displayName()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -105,7 +109,8 @@ public final class ManagementFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -127,13 +132,14 @@ public final class ManagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ManagementFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
+     *             .name("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export(&#34;displayName&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.displayName()));
+     *         ctx.export("displayName", example.applyValue(getGroupResult -> getGroupResult.displayName()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -146,7 +152,8 @@ public final class ManagementFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -168,13 +175,14 @@ public final class ManagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ManagementFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
+     *             .name("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export(&#34;displayName&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.displayName()));
+     *         ctx.export("displayName", example.applyValue(getGroupResult -> getGroupResult.displayName()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -187,7 +195,8 @@ public final class ManagementFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -209,13 +218,14 @@ public final class ManagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ManagementFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
+     *             .name("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export(&#34;displayName&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.displayName()));
+     *         ctx.export("displayName", example.applyValue(getGroupResult -> getGroupResult.displayName()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -228,7 +238,8 @@ public final class ManagementFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -250,13 +261,14 @@ public final class ManagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ManagementFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
+     *             .name("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export(&#34;displayName&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.displayName()));
+     *         ctx.export("displayName", example.applyValue(getGroupResult -> getGroupResult.displayName()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

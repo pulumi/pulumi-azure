@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,61 +52,61 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary = new ResourceGroup(&#34;primary&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;tfex-network-mapping-primary&#34;)
- *             .location(&#34;West US&#34;)
+ *         var primary = new ResourceGroup("primary", ResourceGroupArgs.builder()        
+ *             .name("tfex-network-mapping-primary")
+ *             .location("West US")
  *             .build());
  * 
- *         var secondary = new ResourceGroup(&#34;secondary&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;tfex-network-mapping-secondary&#34;)
- *             .location(&#34;East US&#34;)
+ *         var secondary = new ResourceGroup("secondary", ResourceGroupArgs.builder()        
+ *             .name("tfex-network-mapping-secondary")
+ *             .location("East US")
  *             .build());
  * 
- *         var vault = new Vault(&#34;vault&#34;, VaultArgs.builder()        
- *             .name(&#34;example-recovery-vault&#34;)
+ *         var vault = new Vault("vault", VaultArgs.builder()        
+ *             .name("example-recovery-vault")
  *             .location(secondary.location())
  *             .resourceGroupName(secondary.name())
- *             .sku(&#34;Standard&#34;)
+ *             .sku("Standard")
  *             .build());
  * 
- *         var primaryFabric = new Fabric(&#34;primaryFabric&#34;, FabricArgs.builder()        
- *             .name(&#34;primary-fabric&#34;)
+ *         var primaryFabric = new Fabric("primaryFabric", FabricArgs.builder()        
+ *             .name("primary-fabric")
  *             .resourceGroupName(secondary.name())
  *             .recoveryVaultName(vault.name())
  *             .location(primary.location())
  *             .build());
  * 
- *         var secondaryFabric = new Fabric(&#34;secondaryFabric&#34;, FabricArgs.builder()        
- *             .name(&#34;secondary-fabric&#34;)
+ *         var secondaryFabric = new Fabric("secondaryFabric", FabricArgs.builder()        
+ *             .name("secondary-fabric")
  *             .resourceGroupName(secondary.name())
  *             .recoveryVaultName(vault.name())
  *             .location(secondary.location())
  *             .build());
  * 
- *         var primaryProtectionContainer = new ProtectionContainer(&#34;primaryProtectionContainer&#34;, ProtectionContainerArgs.builder()        
- *             .name(&#34;primary-protection-container&#34;)
+ *         var primaryProtectionContainer = new ProtectionContainer("primaryProtectionContainer", ProtectionContainerArgs.builder()        
+ *             .name("primary-protection-container")
  *             .resourceGroupName(secondary.name())
  *             .recoveryVaultName(vault.name())
  *             .recoveryFabricName(primaryFabric.name())
  *             .build());
  * 
- *         var secondaryProtectionContainer = new ProtectionContainer(&#34;secondaryProtectionContainer&#34;, ProtectionContainerArgs.builder()        
- *             .name(&#34;secondary-protection-container&#34;)
+ *         var secondaryProtectionContainer = new ProtectionContainer("secondaryProtectionContainer", ProtectionContainerArgs.builder()        
+ *             .name("secondary-protection-container")
  *             .resourceGroupName(secondary.name())
  *             .recoveryVaultName(vault.name())
  *             .recoveryFabricName(secondaryFabric.name())
  *             .build());
  * 
- *         var policy = new ReplicationPolicy(&#34;policy&#34;, ReplicationPolicyArgs.builder()        
- *             .name(&#34;policy&#34;)
+ *         var policy = new ReplicationPolicy("policy", ReplicationPolicyArgs.builder()        
+ *             .name("policy")
  *             .resourceGroupName(secondary.name())
  *             .recoveryVaultName(vault.name())
  *             .recoveryPointRetentionInMinutes(24 * 60)
  *             .applicationConsistentSnapshotFrequencyInMinutes(4 * 60)
  *             .build());
  * 
- *         var container_mapping = new ProtectionContainerMapping(&#34;container-mapping&#34;, ProtectionContainerMappingArgs.builder()        
- *             .name(&#34;container-mapping&#34;)
+ *         var container_mapping = new ProtectionContainerMapping("container-mapping", ProtectionContainerMappingArgs.builder()        
+ *             .name("container-mapping")
  *             .resourceGroupName(secondary.name())
  *             .recoveryVaultName(vault.name())
  *             .recoveryFabricName(primaryFabric.name())
@@ -116,7 +117,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

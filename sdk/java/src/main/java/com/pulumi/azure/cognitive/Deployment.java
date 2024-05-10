@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,35 +50,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;example-ca&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("example-ca")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .kind(&#34;OpenAI&#34;)
- *             .skuName(&#34;S0&#34;)
+ *             .kind("OpenAI")
+ *             .skuName("S0")
  *             .build());
  * 
- *         var exampleDeployment = new Deployment(&#34;exampleDeployment&#34;, DeploymentArgs.builder()        
- *             .name(&#34;example-cd&#34;)
+ *         var exampleDeployment = new Deployment("exampleDeployment", DeploymentArgs.builder()        
+ *             .name("example-cd")
  *             .cognitiveAccountId(exampleAccount.id())
  *             .model(DeploymentModelArgs.builder()
- *                 .format(&#34;OpenAI&#34;)
- *                 .name(&#34;text-curie-001&#34;)
- *                 .version(&#34;1&#34;)
+ *                 .format("OpenAI")
+ *                 .name("text-curie-001")
+ *                 .version("1")
  *                 .build())
  *             .scale(DeploymentScaleArgs.builder()
- *                 .type(&#34;Standard&#34;)
+ *                 .type("Standard")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

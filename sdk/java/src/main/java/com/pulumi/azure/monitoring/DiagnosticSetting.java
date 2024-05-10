@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,43 +57,43 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;storageaccountname&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("storageaccountname")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;examplekeyvault&#34;)
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("examplekeyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
  *             .softDeleteRetentionDays(7)
  *             .purgeProtectionEnabled(false)
- *             .skuName(&#34;standard&#34;)
+ *             .skuName("standard")
  *             .build());
  * 
- *         var exampleDiagnosticSetting = new DiagnosticSetting(&#34;exampleDiagnosticSetting&#34;, DiagnosticSettingArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleDiagnosticSetting = new DiagnosticSetting("exampleDiagnosticSetting", DiagnosticSettingArgs.builder()        
+ *             .name("example")
  *             .targetResourceId(exampleKeyVault.id())
  *             .storageAccountId(exampleAccount.id())
  *             .enabledLogs(DiagnosticSettingEnabledLogArgs.builder()
- *                 .category(&#34;AuditEvent&#34;)
+ *                 .category("AuditEvent")
  *                 .retentionPolicy(DiagnosticSettingEnabledLogRetentionPolicyArgs.builder()
  *                     .enabled(false)
  *                     .build())
  *                 .build())
  *             .metrics(DiagnosticSettingMetricArgs.builder()
- *                 .category(&#34;AllMetrics&#34;)
+ *                 .category("AllMetrics")
  *                 .retentionPolicy(DiagnosticSettingMetricRetentionPolicyArgs.builder()
  *                     .enabled(false)
  *                     .build())
@@ -101,7 +102,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -59,17 +60,17 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var example = CoreFunctions.getClientConfig();
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;storageaccountname&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("storageaccountname")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
  *         final var exampleGetAccountSAS = StorageFunctions.getAccountSAS(GetAccountSASArgs.builder()
@@ -86,8 +87,8 @@ import javax.annotation.Nullable;
  *                 .table(false)
  *                 .file(false)
  *                 .build())
- *             .start(&#34;2021-04-30T00:00:00Z&#34;)
- *             .expiry(&#34;2023-04-30T00:00:00Z&#34;)
+ *             .start("2021-04-30T00:00:00Z")
+ *             .expiry("2023-04-30T00:00:00Z")
  *             .permissions(GetAccountSASPermissionsArgs.builder()
  *                 .read(true)
  *                 .write(true)
@@ -102,50 +103,51 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;example-keyvault&#34;)
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("example-keyvault")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .tenantId(example.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .skuName(&#34;standard&#34;)
+ *             .tenantId(example.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .skuName("standard")
  *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
- *                 .tenantId(example.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *                 .objectId(example.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *                 .tenantId(example.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *                 .objectId(example.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *                 .secretPermissions(                
- *                     &#34;Get&#34;,
- *                     &#34;Delete&#34;)
+ *                     "Get",
+ *                     "Delete")
  *                 .storagePermissions(                
- *                     &#34;Get&#34;,
- *                     &#34;List&#34;,
- *                     &#34;Set&#34;,
- *                     &#34;SetSAS&#34;,
- *                     &#34;GetSAS&#34;,
- *                     &#34;DeleteSAS&#34;,
- *                     &#34;Update&#34;,
- *                     &#34;RegenerateKey&#34;)
+ *                     "Get",
+ *                     "List",
+ *                     "Set",
+ *                     "SetSAS",
+ *                     "GetSAS",
+ *                     "DeleteSAS",
+ *                     "Update",
+ *                     "RegenerateKey")
  *                 .build())
  *             .build());
  * 
- *         var exampleManagedStorageAccount = new ManagedStorageAccount(&#34;exampleManagedStorageAccount&#34;, ManagedStorageAccountArgs.builder()        
- *             .name(&#34;examplemanagedstorage&#34;)
+ *         var exampleManagedStorageAccount = new ManagedStorageAccount("exampleManagedStorageAccount", ManagedStorageAccountArgs.builder()        
+ *             .name("examplemanagedstorage")
  *             .keyVaultId(exampleKeyVault.id())
  *             .storageAccountId(exampleAccount.id())
- *             .storageAccountKey(&#34;key1&#34;)
+ *             .storageAccountKey("key1")
  *             .regenerateKeyAutomatically(false)
- *             .regenerationPeriod(&#34;P1D&#34;)
+ *             .regenerationPeriod("P1D")
  *             .build());
  * 
- *         var exampleManagedStorageAccountSasTokenDefinition = new ManagedStorageAccountSasTokenDefinition(&#34;exampleManagedStorageAccountSasTokenDefinition&#34;, ManagedStorageAccountSasTokenDefinitionArgs.builder()        
- *             .name(&#34;examplesasdefinition&#34;)
- *             .validityPeriod(&#34;P1D&#34;)
+ *         var exampleManagedStorageAccountSasTokenDefinition = new ManagedStorageAccountSasTokenDefinition("exampleManagedStorageAccountSasTokenDefinition", ManagedStorageAccountSasTokenDefinitionArgs.builder()        
+ *             .name("examplesasdefinition")
+ *             .validityPeriod("P1D")
  *             .managedStorageAccountId(exampleManagedStorageAccount.id())
- *             .sasTemplateUri(exampleGetAccountSAS.applyValue(getAccountSASResult -&gt; getAccountSASResult).applyValue(exampleGetAccountSAS -&gt; exampleGetAccountSAS.applyValue(getAccountSASResult -&gt; getAccountSASResult.sas())))
- *             .sasType(&#34;account&#34;)
+ *             .sasTemplateUri(exampleGetAccountSAS.applyValue(getAccountSASResult -> getAccountSASResult).applyValue(exampleGetAccountSAS -> exampleGetAccountSAS.applyValue(getAccountSASResult -> getAccountSASResult.sas())))
+ *             .sasType("account")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

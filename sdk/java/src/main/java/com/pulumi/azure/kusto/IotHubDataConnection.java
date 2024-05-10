@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,56 +57,56 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
- *             .name(&#34;examplekustocluster&#34;)
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()        
+ *             .name("examplekustocluster")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku(ClusterSkuArgs.builder()
- *                 .name(&#34;Standard_D13_v2&#34;)
+ *                 .name("Standard_D13_v2")
  *                 .capacity(2)
  *                 .build())
  *             .build());
  * 
- *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
- *             .name(&#34;example-kusto-database&#34;)
+ *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()        
+ *             .name("example-kusto-database")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .clusterName(exampleCluster.name())
- *             .hotCachePeriod(&#34;P7D&#34;)
- *             .softDeletePeriod(&#34;P31D&#34;)
+ *             .hotCachePeriod("P7D")
+ *             .softDeletePeriod("P31D")
  *             .build());
  * 
- *         var exampleIoTHub = new IoTHub(&#34;exampleIoTHub&#34;, IoTHubArgs.builder()        
- *             .name(&#34;exampleIoTHub&#34;)
+ *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()        
+ *             .name("exampleIoTHub")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .sku(IoTHubSkuArgs.builder()
- *                 .name(&#34;B1&#34;)
- *                 .capacity(&#34;1&#34;)
+ *                 .name("B1")
+ *                 .capacity("1")
  *                 .build())
  *             .build());
  * 
- *         var exampleSharedAccessPolicy = new SharedAccessPolicy(&#34;exampleSharedAccessPolicy&#34;, SharedAccessPolicyArgs.builder()        
- *             .name(&#34;example-shared-access-policy&#34;)
+ *         var exampleSharedAccessPolicy = new SharedAccessPolicy("exampleSharedAccessPolicy", SharedAccessPolicyArgs.builder()        
+ *             .name("example-shared-access-policy")
  *             .resourceGroupName(example.name())
  *             .iothubName(exampleIoTHub.name())
  *             .registryRead(true)
  *             .build());
  * 
- *         var exampleConsumerGroup = new ConsumerGroup(&#34;exampleConsumerGroup&#34;, ConsumerGroupArgs.builder()        
- *             .name(&#34;example-consumer-group&#34;)
+ *         var exampleConsumerGroup = new ConsumerGroup("exampleConsumerGroup", ConsumerGroupArgs.builder()        
+ *             .name("example-consumer-group")
  *             .resourceGroupName(example.name())
  *             .iothubName(exampleIoTHub.name())
- *             .eventhubEndpointName(&#34;events&#34;)
+ *             .eventhubEndpointName("events")
  *             .build());
  * 
- *         var exampleIotHubDataConnection = new IotHubDataConnection(&#34;exampleIotHubDataConnection&#34;, IotHubDataConnectionArgs.builder()        
- *             .name(&#34;my-kusto-iothub-data-connection&#34;)
+ *         var exampleIotHubDataConnection = new IotHubDataConnection("exampleIotHubDataConnection", IotHubDataConnectionArgs.builder()        
+ *             .name("my-kusto-iothub-data-connection")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .clusterName(exampleCluster.name())
@@ -114,17 +115,18 @@ import javax.annotation.Nullable;
  *             .consumerGroup(exampleConsumerGroup.name())
  *             .sharedAccessPolicyName(exampleSharedAccessPolicy.name())
  *             .eventSystemProperties(            
- *                 &#34;message-id&#34;,
- *                 &#34;sequence-number&#34;,
- *                 &#34;to&#34;)
- *             .tableName(&#34;my-table&#34;)
- *             .mappingRuleName(&#34;my-table-mapping&#34;)
- *             .dataFormat(&#34;JSON&#34;)
+ *                 "message-id",
+ *                 "sequence-number",
+ *                 "to")
+ *             .tableName("my-table")
+ *             .mappingRuleName("my-table-mapping")
+ *             .dataFormat("JSON")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,37 +50,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;resourceGroup1&#34;)
- *             .location(&#34;westus&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("resourceGroup1")
+ *             .location("westus")
  *             .build());
  * 
  *         final var example = PolicyFunctions.getPolicyDefintion(GetPolicyDefintionArgs.builder()
- *             .displayName(&#34;Allowed locations&#34;)
+ *             .displayName("Allowed locations")
  *             .build());
  * 
- *         var exampleResourceGroupPolicyAssignment = new ResourceGroupPolicyAssignment(&#34;exampleResourceGroupPolicyAssignment&#34;, ResourceGroupPolicyAssignmentArgs.builder()        
- *             .name(&#34;exampleAssignment&#34;)
+ *         var exampleResourceGroupPolicyAssignment = new ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment", ResourceGroupPolicyAssignmentArgs.builder()        
+ *             .name("exampleAssignment")
  *             .resourceGroupId(exampleResourceGroup.id())
- *             .policyDefinitionId(example.applyValue(getPolicyDefintionResult -&gt; getPolicyDefintionResult.id()))
- *             .parameters(exampleResourceGroup.location().applyValue(location -&gt; serializeJson(
+ *             .policyDefinitionId(example.applyValue(getPolicyDefintionResult -> getPolicyDefintionResult.id()))
+ *             .parameters(exampleResourceGroup.location().applyValue(location -> serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;listOfAllowedLocations&#34;, jsonObject(
- *                         jsonProperty(&#34;value&#34;, jsonArray(location))
+ *                     jsonProperty("listOfAllowedLocations", jsonObject(
+ *                         jsonProperty("value", jsonArray(location))
  *                     ))
  *                 ))))
  *             .build());
  * 
- *         var exampleResourceGroupPolicyExemption = new ResourceGroupPolicyExemption(&#34;exampleResourceGroupPolicyExemption&#34;, ResourceGroupPolicyExemptionArgs.builder()        
- *             .name(&#34;exampleExemption&#34;)
+ *         var exampleResourceGroupPolicyExemption = new ResourceGroupPolicyExemption("exampleResourceGroupPolicyExemption", ResourceGroupPolicyExemptionArgs.builder()        
+ *             .name("exampleExemption")
  *             .resourceGroupId(exampleResourceGroup.id())
  *             .policyAssignmentId(exampleResourceGroupPolicyAssignment.id())
- *             .exemptionCategory(&#34;Mitigated&#34;)
+ *             .exemptionCategory("Mitigated")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

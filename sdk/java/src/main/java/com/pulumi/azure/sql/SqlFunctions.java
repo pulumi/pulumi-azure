@@ -28,7 +28,8 @@ public final class SqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -50,15 +51,16 @@ public final class SqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SqlFunctions.getDatabase(GetDatabaseArgs.builder()
-     *             .name(&#34;example_db&#34;)
-     *             .serverName(&#34;example_db_server&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example_db")
+     *             .serverName("example_db_server")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;sqlDatabaseId&#34;, example.applyValue(getDatabaseResult -&gt; getDatabaseResult.id()));
+     *         ctx.export("sqlDatabaseId", example.applyValue(getDatabaseResult -> getDatabaseResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -73,7 +75,8 @@ public final class SqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -95,15 +98,16 @@ public final class SqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SqlFunctions.getDatabase(GetDatabaseArgs.builder()
-     *             .name(&#34;example_db&#34;)
-     *             .serverName(&#34;example_db_server&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example_db")
+     *             .serverName("example_db_server")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;sqlDatabaseId&#34;, example.applyValue(getDatabaseResult -&gt; getDatabaseResult.id()));
+     *         ctx.export("sqlDatabaseId", example.applyValue(getDatabaseResult -> getDatabaseResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -118,7 +122,8 @@ public final class SqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -140,15 +145,16 @@ public final class SqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SqlFunctions.getDatabase(GetDatabaseArgs.builder()
-     *             .name(&#34;example_db&#34;)
-     *             .serverName(&#34;example_db_server&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example_db")
+     *             .serverName("example_db_server")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;sqlDatabaseId&#34;, example.applyValue(getDatabaseResult -&gt; getDatabaseResult.id()));
+     *         ctx.export("sqlDatabaseId", example.applyValue(getDatabaseResult -> getDatabaseResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -163,7 +169,8 @@ public final class SqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -185,15 +192,16 @@ public final class SqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SqlFunctions.getDatabase(GetDatabaseArgs.builder()
-     *             .name(&#34;example_db&#34;)
-     *             .serverName(&#34;example_db_server&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example_db")
+     *             .serverName("example_db_server")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;sqlDatabaseId&#34;, example.applyValue(getDatabaseResult -&gt; getDatabaseResult.id()));
+     *         ctx.export("sqlDatabaseId", example.applyValue(getDatabaseResult -> getDatabaseResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -208,7 +216,8 @@ public final class SqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -230,14 +239,15 @@ public final class SqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SqlFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;examplesqlservername&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("examplesqlservername")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;sqlServerId&#34;, example.applyValue(getServerResult -&gt; getServerResult.id()));
+     *         ctx.export("sqlServerId", example.applyValue(getServerResult -> getServerResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -252,7 +262,8 @@ public final class SqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -274,14 +285,15 @@ public final class SqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SqlFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;examplesqlservername&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("examplesqlservername")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;sqlServerId&#34;, example.applyValue(getServerResult -&gt; getServerResult.id()));
+     *         ctx.export("sqlServerId", example.applyValue(getServerResult -> getServerResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -296,7 +308,8 @@ public final class SqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -318,14 +331,15 @@ public final class SqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SqlFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;examplesqlservername&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("examplesqlservername")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;sqlServerId&#34;, example.applyValue(getServerResult -&gt; getServerResult.id()));
+     *         ctx.export("sqlServerId", example.applyValue(getServerResult -> getServerResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -340,7 +354,8 @@ public final class SqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -362,14 +377,15 @@ public final class SqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SqlFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;examplesqlservername&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("examplesqlservername")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;sqlServerId&#34;, example.applyValue(getServerResult -&gt; getServerResult.id()));
+     *         ctx.export("sqlServerId", example.applyValue(getServerResult -> getServerResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -384,7 +400,8 @@ public final class SqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -406,14 +423,15 @@ public final class SqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SqlFunctions.getSqlManagedInstance(GetSqlManagedInstanceArgs.builder()
-     *             .name(&#34;example_mi&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example_mi")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;sqlInstanceId&#34;, example.applyValue(getSqlManagedInstanceResult -&gt; getSqlManagedInstanceResult.id()));
+     *         ctx.export("sqlInstanceId", example.applyValue(getSqlManagedInstanceResult -> getSqlManagedInstanceResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -428,7 +446,8 @@ public final class SqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -450,14 +469,15 @@ public final class SqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SqlFunctions.getSqlManagedInstance(GetSqlManagedInstanceArgs.builder()
-     *             .name(&#34;example_mi&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example_mi")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;sqlInstanceId&#34;, example.applyValue(getSqlManagedInstanceResult -&gt; getSqlManagedInstanceResult.id()));
+     *         ctx.export("sqlInstanceId", example.applyValue(getSqlManagedInstanceResult -> getSqlManagedInstanceResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -472,7 +492,8 @@ public final class SqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -494,14 +515,15 @@ public final class SqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SqlFunctions.getSqlManagedInstance(GetSqlManagedInstanceArgs.builder()
-     *             .name(&#34;example_mi&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example_mi")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;sqlInstanceId&#34;, example.applyValue(getSqlManagedInstanceResult -&gt; getSqlManagedInstanceResult.id()));
+     *         ctx.export("sqlInstanceId", example.applyValue(getSqlManagedInstanceResult -> getSqlManagedInstanceResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -516,7 +538,8 @@ public final class SqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -538,14 +561,15 @@ public final class SqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SqlFunctions.getSqlManagedInstance(GetSqlManagedInstanceArgs.builder()
-     *             .name(&#34;example_mi&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example_mi")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;sqlInstanceId&#34;, example.applyValue(getSqlManagedInstanceResult -&gt; getSqlManagedInstanceResult.id()));
+     *         ctx.export("sqlInstanceId", example.applyValue(getSqlManagedInstanceResult -> getSqlManagedInstanceResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

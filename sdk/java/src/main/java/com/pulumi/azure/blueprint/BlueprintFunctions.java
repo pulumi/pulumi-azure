@@ -25,7 +25,8 @@ public final class BlueprintFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -52,17 +53,18 @@ public final class BlueprintFunctions {
      *         final var current = CoreFunctions.getClientConfig();
      * 
      *         final var root = ManagementFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+     *             .name(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
      *             .build());
      * 
      *         final var example = BlueprintFunctions.getDefinition(GetDefinitionArgs.builder()
-     *             .name(&#34;exampleManagementGroupBP&#34;)
-     *             .scopeId(root.applyValue(getGroupResult -&gt; getGroupResult.id()))
+     *             .name("exampleManagementGroupBP")
+     *             .scopeId(root.applyValue(getGroupResult -> getGroupResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -77,7 +79,8 @@ public final class BlueprintFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -104,17 +107,18 @@ public final class BlueprintFunctions {
      *         final var current = CoreFunctions.getClientConfig();
      * 
      *         final var root = ManagementFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+     *             .name(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
      *             .build());
      * 
      *         final var example = BlueprintFunctions.getDefinition(GetDefinitionArgs.builder()
-     *             .name(&#34;exampleManagementGroupBP&#34;)
-     *             .scopeId(root.applyValue(getGroupResult -&gt; getGroupResult.id()))
+     *             .name("exampleManagementGroupBP")
+     *             .scopeId(root.applyValue(getGroupResult -> getGroupResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -129,7 +133,8 @@ public final class BlueprintFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -156,17 +161,18 @@ public final class BlueprintFunctions {
      *         final var current = CoreFunctions.getClientConfig();
      * 
      *         final var root = ManagementFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+     *             .name(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
      *             .build());
      * 
      *         final var example = BlueprintFunctions.getDefinition(GetDefinitionArgs.builder()
-     *             .name(&#34;exampleManagementGroupBP&#34;)
-     *             .scopeId(root.applyValue(getGroupResult -&gt; getGroupResult.id()))
+     *             .name("exampleManagementGroupBP")
+     *             .scopeId(root.applyValue(getGroupResult -> getGroupResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -181,7 +187,8 @@ public final class BlueprintFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -208,17 +215,18 @@ public final class BlueprintFunctions {
      *         final var current = CoreFunctions.getClientConfig();
      * 
      *         final var root = ManagementFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+     *             .name(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
      *             .build());
      * 
      *         final var example = BlueprintFunctions.getDefinition(GetDefinitionArgs.builder()
-     *             .name(&#34;exampleManagementGroupBP&#34;)
-     *             .scopeId(root.applyValue(getGroupResult -&gt; getGroupResult.id()))
+     *             .name("exampleManagementGroupBP")
+     *             .scopeId(root.applyValue(getGroupResult -> getGroupResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -233,7 +241,8 @@ public final class BlueprintFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -259,14 +268,15 @@ public final class BlueprintFunctions {
      *         final var current = CoreFunctions.getSubscription();
      * 
      *         final var test = BlueprintFunctions.getPublishedVersion(GetPublishedVersionArgs.builder()
-     *             .scopeId(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
-     *             .blueprintName(&#34;exampleBluePrint&#34;)
-     *             .version(&#34;dev_v2.3&#34;)
+     *             .scopeId(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+     *             .blueprintName("exampleBluePrint")
+     *             .version("dev_v2.3")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -281,7 +291,8 @@ public final class BlueprintFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -307,14 +318,15 @@ public final class BlueprintFunctions {
      *         final var current = CoreFunctions.getSubscription();
      * 
      *         final var test = BlueprintFunctions.getPublishedVersion(GetPublishedVersionArgs.builder()
-     *             .scopeId(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
-     *             .blueprintName(&#34;exampleBluePrint&#34;)
-     *             .version(&#34;dev_v2.3&#34;)
+     *             .scopeId(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+     *             .blueprintName("exampleBluePrint")
+     *             .version("dev_v2.3")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -329,7 +341,8 @@ public final class BlueprintFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -355,14 +368,15 @@ public final class BlueprintFunctions {
      *         final var current = CoreFunctions.getSubscription();
      * 
      *         final var test = BlueprintFunctions.getPublishedVersion(GetPublishedVersionArgs.builder()
-     *             .scopeId(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
-     *             .blueprintName(&#34;exampleBluePrint&#34;)
-     *             .version(&#34;dev_v2.3&#34;)
+     *             .scopeId(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+     *             .blueprintName("exampleBluePrint")
+     *             .version("dev_v2.3")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -377,7 +391,8 @@ public final class BlueprintFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -403,14 +418,15 @@ public final class BlueprintFunctions {
      *         final var current = CoreFunctions.getSubscription();
      * 
      *         final var test = BlueprintFunctions.getPublishedVersion(GetPublishedVersionArgs.builder()
-     *             .scopeId(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
-     *             .blueprintName(&#34;exampleBluePrint&#34;)
-     *             .version(&#34;dev_v2.3&#34;)
+     *             .scopeId(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+     *             .blueprintName("exampleBluePrint")
+     *             .version("dev_v2.3")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

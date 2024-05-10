@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### `Kv` Type
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,41 +55,43 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var appconf = new ConfigurationStore(&#34;appconf&#34;, ConfigurationStoreArgs.builder()        
- *             .name(&#34;appConf1&#34;)
+ *         var appconf = new ConfigurationStore("appconf", ConfigurationStoreArgs.builder()        
+ *             .name("appConf1")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var appconfDataowner = new Assignment(&#34;appconfDataowner&#34;, AssignmentArgs.builder()        
+ *         var appconfDataowner = new Assignment("appconfDataowner", AssignmentArgs.builder()        
  *             .scope(appconf.id())
- *             .roleDefinitionName(&#34;App Configuration Data Owner&#34;)
- *             .principalId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .roleDefinitionName("App Configuration Data Owner")
+ *             .principalId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *             .build());
  * 
- *         var test = new ConfigurationKey(&#34;test&#34;, ConfigurationKeyArgs.builder()        
+ *         var test = new ConfigurationKey("test", ConfigurationKeyArgs.builder()        
  *             .configurationStoreId(appconf.id())
- *             .key(&#34;appConfKey1&#34;)
- *             .label(&#34;somelabel&#34;)
- *             .value(&#34;a test&#34;)
+ *             .key("appConfKey1")
+ *             .label("somelabel")
+ *             .value("a test")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### `Vault` Type
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -121,64 +124,65 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var appconf = new ConfigurationStore(&#34;appconf&#34;, ConfigurationStoreArgs.builder()        
- *             .name(&#34;appConf1&#34;)
+ *         var appconf = new ConfigurationStore("appconf", ConfigurationStoreArgs.builder()        
+ *             .name("appConf1")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var kv = new KeyVault(&#34;kv&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;kv&#34;)
+ *         var kv = new KeyVault("kv", KeyVaultArgs.builder()        
+ *             .name("kv")
  *             .location(testAzurermResourceGroup.location())
  *             .resourceGroupName(testAzurermResourceGroup.name())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .skuName(&#34;premium&#34;)
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .skuName("premium")
  *             .softDeleteRetentionDays(7)
  *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
- *                 .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *                 .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *                 .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *                 .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *                 .keyPermissions(                
- *                     &#34;Create&#34;,
- *                     &#34;Get&#34;)
+ *                     "Create",
+ *                     "Get")
  *                 .secretPermissions(                
- *                     &#34;Set&#34;,
- *                     &#34;Get&#34;,
- *                     &#34;Delete&#34;,
- *                     &#34;Purge&#34;,
- *                     &#34;Recover&#34;)
+ *                     "Set",
+ *                     "Get",
+ *                     "Delete",
+ *                     "Purge",
+ *                     "Recover")
  *                 .build())
  *             .build());
  * 
- *         var kvs = new Secret(&#34;kvs&#34;, SecretArgs.builder()        
- *             .name(&#34;kvs&#34;)
- *             .value(&#34;szechuan&#34;)
+ *         var kvs = new Secret("kvs", SecretArgs.builder()        
+ *             .name("kvs")
+ *             .value("szechuan")
  *             .keyVaultId(kv.id())
  *             .build());
  * 
- *         var appconfDataowner = new Assignment(&#34;appconfDataowner&#34;, AssignmentArgs.builder()        
+ *         var appconfDataowner = new Assignment("appconfDataowner", AssignmentArgs.builder()        
  *             .scope(appconf.id())
- *             .roleDefinitionName(&#34;App Configuration Data Owner&#34;)
- *             .principalId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .roleDefinitionName("App Configuration Data Owner")
+ *             .principalId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *             .build());
  * 
- *         var test = new ConfigurationKey(&#34;test&#34;, ConfigurationKeyArgs.builder()        
+ *         var test = new ConfigurationKey("test", ConfigurationKeyArgs.builder()        
  *             .configurationStoreId(testAzurermAppConfiguration.id())
- *             .key(&#34;key1&#34;)
- *             .type(&#34;vault&#34;)
- *             .label(&#34;label1&#34;)
+ *             .key("key1")
+ *             .type("vault")
+ *             .label("label1")
  *             .vaultKeyReference(kvs.versionlessId())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

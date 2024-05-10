@@ -23,7 +23,8 @@ public final class MaintenanceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -45,14 +46,15 @@ public final class MaintenanceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existing = MaintenanceFunctions.getConfiguration(GetConfigurationArgs.builder()
-     *             .name(&#34;example-mc&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-mc")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, existingAzurermMaintenanceConfiguration.id());
+     *         ctx.export("id", existingAzurermMaintenanceConfiguration.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -65,7 +67,8 @@ public final class MaintenanceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -87,14 +90,15 @@ public final class MaintenanceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existing = MaintenanceFunctions.getConfiguration(GetConfigurationArgs.builder()
-     *             .name(&#34;example-mc&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-mc")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, existingAzurermMaintenanceConfiguration.id());
+     *         ctx.export("id", existingAzurermMaintenanceConfiguration.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -107,7 +111,8 @@ public final class MaintenanceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -129,14 +134,15 @@ public final class MaintenanceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existing = MaintenanceFunctions.getConfiguration(GetConfigurationArgs.builder()
-     *             .name(&#34;example-mc&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-mc")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, existingAzurermMaintenanceConfiguration.id());
+     *         ctx.export("id", existingAzurermMaintenanceConfiguration.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -149,7 +155,8 @@ public final class MaintenanceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -171,14 +178,15 @@ public final class MaintenanceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existing = MaintenanceFunctions.getConfiguration(GetConfigurationArgs.builder()
-     *             .name(&#34;example-mc&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-mc")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, existingAzurermMaintenanceConfiguration.id());
+     *         ctx.export("id", existingAzurermMaintenanceConfiguration.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -191,7 +199,8 @@ public final class MaintenanceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -213,15 +222,16 @@ public final class MaintenanceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existing = MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
-     *             .location(&#34;West Europe&#34;)
-     *             .scope(&#34;SQLManagedInstance&#34;)
-     *             .recurEvery(&#34;Monday-Thursday&#34;)
+     *             .location("West Europe")
+     *             .scope("SQLManagedInstance")
+     *             .recurEvery("Monday-Thursday")
      *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, existing.applyValue(getPublicConfigurationsResult -&gt; getPublicConfigurationsResult.configs()[0].name()));
+     *         ctx.export("name", existing.applyValue(getPublicConfigurationsResult -> getPublicConfigurationsResult.configs()[0].name()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -234,7 +244,8 @@ public final class MaintenanceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -256,15 +267,16 @@ public final class MaintenanceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existing = MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
-     *             .location(&#34;West Europe&#34;)
-     *             .scope(&#34;SQLManagedInstance&#34;)
-     *             .recurEvery(&#34;Monday-Thursday&#34;)
+     *             .location("West Europe")
+     *             .scope("SQLManagedInstance")
+     *             .recurEvery("Monday-Thursday")
      *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, existing.applyValue(getPublicConfigurationsResult -&gt; getPublicConfigurationsResult.configs()[0].name()));
+     *         ctx.export("name", existing.applyValue(getPublicConfigurationsResult -> getPublicConfigurationsResult.configs()[0].name()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -277,7 +289,8 @@ public final class MaintenanceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -299,15 +312,16 @@ public final class MaintenanceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existing = MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
-     *             .location(&#34;West Europe&#34;)
-     *             .scope(&#34;SQLManagedInstance&#34;)
-     *             .recurEvery(&#34;Monday-Thursday&#34;)
+     *             .location("West Europe")
+     *             .scope("SQLManagedInstance")
+     *             .recurEvery("Monday-Thursday")
      *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, existing.applyValue(getPublicConfigurationsResult -&gt; getPublicConfigurationsResult.configs()[0].name()));
+     *         ctx.export("name", existing.applyValue(getPublicConfigurationsResult -> getPublicConfigurationsResult.configs()[0].name()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -320,7 +334,8 @@ public final class MaintenanceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -342,15 +357,16 @@ public final class MaintenanceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existing = MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
-     *             .location(&#34;West Europe&#34;)
-     *             .scope(&#34;SQLManagedInstance&#34;)
-     *             .recurEvery(&#34;Monday-Thursday&#34;)
+     *             .location("West Europe")
+     *             .scope("SQLManagedInstance")
+     *             .recurEvery("Monday-Thursday")
      *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, existing.applyValue(getPublicConfigurationsResult -&gt; getPublicConfigurationsResult.configs()[0].name()));
+     *         ctx.export("name", existing.applyValue(getPublicConfigurationsResult -> getPublicConfigurationsResult.configs()[0].name()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -363,7 +379,8 @@ public final class MaintenanceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -385,15 +402,16 @@ public final class MaintenanceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existing = MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
-     *             .location(&#34;West Europe&#34;)
-     *             .scope(&#34;SQLManagedInstance&#34;)
-     *             .recurEvery(&#34;Monday-Thursday&#34;)
+     *             .location("West Europe")
+     *             .scope("SQLManagedInstance")
+     *             .recurEvery("Monday-Thursday")
      *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, existing.applyValue(getPublicConfigurationsResult -&gt; getPublicConfigurationsResult.configs()[0].name()));
+     *         ctx.export("name", existing.applyValue(getPublicConfigurationsResult -> getPublicConfigurationsResult.configs()[0].name()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -406,7 +424,8 @@ public final class MaintenanceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -428,15 +447,16 @@ public final class MaintenanceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existing = MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
-     *             .location(&#34;West Europe&#34;)
-     *             .scope(&#34;SQLManagedInstance&#34;)
-     *             .recurEvery(&#34;Monday-Thursday&#34;)
+     *             .location("West Europe")
+     *             .scope("SQLManagedInstance")
+     *             .recurEvery("Monday-Thursday")
      *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, existing.applyValue(getPublicConfigurationsResult -&gt; getPublicConfigurationsResult.configs()[0].name()));
+     *         ctx.export("name", existing.applyValue(getPublicConfigurationsResult -> getPublicConfigurationsResult.configs()[0].name()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

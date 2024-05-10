@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,29 +49,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleDedicatedHostGroup = new DedicatedHostGroup(&#34;exampleDedicatedHostGroup&#34;, DedicatedHostGroupArgs.builder()        
- *             .name(&#34;example-host-group&#34;)
+ *         var exampleDedicatedHostGroup = new DedicatedHostGroup("exampleDedicatedHostGroup", DedicatedHostGroupArgs.builder()        
+ *             .name("example-host-group")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .platformFaultDomainCount(2)
  *             .build());
  * 
- *         var exampleDedicatedHost = new DedicatedHost(&#34;exampleDedicatedHost&#34;, DedicatedHostArgs.builder()        
- *             .name(&#34;example-host&#34;)
+ *         var exampleDedicatedHost = new DedicatedHost("exampleDedicatedHost", DedicatedHostArgs.builder()        
+ *             .name("example-host")
  *             .location(example.location())
  *             .dedicatedHostGroupId(exampleDedicatedHostGroup.id())
- *             .skuName(&#34;DSv3-Type3&#34;)
+ *             .skuName("DSv3-Type3")
  *             .platformFaultDomain(1)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

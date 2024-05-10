@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,39 +53,40 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = NetworkFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
- *             .name(&#34;production&#34;)
- *             .resourceGroupName(&#34;networking&#34;)
+ *             .name("production")
+ *             .resourceGroupName("networking")
  *             .build());
  * 
- *         var exampleDefinition = new Definition(&#34;exampleDefinition&#34;, DefinitionArgs.builder()        
- *             .name(&#34;only-deploy-in-westeurope&#34;)
- *             .policyType(&#34;Custom&#34;)
- *             .mode(&#34;All&#34;)
- *             .displayName(&#34;my-policy-definition&#34;)
- *             .policyRule(&#34;&#34;&#34;
+ *         var exampleDefinition = new Definition("exampleDefinition", DefinitionArgs.builder()        
+ *             .name("only-deploy-in-westeurope")
+ *             .policyType("Custom")
+ *             .mode("All")
+ *             .displayName("my-policy-definition")
+ *             .policyRule("""
  *  {
- *     &#34;if&#34;: {
- *       &#34;not&#34;: {
- *         &#34;field&#34;: &#34;location&#34;,
- *         &#34;equals&#34;: &#34;westeurope&#34;
+ *     "if": {
+ *       "not": {
+ *         "field": "location",
+ *         "equals": "westeurope"
  *       }
  *     },
- *     &#34;then&#34;: {
- *       &#34;effect&#34;: &#34;Deny&#34;
+ *     "then": {
+ *       "effect": "Deny"
  *     }
  *   }
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
- *         var exampleResourcePolicyAssignment = new ResourcePolicyAssignment(&#34;exampleResourcePolicyAssignment&#34;, ResourcePolicyAssignmentArgs.builder()        
- *             .name(&#34;example-policy-assignment&#34;)
- *             .resourceId(example.applyValue(getVirtualNetworkResult -&gt; getVirtualNetworkResult.id()))
+ *         var exampleResourcePolicyAssignment = new ResourcePolicyAssignment("exampleResourcePolicyAssignment", ResourcePolicyAssignmentArgs.builder()        
+ *             .name("example-policy-assignment")
+ *             .resourceId(example.applyValue(getVirtualNetworkResult -> getVirtualNetworkResult.id()))
  *             .policyDefinitionId(exampleDefinition.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

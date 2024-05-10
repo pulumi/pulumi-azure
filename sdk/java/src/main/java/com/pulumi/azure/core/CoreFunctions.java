@@ -52,7 +52,8 @@ public final class CoreFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -74,10 +75,11 @@ public final class CoreFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = CoreFunctions.getClientConfig();
      * 
-     *         ctx.export(&#34;accountId&#34;, current.applyValue(getClientConfigResult -&gt; getClientConfigResult.clientId()));
+     *         ctx.export("accountId", current.applyValue(getClientConfigResult -> getClientConfigResult.clientId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -90,7 +92,8 @@ public final class CoreFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -112,10 +115,11 @@ public final class CoreFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = CoreFunctions.getClientConfig();
      * 
-     *         ctx.export(&#34;accountId&#34;, current.applyValue(getClientConfigResult -&gt; getClientConfigResult.clientId()));
+     *         ctx.export("accountId", current.applyValue(getClientConfigResult -> getClientConfigResult.clientId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -128,7 +132,8 @@ public final class CoreFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -150,10 +155,11 @@ public final class CoreFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = CoreFunctions.getClientConfig();
      * 
-     *         ctx.export(&#34;accountId&#34;, current.applyValue(getClientConfigResult -&gt; getClientConfigResult.clientId()));
+     *         ctx.export("accountId", current.applyValue(getClientConfigResult -> getClientConfigResult.clientId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -166,7 +172,8 @@ public final class CoreFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -188,10 +195,11 @@ public final class CoreFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = CoreFunctions.getClientConfig();
      * 
-     *         ctx.export(&#34;accountId&#34;, current.applyValue(getClientConfigResult -&gt; getClientConfigResult.clientId()));
+     *         ctx.export("accountId", current.applyValue(getClientConfigResult -> getClientConfigResult.clientId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -204,7 +212,8 @@ public final class CoreFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -226,10 +235,11 @@ public final class CoreFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = CoreFunctions.getClientConfig();
      * 
-     *         ctx.export(&#34;accountId&#34;, current.applyValue(getClientConfigResult -&gt; getClientConfigResult.clientId()));
+     *         ctx.export("accountId", current.applyValue(getClientConfigResult -> getClientConfigResult.clientId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -242,7 +252,8 @@ public final class CoreFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -264,10 +275,11 @@ public final class CoreFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = CoreFunctions.getClientConfig();
      * 
-     *         ctx.export(&#34;accountId&#34;, current.applyValue(getClientConfigResult -&gt; getClientConfigResult.clientId()));
+     *         ctx.export("accountId", current.applyValue(getClientConfigResult -> getClientConfigResult.clientId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -280,7 +292,8 @@ public final class CoreFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -302,12 +315,13 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CoreFunctions.getExtendedLocations(GetExtendedLocationsArgs.builder()
-     *             .location(&#34;West Europe&#34;)
+     *             .location("West Europe")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -320,7 +334,8 @@ public final class CoreFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -342,12 +357,13 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CoreFunctions.getExtendedLocations(GetExtendedLocationsArgs.builder()
-     *             .location(&#34;West Europe&#34;)
+     *             .location("West Europe")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -360,7 +376,8 @@ public final class CoreFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -382,12 +399,13 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CoreFunctions.getExtendedLocations(GetExtendedLocationsArgs.builder()
-     *             .location(&#34;West Europe&#34;)
+     *             .location("West Europe")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -400,7 +418,8 @@ public final class CoreFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -422,12 +441,13 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CoreFunctions.getExtendedLocations(GetExtendedLocationsArgs.builder()
-     *             .location(&#34;West Europe&#34;)
+     *             .location("West Europe")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -440,7 +460,8 @@ public final class CoreFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -462,12 +483,13 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CoreFunctions.getLocation(GetLocationArgs.builder()
-     *             .location(&#34;West Europe&#34;)
+     *             .location("West Europe")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -480,7 +502,8 @@ public final class CoreFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -502,12 +525,13 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CoreFunctions.getLocation(GetLocationArgs.builder()
-     *             .location(&#34;West Europe&#34;)
+     *             .location("West Europe")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -520,7 +544,8 @@ public final class CoreFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -542,12 +567,13 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CoreFunctions.getLocation(GetLocationArgs.builder()
-     *             .location(&#34;West Europe&#34;)
+     *             .location("West Europe")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -560,7 +586,8 @@ public final class CoreFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -582,12 +609,13 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CoreFunctions.getLocation(GetLocationArgs.builder()
-     *             .location(&#34;West Europe&#34;)
+     *             .location("West Europe")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -600,7 +628,8 @@ public final class CoreFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -622,13 +651,14 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CoreFunctions.getResourceGroup(GetResourceGroupArgs.builder()
-     *             .name(&#34;existing&#34;)
+     *             .name("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getResourceGroupResult -&gt; getResourceGroupResult.id()));
+     *         ctx.export("id", example.applyValue(getResourceGroupResult -> getResourceGroupResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -641,7 +671,8 @@ public final class CoreFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -663,13 +694,14 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CoreFunctions.getResourceGroup(GetResourceGroupArgs.builder()
-     *             .name(&#34;existing&#34;)
+     *             .name("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getResourceGroupResult -&gt; getResourceGroupResult.id()));
+     *         ctx.export("id", example.applyValue(getResourceGroupResult -> getResourceGroupResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -682,7 +714,8 @@ public final class CoreFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -704,13 +737,14 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CoreFunctions.getResourceGroup(GetResourceGroupArgs.builder()
-     *             .name(&#34;existing&#34;)
+     *             .name("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getResourceGroupResult -&gt; getResourceGroupResult.id()));
+     *         ctx.export("id", example.applyValue(getResourceGroupResult -> getResourceGroupResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -723,7 +757,8 @@ public final class CoreFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -745,13 +780,14 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CoreFunctions.getResourceGroup(GetResourceGroupArgs.builder()
-     *             .name(&#34;existing&#34;)
+     *             .name("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getResourceGroupResult -&gt; getResourceGroupResult.id()));
+     *         ctx.export("id", example.applyValue(getResourceGroupResult -> getResourceGroupResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -834,7 +870,8 @@ public final class CoreFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -857,10 +894,11 @@ public final class CoreFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = CoreFunctions.getSubscription();
      * 
-     *         ctx.export(&#34;currentSubscriptionDisplayName&#34;, current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.displayName()));
+     *         ctx.export("currentSubscriptionDisplayName", current.applyValue(getSubscriptionResult -> getSubscriptionResult.displayName()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -873,7 +911,8 @@ public final class CoreFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -896,10 +935,11 @@ public final class CoreFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = CoreFunctions.getSubscription();
      * 
-     *         ctx.export(&#34;currentSubscriptionDisplayName&#34;, current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.displayName()));
+     *         ctx.export("currentSubscriptionDisplayName", current.applyValue(getSubscriptionResult -> getSubscriptionResult.displayName()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -912,7 +952,8 @@ public final class CoreFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -935,10 +976,11 @@ public final class CoreFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = CoreFunctions.getSubscription();
      * 
-     *         ctx.export(&#34;currentSubscriptionDisplayName&#34;, current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.displayName()));
+     *         ctx.export("currentSubscriptionDisplayName", current.applyValue(getSubscriptionResult -> getSubscriptionResult.displayName()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -951,7 +993,8 @@ public final class CoreFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -974,10 +1017,11 @@ public final class CoreFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = CoreFunctions.getSubscription();
      * 
-     *         ctx.export(&#34;currentSubscriptionDisplayName&#34;, current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.displayName()));
+     *         ctx.export("currentSubscriptionDisplayName", current.applyValue(getSubscriptionResult -> getSubscriptionResult.displayName()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -990,7 +1034,8 @@ public final class CoreFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1013,10 +1058,11 @@ public final class CoreFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = CoreFunctions.getSubscription();
      * 
-     *         ctx.export(&#34;currentSubscriptionDisplayName&#34;, current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.displayName()));
+     *         ctx.export("currentSubscriptionDisplayName", current.applyValue(getSubscriptionResult -> getSubscriptionResult.displayName()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1029,7 +1075,8 @@ public final class CoreFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1052,10 +1099,11 @@ public final class CoreFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = CoreFunctions.getSubscription();
      * 
-     *         ctx.export(&#34;currentSubscriptionDisplayName&#34;, current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.displayName()));
+     *         ctx.export("currentSubscriptionDisplayName", current.applyValue(getSubscriptionResult -> getSubscriptionResult.displayName()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1096,7 +1144,8 @@ public final class CoreFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1119,11 +1168,12 @@ public final class CoreFunctions {
      *     public static void stack(Context ctx) {
      *         final var available = CoreFunctions.getSubscriptions();
      * 
-     *         ctx.export(&#34;availableSubscriptions&#34;, available.applyValue(getSubscriptionsResult -&gt; getSubscriptionsResult.subscriptions()));
-     *         ctx.export(&#34;firstAvailableSubscriptionDisplayName&#34;, available.applyValue(getSubscriptionsResult -&gt; getSubscriptionsResult.subscriptions()[0].displayName()));
+     *         ctx.export("availableSubscriptions", available.applyValue(getSubscriptionsResult -> getSubscriptionsResult.subscriptions()));
+     *         ctx.export("firstAvailableSubscriptionDisplayName", available.applyValue(getSubscriptionsResult -> getSubscriptionsResult.subscriptions()[0].displayName()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1136,7 +1186,8 @@ public final class CoreFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1159,11 +1210,12 @@ public final class CoreFunctions {
      *     public static void stack(Context ctx) {
      *         final var available = CoreFunctions.getSubscriptions();
      * 
-     *         ctx.export(&#34;availableSubscriptions&#34;, available.applyValue(getSubscriptionsResult -&gt; getSubscriptionsResult.subscriptions()));
-     *         ctx.export(&#34;firstAvailableSubscriptionDisplayName&#34;, available.applyValue(getSubscriptionsResult -&gt; getSubscriptionsResult.subscriptions()[0].displayName()));
+     *         ctx.export("availableSubscriptions", available.applyValue(getSubscriptionsResult -> getSubscriptionsResult.subscriptions()));
+     *         ctx.export("firstAvailableSubscriptionDisplayName", available.applyValue(getSubscriptionsResult -> getSubscriptionsResult.subscriptions()[0].displayName()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1176,7 +1228,8 @@ public final class CoreFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1199,11 +1252,12 @@ public final class CoreFunctions {
      *     public static void stack(Context ctx) {
      *         final var available = CoreFunctions.getSubscriptions();
      * 
-     *         ctx.export(&#34;availableSubscriptions&#34;, available.applyValue(getSubscriptionsResult -&gt; getSubscriptionsResult.subscriptions()));
-     *         ctx.export(&#34;firstAvailableSubscriptionDisplayName&#34;, available.applyValue(getSubscriptionsResult -&gt; getSubscriptionsResult.subscriptions()[0].displayName()));
+     *         ctx.export("availableSubscriptions", available.applyValue(getSubscriptionsResult -> getSubscriptionsResult.subscriptions()));
+     *         ctx.export("firstAvailableSubscriptionDisplayName", available.applyValue(getSubscriptionsResult -> getSubscriptionsResult.subscriptions()[0].displayName()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1216,7 +1270,8 @@ public final class CoreFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1239,11 +1294,12 @@ public final class CoreFunctions {
      *     public static void stack(Context ctx) {
      *         final var available = CoreFunctions.getSubscriptions();
      * 
-     *         ctx.export(&#34;availableSubscriptions&#34;, available.applyValue(getSubscriptionsResult -&gt; getSubscriptionsResult.subscriptions()));
-     *         ctx.export(&#34;firstAvailableSubscriptionDisplayName&#34;, available.applyValue(getSubscriptionsResult -&gt; getSubscriptionsResult.subscriptions()[0].displayName()));
+     *         ctx.export("availableSubscriptions", available.applyValue(getSubscriptionsResult -> getSubscriptionsResult.subscriptions()));
+     *         ctx.export("firstAvailableSubscriptionDisplayName", available.applyValue(getSubscriptionsResult -> getSubscriptionsResult.subscriptions()[0].displayName()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1256,7 +1312,8 @@ public final class CoreFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1279,11 +1336,12 @@ public final class CoreFunctions {
      *     public static void stack(Context ctx) {
      *         final var available = CoreFunctions.getSubscriptions();
      * 
-     *         ctx.export(&#34;availableSubscriptions&#34;, available.applyValue(getSubscriptionsResult -&gt; getSubscriptionsResult.subscriptions()));
-     *         ctx.export(&#34;firstAvailableSubscriptionDisplayName&#34;, available.applyValue(getSubscriptionsResult -&gt; getSubscriptionsResult.subscriptions()[0].displayName()));
+     *         ctx.export("availableSubscriptions", available.applyValue(getSubscriptionsResult -> getSubscriptionsResult.subscriptions()));
+     *         ctx.export("firstAvailableSubscriptionDisplayName", available.applyValue(getSubscriptionsResult -> getSubscriptionsResult.subscriptions()[0].displayName()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1296,7 +1354,8 @@ public final class CoreFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1319,11 +1378,12 @@ public final class CoreFunctions {
      *     public static void stack(Context ctx) {
      *         final var available = CoreFunctions.getSubscriptions();
      * 
-     *         ctx.export(&#34;availableSubscriptions&#34;, available.applyValue(getSubscriptionsResult -&gt; getSubscriptionsResult.subscriptions()));
-     *         ctx.export(&#34;firstAvailableSubscriptionDisplayName&#34;, available.applyValue(getSubscriptionsResult -&gt; getSubscriptionsResult.subscriptions()[0].displayName()));
+     *         ctx.export("availableSubscriptions", available.applyValue(getSubscriptionsResult -> getSubscriptionsResult.subscriptions()));
+     *         ctx.export("firstAvailableSubscriptionDisplayName", available.applyValue(getSubscriptionsResult -> getSubscriptionsResult.subscriptions()[0].displayName()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1336,7 +1396,8 @@ public final class CoreFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1358,15 +1419,16 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CoreFunctions.getTemplateSpecVersion(GetTemplateSpecVersionArgs.builder()
-     *             .name(&#34;exampleTemplateSpec&#34;)
-     *             .resourceGroupName(&#34;MyResourceGroup&#34;)
-     *             .version(&#34;v1.0.4&#34;)
+     *             .name("exampleTemplateSpec")
+     *             .resourceGroupName("MyResourceGroup")
+     *             .version("v1.0.4")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getTemplateSpecVersionResult -&gt; getTemplateSpecVersionResult.id()));
+     *         ctx.export("id", example.applyValue(getTemplateSpecVersionResult -> getTemplateSpecVersionResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1379,7 +1441,8 @@ public final class CoreFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1401,15 +1464,16 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CoreFunctions.getTemplateSpecVersion(GetTemplateSpecVersionArgs.builder()
-     *             .name(&#34;exampleTemplateSpec&#34;)
-     *             .resourceGroupName(&#34;MyResourceGroup&#34;)
-     *             .version(&#34;v1.0.4&#34;)
+     *             .name("exampleTemplateSpec")
+     *             .resourceGroupName("MyResourceGroup")
+     *             .version("v1.0.4")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getTemplateSpecVersionResult -&gt; getTemplateSpecVersionResult.id()));
+     *         ctx.export("id", example.applyValue(getTemplateSpecVersionResult -> getTemplateSpecVersionResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1422,7 +1486,8 @@ public final class CoreFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1444,15 +1509,16 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CoreFunctions.getTemplateSpecVersion(GetTemplateSpecVersionArgs.builder()
-     *             .name(&#34;exampleTemplateSpec&#34;)
-     *             .resourceGroupName(&#34;MyResourceGroup&#34;)
-     *             .version(&#34;v1.0.4&#34;)
+     *             .name("exampleTemplateSpec")
+     *             .resourceGroupName("MyResourceGroup")
+     *             .version("v1.0.4")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getTemplateSpecVersionResult -&gt; getTemplateSpecVersionResult.id()));
+     *         ctx.export("id", example.applyValue(getTemplateSpecVersionResult -> getTemplateSpecVersionResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1465,7 +1531,8 @@ public final class CoreFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1487,15 +1554,16 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CoreFunctions.getTemplateSpecVersion(GetTemplateSpecVersionArgs.builder()
-     *             .name(&#34;exampleTemplateSpec&#34;)
-     *             .resourceGroupName(&#34;MyResourceGroup&#34;)
-     *             .version(&#34;v1.0.4&#34;)
+     *             .name("exampleTemplateSpec")
+     *             .resourceGroupName("MyResourceGroup")
+     *             .version("v1.0.4")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getTemplateSpecVersionResult -&gt; getTemplateSpecVersionResult.id()));
+     *         ctx.export("id", example.applyValue(getTemplateSpecVersionResult -> getTemplateSpecVersionResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1538,7 +1606,8 @@ public final class CoreFunctions {
      * ### Reference An Existing)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1560,16 +1629,17 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AuthorizationFunctions.getUserAssignedIdentity(GetUserAssignedIdentityArgs.builder()
-     *             .name(&#34;name_of_user_assigned_identity&#34;)
-     *             .resourceGroupName(&#34;name_of_resource_group&#34;)
+     *             .name("name_of_user_assigned_identity")
+     *             .resourceGroupName("name_of_resource_group")
      *             .build());
      * 
-     *         ctx.export(&#34;uaiClientId&#34;, example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.clientId()));
-     *         ctx.export(&#34;uaiPrincipalId&#34;, example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.principalId()));
-     *         ctx.export(&#34;uaiTenantId&#34;, example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.tenantId()));
+     *         ctx.export("uaiClientId", example.applyValue(getUserAssignedIdentityResult -> getUserAssignedIdentityResult.clientId()));
+     *         ctx.export("uaiPrincipalId", example.applyValue(getUserAssignedIdentityResult -> getUserAssignedIdentityResult.principalId()));
+     *         ctx.export("uaiTenantId", example.applyValue(getUserAssignedIdentityResult -> getUserAssignedIdentityResult.tenantId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
@@ -1588,7 +1658,8 @@ public final class CoreFunctions {
      * ### Reference An Existing)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1610,16 +1681,17 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AuthorizationFunctions.getUserAssignedIdentity(GetUserAssignedIdentityArgs.builder()
-     *             .name(&#34;name_of_user_assigned_identity&#34;)
-     *             .resourceGroupName(&#34;name_of_resource_group&#34;)
+     *             .name("name_of_user_assigned_identity")
+     *             .resourceGroupName("name_of_resource_group")
      *             .build());
      * 
-     *         ctx.export(&#34;uaiClientId&#34;, example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.clientId()));
-     *         ctx.export(&#34;uaiPrincipalId&#34;, example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.principalId()));
-     *         ctx.export(&#34;uaiTenantId&#34;, example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.tenantId()));
+     *         ctx.export("uaiClientId", example.applyValue(getUserAssignedIdentityResult -> getUserAssignedIdentityResult.clientId()));
+     *         ctx.export("uaiPrincipalId", example.applyValue(getUserAssignedIdentityResult -> getUserAssignedIdentityResult.principalId()));
+     *         ctx.export("uaiTenantId", example.applyValue(getUserAssignedIdentityResult -> getUserAssignedIdentityResult.tenantId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
@@ -1638,7 +1710,8 @@ public final class CoreFunctions {
      * ### Reference An Existing)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1660,16 +1733,17 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AuthorizationFunctions.getUserAssignedIdentity(GetUserAssignedIdentityArgs.builder()
-     *             .name(&#34;name_of_user_assigned_identity&#34;)
-     *             .resourceGroupName(&#34;name_of_resource_group&#34;)
+     *             .name("name_of_user_assigned_identity")
+     *             .resourceGroupName("name_of_resource_group")
      *             .build());
      * 
-     *         ctx.export(&#34;uaiClientId&#34;, example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.clientId()));
-     *         ctx.export(&#34;uaiPrincipalId&#34;, example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.principalId()));
-     *         ctx.export(&#34;uaiTenantId&#34;, example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.tenantId()));
+     *         ctx.export("uaiClientId", example.applyValue(getUserAssignedIdentityResult -> getUserAssignedIdentityResult.clientId()));
+     *         ctx.export("uaiPrincipalId", example.applyValue(getUserAssignedIdentityResult -> getUserAssignedIdentityResult.principalId()));
+     *         ctx.export("uaiTenantId", example.applyValue(getUserAssignedIdentityResult -> getUserAssignedIdentityResult.tenantId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
@@ -1688,7 +1762,8 @@ public final class CoreFunctions {
      * ### Reference An Existing)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1710,16 +1785,17 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AuthorizationFunctions.getUserAssignedIdentity(GetUserAssignedIdentityArgs.builder()
-     *             .name(&#34;name_of_user_assigned_identity&#34;)
-     *             .resourceGroupName(&#34;name_of_resource_group&#34;)
+     *             .name("name_of_user_assigned_identity")
+     *             .resourceGroupName("name_of_resource_group")
      *             .build());
      * 
-     *         ctx.export(&#34;uaiClientId&#34;, example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.clientId()));
-     *         ctx.export(&#34;uaiPrincipalId&#34;, example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.principalId()));
-     *         ctx.export(&#34;uaiTenantId&#34;, example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.tenantId()));
+     *         ctx.export("uaiClientId", example.applyValue(getUserAssignedIdentityResult -> getUserAssignedIdentityResult.clientId()));
+     *         ctx.export("uaiPrincipalId", example.applyValue(getUserAssignedIdentityResult -> getUserAssignedIdentityResult.principalId()));
+     *         ctx.export("uaiTenantId", example.applyValue(getUserAssignedIdentityResult -> getUserAssignedIdentityResult.tenantId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated

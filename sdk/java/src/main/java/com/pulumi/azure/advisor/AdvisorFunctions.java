@@ -20,7 +20,8 @@ public final class AdvisorFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -43,15 +44,16 @@ public final class AdvisorFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AdvisorFunctions.getRecommendations(GetRecommendationsArgs.builder()
      *             .filterByCategories(            
-     *                 &#34;security&#34;,
-     *                 &#34;cost&#34;)
-     *             .filterByResourceGroups(&#34;example-resgroups&#34;)
+     *                 "security",
+     *                 "cost")
+     *             .filterByResourceGroups("example-resgroups")
      *             .build());
      * 
-     *         ctx.export(&#34;recommendations&#34;, example.applyValue(getRecommendationsResult -&gt; getRecommendationsResult.recommendations()));
+     *         ctx.export("recommendations", example.applyValue(getRecommendationsResult -> getRecommendationsResult.recommendations()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -64,7 +66,8 @@ public final class AdvisorFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -87,15 +90,16 @@ public final class AdvisorFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AdvisorFunctions.getRecommendations(GetRecommendationsArgs.builder()
      *             .filterByCategories(            
-     *                 &#34;security&#34;,
-     *                 &#34;cost&#34;)
-     *             .filterByResourceGroups(&#34;example-resgroups&#34;)
+     *                 "security",
+     *                 "cost")
+     *             .filterByResourceGroups("example-resgroups")
      *             .build());
      * 
-     *         ctx.export(&#34;recommendations&#34;, example.applyValue(getRecommendationsResult -&gt; getRecommendationsResult.recommendations()));
+     *         ctx.export("recommendations", example.applyValue(getRecommendationsResult -> getRecommendationsResult.recommendations()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -108,7 +112,8 @@ public final class AdvisorFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -131,15 +136,16 @@ public final class AdvisorFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AdvisorFunctions.getRecommendations(GetRecommendationsArgs.builder()
      *             .filterByCategories(            
-     *                 &#34;security&#34;,
-     *                 &#34;cost&#34;)
-     *             .filterByResourceGroups(&#34;example-resgroups&#34;)
+     *                 "security",
+     *                 "cost")
+     *             .filterByResourceGroups("example-resgroups")
      *             .build());
      * 
-     *         ctx.export(&#34;recommendations&#34;, example.applyValue(getRecommendationsResult -&gt; getRecommendationsResult.recommendations()));
+     *         ctx.export("recommendations", example.applyValue(getRecommendationsResult -> getRecommendationsResult.recommendations()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -152,7 +158,8 @@ public final class AdvisorFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -175,15 +182,16 @@ public final class AdvisorFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AdvisorFunctions.getRecommendations(GetRecommendationsArgs.builder()
      *             .filterByCategories(            
-     *                 &#34;security&#34;,
-     *                 &#34;cost&#34;)
-     *             .filterByResourceGroups(&#34;example-resgroups&#34;)
+     *                 "security",
+     *                 "cost")
+     *             .filterByResourceGroups("example-resgroups")
      *             .build());
      * 
-     *         ctx.export(&#34;recommendations&#34;, example.applyValue(getRecommendationsResult -&gt; getRecommendationsResult.recommendations()));
+     *         ctx.export("recommendations", example.applyValue(getRecommendationsResult -> getRecommendationsResult.recommendations()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -196,7 +204,8 @@ public final class AdvisorFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -219,15 +228,16 @@ public final class AdvisorFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AdvisorFunctions.getRecommendations(GetRecommendationsArgs.builder()
      *             .filterByCategories(            
-     *                 &#34;security&#34;,
-     *                 &#34;cost&#34;)
-     *             .filterByResourceGroups(&#34;example-resgroups&#34;)
+     *                 "security",
+     *                 "cost")
+     *             .filterByResourceGroups("example-resgroups")
      *             .build());
      * 
-     *         ctx.export(&#34;recommendations&#34;, example.applyValue(getRecommendationsResult -&gt; getRecommendationsResult.recommendations()));
+     *         ctx.export("recommendations", example.applyValue(getRecommendationsResult -> getRecommendationsResult.recommendations()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -240,7 +250,8 @@ public final class AdvisorFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -263,15 +274,16 @@ public final class AdvisorFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AdvisorFunctions.getRecommendations(GetRecommendationsArgs.builder()
      *             .filterByCategories(            
-     *                 &#34;security&#34;,
-     *                 &#34;cost&#34;)
-     *             .filterByResourceGroups(&#34;example-resgroups&#34;)
+     *                 "security",
+     *                 "cost")
+     *             .filterByResourceGroups("example-resgroups")
      *             .build());
      * 
-     *         ctx.export(&#34;recommendations&#34;, example.applyValue(getRecommendationsResult -&gt; getRecommendationsResult.recommendations()));
+     *         ctx.export("recommendations", example.applyValue(getRecommendationsResult -> getRecommendationsResult.recommendations()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,44 +49,45 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;testbatch&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("testbatch")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;teststorage&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("teststorage")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleAccount2 = new Account(&#34;exampleAccount2&#34;, AccountArgs.builder()        
- *             .name(&#34;testbatchaccount&#34;)
+ *         var exampleAccount2 = new Account("exampleAccount2", AccountArgs.builder()        
+ *             .name("testbatchaccount")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .poolAllocationMode(&#34;BatchService&#34;)
+ *             .poolAllocationMode("BatchService")
  *             .storageAccountId(exampleAccount.id())
- *             .storageAccountAuthenticationMode(&#34;StorageKeys&#34;)
- *             .tags(Map.of(&#34;env&#34;, &#34;test&#34;))
+ *             .storageAccountAuthenticationMode("StorageKeys")
+ *             .tags(Map.of("env", "test"))
  *             .build());
  * 
- *         var exampleCertificate = new Certificate(&#34;exampleCertificate&#34;, CertificateArgs.builder()        
+ *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()        
  *             .resourceGroupName(example.name())
  *             .accountName(exampleAccount2.name())
  *             .certificate(StdFunctions.filebase64(Filebase64Args.builder()
- *                 .input(&#34;certificate.pfx&#34;)
+ *                 .input("certificate.pfx")
  *                 .build()).result())
- *             .format(&#34;Pfx&#34;)
- *             .password(&#34;password&#34;)
- *             .thumbprint(&#34;42C107874FD0E4A9583292A2F1098E8FE4B2EDDA&#34;)
- *             .thumbprintAlgorithm(&#34;SHA1&#34;)
+ *             .format("Pfx")
+ *             .password("password")
+ *             .thumbprint("42C107874FD0E4A9583292A2F1098E8FE4B2EDDA")
+ *             .thumbprintAlgorithm("SHA1")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

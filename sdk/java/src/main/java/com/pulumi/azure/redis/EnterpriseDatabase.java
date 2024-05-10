@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,42 +49,43 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-redisenterprise&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-redisenterprise")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleEnterpriseCluster = new EnterpriseCluster(&#34;exampleEnterpriseCluster&#34;, EnterpriseClusterArgs.builder()        
- *             .name(&#34;example-redisenterprise&#34;)
+ *         var exampleEnterpriseCluster = new EnterpriseCluster("exampleEnterpriseCluster", EnterpriseClusterArgs.builder()        
+ *             .name("example-redisenterprise")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .skuName(&#34;Enterprise_E20-4&#34;)
+ *             .skuName("Enterprise_E20-4")
  *             .build());
  * 
- *         var example1 = new EnterpriseCluster(&#34;example1&#34;, EnterpriseClusterArgs.builder()        
- *             .name(&#34;example-redisenterprise1&#34;)
+ *         var example1 = new EnterpriseCluster("example1", EnterpriseClusterArgs.builder()        
+ *             .name("example-redisenterprise1")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .skuName(&#34;Enterprise_E20-4&#34;)
+ *             .skuName("Enterprise_E20-4")
  *             .build());
  * 
- *         var exampleEnterpriseDatabase = new EnterpriseDatabase(&#34;exampleEnterpriseDatabase&#34;, EnterpriseDatabaseArgs.builder()        
- *             .name(&#34;default&#34;)
+ *         var exampleEnterpriseDatabase = new EnterpriseDatabase("exampleEnterpriseDatabase", EnterpriseDatabaseArgs.builder()        
+ *             .name("default")
  *             .resourceGroupName(example.name())
  *             .clusterId(exampleEnterpriseCluster.id())
- *             .clientProtocol(&#34;Encrypted&#34;)
- *             .clusteringPolicy(&#34;EnterpriseCluster&#34;)
- *             .evictionPolicy(&#34;NoEviction&#34;)
+ *             .clientProtocol("Encrypted")
+ *             .clusteringPolicy("EnterpriseCluster")
+ *             .evictionPolicy("NoEviction")
  *             .port(10000)
  *             .linkedDatabaseIds(            
- *                 exampleEnterpriseCluster.id().applyValue(id -&gt; String.format(&#34;%s/databases/default&#34;, id)),
- *                 example1.id().applyValue(id -&gt; String.format(&#34;%s/databases/default&#34;, id)))
- *             .linkedDatabaseGroupNickname(&#34;tftestGeoGroup&#34;)
+ *                 exampleEnterpriseCluster.id().applyValue(id -> String.format("%s/databases/default", id)),
+ *                 example1.id().applyValue(id -> String.format("%s/databases/default", id)))
+ *             .linkedDatabaseGroupNickname("tftestGeoGroup")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

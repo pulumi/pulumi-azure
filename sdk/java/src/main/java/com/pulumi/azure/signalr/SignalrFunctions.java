@@ -20,7 +20,8 @@ public final class SignalrFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -42,13 +43,14 @@ public final class SignalrFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SignalrFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;test-signalr&#34;)
-     *             .resourceGroupName(&#34;signalr-resource-group&#34;)
+     *             .name("test-signalr")
+     *             .resourceGroupName("signalr-resource-group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -61,7 +63,8 @@ public final class SignalrFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -83,13 +86,14 @@ public final class SignalrFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SignalrFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;test-signalr&#34;)
-     *             .resourceGroupName(&#34;signalr-resource-group&#34;)
+     *             .name("test-signalr")
+     *             .resourceGroupName("signalr-resource-group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -102,7 +106,8 @@ public final class SignalrFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -124,13 +129,14 @@ public final class SignalrFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SignalrFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;test-signalr&#34;)
-     *             .resourceGroupName(&#34;signalr-resource-group&#34;)
+     *             .name("test-signalr")
+     *             .resourceGroupName("signalr-resource-group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -143,7 +149,8 @@ public final class SignalrFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -165,13 +172,14 @@ public final class SignalrFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SignalrFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;test-signalr&#34;)
-     *             .resourceGroupName(&#34;signalr-resource-group&#34;)
+     *             .name("test-signalr")
+     *             .resourceGroupName("signalr-resource-group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

@@ -44,7 +44,8 @@ import javax.annotation.Nullable;
  * This example provisions a Virtual Machine with Managed Disks.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -79,69 +80,70 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
- *         final var prefix = config.get(&#34;prefix&#34;).orElse(&#34;tfvmex&#34;);
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(String.format(&#34;%s-resources&#34;, prefix))
- *             .location(&#34;West Europe&#34;)
+ *         final var prefix = config.get("prefix").orElse("tfvmex");
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name(String.format("%s-resources", prefix))
+ *             .location("West Europe")
  *             .build());
  * 
- *         var main = new VirtualNetwork(&#34;main&#34;, VirtualNetworkArgs.builder()        
- *             .name(String.format(&#34;%s-network&#34;, prefix))
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *         var main = new VirtualNetwork("main", VirtualNetworkArgs.builder()        
+ *             .name(String.format("%s-network", prefix))
+ *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var internal = new Subnet(&#34;internal&#34;, SubnetArgs.builder()        
- *             .name(&#34;internal&#34;)
+ *         var internal = new Subnet("internal", SubnetArgs.builder()        
+ *             .name("internal")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(main.name())
- *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
+ *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
- *         var mainNetworkInterface = new NetworkInterface(&#34;mainNetworkInterface&#34;, NetworkInterfaceArgs.builder()        
- *             .name(String.format(&#34;%s-nic&#34;, prefix))
+ *         var mainNetworkInterface = new NetworkInterface("mainNetworkInterface", NetworkInterfaceArgs.builder()        
+ *             .name(String.format("%s-nic", prefix))
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
- *                 .name(&#34;testconfiguration1&#34;)
+ *                 .name("testconfiguration1")
  *                 .subnetId(internal.id())
- *                 .privateIpAddressAllocation(&#34;Dynamic&#34;)
+ *                 .privateIpAddressAllocation("Dynamic")
  *                 .build())
  *             .build());
  * 
- *         var mainVirtualMachine = new VirtualMachine(&#34;mainVirtualMachine&#34;, VirtualMachineArgs.builder()        
- *             .name(String.format(&#34;%s-vm&#34;, prefix))
+ *         var mainVirtualMachine = new VirtualMachine("mainVirtualMachine", VirtualMachineArgs.builder()        
+ *             .name(String.format("%s-vm", prefix))
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .networkInterfaceIds(mainNetworkInterface.id())
- *             .vmSize(&#34;Standard_DS1_v2&#34;)
+ *             .vmSize("Standard_DS1_v2")
  *             .storageImageReference(VirtualMachineStorageImageReferenceArgs.builder()
- *                 .publisher(&#34;Canonical&#34;)
- *                 .offer(&#34;0001-com-ubuntu-server-jammy&#34;)
- *                 .sku(&#34;22_04-lts&#34;)
- *                 .version(&#34;latest&#34;)
+ *                 .publisher("Canonical")
+ *                 .offer("0001-com-ubuntu-server-jammy")
+ *                 .sku("22_04-lts")
+ *                 .version("latest")
  *                 .build())
  *             .storageOsDisk(VirtualMachineStorageOsDiskArgs.builder()
- *                 .name(&#34;myosdisk1&#34;)
- *                 .caching(&#34;ReadWrite&#34;)
- *                 .createOption(&#34;FromImage&#34;)
- *                 .managedDiskType(&#34;Standard_LRS&#34;)
+ *                 .name("myosdisk1")
+ *                 .caching("ReadWrite")
+ *                 .createOption("FromImage")
+ *                 .managedDiskType("Standard_LRS")
  *                 .build())
  *             .osProfile(VirtualMachineOsProfileArgs.builder()
- *                 .computerName(&#34;hostname&#34;)
- *                 .adminUsername(&#34;testadmin&#34;)
- *                 .adminPassword(&#34;Password1234!&#34;)
+ *                 .computerName("hostname")
+ *                 .adminUsername("testadmin")
+ *                 .adminPassword("Password1234!")
  *                 .build())
  *             .osProfileLinuxConfig(VirtualMachineOsProfileLinuxConfigArgs.builder()
  *                 .disablePasswordAuthentication(false)
  *                 .build())
- *             .tags(Map.of(&#34;environment&#34;, &#34;staging&#34;))
+ *             .tags(Map.of("environment", "staging"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

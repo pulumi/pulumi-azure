@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,58 +47,59 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;account1&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("account1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;Basic&#34;)
+ *             .skuName("Basic")
  *             .build());
  * 
- *         var exampleDscConfiguration = new DscConfiguration(&#34;exampleDscConfiguration&#34;, DscConfigurationArgs.builder()        
- *             .name(&#34;test&#34;)
+ *         var exampleDscConfiguration = new DscConfiguration("exampleDscConfiguration", DscConfigurationArgs.builder()        
+ *             .name("test")
  *             .resourceGroupName(example.name())
  *             .automationAccountName(exampleAccount.name())
  *             .location(example.location())
- *             .contentEmbedded(&#34;configuration test {}&#34;)
+ *             .contentEmbedded("configuration test {}")
  *             .build());
  * 
- *         var exampleDscNodeConfiguration = new DscNodeConfiguration(&#34;exampleDscNodeConfiguration&#34;, DscNodeConfigurationArgs.builder()        
- *             .name(&#34;test.localhost&#34;)
+ *         var exampleDscNodeConfiguration = new DscNodeConfiguration("exampleDscNodeConfiguration", DscNodeConfigurationArgs.builder()        
+ *             .name("test.localhost")
  *             .resourceGroupName(example.name())
  *             .automationAccountName(exampleAccount.name())
- *             .contentEmbedded(&#34;&#34;&#34;
+ *             .contentEmbedded("""
  * instance of MSFT_FileDirectoryConfiguration as $MSFT_FileDirectoryConfiguration1ref
  * {
- *   ResourceID = &#34;[File]bla&#34;;
- *   Ensure = &#34;Present&#34;;
- *   Contents = &#34;bogus Content&#34;;
- *   DestinationPath = &#34;c:\\bogus.txt&#34;;
- *   ModuleName = &#34;PSDesiredStateConfiguration&#34;;
- *   SourceInfo = &#34;::3::9::file&#34;;
- *   ModuleVersion = &#34;1.0&#34;;
- *   ConfigurationName = &#34;bla&#34;;
+ *   ResourceID = "[File]bla";
+ *   Ensure = "Present";
+ *   Contents = "bogus Content";
+ *   DestinationPath = "c:\\bogus.txt";
+ *   ModuleName = "PSDesiredStateConfiguration";
+ *   SourceInfo = "::3::9::file";
+ *   ModuleVersion = "1.0";
+ *   ConfigurationName = "bla";
  * };
  * instance of OMI_ConfigurationDocument
  * {
- *   Version=&#34;2.0.0&#34;;
- *   MinimumCompatibleVersion = &#34;1.0.0&#34;;
- *   CompatibleVersionAdditionalProperties= {&#34;Omi_BaseResource:ConfigurationName&#34;};
- *   Author=&#34;bogusAuthor&#34;;
- *   GenerationDate=&#34;06/15/2018 14:06:24&#34;;
- *   GenerationHost=&#34;bogusComputer&#34;;
- *   Name=&#34;test&#34;;
+ *   Version="2.0.0";
+ *   MinimumCompatibleVersion = "1.0.0";
+ *   CompatibleVersionAdditionalProperties= {"Omi_BaseResource:ConfigurationName"};
+ *   Author="bogusAuthor";
+ *   GenerationDate="06/15/2018 14:06:24";
+ *   GenerationHost="bogusComputer";
+ *   Name="test";
  * };
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

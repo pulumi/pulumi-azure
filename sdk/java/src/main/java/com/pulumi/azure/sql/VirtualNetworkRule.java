@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,37 +53,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-sql-server-vnet-rule&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-sql-server-vnet-rule")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var vnet = new VirtualNetwork(&#34;vnet&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-vnet&#34;)
- *             .addressSpaces(&#34;10.7.29.0/29&#34;)
+ *         var vnet = new VirtualNetwork("vnet", VirtualNetworkArgs.builder()        
+ *             .name("example-vnet")
+ *             .addressSpaces("10.7.29.0/29")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var subnet = new Subnet(&#34;subnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;example-subnet&#34;)
+ *         var subnet = new Subnet("subnet", SubnetArgs.builder()        
+ *             .name("example-subnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(vnet.name())
- *             .addressPrefixes(&#34;10.7.29.0/29&#34;)
- *             .serviceEndpoints(&#34;Microsoft.Sql&#34;)
+ *             .addressPrefixes("10.7.29.0/29")
+ *             .serviceEndpoints("Microsoft.Sql")
  *             .build());
  * 
- *         var sqlserver = new SqlServer(&#34;sqlserver&#34;, SqlServerArgs.builder()        
- *             .name(&#34;uniqueazuresqlserver&#34;)
+ *         var sqlserver = new SqlServer("sqlserver", SqlServerArgs.builder()        
+ *             .name("uniqueazuresqlserver")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .version(&#34;12.0&#34;)
- *             .administratorLogin(&#34;4dm1n157r470r&#34;)
- *             .administratorLoginPassword(&#34;4-v3ry-53cr37-p455w0rd&#34;)
+ *             .version("12.0")
+ *             .administratorLogin("4dm1n157r470r")
+ *             .administratorLoginPassword("4-v3ry-53cr37-p455w0rd")
  *             .build());
  * 
- *         var sqlvnetrule = new VirtualNetworkRule(&#34;sqlvnetrule&#34;, VirtualNetworkRuleArgs.builder()        
- *             .name(&#34;sql-vnet-rule&#34;)
+ *         var sqlvnetrule = new VirtualNetworkRule("sqlvnetrule", VirtualNetworkRuleArgs.builder()        
+ *             .name("sql-vnet-rule")
  *             .resourceGroupName(example.name())
  *             .serverName(sqlserver.name())
  *             .subnetId(subnet.id())
@@ -90,7 +91,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

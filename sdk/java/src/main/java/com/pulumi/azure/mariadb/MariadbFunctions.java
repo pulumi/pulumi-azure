@@ -20,7 +20,8 @@ public final class MariadbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -42,14 +43,15 @@ public final class MariadbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var dbServer = MariadbFunctions.getMariaDbServer(GetMariaDbServerArgs.builder()
-     *             .name(&#34;mariadb-server&#34;)
+     *             .name("mariadb-server")
      *             .resourceGroupName(example.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export(&#34;mariadbServerId&#34;, exampleAzurermMariadbServer.id());
+     *         ctx.export("mariadbServerId", exampleAzurermMariadbServer.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -62,7 +64,8 @@ public final class MariadbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -84,14 +87,15 @@ public final class MariadbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var dbServer = MariadbFunctions.getMariaDbServer(GetMariaDbServerArgs.builder()
-     *             .name(&#34;mariadb-server&#34;)
+     *             .name("mariadb-server")
      *             .resourceGroupName(example.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export(&#34;mariadbServerId&#34;, exampleAzurermMariadbServer.id());
+     *         ctx.export("mariadbServerId", exampleAzurermMariadbServer.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -104,7 +108,8 @@ public final class MariadbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -126,14 +131,15 @@ public final class MariadbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var dbServer = MariadbFunctions.getMariaDbServer(GetMariaDbServerArgs.builder()
-     *             .name(&#34;mariadb-server&#34;)
+     *             .name("mariadb-server")
      *             .resourceGroupName(example.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export(&#34;mariadbServerId&#34;, exampleAzurermMariadbServer.id());
+     *         ctx.export("mariadbServerId", exampleAzurermMariadbServer.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -146,7 +152,8 @@ public final class MariadbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -168,14 +175,15 @@ public final class MariadbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var dbServer = MariadbFunctions.getMariaDbServer(GetMariaDbServerArgs.builder()
-     *             .name(&#34;mariadb-server&#34;)
+     *             .name("mariadb-server")
      *             .resourceGroupName(example.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export(&#34;mariadbServerId&#34;, exampleAzurermMariadbServer.id());
+     *         ctx.export("mariadbServerId", exampleAzurermMariadbServer.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

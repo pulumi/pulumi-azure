@@ -48,14 +48,14 @@ public final class SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs
     }
 
     /**
-     * The SSH private key to access the Git repository, required when the URI starts with `git@` or `ssh://`.
+     * The SSH private key to access the Git repository, required when the URI starts with `git{@literal @}` or `ssh://`.
      * 
      */
     @Import(name="privateKey", required=true)
     private Output<String> privateKey;
 
     /**
-     * @return The SSH private key to access the Git repository, required when the URI starts with `git@` or `ssh://`.
+     * @return The SSH private key to access the Git repository, required when the URI starts with `git{@literal @}` or `ssh://`.
      * 
      */
     public Output<String> privateKey() {
@@ -147,7 +147,7 @@ public final class SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs
         }
 
         /**
-         * @param privateKey The SSH private key to access the Git repository, required when the URI starts with `git@` or `ssh://`.
+         * @param privateKey The SSH private key to access the Git repository, required when the URI starts with `git{@literal @}` or `ssh://`.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs
         }
 
         /**
-         * @param privateKey The SSH private key to access the Git repository, required when the URI starts with `git@` or `ssh://`.
+         * @param privateKey The SSH private key to access the Git repository, required when the URI starts with `git{@literal @}` or `ssh://`.
          * 
          * @return builder
          * 

@@ -26,7 +26,8 @@ public final class BillingFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -48,14 +49,15 @@ public final class BillingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BillingFunctions.getEnrollmentAccountScope(GetEnrollmentAccountScopeArgs.builder()
-     *             .billingAccountName(&#34;existing&#34;)
-     *             .enrollmentAccountName(&#34;existing&#34;)
+     *             .billingAccountName("existing")
+     *             .enrollmentAccountName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getEnrollmentAccountScopeResult -&gt; getEnrollmentAccountScopeResult.id()));
+     *         ctx.export("id", example.applyValue(getEnrollmentAccountScopeResult -> getEnrollmentAccountScopeResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -68,7 +70,8 @@ public final class BillingFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -90,14 +93,15 @@ public final class BillingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BillingFunctions.getEnrollmentAccountScope(GetEnrollmentAccountScopeArgs.builder()
-     *             .billingAccountName(&#34;existing&#34;)
-     *             .enrollmentAccountName(&#34;existing&#34;)
+     *             .billingAccountName("existing")
+     *             .enrollmentAccountName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getEnrollmentAccountScopeResult -&gt; getEnrollmentAccountScopeResult.id()));
+     *         ctx.export("id", example.applyValue(getEnrollmentAccountScopeResult -> getEnrollmentAccountScopeResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -110,7 +114,8 @@ public final class BillingFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -132,14 +137,15 @@ public final class BillingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BillingFunctions.getEnrollmentAccountScope(GetEnrollmentAccountScopeArgs.builder()
-     *             .billingAccountName(&#34;existing&#34;)
-     *             .enrollmentAccountName(&#34;existing&#34;)
+     *             .billingAccountName("existing")
+     *             .enrollmentAccountName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getEnrollmentAccountScopeResult -&gt; getEnrollmentAccountScopeResult.id()));
+     *         ctx.export("id", example.applyValue(getEnrollmentAccountScopeResult -> getEnrollmentAccountScopeResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -152,7 +158,8 @@ public final class BillingFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -174,14 +181,15 @@ public final class BillingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BillingFunctions.getEnrollmentAccountScope(GetEnrollmentAccountScopeArgs.builder()
-     *             .billingAccountName(&#34;existing&#34;)
-     *             .enrollmentAccountName(&#34;existing&#34;)
+     *             .billingAccountName("existing")
+     *             .enrollmentAccountName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getEnrollmentAccountScopeResult -&gt; getEnrollmentAccountScopeResult.id()));
+     *         ctx.export("id", example.applyValue(getEnrollmentAccountScopeResult -> getEnrollmentAccountScopeResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -194,7 +202,8 @@ public final class BillingFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -216,15 +225,16 @@ public final class BillingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BillingFunctions.getMcaAccountScope(GetMcaAccountScopeArgs.builder()
-     *             .billingAccountName(&#34;e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31&#34;)
-     *             .billingProfileName(&#34;PE2Q-NOIT-BG7-TGB&#34;)
-     *             .invoiceSectionName(&#34;MTT4-OBS7-PJA-TGB&#34;)
+     *             .billingAccountName("e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31")
+     *             .billingProfileName("PE2Q-NOIT-BG7-TGB")
+     *             .invoiceSectionName("MTT4-OBS7-PJA-TGB")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getMcaAccountScopeResult -&gt; getMcaAccountScopeResult.id()));
+     *         ctx.export("id", example.applyValue(getMcaAccountScopeResult -> getMcaAccountScopeResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -237,7 +247,8 @@ public final class BillingFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -259,15 +270,16 @@ public final class BillingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BillingFunctions.getMcaAccountScope(GetMcaAccountScopeArgs.builder()
-     *             .billingAccountName(&#34;e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31&#34;)
-     *             .billingProfileName(&#34;PE2Q-NOIT-BG7-TGB&#34;)
-     *             .invoiceSectionName(&#34;MTT4-OBS7-PJA-TGB&#34;)
+     *             .billingAccountName("e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31")
+     *             .billingProfileName("PE2Q-NOIT-BG7-TGB")
+     *             .invoiceSectionName("MTT4-OBS7-PJA-TGB")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getMcaAccountScopeResult -&gt; getMcaAccountScopeResult.id()));
+     *         ctx.export("id", example.applyValue(getMcaAccountScopeResult -> getMcaAccountScopeResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -280,7 +292,8 @@ public final class BillingFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -302,15 +315,16 @@ public final class BillingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BillingFunctions.getMcaAccountScope(GetMcaAccountScopeArgs.builder()
-     *             .billingAccountName(&#34;e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31&#34;)
-     *             .billingProfileName(&#34;PE2Q-NOIT-BG7-TGB&#34;)
-     *             .invoiceSectionName(&#34;MTT4-OBS7-PJA-TGB&#34;)
+     *             .billingAccountName("e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31")
+     *             .billingProfileName("PE2Q-NOIT-BG7-TGB")
+     *             .invoiceSectionName("MTT4-OBS7-PJA-TGB")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getMcaAccountScopeResult -&gt; getMcaAccountScopeResult.id()));
+     *         ctx.export("id", example.applyValue(getMcaAccountScopeResult -> getMcaAccountScopeResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -323,7 +337,8 @@ public final class BillingFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -345,15 +360,16 @@ public final class BillingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BillingFunctions.getMcaAccountScope(GetMcaAccountScopeArgs.builder()
-     *             .billingAccountName(&#34;e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31&#34;)
-     *             .billingProfileName(&#34;PE2Q-NOIT-BG7-TGB&#34;)
-     *             .invoiceSectionName(&#34;MTT4-OBS7-PJA-TGB&#34;)
+     *             .billingAccountName("e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31")
+     *             .billingProfileName("PE2Q-NOIT-BG7-TGB")
+     *             .invoiceSectionName("MTT4-OBS7-PJA-TGB")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getMcaAccountScopeResult -&gt; getMcaAccountScopeResult.id()));
+     *         ctx.export("id", example.applyValue(getMcaAccountScopeResult -> getMcaAccountScopeResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -366,7 +382,8 @@ public final class BillingFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -388,14 +405,15 @@ public final class BillingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BillingFunctions.getMpaAccountScope(GetMpaAccountScopeArgs.builder()
-     *             .billingAccountName(&#34;e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31&#34;)
-     *             .customerName(&#34;2281f543-7321-4cf9-1e23-edb4Oc31a31c&#34;)
+     *             .billingAccountName("e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31")
+     *             .customerName("2281f543-7321-4cf9-1e23-edb4Oc31a31c")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getMpaAccountScopeResult -&gt; getMpaAccountScopeResult.id()));
+     *         ctx.export("id", example.applyValue(getMpaAccountScopeResult -> getMpaAccountScopeResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -408,7 +426,8 @@ public final class BillingFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -430,14 +449,15 @@ public final class BillingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BillingFunctions.getMpaAccountScope(GetMpaAccountScopeArgs.builder()
-     *             .billingAccountName(&#34;e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31&#34;)
-     *             .customerName(&#34;2281f543-7321-4cf9-1e23-edb4Oc31a31c&#34;)
+     *             .billingAccountName("e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31")
+     *             .customerName("2281f543-7321-4cf9-1e23-edb4Oc31a31c")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getMpaAccountScopeResult -&gt; getMpaAccountScopeResult.id()));
+     *         ctx.export("id", example.applyValue(getMpaAccountScopeResult -> getMpaAccountScopeResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -450,7 +470,8 @@ public final class BillingFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -472,14 +493,15 @@ public final class BillingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BillingFunctions.getMpaAccountScope(GetMpaAccountScopeArgs.builder()
-     *             .billingAccountName(&#34;e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31&#34;)
-     *             .customerName(&#34;2281f543-7321-4cf9-1e23-edb4Oc31a31c&#34;)
+     *             .billingAccountName("e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31")
+     *             .customerName("2281f543-7321-4cf9-1e23-edb4Oc31a31c")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getMpaAccountScopeResult -&gt; getMpaAccountScopeResult.id()));
+     *         ctx.export("id", example.applyValue(getMpaAccountScopeResult -> getMpaAccountScopeResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -492,7 +514,8 @@ public final class BillingFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -514,14 +537,15 @@ public final class BillingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BillingFunctions.getMpaAccountScope(GetMpaAccountScopeArgs.builder()
-     *             .billingAccountName(&#34;e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31&#34;)
-     *             .customerName(&#34;2281f543-7321-4cf9-1e23-edb4Oc31a31c&#34;)
+     *             .billingAccountName("e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31")
+     *             .customerName("2281f543-7321-4cf9-1e23-edb4Oc31a31c")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getMpaAccountScopeResult -&gt; getMpaAccountScopeResult.id()));
+     *         ctx.export("id", example.applyValue(getMpaAccountScopeResult -> getMpaAccountScopeResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

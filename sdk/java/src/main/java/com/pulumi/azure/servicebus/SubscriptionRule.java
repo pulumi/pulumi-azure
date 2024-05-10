@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### SQL Filter)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,47 +56,49 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;tfex-servicebus-subscription-rule-sql&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("tfex-servicebus-subscription-rule-sql")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleNamespace = new Namespace(&#34;exampleNamespace&#34;, NamespaceArgs.builder()        
- *             .name(&#34;tfex-servicebus-namespace&#34;)
+ *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()        
+ *             .name("tfex-servicebus-namespace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;Standard&#34;)
- *             .tags(Map.of(&#34;source&#34;, &#34;example&#34;))
+ *             .sku("Standard")
+ *             .tags(Map.of("source", "example"))
  *             .build());
  * 
- *         var exampleTopic = new Topic(&#34;exampleTopic&#34;, TopicArgs.builder()        
- *             .name(&#34;tfex_servicebus_topic&#34;)
+ *         var exampleTopic = new Topic("exampleTopic", TopicArgs.builder()        
+ *             .name("tfex_servicebus_topic")
  *             .namespaceId(exampleNamespace.id())
  *             .enablePartitioning(true)
  *             .build());
  * 
- *         var exampleSubscription = new Subscription(&#34;exampleSubscription&#34;, SubscriptionArgs.builder()        
- *             .name(&#34;tfex_servicebus_subscription&#34;)
+ *         var exampleSubscription = new Subscription("exampleSubscription", SubscriptionArgs.builder()        
+ *             .name("tfex_servicebus_subscription")
  *             .topicId(exampleTopic.id())
  *             .maxDeliveryCount(1)
  *             .build());
  * 
- *         var exampleSubscriptionRule = new SubscriptionRule(&#34;exampleSubscriptionRule&#34;, SubscriptionRuleArgs.builder()        
- *             .name(&#34;tfex_servicebus_rule&#34;)
+ *         var exampleSubscriptionRule = new SubscriptionRule("exampleSubscriptionRule", SubscriptionRuleArgs.builder()        
+ *             .name("tfex_servicebus_rule")
  *             .subscriptionId(exampleSubscription.id())
- *             .filterType(&#34;SqlFilter&#34;)
- *             .sqlFilter(&#34;colour = &#39;red&#39;&#34;)
+ *             .filterType("SqlFilter")
+ *             .sqlFilter("colour = 'red'")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Correlation Filter)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -125,45 +128,46 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;tfex-servicebus-subscription-rule-cor&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("tfex-servicebus-subscription-rule-cor")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleNamespace = new Namespace(&#34;exampleNamespace&#34;, NamespaceArgs.builder()        
- *             .name(&#34;tfex-servicebus-namespace&#34;)
+ *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()        
+ *             .name("tfex-servicebus-namespace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;Standard&#34;)
- *             .tags(Map.of(&#34;source&#34;, &#34;example&#34;))
+ *             .sku("Standard")
+ *             .tags(Map.of("source", "example"))
  *             .build());
  * 
- *         var exampleTopic = new Topic(&#34;exampleTopic&#34;, TopicArgs.builder()        
- *             .name(&#34;tfex_servicebus_topic&#34;)
+ *         var exampleTopic = new Topic("exampleTopic", TopicArgs.builder()        
+ *             .name("tfex_servicebus_topic")
  *             .namespaceId(exampleNamespace.id())
  *             .enablePartitioning(true)
  *             .build());
  * 
- *         var exampleSubscription = new Subscription(&#34;exampleSubscription&#34;, SubscriptionArgs.builder()        
- *             .name(&#34;tfex_servicebus_subscription&#34;)
+ *         var exampleSubscription = new Subscription("exampleSubscription", SubscriptionArgs.builder()        
+ *             .name("tfex_servicebus_subscription")
  *             .topicId(exampleTopic.id())
  *             .maxDeliveryCount(1)
  *             .build());
  * 
- *         var exampleSubscriptionRule = new SubscriptionRule(&#34;exampleSubscriptionRule&#34;, SubscriptionRuleArgs.builder()        
- *             .name(&#34;tfex_servicebus_rule&#34;)
+ *         var exampleSubscriptionRule = new SubscriptionRule("exampleSubscriptionRule", SubscriptionRuleArgs.builder()        
+ *             .name("tfex_servicebus_rule")
  *             .subscriptionId(exampleSubscription.id())
- *             .filterType(&#34;CorrelationFilter&#34;)
+ *             .filterType("CorrelationFilter")
  *             .correlationFilter(SubscriptionRuleCorrelationFilterArgs.builder()
- *                 .correlationId(&#34;high&#34;)
- *                 .label(&#34;red&#34;)
- *                 .properties(Map.of(&#34;customProperty&#34;, &#34;value&#34;))
+ *                 .correlationId("high")
+ *                 .label("red")
+ *                 .properties(Map.of("customProperty", "value"))
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

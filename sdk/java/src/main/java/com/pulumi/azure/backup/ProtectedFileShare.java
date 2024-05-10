@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,52 +55,52 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;tfex-recovery_vault&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("tfex-recovery_vault")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var vault = new Vault(&#34;vault&#34;, VaultArgs.builder()        
- *             .name(&#34;tfex-recovery-vault&#34;)
+ *         var vault = new Vault("vault", VaultArgs.builder()        
+ *             .name("tfex-recovery-vault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;Standard&#34;)
+ *             .sku("Standard")
  *             .build());
  * 
- *         var sa = new Account(&#34;sa&#34;, AccountArgs.builder()        
- *             .name(&#34;examplesa&#34;)
+ *         var sa = new Account("sa", AccountArgs.builder()        
+ *             .name("examplesa")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleShare = new Share(&#34;exampleShare&#34;, ShareArgs.builder()        
- *             .name(&#34;example-share&#34;)
+ *         var exampleShare = new Share("exampleShare", ShareArgs.builder()        
+ *             .name("example-share")
  *             .storageAccountName(sa.name())
  *             .quota(1)
  *             .build());
  * 
- *         var protection_container = new ContainerStorageAccount(&#34;protection-container&#34;, ContainerStorageAccountArgs.builder()        
+ *         var protection_container = new ContainerStorageAccount("protection-container", ContainerStorageAccountArgs.builder()        
  *             .resourceGroupName(example.name())
  *             .recoveryVaultName(vault.name())
  *             .storageAccountId(sa.id())
  *             .build());
  * 
- *         var examplePolicyFileShare = new PolicyFileShare(&#34;examplePolicyFileShare&#34;, PolicyFileShareArgs.builder()        
- *             .name(&#34;tfex-recovery-vault-policy&#34;)
+ *         var examplePolicyFileShare = new PolicyFileShare("examplePolicyFileShare", PolicyFileShareArgs.builder()        
+ *             .name("tfex-recovery-vault-policy")
  *             .resourceGroupName(example.name())
  *             .recoveryVaultName(vault.name())
  *             .backup(PolicyFileShareBackupArgs.builder()
- *                 .frequency(&#34;Daily&#34;)
- *                 .time(&#34;23:00&#34;)
+ *                 .frequency("Daily")
+ *                 .time("23:00")
  *                 .build())
  *             .retentionDaily(PolicyFileShareRetentionDailyArgs.builder()
  *                 .count(10)
  *                 .build())
  *             .build());
  * 
- *         var share1 = new ProtectedFileShare(&#34;share1&#34;, ProtectedFileShareArgs.builder()        
+ *         var share1 = new ProtectedFileShare("share1", ProtectedFileShareArgs.builder()        
  *             .resourceGroupName(example.name())
  *             .recoveryVaultName(vault.name())
  *             .sourceStorageAccountId(protection_container.storageAccountId())
@@ -109,7 +110,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

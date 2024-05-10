@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,34 +49,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;peeredvnets-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("peeredvnets-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var example_1 = new VirtualNetwork(&#34;example-1&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;peternetwork1&#34;)
+ *         var example_1 = new VirtualNetwork("example-1", VirtualNetworkArgs.builder()        
+ *             .name("peternetwork1")
  *             .resourceGroupName(example.name())
- *             .addressSpaces(&#34;10.0.1.0/24&#34;)
+ *             .addressSpaces("10.0.1.0/24")
  *             .location(example.location())
  *             .build());
  * 
- *         var example_2 = new VirtualNetwork(&#34;example-2&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;peternetwork2&#34;)
+ *         var example_2 = new VirtualNetwork("example-2", VirtualNetworkArgs.builder()        
+ *             .name("peternetwork2")
  *             .resourceGroupName(example.name())
- *             .addressSpaces(&#34;10.0.2.0/24&#34;)
+ *             .addressSpaces("10.0.2.0/24")
  *             .location(example.location())
  *             .build());
  * 
- *         var example_1VirtualNetworkPeering = new VirtualNetworkPeering(&#34;example-1VirtualNetworkPeering&#34;, VirtualNetworkPeeringArgs.builder()        
- *             .name(&#34;peer1to2&#34;)
+ *         var example_1VirtualNetworkPeering = new VirtualNetworkPeering("example-1VirtualNetworkPeering", VirtualNetworkPeeringArgs.builder()        
+ *             .name("peer1to2")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(example_1.name())
  *             .remoteVirtualNetworkId(example_2.id())
  *             .build());
  * 
- *         var example_2VirtualNetworkPeering = new VirtualNetworkPeering(&#34;example-2VirtualNetworkPeering&#34;, VirtualNetworkPeeringArgs.builder()        
- *             .name(&#34;peer2to1&#34;)
+ *         var example_2VirtualNetworkPeering = new VirtualNetworkPeering("example-2VirtualNetworkPeering", VirtualNetworkPeeringArgs.builder()        
+ *             .name("peer2to1")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(example_2.name())
  *             .remoteVirtualNetworkId(example_1.id())
@@ -83,13 +84,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Triggers)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -114,44 +117,45 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;peeredvnets-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("peeredvnets-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var example_1 = new VirtualNetwork(&#34;example-1&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;peternetwork1&#34;)
+ *         var example_1 = new VirtualNetwork("example-1", VirtualNetworkArgs.builder()        
+ *             .name("peternetwork1")
  *             .resourceGroupName(example.name())
- *             .addressSpaces(&#34;10.0.1.0/24&#34;)
+ *             .addressSpaces("10.0.1.0/24")
  *             .location(example.location())
  *             .build());
  * 
- *         var example_2 = new VirtualNetwork(&#34;example-2&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;peternetwork2&#34;)
+ *         var example_2 = new VirtualNetwork("example-2", VirtualNetworkArgs.builder()        
+ *             .name("peternetwork2")
  *             .resourceGroupName(example.name())
- *             .addressSpaces(&#34;10.0.2.0/24&#34;)
+ *             .addressSpaces("10.0.2.0/24")
  *             .location(example.location())
  *             .build());
  * 
- *         var example_1VirtualNetworkPeering = new VirtualNetworkPeering(&#34;example-1VirtualNetworkPeering&#34;, VirtualNetworkPeeringArgs.builder()        
- *             .name(&#34;peer1to2&#34;)
+ *         var example_1VirtualNetworkPeering = new VirtualNetworkPeering("example-1VirtualNetworkPeering", VirtualNetworkPeeringArgs.builder()        
+ *             .name("peer1to2")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(example_1.name())
  *             .remoteVirtualNetworkId(example_2.id())
- *             .triggers(Map.of(&#34;remote_address_space&#34;, StdFunctions.join().applyValue(invoke -&gt; invoke.result())))
+ *             .triggers(Map.of("remote_address_space", StdFunctions.join().applyValue(invoke -> invoke.result())))
  *             .build());
  * 
- *         var example_2VirtualNetworkPeering = new VirtualNetworkPeering(&#34;example-2VirtualNetworkPeering&#34;, VirtualNetworkPeeringArgs.builder()        
- *             .name(&#34;peer2to1&#34;)
+ *         var example_2VirtualNetworkPeering = new VirtualNetworkPeering("example-2VirtualNetworkPeering", VirtualNetworkPeeringArgs.builder()        
+ *             .name("peer2to1")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(example_2.name())
  *             .remoteVirtualNetworkId(example_1.id())
- *             .triggers(Map.of(&#34;remote_address_space&#34;, StdFunctions.join().applyValue(invoke -&gt; invoke.result())))
+ *             .triggers(Map.of("remote_address_space", StdFunctions.join().applyValue(invoke -> invoke.result())))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Note

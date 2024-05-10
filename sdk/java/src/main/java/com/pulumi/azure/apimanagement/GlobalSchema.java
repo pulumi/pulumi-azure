@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,33 +46,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .name(&#34;example-apim&#34;)
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *             .name("example-apim")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .publisherName(&#34;pub1&#34;)
- *             .publisherEmail(&#34;pub1@email.com&#34;)
- *             .skuName(&#34;Consumption_0&#34;)
+ *             .publisherName("pub1")
+ *             .publisherEmail("pub1{@literal @}email.com")
+ *             .skuName("Consumption_0")
  *             .build());
  * 
- *         var exampleGlobalSchema = new GlobalSchema(&#34;exampleGlobalSchema&#34;, GlobalSchemaArgs.builder()        
- *             .schemaId(&#34;example-schema1&#34;)
+ *         var exampleGlobalSchema = new GlobalSchema("exampleGlobalSchema", GlobalSchemaArgs.builder()        
+ *             .schemaId("example-schema1")
  *             .apiManagementName(exampleService.name())
  *             .resourceGroupName(example.name())
- *             .type(&#34;xml&#34;)
+ *             .type("xml")
  *             .value(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;api_management_api_schema.xml&#34;)
+ *                 .input("api_management_api_schema.xml")
  *                 .build()).result())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

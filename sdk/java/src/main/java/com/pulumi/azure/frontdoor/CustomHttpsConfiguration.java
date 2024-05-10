@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * !&gt; **Be Aware:** Azure is rolling out a breaking change on Friday 9th April 2021 which may cause issues with the CDN/FrontDoor resources. More information is available in this GitHub issue as the necessary changes are identified.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -64,77 +65,78 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;FrontDoorExampleResourceGroup&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("FrontDoorExampleResourceGroup")
+ *             .location("West Europe")
  *             .build());
  * 
  *         final var vault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
- *             .name(&#34;example-vault&#34;)
- *             .resourceGroupName(&#34;example-vault-rg&#34;)
+ *             .name("example-vault")
+ *             .resourceGroupName("example-vault-rg")
  *             .build());
  * 
- *         var exampleFrontdoor = new Frontdoor(&#34;exampleFrontdoor&#34;, FrontdoorArgs.builder()        
- *             .name(&#34;example-FrontDoor&#34;)
+ *         var exampleFrontdoor = new Frontdoor("exampleFrontdoor", FrontdoorArgs.builder()        
+ *             .name("example-FrontDoor")
  *             .resourceGroupName(example.name())
  *             .routingRules(FrontdoorRoutingRuleArgs.builder()
- *                 .name(&#34;exampleRoutingRule1&#34;)
+ *                 .name("exampleRoutingRule1")
  *                 .acceptedProtocols(                
- *                     &#34;Http&#34;,
- *                     &#34;Https&#34;)
- *                 .patternsToMatches(&#34;/*&#34;)
- *                 .frontendEndpoints(&#34;exampleFrontendEndpoint1&#34;)
+ *                     "Http",
+ *                     "Https")
+ *                 .patternsToMatches("/*")
+ *                 .frontendEndpoints("exampleFrontendEndpoint1")
  *                 .forwardingConfiguration(FrontdoorRoutingRuleForwardingConfigurationArgs.builder()
- *                     .forwardingProtocol(&#34;MatchRequest&#34;)
- *                     .backendPoolName(&#34;exampleBackendBing&#34;)
+ *                     .forwardingProtocol("MatchRequest")
+ *                     .backendPoolName("exampleBackendBing")
  *                     .build())
  *                 .build())
  *             .backendPoolLoadBalancings(FrontdoorBackendPoolLoadBalancingArgs.builder()
- *                 .name(&#34;exampleLoadBalancingSettings1&#34;)
+ *                 .name("exampleLoadBalancingSettings1")
  *                 .build())
  *             .backendPoolHealthProbes(FrontdoorBackendPoolHealthProbeArgs.builder()
- *                 .name(&#34;exampleHealthProbeSetting1&#34;)
+ *                 .name("exampleHealthProbeSetting1")
  *                 .build())
  *             .backendPools(FrontdoorBackendPoolArgs.builder()
- *                 .name(&#34;exampleBackendBing&#34;)
+ *                 .name("exampleBackendBing")
  *                 .backends(FrontdoorBackendPoolBackendArgs.builder()
- *                     .hostHeader(&#34;www.bing.com&#34;)
- *                     .address(&#34;www.bing.com&#34;)
+ *                     .hostHeader("www.bing.com")
+ *                     .address("www.bing.com")
  *                     .httpPort(80)
  *                     .httpsPort(443)
  *                     .build())
- *                 .loadBalancingName(&#34;exampleLoadBalancingSettings1&#34;)
- *                 .healthProbeName(&#34;exampleHealthProbeSetting1&#34;)
+ *                 .loadBalancingName("exampleLoadBalancingSettings1")
+ *                 .healthProbeName("exampleHealthProbeSetting1")
  *                 .build())
  *             .frontendEndpoints(            
  *                 FrontdoorFrontendEndpointArgs.builder()
- *                     .name(&#34;exampleFrontendEndpoint1&#34;)
- *                     .hostName(&#34;example-FrontDoor.azurefd.net&#34;)
+ *                     .name("exampleFrontendEndpoint1")
+ *                     .hostName("example-FrontDoor.azurefd.net")
  *                     .build(),
  *                 FrontdoorFrontendEndpointArgs.builder()
- *                     .name(&#34;exampleFrontendEndpoint2&#34;)
- *                     .hostName(&#34;examplefd1.examplefd.net&#34;)
+ *                     .name("exampleFrontendEndpoint2")
+ *                     .hostName("examplefd1.examplefd.net")
  *                     .build())
  *             .build());
  * 
- *         var exampleCustomHttps0 = new CustomHttpsConfiguration(&#34;exampleCustomHttps0&#34;, CustomHttpsConfigurationArgs.builder()        
- *             .frontendEndpointId(exampleFrontdoor.frontendEndpointsMap().applyValue(frontendEndpointsMap -&gt; frontendEndpointsMap.exampleFrontendEndpoint1()))
+ *         var exampleCustomHttps0 = new CustomHttpsConfiguration("exampleCustomHttps0", CustomHttpsConfigurationArgs.builder()        
+ *             .frontendEndpointId(exampleFrontdoor.frontendEndpointsMap().applyValue(frontendEndpointsMap -> frontendEndpointsMap.exampleFrontendEndpoint1()))
  *             .customHttpsProvisioningEnabled(false)
  *             .build());
  * 
- *         var exampleCustomHttps1 = new CustomHttpsConfiguration(&#34;exampleCustomHttps1&#34;, CustomHttpsConfigurationArgs.builder()        
- *             .frontendEndpointId(exampleFrontdoor.frontendEndpointsMap().applyValue(frontendEndpointsMap -&gt; frontendEndpointsMap.exampleFrontendEndpoint2()))
+ *         var exampleCustomHttps1 = new CustomHttpsConfiguration("exampleCustomHttps1", CustomHttpsConfigurationArgs.builder()        
+ *             .frontendEndpointId(exampleFrontdoor.frontendEndpointsMap().applyValue(frontendEndpointsMap -> frontendEndpointsMap.exampleFrontendEndpoint2()))
  *             .customHttpsProvisioningEnabled(true)
  *             .customHttpsConfiguration(CustomHttpsConfigurationCustomHttpsConfigurationArgs.builder()
- *                 .certificateSource(&#34;AzureKeyVault&#34;)
- *                 .azureKeyVaultCertificateSecretName(&#34;examplefd1&#34;)
- *                 .azureKeyVaultCertificateVaultId(vault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+ *                 .certificateSource("AzureKeyVault")
+ *                 .azureKeyVaultCertificateSecretName("examplefd1")
+ *                 .azureKeyVaultCertificateVaultId(vault.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

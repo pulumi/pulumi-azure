@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,38 +53,39 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleLab = new Lab(&#34;exampleLab&#34;, LabArgs.builder()        
- *             .name(&#34;YourDevTestLab&#34;)
+ *         var exampleLab = new Lab("exampleLab", LabArgs.builder()        
+ *             .name("YourDevTestLab")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSchedule = new Schedule(&#34;exampleSchedule&#34;, ScheduleArgs.builder()        
- *             .name(&#34;LabVmAutoStart&#34;)
+ *         var exampleSchedule = new Schedule("exampleSchedule", ScheduleArgs.builder()        
+ *             .name("LabVmAutoStart")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .labName(exampleLab.name())
- *             .status(&#34;Enabled&#34;)
+ *             .status("Enabled")
  *             .weeklyRecurrence(ScheduleWeeklyRecurrenceArgs.builder()
- *                 .time(&#34;1100&#34;)
+ *                 .time("1100")
  *                 .weekDays(                
- *                     &#34;Monday&#34;,
- *                     &#34;Tuesday&#34;)
+ *                     "Monday",
+ *                     "Tuesday")
  *                 .build())
- *             .timeZoneId(&#34;Pacific Standard Time&#34;)
- *             .taskType(&#34;LabVmsStartupTask&#34;)
+ *             .timeZoneId("Pacific Standard Time")
+ *             .taskType("LabVmsStartupTask")
  *             .notificationSettings()
- *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *             .tags(Map.of("environment", "Production"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

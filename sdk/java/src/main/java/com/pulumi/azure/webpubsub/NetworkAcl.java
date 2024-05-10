@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -57,64 +58,65 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;terraform-webpubsub&#34;)
- *             .location(&#34;east us&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("terraform-webpubsub")
+ *             .location("east us")
  *             .build());
  * 
- *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .name(&#34;tfex-webpubsub&#34;)
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *             .name("tfex-webpubsub")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;Standard_S1&#34;)
+ *             .sku("Standard_S1")
  *             .capacity(1)
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-vnet&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example-vnet")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .addressSpaces(&#34;10.5.0.0/16&#34;)
+ *             .addressSpaces("10.5.0.0/16")
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;example-subnet&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("example-subnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.5.2.0/24&#34;)
+ *             .addressPrefixes("10.5.2.0/24")
  *             .enforcePrivateLinkEndpointNetworkPolicies(true)
  *             .build());
  * 
- *         var exampleEndpoint = new Endpoint(&#34;exampleEndpoint&#34;, EndpointArgs.builder()        
- *             .name(&#34;example-privateendpoint&#34;)
+ *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()        
+ *             .name("example-privateendpoint")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .subnetId(exampleSubnet.id())
  *             .privateServiceConnection(EndpointPrivateServiceConnectionArgs.builder()
- *                 .name(&#34;psc-sig-test&#34;)
+ *                 .name("psc-sig-test")
  *                 .isManualConnection(false)
  *                 .privateConnectionResourceId(exampleService.id())
- *                 .subresourceNames(&#34;webpubsub&#34;)
+ *                 .subresourceNames("webpubsub")
  *                 .build())
  *             .build());
  * 
- *         var exampleNetworkAcl = new NetworkAcl(&#34;exampleNetworkAcl&#34;, NetworkAclArgs.builder()        
+ *         var exampleNetworkAcl = new NetworkAcl("exampleNetworkAcl", NetworkAclArgs.builder()        
  *             .webPubsubId(exampleService.id())
- *             .defaultAction(&#34;Allow&#34;)
+ *             .defaultAction("Allow")
  *             .publicNetwork(NetworkAclPublicNetworkArgs.builder()
- *                 .deniedRequestTypes(&#34;ClientConnection&#34;)
+ *                 .deniedRequestTypes("ClientConnection")
  *                 .build())
  *             .privateEndpoints(NetworkAclPrivateEndpointArgs.builder()
  *                 .id(exampleEndpoint.id())
  *                 .deniedRequestTypes(                
- *                     &#34;RESTAPI&#34;,
- *                     &#34;ClientConnection&#34;)
+ *                     "RESTAPI",
+ *                     "ClientConnection")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

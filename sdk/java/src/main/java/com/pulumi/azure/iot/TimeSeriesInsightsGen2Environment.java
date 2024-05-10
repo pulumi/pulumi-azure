@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,26 +50,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var storage = new Account(&#34;storage&#34;, AccountArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var storage = new Account("storage", AccountArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleTimeSeriesInsightsGen2Environment = new TimeSeriesInsightsGen2Environment(&#34;exampleTimeSeriesInsightsGen2Environment&#34;, TimeSeriesInsightsGen2EnvironmentArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleTimeSeriesInsightsGen2Environment = new TimeSeriesInsightsGen2Environment("exampleTimeSeriesInsightsGen2Environment", TimeSeriesInsightsGen2EnvironmentArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;L1&#34;)
- *             .warmStoreDataRetentionTime(&#34;P30D&#34;)
- *             .idProperties(&#34;id&#34;)
+ *             .skuName("L1")
+ *             .warmStoreDataRetentionTime("P30D")
+ *             .idProperties("id")
  *             .storage(TimeSeriesInsightsGen2EnvironmentStorageArgs.builder()
  *                 .name(storage.name())
  *                 .key(storage.primaryAccessKey())
@@ -77,7 +78,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

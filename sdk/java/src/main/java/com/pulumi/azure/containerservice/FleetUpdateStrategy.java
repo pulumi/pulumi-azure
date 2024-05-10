@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,24 +48,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-rg&#34;)
- *             .location(&#34;westeurope&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-rg")
+ *             .location("westeurope")
  *             .build());
  * 
- *         var exampleKubernetesFleetManager = new KubernetesFleetManager(&#34;exampleKubernetesFleetManager&#34;, KubernetesFleetManagerArgs.builder()        
+ *         var exampleKubernetesFleetManager = new KubernetesFleetManager("exampleKubernetesFleetManager", KubernetesFleetManagerArgs.builder()        
  *             .location(example.location())
- *             .name(&#34;example&#34;)
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleFleetUpdateStrategy = new FleetUpdateStrategy(&#34;exampleFleetUpdateStrategy&#34;, FleetUpdateStrategyArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleFleetUpdateStrategy = new FleetUpdateStrategy("exampleFleetUpdateStrategy", FleetUpdateStrategyArgs.builder()        
+ *             .name("example")
  *             .kubernetesFleetManagerId(exampleKubernetesFleetManager.id())
  *             .stages(FleetUpdateStrategyStageArgs.builder()
- *                 .name(&#34;example-stage-1&#34;)
+ *                 .name("example-stage-1")
  *                 .groups(FleetUpdateStrategyStageGroupArgs.builder()
- *                     .name(&#34;example-group-1&#34;)
+ *                     .name("example-group-1")
  *                     .build())
  *                 .afterStageWaitInSeconds(21)
  *                 .build())
@@ -72,7 +73,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

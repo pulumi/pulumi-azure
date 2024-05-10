@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,18 +51,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
- *             .name(&#34;contoso.com&#34;)
+ *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()        
+ *             .name("contoso.com")
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSRVRecord = new SRVRecord(&#34;exampleSRVRecord&#34;, SRVRecordArgs.builder()        
- *             .name(&#34;test&#34;)
+ *         var exampleSRVRecord = new SRVRecord("exampleSRVRecord", SRVRecordArgs.builder()        
+ *             .name("test")
  *             .resourceGroupName(example.name())
  *             .zoneName(exampleZone.name())
  *             .ttl(300)
@@ -70,20 +71,21 @@ import javax.annotation.Nullable;
  *                     .priority(1)
  *                     .weight(5)
  *                     .port(8080)
- *                     .target(&#34;target1.contoso.com&#34;)
+ *                     .target("target1.contoso.com")
  *                     .build(),
  *                 SRVRecordRecordArgs.builder()
  *                     .priority(10)
  *                     .weight(10)
  *                     .port(8080)
- *                     .target(&#34;target2.contoso.com&#34;)
+ *                     .target("target2.contoso.com")
  *                     .build())
- *             .tags(Map.of(&#34;Environment&#34;, &#34;Production&#34;))
+ *             .tags(Map.of("Environment", "Production"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
