@@ -292,10 +292,10 @@ index d1de175cb8..d18589669e 100644
  
  						"size_gb": {
 diff --git a/internal/services/compute/linux_virtual_machine_resource.go b/internal/services/compute/linux_virtual_machine_resource.go
-index 18857dca52..9120f6a6bd 100644
+index fdeed2c65d..eb99645011 100644
 --- a/internal/services/compute/linux_virtual_machine_resource.go
 +++ b/internal/services/compute/linux_virtual_machine_resource.go
-@@ -361,11 +361,11 @@ func resourceLinuxVirtualMachine() *pluginsdk.Resource {
+@@ -368,11 +368,11 @@ func resourceLinuxVirtualMachine() *pluginsdk.Resource {
  			},
  
  			"platform_fault_domain": {
@@ -457,7 +457,7 @@ index b4421f2947..0eb8adf83a 100644
  
  	return nil
 diff --git a/internal/services/containers/kubernetes_cluster_resource.go b/internal/services/containers/kubernetes_cluster_resource.go
-index d147df68f2..f726cb9772 100644
+index e4a6c70f92..3706fdcb8f 100644
 --- a/internal/services/containers/kubernetes_cluster_resource.go
 +++ b/internal/services/containers/kubernetes_cluster_resource.go
 @@ -1060,7 +1060,7 @@ func resourceKubernetesCluster() *pluginsdk.Resource {
@@ -1136,7 +1136,7 @@ index bdf780b66a..5a0bb36d62 100644
  													ConflictsWith: []string{"release_criteria.0.recurrence.0.schedule.0.month_days", "release_criteria.0.recurrence.0.schedule.0.monthly"},
  												},
 diff --git a/internal/services/logic/logic_app_standard_resource.go b/internal/services/logic/logic_app_standard_resource.go
-index 0c29d3383e..4faec6e9f7 100644
+index 61dd7f0622..cd5000e953 100644
 --- a/internal/services/logic/logic_app_standard_resource.go
 +++ b/internal/services/logic/logic_app_standard_resource.go
 @@ -10,6 +10,8 @@ import (
@@ -1267,7 +1267,7 @@ index 2766565528..b7af892e01 100644
  									},
  									"hours": {
 diff --git a/internal/services/mssql/mssql_database_resource.go b/internal/services/mssql/mssql_database_resource.go
-index bf746a51b7..59b2cb83ec 100644
+index f2531818d2..f6b10d8969 100644
 --- a/internal/services/mssql/mssql_database_resource.go
 +++ b/internal/services/mssql/mssql_database_resource.go
 @@ -6,6 +6,7 @@ package mssql
@@ -1278,7 +1278,7 @@ index bf746a51b7..59b2cb83ec 100644
  	"log"
  	"strings"
  	"time"
-@@ -1657,7 +1658,8 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
+@@ -1680,7 +1681,8 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
  								"Sql_Injection",
  								"Sql_Injection_Vulnerability",
  								"Access_Anomaly",
@@ -1288,7 +1288,7 @@ index bf746a51b7..59b2cb83ec 100644
  						},
  					},
  
-@@ -1668,7 +1670,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
+@@ -1691,7 +1693,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
  						Optional: true,
  						Default:  EmailAccountAdminsStatusDisabled,
  						ValidateFunc: validation.StringInSlice(PossibleValuesForEmailAccountAdminsStatus(),
@@ -1297,7 +1297,7 @@ index bf746a51b7..59b2cb83ec 100644
  					},
  
  					"email_addresses": {
-@@ -1696,7 +1698,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
+@@ -1719,7 +1721,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
  						Optional: true,
  						Default:  string(serversecurityalertpolicies.SecurityAlertsPolicyStateDisabled),
  						ValidateFunc: validation.StringInSlice(serversecurityalertpolicies.PossibleValuesForSecurityAlertsPolicyState(),
@@ -1711,7 +1711,7 @@ index 783d4697cc..f29ea8b4da 100644
  
  			"sku_tier": {
 diff --git a/internal/services/network/route_resource.go b/internal/services/network/route_resource.go
-index 2676be7944..865bfbb836 100644
+index 948650490b..9fba7427fd 100644
 --- a/internal/services/network/route_resource.go
 +++ b/internal/services/network/route_resource.go
 @@ -5,6 +5,8 @@ package network
@@ -1722,7 +1722,7 @@ index 2676be7944..865bfbb836 100644
 +	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/suppress"
  	"time"
  
- 	"github.com/hashicorp/go-azure-helpers/lang/response"
+ 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 @@ -71,7 +73,8 @@ func resourceRoute() *pluginsdk.Resource {
  					string(routes.RouteNextHopTypeInternet),
  					string(routes.RouteNextHopTypeVirtualAppliance),
@@ -1734,19 +1734,21 @@ index 2676be7944..865bfbb836 100644
  
  			"next_hop_in_ip_address": {
 diff --git a/internal/services/network/route_table_resource.go b/internal/services/network/route_table_resource.go
-index 72be88cc09..fa4cfce350 100644
+index 426dcd90a5..d4da8f1051 100644
 --- a/internal/services/network/route_table_resource.go
 +++ b/internal/services/network/route_table_resource.go
-@@ -5,6 +5,8 @@ package network
- 
- import (
- 	"fmt"
+@@ -15,8 +15,10 @@ import (
+ 	"github.com/hashicorp/go-azure-sdk/resource-manager/network/2023-09-01/routetables"
+ 	"github.com/hashicorp/terraform-provider-azurerm/helpers/tf"
+ 	"github.com/hashicorp/terraform-provider-azurerm/internal/clients"
 +	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
+ 	"github.com/hashicorp/terraform-provider-azurerm/internal/services/network/validate"
+ 	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/pluginsdk"
 +	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/suppress"
- 	"log"
- 	"time"
- 
-@@ -84,7 +86,8 @@ func resourceRouteTable() *pluginsdk.Resource {
+ 	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/validation"
+ 	"github.com/hashicorp/terraform-provider-azurerm/internal/timeouts"
+ 	"github.com/hashicorp/terraform-provider-azurerm/utils"
+@@ -83,7 +85,8 @@ func resourceRouteTable() *pluginsdk.Resource {
  								string(routetables.RouteNextHopTypeInternet),
  								string(routetables.RouteNextHopTypeVirtualAppliance),
  								string(routetables.RouteNextHopTypeNone),
@@ -2025,7 +2027,7 @@ index 32b5de4a99..081e69a07f 100644
  
  						"target_disk_encryption_set_id": {
 diff --git a/internal/services/redis/redis_cache_resource.go b/internal/services/redis/redis_cache_resource.go
-index 528b79961e..fc7196b399 100644
+index 4913e2d7d6..1ad3808d29 100644
 --- a/internal/services/redis/redis_cache_resource.go
 +++ b/internal/services/redis/redis_cache_resource.go
 @@ -6,6 +6,7 @@ package redis
@@ -2471,7 +2473,7 @@ index b215edff58..4381151544 100644
  	if !ok {
  		return fmt.Errorf("could not determine Storage domain suffix for environment %q", meta.(*clients.Client).Account.Environment.Name)
 diff --git a/internal/services/storage/storage_account_resource.go b/internal/services/storage/storage_account_resource.go
-index a68e2afada..dfefdbb1ed 100644
+index 8e4d3eae4a..351df0b49a 100644
 --- a/internal/services/storage/storage_account_resource.go
 +++ b/internal/services/storage/storage_account_resource.go
 @@ -13,6 +13,9 @@ import (

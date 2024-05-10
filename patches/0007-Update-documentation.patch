@@ -1921,7 +1921,7 @@ index 656e81119f..b9a4cae44f 100644
    scope              = "/subscriptions/00000000-0000-0000-0000-000000000000"
  
 diff --git a/website/docs/r/linux_virtual_machine.html.markdown b/website/docs/r/linux_virtual_machine.html.markdown
-index 8ec721ea72..7f7c4ec1a7 100644
+index 72b87a1694..4499a5cded 100644
 --- a/website/docs/r/linux_virtual_machine.html.markdown
 +++ b/website/docs/r/linux_virtual_machine.html.markdown
 @@ -12,9 +12,9 @@ Manages a Linux Virtual Machine.
@@ -1946,7 +1946,7 @@ index 8ec721ea72..7f7c4ec1a7 100644
  ```hcl
  resource "azurerm_resource_group" "example" {
 diff --git a/website/docs/r/linux_virtual_machine_scale_set.html.markdown b/website/docs/r/linux_virtual_machine_scale_set.html.markdown
-index 8d4115f936..c7eeb5a18b 100644
+index ed31892957..6d21326467 100644
 --- a/website/docs/r/linux_virtual_machine_scale_set.html.markdown
 +++ b/website/docs/r/linux_virtual_machine_scale_set.html.markdown
 @@ -12,15 +12,11 @@ Manages a Linux Virtual Machine Scale Set.
@@ -2775,7 +2775,7 @@ index 6786f8eb01..38823a0fd4 100644
    name     = "example-resources"
    location = "West Europe"
 diff --git a/website/docs/r/subnet.html.markdown b/website/docs/r/subnet.html.markdown
-index eb2020be7a..6f8b64b8c3 100644
+index 24b8800c76..4504555426 100644
 --- a/website/docs/r/subnet.html.markdown
 +++ b/website/docs/r/subnet.html.markdown
 @@ -11,7 +11,7 @@ description: |-
@@ -3018,7 +3018,7 @@ index f96d4cc7bd..416bf679b8 100644
  ---
  
 diff --git a/website/docs/r/virtual_network.html.markdown b/website/docs/r/virtual_network.html.markdown
-index 3efa150d43..2029b1f009 100644
+index ec5ffc78a6..91e07e2778 100644
 --- a/website/docs/r/virtual_network.html.markdown
 +++ b/website/docs/r/virtual_network.html.markdown
 @@ -11,10 +11,10 @@ description: |-
@@ -3037,7 +3037,7 @@ index 3efa150d43..2029b1f009 100644
  
  ## Example Usage
 diff --git a/website/docs/r/windows_virtual_machine.html.markdown b/website/docs/r/windows_virtual_machine.html.markdown
-index 1aa2daca46..5782ed68c1 100644
+index dcdb453b43..758e33df0d 100644
 --- a/website/docs/r/windows_virtual_machine.html.markdown
 +++ b/website/docs/r/windows_virtual_machine.html.markdown
 @@ -12,9 +12,9 @@ Manages a Windows Virtual Machine.
@@ -3062,7 +3062,7 @@ index 1aa2daca46..5782ed68c1 100644
  ```hcl
  provider "azurerm" {
 diff --git a/website/docs/r/windows_virtual_machine_scale_set.html.markdown b/website/docs/r/windows_virtual_machine_scale_set.html.markdown
-index 62bcb654c6..ae15668114 100644
+index 0cd4f20871..4071837e34 100644
 --- a/website/docs/r/windows_virtual_machine_scale_set.html.markdown
 +++ b/website/docs/r/windows_virtual_machine_scale_set.html.markdown
 @@ -12,17 +12,15 @@ Manages a Windows Virtual Machine Scale Set.
