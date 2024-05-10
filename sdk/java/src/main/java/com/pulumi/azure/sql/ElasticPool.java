@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,26 +50,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;my-resource-group&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("my-resource-group")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleSqlServer = new SqlServer(&#34;exampleSqlServer&#34;, SqlServerArgs.builder()        
- *             .name(&#34;my-sql-server&#34;)
+ *         var exampleSqlServer = new SqlServer("exampleSqlServer", SqlServerArgs.builder()        
+ *             .name("my-sql-server")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .version(&#34;12.0&#34;)
- *             .administratorLogin(&#34;4dm1n157r470r&#34;)
- *             .administratorLoginPassword(&#34;4-v3ry-53cr37-p455w0rd&#34;)
+ *             .version("12.0")
+ *             .administratorLogin("4dm1n157r470r")
+ *             .administratorLoginPassword("4-v3ry-53cr37-p455w0rd")
  *             .build());
  * 
- *         var exampleElasticPool = new ElasticPool(&#34;exampleElasticPool&#34;, ElasticPoolArgs.builder()        
- *             .name(&#34;test&#34;)
+ *         var exampleElasticPool = new ElasticPool("exampleElasticPool", ElasticPoolArgs.builder()        
+ *             .name("test")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .serverName(exampleSqlServer.name())
- *             .edition(&#34;Basic&#34;)
+ *             .edition("Basic")
  *             .dtu(50)
  *             .dbDtuMin(0)
  *             .dbDtuMax(5)
@@ -77,7 +78,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; **NOTE on `azure.sql.ElasticPool`:** -  The values of `edition`, `dtu`, and `pool_size` must be consistent with the [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus). Any inconsistent argument configuration will be rejected.

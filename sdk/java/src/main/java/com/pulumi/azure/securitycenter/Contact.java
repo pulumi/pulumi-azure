@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,17 +45,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Contact(&#34;example&#34;, ContactArgs.builder()        
- *             .name(&#34;contact&#34;)
- *             .email(&#34;contact@example.com&#34;)
- *             .phone(&#34;+1-555-555-5555&#34;)
+ *         var example = new Contact("example", ContactArgs.builder()        
+ *             .name("contact")
+ *             .email("contact{@literal @}example.com")
+ *             .phone("+1-555-555-5555")
  *             .alertNotifications(true)
  *             .alertsToAdmins(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

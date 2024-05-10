@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,31 +50,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
- *             .name(&#34;example-psqlserver&#34;)
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+ *             .name("example-psqlserver")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .administratorLogin(&#34;psqladmin&#34;)
- *             .administratorLoginPassword(&#34;H@Sh1CoR3!&#34;)
- *             .skuName(&#34;GP_Gen5_4&#34;)
- *             .version(&#34;11&#34;)
+ *             .administratorLogin("psqladmin")
+ *             .administratorLoginPassword("H{@literal @}Sh1CoR3!")
+ *             .skuName("GP_Gen5_4")
+ *             .version("11")
  *             .storageMb(640000)
  *             .backupRetentionDays(7)
  *             .geoRedundantBackupEnabled(true)
  *             .autoGrowEnabled(true)
  *             .publicNetworkAccessEnabled(false)
  *             .sslEnforcementEnabled(true)
- *             .sslMinimalTlsVersionEnforced(&#34;TLS1_2&#34;)
+ *             .sslMinimalTlsVersionEnforced("TLS1_2")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

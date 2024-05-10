@@ -32,7 +32,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -62,35 +63,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;examplestorageaccount&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("examplestorageaccount")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
- *             .tags(Map.of(&#34;environment&#34;, &#34;staging&#34;))
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
+ *             .tags(Map.of("environment", "staging"))
  *             .build());
  * 
- *         var exampleQueue = new Queue(&#34;exampleQueue&#34;, QueueArgs.builder()        
- *             .name(&#34;examplestoragequeue&#34;)
+ *         var exampleQueue = new Queue("exampleQueue", QueueArgs.builder()        
+ *             .name("examplestoragequeue")
  *             .storageAccountName(exampleAccount.name())
  *             .build());
  * 
- *         var exampleSystemTopic = new SystemTopic(&#34;exampleSystemTopic&#34;, SystemTopicArgs.builder()        
- *             .name(&#34;example-system-topic&#34;)
- *             .location(&#34;Global&#34;)
+ *         var exampleSystemTopic = new SystemTopic("exampleSystemTopic", SystemTopicArgs.builder()        
+ *             .name("example-system-topic")
+ *             .location("Global")
  *             .resourceGroupName(example.name())
  *             .sourceArmResourceId(example.id())
- *             .topicType(&#34;Microsoft.Resources.ResourceGroups&#34;)
+ *             .topicType("Microsoft.Resources.ResourceGroups")
  *             .build());
  * 
- *         var exampleSystemTopicEventSubscription = new SystemTopicEventSubscription(&#34;exampleSystemTopicEventSubscription&#34;, SystemTopicEventSubscriptionArgs.builder()        
- *             .name(&#34;example-event-subscription&#34;)
+ *         var exampleSystemTopicEventSubscription = new SystemTopicEventSubscription("exampleSystemTopicEventSubscription", SystemTopicEventSubscriptionArgs.builder()        
+ *             .name("example-event-subscription")
  *             .systemTopic(exampleSystemTopic.name())
  *             .resourceGroupName(example.name())
  *             .storageQueueEndpoint(SystemTopicEventSubscriptionStorageQueueEndpointArgs.builder()
@@ -101,7 +102,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,40 +50,41 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleSqlServer = new SqlServer(&#34;exampleSqlServer&#34;, SqlServerArgs.builder()        
- *             .name(&#34;myexamplesqlserver&#34;)
+ *         var exampleSqlServer = new SqlServer("exampleSqlServer", SqlServerArgs.builder()        
+ *             .name("myexamplesqlserver")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .version(&#34;12.0&#34;)
- *             .administratorLogin(&#34;4dm1n157r470r&#34;)
- *             .administratorLoginPassword(&#34;4-v3ry-53cr37-p455w0rd&#34;)
- *             .tags(Map.of(&#34;environment&#34;, &#34;production&#34;))
+ *             .version("12.0")
+ *             .administratorLogin("4dm1n157r470r")
+ *             .administratorLoginPassword("4-v3ry-53cr37-p455w0rd")
+ *             .tags(Map.of("environment", "production"))
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;examplesa&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("examplesa")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
- *             .name(&#34;myexamplesqldatabase&#34;)
+ *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()        
+ *             .name("myexamplesqldatabase")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .serverName(exampleSqlServer.name())
- *             .tags(Map.of(&#34;environment&#34;, &#34;production&#34;))
+ *             .tags(Map.of("environment", "production"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

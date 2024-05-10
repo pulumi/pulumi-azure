@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,44 +57,45 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
- *             .name(&#34;acctest-01&#34;)
+ *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()        
+ *             .name("acctest-01")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;PerGB2018&#34;)
+ *             .sku("PerGB2018")
  *             .retentionInDays(30)
  *             .build());
  * 
- *         var exampleEnvironment = new Environment(&#34;exampleEnvironment&#34;, EnvironmentArgs.builder()        
- *             .name(&#34;Example-Environment&#34;)
+ *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()        
+ *             .name("Example-Environment")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .logAnalyticsWorkspaceId(exampleAnalyticsWorkspace.id())
  *             .build());
  * 
- *         var exampleApp = new App(&#34;exampleApp&#34;, AppArgs.builder()        
- *             .name(&#34;example-app&#34;)
+ *         var exampleApp = new App("exampleApp", AppArgs.builder()        
+ *             .name("example-app")
  *             .containerAppEnvironmentId(exampleEnvironment.id())
  *             .resourceGroupName(example.name())
- *             .revisionMode(&#34;Single&#34;)
+ *             .revisionMode("Single")
  *             .template(AppTemplateArgs.builder()
  *                 .containers(AppTemplateContainerArgs.builder()
- *                     .name(&#34;examplecontainerapp&#34;)
- *                     .image(&#34;mcr.microsoft.com/azuredocs/containerapps-helloworld:latest&#34;)
+ *                     .name("examplecontainerapp")
+ *                     .image("mcr.microsoft.com/azuredocs/containerapps-helloworld:latest")
  *                     .cpu(0.25)
- *                     .memory(&#34;0.5Gi&#34;)
+ *                     .memory("0.5Gi")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

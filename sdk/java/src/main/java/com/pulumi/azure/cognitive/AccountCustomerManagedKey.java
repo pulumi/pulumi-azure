@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -58,112 +59,112 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West US&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West US")
  *             .build());
  * 
- *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()        
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .name(&#34;example-identity&#34;)
+ *             .name("example-identity")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;example-account&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("example-account")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .kind(&#34;Face&#34;)
- *             .skuName(&#34;E0&#34;)
- *             .customSubdomainName(&#34;example-account&#34;)
+ *             .kind("Face")
+ *             .skuName("E0")
+ *             .customSubdomainName("example-account")
  *             .identity(AccountIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned, UserAssigned&#34;)
+ *                 .type("SystemAssigned, UserAssigned")
  *                 .identityIds(exampleUserAssignedIdentity.id())
  *                 .build())
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;example-vault&#34;)
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("example-vault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .skuName(&#34;standard&#34;)
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .skuName("standard")
  *             .purgeProtectionEnabled(true)
  *             .accessPolicies(            
  *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(exampleAccount.identity().applyValue(identity -&gt; identity.tenantId()))
- *                     .objectId(exampleAccount.identity().applyValue(identity -&gt; identity.principalId()))
+ *                     .tenantId(exampleAccount.identity().applyValue(identity -> identity.tenantId()))
+ *                     .objectId(exampleAccount.identity().applyValue(identity -> identity.principalId()))
  *                     .keyPermissions(                    
- *                         &#34;Get&#34;,
- *                         &#34;Create&#34;,
- *                         &#34;List&#34;,
- *                         &#34;Restore&#34;,
- *                         &#34;Recover&#34;,
- *                         &#34;UnwrapKey&#34;,
- *                         &#34;WrapKey&#34;,
- *                         &#34;Purge&#34;,
- *                         &#34;Encrypt&#34;,
- *                         &#34;Decrypt&#34;,
- *                         &#34;Sign&#34;,
- *                         &#34;Verify&#34;)
- *                     .secretPermissions(&#34;Get&#34;)
+ *                         "Get",
+ *                         "Create",
+ *                         "List",
+ *                         "Restore",
+ *                         "Recover",
+ *                         "UnwrapKey",
+ *                         "WrapKey",
+ *                         "Purge",
+ *                         "Encrypt",
+ *                         "Decrypt",
+ *                         "Sign",
+ *                         "Verify")
+ *                     .secretPermissions("Get")
  *                     .build(),
  *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *                     .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *                     .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *                     .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *                     .keyPermissions(                    
- *                         &#34;Get&#34;,
- *                         &#34;Create&#34;,
- *                         &#34;Delete&#34;,
- *                         &#34;List&#34;,
- *                         &#34;Restore&#34;,
- *                         &#34;Recover&#34;,
- *                         &#34;UnwrapKey&#34;,
- *                         &#34;WrapKey&#34;,
- *                         &#34;Purge&#34;,
- *                         &#34;Encrypt&#34;,
- *                         &#34;Decrypt&#34;,
- *                         &#34;Sign&#34;,
- *                         &#34;Verify&#34;,
- *                         &#34;GetRotationPolicy&#34;)
- *                     .secretPermissions(&#34;Get&#34;)
+ *                         "Get",
+ *                         "Create",
+ *                         "Delete",
+ *                         "List",
+ *                         "Restore",
+ *                         "Recover",
+ *                         "UnwrapKey",
+ *                         "WrapKey",
+ *                         "Purge",
+ *                         "Encrypt",
+ *                         "Decrypt",
+ *                         "Sign",
+ *                         "Verify",
+ *                         "GetRotationPolicy")
+ *                     .secretPermissions("Get")
  *                     .build(),
  *                 KeyVaultAccessPolicyArgs.builder()
  *                     .tenantId(exampleUserAssignedIdentity.tenantId())
  *                     .objectId(exampleUserAssignedIdentity.principalId())
  *                     .keyPermissions(                    
- *                         &#34;Get&#34;,
- *                         &#34;Create&#34;,
- *                         &#34;Delete&#34;,
- *                         &#34;List&#34;,
- *                         &#34;Restore&#34;,
- *                         &#34;Recover&#34;,
- *                         &#34;UnwrapKey&#34;,
- *                         &#34;WrapKey&#34;,
- *                         &#34;Purge&#34;,
- *                         &#34;Encrypt&#34;,
- *                         &#34;Decrypt&#34;,
- *                         &#34;Sign&#34;,
- *                         &#34;Verify&#34;)
- *                     .secretPermissions(&#34;Get&#34;)
+ *                         "Get",
+ *                         "Create",
+ *                         "Delete",
+ *                         "List",
+ *                         "Restore",
+ *                         "Recover",
+ *                         "UnwrapKey",
+ *                         "WrapKey",
+ *                         "Purge",
+ *                         "Encrypt",
+ *                         "Decrypt",
+ *                         "Sign",
+ *                         "Verify")
+ *                     .secretPermissions("Get")
  *                     .build())
  *             .build());
  * 
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
- *             .name(&#34;example-key&#34;)
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *             .name("example-key")
  *             .keyVaultId(exampleKeyVault.id())
- *             .keyType(&#34;RSA&#34;)
+ *             .keyType("RSA")
  *             .keySize(2048)
  *             .keyOpts(            
- *                 &#34;decrypt&#34;,
- *                 &#34;encrypt&#34;,
- *                 &#34;sign&#34;,
- *                 &#34;unwrapKey&#34;,
- *                 &#34;verify&#34;,
- *                 &#34;wrapKey&#34;)
+ *                 "decrypt",
+ *                 "encrypt",
+ *                 "sign",
+ *                 "unwrapKey",
+ *                 "verify",
+ *                 "wrapKey")
  *             .build());
  * 
- *         var exampleAccountCustomerManagedKey = new AccountCustomerManagedKey(&#34;exampleAccountCustomerManagedKey&#34;, AccountCustomerManagedKeyArgs.builder()        
+ *         var exampleAccountCustomerManagedKey = new AccountCustomerManagedKey("exampleAccountCustomerManagedKey", AccountCustomerManagedKeyArgs.builder()        
  *             .cognitiveAccountId(exampleAccount.id())
  *             .keyVaultKeyId(exampleKey.id())
  *             .identityClientId(exampleUserAssignedIdentity.clientId())
@@ -171,7 +172,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

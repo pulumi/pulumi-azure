@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,45 +56,46 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFactory = new Factory(&#34;exampleFactory&#34;, FactoryArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleLinkedServiceWeb = new LinkedServiceWeb(&#34;exampleLinkedServiceWeb&#34;, LinkedServiceWebArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleLinkedServiceWeb = new LinkedServiceWeb("exampleLinkedServiceWeb", LinkedServiceWebArgs.builder()        
+ *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
- *             .authenticationType(&#34;Anonymous&#34;)
- *             .url(&#34;https://www.bing.com&#34;)
+ *             .authenticationType("Anonymous")
+ *             .url("https://www.bing.com")
  *             .build());
  * 
- *         var exampleDatasetDelimitedText = new DatasetDelimitedText(&#34;exampleDatasetDelimitedText&#34;, DatasetDelimitedTextArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleDatasetDelimitedText = new DatasetDelimitedText("exampleDatasetDelimitedText", DatasetDelimitedTextArgs.builder()        
+ *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .linkedServiceName(exampleLinkedServiceWeb.name())
  *             .httpServerLocation(DatasetDelimitedTextHttpServerLocationArgs.builder()
- *                 .relativeUrl(&#34;http://www.bing.com&#34;)
- *                 .path(&#34;foo/bar/&#34;)
- *                 .filename(&#34;fizz.txt&#34;)
+ *                 .relativeUrl("http://www.bing.com")
+ *                 .path("foo/bar/")
+ *                 .filename("fizz.txt")
  *                 .build())
- *             .columnDelimiter(&#34;,&#34;)
- *             .rowDelimiter(&#34;NEW&#34;)
- *             .encoding(&#34;UTF-8&#34;)
- *             .quoteCharacter(&#34;x&#34;)
- *             .escapeCharacter(&#34;f&#34;)
+ *             .columnDelimiter(",")
+ *             .rowDelimiter("NEW")
+ *             .encoding("UTF-8")
+ *             .quoteCharacter("x")
+ *             .escapeCharacter("f")
  *             .firstRowAsHeader(true)
- *             .nullValue(&#34;NULL&#34;)
+ *             .nullValue("NULL")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

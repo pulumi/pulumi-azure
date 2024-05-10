@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,59 +52,59 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var examplePolicy = new Policy(&#34;examplePolicy&#34;, PolicyArgs.builder()        
- *             .name(&#34;example-wafpolicy&#34;)
+ *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()        
+ *             .name("example-wafpolicy")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .customRules(            
  *                 PolicyCustomRuleArgs.builder()
- *                     .name(&#34;Rule1&#34;)
+ *                     .name("Rule1")
  *                     .priority(1)
- *                     .ruleType(&#34;MatchRule&#34;)
+ *                     .ruleType("MatchRule")
  *                     .matchConditions(PolicyCustomRuleMatchConditionArgs.builder()
  *                         .matchVariables(PolicyCustomRuleMatchConditionMatchVariableArgs.builder()
- *                             .variableName(&#34;RemoteAddr&#34;)
+ *                             .variableName("RemoteAddr")
  *                             .build())
- *                         .operator(&#34;IPMatch&#34;)
+ *                         .operator("IPMatch")
  *                         .negationCondition(false)
  *                         .matchValues(                        
- *                             &#34;192.168.1.0/24&#34;,
- *                             &#34;10.0.0.0/24&#34;)
+ *                             "192.168.1.0/24",
+ *                             "10.0.0.0/24")
  *                         .build())
- *                     .action(&#34;Block&#34;)
+ *                     .action("Block")
  *                     .build(),
  *                 PolicyCustomRuleArgs.builder()
- *                     .name(&#34;Rule2&#34;)
+ *                     .name("Rule2")
  *                     .priority(2)
- *                     .ruleType(&#34;MatchRule&#34;)
+ *                     .ruleType("MatchRule")
  *                     .matchConditions(                    
  *                         PolicyCustomRuleMatchConditionArgs.builder()
  *                             .matchVariables(PolicyCustomRuleMatchConditionMatchVariableArgs.builder()
- *                                 .variableName(&#34;RemoteAddr&#34;)
+ *                                 .variableName("RemoteAddr")
  *                                 .build())
- *                             .operator(&#34;IPMatch&#34;)
+ *                             .operator("IPMatch")
  *                             .negationCondition(false)
- *                             .matchValues(&#34;192.168.1.0/24&#34;)
+ *                             .matchValues("192.168.1.0/24")
  *                             .build(),
  *                         PolicyCustomRuleMatchConditionArgs.builder()
  *                             .matchVariables(PolicyCustomRuleMatchConditionMatchVariableArgs.builder()
- *                                 .variableName(&#34;RequestHeaders&#34;)
- *                                 .selector(&#34;UserAgent&#34;)
+ *                                 .variableName("RequestHeaders")
+ *                                 .selector("UserAgent")
  *                                 .build())
- *                             .operator(&#34;Contains&#34;)
+ *                             .operator("Contains")
  *                             .negationCondition(false)
- *                             .matchValues(&#34;Windows&#34;)
+ *                             .matchValues("Windows")
  *                             .build())
- *                     .action(&#34;Block&#34;)
+ *                     .action("Block")
  *                     .build())
  *             .policySettings(PolicyPolicySettingsArgs.builder()
  *                 .enabled(true)
- *                 .mode(&#34;Prevention&#34;)
+ *                 .mode("Prevention")
  *                 .requestBodyCheck(true)
  *                 .fileUploadLimitInMb(100)
  *                 .maxRequestBodySizeInKb(128)
@@ -111,30 +112,30 @@ import javax.annotation.Nullable;
  *             .managedRules(PolicyManagedRulesArgs.builder()
  *                 .exclusions(                
  *                     PolicyManagedRulesExclusionArgs.builder()
- *                         .matchVariable(&#34;RequestHeaderNames&#34;)
- *                         .selector(&#34;x-company-secret-header&#34;)
- *                         .selectorMatchOperator(&#34;Equals&#34;)
+ *                         .matchVariable("RequestHeaderNames")
+ *                         .selector("x-company-secret-header")
+ *                         .selectorMatchOperator("Equals")
  *                         .build(),
  *                     PolicyManagedRulesExclusionArgs.builder()
- *                         .matchVariable(&#34;RequestCookieNames&#34;)
- *                         .selector(&#34;too-tasty&#34;)
- *                         .selectorMatchOperator(&#34;EndsWith&#34;)
+ *                         .matchVariable("RequestCookieNames")
+ *                         .selector("too-tasty")
+ *                         .selectorMatchOperator("EndsWith")
  *                         .build())
  *                 .managedRuleSets(PolicyManagedRulesManagedRuleSetArgs.builder()
- *                     .type(&#34;OWASP&#34;)
- *                     .version(&#34;3.2&#34;)
+ *                     .type("OWASP")
+ *                     .version("3.2")
  *                     .ruleGroupOverrides(PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs.builder()
- *                         .ruleGroupName(&#34;REQUEST-920-PROTOCOL-ENFORCEMENT&#34;)
+ *                         .ruleGroupName("REQUEST-920-PROTOCOL-ENFORCEMENT")
  *                         .rules(                        
  *                             PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs.builder()
- *                                 .id(&#34;920300&#34;)
+ *                                 .id("920300")
  *                                 .enabled(true)
- *                                 .action(&#34;Log&#34;)
+ *                                 .action("Log")
  *                                 .build(),
  *                             PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs.builder()
- *                                 .id(&#34;920440&#34;)
+ *                                 .id("920440")
  *                                 .enabled(true)
- *                                 .action(&#34;Block&#34;)
+ *                                 .action("Block")
  *                                 .build())
  *                         .build())
  *                     .build())
@@ -143,7 +144,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

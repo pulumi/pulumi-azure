@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -66,86 +67,87 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-rg&#34;)
- *             .location(&#34;west europe&#34;)
- *             .tags(Map.of(&#34;stage&#34;, &#34;example&#34;))
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-rg")
+ *             .location("west europe")
+ *             .tags(Map.of("stage", "example"))
  *             .build());
  * 
- *         var exampleInsights = new Insights(&#34;exampleInsights&#34;, InsightsArgs.builder()        
- *             .name(&#34;example-ai&#34;)
+ *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()        
+ *             .name("example-ai")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .applicationType(&#34;web&#34;)
+ *             .applicationType("web")
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;example-kv&#34;)
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("example-kv")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .skuName(&#34;standard&#34;)
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .skuName("standard")
  *             .purgeProtectionEnabled(true)
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;examplesa&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("examplesa")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
- *             .name(&#34;example-mlw&#34;)
+ *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()        
+ *             .name("example-mlw")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .applicationInsightsId(exampleInsights.id())
  *             .keyVaultId(exampleKeyVault.id())
  *             .storageAccountId(exampleAccount.id())
  *             .identity(WorkspaceIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
- *         var exampleDataLakeGen2Filesystem = new DataLakeGen2Filesystem(&#34;exampleDataLakeGen2Filesystem&#34;, DataLakeGen2FilesystemArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleDataLakeGen2Filesystem = new DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", DataLakeGen2FilesystemArgs.builder()        
+ *             .name("example")
  *             .storageAccountId(exampleAccount.id())
  *             .build());
  * 
- *         var exampleWorkspace2 = new Workspace(&#34;exampleWorkspace2&#34;, WorkspaceArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleWorkspace2 = new Workspace("exampleWorkspace2", WorkspaceArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .storageDataLakeGen2FilesystemId(exampleDataLakeGen2Filesystem.id())
- *             .sqlAdministratorLogin(&#34;sqladminuser&#34;)
- *             .sqlAdministratorLoginPassword(&#34;H@Sh1CoR3!&#34;)
+ *             .sqlAdministratorLogin("sqladminuser")
+ *             .sqlAdministratorLoginPassword("H{@literal @}Sh1CoR3!")
  *             .identity(WorkspaceIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
- *         var exampleSparkPool = new SparkPool(&#34;exampleSparkPool&#34;, SparkPoolArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleSparkPool = new SparkPool("exampleSparkPool", SparkPoolArgs.builder()        
+ *             .name("example")
  *             .synapseWorkspaceId(exampleWorkspace2.id())
- *             .nodeSizeFamily(&#34;MemoryOptimized&#34;)
- *             .nodeSize(&#34;Small&#34;)
+ *             .nodeSizeFamily("MemoryOptimized")
+ *             .nodeSize("Small")
  *             .nodeCount(3)
  *             .build());
  * 
- *         var exampleSynapseSpark = new SynapseSpark(&#34;exampleSynapseSpark&#34;, SynapseSparkArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleSynapseSpark = new SynapseSpark("exampleSynapseSpark", SynapseSparkArgs.builder()        
+ *             .name("example")
  *             .machineLearningWorkspaceId(exampleWorkspace.id())
  *             .location(example.location())
  *             .synapseSparkPoolId(exampleSparkPool.id())
  *             .identity(SynapseSparkIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

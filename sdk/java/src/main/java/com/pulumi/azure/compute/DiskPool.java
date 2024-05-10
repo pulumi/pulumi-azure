@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,44 +54,45 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-network&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example-network")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *             .addressSpaces("10.0.0.0/16")
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;example-subnet&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("example-subnet")
  *             .resourceGroupName(exampleVirtualNetwork.resourceGroupName())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.0.0/24&#34;)
+ *             .addressPrefixes("10.0.0.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;diskspool&#34;)
+ *                 .name("diskspool")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .actions(&#34;Microsoft.Network/virtualNetworks/read&#34;)
- *                     .name(&#34;Microsoft.StoragePool/diskPools&#34;)
+ *                     .actions("Microsoft.Network/virtualNetworks/read")
+ *                     .name("Microsoft.StoragePool/diskPools")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleDiskPool = new DiskPool(&#34;exampleDiskPool&#34;, DiskPoolArgs.builder()        
- *             .name(&#34;example-disk-pool&#34;)
+ *         var exampleDiskPool = new DiskPool("exampleDiskPool", DiskPoolArgs.builder()        
+ *             .name("example-disk-pool")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .skuName(&#34;Basic_B1&#34;)
+ *             .skuName("Basic_B1")
  *             .subnetId(exampleSubnet.id())
- *             .zones(&#34;1&#34;)
+ *             .zones("1")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

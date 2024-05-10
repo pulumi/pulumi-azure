@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,42 +48,43 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var server = new RandomId(&#34;server&#34;, RandomIdArgs.builder()        
- *             .keepers(Map.of(&#34;azi_id&#34;, 1))
+ *         var server = new RandomId("server", RandomIdArgs.builder()        
+ *             .keepers(Map.of("azi_id", 1))
  *             .byteLength(8)
  *             .build());
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;redis-resourcegroup&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("redis-resourcegroup")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleCache = new Cache(&#34;exampleCache&#34;, CacheArgs.builder()        
- *             .name(server.hex().applyValue(hex -&gt; String.format(&#34;redis%s&#34;, hex)))
+ *         var exampleCache = new Cache("exampleCache", CacheArgs.builder()        
+ *             .name(server.hex().applyValue(hex -> String.format("redis%s", hex)))
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .capacity(1)
- *             .family(&#34;P&#34;)
- *             .skuName(&#34;Premium&#34;)
+ *             .family("P")
+ *             .skuName("Premium")
  *             .enableNonSslPort(false)
  *             .redisConfiguration(CacheRedisConfigurationArgs.builder()
  *                 .maxmemoryReserved(2)
  *                 .maxmemoryDelta(2)
- *                 .maxmemoryPolicy(&#34;allkeys-lru&#34;)
+ *                 .maxmemoryPolicy("allkeys-lru")
  *                 .build())
  *             .build());
  * 
- *         var exampleFirewallRule = new FirewallRule(&#34;exampleFirewallRule&#34;, FirewallRuleArgs.builder()        
- *             .name(&#34;someIPrange&#34;)
+ *         var exampleFirewallRule = new FirewallRule("exampleFirewallRule", FirewallRuleArgs.builder()        
+ *             .name("someIPrange")
  *             .redisCacheName(exampleCache.name())
  *             .resourceGroupName(example.name())
- *             .startIp(&#34;1.2.3.4&#34;)
- *             .endIp(&#34;2.3.4.5&#34;)
+ *             .startIp("1.2.3.4")
+ *             .endIp("2.3.4.5")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

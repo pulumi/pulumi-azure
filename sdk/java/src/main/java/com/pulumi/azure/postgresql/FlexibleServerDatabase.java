@@ -18,7 +18,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,32 +44,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFlexibleServer = new FlexibleServer(&#34;exampleFlexibleServer&#34;, FlexibleServerArgs.builder()        
- *             .name(&#34;example-psqlflexibleserver&#34;)
+ *         var exampleFlexibleServer = new FlexibleServer("exampleFlexibleServer", FlexibleServerArgs.builder()        
+ *             .name("example-psqlflexibleserver")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .version(&#34;12&#34;)
- *             .administratorLogin(&#34;psqladmin&#34;)
- *             .administratorPassword(&#34;H@Sh1CoR3!&#34;)
+ *             .version("12")
+ *             .administratorLogin("psqladmin")
+ *             .administratorPassword("H{@literal @}Sh1CoR3!")
  *             .storageMb(32768)
- *             .skuName(&#34;GP_Standard_D4s_v3&#34;)
+ *             .skuName("GP_Standard_D4s_v3")
  *             .build());
  * 
- *         var exampleFlexibleServerDatabase = new FlexibleServerDatabase(&#34;exampleFlexibleServerDatabase&#34;, FlexibleServerDatabaseArgs.builder()        
- *             .name(&#34;exampledb&#34;)
+ *         var exampleFlexibleServerDatabase = new FlexibleServerDatabase("exampleFlexibleServerDatabase", FlexibleServerDatabaseArgs.builder()        
+ *             .name("exampledb")
  *             .serverId(exampleFlexibleServer.id())
- *             .collation(&#34;en_US.utf8&#34;)
- *             .charset(&#34;utf8&#34;)
+ *             .collation("en_US.utf8")
+ *             .charset("utf8")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

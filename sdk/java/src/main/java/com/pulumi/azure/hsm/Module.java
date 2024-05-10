@@ -21,14 +21,15 @@ import javax.annotation.Nullable;
 /**
  * Manages a Dedicated Hardware Security Module.
  * 
- * &gt; **Note:** Before using this resource, it&#39;s required to submit the request of registering the providers and features with Azure CLI `az provider register --namespace Microsoft.HardwareSecurityModules &amp;&amp; az feature register --namespace Microsoft.HardwareSecurityModules --name AzureDedicatedHSM &amp;&amp; az provider register --namespace Microsoft.Network &amp;&amp; az feature register --namespace Microsoft.Network --name AllowBaremetalServers` and ask service team (hsmrequest@microsoft.com) to approve. See more details from &lt;https://docs.microsoft.com/azure/dedicated-hsm/tutorial-deploy-hsm-cli#prerequisites&gt;.
+ * &gt; **Note:** Before using this resource, it&#39;s required to submit the request of registering the providers and features with Azure CLI `az provider register --namespace Microsoft.HardwareSecurityModules &amp;&amp; az feature register --namespace Microsoft.HardwareSecurityModules --name AzureDedicatedHSM &amp;&amp; az provider register --namespace Microsoft.Network &amp;&amp; az feature register --namespace Microsoft.Network --name AllowBaremetalServers` and ask service team (hsmrequest{@literal @}microsoft.com) to approve. See more details from &lt;https://docs.microsoft.com/azure/dedicated-hsm/tutorial-deploy-hsm-cli#prerequisites&gt;.
  * 
  * &gt; **Note:** If the quota is not enough in some region, please submit the quota request to service team.
  * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -64,89 +65,90 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-vnet&#34;)
- *             .addressSpaces(&#34;10.2.0.0/16&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example-vnet")
+ *             .addressSpaces("10.2.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;example-compute&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("example-compute")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.2.0.0/24&#34;)
+ *             .addressPrefixes("10.2.0.0/24")
  *             .build());
  * 
- *         var example2 = new Subnet(&#34;example2&#34;, SubnetArgs.builder()        
- *             .name(&#34;example-hsmsubnet&#34;)
+ *         var example2 = new Subnet("example2", SubnetArgs.builder()        
+ *             .name("example-hsmsubnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.2.1.0/24&#34;)
+ *             .addressPrefixes("10.2.1.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;first&#34;)
+ *                 .name("first")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .name(&#34;Microsoft.HardwareSecurityModules/dedicatedHSMs&#34;)
+ *                     .name("Microsoft.HardwareSecurityModules/dedicatedHSMs")
  *                     .actions(                    
- *                         &#34;Microsoft.Network/networkinterfaces/*&#34;,
- *                         &#34;Microsoft.Network/virtualNetworks/subnets/join/action&#34;)
+ *                         "Microsoft.Network/networkinterfaces/*",
+ *                         "Microsoft.Network/virtualNetworks/subnets/join/action")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var example3 = new Subnet(&#34;example3&#34;, SubnetArgs.builder()        
- *             .name(&#34;gatewaysubnet&#34;)
+ *         var example3 = new Subnet("example3", SubnetArgs.builder()        
+ *             .name("gatewaysubnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.2.255.0/26&#34;)
+ *             .addressPrefixes("10.2.255.0/26")
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
- *             .name(&#34;example-pip&#34;)
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *             .name("example-pip")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .allocationMethod(&#34;Dynamic&#34;)
+ *             .allocationMethod("Dynamic")
  *             .build());
  * 
- *         var exampleVirtualNetworkGateway = new VirtualNetworkGateway(&#34;exampleVirtualNetworkGateway&#34;, VirtualNetworkGatewayArgs.builder()        
- *             .name(&#34;example-vnetgateway&#34;)
+ *         var exampleVirtualNetworkGateway = new VirtualNetworkGateway("exampleVirtualNetworkGateway", VirtualNetworkGatewayArgs.builder()        
+ *             .name("example-vnetgateway")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .type(&#34;ExpressRoute&#34;)
- *             .vpnType(&#34;PolicyBased&#34;)
- *             .sku(&#34;Standard&#34;)
+ *             .type("ExpressRoute")
+ *             .vpnType("PolicyBased")
+ *             .sku("Standard")
  *             .ipConfigurations(VirtualNetworkGatewayIpConfigurationArgs.builder()
  *                 .publicIpAddressId(examplePublicIp.id())
- *                 .privateIpAddressAllocation(&#34;Dynamic&#34;)
+ *                 .privateIpAddressAllocation("Dynamic")
  *                 .subnetId(example3.id())
  *                 .build())
  *             .build());
  * 
- *         var exampleModule = new Module(&#34;exampleModule&#34;, ModuleArgs.builder()        
- *             .name(&#34;example-hsm&#34;)
+ *         var exampleModule = new Module("exampleModule", ModuleArgs.builder()        
+ *             .name("example-hsm")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;payShield10K_LMK1_CPS60&#34;)
+ *             .skuName("payShield10K_LMK1_CPS60")
  *             .managementNetworkProfile(ModuleManagementNetworkProfileArgs.builder()
- *                 .networkInterfacePrivateIpAddresses(&#34;10.2.1.7&#34;)
+ *                 .networkInterfacePrivateIpAddresses("10.2.1.7")
  *                 .subnetId(example2.id())
  *                 .build())
  *             .networkProfile(ModuleNetworkProfileArgs.builder()
- *                 .networkInterfacePrivateIpAddresses(&#34;10.2.1.8&#34;)
+ *                 .networkInterfacePrivateIpAddresses("10.2.1.8")
  *                 .subnetId(example2.id())
  *                 .build())
- *             .stampId(&#34;stamp2&#34;)
- *             .tags(Map.of(&#34;env&#34;, &#34;Test&#34;))
+ *             .stampId("stamp2")
+ *             .tags(Map.of("env", "Test"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -66,194 +67,195 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;database-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("database-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleNetworkSecurityGroup = new NetworkSecurityGroup(&#34;exampleNetworkSecurityGroup&#34;, NetworkSecurityGroupArgs.builder()        
- *             .name(&#34;mi-security-group&#34;)
+ *         var exampleNetworkSecurityGroup = new NetworkSecurityGroup("exampleNetworkSecurityGroup", NetworkSecurityGroupArgs.builder()        
+ *             .name("mi-security-group")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var allowManagementInbound = new NetworkSecurityRule(&#34;allowManagementInbound&#34;, NetworkSecurityRuleArgs.builder()        
- *             .name(&#34;allow_management_inbound&#34;)
+ *         var allowManagementInbound = new NetworkSecurityRule("allowManagementInbound", NetworkSecurityRuleArgs.builder()        
+ *             .name("allow_management_inbound")
  *             .priority(106)
- *             .direction(&#34;Inbound&#34;)
- *             .access(&#34;Allow&#34;)
- *             .protocol(&#34;Tcp&#34;)
- *             .sourcePortRange(&#34;*&#34;)
+ *             .direction("Inbound")
+ *             .access("Allow")
+ *             .protocol("Tcp")
+ *             .sourcePortRange("*")
  *             .destinationPortRanges(            
- *                 &#34;9000&#34;,
- *                 &#34;9003&#34;,
- *                 &#34;1438&#34;,
- *                 &#34;1440&#34;,
- *                 &#34;1452&#34;)
- *             .sourceAddressPrefix(&#34;*&#34;)
- *             .destinationAddressPrefix(&#34;*&#34;)
+ *                 "9000",
+ *                 "9003",
+ *                 "1438",
+ *                 "1440",
+ *                 "1452")
+ *             .sourceAddressPrefix("*")
+ *             .destinationAddressPrefix("*")
  *             .resourceGroupName(example.name())
  *             .networkSecurityGroupName(exampleNetworkSecurityGroup.name())
  *             .build());
  * 
- *         var allowMisubnetInbound = new NetworkSecurityRule(&#34;allowMisubnetInbound&#34;, NetworkSecurityRuleArgs.builder()        
- *             .name(&#34;allow_misubnet_inbound&#34;)
+ *         var allowMisubnetInbound = new NetworkSecurityRule("allowMisubnetInbound", NetworkSecurityRuleArgs.builder()        
+ *             .name("allow_misubnet_inbound")
  *             .priority(200)
- *             .direction(&#34;Inbound&#34;)
- *             .access(&#34;Allow&#34;)
- *             .protocol(&#34;*&#34;)
- *             .sourcePortRange(&#34;*&#34;)
- *             .destinationPortRange(&#34;*&#34;)
- *             .sourceAddressPrefix(&#34;10.0.0.0/24&#34;)
- *             .destinationAddressPrefix(&#34;*&#34;)
+ *             .direction("Inbound")
+ *             .access("Allow")
+ *             .protocol("*")
+ *             .sourcePortRange("*")
+ *             .destinationPortRange("*")
+ *             .sourceAddressPrefix("10.0.0.0/24")
+ *             .destinationAddressPrefix("*")
  *             .resourceGroupName(example.name())
  *             .networkSecurityGroupName(exampleNetworkSecurityGroup.name())
  *             .build());
  * 
- *         var allowHealthProbeInbound = new NetworkSecurityRule(&#34;allowHealthProbeInbound&#34;, NetworkSecurityRuleArgs.builder()        
- *             .name(&#34;allow_health_probe_inbound&#34;)
+ *         var allowHealthProbeInbound = new NetworkSecurityRule("allowHealthProbeInbound", NetworkSecurityRuleArgs.builder()        
+ *             .name("allow_health_probe_inbound")
  *             .priority(300)
- *             .direction(&#34;Inbound&#34;)
- *             .access(&#34;Allow&#34;)
- *             .protocol(&#34;*&#34;)
- *             .sourcePortRange(&#34;*&#34;)
- *             .destinationPortRange(&#34;*&#34;)
- *             .sourceAddressPrefix(&#34;AzureLoadBalancer&#34;)
- *             .destinationAddressPrefix(&#34;*&#34;)
+ *             .direction("Inbound")
+ *             .access("Allow")
+ *             .protocol("*")
+ *             .sourcePortRange("*")
+ *             .destinationPortRange("*")
+ *             .sourceAddressPrefix("AzureLoadBalancer")
+ *             .destinationAddressPrefix("*")
  *             .resourceGroupName(example.name())
  *             .networkSecurityGroupName(exampleNetworkSecurityGroup.name())
  *             .build());
  * 
- *         var allowTdsInbound = new NetworkSecurityRule(&#34;allowTdsInbound&#34;, NetworkSecurityRuleArgs.builder()        
- *             .name(&#34;allow_tds_inbound&#34;)
+ *         var allowTdsInbound = new NetworkSecurityRule("allowTdsInbound", NetworkSecurityRuleArgs.builder()        
+ *             .name("allow_tds_inbound")
  *             .priority(1000)
- *             .direction(&#34;Inbound&#34;)
- *             .access(&#34;Allow&#34;)
- *             .protocol(&#34;Tcp&#34;)
- *             .sourcePortRange(&#34;*&#34;)
- *             .destinationPortRange(&#34;1433&#34;)
- *             .sourceAddressPrefix(&#34;VirtualNetwork&#34;)
- *             .destinationAddressPrefix(&#34;*&#34;)
+ *             .direction("Inbound")
+ *             .access("Allow")
+ *             .protocol("Tcp")
+ *             .sourcePortRange("*")
+ *             .destinationPortRange("1433")
+ *             .sourceAddressPrefix("VirtualNetwork")
+ *             .destinationAddressPrefix("*")
  *             .resourceGroupName(example.name())
  *             .networkSecurityGroupName(exampleNetworkSecurityGroup.name())
  *             .build());
  * 
- *         var denyAllInbound = new NetworkSecurityRule(&#34;denyAllInbound&#34;, NetworkSecurityRuleArgs.builder()        
- *             .name(&#34;deny_all_inbound&#34;)
+ *         var denyAllInbound = new NetworkSecurityRule("denyAllInbound", NetworkSecurityRuleArgs.builder()        
+ *             .name("deny_all_inbound")
  *             .priority(4096)
- *             .direction(&#34;Inbound&#34;)
- *             .access(&#34;Deny&#34;)
- *             .protocol(&#34;*&#34;)
- *             .sourcePortRange(&#34;*&#34;)
- *             .destinationPortRange(&#34;*&#34;)
- *             .sourceAddressPrefix(&#34;*&#34;)
- *             .destinationAddressPrefix(&#34;*&#34;)
+ *             .direction("Inbound")
+ *             .access("Deny")
+ *             .protocol("*")
+ *             .sourcePortRange("*")
+ *             .destinationPortRange("*")
+ *             .sourceAddressPrefix("*")
+ *             .destinationAddressPrefix("*")
  *             .resourceGroupName(example.name())
  *             .networkSecurityGroupName(exampleNetworkSecurityGroup.name())
  *             .build());
  * 
- *         var allowManagementOutbound = new NetworkSecurityRule(&#34;allowManagementOutbound&#34;, NetworkSecurityRuleArgs.builder()        
- *             .name(&#34;allow_management_outbound&#34;)
+ *         var allowManagementOutbound = new NetworkSecurityRule("allowManagementOutbound", NetworkSecurityRuleArgs.builder()        
+ *             .name("allow_management_outbound")
  *             .priority(102)
- *             .direction(&#34;Outbound&#34;)
- *             .access(&#34;Allow&#34;)
- *             .protocol(&#34;Tcp&#34;)
- *             .sourcePortRange(&#34;*&#34;)
+ *             .direction("Outbound")
+ *             .access("Allow")
+ *             .protocol("Tcp")
+ *             .sourcePortRange("*")
  *             .destinationPortRanges(            
- *                 &#34;80&#34;,
- *                 &#34;443&#34;,
- *                 &#34;12000&#34;)
- *             .sourceAddressPrefix(&#34;*&#34;)
- *             .destinationAddressPrefix(&#34;*&#34;)
+ *                 "80",
+ *                 "443",
+ *                 "12000")
+ *             .sourceAddressPrefix("*")
+ *             .destinationAddressPrefix("*")
  *             .resourceGroupName(example.name())
  *             .networkSecurityGroupName(exampleNetworkSecurityGroup.name())
  *             .build());
  * 
- *         var allowMisubnetOutbound = new NetworkSecurityRule(&#34;allowMisubnetOutbound&#34;, NetworkSecurityRuleArgs.builder()        
- *             .name(&#34;allow_misubnet_outbound&#34;)
+ *         var allowMisubnetOutbound = new NetworkSecurityRule("allowMisubnetOutbound", NetworkSecurityRuleArgs.builder()        
+ *             .name("allow_misubnet_outbound")
  *             .priority(200)
- *             .direction(&#34;Outbound&#34;)
- *             .access(&#34;Allow&#34;)
- *             .protocol(&#34;*&#34;)
- *             .sourcePortRange(&#34;*&#34;)
- *             .destinationPortRange(&#34;*&#34;)
- *             .sourceAddressPrefix(&#34;10.0.0.0/24&#34;)
- *             .destinationAddressPrefix(&#34;*&#34;)
+ *             .direction("Outbound")
+ *             .access("Allow")
+ *             .protocol("*")
+ *             .sourcePortRange("*")
+ *             .destinationPortRange("*")
+ *             .sourceAddressPrefix("10.0.0.0/24")
+ *             .destinationAddressPrefix("*")
  *             .resourceGroupName(example.name())
  *             .networkSecurityGroupName(exampleNetworkSecurityGroup.name())
  *             .build());
  * 
- *         var denyAllOutbound = new NetworkSecurityRule(&#34;denyAllOutbound&#34;, NetworkSecurityRuleArgs.builder()        
- *             .name(&#34;deny_all_outbound&#34;)
+ *         var denyAllOutbound = new NetworkSecurityRule("denyAllOutbound", NetworkSecurityRuleArgs.builder()        
+ *             .name("deny_all_outbound")
  *             .priority(4096)
- *             .direction(&#34;Outbound&#34;)
- *             .access(&#34;Deny&#34;)
- *             .protocol(&#34;*&#34;)
- *             .sourcePortRange(&#34;*&#34;)
- *             .destinationPortRange(&#34;*&#34;)
- *             .sourceAddressPrefix(&#34;*&#34;)
- *             .destinationAddressPrefix(&#34;*&#34;)
+ *             .direction("Outbound")
+ *             .access("Deny")
+ *             .protocol("*")
+ *             .sourcePortRange("*")
+ *             .destinationPortRange("*")
+ *             .sourceAddressPrefix("*")
+ *             .destinationAddressPrefix("*")
  *             .resourceGroupName(example.name())
  *             .networkSecurityGroupName(exampleNetworkSecurityGroup.name())
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;vnet-mi&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("vnet-mi")
  *             .resourceGroupName(example.name())
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;subnet-mi&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("subnet-mi")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.0.0/24&#34;)
+ *             .addressPrefixes("10.0.0.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;managedinstancedelegation&#34;)
+ *                 .name("managedinstancedelegation")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .name(&#34;Microsoft.Sql/managedInstances&#34;)
+ *                     .name("Microsoft.Sql/managedInstances")
  *                     .actions(                    
- *                         &#34;Microsoft.Network/virtualNetworks/subnets/join/action&#34;,
- *                         &#34;Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action&#34;,
- *                         &#34;Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action&#34;)
+ *                         "Microsoft.Network/virtualNetworks/subnets/join/action",
+ *                         "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
+ *                         "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation(&#34;exampleSubnetNetworkSecurityGroupAssociation&#34;, SubnetNetworkSecurityGroupAssociationArgs.builder()        
+ *         var exampleSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation("exampleSubnetNetworkSecurityGroupAssociation", SubnetNetworkSecurityGroupAssociationArgs.builder()        
  *             .subnetId(exampleSubnet.id())
  *             .networkSecurityGroupId(exampleNetworkSecurityGroup.id())
  *             .build());
  * 
- *         var exampleRouteTable = new RouteTable(&#34;exampleRouteTable&#34;, RouteTableArgs.builder()        
- *             .name(&#34;routetable-mi&#34;)
+ *         var exampleRouteTable = new RouteTable("exampleRouteTable", RouteTableArgs.builder()        
+ *             .name("routetable-mi")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .disableBgpRoutePropagation(false)
  *             .build());
  * 
- *         var exampleSubnetRouteTableAssociation = new SubnetRouteTableAssociation(&#34;exampleSubnetRouteTableAssociation&#34;, SubnetRouteTableAssociationArgs.builder()        
+ *         var exampleSubnetRouteTableAssociation = new SubnetRouteTableAssociation("exampleSubnetRouteTableAssociation", SubnetRouteTableAssociationArgs.builder()        
  *             .subnetId(exampleSubnet.id())
  *             .routeTableId(exampleRouteTable.id())
  *             .build());
  * 
- *         var exampleManagedInstance = new ManagedInstance(&#34;exampleManagedInstance&#34;, ManagedInstanceArgs.builder()        
- *             .name(&#34;managedsqlinstance&#34;)
+ *         var exampleManagedInstance = new ManagedInstance("exampleManagedInstance", ManagedInstanceArgs.builder()        
+ *             .name("managedsqlinstance")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .licenseType(&#34;BasePrice&#34;)
- *             .skuName(&#34;GP_Gen5&#34;)
+ *             .licenseType("BasePrice")
+ *             .skuName("GP_Gen5")
  *             .storageSizeInGb(32)
  *             .subnetId(exampleSubnet.id())
  *             .vcores(4)
- *             .administratorLogin(&#34;mradministrator&#34;)
- *             .administratorLoginPassword(&#34;thisIsDog11&#34;)
+ *             .administratorLogin("mradministrator")
+ *             .administratorLoginPassword("thisIsDog11")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,39 +54,40 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
  *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
- *             .name(&#34;storageaccountname&#34;)
+ *             .name("storageaccountname")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleFactory = new Factory(&#34;exampleFactory&#34;, FactoryArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *             .name("example")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleLinkedServiceAzureBlobStorage = new LinkedServiceAzureBlobStorage(&#34;exampleLinkedServiceAzureBlobStorage&#34;, LinkedServiceAzureBlobStorageArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleLinkedServiceAzureBlobStorage = new LinkedServiceAzureBlobStorage("exampleLinkedServiceAzureBlobStorage", LinkedServiceAzureBlobStorageArgs.builder()        
+ *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
- *             .connectionString(example.applyValue(getAccountResult -&gt; getAccountResult).applyValue(example -&gt; example.applyValue(getAccountResult -&gt; getAccountResult.primaryConnectionString())))
+ *             .connectionString(example.applyValue(getAccountResult -> getAccountResult).applyValue(example -> example.applyValue(getAccountResult -> getAccountResult.primaryConnectionString())))
  *             .build());
  * 
- *         var exampleDatasetAzureBlob = new DatasetAzureBlob(&#34;exampleDatasetAzureBlob&#34;, DatasetAzureBlobArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleDatasetAzureBlob = new DatasetAzureBlob("exampleDatasetAzureBlob", DatasetAzureBlobArgs.builder()        
+ *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .linkedServiceName(exampleLinkedServiceAzureBlobStorage.name())
- *             .path(&#34;foo&#34;)
- *             .filename(&#34;bar.png&#34;)
+ *             .path("foo")
+ *             .filename("bar.png")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

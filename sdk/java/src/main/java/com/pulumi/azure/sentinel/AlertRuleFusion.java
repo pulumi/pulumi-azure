@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,39 +52,40 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
- *             .name(&#34;example-workspace&#34;)
+ *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()        
+ *             .name("example-workspace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;PerGB2018&#34;)
+ *             .sku("PerGB2018")
  *             .build());
  * 
- *         var exampleAnalyticsSolution = new AnalyticsSolution(&#34;exampleAnalyticsSolution&#34;, AnalyticsSolutionArgs.builder()        
- *             .solutionName(&#34;SecurityInsights&#34;)
+ *         var exampleAnalyticsSolution = new AnalyticsSolution("exampleAnalyticsSolution", AnalyticsSolutionArgs.builder()        
+ *             .solutionName("SecurityInsights")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .workspaceResourceId(exampleAnalyticsWorkspace.id())
  *             .workspaceName(exampleAnalyticsWorkspace.name())
  *             .plan(AnalyticsSolutionPlanArgs.builder()
- *                 .publisher(&#34;Microsoft&#34;)
- *                 .product(&#34;OMSGallery/SecurityInsights&#34;)
+ *                 .publisher("Microsoft")
+ *                 .product("OMSGallery/SecurityInsights")
  *                 .build())
  *             .build());
  * 
- *         var exampleAlertRuleFusion = new AlertRuleFusion(&#34;exampleAlertRuleFusion&#34;, AlertRuleFusionArgs.builder()        
- *             .name(&#34;example-fusion-alert-rule&#34;)
+ *         var exampleAlertRuleFusion = new AlertRuleFusion("exampleAlertRuleFusion", AlertRuleFusionArgs.builder()        
+ *             .name("example-fusion-alert-rule")
  *             .logAnalyticsWorkspaceId(exampleAnalyticsSolution.workspaceResourceId())
- *             .alertRuleTemplateGuid(&#34;f71aba3d-28fb-450b-b192-4e76a83015c8&#34;)
+ *             .alertRuleTemplateGuid("f71aba3d-28fb-450b-b192-4e76a83015c8")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

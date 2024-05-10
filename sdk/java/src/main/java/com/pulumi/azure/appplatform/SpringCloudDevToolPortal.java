@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,30 +54,30 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleSpringCloudService = new SpringCloudService(&#34;exampleSpringCloudService&#34;, SpringCloudServiceArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;E0&#34;)
+ *             .skuName("E0")
  *             .build());
  * 
- *         var exampleSpringCloudDevToolPortal = new SpringCloudDevToolPortal(&#34;exampleSpringCloudDevToolPortal&#34;, SpringCloudDevToolPortalArgs.builder()        
- *             .name(&#34;default&#34;)
+ *         var exampleSpringCloudDevToolPortal = new SpringCloudDevToolPortal("exampleSpringCloudDevToolPortal", SpringCloudDevToolPortalArgs.builder()        
+ *             .name("default")
  *             .springCloudServiceId(exampleSpringCloudService.id())
  *             .publicNetworkAccessEnabled(true)
  *             .sso(SpringCloudDevToolPortalSsoArgs.builder()
- *                 .clientId(&#34;example id&#34;)
- *                 .clientSecret(&#34;example secret&#34;)
- *                 .metadataUrl(String.format(&#34;https://login.microsoftonline.com/%s/v2.0/.well-known/openid-configuration&#34;, current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId())))
+ *                 .clientId("example id")
+ *                 .clientSecret("example secret")
+ *                 .metadataUrl(String.format("https://login.microsoftonline.com/%s/v2.0/.well-known/openid-configuration", current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId())))
  *                 .scopes(                
- *                     &#34;openid&#34;,
- *                     &#34;profile&#34;,
- *                     &#34;email&#34;)
+ *                     "openid",
+ *                     "profile",
+ *                     "email")
  *                 .build())
  *             .applicationAcceleratorEnabled(true)
  *             .applicationLiveViewEnabled(true)
@@ -84,7 +85,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

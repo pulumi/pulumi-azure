@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -67,95 +68,95 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;westeurope&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example")
+ *             .location("westeurope")
  *             .build());
  * 
- *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()        
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .name(&#34;example&#34;)
+ *             .name("example")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example")
+ *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;internal&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("internal")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
+ *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
- *         var exampleNetworkInterface = new NetworkInterface(&#34;exampleNetworkInterface&#34;, NetworkInterfaceArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
- *                 .name(&#34;example&#34;)
+ *                 .name("example")
  *                 .subnetId(exampleSubnet.id())
- *                 .privateIpAddressAllocation(&#34;Dynamic&#34;)
+ *                 .privateIpAddressAllocation("Dynamic")
  *                 .build())
  *             .build());
  * 
- *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine(&#34;exampleLinuxVirtualMachine&#34;, LinuxVirtualMachineArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine("exampleLinuxVirtualMachine", LinuxVirtualMachineArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .size(&#34;Standard_F2&#34;)
- *             .adminUsername(&#34;adminuser&#34;)
- *             .adminPassword(&#34;example&#34;)
+ *             .size("Standard_F2")
+ *             .adminUsername("adminuser")
+ *             .adminPassword("example")
  *             .disablePasswordAuthentication(false)
  *             .networkInterfaceIds(exampleNetworkInterface.id())
  *             .osDisk(LinuxVirtualMachineOsDiskArgs.builder()
- *                 .caching(&#34;ReadWrite&#34;)
- *                 .storageAccountType(&#34;Standard_LRS&#34;)
+ *                 .caching("ReadWrite")
+ *                 .storageAccountType("Standard_LRS")
  *                 .build())
  *             .sourceImageReference(LinuxVirtualMachineSourceImageReferenceArgs.builder()
- *                 .publisher(&#34;Canonical&#34;)
- *                 .offer(&#34;0001-com-ubuntu-server-jammy&#34;)
- *                 .sku(&#34;22_04-lts&#34;)
- *                 .version(&#34;latest&#34;)
+ *                 .publisher("Canonical")
+ *                 .offer("0001-com-ubuntu-server-jammy")
+ *                 .sku("22_04-lts")
+ *                 .version("latest")
  *                 .build())
  *             .build());
  * 
- *         var exampleTarget = new Target(&#34;exampleTarget&#34;, TargetArgs.builder()        
+ *         var exampleTarget = new Target("exampleTarget", TargetArgs.builder()        
  *             .location(example.location())
  *             .targetResourceId(exampleLinuxVirtualMachine.id())
- *             .targetType(&#34;Microsoft-VirtualMachine&#34;)
+ *             .targetType("Microsoft-VirtualMachine")
  *             .build());
  * 
- *         var exampleCapability = new Capability(&#34;exampleCapability&#34;, CapabilityArgs.builder()        
+ *         var exampleCapability = new Capability("exampleCapability", CapabilityArgs.builder()        
  *             .chaosStudioTargetId(exampleTarget.id())
- *             .capabilityType(&#34;Shutdown-1.0&#34;)
+ *             .capabilityType("Shutdown-1.0")
  *             .build());
  * 
- *         var exampleExperiment = new Experiment(&#34;exampleExperiment&#34;, ExperimentArgs.builder()        
+ *         var exampleExperiment = new Experiment("exampleExperiment", ExperimentArgs.builder()        
  *             .location(example.location())
- *             .name(&#34;example&#34;)
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .identity(ExperimentIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .selectors(ExperimentSelectorArgs.builder()
- *                 .name(&#34;Selector1&#34;)
+ *                 .name("Selector1")
  *                 .chaosStudioTargetIds(exampleTarget.id())
  *                 .build())
  *             .steps(ExperimentStepArgs.builder()
- *                 .name(&#34;example&#34;)
+ *                 .name("example")
  *                 .branches(ExperimentStepBranchArgs.builder()
- *                     .name(&#34;example&#34;)
+ *                     .name("example")
  *                     .actions(ExperimentStepBranchActionArgs.builder()
  *                         .urn(exampleCapability.capabilityUrn())
- *                         .selectorName(&#34;Selector1&#34;)
- *                         .parameters(Map.of(&#34;abruptShutdown&#34;, &#34;false&#34;))
- *                         .actionType(&#34;continuous&#34;)
- *                         .duration(&#34;PT10M&#34;)
+ *                         .selectorName("Selector1")
+ *                         .parameters(Map.of("abruptShutdown", "false"))
+ *                         .actionType("continuous")
+ *                         .duration("PT10M")
  *                         .build())
  *                     .build())
  *                 .build())
@@ -163,7 +164,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,59 +57,60 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;LoadBalancerRG&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("LoadBalancerRG")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
- *             .name(&#34;PublicIPForLB&#34;)
- *             .location(&#34;West US&#34;)
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *             .name("PublicIPForLB")
+ *             .location("West US")
  *             .resourceGroupName(example.name())
- *             .allocationMethod(&#34;Static&#34;)
+ *             .allocationMethod("Static")
  *             .build());
  * 
- *         var exampleLoadBalancer = new LoadBalancer(&#34;exampleLoadBalancer&#34;, LoadBalancerArgs.builder()        
- *             .name(&#34;TestLoadBalancer&#34;)
- *             .location(&#34;West US&#34;)
+ *         var exampleLoadBalancer = new LoadBalancer("exampleLoadBalancer", LoadBalancerArgs.builder()        
+ *             .name("TestLoadBalancer")
+ *             .location("West US")
  *             .resourceGroupName(example.name())
  *             .frontendIpConfigurations(LoadBalancerFrontendIpConfigurationArgs.builder()
- *                 .name(&#34;PublicIPAddress&#34;)
+ *                 .name("PublicIPAddress")
  *                 .publicIpAddressId(examplePublicIp.id())
  *                 .build())
  *             .build());
  * 
- *         var exampleBackendAddressPool = new BackendAddressPool(&#34;exampleBackendAddressPool&#34;, BackendAddressPoolArgs.builder()        
+ *         var exampleBackendAddressPool = new BackendAddressPool("exampleBackendAddressPool", BackendAddressPoolArgs.builder()        
  *             .resourceGroupName(example.name())
  *             .loadbalancerId(exampleLoadBalancer.id())
- *             .name(&#34;be&#34;)
+ *             .name("be")
  *             .build());
  * 
- *         var exampleNatRule = new NatRule(&#34;exampleNatRule&#34;, NatRuleArgs.builder()        
+ *         var exampleNatRule = new NatRule("exampleNatRule", NatRuleArgs.builder()        
  *             .resourceGroupName(example.name())
  *             .loadbalancerId(exampleLoadBalancer.id())
- *             .name(&#34;RDPAccess&#34;)
- *             .protocol(&#34;Tcp&#34;)
+ *             .name("RDPAccess")
+ *             .protocol("Tcp")
  *             .frontendPort(3389)
  *             .backendPort(3389)
- *             .frontendIpConfigurationName(&#34;PublicIPAddress&#34;)
+ *             .frontendIpConfigurationName("PublicIPAddress")
  *             .build());
  * 
- *         var example1 = new NatRule(&#34;example1&#34;, NatRuleArgs.builder()        
+ *         var example1 = new NatRule("example1", NatRuleArgs.builder()        
  *             .resourceGroupName(example.name())
  *             .loadbalancerId(exampleLoadBalancer.id())
- *             .name(&#34;RDPAccess&#34;)
- *             .protocol(&#34;Tcp&#34;)
+ *             .name("RDPAccess")
+ *             .protocol("Tcp")
  *             .frontendPortStart(3000)
  *             .frontendPortEnd(3389)
  *             .backendPort(3389)
  *             .backendAddressPoolId(exampleBackendAddressPool.id())
- *             .frontendIpConfigurationName(&#34;PublicIPAddress&#34;)
+ *             .frontendIpConfigurationName("PublicIPAddress")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

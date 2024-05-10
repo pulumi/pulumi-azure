@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,59 +51,60 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleDefinition = new Definition(&#34;exampleDefinition&#34;, DefinitionArgs.builder()        
- *             .name(&#34;my-policy-definition&#34;)
- *             .policyType(&#34;Custom&#34;)
- *             .mode(&#34;All&#34;)
- *             .displayName(&#34;my-policy-definition&#34;)
- *             .policyRule(&#34;&#34;&#34;
+ *         var exampleDefinition = new Definition("exampleDefinition", DefinitionArgs.builder()        
+ *             .name("my-policy-definition")
+ *             .policyType("Custom")
+ *             .mode("All")
+ *             .displayName("my-policy-definition")
+ *             .policyRule("""
  *     {
- *     &#34;if&#34;: {
- *       &#34;not&#34;: {
- *         &#34;field&#34;: &#34;location&#34;,
- *         &#34;in&#34;: &#34;[parameters(&#39;allowedLocations&#39;)]&#34;
+ *     "if": {
+ *       "not": {
+ *         "field": "location",
+ *         "in": "[parameters('allowedLocations')]"
  *       }
  *     },
- *     &#34;then&#34;: {
- *       &#34;effect&#34;: &#34;audit&#34;
+ *     "then": {
+ *       "effect": "audit"
  *     }
  *   }
- *             &#34;&#34;&#34;)
- *             .parameters(&#34;&#34;&#34;
+ *             """)
+ *             .parameters("""
  *     {
- *     &#34;allowedLocations&#34;: {
- *       &#34;type&#34;: &#34;Array&#34;,
- *       &#34;metadata&#34;: {
- *         &#34;description&#34;: &#34;The list of allowed locations for resources.&#34;,
- *         &#34;displayName&#34;: &#34;Allowed locations&#34;,
- *         &#34;strongType&#34;: &#34;location&#34;
+ *     "allowedLocations": {
+ *       "type": "Array",
+ *       "metadata": {
+ *         "description": "The list of allowed locations for resources.",
+ *         "displayName": "Allowed locations",
+ *         "strongType": "location"
  *       }
  *     }
  *   }
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
- *         var exampleResourceGroupPolicyAssignment = new ResourceGroupPolicyAssignment(&#34;exampleResourceGroupPolicyAssignment&#34;, ResourceGroupPolicyAssignmentArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleResourceGroupPolicyAssignment = new ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment", ResourceGroupPolicyAssignmentArgs.builder()        
+ *             .name("example")
  *             .resourceGroupId(example.id())
  *             .policyDefinitionId(exampleDefinition.id())
  *             .build());
  * 
- *         var exampleResourceGroupPolicyRemediation = new ResourceGroupPolicyRemediation(&#34;exampleResourceGroupPolicyRemediation&#34;, ResourceGroupPolicyRemediationArgs.builder()        
- *             .name(&#34;example-policy-remediation&#34;)
+ *         var exampleResourceGroupPolicyRemediation = new ResourceGroupPolicyRemediation("exampleResourceGroupPolicyRemediation", ResourceGroupPolicyRemediationArgs.builder()        
+ *             .name("example-policy-remediation")
  *             .resourceGroupId(example.id())
  *             .policyAssignmentId(exampleResourceGroupPolicyAssignment.id())
- *             .locationFilters(&#34;West Europe&#34;)
+ *             .locationFilters("West Europe")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

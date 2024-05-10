@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -64,70 +65,71 @@ import javax.annotation.Nullable;
  *         final var example = CoreFunctions.getSubscription();
  * 
  *         final var exampleGetDefinition = BlueprintFunctions.getDefinition(GetDefinitionArgs.builder()
- *             .name(&#34;exampleBlueprint&#34;)
- *             .scopeId(example.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+ *             .name("exampleBlueprint")
+ *             .scopeId(example.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *             .build());
  * 
  *         final var exampleGetPublishedVersion = BlueprintFunctions.getPublishedVersion(GetPublishedVersionArgs.builder()
- *             .scopeId(exampleGetDefinition.applyValue(getDefinitionResult -&gt; getDefinitionResult.scopeId()))
- *             .blueprintName(exampleGetDefinition.applyValue(getDefinitionResult -&gt; getDefinitionResult.name()))
- *             .version(&#34;v1.0.0&#34;)
+ *             .scopeId(exampleGetDefinition.applyValue(getDefinitionResult -> getDefinitionResult.scopeId()))
+ *             .blueprintName(exampleGetDefinition.applyValue(getDefinitionResult -> getDefinitionResult.name()))
+ *             .version("v1.0.0")
  *             .build());
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;exampleRG-bp&#34;)
- *             .location(&#34;West Europe&#34;)
- *             .tags(Map.of(&#34;Environment&#34;, &#34;example&#34;))
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("exampleRG-bp")
+ *             .location("West Europe")
+ *             .tags(Map.of("Environment", "example"))
  *             .build());
  * 
- *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
- *             .name(&#34;bp-user-example&#34;)
+ *             .name("bp-user-example")
  *             .build());
  * 
- *         var operator = new Assignment(&#34;operator&#34;, AssignmentArgs.builder()        
- *             .scope(example.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
- *             .roleDefinitionName(&#34;Blueprint Operator&#34;)
+ *         var operator = new Assignment("operator", AssignmentArgs.builder()        
+ *             .scope(example.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *             .roleDefinitionName("Blueprint Operator")
  *             .principalId(exampleUserAssignedIdentity.principalId())
  *             .build());
  * 
- *         var owner = new Assignment(&#34;owner&#34;, AssignmentArgs.builder()        
- *             .scope(example.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
- *             .roleDefinitionName(&#34;Owner&#34;)
+ *         var owner = new Assignment("owner", AssignmentArgs.builder()        
+ *             .scope(example.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *             .roleDefinitionName("Owner")
  *             .principalId(exampleUserAssignedIdentity.principalId())
  *             .build());
  * 
- *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
- *             .name(&#34;testAccBPAssignment&#34;)
- *             .targetSubscriptionId(example.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
- *             .versionId(exampleGetPublishedVersion.applyValue(getPublishedVersionResult -&gt; getPublishedVersionResult.id()))
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()        
+ *             .name("testAccBPAssignment")
+ *             .targetSubscriptionId(example.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *             .versionId(exampleGetPublishedVersion.applyValue(getPublishedVersionResult -> getPublishedVersionResult.id()))
  *             .location(exampleResourceGroup.location())
- *             .lockMode(&#34;AllResourcesDoNotDelete&#34;)
- *             .lockExcludePrincipals(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .lockMode("AllResourcesDoNotDelete")
+ *             .lockExcludePrincipals(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *             .identity(AssignmentIdentityArgs.builder()
- *                 .type(&#34;UserAssigned&#34;)
+ *                 .type("UserAssigned")
  *                 .identityIds(exampleUserAssignedIdentity.id())
  *                 .build())
- *             .resourceGroups(&#34;&#34;&#34;
+ *             .resourceGroups("""
  *     {
- *       &#34;ResourceGroup&#34;: {
- *         &#34;name&#34;: &#34;exampleRG-bp&#34;
+ *       "ResourceGroup": {
+ *         "name": "exampleRG-bp"
  *       }
  *     }
- *             &#34;&#34;&#34;)
- *             .parameterValues(&#34;&#34;&#34;
+ *             """)
+ *             .parameterValues("""
  *     {
- *       &#34;allowedlocationsforresourcegroups_listOfAllowedLocations&#34;: {
- *         &#34;value&#34;: [&#34;westus&#34;, &#34;westus2&#34;, &#34;eastus&#34;, &#34;centralus&#34;, &#34;centraluseuap&#34;, &#34;southcentralus&#34;, &#34;northcentralus&#34;, &#34;westcentralus&#34;, &#34;eastus2&#34;, &#34;eastus2euap&#34;, &#34;brazilsouth&#34;, &#34;brazilus&#34;, &#34;northeurope&#34;, &#34;westeurope&#34;, &#34;eastasia&#34;, &#34;southeastasia&#34;, &#34;japanwest&#34;, &#34;japaneast&#34;, &#34;koreacentral&#34;, &#34;koreasouth&#34;, &#34;indiasouth&#34;, &#34;indiawest&#34;, &#34;indiacentral&#34;, &#34;australiaeast&#34;, &#34;australiasoutheast&#34;, &#34;canadacentral&#34;, &#34;canadaeast&#34;, &#34;uknorth&#34;, &#34;uksouth2&#34;, &#34;uksouth&#34;, &#34;ukwest&#34;, &#34;francecentral&#34;, &#34;francesouth&#34;, &#34;australiacentral&#34;, &#34;australiacentral2&#34;, &#34;uaecentral&#34;, &#34;uaenorth&#34;, &#34;southafricanorth&#34;, &#34;southafricawest&#34;, &#34;switzerlandnorth&#34;, &#34;switzerlandwest&#34;, &#34;germanynorth&#34;, &#34;germanywestcentral&#34;, &#34;norwayeast&#34;, &#34;norwaywest&#34;]
+ *       "allowedlocationsforresourcegroups_listOfAllowedLocations": {
+ *         "value": ["westus", "westus2", "eastus", "centralus", "centraluseuap", "southcentralus", "northcentralus", "westcentralus", "eastus2", "eastus2euap", "brazilsouth", "brazilus", "northeurope", "westeurope", "eastasia", "southeastasia", "japanwest", "japaneast", "koreacentral", "koreasouth", "indiasouth", "indiawest", "indiacentral", "australiaeast", "australiasoutheast", "canadacentral", "canadaeast", "uknorth", "uksouth2", "uksouth", "ukwest", "francecentral", "francesouth", "australiacentral", "australiacentral2", "uaecentral", "uaenorth", "southafricanorth", "southafricawest", "switzerlandnorth", "switzerlandwest", "germanynorth", "germanywestcentral", "norwayeast", "norwaywest"]
  *       }
  *     }
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

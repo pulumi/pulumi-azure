@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -63,43 +64,43 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleInsights = new Insights(&#34;exampleInsights&#34;, InsightsArgs.builder()        
- *             .name(&#34;example-appinsights&#34;)
+ *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()        
+ *             .name("example-appinsights")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .applicationType(&#34;web&#34;)
+ *             .applicationType("web")
  *             .build());
  * 
- *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .name(&#34;example-apim&#34;)
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *             .name("example-apim")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .publisherName(&#34;My Company&#34;)
- *             .publisherEmail(&#34;company@mycompany.io&#34;)
- *             .skuName(&#34;Developer_1&#34;)
+ *             .publisherName("My Company")
+ *             .publisherEmail("company{@literal @}mycompany.io")
+ *             .skuName("Developer_1")
  *             .build());
  * 
- *         var exampleApi = new Api(&#34;exampleApi&#34;, ApiArgs.builder()        
- *             .name(&#34;example-api&#34;)
+ *         var exampleApi = new Api("exampleApi", ApiArgs.builder()        
+ *             .name("example-api")
  *             .resourceGroupName(example.name())
  *             .apiManagementName(exampleService.name())
- *             .revision(&#34;1&#34;)
- *             .displayName(&#34;Example API&#34;)
- *             .path(&#34;example&#34;)
- *             .protocols(&#34;https&#34;)
+ *             .revision("1")
+ *             .displayName("Example API")
+ *             .path("example")
+ *             .protocols("https")
  *             .import_(ApiImportArgs.builder()
- *                 .contentFormat(&#34;swagger-link-json&#34;)
- *                 .contentValue(&#34;http://conferenceapi.azurewebsites.net/?format=json&#34;)
+ *                 .contentFormat("swagger-link-json")
+ *                 .contentValue("http://conferenceapi.azurewebsites.net/?format=json")
  *                 .build())
  *             .build());
  * 
- *         var exampleLogger = new Logger(&#34;exampleLogger&#34;, LoggerArgs.builder()        
- *             .name(&#34;example-apimlogger&#34;)
+ *         var exampleLogger = new Logger("exampleLogger", LoggerArgs.builder()        
+ *             .name("example-apimlogger")
  *             .apiManagementName(exampleService.name())
  *             .resourceGroupName(example.name())
  *             .applicationInsights(LoggerApplicationInsightsArgs.builder()
@@ -107,8 +108,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleApiDiagnostic = new ApiDiagnostic(&#34;exampleApiDiagnostic&#34;, ApiDiagnosticArgs.builder()        
- *             .identifier(&#34;applicationinsights&#34;)
+ *         var exampleApiDiagnostic = new ApiDiagnostic("exampleApiDiagnostic", ApiDiagnosticArgs.builder()        
+ *             .identifier("applicationinsights")
  *             .resourceGroupName(example.name())
  *             .apiManagementName(exampleService.name())
  *             .apiName(exampleApi.name())
@@ -116,41 +117,42 @@ import javax.annotation.Nullable;
  *             .samplingPercentage(5)
  *             .alwaysLogErrors(true)
  *             .logClientIp(true)
- *             .verbosity(&#34;verbose&#34;)
- *             .httpCorrelationProtocol(&#34;W3C&#34;)
+ *             .verbosity("verbose")
+ *             .httpCorrelationProtocol("W3C")
  *             .frontendRequest(ApiDiagnosticFrontendRequestArgs.builder()
  *                 .bodyBytes(32)
  *                 .headersToLogs(                
- *                     &#34;content-type&#34;,
- *                     &#34;accept&#34;,
- *                     &#34;origin&#34;)
+ *                     "content-type",
+ *                     "accept",
+ *                     "origin")
  *                 .build())
  *             .frontendResponse(ApiDiagnosticFrontendResponseArgs.builder()
  *                 .bodyBytes(32)
  *                 .headersToLogs(                
- *                     &#34;content-type&#34;,
- *                     &#34;content-length&#34;,
- *                     &#34;origin&#34;)
+ *                     "content-type",
+ *                     "content-length",
+ *                     "origin")
  *                 .build())
  *             .backendRequest(ApiDiagnosticBackendRequestArgs.builder()
  *                 .bodyBytes(32)
  *                 .headersToLogs(                
- *                     &#34;content-type&#34;,
- *                     &#34;accept&#34;,
- *                     &#34;origin&#34;)
+ *                     "content-type",
+ *                     "accept",
+ *                     "origin")
  *                 .build())
  *             .backendResponse(ApiDiagnosticBackendResponseArgs.builder()
  *                 .bodyBytes(32)
  *                 .headersToLogs(                
- *                     &#34;content-type&#34;,
- *                     &#34;content-length&#34;,
- *                     &#34;origin&#34;)
+ *                     "content-type",
+ *                     "content-length",
+ *                     "origin")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

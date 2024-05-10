@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,26 +47,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;rg-example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("rg-example")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleLocalRulestack = new LocalRulestack(&#34;exampleLocalRulestack&#34;, LocalRulestackArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleLocalRulestack = new LocalRulestack("exampleLocalRulestack", LocalRulestackArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleLocalRulestackPrefixList = new LocalRulestackPrefixList(&#34;exampleLocalRulestackPrefixList&#34;, LocalRulestackPrefixListArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleLocalRulestackPrefixList = new LocalRulestackPrefixList("exampleLocalRulestackPrefixList", LocalRulestackPrefixListArgs.builder()        
+ *             .name("example")
  *             .rulestackId(exampleLocalRulestack.id())
- *             .prefixLists(&#34;10.0.1.0/24&#34;)
+ *             .prefixLists("10.0.1.0/24")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

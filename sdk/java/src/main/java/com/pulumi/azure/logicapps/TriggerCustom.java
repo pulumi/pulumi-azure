@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,34 +45,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;workflow-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("workflow-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleWorkflow = new Workflow(&#34;exampleWorkflow&#34;, WorkflowArgs.builder()        
- *             .name(&#34;workflow1&#34;)
+ *         var exampleWorkflow = new Workflow("exampleWorkflow", WorkflowArgs.builder()        
+ *             .name("workflow1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleTriggerCustom = new TriggerCustom(&#34;exampleTriggerCustom&#34;, TriggerCustomArgs.builder()        
- *             .name(&#34;example-trigger&#34;)
+ *         var exampleTriggerCustom = new TriggerCustom("exampleTriggerCustom", TriggerCustomArgs.builder()        
+ *             .name("example-trigger")
  *             .logicAppId(exampleWorkflow.id())
- *             .body(&#34;&#34;&#34;
+ *             .body("""
  * {
- *   &#34;recurrence&#34;: {
- *     &#34;frequency&#34;: &#34;Day&#34;,
- *     &#34;interval&#34;: 1
+ *   "recurrence": {
+ *     "frequency": "Day",
+ *     "interval": 1
  *   },
- *   &#34;type&#34;: &#34;Recurrence&#34;
+ *   "type": "Recurrence"
  * }
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

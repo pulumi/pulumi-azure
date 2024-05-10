@@ -32,7 +32,8 @@ import javax.annotation.Nullable;
  * and an on-premises VPN device and network.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -66,69 +67,70 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;test&#34;)
- *             .location(&#34;West US&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("test")
+ *             .location("West US")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;test&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("test")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *             .addressSpaces("10.0.0.0/16")
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;GatewaySubnet&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("GatewaySubnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.1.0/24&#34;)
+ *             .addressPrefixes("10.0.1.0/24")
  *             .build());
  * 
- *         var onpremise = new LocalNetworkGateway(&#34;onpremise&#34;, LocalNetworkGatewayArgs.builder()        
- *             .name(&#34;onpremise&#34;)
+ *         var onpremise = new LocalNetworkGateway("onpremise", LocalNetworkGatewayArgs.builder()        
+ *             .name("onpremise")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .gatewayAddress(&#34;168.62.225.23&#34;)
- *             .addressSpaces(&#34;10.1.1.0/24&#34;)
+ *             .gatewayAddress("168.62.225.23")
+ *             .addressSpaces("10.1.1.0/24")
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
- *             .name(&#34;test&#34;)
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *             .name("test")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .allocationMethod(&#34;Dynamic&#34;)
+ *             .allocationMethod("Dynamic")
  *             .build());
  * 
- *         var exampleVirtualNetworkGateway = new VirtualNetworkGateway(&#34;exampleVirtualNetworkGateway&#34;, VirtualNetworkGatewayArgs.builder()        
- *             .name(&#34;test&#34;)
+ *         var exampleVirtualNetworkGateway = new VirtualNetworkGateway("exampleVirtualNetworkGateway", VirtualNetworkGatewayArgs.builder()        
+ *             .name("test")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .type(&#34;Vpn&#34;)
- *             .vpnType(&#34;RouteBased&#34;)
+ *             .type("Vpn")
+ *             .vpnType("RouteBased")
  *             .activeActive(false)
  *             .enableBgp(false)
- *             .sku(&#34;Basic&#34;)
+ *             .sku("Basic")
  *             .ipConfigurations(VirtualNetworkGatewayIpConfigurationArgs.builder()
  *                 .publicIpAddressId(examplePublicIp.id())
- *                 .privateIpAddressAllocation(&#34;Dynamic&#34;)
+ *                 .privateIpAddressAllocation("Dynamic")
  *                 .subnetId(exampleSubnet.id())
  *                 .build())
  *             .build());
  * 
- *         var onpremiseVirtualNetworkGatewayConnection = new VirtualNetworkGatewayConnection(&#34;onpremiseVirtualNetworkGatewayConnection&#34;, VirtualNetworkGatewayConnectionArgs.builder()        
- *             .name(&#34;onpremise&#34;)
+ *         var onpremiseVirtualNetworkGatewayConnection = new VirtualNetworkGatewayConnection("onpremiseVirtualNetworkGatewayConnection", VirtualNetworkGatewayConnectionArgs.builder()        
+ *             .name("onpremise")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .type(&#34;IPsec&#34;)
+ *             .type("IPsec")
  *             .virtualNetworkGatewayId(exampleVirtualNetworkGateway.id())
  *             .localNetworkGatewayId(onpremise.id())
- *             .sharedKey(&#34;4-v3ry-53cr37-1p53c-5h4r3d-k3y&#34;)
+ *             .sharedKey("4-v3ry-53cr37-1p53c-5h4r3d-k3y")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### VNet-to-VNet connection
@@ -137,7 +139,8 @@ import javax.annotation.Nullable;
  * in different locations/regions.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -169,109 +172,110 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var us = new ResourceGroup(&#34;us&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;us&#34;)
- *             .location(&#34;East US&#34;)
+ *         var us = new ResourceGroup("us", ResourceGroupArgs.builder()        
+ *             .name("us")
+ *             .location("East US")
  *             .build());
  * 
- *         var usVirtualNetwork = new VirtualNetwork(&#34;usVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;us&#34;)
+ *         var usVirtualNetwork = new VirtualNetwork("usVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("us")
  *             .location(us.location())
  *             .resourceGroupName(us.name())
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *             .addressSpaces("10.0.0.0/16")
  *             .build());
  * 
- *         var usGateway = new Subnet(&#34;usGateway&#34;, SubnetArgs.builder()        
- *             .name(&#34;GatewaySubnet&#34;)
+ *         var usGateway = new Subnet("usGateway", SubnetArgs.builder()        
+ *             .name("GatewaySubnet")
  *             .resourceGroupName(us.name())
  *             .virtualNetworkName(usVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.1.0/24&#34;)
+ *             .addressPrefixes("10.0.1.0/24")
  *             .build());
  * 
- *         var usPublicIp = new PublicIp(&#34;usPublicIp&#34;, PublicIpArgs.builder()        
- *             .name(&#34;us&#34;)
+ *         var usPublicIp = new PublicIp("usPublicIp", PublicIpArgs.builder()        
+ *             .name("us")
  *             .location(us.location())
  *             .resourceGroupName(us.name())
- *             .allocationMethod(&#34;Dynamic&#34;)
+ *             .allocationMethod("Dynamic")
  *             .build());
  * 
- *         var usVirtualNetworkGateway = new VirtualNetworkGateway(&#34;usVirtualNetworkGateway&#34;, VirtualNetworkGatewayArgs.builder()        
- *             .name(&#34;us-gateway&#34;)
+ *         var usVirtualNetworkGateway = new VirtualNetworkGateway("usVirtualNetworkGateway", VirtualNetworkGatewayArgs.builder()        
+ *             .name("us-gateway")
  *             .location(us.location())
  *             .resourceGroupName(us.name())
- *             .type(&#34;Vpn&#34;)
- *             .vpnType(&#34;RouteBased&#34;)
- *             .sku(&#34;Basic&#34;)
+ *             .type("Vpn")
+ *             .vpnType("RouteBased")
+ *             .sku("Basic")
  *             .ipConfigurations(VirtualNetworkGatewayIpConfigurationArgs.builder()
  *                 .publicIpAddressId(usPublicIp.id())
- *                 .privateIpAddressAllocation(&#34;Dynamic&#34;)
+ *                 .privateIpAddressAllocation("Dynamic")
  *                 .subnetId(usGateway.id())
  *                 .build())
  *             .build());
  * 
- *         var europe = new ResourceGroup(&#34;europe&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;europe&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var europe = new ResourceGroup("europe", ResourceGroupArgs.builder()        
+ *             .name("europe")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var europeVirtualNetwork = new VirtualNetwork(&#34;europeVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;europe&#34;)
+ *         var europeVirtualNetwork = new VirtualNetwork("europeVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("europe")
  *             .location(europe.location())
  *             .resourceGroupName(europe.name())
- *             .addressSpaces(&#34;10.1.0.0/16&#34;)
+ *             .addressSpaces("10.1.0.0/16")
  *             .build());
  * 
- *         var europeGateway = new Subnet(&#34;europeGateway&#34;, SubnetArgs.builder()        
- *             .name(&#34;GatewaySubnet&#34;)
+ *         var europeGateway = new Subnet("europeGateway", SubnetArgs.builder()        
+ *             .name("GatewaySubnet")
  *             .resourceGroupName(europe.name())
  *             .virtualNetworkName(europeVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.1.1.0/24&#34;)
+ *             .addressPrefixes("10.1.1.0/24")
  *             .build());
  * 
- *         var europePublicIp = new PublicIp(&#34;europePublicIp&#34;, PublicIpArgs.builder()        
- *             .name(&#34;europe&#34;)
+ *         var europePublicIp = new PublicIp("europePublicIp", PublicIpArgs.builder()        
+ *             .name("europe")
  *             .location(europe.location())
  *             .resourceGroupName(europe.name())
- *             .allocationMethod(&#34;Dynamic&#34;)
+ *             .allocationMethod("Dynamic")
  *             .build());
  * 
- *         var europeVirtualNetworkGateway = new VirtualNetworkGateway(&#34;europeVirtualNetworkGateway&#34;, VirtualNetworkGatewayArgs.builder()        
- *             .name(&#34;europe-gateway&#34;)
+ *         var europeVirtualNetworkGateway = new VirtualNetworkGateway("europeVirtualNetworkGateway", VirtualNetworkGatewayArgs.builder()        
+ *             .name("europe-gateway")
  *             .location(europe.location())
  *             .resourceGroupName(europe.name())
- *             .type(&#34;Vpn&#34;)
- *             .vpnType(&#34;RouteBased&#34;)
- *             .sku(&#34;Basic&#34;)
+ *             .type("Vpn")
+ *             .vpnType("RouteBased")
+ *             .sku("Basic")
  *             .ipConfigurations(VirtualNetworkGatewayIpConfigurationArgs.builder()
  *                 .publicIpAddressId(europePublicIp.id())
- *                 .privateIpAddressAllocation(&#34;Dynamic&#34;)
+ *                 .privateIpAddressAllocation("Dynamic")
  *                 .subnetId(europeGateway.id())
  *                 .build())
  *             .build());
  * 
- *         var usToEurope = new VirtualNetworkGatewayConnection(&#34;usToEurope&#34;, VirtualNetworkGatewayConnectionArgs.builder()        
- *             .name(&#34;us-to-europe&#34;)
+ *         var usToEurope = new VirtualNetworkGatewayConnection("usToEurope", VirtualNetworkGatewayConnectionArgs.builder()        
+ *             .name("us-to-europe")
  *             .location(us.location())
  *             .resourceGroupName(us.name())
- *             .type(&#34;Vnet2Vnet&#34;)
+ *             .type("Vnet2Vnet")
  *             .virtualNetworkGatewayId(usVirtualNetworkGateway.id())
  *             .peerVirtualNetworkGatewayId(europeVirtualNetworkGateway.id())
- *             .sharedKey(&#34;4-v3ry-53cr37-1p53c-5h4r3d-k3y&#34;)
+ *             .sharedKey("4-v3ry-53cr37-1p53c-5h4r3d-k3y")
  *             .build());
  * 
- *         var europeToUs = new VirtualNetworkGatewayConnection(&#34;europeToUs&#34;, VirtualNetworkGatewayConnectionArgs.builder()        
- *             .name(&#34;europe-to-us&#34;)
+ *         var europeToUs = new VirtualNetworkGatewayConnection("europeToUs", VirtualNetworkGatewayConnectionArgs.builder()        
+ *             .name("europe-to-us")
  *             .location(europe.location())
  *             .resourceGroupName(europe.name())
- *             .type(&#34;Vnet2Vnet&#34;)
+ *             .type("Vnet2Vnet")
  *             .virtualNetworkGatewayId(europeVirtualNetworkGateway.id())
  *             .peerVirtualNetworkGatewayId(usVirtualNetworkGateway.id())
- *             .sharedKey(&#34;4-v3ry-53cr37-1p53c-5h4r3d-k3y&#34;)
+ *             .sharedKey("4-v3ry-53cr37-1p53c-5h4r3d-k3y")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

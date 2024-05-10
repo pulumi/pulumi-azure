@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,44 +52,45 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
- *             .name(&#34;example-workspace&#34;)
+ *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()        
+ *             .name("example-workspace")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .sku(&#34;pergb2018&#34;)
+ *             .sku("pergb2018")
  *             .build());
  * 
- *         var exampleAnalyticsSolution = new AnalyticsSolution(&#34;exampleAnalyticsSolution&#34;, AnalyticsSolutionArgs.builder()        
- *             .solutionName(&#34;SecurityInsights&#34;)
+ *         var exampleAnalyticsSolution = new AnalyticsSolution("exampleAnalyticsSolution", AnalyticsSolutionArgs.builder()        
+ *             .solutionName("SecurityInsights")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .workspaceResourceId(exampleAnalyticsWorkspace.id())
  *             .workspaceName(exampleAnalyticsWorkspace.name())
  *             .plan(AnalyticsSolutionPlanArgs.builder()
- *                 .publisher(&#34;Microsoft&#34;)
- *                 .product(&#34;OMSGallery/SecurityInsights&#34;)
+ *                 .publisher("Microsoft")
+ *                 .product("OMSGallery/SecurityInsights")
  *                 .build())
  *             .build());
  * 
  *         final var example = SentinelFunctions.getAlertRuleTemplate(GetAlertRuleTemplateArgs.builder()
- *             .displayName(&#34;(Preview) Microsoft Defender Threat Intelligence Analytics&#34;)
+ *             .displayName("(Preview) Microsoft Defender Threat Intelligence Analytics")
  *             .logAnalyticsWorkspaceId(exampleAnalyticsSolution.workspaceResourceId())
  *             .build());
  * 
- *         var exampleAlertRuleThreatIntelligence = new AlertRuleThreatIntelligence(&#34;exampleAlertRuleThreatIntelligence&#34;, AlertRuleThreatIntelligenceArgs.builder()        
- *             .name(&#34;example-rule&#34;)
+ *         var exampleAlertRuleThreatIntelligence = new AlertRuleThreatIntelligence("exampleAlertRuleThreatIntelligence", AlertRuleThreatIntelligenceArgs.builder()        
+ *             .name("example-rule")
  *             .logAnalyticsWorkspaceId(exampleAnalyticsSolution.workspaceResourceId())
- *             .alertRuleTemplateGuid(example.applyValue(getAlertRuleTemplateResult -&gt; getAlertRuleTemplateResult).applyValue(example -&gt; example.applyValue(getAlertRuleTemplateResult -&gt; getAlertRuleTemplateResult.name())))
+ *             .alertRuleTemplateGuid(example.applyValue(getAlertRuleTemplateResult -> getAlertRuleTemplateResult).applyValue(example -> example.applyValue(getAlertRuleTemplateResult -> getAlertRuleTemplateResult.name())))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

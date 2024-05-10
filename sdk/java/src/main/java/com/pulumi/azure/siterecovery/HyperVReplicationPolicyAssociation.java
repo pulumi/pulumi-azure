@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,40 +49,41 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-rg&#34;)
- *             .location(&#34;East US&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-rg")
+ *             .location("East US")
  *             .build());
  * 
- *         var exampleVault = new Vault(&#34;exampleVault&#34;, VaultArgs.builder()        
- *             .name(&#34;example-recovery-vault&#34;)
+ *         var exampleVault = new Vault("exampleVault", VaultArgs.builder()        
+ *             .name("example-recovery-vault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;Standard&#34;)
+ *             .sku("Standard")
  *             .build());
  * 
- *         var exampleHyperVSite = new HyperVSite(&#34;exampleHyperVSite&#34;, HyperVSiteArgs.builder()        
+ *         var exampleHyperVSite = new HyperVSite("exampleHyperVSite", HyperVSiteArgs.builder()        
  *             .recoveryVaultId(exampleVault.id())
- *             .name(&#34;example-site&#34;)
+ *             .name("example-site")
  *             .build());
  * 
- *         var exampleHyperVReplicationPolicy = new HyperVReplicationPolicy(&#34;exampleHyperVReplicationPolicy&#34;, HyperVReplicationPolicyArgs.builder()        
- *             .name(&#34;policy&#34;)
+ *         var exampleHyperVReplicationPolicy = new HyperVReplicationPolicy("exampleHyperVReplicationPolicy", HyperVReplicationPolicyArgs.builder()        
+ *             .name("policy")
  *             .recoveryVaultId(exampleVault.id())
  *             .recoveryPointRetentionInHours(2)
  *             .applicationConsistentSnapshotFrequencyInHours(1)
  *             .replicationIntervalInSeconds(300)
  *             .build());
  * 
- *         var exampleHyperVReplicationPolicyAssociation = new HyperVReplicationPolicyAssociation(&#34;exampleHyperVReplicationPolicyAssociation&#34;, HyperVReplicationPolicyAssociationArgs.builder()        
- *             .name(&#34;example-association&#34;)
+ *         var exampleHyperVReplicationPolicyAssociation = new HyperVReplicationPolicyAssociation("exampleHyperVReplicationPolicyAssociation", HyperVReplicationPolicyAssociationArgs.builder()        
+ *             .name("example-association")
  *             .hypervSiteId(exampleHyperVSite.id())
  *             .policyId(exampleHyperVReplicationPolicy.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

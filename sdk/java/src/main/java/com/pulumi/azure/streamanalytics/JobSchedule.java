@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -57,93 +58,94 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleContainer = new Container(&#34;exampleContainer&#34;, ContainerArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()        
+ *             .name("example")
  *             .storageAccountName(exampleAccount.name())
- *             .containerAccessType(&#34;private&#34;)
+ *             .containerAccessType("private")
  *             .build());
  * 
- *         var exampleBlob = new Blob(&#34;exampleBlob&#34;, BlobArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleBlob = new Blob("exampleBlob", BlobArgs.builder()        
+ *             .name("example")
  *             .storageAccountName(exampleAccount.name())
  *             .storageContainerName(exampleContainer.name())
- *             .type(&#34;Block&#34;)
- *             .source(new FileAsset(&#34;example.csv&#34;))
+ *             .type("Block")
+ *             .source(new FileAsset("example.csv"))
  *             .build());
  * 
- *         var exampleJob = new Job(&#34;exampleJob&#34;, JobArgs.builder()        
- *             .name(&#34;example-job&#34;)
+ *         var exampleJob = new Job("exampleJob", JobArgs.builder()        
+ *             .name("example-job")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .compatibilityLevel(&#34;1.2&#34;)
- *             .dataLocale(&#34;en-GB&#34;)
+ *             .compatibilityLevel("1.2")
+ *             .dataLocale("en-GB")
  *             .eventsLateArrivalMaxDelayInSeconds(60)
  *             .eventsOutOfOrderMaxDelayInSeconds(50)
- *             .eventsOutOfOrderPolicy(&#34;Adjust&#34;)
- *             .outputErrorPolicy(&#34;Drop&#34;)
+ *             .eventsOutOfOrderPolicy("Adjust")
+ *             .outputErrorPolicy("Drop")
  *             .streamingUnits(3)
- *             .tags(Map.of(&#34;environment&#34;, &#34;Example&#34;))
- *             .transformationQuery(&#34;&#34;&#34;
+ *             .tags(Map.of("environment", "Example"))
+ *             .transformationQuery("""
  *     SELECT *
  *     INTO [exampleoutput]
  *     FROM [exampleinput]
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
- *         var exampleStreamInputBlob = new StreamInputBlob(&#34;exampleStreamInputBlob&#34;, StreamInputBlobArgs.builder()        
- *             .name(&#34;exampleinput&#34;)
+ *         var exampleStreamInputBlob = new StreamInputBlob("exampleStreamInputBlob", StreamInputBlobArgs.builder()        
+ *             .name("exampleinput")
  *             .streamAnalyticsJobName(exampleJob.name())
  *             .resourceGroupName(exampleJob.resourceGroupName())
  *             .storageAccountName(exampleAccount.name())
  *             .storageAccountKey(exampleAccount.primaryAccessKey())
  *             .storageContainerName(exampleContainer.name())
- *             .pathPattern(&#34;&#34;)
- *             .dateFormat(&#34;yyyy/MM/dd&#34;)
- *             .timeFormat(&#34;HH&#34;)
+ *             .pathPattern("")
+ *             .dateFormat("yyyy/MM/dd")
+ *             .timeFormat("HH")
  *             .serialization(StreamInputBlobSerializationArgs.builder()
- *                 .type(&#34;Csv&#34;)
- *                 .encoding(&#34;UTF8&#34;)
- *                 .fieldDelimiter(&#34;,&#34;)
+ *                 .type("Csv")
+ *                 .encoding("UTF8")
+ *                 .fieldDelimiter(",")
  *                 .build())
  *             .build());
  * 
- *         var exampleOutputBlob = new OutputBlob(&#34;exampleOutputBlob&#34;, OutputBlobArgs.builder()        
- *             .name(&#34;exampleoutput&#34;)
+ *         var exampleOutputBlob = new OutputBlob("exampleOutputBlob", OutputBlobArgs.builder()        
+ *             .name("exampleoutput")
  *             .streamAnalyticsJobName(exampleJob.name())
  *             .resourceGroupName(exampleJob.resourceGroupName())
  *             .storageAccountName(exampleAccount.name())
  *             .storageAccountKey(exampleAccount.primaryAccessKey())
  *             .storageContainerName(exampleContainer.name())
- *             .pathPattern(&#34;example-{date}-{time}&#34;)
- *             .dateFormat(&#34;yyyy-MM-dd&#34;)
- *             .timeFormat(&#34;HH&#34;)
+ *             .pathPattern("example-{date}-{time}")
+ *             .dateFormat("yyyy-MM-dd")
+ *             .timeFormat("HH")
  *             .serialization(OutputBlobSerializationArgs.builder()
- *                 .type(&#34;Avro&#34;)
+ *                 .type("Avro")
  *                 .build())
  *             .build());
  * 
- *         var exampleJobSchedule = new JobSchedule(&#34;exampleJobSchedule&#34;, JobScheduleArgs.builder()        
+ *         var exampleJobSchedule = new JobSchedule("exampleJobSchedule", JobScheduleArgs.builder()        
  *             .streamAnalyticsJobId(exampleJob.id())
- *             .startMode(&#34;CustomTime&#34;)
- *             .startTime(&#34;2022-09-21T00:00:00Z&#34;)
+ *             .startMode("CustomTime")
+ *             .startTime("2022-09-21T00:00:00Z")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

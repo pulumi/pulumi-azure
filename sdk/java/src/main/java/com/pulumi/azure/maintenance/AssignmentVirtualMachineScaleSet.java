@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -73,128 +74,128 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-network&#34;)
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example-network")
+ *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;internal&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("internal")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
+ *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
  *             .name(example.name())
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .allocationMethod(&#34;Static&#34;)
+ *             .allocationMethod("Static")
  *             .build());
  * 
- *         var exampleLoadBalancer = new LoadBalancer(&#34;exampleLoadBalancer&#34;, LoadBalancerArgs.builder()        
+ *         var exampleLoadBalancer = new LoadBalancer("exampleLoadBalancer", LoadBalancerArgs.builder()        
  *             .name(example.name())
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .frontendIpConfigurations(LoadBalancerFrontendIpConfigurationArgs.builder()
- *                 .name(&#34;internal&#34;)
+ *                 .name("internal")
  *                 .publicIpAddressId(examplePublicIp.id())
  *                 .build())
  *             .build());
  * 
- *         var exampleBackendAddressPool = new BackendAddressPool(&#34;exampleBackendAddressPool&#34;, BackendAddressPoolArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleBackendAddressPool = new BackendAddressPool("exampleBackendAddressPool", BackendAddressPoolArgs.builder()        
+ *             .name("example")
  *             .loadbalancerId(exampleLoadBalancer.id())
  *             .build());
  * 
- *         var exampleProbe = new Probe(&#34;exampleProbe&#34;, ProbeArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleProbe = new Probe("exampleProbe", ProbeArgs.builder()        
+ *             .name("example")
  *             .loadbalancerId(exampleLoadBalancer.id())
  *             .port(22)
- *             .protocol(&#34;Tcp&#34;)
+ *             .protocol("Tcp")
  *             .build());
  * 
- *         var exampleRule = new Rule(&#34;exampleRule&#34;, RuleArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleRule = new Rule("exampleRule", RuleArgs.builder()        
+ *             .name("example")
  *             .loadbalancerId(exampleLoadBalancer.id())
  *             .probeId(exampleProbe.id())
- *             .frontendIpConfigurationName(&#34;internal&#34;)
- *             .protocol(&#34;Tcp&#34;)
+ *             .frontendIpConfigurationName("internal")
+ *             .protocol("Tcp")
  *             .frontendPort(22)
  *             .backendPort(22)
  *             .build());
  * 
- *         var exampleConfiguration = new Configuration(&#34;exampleConfiguration&#34;, ConfigurationArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleConfiguration = new Configuration("exampleConfiguration", ConfigurationArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .scope(&#34;OSImage&#34;)
- *             .visibility(&#34;Custom&#34;)
+ *             .scope("OSImage")
+ *             .visibility("Custom")
  *             .window(ConfigurationWindowArgs.builder()
- *                 .startDateTime(&#34;2021-12-31 00:00&#34;)
- *                 .expirationDateTime(&#34;9999-12-31 00:00&#34;)
- *                 .duration(&#34;06:00&#34;)
- *                 .timeZone(&#34;Pacific Standard Time&#34;)
- *                 .recurEvery(&#34;1Days&#34;)
+ *                 .startDateTime("2021-12-31 00:00")
+ *                 .expirationDateTime("9999-12-31 00:00")
+ *                 .duration("06:00")
+ *                 .timeZone("Pacific Standard Time")
+ *                 .recurEvery("1Days")
  *                 .build())
  *             .build());
  * 
- *         var exampleNetworkInterface = new NetworkInterface(&#34;exampleNetworkInterface&#34;, NetworkInterfaceArgs.builder()        
- *             .name(&#34;sample-nic&#34;)
+ *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()        
+ *             .name("sample-nic")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
- *                 .name(&#34;testconfiguration1&#34;)
- *                 .privateIpAddressAllocation(&#34;Dynamic&#34;)
+ *                 .name("testconfiguration1")
+ *                 .privateIpAddressAllocation("Dynamic")
  *                 .build())
  *             .build());
  * 
- *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine(&#34;exampleLinuxVirtualMachine&#34;, LinuxVirtualMachineArgs.builder()        
- *             .name(&#34;example-machine&#34;)
+ *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine("exampleLinuxVirtualMachine", LinuxVirtualMachineArgs.builder()        
+ *             .name("example-machine")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .size(&#34;Standard_F2&#34;)
- *             .adminUsername(&#34;adminuser&#34;)
+ *             .size("Standard_F2")
+ *             .adminUsername("adminuser")
  *             .networkInterfaceIds(exampleNetworkInterface.id())
  *             .osDisk(LinuxVirtualMachineOsDiskArgs.builder()
- *                 .caching(&#34;ReadWrite&#34;)
- *                 .storageAccountType(&#34;Standard_LRS&#34;)
+ *                 .caching("ReadWrite")
+ *                 .storageAccountType("Standard_LRS")
  *                 .build())
  *             .build());
  * 
- *         var exampleLinuxVirtualMachineScaleSet = new LinuxVirtualMachineScaleSet(&#34;exampleLinuxVirtualMachineScaleSet&#34;, LinuxVirtualMachineScaleSetArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleLinuxVirtualMachineScaleSet = new LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", LinuxVirtualMachineScaleSetArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .sku(&#34;Standard_F2&#34;)
+ *             .sku("Standard_F2")
  *             .instances(1)
- *             .adminUsername(&#34;adminuser&#34;)
- *             .adminPassword(&#34;P@ssword1234!&#34;)
- *             .upgradeMode(&#34;Automatic&#34;)
+ *             .adminUsername("adminuser")
+ *             .adminPassword("P{@literal @}ssword1234!")
+ *             .upgradeMode("Automatic")
  *             .healthProbeId(exampleProbe.id())
  *             .disablePasswordAuthentication(false)
  *             .sourceImageReference(LinuxVirtualMachineScaleSetSourceImageReferenceArgs.builder()
- *                 .publisher(&#34;Canonical&#34;)
- *                 .offer(&#34;0001-com-ubuntu-server-jammy&#34;)
- *                 .sku(&#34;22_04-lts&#34;)
- *                 .version(&#34;latest&#34;)
+ *                 .publisher("Canonical")
+ *                 .offer("0001-com-ubuntu-server-jammy")
+ *                 .sku("22_04-lts")
+ *                 .version("latest")
  *                 .build())
  *             .osDisk(LinuxVirtualMachineScaleSetOsDiskArgs.builder()
- *                 .storageAccountType(&#34;Standard_LRS&#34;)
- *                 .caching(&#34;ReadWrite&#34;)
+ *                 .storageAccountType("Standard_LRS")
+ *                 .caching("ReadWrite")
  *                 .build())
  *             .networkInterfaces(LinuxVirtualMachineScaleSetNetworkInterfaceArgs.builder()
- *                 .name(&#34;example&#34;)
+ *                 .name("example")
  *                 .primary(true)
  *                 .ipConfigurations(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs.builder()
- *                     .name(&#34;internal&#34;)
+ *                     .name("internal")
  *                     .primary(true)
  *                     .subnetId(exampleSubnet.id())
  *                     .loadBalancerBackendAddressPoolIds(exampleBackendAddressPool.id())
@@ -208,11 +209,11 @@ import javax.annotation.Nullable;
  *                 .maxBatchInstancePercent(20)
  *                 .maxUnhealthyInstancePercent(20)
  *                 .maxUnhealthyUpgradedInstancePercent(20)
- *                 .pauseTimeBetweenBatches(&#34;PT0S&#34;)
+ *                 .pauseTimeBetweenBatches("PT0S")
  *                 .build())
  *             .build());
  * 
- *         var exampleAssignmentVirtualMachineScaleSet = new AssignmentVirtualMachineScaleSet(&#34;exampleAssignmentVirtualMachineScaleSet&#34;, AssignmentVirtualMachineScaleSetArgs.builder()        
+ *         var exampleAssignmentVirtualMachineScaleSet = new AssignmentVirtualMachineScaleSet("exampleAssignmentVirtualMachineScaleSet", AssignmentVirtualMachineScaleSetArgs.builder()        
  *             .location(example.location())
  *             .maintenanceConfigurationId(exampleConfiguration.id())
  *             .virtualMachineScaleSetId(exampleLinuxVirtualMachine.id())
@@ -220,7 +221,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

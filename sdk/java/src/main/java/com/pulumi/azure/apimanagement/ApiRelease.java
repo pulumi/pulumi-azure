@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,42 +49,43 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .name(&#34;example-apim&#34;)
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *             .name("example-apim")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .publisherName(&#34;My Company&#34;)
- *             .publisherEmail(&#34;company@terraform.io&#34;)
- *             .skuName(&#34;Developer_1&#34;)
+ *             .publisherName("My Company")
+ *             .publisherEmail("company{@literal @}terraform.io")
+ *             .skuName("Developer_1")
  *             .build());
  * 
- *         var exampleApi = new Api(&#34;exampleApi&#34;, ApiArgs.builder()        
- *             .name(&#34;example-api&#34;)
+ *         var exampleApi = new Api("exampleApi", ApiArgs.builder()        
+ *             .name("example-api")
  *             .resourceGroupName(example.name())
  *             .apiManagementName(exampleService.name())
- *             .revision(&#34;1&#34;)
- *             .displayName(&#34;Example API&#34;)
- *             .path(&#34;example&#34;)
- *             .protocols(&#34;https&#34;)
+ *             .revision("1")
+ *             .displayName("Example API")
+ *             .path("example")
+ *             .protocols("https")
  *             .import_(ApiImportArgs.builder()
- *                 .contentFormat(&#34;swagger-link-json&#34;)
- *                 .contentValue(&#34;http://conferenceapi.azurewebsites.net/?format=json&#34;)
+ *                 .contentFormat("swagger-link-json")
+ *                 .contentValue("http://conferenceapi.azurewebsites.net/?format=json")
  *                 .build())
  *             .build());
  * 
- *         var exampleApiRelease = new ApiRelease(&#34;exampleApiRelease&#34;, ApiReleaseArgs.builder()        
- *             .name(&#34;example-Api-Release&#34;)
+ *         var exampleApiRelease = new ApiRelease("exampleApiRelease", ApiReleaseArgs.builder()        
+ *             .name("example-Api-Release")
  *             .apiId(exampleApi.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

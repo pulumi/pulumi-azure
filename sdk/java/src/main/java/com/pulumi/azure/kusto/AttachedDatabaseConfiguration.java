@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,65 +52,66 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;my-kusto-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("my-kusto-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var followerCluster = new Cluster(&#34;followerCluster&#34;, ClusterArgs.builder()        
- *             .name(&#34;cluster1&#34;)
+ *         var followerCluster = new Cluster("followerCluster", ClusterArgs.builder()        
+ *             .name("cluster1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku(ClusterSkuArgs.builder()
- *                 .name(&#34;Dev(No SLA)_Standard_D11_v2&#34;)
+ *                 .name("Dev(No SLA)_Standard_D11_v2")
  *                 .capacity(1)
  *                 .build())
  *             .build());
  * 
- *         var followedCluster = new Cluster(&#34;followedCluster&#34;, ClusterArgs.builder()        
- *             .name(&#34;cluster2&#34;)
+ *         var followedCluster = new Cluster("followedCluster", ClusterArgs.builder()        
+ *             .name("cluster2")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku(ClusterSkuArgs.builder()
- *                 .name(&#34;Dev(No SLA)_Standard_D11_v2&#34;)
+ *                 .name("Dev(No SLA)_Standard_D11_v2")
  *                 .capacity(1)
  *                 .build())
  *             .build());
  * 
- *         var followedDatabase = new Database(&#34;followedDatabase&#34;, DatabaseArgs.builder()        
- *             .name(&#34;my-followed-database&#34;)
+ *         var followedDatabase = new Database("followedDatabase", DatabaseArgs.builder()        
+ *             .name("my-followed-database")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .clusterName(followerCluster.name())
  *             .build());
  * 
- *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .clusterName(followerCluster.name())
  *             .build());
  * 
- *         var exampleAttachedDatabaseConfiguration = new AttachedDatabaseConfiguration(&#34;exampleAttachedDatabaseConfiguration&#34;, AttachedDatabaseConfigurationArgs.builder()        
- *             .name(&#34;configuration1&#34;)
+ *         var exampleAttachedDatabaseConfiguration = new AttachedDatabaseConfiguration("exampleAttachedDatabaseConfiguration", AttachedDatabaseConfigurationArgs.builder()        
+ *             .name("configuration1")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .clusterName(followerCluster.name())
  *             .clusterResourceId(followedCluster.id())
  *             .databaseName(exampleDatabase.name())
  *             .sharing(AttachedDatabaseConfigurationSharingArgs.builder()
- *                 .externalTablesToExcludes(&#34;ExternalTable2&#34;)
- *                 .externalTablesToIncludes(&#34;ExternalTable1&#34;)
- *                 .materializedViewsToExcludes(&#34;MaterializedViewTable2&#34;)
- *                 .materializedViewsToIncludes(&#34;MaterializedViewTable1&#34;)
- *                 .tablesToExcludes(&#34;Table2&#34;)
- *                 .tablesToIncludes(&#34;Table1&#34;)
+ *                 .externalTablesToExcludes("ExternalTable2")
+ *                 .externalTablesToIncludes("ExternalTable1")
+ *                 .materializedViewsToExcludes("MaterializedViewTable2")
+ *                 .materializedViewsToIncludes("MaterializedViewTable1")
+ *                 .tablesToExcludes("Table2")
+ *                 .tablesToIncludes("Table1")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,44 +51,45 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualWan = new VirtualWan(&#34;exampleVirtualWan&#34;, VirtualWanArgs.builder()        
- *             .name(&#34;example-vwan&#34;)
+ *         var exampleVirtualWan = new VirtualWan("exampleVirtualWan", VirtualWanArgs.builder()        
+ *             .name("example-vwan")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleVirtualHub = new VirtualHub(&#34;exampleVirtualHub&#34;, VirtualHubArgs.builder()        
- *             .name(&#34;example-vhub&#34;)
+ *         var exampleVirtualHub = new VirtualHub("exampleVirtualHub", VirtualHubArgs.builder()        
+ *             .name("example-vhub")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .virtualWanId(exampleVirtualWan.id())
- *             .addressPrefix(&#34;10.0.2.0/24&#34;)
+ *             .addressPrefix("10.0.2.0/24")
  *             .build());
  * 
- *         var exampleVpnGateway = new VpnGateway(&#34;exampleVpnGateway&#34;, VpnGatewayArgs.builder()        
- *             .name(&#34;example-vpngw&#34;)
+ *         var exampleVpnGateway = new VpnGateway("exampleVpnGateway", VpnGatewayArgs.builder()        
+ *             .name("example-vpngw")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .virtualHubId(exampleVirtualHub.id())
  *             .build());
  * 
- *         var exampleSecurityPartnerProvider = new SecurityPartnerProvider(&#34;exampleSecurityPartnerProvider&#34;, SecurityPartnerProviderArgs.builder()        
- *             .name(&#34;example-spp&#34;)
+ *         var exampleSecurityPartnerProvider = new SecurityPartnerProvider("exampleSecurityPartnerProvider", SecurityPartnerProviderArgs.builder()        
+ *             .name("example-spp")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .virtualHubId(exampleVirtualHub.id())
- *             .securityProviderName(&#34;IBoss&#34;)
- *             .tags(Map.of(&#34;ENV&#34;, &#34;Prod&#34;))
+ *             .securityProviderName("IBoss")
+ *             .tags(Map.of("ENV", "Prod"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

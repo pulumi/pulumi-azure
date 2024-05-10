@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,27 +49,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleHostPool = new HostPool(&#34;exampleHostPool&#34;, HostPoolArgs.builder()        
+ *         var exampleHostPool = new HostPool("exampleHostPool", HostPoolArgs.builder()        
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .name(&#34;pooleddepthfirst&#34;)
- *             .friendlyName(&#34;pooleddepthfirst&#34;)
+ *             .name("pooleddepthfirst")
+ *             .friendlyName("pooleddepthfirst")
  *             .validateEnvironment(true)
  *             .startVmOnConnect(true)
- *             .customRdpProperties(&#34;audiocapturemode:i:1;audiomode:i:0;&#34;)
- *             .description(&#34;Acceptance Test: A pooled host pool - pooleddepthfirst&#34;)
- *             .type(&#34;Pooled&#34;)
+ *             .customRdpProperties("audiocapturemode:i:1;audiomode:i:0;")
+ *             .description("Acceptance Test: A pooled host pool - pooleddepthfirst")
+ *             .type("Pooled")
  *             .maximumSessionsAllowed(50)
- *             .loadBalancerType(&#34;DepthFirst&#34;)
+ *             .loadBalancerType("DepthFirst")
  *             .scheduledAgentUpdates(HostPoolScheduledAgentUpdatesArgs.builder()
  *                 .enabled(true)
  *                 .schedules(HostPoolScheduledAgentUpdatesScheduleArgs.builder()
- *                     .dayOfWeek(&#34;Saturday&#34;)
+ *                     .dayOfWeek("Saturday")
  *                     .hourOfDay(2)
  *                     .build())
  *                 .build())
@@ -76,7 +77,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

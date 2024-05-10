@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,38 +57,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var primary = new SqlServer(&#34;primary&#34;, SqlServerArgs.builder()        
- *             .name(&#34;sql-primary&#34;)
+ *         var primary = new SqlServer("primary", SqlServerArgs.builder()        
+ *             .name("sql-primary")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .version(&#34;12.0&#34;)
- *             .administratorLogin(&#34;sqladmin&#34;)
- *             .administratorLoginPassword(&#34;pa$$w0rd&#34;)
+ *             .version("12.0")
+ *             .administratorLogin("sqladmin")
+ *             .administratorLoginPassword("pa$$w0rd")
  *             .build());
  * 
- *         var secondary = new SqlServer(&#34;secondary&#34;, SqlServerArgs.builder()        
- *             .name(&#34;sql-secondary&#34;)
+ *         var secondary = new SqlServer("secondary", SqlServerArgs.builder()        
+ *             .name("sql-secondary")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .version(&#34;12.0&#34;)
- *             .administratorLogin(&#34;sqladmin&#34;)
- *             .administratorLoginPassword(&#34;pa$$w0rd&#34;)
+ *             .version("12.0")
+ *             .administratorLogin("sqladmin")
+ *             .administratorLoginPassword("pa$$w0rd")
  *             .build());
  * 
- *         var db1 = new Database(&#34;db1&#34;, DatabaseArgs.builder()        
- *             .name(&#34;db1&#34;)
+ *         var db1 = new Database("db1", DatabaseArgs.builder()        
+ *             .name("db1")
  *             .resourceGroupName(primary.resourceGroupName())
  *             .location(primary.location())
  *             .serverName(primary.name())
  *             .build());
  * 
- *         var exampleFailoverGroup = new FailoverGroup(&#34;exampleFailoverGroup&#34;, FailoverGroupArgs.builder()        
- *             .name(&#34;example-failover-group&#34;)
+ *         var exampleFailoverGroup = new FailoverGroup("exampleFailoverGroup", FailoverGroupArgs.builder()        
+ *             .name("example-failover-group")
  *             .resourceGroupName(primary.resourceGroupName())
  *             .serverName(primary.name())
  *             .databases(db1.id())
@@ -95,14 +96,15 @@ import javax.annotation.Nullable;
  *                 .id(secondary.id())
  *                 .build())
  *             .readWriteEndpointFailoverPolicy(FailoverGroupReadWriteEndpointFailoverPolicyArgs.builder()
- *                 .mode(&#34;Automatic&#34;)
+ *                 .mode("Automatic")
  *                 .graceMinutes(60)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

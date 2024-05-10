@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,33 +47,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .name(&#34;example-apim&#34;)
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *             .name("example-apim")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .publisherName(&#34;My Company&#34;)
- *             .publisherEmail(&#34;company@exmaple.com&#34;)
- *             .skuName(&#34;Developer_1&#34;)
+ *             .publisherName("My Company")
+ *             .publisherEmail("company{@literal @}exmaple.com")
+ *             .skuName("Developer_1")
  *             .build());
  * 
- *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
- *             .userId(&#34;5931a75ae4bbd512288c680b&#34;)
+ *         var exampleUser = new User("exampleUser", UserArgs.builder()        
+ *             .userId("5931a75ae4bbd512288c680b")
  *             .apiManagementName(exampleService.name())
  *             .resourceGroupName(example.name())
- *             .firstName(&#34;Example&#34;)
- *             .lastName(&#34;User&#34;)
- *             .email(&#34;user@example.com&#34;)
- *             .state(&#34;active&#34;)
+ *             .firstName("Example")
+ *             .lastName("User")
+ *             .email("user{@literal @}example.com")
+ *             .state("active")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

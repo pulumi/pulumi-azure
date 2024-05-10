@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -57,42 +58,42 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;monitoring-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("monitoring-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
- *             .name(&#34;loganalytics&#34;)
+ *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()        
+ *             .name("loganalytics")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;PerGB2018&#34;)
+ *             .sku("PerGB2018")
  *             .retentionInDays(30)
  *             .build());
  * 
- *         var exampleActionGroup = new ActionGroup(&#34;exampleActionGroup&#34;, ActionGroupArgs.builder()        
- *             .name(&#34;example-actiongroup&#34;)
+ *         var exampleActionGroup = new ActionGroup("exampleActionGroup", ActionGroupArgs.builder()        
+ *             .name("example-actiongroup")
  *             .resourceGroupName(example.name())
- *             .shortName(&#34;exampleact&#34;)
+ *             .shortName("exampleact")
  *             .webhookReceivers(ActionGroupWebhookReceiverArgs.builder()
- *                 .name(&#34;callmyapi&#34;)
- *                 .serviceUri(&#34;http://example.com/alert&#34;)
+ *                 .name("callmyapi")
+ *                 .serviceUri("http://example.com/alert")
  *                 .build())
  *             .build());
  * 
  *         // Example: Creates alert using the new Scheduled Query Rules metric
- *         var exampleMetricAlert = new MetricAlert(&#34;exampleMetricAlert&#34;, MetricAlertArgs.builder()        
- *             .name(&#34;example-metricalert&#34;)
+ *         var exampleMetricAlert = new MetricAlert("exampleMetricAlert", MetricAlertArgs.builder()        
+ *             .name("example-metricalert")
  *             .resourceGroupName(example.name())
  *             .scopes(exampleAnalyticsWorkspace.id())
- *             .description(&#34;Action will be triggered when Average_% Idle Time metric is less than 10.&#34;)
- *             .frequency(&#34;PT1M&#34;)
- *             .windowSize(&#34;PT5M&#34;)
+ *             .description("Action will be triggered when Average_% Idle Time metric is less than 10.")
+ *             .frequency("PT1M")
+ *             .windowSize("PT5M")
  *             .criterias(MetricAlertCriteriaArgs.builder()
- *                 .metricNamespace(&#34;Microsoft.OperationalInsights/workspaces&#34;)
- *                 .metricName(&#34;UsedCapacity&#34;)
- *                 .aggregation(&#34;Average&#34;)
- *                 .operator(&#34;LessThan&#34;)
+ *                 .metricNamespace("Microsoft.OperationalInsights/workspaces")
+ *                 .metricName("UsedCapacity")
+ *                 .aggregation("Average")
+ *                 .operator("LessThan")
  *                 .threshold(10)
  *                 .build())
  *             .actions(MetricAlertActionArgs.builder()
@@ -101,27 +102,28 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Example: LogToMetric Action for the named Computer
- *         var exampleScheduledQueryRulesLog = new ScheduledQueryRulesLog(&#34;exampleScheduledQueryRulesLog&#34;, ScheduledQueryRulesLogArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleScheduledQueryRulesLog = new ScheduledQueryRulesLog("exampleScheduledQueryRulesLog", ScheduledQueryRulesLogArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .criteria(ScheduledQueryRulesLogCriteriaArgs.builder()
- *                 .metricName(&#34;Average_% Idle Time&#34;)
+ *                 .metricName("Average_% Idle Time")
  *                 .dimensions(ScheduledQueryRulesLogCriteriaDimensionArgs.builder()
- *                     .name(&#34;Computer&#34;)
- *                     .operator(&#34;Include&#34;)
- *                     .values(&#34;targetVM&#34;)
+ *                     .name("Computer")
+ *                     .operator("Include")
+ *                     .values("targetVM")
  *                     .build())
  *                 .build())
  *             .dataSourceId(exampleAnalyticsWorkspace.id())
- *             .description(&#34;Scheduled query rule LogToMetric example&#34;)
+ *             .description("Scheduled query rule LogToMetric example")
  *             .enabled(true)
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

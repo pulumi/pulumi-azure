@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,50 +51,51 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
  *         final var example = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
- *             .name(&#34;example-job&#34;)
+ *             .name("example-job")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
- *             .name(&#34;example-sqlserver&#34;)
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+ *             .name("example-sqlserver")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
- *             .version(&#34;12.0&#34;)
- *             .administratorLogin(&#34;admin&#34;)
- *             .administratorLoginPassword(&#34;password&#34;)
+ *             .version("12.0")
+ *             .administratorLogin("admin")
+ *             .administratorLoginPassword("password")
  *             .build());
  * 
- *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
- *             .name(&#34;example-db&#34;)
+ *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()        
+ *             .name("example-db")
  *             .serverId(exampleServer.id())
  *             .build());
  * 
- *         var exampleReferenceInputMssql = new ReferenceInputMssql(&#34;exampleReferenceInputMssql&#34;, ReferenceInputMssqlArgs.builder()        
- *             .name(&#34;example-reference-input&#34;)
- *             .resourceGroupName(example.applyValue(getJobResult -&gt; getJobResult).applyValue(example -&gt; example.applyValue(getJobResult -&gt; getJobResult.resourceGroupName())))
- *             .streamAnalyticsJobName(example.applyValue(getJobResult -&gt; getJobResult).applyValue(example -&gt; example.applyValue(getJobResult -&gt; getJobResult.name())))
+ *         var exampleReferenceInputMssql = new ReferenceInputMssql("exampleReferenceInputMssql", ReferenceInputMssqlArgs.builder()        
+ *             .name("example-reference-input")
+ *             .resourceGroupName(example.applyValue(getJobResult -> getJobResult).applyValue(example -> example.applyValue(getJobResult -> getJobResult.resourceGroupName())))
+ *             .streamAnalyticsJobName(example.applyValue(getJobResult -> getJobResult).applyValue(example -> example.applyValue(getJobResult -> getJobResult.name())))
  *             .server(exampleServer.fullyQualifiedDomainName())
  *             .database(exampleDatabase.name())
- *             .username(&#34;exampleuser&#34;)
- *             .password(&#34;examplepassword&#34;)
- *             .refreshType(&#34;RefreshPeriodicallyWithFull&#34;)
- *             .refreshIntervalDuration(&#34;00:20:00&#34;)
- *             .fullSnapshotQuery(&#34;&#34;&#34;
+ *             .username("exampleuser")
+ *             .password("examplepassword")
+ *             .refreshType("RefreshPeriodicallyWithFull")
+ *             .refreshIntervalDuration("00:20:00")
+ *             .fullSnapshotQuery("""
  *     SELECT *
  *     INTO [YourOutputAlias]
  *     FROM [YourInputAlias]
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

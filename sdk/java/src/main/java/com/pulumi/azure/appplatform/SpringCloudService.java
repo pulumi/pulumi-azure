@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -57,40 +58,41 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleInsights = new Insights(&#34;exampleInsights&#34;, InsightsArgs.builder()        
- *             .name(&#34;tf-test-appinsights&#34;)
+ *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()        
+ *             .name("tf-test-appinsights")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .applicationType(&#34;web&#34;)
+ *             .applicationType("web")
  *             .build());
  * 
- *         var exampleSpringCloudService = new SpringCloudService(&#34;exampleSpringCloudService&#34;, SpringCloudServiceArgs.builder()        
- *             .name(&#34;example-springcloud&#34;)
+ *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()        
+ *             .name("example-springcloud")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .skuName(&#34;S0&#34;)
+ *             .skuName("S0")
  *             .configServerGitSetting(SpringCloudServiceConfigServerGitSettingArgs.builder()
- *                 .uri(&#34;https://github.com/Azure-Samples/piggymetrics&#34;)
- *                 .label(&#34;config&#34;)
+ *                 .uri("https://github.com/Azure-Samples/piggymetrics")
+ *                 .label("config")
  *                 .searchPaths(                
- *                     &#34;dir1&#34;,
- *                     &#34;dir2&#34;)
+ *                     "dir1",
+ *                     "dir2")
  *                 .build())
  *             .trace(SpringCloudServiceTraceArgs.builder()
  *                 .connectionString(exampleInsights.connectionString())
  *                 .sampleRate(10)
  *                 .build())
- *             .tags(Map.of(&#34;Env&#34;, &#34;staging&#34;))
+ *             .tags(Map.of("Env", "staging"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

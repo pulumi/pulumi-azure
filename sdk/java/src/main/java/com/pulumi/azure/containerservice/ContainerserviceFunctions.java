@@ -41,7 +41,8 @@ public final class ContainerserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -63,15 +64,16 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getClusterNodePool(GetClusterNodePoolArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .kubernetesClusterName(&#34;existing-cluster&#34;)
-     *             .resourceGroupName(&#34;existing-resource-group&#34;)
+     *             .name("existing")
+     *             .kubernetesClusterName("existing-cluster")
+     *             .resourceGroupName("existing-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getClusterNodePoolResult -&gt; getClusterNodePoolResult.id()));
+     *         ctx.export("id", example.applyValue(getClusterNodePoolResult -> getClusterNodePoolResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -84,7 +86,8 @@ public final class ContainerserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -106,15 +109,16 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getClusterNodePool(GetClusterNodePoolArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .kubernetesClusterName(&#34;existing-cluster&#34;)
-     *             .resourceGroupName(&#34;existing-resource-group&#34;)
+     *             .name("existing")
+     *             .kubernetesClusterName("existing-cluster")
+     *             .resourceGroupName("existing-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getClusterNodePoolResult -&gt; getClusterNodePoolResult.id()));
+     *         ctx.export("id", example.applyValue(getClusterNodePoolResult -> getClusterNodePoolResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -127,7 +131,8 @@ public final class ContainerserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -149,15 +154,16 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getClusterNodePool(GetClusterNodePoolArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .kubernetesClusterName(&#34;existing-cluster&#34;)
-     *             .resourceGroupName(&#34;existing-resource-group&#34;)
+     *             .name("existing")
+     *             .kubernetesClusterName("existing-cluster")
+     *             .resourceGroupName("existing-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getClusterNodePoolResult -&gt; getClusterNodePoolResult.id()));
+     *         ctx.export("id", example.applyValue(getClusterNodePoolResult -> getClusterNodePoolResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -170,7 +176,8 @@ public final class ContainerserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -192,15 +199,16 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getClusterNodePool(GetClusterNodePoolArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .kubernetesClusterName(&#34;existing-cluster&#34;)
-     *             .resourceGroupName(&#34;existing-resource-group&#34;)
+     *             .name("existing")
+     *             .kubernetesClusterName("existing-cluster")
+     *             .resourceGroupName("existing-resource-group")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getClusterNodePoolResult -&gt; getClusterNodePoolResult.id()));
+     *         ctx.export("id", example.applyValue(getClusterNodePoolResult -> getClusterNodePoolResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -213,7 +221,8 @@ public final class ContainerserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -235,16 +244,17 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.id()));
-     *         ctx.export(&#34;ipAddress&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.ipAddress()));
-     *         ctx.export(&#34;fqdn&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.fqdn()));
+     *         ctx.export("id", example.applyValue(getGroupResult -> getGroupResult.id()));
+     *         ctx.export("ipAddress", example.applyValue(getGroupResult -> getGroupResult.ipAddress()));
+     *         ctx.export("fqdn", example.applyValue(getGroupResult -> getGroupResult.fqdn()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -257,7 +267,8 @@ public final class ContainerserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -279,16 +290,17 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.id()));
-     *         ctx.export(&#34;ipAddress&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.ipAddress()));
-     *         ctx.export(&#34;fqdn&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.fqdn()));
+     *         ctx.export("id", example.applyValue(getGroupResult -> getGroupResult.id()));
+     *         ctx.export("ipAddress", example.applyValue(getGroupResult -> getGroupResult.ipAddress()));
+     *         ctx.export("fqdn", example.applyValue(getGroupResult -> getGroupResult.fqdn()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -301,7 +313,8 @@ public final class ContainerserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -323,16 +336,17 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.id()));
-     *         ctx.export(&#34;ipAddress&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.ipAddress()));
-     *         ctx.export(&#34;fqdn&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.fqdn()));
+     *         ctx.export("id", example.applyValue(getGroupResult -> getGroupResult.id()));
+     *         ctx.export("ipAddress", example.applyValue(getGroupResult -> getGroupResult.ipAddress()));
+     *         ctx.export("fqdn", example.applyValue(getGroupResult -> getGroupResult.fqdn()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -345,7 +359,8 @@ public final class ContainerserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -367,16 +382,17 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.id()));
-     *         ctx.export(&#34;ipAddress&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.ipAddress()));
-     *         ctx.export(&#34;fqdn&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.fqdn()));
+     *         ctx.export("id", example.applyValue(getGroupResult -> getGroupResult.id()));
+     *         ctx.export("ipAddress", example.applyValue(getGroupResult -> getGroupResult.ipAddress()));
+     *         ctx.export("fqdn", example.applyValue(getGroupResult -> getGroupResult.fqdn()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -389,7 +405,8 @@ public final class ContainerserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -411,13 +428,14 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getKubernetesCluster(GetKubernetesClusterArgs.builder()
-     *             .name(&#34;myakscluster&#34;)
-     *             .resourceGroupName(&#34;my-example-resource-group&#34;)
+     *             .name("myakscluster")
+     *             .resourceGroupName("my-example-resource-group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -430,7 +448,8 @@ public final class ContainerserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -452,13 +471,14 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getKubernetesCluster(GetKubernetesClusterArgs.builder()
-     *             .name(&#34;myakscluster&#34;)
-     *             .resourceGroupName(&#34;my-example-resource-group&#34;)
+     *             .name("myakscluster")
+     *             .resourceGroupName("my-example-resource-group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -471,7 +491,8 @@ public final class ContainerserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -493,13 +514,14 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getKubernetesCluster(GetKubernetesClusterArgs.builder()
-     *             .name(&#34;myakscluster&#34;)
-     *             .resourceGroupName(&#34;my-example-resource-group&#34;)
+     *             .name("myakscluster")
+     *             .resourceGroupName("my-example-resource-group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -512,7 +534,8 @@ public final class ContainerserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -534,13 +557,14 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getKubernetesCluster(GetKubernetesClusterArgs.builder()
-     *             .name(&#34;myakscluster&#34;)
-     *             .resourceGroupName(&#34;my-example-resource-group&#34;)
+     *             .name("myakscluster")
+     *             .resourceGroupName("my-example-resource-group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -553,7 +577,8 @@ public final class ContainerserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -575,13 +600,14 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getKubernetesNodePoolSnapshot(GetKubernetesNodePoolSnapshotArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -594,7 +620,8 @@ public final class ContainerserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -616,13 +643,14 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getKubernetesNodePoolSnapshot(GetKubernetesNodePoolSnapshotArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -635,7 +663,8 @@ public final class ContainerserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -657,13 +686,14 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getKubernetesNodePoolSnapshot(GetKubernetesNodePoolSnapshotArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -676,7 +706,8 @@ public final class ContainerserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -698,13 +729,14 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getKubernetesNodePoolSnapshot(GetKubernetesNodePoolSnapshotArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -717,7 +749,8 @@ public final class ContainerserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -739,14 +772,15 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = ContainerserviceFunctions.getKubernetesServiceVersions(GetKubernetesServiceVersionsArgs.builder()
-     *             .location(&#34;West Europe&#34;)
+     *             .location("West Europe")
      *             .build());
      * 
-     *         ctx.export(&#34;versions&#34;, current.applyValue(getKubernetesServiceVersionsResult -&gt; getKubernetesServiceVersionsResult.versions()));
-     *         ctx.export(&#34;latestVersion&#34;, current.applyValue(getKubernetesServiceVersionsResult -&gt; getKubernetesServiceVersionsResult.latestVersion()));
+     *         ctx.export("versions", current.applyValue(getKubernetesServiceVersionsResult -> getKubernetesServiceVersionsResult.versions()));
+     *         ctx.export("latestVersion", current.applyValue(getKubernetesServiceVersionsResult -> getKubernetesServiceVersionsResult.latestVersion()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -759,7 +793,8 @@ public final class ContainerserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -781,14 +816,15 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = ContainerserviceFunctions.getKubernetesServiceVersions(GetKubernetesServiceVersionsArgs.builder()
-     *             .location(&#34;West Europe&#34;)
+     *             .location("West Europe")
      *             .build());
      * 
-     *         ctx.export(&#34;versions&#34;, current.applyValue(getKubernetesServiceVersionsResult -&gt; getKubernetesServiceVersionsResult.versions()));
-     *         ctx.export(&#34;latestVersion&#34;, current.applyValue(getKubernetesServiceVersionsResult -&gt; getKubernetesServiceVersionsResult.latestVersion()));
+     *         ctx.export("versions", current.applyValue(getKubernetesServiceVersionsResult -> getKubernetesServiceVersionsResult.versions()));
+     *         ctx.export("latestVersion", current.applyValue(getKubernetesServiceVersionsResult -> getKubernetesServiceVersionsResult.latestVersion()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -801,7 +837,8 @@ public final class ContainerserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -823,14 +860,15 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = ContainerserviceFunctions.getKubernetesServiceVersions(GetKubernetesServiceVersionsArgs.builder()
-     *             .location(&#34;West Europe&#34;)
+     *             .location("West Europe")
      *             .build());
      * 
-     *         ctx.export(&#34;versions&#34;, current.applyValue(getKubernetesServiceVersionsResult -&gt; getKubernetesServiceVersionsResult.versions()));
-     *         ctx.export(&#34;latestVersion&#34;, current.applyValue(getKubernetesServiceVersionsResult -&gt; getKubernetesServiceVersionsResult.latestVersion()));
+     *         ctx.export("versions", current.applyValue(getKubernetesServiceVersionsResult -> getKubernetesServiceVersionsResult.versions()));
+     *         ctx.export("latestVersion", current.applyValue(getKubernetesServiceVersionsResult -> getKubernetesServiceVersionsResult.latestVersion()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -843,7 +881,8 @@ public final class ContainerserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -865,14 +904,15 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = ContainerserviceFunctions.getKubernetesServiceVersions(GetKubernetesServiceVersionsArgs.builder()
-     *             .location(&#34;West Europe&#34;)
+     *             .location("West Europe")
      *             .build());
      * 
-     *         ctx.export(&#34;versions&#34;, current.applyValue(getKubernetesServiceVersionsResult -&gt; getKubernetesServiceVersionsResult.versions()));
-     *         ctx.export(&#34;latestVersion&#34;, current.applyValue(getKubernetesServiceVersionsResult -&gt; getKubernetesServiceVersionsResult.latestVersion()));
+     *         ctx.export("versions", current.applyValue(getKubernetesServiceVersionsResult -> getKubernetesServiceVersionsResult.versions()));
+     *         ctx.export("latestVersion", current.applyValue(getKubernetesServiceVersionsResult -> getKubernetesServiceVersionsResult.latestVersion()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -885,7 +925,8 @@ public final class ContainerserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -907,14 +948,15 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getRegistry(GetRegistryArgs.builder()
-     *             .name(&#34;testacr&#34;)
-     *             .resourceGroupName(&#34;test&#34;)
+     *             .name("testacr")
+     *             .resourceGroupName("test")
      *             .build());
      * 
-     *         ctx.export(&#34;loginServer&#34;, example.applyValue(getRegistryResult -&gt; getRegistryResult.loginServer()));
+     *         ctx.export("loginServer", example.applyValue(getRegistryResult -> getRegistryResult.loginServer()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -927,7 +969,8 @@ public final class ContainerserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -949,14 +992,15 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getRegistry(GetRegistryArgs.builder()
-     *             .name(&#34;testacr&#34;)
-     *             .resourceGroupName(&#34;test&#34;)
+     *             .name("testacr")
+     *             .resourceGroupName("test")
      *             .build());
      * 
-     *         ctx.export(&#34;loginServer&#34;, example.applyValue(getRegistryResult -&gt; getRegistryResult.loginServer()));
+     *         ctx.export("loginServer", example.applyValue(getRegistryResult -> getRegistryResult.loginServer()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -969,7 +1013,8 @@ public final class ContainerserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -991,14 +1036,15 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getRegistry(GetRegistryArgs.builder()
-     *             .name(&#34;testacr&#34;)
-     *             .resourceGroupName(&#34;test&#34;)
+     *             .name("testacr")
+     *             .resourceGroupName("test")
      *             .build());
      * 
-     *         ctx.export(&#34;loginServer&#34;, example.applyValue(getRegistryResult -&gt; getRegistryResult.loginServer()));
+     *         ctx.export("loginServer", example.applyValue(getRegistryResult -> getRegistryResult.loginServer()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1011,7 +1057,8 @@ public final class ContainerserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1033,14 +1080,15 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getRegistry(GetRegistryArgs.builder()
-     *             .name(&#34;testacr&#34;)
-     *             .resourceGroupName(&#34;test&#34;)
+     *             .name("testacr")
+     *             .resourceGroupName("test")
      *             .build());
      * 
-     *         ctx.export(&#34;loginServer&#34;, example.applyValue(getRegistryResult -&gt; getRegistryResult.loginServer()));
+     *         ctx.export("loginServer", example.applyValue(getRegistryResult -> getRegistryResult.loginServer()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1053,7 +1101,8 @@ public final class ContainerserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1075,15 +1124,16 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getRegistryScopeMap(GetRegistryScopeMapArgs.builder()
-     *             .name(&#34;example-scope-map&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .containerRegistryName(&#34;example-registry&#34;)
+     *             .name("example-scope-map")
+     *             .resourceGroupName("example-resource-group")
+     *             .containerRegistryName("example-registry")
      *             .build());
      * 
-     *         ctx.export(&#34;actions&#34;, example.applyValue(getRegistryScopeMapResult -&gt; getRegistryScopeMapResult.actions()));
+     *         ctx.export("actions", example.applyValue(getRegistryScopeMapResult -> getRegistryScopeMapResult.actions()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1096,7 +1146,8 @@ public final class ContainerserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1118,15 +1169,16 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getRegistryScopeMap(GetRegistryScopeMapArgs.builder()
-     *             .name(&#34;example-scope-map&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .containerRegistryName(&#34;example-registry&#34;)
+     *             .name("example-scope-map")
+     *             .resourceGroupName("example-resource-group")
+     *             .containerRegistryName("example-registry")
      *             .build());
      * 
-     *         ctx.export(&#34;actions&#34;, example.applyValue(getRegistryScopeMapResult -&gt; getRegistryScopeMapResult.actions()));
+     *         ctx.export("actions", example.applyValue(getRegistryScopeMapResult -> getRegistryScopeMapResult.actions()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1139,7 +1191,8 @@ public final class ContainerserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1161,15 +1214,16 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getRegistryScopeMap(GetRegistryScopeMapArgs.builder()
-     *             .name(&#34;example-scope-map&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .containerRegistryName(&#34;example-registry&#34;)
+     *             .name("example-scope-map")
+     *             .resourceGroupName("example-resource-group")
+     *             .containerRegistryName("example-registry")
      *             .build());
      * 
-     *         ctx.export(&#34;actions&#34;, example.applyValue(getRegistryScopeMapResult -&gt; getRegistryScopeMapResult.actions()));
+     *         ctx.export("actions", example.applyValue(getRegistryScopeMapResult -> getRegistryScopeMapResult.actions()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1182,7 +1236,8 @@ public final class ContainerserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1204,15 +1259,16 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getRegistryScopeMap(GetRegistryScopeMapArgs.builder()
-     *             .name(&#34;example-scope-map&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .containerRegistryName(&#34;example-registry&#34;)
+     *             .name("example-scope-map")
+     *             .resourceGroupName("example-resource-group")
+     *             .containerRegistryName("example-registry")
      *             .build());
      * 
-     *         ctx.export(&#34;actions&#34;, example.applyValue(getRegistryScopeMapResult -&gt; getRegistryScopeMapResult.actions()));
+     *         ctx.export("actions", example.applyValue(getRegistryScopeMapResult -> getRegistryScopeMapResult.actions()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1225,7 +1281,8 @@ public final class ContainerserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1247,15 +1304,16 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getRegistryToken(GetRegistryTokenArgs.builder()
-     *             .name(&#34;exampletoken&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .containerRegistryName(&#34;example-registry&#34;)
+     *             .name("exampletoken")
+     *             .resourceGroupName("example-resource-group")
+     *             .containerRegistryName("example-registry")
      *             .build());
      * 
-     *         ctx.export(&#34;scopeMapId&#34;, example.applyValue(getRegistryTokenResult -&gt; getRegistryTokenResult.scopeMapId()));
+     *         ctx.export("scopeMapId", example.applyValue(getRegistryTokenResult -> getRegistryTokenResult.scopeMapId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1268,7 +1326,8 @@ public final class ContainerserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1290,15 +1349,16 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getRegistryToken(GetRegistryTokenArgs.builder()
-     *             .name(&#34;exampletoken&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .containerRegistryName(&#34;example-registry&#34;)
+     *             .name("exampletoken")
+     *             .resourceGroupName("example-resource-group")
+     *             .containerRegistryName("example-registry")
      *             .build());
      * 
-     *         ctx.export(&#34;scopeMapId&#34;, example.applyValue(getRegistryTokenResult -&gt; getRegistryTokenResult.scopeMapId()));
+     *         ctx.export("scopeMapId", example.applyValue(getRegistryTokenResult -> getRegistryTokenResult.scopeMapId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1311,7 +1371,8 @@ public final class ContainerserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1333,15 +1394,16 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getRegistryToken(GetRegistryTokenArgs.builder()
-     *             .name(&#34;exampletoken&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .containerRegistryName(&#34;example-registry&#34;)
+     *             .name("exampletoken")
+     *             .resourceGroupName("example-resource-group")
+     *             .containerRegistryName("example-registry")
      *             .build());
      * 
-     *         ctx.export(&#34;scopeMapId&#34;, example.applyValue(getRegistryTokenResult -&gt; getRegistryTokenResult.scopeMapId()));
+     *         ctx.export("scopeMapId", example.applyValue(getRegistryTokenResult -> getRegistryTokenResult.scopeMapId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1354,7 +1416,8 @@ public final class ContainerserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1376,15 +1439,16 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getRegistryToken(GetRegistryTokenArgs.builder()
-     *             .name(&#34;exampletoken&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .containerRegistryName(&#34;example-registry&#34;)
+     *             .name("exampletoken")
+     *             .resourceGroupName("example-resource-group")
+     *             .containerRegistryName("example-registry")
      *             .build());
      * 
-     *         ctx.export(&#34;scopeMapId&#34;, example.applyValue(getRegistryTokenResult -&gt; getRegistryTokenResult.scopeMapId()));
+     *         ctx.export("scopeMapId", example.applyValue(getRegistryTokenResult -> getRegistryTokenResult.scopeMapId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

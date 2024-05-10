@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,37 +49,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;examplesa&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("examplesa")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleAccount2 = new Account(&#34;exampleAccount2&#34;, AccountArgs.builder()        
- *             .name(&#34;exampleba&#34;)
+ *         var exampleAccount2 = new Account("exampleAccount2", AccountArgs.builder()        
+ *             .name("exampleba")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .poolAllocationMode(&#34;BatchService&#34;)
+ *             .poolAllocationMode("BatchService")
  *             .storageAccountId(exampleAccount.id())
- *             .storageAccountAuthenticationMode(&#34;StorageKeys&#34;)
+ *             .storageAccountAuthenticationMode("StorageKeys")
  *             .build());
  * 
- *         var exampleApplication = new Application(&#34;exampleApplication&#34;, ApplicationArgs.builder()        
- *             .name(&#34;example-batch-application&#34;)
+ *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()        
+ *             .name("example-batch-application")
  *             .resourceGroupName(example.name())
  *             .accountName(exampleAccount2.name())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

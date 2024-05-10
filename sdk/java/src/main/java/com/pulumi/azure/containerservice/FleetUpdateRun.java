@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -58,55 +59,55 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-rg&#34;)
- *             .location(&#34;westeurope&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-rg")
+ *             .location("westeurope")
  *             .build());
  * 
- *         var exampleKubernetesFleetManager = new KubernetesFleetManager(&#34;exampleKubernetesFleetManager&#34;, KubernetesFleetManagerArgs.builder()        
+ *         var exampleKubernetesFleetManager = new KubernetesFleetManager("exampleKubernetesFleetManager", KubernetesFleetManagerArgs.builder()        
  *             .location(example.location())
- *             .name(&#34;example&#34;)
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleKubernetesCluster = new KubernetesCluster(&#34;exampleKubernetesCluster&#34;, KubernetesClusterArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleKubernetesCluster = new KubernetesCluster("exampleKubernetesCluster", KubernetesClusterArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .dnsPrefix(&#34;example&#34;)
+ *             .dnsPrefix("example")
  *             .defaultNodePool(KubernetesClusterDefaultNodePoolArgs.builder()
- *                 .name(&#34;default&#34;)
+ *                 .name("default")
  *                 .nodeCount(1)
- *                 .vmSize(&#34;Standard_DS2_v2&#34;)
+ *                 .vmSize("Standard_DS2_v2")
  *                 .build())
  *             .identity(KubernetesClusterIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
- *         var exampleFleetMember = new FleetMember(&#34;exampleFleetMember&#34;, FleetMemberArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleFleetMember = new FleetMember("exampleFleetMember", FleetMemberArgs.builder()        
+ *             .name("example")
  *             .kubernetesFleetId(exampleKubernetesFleetManager.id())
  *             .kubernetesClusterId(exampleKubernetesCluster.id())
- *             .group(&#34;example-group&#34;)
+ *             .group("example-group")
  *             .build());
  * 
- *         var exampleFleetUpdateRun = new FleetUpdateRun(&#34;exampleFleetUpdateRun&#34;, FleetUpdateRunArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleFleetUpdateRun = new FleetUpdateRun("exampleFleetUpdateRun", FleetUpdateRunArgs.builder()        
+ *             .name("example")
  *             .kubernetesFleetManagerId(exampleKubernetesFleetManager.id())
  *             .managedClusterUpdate(FleetUpdateRunManagedClusterUpdateArgs.builder()
  *                 .upgrade(FleetUpdateRunManagedClusterUpdateUpgradeArgs.builder()
- *                     .type(&#34;Full&#34;)
- *                     .kubernetesVersion(&#34;1.27&#34;)
+ *                     .type("Full")
+ *                     .kubernetesVersion("1.27")
  *                     .build())
  *                 .nodeImageSelection(FleetUpdateRunManagedClusterUpdateNodeImageSelectionArgs.builder()
- *                     .type(&#34;Latest&#34;)
+ *                     .type("Latest")
  *                     .build())
  *                 .build())
  *             .stages(FleetUpdateRunStageArgs.builder()
- *                 .name(&#34;example&#34;)
+ *                 .name("example")
  *                 .groups(FleetUpdateRunStageGroupArgs.builder()
- *                     .name(&#34;example-group&#34;)
+ *                     .name("example-group")
  *                     .build())
  *                 .afterStageWaitInSeconds(21)
  *                 .build())
@@ -114,7 +115,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

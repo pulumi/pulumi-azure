@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Basic HTTP Trigger
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -57,29 +58,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-group&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-group")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;examplesa&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("examplesa")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleServicePlan = new ServicePlan(&#34;exampleServicePlan&#34;, ServicePlanArgs.builder()        
- *             .name(&#34;example-service-plan&#34;)
+ *         var exampleServicePlan = new ServicePlan("exampleServicePlan", ServicePlanArgs.builder()        
+ *             .name("example-service-plan")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .osType(&#34;Linux&#34;)
- *             .skuName(&#34;S1&#34;)
+ *             .osType("Linux")
+ *             .skuName("S1")
  *             .build());
  * 
- *         var exampleLinuxFunctionApp = new LinuxFunctionApp(&#34;exampleLinuxFunctionApp&#34;, LinuxFunctionAppArgs.builder()        
- *             .name(&#34;example-function-app&#34;)
+ *         var exampleLinuxFunctionApp = new LinuxFunctionApp("exampleLinuxFunctionApp", LinuxFunctionAppArgs.builder()        
+ *             .name("example-function-app")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .servicePlanId(exampleServicePlan.id())
@@ -87,36 +88,36 @@ import javax.annotation.Nullable;
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
  *             .siteConfig(LinuxFunctionAppSiteConfigArgs.builder()
  *                 .applicationStack(LinuxFunctionAppSiteConfigApplicationStackArgs.builder()
- *                     .pythonVersion(&#34;3.9&#34;)
+ *                     .pythonVersion("3.9")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleFunctionAppFunction = new FunctionAppFunction(&#34;exampleFunctionAppFunction&#34;, FunctionAppFunctionArgs.builder()        
- *             .name(&#34;example-function-app-function&#34;)
+ *         var exampleFunctionAppFunction = new FunctionAppFunction("exampleFunctionAppFunction", FunctionAppFunctionArgs.builder()        
+ *             .name("example-function-app-function")
  *             .functionAppId(exampleLinuxFunctionApp.id())
- *             .language(&#34;Python&#34;)
+ *             .language("Python")
  *             .testData(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;name&#34;, &#34;Azure&#34;)
+ *                     jsonProperty("name", "Azure")
  *                 )))
  *             .configJson(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;bindings&#34;, jsonArray(
+ *                     jsonProperty("bindings", jsonArray(
  *                         jsonObject(
- *                             jsonProperty(&#34;authLevel&#34;, &#34;function&#34;),
- *                             jsonProperty(&#34;direction&#34;, &#34;in&#34;),
- *                             jsonProperty(&#34;methods&#34;, jsonArray(
- *                                 &#34;get&#34;, 
- *                                 &#34;post&#34;
+ *                             jsonProperty("authLevel", "function"),
+ *                             jsonProperty("direction", "in"),
+ *                             jsonProperty("methods", jsonArray(
+ *                                 "get", 
+ *                                 "post"
  *                             )),
- *                             jsonProperty(&#34;name&#34;, &#34;req&#34;),
- *                             jsonProperty(&#34;type&#34;, &#34;httpTrigger&#34;)
+ *                             jsonProperty("name", "req"),
+ *                             jsonProperty("type", "httpTrigger")
  *                         ), 
  *                         jsonObject(
- *                             jsonProperty(&#34;direction&#34;, &#34;out&#34;),
- *                             jsonProperty(&#34;name&#34;, &#34;$return&#34;),
- *                             jsonProperty(&#34;type&#34;, &#34;http&#34;)
+ *                             jsonProperty("direction", "out"),
+ *                             jsonProperty("name", "$return"),
+ *                             jsonProperty("type", "http")
  *                         )
  *                     ))
  *                 )))
@@ -124,13 +125,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### HTTP Trigger With Code Upload
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -163,29 +166,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-group&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-group")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;examplesa&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("examplesa")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleServicePlan = new ServicePlan(&#34;exampleServicePlan&#34;, ServicePlanArgs.builder()        
- *             .name(&#34;example-service-plan&#34;)
+ *         var exampleServicePlan = new ServicePlan("exampleServicePlan", ServicePlanArgs.builder()        
+ *             .name("example-service-plan")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .osType(&#34;Windows&#34;)
- *             .skuName(&#34;S1&#34;)
+ *             .osType("Windows")
+ *             .skuName("S1")
  *             .build());
  * 
- *         var exampleWindowsFunctionApp = new WindowsFunctionApp(&#34;exampleWindowsFunctionApp&#34;, WindowsFunctionAppArgs.builder()        
- *             .name(&#34;example-function-app&#34;)
+ *         var exampleWindowsFunctionApp = new WindowsFunctionApp("exampleWindowsFunctionApp", WindowsFunctionAppArgs.builder()        
+ *             .name("example-function-app")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .servicePlanId(exampleServicePlan.id())
@@ -193,42 +196,42 @@ import javax.annotation.Nullable;
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
  *             .siteConfig(WindowsFunctionAppSiteConfigArgs.builder()
  *                 .applicationStack(WindowsFunctionAppSiteConfigApplicationStackArgs.builder()
- *                     .dotnetVersion(&#34;6&#34;)
+ *                     .dotnetVersion("6")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleFunctionAppFunction = new FunctionAppFunction(&#34;exampleFunctionAppFunction&#34;, FunctionAppFunctionArgs.builder()        
- *             .name(&#34;example-function-app-function&#34;)
+ *         var exampleFunctionAppFunction = new FunctionAppFunction("exampleFunctionAppFunction", FunctionAppFunctionArgs.builder()        
+ *             .name("example-function-app-function")
  *             .functionAppId(exampleWindowsFunctionApp.id())
- *             .language(&#34;CSharp&#34;)
+ *             .language("CSharp")
  *             .files(FunctionAppFunctionFileArgs.builder()
- *                 .name(&#34;run.csx&#34;)
+ *                 .name("run.csx")
  *                 .content(StdFunctions.file(FileArgs.builder()
- *                     .input(&#34;exampledata/run.csx&#34;)
+ *                     .input("exampledata/run.csx")
  *                     .build()).result())
  *                 .build())
  *             .testData(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;name&#34;, &#34;Azure&#34;)
+ *                     jsonProperty("name", "Azure")
  *                 )))
  *             .configJson(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;bindings&#34;, jsonArray(
+ *                     jsonProperty("bindings", jsonArray(
  *                         jsonObject(
- *                             jsonProperty(&#34;authLevel&#34;, &#34;function&#34;),
- *                             jsonProperty(&#34;direction&#34;, &#34;in&#34;),
- *                             jsonProperty(&#34;methods&#34;, jsonArray(
- *                                 &#34;get&#34;, 
- *                                 &#34;post&#34;
+ *                             jsonProperty("authLevel", "function"),
+ *                             jsonProperty("direction", "in"),
+ *                             jsonProperty("methods", jsonArray(
+ *                                 "get", 
+ *                                 "post"
  *                             )),
- *                             jsonProperty(&#34;name&#34;, &#34;req&#34;),
- *                             jsonProperty(&#34;type&#34;, &#34;httpTrigger&#34;)
+ *                             jsonProperty("name", "req"),
+ *                             jsonProperty("type", "httpTrigger")
  *                         ), 
  *                         jsonObject(
- *                             jsonProperty(&#34;direction&#34;, &#34;out&#34;),
- *                             jsonProperty(&#34;name&#34;, &#34;$return&#34;),
- *                             jsonProperty(&#34;type&#34;, &#34;http&#34;)
+ *                             jsonProperty("direction", "out"),
+ *                             jsonProperty("name", "$return"),
+ *                             jsonProperty("type", "http")
  *                         )
  *                     ))
  *                 )))
@@ -236,7 +239,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

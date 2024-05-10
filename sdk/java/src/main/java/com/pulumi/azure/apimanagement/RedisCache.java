@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,44 +50,45 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .name(&#34;example-apim&#34;)
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *             .name("example-apim")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .publisherName(&#34;pub1&#34;)
- *             .publisherEmail(&#34;pub1@email.com&#34;)
- *             .skuName(&#34;Consumption_0&#34;)
+ *             .publisherName("pub1")
+ *             .publisherEmail("pub1{@literal @}email.com")
+ *             .skuName("Consumption_0")
  *             .build());
  * 
- *         var exampleCache = new Cache(&#34;exampleCache&#34;, CacheArgs.builder()        
- *             .name(&#34;example-cache&#34;)
+ *         var exampleCache = new Cache("exampleCache", CacheArgs.builder()        
+ *             .name("example-cache")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .capacity(1)
- *             .family(&#34;C&#34;)
- *             .skuName(&#34;Basic&#34;)
+ *             .family("C")
+ *             .skuName("Basic")
  *             .enableNonSslPort(false)
- *             .minimumTlsVersion(&#34;1.2&#34;)
+ *             .minimumTlsVersion("1.2")
  *             .redisConfiguration()
  *             .build());
  * 
- *         var exampleRedisCache = new RedisCache(&#34;exampleRedisCache&#34;, RedisCacheArgs.builder()        
- *             .name(&#34;example-Redis-Cache&#34;)
+ *         var exampleRedisCache = new RedisCache("exampleRedisCache", RedisCacheArgs.builder()        
+ *             .name("example-Redis-Cache")
  *             .apiManagementId(exampleService.id())
  *             .connectionString(exampleCache.primaryConnectionString())
- *             .description(&#34;Redis cache instances&#34;)
+ *             .description("Redis cache instances")
  *             .redisCacheId(exampleCache.id())
- *             .cacheLocation(&#34;East Us&#34;)
+ *             .cacheLocation("East Us")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

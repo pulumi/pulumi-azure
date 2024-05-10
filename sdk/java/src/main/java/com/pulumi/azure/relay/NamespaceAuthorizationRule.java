@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,21 +48,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleNamespace = new Namespace(&#34;exampleNamespace&#34;, NamespaceArgs.builder()        
- *             .name(&#34;example-relay&#34;)
+ *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()        
+ *             .name("example-relay")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;Standard&#34;)
- *             .tags(Map.of(&#34;source&#34;, &#34;terraform&#34;))
+ *             .skuName("Standard")
+ *             .tags(Map.of("source", "terraform"))
  *             .build());
  * 
- *         var exampleNamespaceAuthorizationRule = new NamespaceAuthorizationRule(&#34;exampleNamespaceAuthorizationRule&#34;, NamespaceAuthorizationRuleArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleNamespaceAuthorizationRule = new NamespaceAuthorizationRule("exampleNamespaceAuthorizationRule", NamespaceAuthorizationRuleArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .namespaceName(exampleNamespace.name())
  *             .listen(true)
@@ -71,7 +72,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

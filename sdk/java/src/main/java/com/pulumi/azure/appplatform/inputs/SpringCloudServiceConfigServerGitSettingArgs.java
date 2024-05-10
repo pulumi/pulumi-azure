@@ -96,14 +96,14 @@ public final class SpringCloudServiceConfigServerGitSettingArgs extends com.pulu
     }
 
     /**
-     * The URI of the default Git repository used as the Config Server back end, should be started with `http://`, `https://`, `git@`, or `ssh://`.
+     * The URI of the default Git repository used as the Config Server back end, should be started with `http://`, `https://`, `git{@literal @}`, or `ssh://`.
      * 
      */
     @Import(name="uri", required=true)
     private Output<String> uri;
 
     /**
-     * @return The URI of the default Git repository used as the Config Server back end, should be started with `http://`, `https://`, `git@`, or `ssh://`.
+     * @return The URI of the default Git repository used as the Config Server back end, should be started with `http://`, `https://`, `git{@literal @}`, or `ssh://`.
      * 
      */
     public Output<String> uri() {
@@ -265,7 +265,7 @@ public final class SpringCloudServiceConfigServerGitSettingArgs extends com.pulu
         }
 
         /**
-         * @param uri The URI of the default Git repository used as the Config Server back end, should be started with `http://`, `https://`, `git@`, or `ssh://`.
+         * @param uri The URI of the default Git repository used as the Config Server back end, should be started with `http://`, `https://`, `git{@literal @}`, or `ssh://`.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class SpringCloudServiceConfigServerGitSettingArgs extends com.pulu
         }
 
         /**
-         * @param uri The URI of the default Git repository used as the Config Server back end, should be started with `http://`, `https://`, `git@`, or `ssh://`.
+         * @param uri The URI of the default Git repository used as the Config Server back end, should be started with `http://`, `https://`, `git{@literal @}`, or `ssh://`.
          * 
          * @return builder
          * 

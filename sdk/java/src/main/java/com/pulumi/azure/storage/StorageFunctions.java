@@ -56,7 +56,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -78,14 +79,15 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;packerimages&#34;)
-     *             .resourceGroupName(&#34;packer-storage&#34;)
+     *             .name("packerimages")
+     *             .resourceGroupName("packer-storage")
      *             .build());
      * 
-     *         ctx.export(&#34;storageAccountTier&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.accountTier()));
+     *         ctx.export("storageAccountTier", example.applyValue(getAccountResult -> getAccountResult.accountTier()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -98,7 +100,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -120,14 +123,15 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;packerimages&#34;)
-     *             .resourceGroupName(&#34;packer-storage&#34;)
+     *             .name("packerimages")
+     *             .resourceGroupName("packer-storage")
      *             .build());
      * 
-     *         ctx.export(&#34;storageAccountTier&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.accountTier()));
+     *         ctx.export("storageAccountTier", example.applyValue(getAccountResult -> getAccountResult.accountTier()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -140,7 +144,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -162,14 +167,15 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;packerimages&#34;)
-     *             .resourceGroupName(&#34;packer-storage&#34;)
+     *             .name("packerimages")
+     *             .resourceGroupName("packer-storage")
      *             .build());
      * 
-     *         ctx.export(&#34;storageAccountTier&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.accountTier()));
+     *         ctx.export("storageAccountTier", example.applyValue(getAccountResult -> getAccountResult.accountTier()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -182,7 +188,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -204,14 +211,15 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;packerimages&#34;)
-     *             .resourceGroupName(&#34;packer-storage&#34;)
+     *             .name("packerimages")
+     *             .resourceGroupName("packer-storage")
      *             .build());
      * 
-     *         ctx.export(&#34;storageAccountTier&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.accountTier()));
+     *         ctx.export("storageAccountTier", example.applyValue(getAccountResult -> getAccountResult.accountTier()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -226,7 +234,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -254,32 +263,32 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var rg = new ResourceGroup(&#34;rg&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;resourceGroupName&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var rg = new ResourceGroup("rg", ResourceGroupArgs.builder()        
+     *             .name("resourceGroupName")
+     *             .location("West Europe")
      *             .build());
      * 
-     *         var storage = new Account(&#34;storage&#34;, AccountArgs.builder()        
-     *             .name(&#34;storageaccountname&#34;)
+     *         var storage = new Account("storage", AccountArgs.builder()        
+     *             .name("storageaccountname")
      *             .resourceGroupName(rg.name())
      *             .location(rg.location())
-     *             .accountTier(&#34;Standard&#34;)
-     *             .accountReplicationType(&#34;LRS&#34;)
+     *             .accountTier("Standard")
+     *             .accountReplicationType("LRS")
      *             .build());
      * 
-     *         var container = new Container(&#34;container&#34;, ContainerArgs.builder()        
-     *             .name(&#34;mycontainer&#34;)
+     *         var container = new Container("container", ContainerArgs.builder()        
+     *             .name("mycontainer")
      *             .storageAccountName(storage.name())
-     *             .containerAccessType(&#34;private&#34;)
+     *             .containerAccessType("private")
      *             .build());
      * 
      *         final var example = StorageFunctions.getAccountBlobContainerSAS(GetAccountBlobContainerSASArgs.builder()
      *             .connectionString(storage.primaryConnectionString())
      *             .containerName(container.name())
      *             .httpsOnly(true)
-     *             .ipAddress(&#34;168.1.5.65&#34;)
-     *             .start(&#34;2018-03-21&#34;)
-     *             .expiry(&#34;2018-03-21&#34;)
+     *             .ipAddress("168.1.5.65")
+     *             .start("2018-03-21")
+     *             .expiry("2018-03-21")
      *             .permissions(GetAccountBlobContainerSASPermissionsArgs.builder()
      *                 .read(true)
      *                 .add(true)
@@ -288,17 +297,18 @@ public final class StorageFunctions {
      *                 .delete(true)
      *                 .list(true)
      *                 .build())
-     *             .cacheControl(&#34;max-age=5&#34;)
-     *             .contentDisposition(&#34;inline&#34;)
-     *             .contentEncoding(&#34;deflate&#34;)
-     *             .contentLanguage(&#34;en-US&#34;)
-     *             .contentType(&#34;application/json&#34;)
+     *             .cacheControl("max-age=5")
+     *             .contentDisposition("inline")
+     *             .contentEncoding("deflate")
+     *             .contentLanguage("en-US")
+     *             .contentType("application/json")
      *             .build());
      * 
-     *         ctx.export(&#34;sasUrlQueryString&#34;, example.applyValue(getAccountBlobContainerSASResult -&gt; getAccountBlobContainerSASResult).applyValue(example -&gt; example.applyValue(getAccountBlobContainerSASResult -&gt; getAccountBlobContainerSASResult.sas())));
+     *         ctx.export("sasUrlQueryString", example.applyValue(getAccountBlobContainerSASResult -> getAccountBlobContainerSASResult).applyValue(example -> example.applyValue(getAccountBlobContainerSASResult -> getAccountBlobContainerSASResult.sas())));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -313,7 +323,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -341,32 +352,32 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var rg = new ResourceGroup(&#34;rg&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;resourceGroupName&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var rg = new ResourceGroup("rg", ResourceGroupArgs.builder()        
+     *             .name("resourceGroupName")
+     *             .location("West Europe")
      *             .build());
      * 
-     *         var storage = new Account(&#34;storage&#34;, AccountArgs.builder()        
-     *             .name(&#34;storageaccountname&#34;)
+     *         var storage = new Account("storage", AccountArgs.builder()        
+     *             .name("storageaccountname")
      *             .resourceGroupName(rg.name())
      *             .location(rg.location())
-     *             .accountTier(&#34;Standard&#34;)
-     *             .accountReplicationType(&#34;LRS&#34;)
+     *             .accountTier("Standard")
+     *             .accountReplicationType("LRS")
      *             .build());
      * 
-     *         var container = new Container(&#34;container&#34;, ContainerArgs.builder()        
-     *             .name(&#34;mycontainer&#34;)
+     *         var container = new Container("container", ContainerArgs.builder()        
+     *             .name("mycontainer")
      *             .storageAccountName(storage.name())
-     *             .containerAccessType(&#34;private&#34;)
+     *             .containerAccessType("private")
      *             .build());
      * 
      *         final var example = StorageFunctions.getAccountBlobContainerSAS(GetAccountBlobContainerSASArgs.builder()
      *             .connectionString(storage.primaryConnectionString())
      *             .containerName(container.name())
      *             .httpsOnly(true)
-     *             .ipAddress(&#34;168.1.5.65&#34;)
-     *             .start(&#34;2018-03-21&#34;)
-     *             .expiry(&#34;2018-03-21&#34;)
+     *             .ipAddress("168.1.5.65")
+     *             .start("2018-03-21")
+     *             .expiry("2018-03-21")
      *             .permissions(GetAccountBlobContainerSASPermissionsArgs.builder()
      *                 .read(true)
      *                 .add(true)
@@ -375,17 +386,18 @@ public final class StorageFunctions {
      *                 .delete(true)
      *                 .list(true)
      *                 .build())
-     *             .cacheControl(&#34;max-age=5&#34;)
-     *             .contentDisposition(&#34;inline&#34;)
-     *             .contentEncoding(&#34;deflate&#34;)
-     *             .contentLanguage(&#34;en-US&#34;)
-     *             .contentType(&#34;application/json&#34;)
+     *             .cacheControl("max-age=5")
+     *             .contentDisposition("inline")
+     *             .contentEncoding("deflate")
+     *             .contentLanguage("en-US")
+     *             .contentType("application/json")
      *             .build());
      * 
-     *         ctx.export(&#34;sasUrlQueryString&#34;, example.applyValue(getAccountBlobContainerSASResult -&gt; getAccountBlobContainerSASResult).applyValue(example -&gt; example.applyValue(getAccountBlobContainerSASResult -&gt; getAccountBlobContainerSASResult.sas())));
+     *         ctx.export("sasUrlQueryString", example.applyValue(getAccountBlobContainerSASResult -> getAccountBlobContainerSASResult).applyValue(example -> example.applyValue(getAccountBlobContainerSASResult -> getAccountBlobContainerSASResult.sas())));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -400,7 +412,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -428,32 +441,32 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var rg = new ResourceGroup(&#34;rg&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;resourceGroupName&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var rg = new ResourceGroup("rg", ResourceGroupArgs.builder()        
+     *             .name("resourceGroupName")
+     *             .location("West Europe")
      *             .build());
      * 
-     *         var storage = new Account(&#34;storage&#34;, AccountArgs.builder()        
-     *             .name(&#34;storageaccountname&#34;)
+     *         var storage = new Account("storage", AccountArgs.builder()        
+     *             .name("storageaccountname")
      *             .resourceGroupName(rg.name())
      *             .location(rg.location())
-     *             .accountTier(&#34;Standard&#34;)
-     *             .accountReplicationType(&#34;LRS&#34;)
+     *             .accountTier("Standard")
+     *             .accountReplicationType("LRS")
      *             .build());
      * 
-     *         var container = new Container(&#34;container&#34;, ContainerArgs.builder()        
-     *             .name(&#34;mycontainer&#34;)
+     *         var container = new Container("container", ContainerArgs.builder()        
+     *             .name("mycontainer")
      *             .storageAccountName(storage.name())
-     *             .containerAccessType(&#34;private&#34;)
+     *             .containerAccessType("private")
      *             .build());
      * 
      *         final var example = StorageFunctions.getAccountBlobContainerSAS(GetAccountBlobContainerSASArgs.builder()
      *             .connectionString(storage.primaryConnectionString())
      *             .containerName(container.name())
      *             .httpsOnly(true)
-     *             .ipAddress(&#34;168.1.5.65&#34;)
-     *             .start(&#34;2018-03-21&#34;)
-     *             .expiry(&#34;2018-03-21&#34;)
+     *             .ipAddress("168.1.5.65")
+     *             .start("2018-03-21")
+     *             .expiry("2018-03-21")
      *             .permissions(GetAccountBlobContainerSASPermissionsArgs.builder()
      *                 .read(true)
      *                 .add(true)
@@ -462,17 +475,18 @@ public final class StorageFunctions {
      *                 .delete(true)
      *                 .list(true)
      *                 .build())
-     *             .cacheControl(&#34;max-age=5&#34;)
-     *             .contentDisposition(&#34;inline&#34;)
-     *             .contentEncoding(&#34;deflate&#34;)
-     *             .contentLanguage(&#34;en-US&#34;)
-     *             .contentType(&#34;application/json&#34;)
+     *             .cacheControl("max-age=5")
+     *             .contentDisposition("inline")
+     *             .contentEncoding("deflate")
+     *             .contentLanguage("en-US")
+     *             .contentType("application/json")
      *             .build());
      * 
-     *         ctx.export(&#34;sasUrlQueryString&#34;, example.applyValue(getAccountBlobContainerSASResult -&gt; getAccountBlobContainerSASResult).applyValue(example -&gt; example.applyValue(getAccountBlobContainerSASResult -&gt; getAccountBlobContainerSASResult.sas())));
+     *         ctx.export("sasUrlQueryString", example.applyValue(getAccountBlobContainerSASResult -> getAccountBlobContainerSASResult).applyValue(example -> example.applyValue(getAccountBlobContainerSASResult -> getAccountBlobContainerSASResult.sas())));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -487,7 +501,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -515,32 +530,32 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var rg = new ResourceGroup(&#34;rg&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;resourceGroupName&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var rg = new ResourceGroup("rg", ResourceGroupArgs.builder()        
+     *             .name("resourceGroupName")
+     *             .location("West Europe")
      *             .build());
      * 
-     *         var storage = new Account(&#34;storage&#34;, AccountArgs.builder()        
-     *             .name(&#34;storageaccountname&#34;)
+     *         var storage = new Account("storage", AccountArgs.builder()        
+     *             .name("storageaccountname")
      *             .resourceGroupName(rg.name())
      *             .location(rg.location())
-     *             .accountTier(&#34;Standard&#34;)
-     *             .accountReplicationType(&#34;LRS&#34;)
+     *             .accountTier("Standard")
+     *             .accountReplicationType("LRS")
      *             .build());
      * 
-     *         var container = new Container(&#34;container&#34;, ContainerArgs.builder()        
-     *             .name(&#34;mycontainer&#34;)
+     *         var container = new Container("container", ContainerArgs.builder()        
+     *             .name("mycontainer")
      *             .storageAccountName(storage.name())
-     *             .containerAccessType(&#34;private&#34;)
+     *             .containerAccessType("private")
      *             .build());
      * 
      *         final var example = StorageFunctions.getAccountBlobContainerSAS(GetAccountBlobContainerSASArgs.builder()
      *             .connectionString(storage.primaryConnectionString())
      *             .containerName(container.name())
      *             .httpsOnly(true)
-     *             .ipAddress(&#34;168.1.5.65&#34;)
-     *             .start(&#34;2018-03-21&#34;)
-     *             .expiry(&#34;2018-03-21&#34;)
+     *             .ipAddress("168.1.5.65")
+     *             .start("2018-03-21")
+     *             .expiry("2018-03-21")
      *             .permissions(GetAccountBlobContainerSASPermissionsArgs.builder()
      *                 .read(true)
      *                 .add(true)
@@ -549,17 +564,18 @@ public final class StorageFunctions {
      *                 .delete(true)
      *                 .list(true)
      *                 .build())
-     *             .cacheControl(&#34;max-age=5&#34;)
-     *             .contentDisposition(&#34;inline&#34;)
-     *             .contentEncoding(&#34;deflate&#34;)
-     *             .contentLanguage(&#34;en-US&#34;)
-     *             .contentType(&#34;application/json&#34;)
+     *             .cacheControl("max-age=5")
+     *             .contentDisposition("inline")
+     *             .contentEncoding("deflate")
+     *             .contentLanguage("en-US")
+     *             .contentType("application/json")
      *             .build());
      * 
-     *         ctx.export(&#34;sasUrlQueryString&#34;, example.applyValue(getAccountBlobContainerSASResult -&gt; getAccountBlobContainerSASResult).applyValue(example -&gt; example.applyValue(getAccountBlobContainerSASResult -&gt; getAccountBlobContainerSASResult.sas())));
+     *         ctx.export("sasUrlQueryString", example.applyValue(getAccountBlobContainerSASResult -> getAccountBlobContainerSASResult).applyValue(example -> example.applyValue(getAccountBlobContainerSASResult -> getAccountBlobContainerSASResult.sas())));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -577,7 +593,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -605,24 +622,24 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;resourceGroupName&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *             .name("resourceGroupName")
+     *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
-     *             .name(&#34;storageaccountname&#34;)
+     *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+     *             .name("storageaccountname")
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .location(exampleResourceGroup.location())
-     *             .accountTier(&#34;Standard&#34;)
-     *             .accountReplicationType(&#34;GRS&#34;)
-     *             .tags(Map.of(&#34;environment&#34;, &#34;staging&#34;))
+     *             .accountTier("Standard")
+     *             .accountReplicationType("GRS")
+     *             .tags(Map.of("environment", "staging"))
      *             .build());
      * 
      *         final var example = StorageFunctions.getAccountSAS(GetAccountSASArgs.builder()
      *             .connectionString(exampleAccount.primaryConnectionString())
      *             .httpsOnly(true)
-     *             .signedVersion(&#34;2017-07-29&#34;)
+     *             .signedVersion("2017-07-29")
      *             .resourceTypes(GetAccountSASResourceTypesArgs.builder()
      *                 .service(true)
      *                 .container(false)
@@ -634,8 +651,8 @@ public final class StorageFunctions {
      *                 .table(false)
      *                 .file(false)
      *                 .build())
-     *             .start(&#34;2018-03-21T00:00:00Z&#34;)
-     *             .expiry(&#34;2020-03-21T00:00:00Z&#34;)
+     *             .start("2018-03-21T00:00:00Z")
+     *             .expiry("2020-03-21T00:00:00Z")
      *             .permissions(GetAccountSASPermissionsArgs.builder()
      *                 .read(true)
      *                 .write(true)
@@ -650,10 +667,11 @@ public final class StorageFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;sasUrlQueryString&#34;, example.applyValue(getAccountSASResult -&gt; getAccountSASResult).applyValue(example -&gt; example.applyValue(getAccountSASResult -&gt; getAccountSASResult.sas())));
+     *         ctx.export("sasUrlQueryString", example.applyValue(getAccountSASResult -> getAccountSASResult).applyValue(example -> example.applyValue(getAccountSASResult -> getAccountSASResult.sas())));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -671,7 +689,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -699,24 +718,24 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;resourceGroupName&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *             .name("resourceGroupName")
+     *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
-     *             .name(&#34;storageaccountname&#34;)
+     *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+     *             .name("storageaccountname")
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .location(exampleResourceGroup.location())
-     *             .accountTier(&#34;Standard&#34;)
-     *             .accountReplicationType(&#34;GRS&#34;)
-     *             .tags(Map.of(&#34;environment&#34;, &#34;staging&#34;))
+     *             .accountTier("Standard")
+     *             .accountReplicationType("GRS")
+     *             .tags(Map.of("environment", "staging"))
      *             .build());
      * 
      *         final var example = StorageFunctions.getAccountSAS(GetAccountSASArgs.builder()
      *             .connectionString(exampleAccount.primaryConnectionString())
      *             .httpsOnly(true)
-     *             .signedVersion(&#34;2017-07-29&#34;)
+     *             .signedVersion("2017-07-29")
      *             .resourceTypes(GetAccountSASResourceTypesArgs.builder()
      *                 .service(true)
      *                 .container(false)
@@ -728,8 +747,8 @@ public final class StorageFunctions {
      *                 .table(false)
      *                 .file(false)
      *                 .build())
-     *             .start(&#34;2018-03-21T00:00:00Z&#34;)
-     *             .expiry(&#34;2020-03-21T00:00:00Z&#34;)
+     *             .start("2018-03-21T00:00:00Z")
+     *             .expiry("2020-03-21T00:00:00Z")
      *             .permissions(GetAccountSASPermissionsArgs.builder()
      *                 .read(true)
      *                 .write(true)
@@ -744,10 +763,11 @@ public final class StorageFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;sasUrlQueryString&#34;, example.applyValue(getAccountSASResult -&gt; getAccountSASResult).applyValue(example -&gt; example.applyValue(getAccountSASResult -&gt; getAccountSASResult.sas())));
+     *         ctx.export("sasUrlQueryString", example.applyValue(getAccountSASResult -> getAccountSASResult).applyValue(example -> example.applyValue(getAccountSASResult -> getAccountSASResult.sas())));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -765,7 +785,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -793,24 +814,24 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;resourceGroupName&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *             .name("resourceGroupName")
+     *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
-     *             .name(&#34;storageaccountname&#34;)
+     *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+     *             .name("storageaccountname")
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .location(exampleResourceGroup.location())
-     *             .accountTier(&#34;Standard&#34;)
-     *             .accountReplicationType(&#34;GRS&#34;)
-     *             .tags(Map.of(&#34;environment&#34;, &#34;staging&#34;))
+     *             .accountTier("Standard")
+     *             .accountReplicationType("GRS")
+     *             .tags(Map.of("environment", "staging"))
      *             .build());
      * 
      *         final var example = StorageFunctions.getAccountSAS(GetAccountSASArgs.builder()
      *             .connectionString(exampleAccount.primaryConnectionString())
      *             .httpsOnly(true)
-     *             .signedVersion(&#34;2017-07-29&#34;)
+     *             .signedVersion("2017-07-29")
      *             .resourceTypes(GetAccountSASResourceTypesArgs.builder()
      *                 .service(true)
      *                 .container(false)
@@ -822,8 +843,8 @@ public final class StorageFunctions {
      *                 .table(false)
      *                 .file(false)
      *                 .build())
-     *             .start(&#34;2018-03-21T00:00:00Z&#34;)
-     *             .expiry(&#34;2020-03-21T00:00:00Z&#34;)
+     *             .start("2018-03-21T00:00:00Z")
+     *             .expiry("2020-03-21T00:00:00Z")
      *             .permissions(GetAccountSASPermissionsArgs.builder()
      *                 .read(true)
      *                 .write(true)
@@ -838,10 +859,11 @@ public final class StorageFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;sasUrlQueryString&#34;, example.applyValue(getAccountSASResult -&gt; getAccountSASResult).applyValue(example -&gt; example.applyValue(getAccountSASResult -&gt; getAccountSASResult.sas())));
+     *         ctx.export("sasUrlQueryString", example.applyValue(getAccountSASResult -> getAccountSASResult).applyValue(example -> example.applyValue(getAccountSASResult -> getAccountSASResult.sas())));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -859,7 +881,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -887,24 +910,24 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;resourceGroupName&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *             .name("resourceGroupName")
+     *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
-     *             .name(&#34;storageaccountname&#34;)
+     *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+     *             .name("storageaccountname")
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .location(exampleResourceGroup.location())
-     *             .accountTier(&#34;Standard&#34;)
-     *             .accountReplicationType(&#34;GRS&#34;)
-     *             .tags(Map.of(&#34;environment&#34;, &#34;staging&#34;))
+     *             .accountTier("Standard")
+     *             .accountReplicationType("GRS")
+     *             .tags(Map.of("environment", "staging"))
      *             .build());
      * 
      *         final var example = StorageFunctions.getAccountSAS(GetAccountSASArgs.builder()
      *             .connectionString(exampleAccount.primaryConnectionString())
      *             .httpsOnly(true)
-     *             .signedVersion(&#34;2017-07-29&#34;)
+     *             .signedVersion("2017-07-29")
      *             .resourceTypes(GetAccountSASResourceTypesArgs.builder()
      *                 .service(true)
      *                 .container(false)
@@ -916,8 +939,8 @@ public final class StorageFunctions {
      *                 .table(false)
      *                 .file(false)
      *                 .build())
-     *             .start(&#34;2018-03-21T00:00:00Z&#34;)
-     *             .expiry(&#34;2020-03-21T00:00:00Z&#34;)
+     *             .start("2018-03-21T00:00:00Z")
+     *             .expiry("2020-03-21T00:00:00Z")
      *             .permissions(GetAccountSASPermissionsArgs.builder()
      *                 .read(true)
      *                 .write(true)
@@ -932,10 +955,11 @@ public final class StorageFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;sasUrlQueryString&#34;, example.applyValue(getAccountSASResult -&gt; getAccountSASResult).applyValue(example -&gt; example.applyValue(getAccountSASResult -&gt; getAccountSASResult.sas())));
+     *         ctx.export("sasUrlQueryString", example.applyValue(getAccountSASResult -> getAccountSASResult).applyValue(example -> example.applyValue(getAccountSASResult -> getAccountSASResult.sas())));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -948,7 +972,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -970,14 +995,15 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getBlob(GetBlobArgs.builder()
-     *             .name(&#34;example-blob-name&#34;)
-     *             .storageAccountName(&#34;example-storage-account-name&#34;)
-     *             .storageContainerName(&#34;example-storage-container-name&#34;)
+     *             .name("example-blob-name")
+     *             .storageAccountName("example-storage-account-name")
+     *             .storageContainerName("example-storage-container-name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -990,7 +1016,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1012,14 +1039,15 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getBlob(GetBlobArgs.builder()
-     *             .name(&#34;example-blob-name&#34;)
-     *             .storageAccountName(&#34;example-storage-account-name&#34;)
-     *             .storageContainerName(&#34;example-storage-container-name&#34;)
+     *             .name("example-blob-name")
+     *             .storageAccountName("example-storage-account-name")
+     *             .storageContainerName("example-storage-container-name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1032,7 +1060,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1054,14 +1083,15 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getBlob(GetBlobArgs.builder()
-     *             .name(&#34;example-blob-name&#34;)
-     *             .storageAccountName(&#34;example-storage-account-name&#34;)
-     *             .storageContainerName(&#34;example-storage-container-name&#34;)
+     *             .name("example-blob-name")
+     *             .storageAccountName("example-storage-account-name")
+     *             .storageContainerName("example-storage-container-name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1074,7 +1104,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1096,14 +1127,15 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getBlob(GetBlobArgs.builder()
-     *             .name(&#34;example-blob-name&#34;)
-     *             .storageAccountName(&#34;example-storage-account-name&#34;)
-     *             .storageContainerName(&#34;example-storage-container-name&#34;)
+     *             .name("example-blob-name")
+     *             .storageAccountName("example-storage-account-name")
+     *             .storageContainerName("example-storage-container-name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1116,7 +1148,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1138,13 +1171,14 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getContainers(GetContainersArgs.builder()
-     *             .storageAccountId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/sa1&#34;)
+     *             .storageAccountId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/sa1")
      *             .build());
      * 
-     *         ctx.export(&#34;containerId&#34;, example.applyValue(getContainersResult -&gt; getContainersResult.containers()[0].resourceManagerId()));
+     *         ctx.export("containerId", example.applyValue(getContainersResult -> getContainersResult.containers()[0].resourceManagerId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1157,7 +1191,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1179,13 +1214,14 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getContainers(GetContainersArgs.builder()
-     *             .storageAccountId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/sa1&#34;)
+     *             .storageAccountId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/sa1")
      *             .build());
      * 
-     *         ctx.export(&#34;containerId&#34;, example.applyValue(getContainersResult -&gt; getContainersResult.containers()[0].resourceManagerId()));
+     *         ctx.export("containerId", example.applyValue(getContainersResult -> getContainersResult.containers()[0].resourceManagerId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1198,7 +1234,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1220,13 +1257,14 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getContainers(GetContainersArgs.builder()
-     *             .storageAccountId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/sa1&#34;)
+     *             .storageAccountId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/sa1")
      *             .build());
      * 
-     *         ctx.export(&#34;containerId&#34;, example.applyValue(getContainersResult -&gt; getContainersResult.containers()[0].resourceManagerId()));
+     *         ctx.export("containerId", example.applyValue(getContainersResult -> getContainersResult.containers()[0].resourceManagerId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1239,7 +1277,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1261,13 +1300,14 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getContainers(GetContainersArgs.builder()
-     *             .storageAccountId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/sa1&#34;)
+     *             .storageAccountId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/sa1")
      *             .build());
      * 
-     *         ctx.export(&#34;containerId&#34;, example.applyValue(getContainersResult -&gt; getContainersResult.containers()[0].resourceManagerId()));
+     *         ctx.export("containerId", example.applyValue(getContainersResult -> getContainersResult.containers()[0].resourceManagerId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1280,7 +1320,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1303,19 +1344,20 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;storageaccountname&#34;)
-     *             .resourceGroupName(&#34;resourcegroupname&#34;)
+     *             .name("storageaccountname")
+     *             .resourceGroupName("resourcegroupname")
      *             .build());
      * 
      *         final var exampleGetEncryptionScope = StorageFunctions.getEncryptionScope(GetEncryptionScopeArgs.builder()
-     *             .name(&#34;existingStorageES&#34;)
-     *             .storageAccountId(example.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *             .name("existingStorageES")
+     *             .storageAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleGetEncryptionScope.applyValue(getEncryptionScopeResult -&gt; getEncryptionScopeResult.id()));
+     *         ctx.export("id", exampleGetEncryptionScope.applyValue(getEncryptionScopeResult -> getEncryptionScopeResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1328,7 +1370,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1351,19 +1394,20 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;storageaccountname&#34;)
-     *             .resourceGroupName(&#34;resourcegroupname&#34;)
+     *             .name("storageaccountname")
+     *             .resourceGroupName("resourcegroupname")
      *             .build());
      * 
      *         final var exampleGetEncryptionScope = StorageFunctions.getEncryptionScope(GetEncryptionScopeArgs.builder()
-     *             .name(&#34;existingStorageES&#34;)
-     *             .storageAccountId(example.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *             .name("existingStorageES")
+     *             .storageAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleGetEncryptionScope.applyValue(getEncryptionScopeResult -&gt; getEncryptionScopeResult.id()));
+     *         ctx.export("id", exampleGetEncryptionScope.applyValue(getEncryptionScopeResult -> getEncryptionScopeResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1376,7 +1420,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1399,19 +1444,20 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;storageaccountname&#34;)
-     *             .resourceGroupName(&#34;resourcegroupname&#34;)
+     *             .name("storageaccountname")
+     *             .resourceGroupName("resourcegroupname")
      *             .build());
      * 
      *         final var exampleGetEncryptionScope = StorageFunctions.getEncryptionScope(GetEncryptionScopeArgs.builder()
-     *             .name(&#34;existingStorageES&#34;)
-     *             .storageAccountId(example.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *             .name("existingStorageES")
+     *             .storageAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleGetEncryptionScope.applyValue(getEncryptionScopeResult -&gt; getEncryptionScopeResult.id()));
+     *         ctx.export("id", exampleGetEncryptionScope.applyValue(getEncryptionScopeResult -> getEncryptionScopeResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1424,7 +1470,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1447,19 +1494,20 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;storageaccountname&#34;)
-     *             .resourceGroupName(&#34;resourcegroupname&#34;)
+     *             .name("storageaccountname")
+     *             .resourceGroupName("resourcegroupname")
      *             .build());
      * 
      *         final var exampleGetEncryptionScope = StorageFunctions.getEncryptionScope(GetEncryptionScopeArgs.builder()
-     *             .name(&#34;existingStorageES&#34;)
-     *             .storageAccountId(example.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *             .name("existingStorageES")
+     *             .storageAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleGetEncryptionScope.applyValue(getEncryptionScopeResult -&gt; getEncryptionScopeResult.id()));
+     *         ctx.export("id", exampleGetEncryptionScope.applyValue(getEncryptionScopeResult -> getEncryptionScopeResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1472,7 +1520,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1495,17 +1544,18 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;storageaccountname&#34;)
-     *             .resourceGroupName(&#34;resourcegroupname&#34;)
+     *             .name("storageaccountname")
+     *             .resourceGroupName("resourcegroupname")
      *             .build());
      * 
      *         final var exampleGetPolicy = StorageFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .storageAccountId(example.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *             .storageAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1518,7 +1568,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1541,17 +1592,18 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;storageaccountname&#34;)
-     *             .resourceGroupName(&#34;resourcegroupname&#34;)
+     *             .name("storageaccountname")
+     *             .resourceGroupName("resourcegroupname")
      *             .build());
      * 
      *         final var exampleGetPolicy = StorageFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .storageAccountId(example.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *             .storageAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1564,7 +1616,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1587,17 +1640,18 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;storageaccountname&#34;)
-     *             .resourceGroupName(&#34;resourcegroupname&#34;)
+     *             .name("storageaccountname")
+     *             .resourceGroupName("resourcegroupname")
      *             .build());
      * 
      *         final var exampleGetPolicy = StorageFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .storageAccountId(example.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *             .storageAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1610,7 +1664,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1633,17 +1688,18 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;storageaccountname&#34;)
-     *             .resourceGroupName(&#34;resourcegroupname&#34;)
+     *             .name("storageaccountname")
+     *             .resourceGroupName("resourcegroupname")
      *             .build());
      * 
      *         final var exampleGetPolicy = StorageFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .storageAccountId(example.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *             .storageAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1658,7 +1714,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1680,14 +1737,15 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getShare(GetShareArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .storageAccountName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .storageAccountName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getShareResult -&gt; getShareResult.id()));
+     *         ctx.export("id", example.applyValue(getShareResult -> getShareResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1702,7 +1760,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1724,14 +1783,15 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getShare(GetShareArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .storageAccountName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .storageAccountName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getShareResult -&gt; getShareResult.id()));
+     *         ctx.export("id", example.applyValue(getShareResult -> getShareResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1746,7 +1806,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1768,14 +1829,15 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getShare(GetShareArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .storageAccountName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .storageAccountName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getShareResult -&gt; getShareResult.id()));
+     *         ctx.export("id", example.applyValue(getShareResult -> getShareResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1790,7 +1852,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1812,14 +1875,15 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getShare(GetShareArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .storageAccountName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .storageAccountName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getShareResult -&gt; getShareResult.id()));
+     *         ctx.export("id", example.applyValue(getShareResult -> getShareResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1832,7 +1896,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1854,13 +1919,14 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getStorageContainer(GetStorageContainerArgs.builder()
-     *             .name(&#34;example-container-name&#34;)
-     *             .storageAccountName(&#34;example-storage-account-name&#34;)
+     *             .name("example-container-name")
+     *             .storageAccountName("example-storage-account-name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1873,7 +1939,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1895,13 +1962,14 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getStorageContainer(GetStorageContainerArgs.builder()
-     *             .name(&#34;example-container-name&#34;)
-     *             .storageAccountName(&#34;example-storage-account-name&#34;)
+     *             .name("example-container-name")
+     *             .storageAccountName("example-storage-account-name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1914,7 +1982,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1936,13 +2005,14 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getStorageContainer(GetStorageContainerArgs.builder()
-     *             .name(&#34;example-container-name&#34;)
-     *             .storageAccountName(&#34;example-storage-account-name&#34;)
+     *             .name("example-container-name")
+     *             .storageAccountName("example-storage-account-name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1955,7 +2025,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1977,13 +2048,14 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getStorageContainer(GetStorageContainerArgs.builder()
-     *             .name(&#34;example-container-name&#34;)
-     *             .storageAccountName(&#34;example-storage-account-name&#34;)
+     *             .name("example-container-name")
+     *             .storageAccountName("example-storage-account-name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1996,7 +2068,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2018,14 +2091,15 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getSync(GetSyncArgs.builder()
-     *             .name(&#34;existingStorageSyncName&#34;)
-     *             .resourceGroupName(&#34;existingResGroup&#34;)
+     *             .name("existingStorageSyncName")
+     *             .resourceGroupName("existingResGroup")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getSyncResult -&gt; getSyncResult.id()));
+     *         ctx.export("id", example.applyValue(getSyncResult -> getSyncResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2038,7 +2112,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2060,14 +2135,15 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getSync(GetSyncArgs.builder()
-     *             .name(&#34;existingStorageSyncName&#34;)
-     *             .resourceGroupName(&#34;existingResGroup&#34;)
+     *             .name("existingStorageSyncName")
+     *             .resourceGroupName("existingResGroup")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getSyncResult -&gt; getSyncResult.id()));
+     *         ctx.export("id", example.applyValue(getSyncResult -> getSyncResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2080,7 +2156,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2102,14 +2179,15 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getSync(GetSyncArgs.builder()
-     *             .name(&#34;existingStorageSyncName&#34;)
-     *             .resourceGroupName(&#34;existingResGroup&#34;)
+     *             .name("existingStorageSyncName")
+     *             .resourceGroupName("existingResGroup")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getSyncResult -&gt; getSyncResult.id()));
+     *         ctx.export("id", example.applyValue(getSyncResult -> getSyncResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2122,7 +2200,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2144,14 +2223,15 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getSync(GetSyncArgs.builder()
-     *             .name(&#34;existingStorageSyncName&#34;)
-     *             .resourceGroupName(&#34;existingResGroup&#34;)
+     *             .name("existingStorageSyncName")
+     *             .resourceGroupName("existingResGroup")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getSyncResult -&gt; getSyncResult.id()));
+     *         ctx.export("id", example.applyValue(getSyncResult -> getSyncResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2164,7 +2244,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2186,14 +2267,15 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getSyncGroup(GetSyncGroupArgs.builder()
-     *             .name(&#34;existing-ss-group&#34;)
-     *             .storageSyncId(&#34;existing-ss-id&#34;)
+     *             .name("existing-ss-group")
+     *             .storageSyncId("existing-ss-id")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getSyncGroupResult -&gt; getSyncGroupResult.id()));
+     *         ctx.export("id", example.applyValue(getSyncGroupResult -> getSyncGroupResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2206,7 +2288,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2228,14 +2311,15 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getSyncGroup(GetSyncGroupArgs.builder()
-     *             .name(&#34;existing-ss-group&#34;)
-     *             .storageSyncId(&#34;existing-ss-id&#34;)
+     *             .name("existing-ss-group")
+     *             .storageSyncId("existing-ss-id")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getSyncGroupResult -&gt; getSyncGroupResult.id()));
+     *         ctx.export("id", example.applyValue(getSyncGroupResult -> getSyncGroupResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2248,7 +2332,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2270,14 +2355,15 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getSyncGroup(GetSyncGroupArgs.builder()
-     *             .name(&#34;existing-ss-group&#34;)
-     *             .storageSyncId(&#34;existing-ss-id&#34;)
+     *             .name("existing-ss-group")
+     *             .storageSyncId("existing-ss-id")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getSyncGroupResult -&gt; getSyncGroupResult.id()));
+     *         ctx.export("id", example.applyValue(getSyncGroupResult -> getSyncGroupResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2290,7 +2376,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2312,14 +2399,15 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getSyncGroup(GetSyncGroupArgs.builder()
-     *             .name(&#34;existing-ss-group&#34;)
-     *             .storageSyncId(&#34;existing-ss-id&#34;)
+     *             .name("existing-ss-group")
+     *             .storageSyncId("existing-ss-id")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getSyncGroupResult -&gt; getSyncGroupResult.id()));
+     *         ctx.export("id", example.applyValue(getSyncGroupResult -> getSyncGroupResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2332,7 +2420,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2354,14 +2443,15 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getTableEntities(GetTableEntitiesArgs.builder()
-     *             .tableName(&#34;example-table-name&#34;)
-     *             .storageAccountName(&#34;example-storage-account-name&#34;)
-     *             .filter(&#34;PartitionKey eq &#39;example&#39;&#34;)
+     *             .tableName("example-table-name")
+     *             .storageAccountName("example-storage-account-name")
+     *             .filter("PartitionKey eq 'example'")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2374,7 +2464,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2396,14 +2487,15 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getTableEntities(GetTableEntitiesArgs.builder()
-     *             .tableName(&#34;example-table-name&#34;)
-     *             .storageAccountName(&#34;example-storage-account-name&#34;)
-     *             .filter(&#34;PartitionKey eq &#39;example&#39;&#34;)
+     *             .tableName("example-table-name")
+     *             .storageAccountName("example-storage-account-name")
+     *             .filter("PartitionKey eq 'example'")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2416,7 +2508,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2438,14 +2531,15 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getTableEntities(GetTableEntitiesArgs.builder()
-     *             .tableName(&#34;example-table-name&#34;)
-     *             .storageAccountName(&#34;example-storage-account-name&#34;)
-     *             .filter(&#34;PartitionKey eq &#39;example&#39;&#34;)
+     *             .tableName("example-table-name")
+     *             .storageAccountName("example-storage-account-name")
+     *             .filter("PartitionKey eq 'example'")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2458,7 +2552,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2480,14 +2575,15 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getTableEntities(GetTableEntitiesArgs.builder()
-     *             .tableName(&#34;example-table-name&#34;)
-     *             .storageAccountName(&#34;example-storage-account-name&#34;)
-     *             .filter(&#34;PartitionKey eq &#39;example&#39;&#34;)
+     *             .tableName("example-table-name")
+     *             .storageAccountName("example-storage-account-name")
+     *             .filter("PartitionKey eq 'example'")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2500,7 +2596,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2522,15 +2619,16 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getTableEntity(GetTableEntityArgs.builder()
-     *             .tableName(&#34;example-table-name&#34;)
-     *             .storageAccountName(&#34;example-storage-account-name&#34;)
-     *             .partitionKey(&#34;example-partition-key&#34;)
-     *             .rowKey(&#34;example-row-key&#34;)
+     *             .tableName("example-table-name")
+     *             .storageAccountName("example-storage-account-name")
+     *             .partitionKey("example-partition-key")
+     *             .rowKey("example-row-key")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2543,7 +2641,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2565,15 +2664,16 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getTableEntity(GetTableEntityArgs.builder()
-     *             .tableName(&#34;example-table-name&#34;)
-     *             .storageAccountName(&#34;example-storage-account-name&#34;)
-     *             .partitionKey(&#34;example-partition-key&#34;)
-     *             .rowKey(&#34;example-row-key&#34;)
+     *             .tableName("example-table-name")
+     *             .storageAccountName("example-storage-account-name")
+     *             .partitionKey("example-partition-key")
+     *             .rowKey("example-row-key")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2586,7 +2686,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2608,15 +2709,16 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getTableEntity(GetTableEntityArgs.builder()
-     *             .tableName(&#34;example-table-name&#34;)
-     *             .storageAccountName(&#34;example-storage-account-name&#34;)
-     *             .partitionKey(&#34;example-partition-key&#34;)
-     *             .rowKey(&#34;example-row-key&#34;)
+     *             .tableName("example-table-name")
+     *             .storageAccountName("example-storage-account-name")
+     *             .partitionKey("example-partition-key")
+     *             .rowKey("example-row-key")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2629,7 +2731,8 @@ public final class StorageFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2651,15 +2754,16 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getTableEntity(GetTableEntityArgs.builder()
-     *             .tableName(&#34;example-table-name&#34;)
-     *             .storageAccountName(&#34;example-storage-account-name&#34;)
-     *             .partitionKey(&#34;example-partition-key&#34;)
-     *             .rowKey(&#34;example-row-key&#34;)
+     *             .tableName("example-table-name")
+     *             .storageAccountName("example-storage-account-name")
+     *             .partitionKey("example-partition-key")
+     *             .rowKey("example-row-key")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

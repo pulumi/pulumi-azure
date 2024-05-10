@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,23 +53,23 @@ import javax.annotation.Nullable;
  *         final var example = CoreFunctions.getClientConfig();
  * 
  *         final var exampleGetGroup = ManagementFunctions.getGroup(GetGroupArgs.builder()
- *             .name(example.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *             .name(example.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
  *             .build());
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("example")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var examplePrivateLink = new PrivateLink(&#34;examplePrivateLink&#34;, PrivateLinkArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var examplePrivateLink = new PrivateLink("examplePrivateLink", PrivateLinkArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .build());
  * 
- *         var exampleRandomUuid = new RandomUuid(&#34;exampleRandomUuid&#34;);
+ *         var exampleRandomUuid = new RandomUuid("exampleRandomUuid");
  * 
- *         var examplePrivateLinkAssociation = new PrivateLinkAssociation(&#34;examplePrivateLinkAssociation&#34;, PrivateLinkAssociationArgs.builder()        
+ *         var examplePrivateLinkAssociation = new PrivateLinkAssociation("examplePrivateLinkAssociation", PrivateLinkAssociationArgs.builder()        
  *             .name(exampleRandomUuid.result())
  *             .managementGroupId(exampleAzurermManagementGroup.id())
  *             .resourceManagementPrivateLinkId(examplePrivateLink.id())
@@ -77,7 +78,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -113,7 +115,8 @@ public class PrivateLinkAssociation extends com.pulumi.resources.CustomResource 
      * Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignore_changes` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -134,7 +137,7 @@ public class PrivateLinkAssociation extends com.pulumi.resources.CustomResource 
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new PrivateLinkAssociation(&#34;example&#34;, PrivateLinkAssociationArgs.builder()        
+     *         var example = new PrivateLinkAssociation("example", PrivateLinkAssociationArgs.builder()        
      *             .managementGroupId(exampleAzurermManagementGroup.id())
      *             .resourceManagementPrivateLinkId(exampleAzurermResourceManagementPrivateLink.id())
      *             .publicNetworkAccessEnabled(true)
@@ -142,7 +145,8 @@ public class PrivateLinkAssociation extends com.pulumi.resources.CustomResource 
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -153,7 +157,8 @@ public class PrivateLinkAssociation extends com.pulumi.resources.CustomResource 
      * @return Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignore_changes` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -174,7 +179,7 @@ public class PrivateLinkAssociation extends com.pulumi.resources.CustomResource 
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new PrivateLinkAssociation(&#34;example&#34;, PrivateLinkAssociationArgs.builder()        
+     *         var example = new PrivateLinkAssociation("example", PrivateLinkAssociationArgs.builder()        
      *             .managementGroupId(exampleAzurermManagementGroup.id())
      *             .resourceManagementPrivateLinkId(exampleAzurermResourceManagementPrivateLink.id())
      *             .publicNetworkAccessEnabled(true)
@@ -182,7 +187,8 @@ public class PrivateLinkAssociation extends com.pulumi.resources.CustomResource 
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,43 +56,44 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = CosmosdbFunctions.getAccount(GetAccountArgs.builder()
- *             .name(&#34;tfex-cosmosdb-account&#34;)
- *             .resourceGroupName(&#34;tfex-cosmosdb-account-rg&#34;)
+ *             .name("tfex-cosmosdb-account")
+ *             .resourceGroupName("tfex-cosmosdb-account-rg")
  *             .build());
  * 
- *         var exampleGremlinDatabase = new GremlinDatabase(&#34;exampleGremlinDatabase&#34;, GremlinDatabaseArgs.builder()        
- *             .name(&#34;tfex-cosmos-gremlin-db&#34;)
- *             .resourceGroupName(example.applyValue(getAccountResult -&gt; getAccountResult.resourceGroupName()))
- *             .accountName(example.applyValue(getAccountResult -&gt; getAccountResult.name()))
+ *         var exampleGremlinDatabase = new GremlinDatabase("exampleGremlinDatabase", GremlinDatabaseArgs.builder()        
+ *             .name("tfex-cosmos-gremlin-db")
+ *             .resourceGroupName(example.applyValue(getAccountResult -> getAccountResult.resourceGroupName()))
+ *             .accountName(example.applyValue(getAccountResult -> getAccountResult.name()))
  *             .build());
  * 
- *         var exampleGremlinGraph = new GremlinGraph(&#34;exampleGremlinGraph&#34;, GremlinGraphArgs.builder()        
- *             .name(&#34;tfex-cosmos-gremlin-graph&#34;)
- *             .resourceGroupName(example.applyValue(getAccountResult -&gt; getAccountResult.resourceGroupName()))
- *             .accountName(example.applyValue(getAccountResult -&gt; getAccountResult.name()))
+ *         var exampleGremlinGraph = new GremlinGraph("exampleGremlinGraph", GremlinGraphArgs.builder()        
+ *             .name("tfex-cosmos-gremlin-graph")
+ *             .resourceGroupName(example.applyValue(getAccountResult -> getAccountResult.resourceGroupName()))
+ *             .accountName(example.applyValue(getAccountResult -> getAccountResult.name()))
  *             .databaseName(exampleGremlinDatabase.name())
- *             .partitionKeyPath(&#34;/Example&#34;)
+ *             .partitionKeyPath("/Example")
  *             .throughput(400)
  *             .indexPolicy(GremlinGraphIndexPolicyArgs.builder()
  *                 .automatic(true)
- *                 .indexingMode(&#34;consistent&#34;)
- *                 .includedPaths(&#34;/*&#34;)
- *                 .excludedPaths(&#34;/\&#34;_etag\&#34;/?&#34;)
+ *                 .indexingMode("consistent")
+ *                 .includedPaths("/*")
+ *                 .excludedPaths("/\"_etag\"/?")
  *                 .build())
  *             .conflictResolutionPolicy(GremlinGraphConflictResolutionPolicyArgs.builder()
- *                 .mode(&#34;LastWriterWins&#34;)
- *                 .conflictResolutionPath(&#34;/_ts&#34;)
+ *                 .mode("LastWriterWins")
+ *                 .conflictResolutionPath("/_ts")
  *                 .build())
  *             .uniqueKeys(GremlinGraphUniqueKeyArgs.builder()
  *                 .paths(                
- *                     &#34;/definition/id1&#34;,
- *                     &#34;/definition/id2&#34;)
+ *                     "/definition/id1",
+ *                     "/definition/id2")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; **NOTE:** The CosmosDB Account needs to have the `EnableGremlin` capability enabled to use this resource - which can be done by adding this to the `capabilities` list within the `azure.cosmosdb.Account` resource.

@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### With Base64 Certificate)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,38 +49,40 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .name(&#34;example-apim&#34;)
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *             .name("example-apim")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .publisherName(&#34;My Company&#34;)
- *             .publisherEmail(&#34;company@exmaple.com&#34;)
- *             .skuName(&#34;Developer_1&#34;)
+ *             .publisherName("My Company")
+ *             .publisherEmail("company{@literal @}exmaple.com")
+ *             .skuName("Developer_1")
  *             .build());
  * 
- *         var exampleCertificate = new Certificate(&#34;exampleCertificate&#34;, CertificateArgs.builder()        
- *             .name(&#34;example-cert&#34;)
+ *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()        
+ *             .name("example-cert")
  *             .apiManagementName(exampleService.name())
  *             .resourceGroupName(example.name())
  *             .data(StdFunctions.filebase64(Filebase64Args.builder()
- *                 .input(&#34;example.pfx&#34;)
+ *                 .input("example.pfx")
  *                 .build()).result())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Key Vault Certificate)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -119,66 +122,66 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .name(&#34;example-apim&#34;)
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *             .name("example-apim")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .publisherName(&#34;My Company&#34;)
- *             .publisherEmail(&#34;company@terraform.io&#34;)
- *             .skuName(&#34;Developer_1&#34;)
+ *             .publisherName("My Company")
+ *             .publisherEmail("company{@literal @}terraform.io")
+ *             .skuName("Developer_1")
  *             .identity(ServiceIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;examplekeyvault&#34;)
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("examplekeyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .skuName(&#34;standard&#34;)
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .skuName("standard")
  *             .build());
  * 
- *         var exampleAccessPolicy = new AccessPolicy(&#34;exampleAccessPolicy&#34;, AccessPolicyArgs.builder()        
+ *         var exampleAccessPolicy = new AccessPolicy("exampleAccessPolicy", AccessPolicyArgs.builder()        
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(exampleService.identity().applyValue(identity -&gt; identity.tenantId()))
- *             .objectId(exampleService.identity().applyValue(identity -&gt; identity.principalId()))
- *             .secretPermissions(&#34;Get&#34;)
- *             .certificatePermissions(&#34;Get&#34;)
+ *             .tenantId(exampleService.identity().applyValue(identity -> identity.tenantId()))
+ *             .objectId(exampleService.identity().applyValue(identity -> identity.principalId()))
+ *             .secretPermissions("Get")
+ *             .certificatePermissions("Get")
  *             .build());
  * 
- *         var exampleCertificate = new Certificate(&#34;exampleCertificate&#34;, CertificateArgs.builder()        
- *             .name(&#34;example-cert&#34;)
+ *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()        
+ *             .name("example-cert")
  *             .keyVaultId(exampleKeyVault.id())
  *             .certificate(CertificateCertificateArgs.builder()
  *                 .contents(StdFunctions.filebase64(Filebase64Args.builder()
- *                     .input(&#34;example_cert.pfx&#34;)
+ *                     .input("example_cert.pfx")
  *                     .build()).result())
- *                 .password(&#34;terraform&#34;)
+ *                 .password("terraform")
  *                 .build())
  *             .certificatePolicy(CertificateCertificatePolicyArgs.builder()
  *                 .issuerParameters(CertificateCertificatePolicyIssuerParametersArgs.builder()
- *                     .name(&#34;Self&#34;)
+ *                     .name("Self")
  *                     .build())
  *                 .keyProperties(CertificateCertificatePolicyKeyPropertiesArgs.builder()
  *                     .exportable(true)
  *                     .keySize(2048)
- *                     .keyType(&#34;RSA&#34;)
+ *                     .keyType("RSA")
  *                     .reuseKey(false)
  *                     .build())
  *                 .secretProperties(CertificateCertificatePolicySecretPropertiesArgs.builder()
- *                     .contentType(&#34;application/x-pkcs12&#34;)
+ *                     .contentType("application/x-pkcs12")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleCertificate2 = new Certificate(&#34;exampleCertificate2&#34;, CertificateArgs.builder()        
- *             .name(&#34;example-cert&#34;)
+ *         var exampleCertificate2 = new Certificate("exampleCertificate2", CertificateArgs.builder()        
+ *             .name("example-cert")
  *             .apiManagementName(exampleService.name())
  *             .resourceGroupName(example.name())
  *             .keyVaultSecretId(exampleCertificate.secretId())
@@ -186,7 +189,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

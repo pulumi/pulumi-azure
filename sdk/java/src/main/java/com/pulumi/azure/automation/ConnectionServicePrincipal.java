@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,35 +47,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;resourceGroup-example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("resourceGroup-example")
+ *             .location("West Europe")
  *             .build());
  * 
  *         final var example = CoreFunctions.getClientConfig();
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;account-example&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("account-example")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .skuName(&#34;Basic&#34;)
+ *             .skuName("Basic")
  *             .build());
  * 
- *         var exampleConnectionServicePrincipal = new ConnectionServicePrincipal(&#34;exampleConnectionServicePrincipal&#34;, ConnectionServicePrincipalArgs.builder()        
- *             .name(&#34;connection-example&#34;)
+ *         var exampleConnectionServicePrincipal = new ConnectionServicePrincipal("exampleConnectionServicePrincipal", ConnectionServicePrincipalArgs.builder()        
+ *             .name("connection-example")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .automationAccountName(exampleAccount.name())
- *             .applicationId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .tenantId(example.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .subscriptionId(example.applyValue(getClientConfigResult -&gt; getClientConfigResult.subscriptionId()))
+ *             .applicationId("00000000-0000-0000-0000-000000000000")
+ *             .tenantId(example.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .subscriptionId(example.applyValue(getClientConfigResult -> getClientConfigResult.subscriptionId()))
  *             .certificateThumbprint(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;automation_certificate_test.thumb&#34;)
+ *                 .input("automation_certificate_test.thumb")
  *                 .build()).result())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

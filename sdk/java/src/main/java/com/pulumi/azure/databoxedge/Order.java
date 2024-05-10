@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,39 +56,40 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-databoxedge&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-databoxedge")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleDevice = new Device(&#34;exampleDevice&#34;, DeviceArgs.builder()        
- *             .name(&#34;example-device&#34;)
+ *         var exampleDevice = new Device("exampleDevice", DeviceArgs.builder()        
+ *             .name("example-device")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .skuName(&#34;EdgeP_Base-Standard&#34;)
+ *             .skuName("EdgeP_Base-Standard")
  *             .build());
  * 
- *         var exampleOrder = new Order(&#34;exampleOrder&#34;, OrderArgs.builder()        
+ *         var exampleOrder = new Order("exampleOrder", OrderArgs.builder()        
  *             .resourceGroupName(example.name())
  *             .deviceName(exampleDevice.name())
  *             .contact(OrderContactArgs.builder()
- *                 .name(&#34;TerraForm Test&#34;)
- *                 .emails(&#34;creator4983@FlynnsArcade.com&#34;)
- *                 .companyName(&#34;Flynn&#39;s Arcade&#34;)
- *                 .phoneNumber(&#34;(800) 555-1234&#34;)
+ *                 .name("TerraForm Test")
+ *                 .emails("creator4983{@literal @}FlynnsArcade.com")
+ *                 .companyName("Flynn's Arcade")
+ *                 .phoneNumber("(800) 555-1234")
  *                 .build())
  *             .shipmentAddress(OrderShipmentAddressArgs.builder()
- *                 .addresses(&#34;One Microsoft Way&#34;)
- *                 .city(&#34;Redmond&#34;)
- *                 .postalCode(&#34;98052&#34;)
- *                 .state(&#34;WA&#34;)
- *                 .country(&#34;United States&#34;)
+ *                 .addresses("One Microsoft Way")
+ *                 .city("Redmond")
+ *                 .postalCode("98052")
+ *                 .state("WA")
+ *                 .country("United States")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

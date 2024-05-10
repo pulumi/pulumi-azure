@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,42 +55,43 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;LoadBalancerRG&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("LoadBalancerRG")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
- *             .name(&#34;PublicIPForLB&#34;)
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *             .name("PublicIPForLB")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .allocationMethod(&#34;Static&#34;)
+ *             .allocationMethod("Static")
  *             .build());
  * 
- *         var exampleLoadBalancer = new LoadBalancer(&#34;exampleLoadBalancer&#34;, LoadBalancerArgs.builder()        
- *             .name(&#34;TestLoadBalancer&#34;)
+ *         var exampleLoadBalancer = new LoadBalancer("exampleLoadBalancer", LoadBalancerArgs.builder()        
+ *             .name("TestLoadBalancer")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .frontendIpConfigurations(LoadBalancerFrontendIpConfigurationArgs.builder()
- *                 .name(&#34;PublicIPAddress&#34;)
+ *                 .name("PublicIPAddress")
  *                 .publicIpAddressId(examplePublicIp.id())
  *                 .build())
  *             .build());
  * 
- *         var exampleNatPool = new NatPool(&#34;exampleNatPool&#34;, NatPoolArgs.builder()        
+ *         var exampleNatPool = new NatPool("exampleNatPool", NatPoolArgs.builder()        
  *             .resourceGroupName(example.name())
  *             .loadbalancerId(exampleLoadBalancer.id())
- *             .name(&#34;SampleApplicationPool&#34;)
- *             .protocol(&#34;Tcp&#34;)
+ *             .name("SampleApplicationPool")
+ *             .protocol("Tcp")
  *             .frontendPortStart(80)
  *             .frontendPortEnd(81)
  *             .backendPort(8080)
- *             .frontendIpConfigurationName(&#34;PublicIPAddress&#34;)
+ *             .frontendIpConfigurationName("PublicIPAddress")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

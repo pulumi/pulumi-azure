@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** For a more complete example, see the `examples/image` directory within the GitHub Repository.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,20 +52,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = ComputeFunctions.getVirtualMachine(GetVirtualMachineArgs.builder()
- *             .name(&#34;examplevm&#34;)
- *             .resourceGroupName(&#34;example-resources&#34;)
+ *             .name("examplevm")
+ *             .resourceGroupName("example-resources")
  *             .build());
  * 
- *         var exampleImage = new Image(&#34;exampleImage&#34;, ImageArgs.builder()        
- *             .name(&#34;exampleimage&#34;)
- *             .location(example.applyValue(getVirtualMachineResult -&gt; getVirtualMachineResult.location()))
- *             .resourceGroupName(example.applyValue(getVirtualMachineResult -&gt; getVirtualMachineResult.name()))
- *             .sourceVirtualMachineId(example.applyValue(getVirtualMachineResult -&gt; getVirtualMachineResult.id()))
+ *         var exampleImage = new Image("exampleImage", ImageArgs.builder()        
+ *             .name("exampleimage")
+ *             .location(example.applyValue(getVirtualMachineResult -> getVirtualMachineResult.location()))
+ *             .resourceGroupName(example.applyValue(getVirtualMachineResult -> getVirtualMachineResult.name()))
+ *             .sourceVirtualMachineId(example.applyValue(getVirtualMachineResult -> getVirtualMachineResult.id()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

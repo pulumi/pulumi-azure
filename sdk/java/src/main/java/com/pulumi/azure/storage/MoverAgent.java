@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,27 +46,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;East US&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("East US")
  *             .build());
  * 
- *         var exampleMover = new Mover(&#34;exampleMover&#34;, MoverArgs.builder()        
- *             .name(&#34;example-ssm&#34;)
+ *         var exampleMover = new Mover("exampleMover", MoverArgs.builder()        
+ *             .name("example-ssm")
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleMoverAgent = new MoverAgent(&#34;exampleMoverAgent&#34;, MoverAgentArgs.builder()        
- *             .name(&#34;example-sa&#34;)
+ *         var exampleMoverAgent = new MoverAgent("exampleMoverAgent", MoverAgentArgs.builder()        
+ *             .name("example-sa")
  *             .storageMoverId(exampleMover.id())
- *             .arcVirtualMachineId(example.id().applyValue(id -&gt; String.format(&#34;%s/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName&#34;, id)))
- *             .arcVirtualMachineUuid(&#34;3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9&#34;)
- *             .description(&#34;Example Agent Description&#34;)
+ *             .arcVirtualMachineId(example.id().applyValue(id -> String.format("%s/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName", id)))
+ *             .arcVirtualMachineUuid("3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9")
+ *             .description("Example Agent Description")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

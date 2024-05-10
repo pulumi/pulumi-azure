@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,30 +49,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFlexibleServer = new FlexibleServer(&#34;exampleFlexibleServer&#34;, FlexibleServerArgs.builder()        
- *             .name(&#34;example-fs&#34;)
+ *         var exampleFlexibleServer = new FlexibleServer("exampleFlexibleServer", FlexibleServerArgs.builder()        
+ *             .name("example-fs")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .administratorLogin(&#34;adminTerraform&#34;)
- *             .administratorPassword(&#34;H@Sh1CoR3!&#34;)
- *             .skuName(&#34;GP_Standard_D2ds_v4&#34;)
+ *             .administratorLogin("adminTerraform")
+ *             .administratorPassword("H{@literal @}Sh1CoR3!")
+ *             .skuName("GP_Standard_D2ds_v4")
  *             .build());
  * 
- *         var exampleFlexibleServerConfiguration = new FlexibleServerConfiguration(&#34;exampleFlexibleServerConfiguration&#34;, FlexibleServerConfigurationArgs.builder()        
- *             .name(&#34;interactive_timeout&#34;)
+ *         var exampleFlexibleServerConfiguration = new FlexibleServerConfiguration("exampleFlexibleServerConfiguration", FlexibleServerConfigurationArgs.builder()        
+ *             .name("interactive_timeout")
  *             .resourceGroupName(example.name())
  *             .serverName(exampleFlexibleServer.name())
- *             .value(&#34;600&#34;)
+ *             .value("600")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

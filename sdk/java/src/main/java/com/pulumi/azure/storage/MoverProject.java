@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,26 +46,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleMover = new Mover(&#34;exampleMover&#34;, MoverArgs.builder()        
- *             .name(&#34;example-ssm&#34;)
+ *         var exampleMover = new Mover("exampleMover", MoverArgs.builder()        
+ *             .name("example-ssm")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleMoverProject = new MoverProject(&#34;exampleMoverProject&#34;, MoverProjectArgs.builder()        
- *             .name(&#34;example-sp&#34;)
+ *         var exampleMoverProject = new MoverProject("exampleMoverProject", MoverProjectArgs.builder()        
+ *             .name("example-sp")
  *             .storageMoverId(exampleMover.id())
- *             .description(&#34;Example Project Description&#34;)
+ *             .description("Example Project Description")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

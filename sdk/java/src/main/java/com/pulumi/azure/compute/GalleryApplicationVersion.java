@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -62,53 +63,53 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleSharedImageGallery = new SharedImageGallery(&#34;exampleSharedImageGallery&#34;, SharedImageGalleryArgs.builder()        
- *             .name(&#34;examplegallery&#34;)
+ *         var exampleSharedImageGallery = new SharedImageGallery("exampleSharedImageGallery", SharedImageGalleryArgs.builder()        
+ *             .name("examplegallery")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleGalleryApplication = new GalleryApplication(&#34;exampleGalleryApplication&#34;, GalleryApplicationArgs.builder()        
- *             .name(&#34;example-app&#34;)
+ *         var exampleGalleryApplication = new GalleryApplication("exampleGalleryApplication", GalleryApplicationArgs.builder()        
+ *             .name("example-app")
  *             .galleryId(exampleSharedImageGallery.id())
  *             .location(example.location())
- *             .supportedOsType(&#34;Linux&#34;)
+ *             .supportedOsType("Linux")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;examplestorage&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("examplestorage")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleContainer = new Container(&#34;exampleContainer&#34;, ContainerArgs.builder()        
- *             .name(&#34;example-container&#34;)
+ *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()        
+ *             .name("example-container")
  *             .storageAccountName(exampleAccount.name())
- *             .containerAccessType(&#34;blob&#34;)
+ *             .containerAccessType("blob")
  *             .build());
  * 
- *         var exampleBlob = new Blob(&#34;exampleBlob&#34;, BlobArgs.builder()        
- *             .name(&#34;scripts&#34;)
+ *         var exampleBlob = new Blob("exampleBlob", BlobArgs.builder()        
+ *             .name("scripts")
  *             .storageAccountName(exampleAccount.name())
  *             .storageContainerName(exampleContainer.name())
- *             .type(&#34;Block&#34;)
- *             .sourceContent(&#34;[scripts file content]&#34;)
+ *             .type("Block")
+ *             .sourceContent("[scripts file content]")
  *             .build());
  * 
- *         var exampleGalleryApplicationVersion = new GalleryApplicationVersion(&#34;exampleGalleryApplicationVersion&#34;, GalleryApplicationVersionArgs.builder()        
- *             .name(&#34;0.0.1&#34;)
+ *         var exampleGalleryApplicationVersion = new GalleryApplicationVersion("exampleGalleryApplicationVersion", GalleryApplicationVersionArgs.builder()        
+ *             .name("0.0.1")
  *             .galleryApplicationId(exampleGalleryApplication.id())
  *             .location(exampleGalleryApplication.location())
  *             .manageAction(GalleryApplicationVersionManageActionArgs.builder()
- *                 .install(&#34;[install command]&#34;)
- *                 .remove(&#34;[remove command]&#34;)
+ *                 .install("[install command]")
+ *                 .remove("[remove command]")
  *                 .build())
  *             .source(GalleryApplicationVersionSourceArgs.builder()
  *                 .mediaLink(exampleBlob.id())
@@ -121,7 +122,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

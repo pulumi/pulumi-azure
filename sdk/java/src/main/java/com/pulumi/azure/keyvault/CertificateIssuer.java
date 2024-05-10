@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,31 +51,32 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;examplekeyvault&#34;)
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("examplekeyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;standard&#34;)
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *             .skuName("standard")
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
  *             .build());
  * 
- *         var exampleCertificateIssuer = new CertificateIssuer(&#34;exampleCertificateIssuer&#34;, CertificateIssuerArgs.builder()        
- *             .name(&#34;example-issuer&#34;)
- *             .orgId(&#34;ExampleOrgName&#34;)
+ *         var exampleCertificateIssuer = new CertificateIssuer("exampleCertificateIssuer", CertificateIssuerArgs.builder()        
+ *             .name("example-issuer")
+ *             .orgId("ExampleOrgName")
  *             .keyVaultId(exampleKeyVault.id())
- *             .providerName(&#34;DigiCert&#34;)
- *             .accountId(&#34;0000&#34;)
- *             .password(&#34;example-password&#34;)
+ *             .providerName("DigiCert")
+ *             .accountId("0000")
+ *             .password("example-password")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

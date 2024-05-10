@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -60,76 +61,76 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
- *             .name(&#34;examplekustocluster&#34;)
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()        
+ *             .name("examplekustocluster")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku(ClusterSkuArgs.builder()
- *                 .name(&#34;Standard_D13_v2&#34;)
+ *                 .name("Standard_D13_v2")
  *                 .capacity(2)
  *                 .build())
  *             .build());
  * 
- *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
- *             .name(&#34;example-kusto-database&#34;)
+ *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()        
+ *             .name("example-kusto-database")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .clusterName(exampleCluster.name())
- *             .hotCachePeriod(&#34;P7D&#34;)
- *             .softDeletePeriod(&#34;P31D&#34;)
+ *             .hotCachePeriod("P7D")
+ *             .softDeletePeriod("P31D")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;storageaccountname&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("storageaccountname")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;GRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("GRS")
  *             .build());
  * 
- *         var exampleEventHubNamespace = new EventHubNamespace(&#34;exampleEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
- *             .name(&#34;eventhubnamespace-example&#34;)
+ *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()        
+ *             .name("eventhubnamespace-example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;Standard&#34;)
+ *             .sku("Standard")
  *             .build());
  * 
- *         var exampleEventHub = new EventHub(&#34;exampleEventHub&#34;, EventHubArgs.builder()        
- *             .name(&#34;eventhub-example&#34;)
+ *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()        
+ *             .name("eventhub-example")
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .resourceGroupName(example.name())
  *             .partitionCount(1)
  *             .messageRetention(1)
  *             .build());
  * 
- *         var exampleConsumerGroup = new ConsumerGroup(&#34;exampleConsumerGroup&#34;, ConsumerGroupArgs.builder()        
- *             .name(&#34;consumergroup-example&#34;)
+ *         var exampleConsumerGroup = new ConsumerGroup("exampleConsumerGroup", ConsumerGroupArgs.builder()        
+ *             .name("consumergroup-example")
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .eventhubName(exampleEventHub.name())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleEventSubscription = new EventSubscription(&#34;exampleEventSubscription&#34;, EventSubscriptionArgs.builder()        
- *             .name(&#34;eventgrid-example&#34;)
+ *         var exampleEventSubscription = new EventSubscription("exampleEventSubscription", EventSubscriptionArgs.builder()        
+ *             .name("eventgrid-example")
  *             .scope(exampleAccount.id())
  *             .eventhubEndpointId(exampleEventHub.id())
- *             .eventDeliverySchema(&#34;EventGridSchema&#34;)
+ *             .eventDeliverySchema("EventGridSchema")
  *             .includedEventTypes(            
- *                 &#34;Microsoft.Storage.BlobCreated&#34;,
- *                 &#34;Microsoft.Storage.BlobRenamed&#34;)
+ *                 "Microsoft.Storage.BlobCreated",
+ *                 "Microsoft.Storage.BlobRenamed")
  *             .retryPolicy(EventSubscriptionRetryPolicyArgs.builder()
  *                 .eventTimeToLive(144)
  *                 .maxDeliveryAttempts(10)
  *                 .build())
  *             .build());
  * 
- *         var exampleEventGridDataConnection = new EventGridDataConnection(&#34;exampleEventGridDataConnection&#34;, EventGridDataConnectionArgs.builder()        
- *             .name(&#34;my-kusto-eventgrid-data-connection&#34;)
+ *         var exampleEventGridDataConnection = new EventGridDataConnection("exampleEventGridDataConnection", EventGridDataConnectionArgs.builder()        
+ *             .name("my-kusto-eventgrid-data-connection")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .clusterName(exampleCluster.name())
@@ -137,14 +138,15 @@ import javax.annotation.Nullable;
  *             .storageAccountId(exampleAccount.id())
  *             .eventhubId(exampleEventHub.id())
  *             .eventhubConsumerGroupName(exampleConsumerGroup.name())
- *             .tableName(&#34;my-table&#34;)
- *             .mappingRuleName(&#34;my-table-mapping&#34;)
- *             .dataFormat(&#34;JSON&#34;)
+ *             .tableName("my-table")
+ *             .mappingRuleName("my-table-mapping")
+ *             .dataFormat("JSON")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

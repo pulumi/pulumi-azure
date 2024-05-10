@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,29 +46,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;tf-test&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("tf-test")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleInsights = new Insights(&#34;exampleInsights&#34;, InsightsArgs.builder()        
- *             .name(&#34;tf-test-appinsights&#34;)
+ *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()        
+ *             .name("tf-test-appinsights")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .applicationType(&#34;web&#34;)
+ *             .applicationType("web")
  *             .build());
  * 
- *         var exampleAnalyticsItem = new AnalyticsItem(&#34;exampleAnalyticsItem&#34;, AnalyticsItemArgs.builder()        
- *             .name(&#34;testquery&#34;)
+ *         var exampleAnalyticsItem = new AnalyticsItem("exampleAnalyticsItem", AnalyticsItemArgs.builder()        
+ *             .name("testquery")
  *             .applicationInsightsId(exampleInsights.id())
- *             .content(&#34;requests //simple example query&#34;)
- *             .scope(&#34;shared&#34;)
- *             .type(&#34;query&#34;)
+ *             .content("requests //simple example query")
+ *             .scope("shared")
+ *             .type("query")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

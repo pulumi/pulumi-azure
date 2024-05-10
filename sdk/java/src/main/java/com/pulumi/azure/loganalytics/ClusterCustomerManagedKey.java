@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,71 +52,72 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
- *             .name(&#34;example-cluster&#34;)
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()        
+ *             .name("example-cluster")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .identity(ClusterIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;keyvaultkeyexample&#34;)
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("keyvaultkeyexample")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .skuName(&#34;premium&#34;)
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .skuName("premium")
  *             .accessPolicies(            
  *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *                     .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *                     .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *                     .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *                     .keyPermissions(                    
- *                         &#34;Create&#34;,
- *                         &#34;Get&#34;,
- *                         &#34;GetRotationPolicy&#34;)
- *                     .secretPermissions(&#34;Set&#34;)
+ *                         "Create",
+ *                         "Get",
+ *                         "GetRotationPolicy")
+ *                     .secretPermissions("Set")
  *                     .build(),
  *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(exampleCluster.identity().applyValue(identity -&gt; identity.tenantId()))
- *                     .objectId(exampleCluster.identity().applyValue(identity -&gt; identity.principalId()))
+ *                     .tenantId(exampleCluster.identity().applyValue(identity -> identity.tenantId()))
+ *                     .objectId(exampleCluster.identity().applyValue(identity -> identity.principalId()))
  *                     .keyPermissions(                    
- *                         &#34;Get&#34;,
- *                         &#34;Unwrapkey&#34;,
- *                         &#34;Wrapkey&#34;)
+ *                         "Get",
+ *                         "Unwrapkey",
+ *                         "Wrapkey")
  *                     .build())
- *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *             .tags(Map.of("environment", "Production"))
  *             .build());
  * 
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
- *             .name(&#34;generated-certificate&#34;)
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *             .name("generated-certificate")
  *             .keyVaultId(exampleKeyVault.id())
- *             .keyType(&#34;RSA&#34;)
+ *             .keyType("RSA")
  *             .keySize(2048)
  *             .keyOpts(            
- *                 &#34;decrypt&#34;,
- *                 &#34;encrypt&#34;,
- *                 &#34;sign&#34;,
- *                 &#34;unwrapKey&#34;,
- *                 &#34;verify&#34;,
- *                 &#34;wrapKey&#34;)
+ *                 "decrypt",
+ *                 "encrypt",
+ *                 "sign",
+ *                 "unwrapKey",
+ *                 "verify",
+ *                 "wrapKey")
  *             .build());
  * 
- *         var exampleClusterCustomerManagedKey = new ClusterCustomerManagedKey(&#34;exampleClusterCustomerManagedKey&#34;, ClusterCustomerManagedKeyArgs.builder()        
+ *         var exampleClusterCustomerManagedKey = new ClusterCustomerManagedKey("exampleClusterCustomerManagedKey", ClusterCustomerManagedKeyArgs.builder()        
  *             .logAnalyticsClusterId(exampleCluster.id())
  *             .keyVaultKeyId(exampleKey.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

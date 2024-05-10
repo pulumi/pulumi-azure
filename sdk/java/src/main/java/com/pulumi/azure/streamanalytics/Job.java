@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,33 +49,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleJob = new Job(&#34;exampleJob&#34;, JobArgs.builder()        
- *             .name(&#34;example-job&#34;)
+ *         var exampleJob = new Job("exampleJob", JobArgs.builder()        
+ *             .name("example-job")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .compatibilityLevel(&#34;1.2&#34;)
- *             .dataLocale(&#34;en-GB&#34;)
+ *             .compatibilityLevel("1.2")
+ *             .dataLocale("en-GB")
  *             .eventsLateArrivalMaxDelayInSeconds(60)
  *             .eventsOutOfOrderMaxDelayInSeconds(50)
- *             .eventsOutOfOrderPolicy(&#34;Adjust&#34;)
- *             .outputErrorPolicy(&#34;Drop&#34;)
+ *             .eventsOutOfOrderPolicy("Adjust")
+ *             .outputErrorPolicy("Drop")
  *             .streamingUnits(3)
- *             .tags(Map.of(&#34;environment&#34;, &#34;Example&#34;))
- *             .transformationQuery(&#34;&#34;&#34;
+ *             .tags(Map.of("environment", "Example"))
+ *             .transformationQuery("""
  *     SELECT *
  *     INTO [YourOutputAlias]
  *     FROM [YourInputAlias]
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

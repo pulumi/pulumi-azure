@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## NetApp Pool Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,29 +48,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;example-netappaccount&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("example-netappaccount")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var examplePool = new Pool(&#34;examplePool&#34;, PoolArgs.builder()        
- *             .name(&#34;example-netapppool&#34;)
+ *         var examplePool = new Pool("examplePool", PoolArgs.builder()        
+ *             .name("example-netapppool")
  *             .accountName(exampleAccount.name())
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .serviceLevel(&#34;Premium&#34;)
+ *             .serviceLevel("Premium")
  *             .sizeInTb(4)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

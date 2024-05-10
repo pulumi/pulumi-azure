@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,40 +49,41 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;resourceGroup-example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("resourceGroup-example")
+ *             .location("West Europe")
  *             .build());
  * 
  *         final var example = CoreFunctions.getClientConfig();
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;account-example&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("account-example")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .skuName(&#34;Basic&#34;)
+ *             .skuName("Basic")
  *             .build());
  * 
- *         var exampleCertificate = new Certificate(&#34;exampleCertificate&#34;, CertificateArgs.builder()        
- *             .name(&#34;certificate-example&#34;)
+ *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()        
+ *             .name("certificate-example")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .automationAccountName(exampleAccount.name())
  *             .base64(StdFunctions.filebase64(Filebase64Args.builder()
- *                 .input(&#34;certificate.pfx&#34;)
+ *                 .input("certificate.pfx")
  *                 .build()).result())
  *             .build());
  * 
- *         var exampleConnectionCertificate = new ConnectionCertificate(&#34;exampleConnectionCertificate&#34;, ConnectionCertificateArgs.builder()        
- *             .name(&#34;connection-example&#34;)
+ *         var exampleConnectionCertificate = new ConnectionCertificate("exampleConnectionCertificate", ConnectionCertificateArgs.builder()        
+ *             .name("connection-example")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .automationAccountName(exampleAccount.name())
  *             .automationCertificateName(exampleCertificate.name())
- *             .subscriptionId(example.applyValue(getClientConfigResult -&gt; getClientConfigResult.subscriptionId()))
+ *             .subscriptionId(example.applyValue(getClientConfigResult -> getClientConfigResult.subscriptionId()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

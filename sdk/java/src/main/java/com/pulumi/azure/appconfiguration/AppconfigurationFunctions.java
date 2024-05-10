@@ -28,7 +28,8 @@ public final class AppconfigurationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -51,14 +52,15 @@ public final class AppconfigurationFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = AppconfigurationFunctions.getConfigurationKey(GetConfigurationKeyArgs.builder()
      *             .configurationStoreId(appconf.id())
-     *             .key(&#34;appConfKey1&#34;)
-     *             .label(&#34;somelabel&#34;)
+     *             .key("appConfKey1")
+     *             .label("somelabel")
      *             .build());
      * 
-     *         ctx.export(&#34;value&#34;, test.applyValue(getConfigurationKeyResult -&gt; getConfigurationKeyResult.value()));
+     *         ctx.export("value", test.applyValue(getConfigurationKeyResult -> getConfigurationKeyResult.value()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -73,7 +75,8 @@ public final class AppconfigurationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -96,14 +99,15 @@ public final class AppconfigurationFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = AppconfigurationFunctions.getConfigurationKey(GetConfigurationKeyArgs.builder()
      *             .configurationStoreId(appconf.id())
-     *             .key(&#34;appConfKey1&#34;)
-     *             .label(&#34;somelabel&#34;)
+     *             .key("appConfKey1")
+     *             .label("somelabel")
      *             .build());
      * 
-     *         ctx.export(&#34;value&#34;, test.applyValue(getConfigurationKeyResult -&gt; getConfigurationKeyResult.value()));
+     *         ctx.export("value", test.applyValue(getConfigurationKeyResult -> getConfigurationKeyResult.value()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -118,7 +122,8 @@ public final class AppconfigurationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -141,14 +146,15 @@ public final class AppconfigurationFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = AppconfigurationFunctions.getConfigurationKey(GetConfigurationKeyArgs.builder()
      *             .configurationStoreId(appconf.id())
-     *             .key(&#34;appConfKey1&#34;)
-     *             .label(&#34;somelabel&#34;)
+     *             .key("appConfKey1")
+     *             .label("somelabel")
      *             .build());
      * 
-     *         ctx.export(&#34;value&#34;, test.applyValue(getConfigurationKeyResult -&gt; getConfigurationKeyResult.value()));
+     *         ctx.export("value", test.applyValue(getConfigurationKeyResult -> getConfigurationKeyResult.value()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -163,7 +169,8 @@ public final class AppconfigurationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -186,14 +193,15 @@ public final class AppconfigurationFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = AppconfigurationFunctions.getConfigurationKey(GetConfigurationKeyArgs.builder()
      *             .configurationStoreId(appconf.id())
-     *             .key(&#34;appConfKey1&#34;)
-     *             .label(&#34;somelabel&#34;)
+     *             .key("appConfKey1")
+     *             .label("somelabel")
      *             .build());
      * 
-     *         ctx.export(&#34;value&#34;, test.applyValue(getConfigurationKeyResult -&gt; getConfigurationKeyResult.value()));
+     *         ctx.export("value", test.applyValue(getConfigurationKeyResult -> getConfigurationKeyResult.value()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -208,7 +216,8 @@ public final class AppconfigurationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -233,10 +242,11 @@ public final class AppconfigurationFunctions {
      *             .configurationStoreId(appconf.id())
      *             .build());
      * 
-     *         ctx.export(&#34;value&#34;, test.applyValue(getConfigurationKeysResult -&gt; getConfigurationKeysResult.items()));
+     *         ctx.export("value", test.applyValue(getConfigurationKeysResult -> getConfigurationKeysResult.items()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -251,7 +261,8 @@ public final class AppconfigurationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -276,10 +287,11 @@ public final class AppconfigurationFunctions {
      *             .configurationStoreId(appconf.id())
      *             .build());
      * 
-     *         ctx.export(&#34;value&#34;, test.applyValue(getConfigurationKeysResult -&gt; getConfigurationKeysResult.items()));
+     *         ctx.export("value", test.applyValue(getConfigurationKeysResult -> getConfigurationKeysResult.items()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -294,7 +306,8 @@ public final class AppconfigurationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -319,10 +332,11 @@ public final class AppconfigurationFunctions {
      *             .configurationStoreId(appconf.id())
      *             .build());
      * 
-     *         ctx.export(&#34;value&#34;, test.applyValue(getConfigurationKeysResult -&gt; getConfigurationKeysResult.items()));
+     *         ctx.export("value", test.applyValue(getConfigurationKeysResult -> getConfigurationKeysResult.items()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -337,7 +351,8 @@ public final class AppconfigurationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -362,10 +377,11 @@ public final class AppconfigurationFunctions {
      *             .configurationStoreId(appconf.id())
      *             .build());
      * 
-     *         ctx.export(&#34;value&#34;, test.applyValue(getConfigurationKeysResult -&gt; getConfigurationKeysResult.items()));
+     *         ctx.export("value", test.applyValue(getConfigurationKeysResult -> getConfigurationKeysResult.items()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -378,7 +394,8 @@ public final class AppconfigurationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -400,14 +417,15 @@ public final class AppconfigurationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppconfigurationFunctions.getConfigurationStore(GetConfigurationStoreArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getConfigurationStoreResult -&gt; getConfigurationStoreResult.id()));
+     *         ctx.export("id", example.applyValue(getConfigurationStoreResult -> getConfigurationStoreResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -420,7 +438,8 @@ public final class AppconfigurationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -442,14 +461,15 @@ public final class AppconfigurationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppconfigurationFunctions.getConfigurationStore(GetConfigurationStoreArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getConfigurationStoreResult -&gt; getConfigurationStoreResult.id()));
+     *         ctx.export("id", example.applyValue(getConfigurationStoreResult -> getConfigurationStoreResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -462,7 +482,8 @@ public final class AppconfigurationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -484,14 +505,15 @@ public final class AppconfigurationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppconfigurationFunctions.getConfigurationStore(GetConfigurationStoreArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getConfigurationStoreResult -&gt; getConfigurationStoreResult.id()));
+     *         ctx.export("id", example.applyValue(getConfigurationStoreResult -> getConfigurationStoreResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -504,7 +526,8 @@ public final class AppconfigurationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -526,14 +549,15 @@ public final class AppconfigurationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppconfigurationFunctions.getConfigurationStore(GetConfigurationStoreArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
+     *             .name("existing")
+     *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getConfigurationStoreResult -&gt; getConfigurationStoreResult.id()));
+     *         ctx.export("id", example.applyValue(getConfigurationStoreResult -> getConfigurationStoreResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

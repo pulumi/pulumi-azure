@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,35 +47,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleWorkbook = new Workbook(&#34;exampleWorkbook&#34;, WorkbookArgs.builder()        
- *             .name(&#34;85b3e8bb-fc93-40be-83f2-98f6bec18ba0&#34;)
+ *         var exampleWorkbook = new Workbook("exampleWorkbook", WorkbookArgs.builder()        
+ *             .name("85b3e8bb-fc93-40be-83f2-98f6bec18ba0")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .displayName(&#34;workbook1&#34;)
+ *             .displayName("workbook1")
  *             .dataJson(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;version&#34;, &#34;Notebook/1.0&#34;),
- *                     jsonProperty(&#34;items&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;type&#34;, 1),
- *                         jsonProperty(&#34;content&#34;, jsonObject(
- *                             jsonProperty(&#34;json&#34;, &#34;Test2022&#34;)
+ *                     jsonProperty("version", "Notebook/1.0"),
+ *                     jsonProperty("items", jsonArray(jsonObject(
+ *                         jsonProperty("type", 1),
+ *                         jsonProperty("content", jsonObject(
+ *                             jsonProperty("json", "Test2022")
  *                         )),
- *                         jsonProperty(&#34;name&#34;, &#34;text - 0&#34;)
+ *                         jsonProperty("name", "text - 0")
  *                     ))),
- *                     jsonProperty(&#34;isLocked&#34;, false),
- *                     jsonProperty(&#34;fallbackResourceIds&#34;, jsonArray(&#34;Azure Monitor&#34;))
+ *                     jsonProperty("isLocked", false),
+ *                     jsonProperty("fallbackResourceIds", jsonArray("Azure Monitor"))
  *                 )))
- *             .tags(Map.of(&#34;ENV&#34;, &#34;Test&#34;))
+ *             .tags(Map.of("ENV", "Test"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

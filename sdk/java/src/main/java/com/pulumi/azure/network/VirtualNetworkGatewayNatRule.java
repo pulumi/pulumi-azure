@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -59,42 +60,42 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-vnet&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example-vnet")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *             .addressSpaces("10.0.0.0/16")
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;GatewaySubnet&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("GatewaySubnet")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.1.0/24&#34;)
+ *             .addressPrefixes("10.0.1.0/24")
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
- *             .name(&#34;example-pip&#34;)
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *             .name("example-pip")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .allocationMethod(&#34;Dynamic&#34;)
+ *             .allocationMethod("Dynamic")
  *             .build());
  * 
- *         var exampleVirtualNetworkGateway = new VirtualNetworkGateway(&#34;exampleVirtualNetworkGateway&#34;, VirtualNetworkGatewayArgs.builder()        
- *             .name(&#34;example-vnetgw&#34;)
+ *         var exampleVirtualNetworkGateway = new VirtualNetworkGateway("exampleVirtualNetworkGateway", VirtualNetworkGatewayArgs.builder()        
+ *             .name("example-vnetgw")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .type(&#34;Vpn&#34;)
- *             .vpnType(&#34;RouteBased&#34;)
- *             .sku(&#34;Basic&#34;)
+ *             .type("Vpn")
+ *             .vpnType("RouteBased")
+ *             .sku("Basic")
  *             .ipConfigurations(VirtualNetworkGatewayIpConfigurationArgs.builder()
  *                 .publicIpAddressId(examplePublicIp.id())
- *                 .privateIpAddressAllocation(&#34;Dynamic&#34;)
+ *                 .privateIpAddressAllocation("Dynamic")
  *                 .subnetId(exampleSubnet.id())
  *                 .build())
  *             .build());
@@ -104,26 +105,27 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(exampleVirtualNetworkGateway.resourceGroupName())
  *             .build());
  * 
- *         var exampleVirtualNetworkGatewayNatRule = new VirtualNetworkGatewayNatRule(&#34;exampleVirtualNetworkGatewayNatRule&#34;, VirtualNetworkGatewayNatRuleArgs.builder()        
- *             .name(&#34;example-vnetgwnatrule&#34;)
+ *         var exampleVirtualNetworkGatewayNatRule = new VirtualNetworkGatewayNatRule("exampleVirtualNetworkGatewayNatRule", VirtualNetworkGatewayNatRuleArgs.builder()        
+ *             .name("example-vnetgwnatrule")
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .virtualNetworkGatewayId(example.applyValue(getVirtualNetworkGatewayResult -&gt; getVirtualNetworkGatewayResult).applyValue(example -&gt; example.applyValue(getVirtualNetworkGatewayResult -&gt; getVirtualNetworkGatewayResult.id())))
- *             .mode(&#34;EgressSnat&#34;)
- *             .type(&#34;Dynamic&#34;)
- *             .ipConfigurationId(example.applyValue(getVirtualNetworkGatewayResult -&gt; getVirtualNetworkGatewayResult).applyValue(example -&gt; example.applyValue(getVirtualNetworkGatewayResult -&gt; getVirtualNetworkGatewayResult.ipConfigurations()[0].id())))
+ *             .virtualNetworkGatewayId(example.applyValue(getVirtualNetworkGatewayResult -> getVirtualNetworkGatewayResult).applyValue(example -> example.applyValue(getVirtualNetworkGatewayResult -> getVirtualNetworkGatewayResult.id())))
+ *             .mode("EgressSnat")
+ *             .type("Dynamic")
+ *             .ipConfigurationId(example.applyValue(getVirtualNetworkGatewayResult -> getVirtualNetworkGatewayResult).applyValue(example -> example.applyValue(getVirtualNetworkGatewayResult -> getVirtualNetworkGatewayResult.ipConfigurations()[0].id())))
  *             .externalMappings(VirtualNetworkGatewayNatRuleExternalMappingArgs.builder()
- *                 .addressSpace(&#34;10.2.0.0/26&#34;)
- *                 .portRange(&#34;200&#34;)
+ *                 .addressSpace("10.2.0.0/26")
+ *                 .portRange("200")
  *                 .build())
  *             .internalMappings(VirtualNetworkGatewayNatRuleInternalMappingArgs.builder()
- *                 .addressSpace(&#34;10.4.0.0/26&#34;)
- *                 .portRange(&#34;400&#34;)
+ *                 .addressSpace("10.4.0.0/26")
+ *                 .portRange("400")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

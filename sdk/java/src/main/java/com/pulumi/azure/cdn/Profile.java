@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,25 +47,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleProfile = new Profile(&#34;exampleProfile&#34;, ProfileArgs.builder()        
- *             .name(&#34;exampleCdnProfile&#34;)
+ *         var exampleProfile = new Profile("exampleProfile", ProfileArgs.builder()        
+ *             .name("exampleCdnProfile")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;Standard_Verizon&#34;)
+ *             .sku("Standard_Verizon")
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;environment&#34;, &#34;Production&#34;),
- *                 Map.entry(&#34;cost_center&#34;, &#34;MSFT&#34;)
+ *                 Map.entry("environment", "Production"),
+ *                 Map.entry("cost_center", "MSFT")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

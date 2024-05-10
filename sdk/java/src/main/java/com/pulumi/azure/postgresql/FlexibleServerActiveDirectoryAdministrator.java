@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,42 +52,43 @@ import javax.annotation.Nullable;
  *         final var current = CoreFunctions.getClientConfig();
  * 
  *         final var example = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
- *             .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *             .build());
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFlexibleServer = new FlexibleServer(&#34;exampleFlexibleServer&#34;, FlexibleServerArgs.builder()        
- *             .name(&#34;example-fs&#34;)
+ *         var exampleFlexibleServer = new FlexibleServer("exampleFlexibleServer", FlexibleServerArgs.builder()        
+ *             .name("example-fs")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
- *             .administratorLogin(&#34;adminTerraform&#34;)
- *             .administratorPassword(&#34;QAZwsx123&#34;)
+ *             .administratorLogin("adminTerraform")
+ *             .administratorPassword("QAZwsx123")
  *             .storageMb(32768)
- *             .version(&#34;12&#34;)
- *             .skuName(&#34;GP_Standard_D2s_v3&#34;)
- *             .zone(&#34;2&#34;)
+ *             .version("12")
+ *             .skuName("GP_Standard_D2s_v3")
+ *             .zone("2")
  *             .authentication(FlexibleServerAuthenticationArgs.builder()
  *                 .activeDirectoryAuthEnabled(true)
- *                 .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *                 .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
  *                 .build())
  *             .build());
  * 
- *         var exampleFlexibleServerActiveDirectoryAdministrator = new FlexibleServerActiveDirectoryAdministrator(&#34;exampleFlexibleServerActiveDirectoryAdministrator&#34;, FlexibleServerActiveDirectoryAdministratorArgs.builder()        
+ *         var exampleFlexibleServerActiveDirectoryAdministrator = new FlexibleServerActiveDirectoryAdministrator("exampleFlexibleServerActiveDirectoryAdministrator", FlexibleServerActiveDirectoryAdministratorArgs.builder()        
  *             .serverName(exampleFlexibleServer.name())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .objectId(example.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.objectId()))
- *             .principalName(example.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.displayName()))
- *             .principalType(&#34;ServicePrincipal&#34;)
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .objectId(example.applyValue(getServicePrincipalResult -> getServicePrincipalResult.objectId()))
+ *             .principalName(example.applyValue(getServicePrincipalResult -> getServicePrincipalResult.displayName()))
+ *             .principalType("ServicePrincipal")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

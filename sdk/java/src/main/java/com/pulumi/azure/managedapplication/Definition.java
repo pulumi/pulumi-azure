@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,28 +52,29 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleDefinition = new Definition(&#34;exampleDefinition&#34;, DefinitionArgs.builder()        
- *             .name(&#34;examplemanagedapplicationdefinition&#34;)
+ *         var exampleDefinition = new Definition("exampleDefinition", DefinitionArgs.builder()        
+ *             .name("examplemanagedapplicationdefinition")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .lockLevel(&#34;ReadOnly&#34;)
- *             .packageFileUri(&#34;https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip&#34;)
- *             .displayName(&#34;TestManagedApplicationDefinition&#34;)
- *             .description(&#34;Test Managed Application Definition&#34;)
+ *             .lockLevel("ReadOnly")
+ *             .packageFileUri("https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip")
+ *             .displayName("TestManagedApplicationDefinition")
+ *             .description("Test Managed Application Definition")
  *             .authorizations(DefinitionAuthorizationArgs.builder()
- *                 .servicePrincipalId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
- *                 .roleDefinitionId(&#34;a094b430-dad3-424d-ae58-13f72fd72591&#34;)
+ *                 .servicePrincipalId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *                 .roleDefinitionId("a094b430-dad3-424d-ae58-13f72fd72591")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

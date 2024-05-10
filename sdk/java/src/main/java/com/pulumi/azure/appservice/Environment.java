@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,51 +53,52 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;exampleRG1&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("exampleRG1")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-vnet1&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example-vnet1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *             .addressSpaces("10.0.0.0/16")
  *             .build());
  * 
- *         var ase = new Subnet(&#34;ase&#34;, SubnetArgs.builder()        
- *             .name(&#34;asesubnet&#34;)
+ *         var ase = new Subnet("ase", SubnetArgs.builder()        
+ *             .name("asesubnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.1.0/24&#34;)
+ *             .addressPrefixes("10.0.1.0/24")
  *             .build());
  * 
- *         var gateway = new Subnet(&#34;gateway&#34;, SubnetArgs.builder()        
- *             .name(&#34;gatewaysubnet&#34;)
+ *         var gateway = new Subnet("gateway", SubnetArgs.builder()        
+ *             .name("gatewaysubnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
+ *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
- *         var exampleEnvironment = new Environment(&#34;exampleEnvironment&#34;, EnvironmentArgs.builder()        
- *             .name(&#34;example-ase&#34;)
+ *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()        
+ *             .name("example-ase")
  *             .resourceGroupName(example.name())
  *             .subnetId(ase.id())
- *             .pricingTier(&#34;I2&#34;)
+ *             .pricingTier("I2")
  *             .frontEndScaleFactor(10)
- *             .internalLoadBalancingMode(&#34;Web, Publishing&#34;)
+ *             .internalLoadBalancingMode("Web, Publishing")
  *             .allowedUserIpCidrs(            
- *                 &#34;11.22.33.44/32&#34;,
- *                 &#34;55.66.77.0/24&#34;)
+ *                 "11.22.33.44/32",
+ *                 "55.66.77.0/24")
  *             .clusterSettings(EnvironmentClusterSettingArgs.builder()
- *                 .name(&#34;DisableTls1.0&#34;)
- *                 .value(&#34;1&#34;)
+ *                 .name("DisableTls1.0")
+ *                 .value("1")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

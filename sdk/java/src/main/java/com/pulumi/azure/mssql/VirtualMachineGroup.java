@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,26 +47,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualMachineGroup = new VirtualMachineGroup(&#34;exampleVirtualMachineGroup&#34;, VirtualMachineGroupArgs.builder()        
- *             .name(&#34;examplegroup&#34;)
+ *         var exampleVirtualMachineGroup = new VirtualMachineGroup("exampleVirtualMachineGroup", VirtualMachineGroupArgs.builder()        
+ *             .name("examplegroup")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .sqlImageOffer(&#34;SQL2017-WS2016&#34;)
- *             .sqlImageSku(&#34;Developer&#34;)
+ *             .sqlImageOffer("SQL2017-WS2016")
+ *             .sqlImageSku("Developer")
  *             .wsfcDomainProfile(VirtualMachineGroupWsfcDomainProfileArgs.builder()
- *                 .fqdn(&#34;testdomain.com&#34;)
- *                 .clusterSubnetType(&#34;SingleSubnet&#34;)
+ *                 .fqdn("testdomain.com")
+ *                 .clusterSubnetType("SingleSubnet")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

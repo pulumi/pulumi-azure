@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,50 +52,51 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleDefinition = new Definition(&#34;exampleDefinition&#34;, DefinitionArgs.builder()        
- *             .name(&#34;only-deploy-in-westeurope&#34;)
- *             .policyType(&#34;Custom&#34;)
- *             .mode(&#34;All&#34;)
- *             .displayName(&#34;my-policy-definition&#34;)
- *             .policyRule(&#34;&#34;&#34;
+ *         var exampleDefinition = new Definition("exampleDefinition", DefinitionArgs.builder()        
+ *             .name("only-deploy-in-westeurope")
+ *             .policyType("Custom")
+ *             .mode("All")
+ *             .displayName("my-policy-definition")
+ *             .policyRule("""
  *  {
- *     &#34;if&#34;: {
- *       &#34;not&#34;: {
- *         &#34;field&#34;: &#34;location&#34;,
- *         &#34;equals&#34;: &#34;westeurope&#34;
+ *     "if": {
+ *       "not": {
+ *         "field": "location",
+ *         "equals": "westeurope"
  *       }
  *     },
- *     &#34;then&#34;: {
- *       &#34;effect&#34;: &#34;Deny&#34;
+ *     "then": {
+ *       "effect": "Deny"
  *     }
  *   }
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
- *         var exampleResourceGroupPolicyAssignment = new ResourceGroupPolicyAssignment(&#34;exampleResourceGroupPolicyAssignment&#34;, ResourceGroupPolicyAssignmentArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleResourceGroupPolicyAssignment = new ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment", ResourceGroupPolicyAssignmentArgs.builder()        
+ *             .name("example")
  *             .resourceGroupId(example.id())
  *             .policyDefinitionId(exampleDefinition.id())
- *             .parameters(&#34;&#34;&#34;
+ *             .parameters("""
  *     {
- *       &#34;tagName&#34;: {
- *         &#34;value&#34;: &#34;Business Unit&#34;
+ *       "tagName": {
+ *         "value": "Business Unit"
  *       },
- *       &#34;tagValue&#34;: {
- *         &#34;value&#34;: &#34;BU&#34;
+ *       "tagValue": {
+ *         "value": "BU"
  *       }
  *     }
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

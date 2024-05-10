@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,33 +48,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;rg-example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("rg-example")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleSpacecraft = new Spacecraft(&#34;exampleSpacecraft&#34;, SpacecraftArgs.builder()        
- *             .name(&#34;example-spacecraft&#34;)
+ *         var exampleSpacecraft = new Spacecraft("exampleSpacecraft", SpacecraftArgs.builder()        
+ *             .name("example-spacecraft")
  *             .resourceGroupName(example.name())
- *             .location(&#34;westeurope&#34;)
- *             .noradId(&#34;12345&#34;)
+ *             .location("westeurope")
+ *             .noradId("12345")
  *             .links(SpacecraftLinkArgs.builder()
  *                 .bandwidthMhz(30)
  *                 .centerFrequencyMhz(2050)
- *                 .direction(&#34;Uplink&#34;)
- *                 .polarization(&#34;LHCP&#34;)
- *                 .name(&#34;examplename&#34;)
+ *                 .direction("Uplink")
+ *                 .polarization("LHCP")
+ *                 .name("examplename")
  *                 .build())
  *             .twoLineElements(            
- *                 &#34;1 23455U 94089A   97320.90946019  .00000140  00000-0  10191-3 0  2621&#34;,
- *                 &#34;2 23455  99.0090 272.6745 0008546 223.1686 136.8816 14.11711747148495&#34;)
- *             .titleLine(&#34;AQUA&#34;)
- *             .tags(Map.of(&#34;aks-managed-cluster-name&#34;, &#34;9a57225d-a405-4d40-aa46-f13d2342abef&#34;))
+ *                 "1 23455U 94089A   97320.90946019  .00000140  00000-0  10191-3 0  2621",
+ *                 "2 23455  99.0090 272.6745 0008546 223.1686 136.8816 14.11711747148495")
+ *             .titleLine("AQUA")
+ *             .tags(Map.of("aks-managed-cluster-name", "9a57225d-a405-4d40-aa46-f13d2342abef"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

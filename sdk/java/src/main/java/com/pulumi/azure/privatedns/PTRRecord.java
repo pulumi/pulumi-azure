@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,27 +49,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
- *             .name(&#34;2.0.192.in-addr.arpa&#34;)
+ *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()        
+ *             .name("2.0.192.in-addr.arpa")
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var examplePTRRecord = new PTRRecord(&#34;examplePTRRecord&#34;, PTRRecordArgs.builder()        
- *             .name(&#34;15&#34;)
+ *         var examplePTRRecord = new PTRRecord("examplePTRRecord", PTRRecordArgs.builder()        
+ *             .name("15")
  *             .zoneName(exampleZone.name())
  *             .resourceGroupName(example.name())
  *             .ttl(300)
- *             .records(&#34;test.example.com&#34;)
+ *             .records("test.example.com")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

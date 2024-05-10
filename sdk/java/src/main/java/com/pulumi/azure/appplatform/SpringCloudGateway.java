@@ -33,7 +33,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -63,58 +64,59 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleSpringCloudService = new SpringCloudService(&#34;exampleSpringCloudService&#34;, SpringCloudServiceArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;E0&#34;)
+ *             .skuName("E0")
  *             .build());
  * 
- *         var exampleSpringCloudGateway = new SpringCloudGateway(&#34;exampleSpringCloudGateway&#34;, SpringCloudGatewayArgs.builder()        
- *             .name(&#34;default&#34;)
+ *         var exampleSpringCloudGateway = new SpringCloudGateway("exampleSpringCloudGateway", SpringCloudGatewayArgs.builder()        
+ *             .name("default")
  *             .springCloudServiceId(exampleSpringCloudService.id())
  *             .httpsOnly(false)
  *             .publicNetworkAccessEnabled(true)
  *             .instanceCount(2)
  *             .apiMetadata(SpringCloudGatewayApiMetadataArgs.builder()
- *                 .description(&#34;example description&#34;)
- *                 .documentationUrl(&#34;https://www.example.com/docs&#34;)
- *                 .serverUrl(&#34;https://wwww.example.com&#34;)
- *                 .title(&#34;example title&#34;)
- *                 .version(&#34;1.0&#34;)
+ *                 .description("example description")
+ *                 .documentationUrl("https://www.example.com/docs")
+ *                 .serverUrl("https://wwww.example.com")
+ *                 .title("example title")
+ *                 .version("1.0")
  *                 .build())
  *             .cors(SpringCloudGatewayCorsArgs.builder()
  *                 .credentialsAllowed(false)
- *                 .allowedHeaders(&#34;*&#34;)
- *                 .allowedMethods(&#34;PUT&#34;)
- *                 .allowedOrigins(&#34;example.com&#34;)
- *                 .exposedHeaders(&#34;x-example-header&#34;)
+ *                 .allowedHeaders("*")
+ *                 .allowedMethods("PUT")
+ *                 .allowedOrigins("example.com")
+ *                 .exposedHeaders("x-example-header")
  *                 .maxAgeSeconds(86400)
  *                 .build())
  *             .quota(SpringCloudGatewayQuotaArgs.builder()
- *                 .cpu(&#34;1&#34;)
- *                 .memory(&#34;2Gi&#34;)
+ *                 .cpu("1")
+ *                 .memory("2Gi")
  *                 .build())
  *             .sso(SpringCloudGatewaySsoArgs.builder()
- *                 .clientId(&#34;example id&#34;)
- *                 .clientSecret(&#34;example secret&#34;)
- *                 .issuerUri(&#34;https://www.test.com/issueToken&#34;)
- *                 .scopes(&#34;read&#34;)
+ *                 .clientId("example id")
+ *                 .clientSecret("example secret")
+ *                 .issuerUri("https://www.test.com/issueToken")
+ *                 .scopes("read")
  *                 .build())
  *             .localResponseCachePerInstance(SpringCloudGatewayLocalResponseCachePerInstanceArgs.builder()
- *                 .size(&#34;100MB&#34;)
- *                 .timeToLive(&#34;30s&#34;)
+ *                 .size("100MB")
+ *                 .timeToLive("30s")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

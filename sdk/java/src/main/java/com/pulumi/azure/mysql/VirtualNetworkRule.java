@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,42 +53,42 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-vnet&#34;)
- *             .addressSpaces(&#34;10.7.29.0/29&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example-vnet")
+ *             .addressSpaces("10.7.29.0/29")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var internal = new Subnet(&#34;internal&#34;, SubnetArgs.builder()        
- *             .name(&#34;internal&#34;)
+ *         var internal = new Subnet("internal", SubnetArgs.builder()        
+ *             .name("internal")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.7.29.0/29&#34;)
- *             .serviceEndpoints(&#34;Microsoft.Sql&#34;)
+ *             .addressPrefixes("10.7.29.0/29")
+ *             .serviceEndpoints("Microsoft.Sql")
  *             .build());
  * 
- *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
- *             .name(&#34;example-mysqlserver&#34;)
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+ *             .name("example-mysqlserver")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .administratorLogin(&#34;mysqladminun&#34;)
- *             .administratorLoginPassword(&#34;H@Sh1CoR3!&#34;)
- *             .skuName(&#34;GP_Gen5_2&#34;)
+ *             .administratorLogin("mysqladminun")
+ *             .administratorLoginPassword("H{@literal @}Sh1CoR3!")
+ *             .skuName("GP_Gen5_2")
  *             .storageMb(5120)
- *             .version(&#34;5.7&#34;)
+ *             .version("5.7")
  *             .backupRetentionDays(7)
  *             .geoRedundantBackupEnabled(false)
  *             .sslEnforcementEnabled(true)
  *             .build());
  * 
- *         var exampleVirtualNetworkRule = new VirtualNetworkRule(&#34;exampleVirtualNetworkRule&#34;, VirtualNetworkRuleArgs.builder()        
- *             .name(&#34;mysql-vnet-rule&#34;)
+ *         var exampleVirtualNetworkRule = new VirtualNetworkRule("exampleVirtualNetworkRule", VirtualNetworkRuleArgs.builder()        
+ *             .name("mysql-vnet-rule")
  *             .resourceGroupName(example.name())
  *             .serverName(exampleServer.name())
  *             .subnetId(internal.id())
@@ -95,7 +96,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

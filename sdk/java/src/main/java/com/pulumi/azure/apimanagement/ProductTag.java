@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,36 +49,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .name(&#34;example-apim&#34;)
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *             .name("example-apim")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .publisherName(&#34;My Company&#34;)
- *             .publisherEmail(&#34;company@terraform.io&#34;)
- *             .skuName(&#34;Developer_1&#34;)
+ *             .publisherName("My Company")
+ *             .publisherEmail("company{@literal @}terraform.io")
+ *             .skuName("Developer_1")
  *             .build());
  * 
- *         var exampleProduct = new Product(&#34;exampleProduct&#34;, ProductArgs.builder()        
- *             .productId(&#34;test-product&#34;)
+ *         var exampleProduct = new Product("exampleProduct", ProductArgs.builder()        
+ *             .productId("test-product")
  *             .apiManagementName(exampleService.name())
  *             .resourceGroupName(example.name())
- *             .displayName(&#34;Test Product&#34;)
+ *             .displayName("Test Product")
  *             .subscriptionRequired(true)
  *             .approvalRequired(true)
  *             .published(true)
  *             .build());
  * 
- *         var exampleTag = new Tag(&#34;exampleTag&#34;, TagArgs.builder()        
+ *         var exampleTag = new Tag("exampleTag", TagArgs.builder()        
  *             .apiManagementId(exampleService.id())
- *             .name(&#34;example-tag&#34;)
+ *             .name("example-tag")
  *             .build());
  * 
- *         var exampleProductTag = new ProductTag(&#34;exampleProductTag&#34;, ProductTagArgs.builder()        
+ *         var exampleProductTag = new ProductTag("exampleProductTag", ProductTagArgs.builder()        
  *             .apiManagementProductId(exampleProduct.productId())
  *             .apiManagementName(exampleService.name())
  *             .resourceGroupName(example.name())
@@ -86,7 +87,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

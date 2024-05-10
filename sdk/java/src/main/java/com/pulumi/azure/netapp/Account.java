@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## NetApp Account Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,40 +54,41 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
- *             .name(&#34;anf-user-assigned-identity&#34;)
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()        
+ *             .name("anf-user-assigned-identity")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;netappaccount&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("netappaccount")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .activeDirectory(AccountActiveDirectoryArgs.builder()
- *                 .username(&#34;aduser&#34;)
- *                 .password(&#34;aduserpwd&#34;)
- *                 .smbServerName(&#34;SMBSERVER&#34;)
- *                 .dnsServers(&#34;1.2.3.4&#34;)
- *                 .domain(&#34;westcentralus.com&#34;)
- *                 .organizationalUnit(&#34;OU=FirstLevel&#34;)
+ *                 .username("aduser")
+ *                 .password("aduserpwd")
+ *                 .smbServerName("SMBSERVER")
+ *                 .dnsServers("1.2.3.4")
+ *                 .domain("westcentralus.com")
+ *                 .organizationalUnit("OU=FirstLevel")
  *                 .build())
  *             .identity(AccountIdentityArgs.builder()
- *                 .type(&#34;UserAssigned&#34;)
+ *                 .type("UserAssigned")
  *                 .identityIds(exampleUserAssignedIdentity.id())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

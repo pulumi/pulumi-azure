@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ### With Managed Identity &amp; New Cluster
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,69 +57,71 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;East US&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example")
+ *             .location("East US")
  *             .build());
  * 
  *         //Create a Linked Service using managed identity and new cluster config
- *         var exampleFactory = new Factory(&#34;exampleFactory&#34;, FactoryArgs.builder()        
- *             .name(&#34;TestDtaFactory92783401247&#34;)
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *             .name("TestDtaFactory92783401247")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .identity(FactoryIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
  *         //Create a databricks instance
- *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
- *             .name(&#34;databricks-test&#34;)
+ *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()        
+ *             .name("databricks-test")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .sku(&#34;standard&#34;)
+ *             .sku("standard")
  *             .build());
  * 
- *         var msiLinked = new LinkedServiceAzureDatabricks(&#34;msiLinked&#34;, LinkedServiceAzureDatabricksArgs.builder()        
- *             .name(&#34;ADBLinkedServiceViaMSI&#34;)
+ *         var msiLinked = new LinkedServiceAzureDatabricks("msiLinked", LinkedServiceAzureDatabricksArgs.builder()        
+ *             .name("ADBLinkedServiceViaMSI")
  *             .dataFactoryId(exampleFactory.id())
- *             .description(&#34;ADB Linked Service via MSI&#34;)
- *             .adbDomain(exampleWorkspace.workspaceUrl().applyValue(workspaceUrl -&gt; String.format(&#34;https://%s&#34;, workspaceUrl)))
+ *             .description("ADB Linked Service via MSI")
+ *             .adbDomain(exampleWorkspace.workspaceUrl().applyValue(workspaceUrl -> String.format("https://%s", workspaceUrl)))
  *             .msiWorkSpaceResourceId(exampleWorkspace.id())
  *             .newClusterConfig(LinkedServiceAzureDatabricksNewClusterConfigArgs.builder()
- *                 .nodeType(&#34;Standard_NC12&#34;)
- *                 .clusterVersion(&#34;5.5.x-gpu-scala2.11&#34;)
+ *                 .nodeType("Standard_NC12")
+ *                 .clusterVersion("5.5.x-gpu-scala2.11")
  *                 .minNumberOfWorkers(1)
  *                 .maxNumberOfWorkers(5)
- *                 .driverNodeType(&#34;Standard_NC12&#34;)
- *                 .logDestination(&#34;dbfs:/logs&#34;)
+ *                 .driverNodeType("Standard_NC12")
+ *                 .logDestination("dbfs:/logs")
  *                 .customTags(Map.ofEntries(
- *                     Map.entry(&#34;custom_tag1&#34;, &#34;sct_value_1&#34;),
- *                     Map.entry(&#34;custom_tag2&#34;, &#34;sct_value_2&#34;)
+ *                     Map.entry("custom_tag1", "sct_value_1"),
+ *                     Map.entry("custom_tag2", "sct_value_2")
  *                 ))
  *                 .sparkConfig(Map.ofEntries(
- *                     Map.entry(&#34;config1&#34;, &#34;value1&#34;),
- *                     Map.entry(&#34;config2&#34;, &#34;value2&#34;)
+ *                     Map.entry("config1", "value1"),
+ *                     Map.entry("config2", "value2")
  *                 ))
  *                 .sparkEnvironmentVariables(Map.ofEntries(
- *                     Map.entry(&#34;envVar1&#34;, &#34;value1&#34;),
- *                     Map.entry(&#34;envVar2&#34;, &#34;value2&#34;)
+ *                     Map.entry("envVar1", "value1"),
+ *                     Map.entry("envVar2", "value2")
  *                 ))
  *                 .initScripts(                
- *                     &#34;init.sh&#34;,
- *                     &#34;init2.sh&#34;)
+ *                     "init.sh",
+ *                     "init2.sh")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Access Token &amp; Existing Cluster
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -145,38 +148,39 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;East US&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example")
+ *             .location("East US")
  *             .build());
  * 
  *         //Link to an existing cluster via access token
- *         var exampleFactory = new Factory(&#34;exampleFactory&#34;, FactoryArgs.builder()        
- *             .name(&#34;TestDtaFactory92783401247&#34;)
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *             .name("TestDtaFactory92783401247")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         //Create a databricks instance
- *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
- *             .name(&#34;databricks-test&#34;)
+ *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()        
+ *             .name("databricks-test")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .sku(&#34;standard&#34;)
+ *             .sku("standard")
  *             .build());
  * 
- *         var atLinked = new LinkedServiceAzureDatabricks(&#34;atLinked&#34;, LinkedServiceAzureDatabricksArgs.builder()        
- *             .name(&#34;ADBLinkedServiceViaAccessToken&#34;)
+ *         var atLinked = new LinkedServiceAzureDatabricks("atLinked", LinkedServiceAzureDatabricksArgs.builder()        
+ *             .name("ADBLinkedServiceViaAccessToken")
  *             .dataFactoryId(exampleFactory.id())
- *             .description(&#34;ADB Linked Service via Access Token&#34;)
- *             .existingClusterId(&#34;0308-201146-sly615&#34;)
- *             .accessToken(&#34;SomeDatabricksAccessToken&#34;)
- *             .adbDomain(exampleWorkspace.workspaceUrl().applyValue(workspaceUrl -&gt; String.format(&#34;https://%s&#34;, workspaceUrl)))
+ *             .description("ADB Linked Service via Access Token")
+ *             .existingClusterId("0308-201146-sly615")
+ *             .accessToken("SomeDatabricksAccessToken")
+ *             .adbDomain(exampleWorkspace.workspaceUrl().applyValue(workspaceUrl -> String.format("https://%s", workspaceUrl)))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,20 +49,21 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getSubscription();
  * 
- *         var exampleParent = new Group(&#34;exampleParent&#34;, GroupArgs.builder()        
- *             .displayName(&#34;ParentGroup&#34;)
- *             .subscriptionIds(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.subscriptionId()))
+ *         var exampleParent = new Group("exampleParent", GroupArgs.builder()        
+ *             .displayName("ParentGroup")
+ *             .subscriptionIds(current.applyValue(getSubscriptionResult -> getSubscriptionResult.subscriptionId()))
  *             .build());
  * 
- *         var exampleChild = new Group(&#34;exampleChild&#34;, GroupArgs.builder()        
- *             .displayName(&#34;ChildGroup&#34;)
+ *         var exampleChild = new Group("exampleChild", GroupArgs.builder()        
+ *             .displayName("ChildGroup")
  *             .parentManagementGroupId(exampleParent.id())
- *             .subscriptionIds(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.subscriptionId()))
+ *             .subscriptionIds(current.applyValue(getSubscriptionResult -> getSubscriptionResult.subscriptionId()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,57 +55,58 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;database-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("database-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var primary = new Server(&#34;primary&#34;, ServerArgs.builder()        
- *             .name(&#34;mssqlserver-primary&#34;)
+ *         var primary = new Server("primary", ServerArgs.builder()        
+ *             .name("mssqlserver-primary")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .version(&#34;12.0&#34;)
- *             .administratorLogin(&#34;missadministrator&#34;)
- *             .administratorLoginPassword(&#34;thisIsKat11&#34;)
+ *             .version("12.0")
+ *             .administratorLogin("missadministrator")
+ *             .administratorLoginPassword("thisIsKat11")
  *             .build());
  * 
- *         var secondary = new Server(&#34;secondary&#34;, ServerArgs.builder()        
- *             .name(&#34;mssqlserver-secondary&#34;)
+ *         var secondary = new Server("secondary", ServerArgs.builder()        
+ *             .name("mssqlserver-secondary")
  *             .resourceGroupName(example.name())
- *             .location(&#34;North Europe&#34;)
- *             .version(&#34;12.0&#34;)
- *             .administratorLogin(&#34;missadministrator&#34;)
- *             .administratorLoginPassword(&#34;thisIsKat12&#34;)
+ *             .location("North Europe")
+ *             .version("12.0")
+ *             .administratorLogin("missadministrator")
+ *             .administratorLoginPassword("thisIsKat12")
  *             .build());
  * 
- *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
- *             .name(&#34;exampledb&#34;)
+ *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()        
+ *             .name("exampledb")
  *             .serverId(primary.id())
- *             .skuName(&#34;S1&#34;)
- *             .collation(&#34;SQL_Latin1_General_CP1_CI_AS&#34;)
- *             .maxSizeGb(&#34;200&#34;)
+ *             .skuName("S1")
+ *             .collation("SQL_Latin1_General_CP1_CI_AS")
+ *             .maxSizeGb("200")
  *             .build());
  * 
- *         var exampleFailoverGroup = new FailoverGroup(&#34;exampleFailoverGroup&#34;, FailoverGroupArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleFailoverGroup = new FailoverGroup("exampleFailoverGroup", FailoverGroupArgs.builder()        
+ *             .name("example")
  *             .serverId(primary.id())
  *             .databases(exampleDatabase.id())
  *             .partnerServers(FailoverGroupPartnerServerArgs.builder()
  *                 .id(secondary.id())
  *                 .build())
  *             .readWriteEndpointFailoverPolicy(FailoverGroupReadWriteEndpointFailoverPolicyArgs.builder()
- *                 .mode(&#34;Automatic&#34;)
+ *                 .mode("Automatic")
  *                 .graceMinutes(80)
  *                 .build())
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;environment&#34;, &#34;prod&#34;),
- *                 Map.entry(&#34;database&#34;, &#34;example&#34;)
+ *                 Map.entry("environment", "prod"),
+ *                 Map.entry("database", "example")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

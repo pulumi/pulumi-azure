@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,26 +53,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;example-ca&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("example-ca")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .offerType(&#34;Standard&#34;)
- *             .kind(&#34;MongoDB&#34;)
+ *             .offerType("Standard")
+ *             .kind("MongoDB")
  *             .capabilities(            
  *                 AccountCapabilityArgs.builder()
- *                     .name(&#34;EnableMongo&#34;)
+ *                     .name("EnableMongo")
  *                     .build(),
  *                 AccountCapabilityArgs.builder()
- *                     .name(&#34;EnableMongoRoleBasedAccessControl&#34;)
+ *                     .name("EnableMongoRoleBasedAccessControl")
  *                     .build())
  *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
- *                 .consistencyLevel(&#34;Strong&#34;)
+ *                 .consistencyLevel("Strong")
  *                 .build())
  *             .geoLocations(AccountGeoLocationArgs.builder()
  *                 .location(example.location())
@@ -79,20 +80,21 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleMongoDatabase = new MongoDatabase(&#34;exampleMongoDatabase&#34;, MongoDatabaseArgs.builder()        
- *             .name(&#34;example-mongodb&#34;)
+ *         var exampleMongoDatabase = new MongoDatabase("exampleMongoDatabase", MongoDatabaseArgs.builder()        
+ *             .name("example-mongodb")
  *             .resourceGroupName(exampleAccount.resourceGroupName())
  *             .accountName(exampleAccount.name())
  *             .build());
  * 
- *         var exampleMongoRoleDefinition = new MongoRoleDefinition(&#34;exampleMongoRoleDefinition&#34;, MongoRoleDefinitionArgs.builder()        
+ *         var exampleMongoRoleDefinition = new MongoRoleDefinition("exampleMongoRoleDefinition", MongoRoleDefinitionArgs.builder()        
  *             .cosmosMongoDatabaseId(exampleMongoDatabase.id())
- *             .roleName(&#34;example-roledefinition&#34;)
+ *             .roleName("example-roledefinition")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

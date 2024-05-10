@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -61,52 +62,52 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;test&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("test")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;test&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("test")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *             .addressSpaces("10.0.0.0/16")
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;GatewaySubnet&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("GatewaySubnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.1.0/24&#34;)
+ *             .addressPrefixes("10.0.1.0/24")
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
- *             .name(&#34;test&#34;)
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *             .name("test")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .allocationMethod(&#34;Dynamic&#34;)
+ *             .allocationMethod("Dynamic")
  *             .build());
  * 
- *         var exampleVirtualNetworkGateway = new VirtualNetworkGateway(&#34;exampleVirtualNetworkGateway&#34;, VirtualNetworkGatewayArgs.builder()        
- *             .name(&#34;test&#34;)
+ *         var exampleVirtualNetworkGateway = new VirtualNetworkGateway("exampleVirtualNetworkGateway", VirtualNetworkGatewayArgs.builder()        
+ *             .name("test")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .type(&#34;Vpn&#34;)
- *             .vpnType(&#34;RouteBased&#34;)
+ *             .type("Vpn")
+ *             .vpnType("RouteBased")
  *             .activeActive(false)
  *             .enableBgp(false)
- *             .sku(&#34;Basic&#34;)
+ *             .sku("Basic")
  *             .ipConfigurations(VirtualNetworkGatewayIpConfigurationArgs.builder()
- *                 .name(&#34;vnetGatewayConfig&#34;)
+ *                 .name("vnetGatewayConfig")
  *                 .publicIpAddressId(examplePublicIp.id())
- *                 .privateIpAddressAllocation(&#34;Dynamic&#34;)
+ *                 .privateIpAddressAllocation("Dynamic")
  *                 .subnetId(exampleSubnet.id())
  *                 .build())
  *             .vpnClientConfiguration(VirtualNetworkGatewayVpnClientConfigurationArgs.builder()
- *                 .addressSpaces(&#34;10.2.0.0/24&#34;)
+ *                 .addressSpaces("10.2.0.0/24")
  *                 .rootCertificates(VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs.builder()
- *                     .name(&#34;DigiCert-Federated-ID-Root-CA&#34;)
- *                     .publicCertData(&#34;&#34;&#34;
+ *                     .name("DigiCert-Federated-ID-Root-CA")
+ *                     .publicCertData("""
  * MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
  * MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
  * d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
@@ -127,18 +128,19 @@ import javax.annotation.Nullable;
  * uGLOhRJOFprPdoDIUBB+tmCl3oDcBy3vnUeOEioz8zAkprcb3GHwHAK+vHmmfgcn
  * WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
  * M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
- *                     &#34;&#34;&#34;)
+ *                     """)
  *                     .build())
  *                 .revokedCertificates(VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs.builder()
- *                     .name(&#34;Verizon-Global-Root-CA&#34;)
- *                     .thumbprint(&#34;912198EEF23DCAC40939312FEE97DD560BAE49B1&#34;)
+ *                     .name("Verizon-Global-Root-CA")
+ *                     .thumbprint("912198EEF23DCAC40939312FEE97DD560BAE49B1")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,40 +54,40 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;examplegroup&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("examplegroup")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;examplevnet&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("examplevnet")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .addressSpaces(&#34;10.1.0.0/16&#34;)
+ *             .addressSpaces("10.1.0.0/16")
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;examplesubnet&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("examplesubnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.1.0.0/24&#34;)
+ *             .addressPrefixes("10.1.0.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;delegation&#34;)
+ *                 .name("delegation")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .name(&#34;Microsoft.ContainerInstance/containerGroups&#34;)
- *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/action&#34;)
+ *                     .name("Microsoft.ContainerInstance/containerGroups")
+ *                     .actions("Microsoft.Network/virtualNetworks/subnets/action")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleProfile = new Profile(&#34;exampleProfile&#34;, ProfileArgs.builder()        
- *             .name(&#34;examplenetprofile&#34;)
+ *         var exampleProfile = new Profile("exampleProfile", ProfileArgs.builder()        
+ *             .name("examplenetprofile")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .containerNetworkInterface(ProfileContainerNetworkInterfaceArgs.builder()
- *                 .name(&#34;examplecnic&#34;)
+ *                 .name("examplecnic")
  *                 .ipConfigurations(ProfileContainerNetworkInterfaceIpConfigurationArgs.builder()
- *                     .name(&#34;exampleipconfig&#34;)
+ *                     .name("exampleipconfig")
  *                     .subnetId(exampleSubnet.id())
  *                     .build())
  *                 .build())
@@ -94,7 +95,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

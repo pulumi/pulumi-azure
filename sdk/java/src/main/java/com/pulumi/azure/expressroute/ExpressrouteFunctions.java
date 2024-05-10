@@ -22,7 +22,8 @@ public final class ExpressrouteFunctions {
      * ### Creating A Microsoft Peering)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -44,14 +45,15 @@ public final class ExpressrouteFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ExpressrouteFunctions.getCircuitPeering(GetCircuitPeeringArgs.builder()
-     *             .name(&#34;example-peering&#34;)
-     *             .expressRouteCircuitName(&#34;example-expressroute&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-peering")
+     *             .expressRouteCircuitName("example-expressroute")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -66,7 +68,8 @@ public final class ExpressrouteFunctions {
      * ### Creating A Microsoft Peering)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -88,14 +91,15 @@ public final class ExpressrouteFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ExpressrouteFunctions.getCircuitPeering(GetCircuitPeeringArgs.builder()
-     *             .name(&#34;example-peering&#34;)
-     *             .expressRouteCircuitName(&#34;example-expressroute&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-peering")
+     *             .expressRouteCircuitName("example-expressroute")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -110,7 +114,8 @@ public final class ExpressrouteFunctions {
      * ### Creating A Microsoft Peering)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -132,14 +137,15 @@ public final class ExpressrouteFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ExpressrouteFunctions.getCircuitPeering(GetCircuitPeeringArgs.builder()
-     *             .name(&#34;example-peering&#34;)
-     *             .expressRouteCircuitName(&#34;example-expressroute&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-peering")
+     *             .expressRouteCircuitName("example-expressroute")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -154,7 +160,8 @@ public final class ExpressrouteFunctions {
      * ### Creating A Microsoft Peering)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -176,14 +183,15 @@ public final class ExpressrouteFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ExpressrouteFunctions.getCircuitPeering(GetCircuitPeeringArgs.builder()
-     *             .name(&#34;example-peering&#34;)
-     *             .expressRouteCircuitName(&#34;example-expressroute&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-peering")
+     *             .expressRouteCircuitName("example-expressroute")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

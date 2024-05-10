@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -66,79 +67,79 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RandomString(&#34;example&#34;, RandomStringArgs.builder()        
+ *         var example = new RandomString("example", RandomStringArgs.builder()        
  *             .length(12)
  *             .special(true)
  *             .build());
  * 
- *         final var adminUsername = &#34;exampleadmin&#34;;
+ *         final var adminUsername = "exampleadmin";
  * 
  *         final var adminPassword = example.result();
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(String.format(&#34;%s-resources&#34;, prefix))
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name(String.format("%s-resources", prefix))
  *             .location(location)
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(String.format(&#34;%s-vnet&#34;, prefix))
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name(String.format("%s-vnet", prefix))
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .addressSpaces(&#34;10.6.0.0/16&#34;)
+ *             .addressSpaces("10.6.0.0/16")
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(String.format(&#34;%s-delegated-subnet&#34;, prefix))
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name(String.format("%s-delegated-subnet", prefix))
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.6.2.0/24&#34;)
+ *             .addressPrefixes("10.6.2.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;testdelegation&#34;)
+ *                 .name("testdelegation")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .name(&#34;Microsoft.Netapp/volumes&#34;)
+ *                     .name("Microsoft.Netapp/volumes")
  *                     .actions(                    
- *                         &#34;Microsoft.Network/networkinterfaces/*&#34;,
- *                         &#34;Microsoft.Network/virtualNetworks/subnets/join/action&#34;)
+ *                         "Microsoft.Network/networkinterfaces/*",
+ *                         "Microsoft.Network/virtualNetworks/subnets/join/action")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var example1 = new Subnet(&#34;example1&#34;, SubnetArgs.builder()        
- *             .name(String.format(&#34;%s-hosts-subnet&#34;, prefix))
+ *         var example1 = new Subnet("example1", SubnetArgs.builder()        
+ *             .name(String.format("%s-hosts-subnet", prefix))
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.6.1.0/24&#34;)
+ *             .addressPrefixes("10.6.1.0/24")
  *             .build());
  * 
- *         var examplePlacementGroup = new PlacementGroup(&#34;examplePlacementGroup&#34;, PlacementGroupArgs.builder()        
- *             .name(String.format(&#34;%s-ppg&#34;, prefix))
+ *         var examplePlacementGroup = new PlacementGroup("examplePlacementGroup", PlacementGroupArgs.builder()        
+ *             .name(String.format("%s-ppg", prefix))
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleAvailabilitySet = new AvailabilitySet(&#34;exampleAvailabilitySet&#34;, AvailabilitySetArgs.builder()        
- *             .name(String.format(&#34;%s-avset&#34;, prefix))
+ *         var exampleAvailabilitySet = new AvailabilitySet("exampleAvailabilitySet", AvailabilitySetArgs.builder()        
+ *             .name(String.format("%s-avset", prefix))
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .proximityPlacementGroupId(examplePlacementGroup.id())
  *             .build());
  * 
- *         var exampleNetworkInterface = new NetworkInterface(&#34;exampleNetworkInterface&#34;, NetworkInterfaceArgs.builder()        
- *             .name(String.format(&#34;%s-nic&#34;, prefix))
+ *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()        
+ *             .name(String.format("%s-nic", prefix))
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
- *                 .name(&#34;internal&#34;)
+ *                 .name("internal")
  *                 .subnetId(example1.id())
- *                 .privateIpAddressAllocation(&#34;Dynamic&#34;)
+ *                 .privateIpAddressAllocation("Dynamic")
  *                 .build())
  *             .build());
  * 
- *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine(&#34;exampleLinuxVirtualMachine&#34;, LinuxVirtualMachineArgs.builder()        
- *             .name(String.format(&#34;%s-vm&#34;, prefix))
+ *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine("exampleLinuxVirtualMachine", LinuxVirtualMachineArgs.builder()        
+ *             .name(String.format("%s-vm", prefix))
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
- *             .size(&#34;Standard_M8ms&#34;)
+ *             .size("Standard_M8ms")
  *             .adminUsername(adminUsername)
  *             .adminPassword(adminPassword)
  *             .disablePasswordAuthentication(false)
@@ -146,105 +147,105 @@ import javax.annotation.Nullable;
  *             .availabilitySetId(exampleAvailabilitySet.id())
  *             .networkInterfaceIds(exampleNetworkInterface.id())
  *             .sourceImageReference(LinuxVirtualMachineSourceImageReferenceArgs.builder()
- *                 .publisher(&#34;Canonical&#34;)
- *                 .offer(&#34;0001-com-ubuntu-server-jammy&#34;)
- *                 .sku(&#34;22_04-lts&#34;)
- *                 .version(&#34;latest&#34;)
+ *                 .publisher("Canonical")
+ *                 .offer("0001-com-ubuntu-server-jammy")
+ *                 .sku("22_04-lts")
+ *                 .version("latest")
  *                 .build())
  *             .osDisk(LinuxVirtualMachineOsDiskArgs.builder()
- *                 .storageAccountType(&#34;Standard_LRS&#34;)
- *                 .caching(&#34;ReadWrite&#34;)
+ *                 .storageAccountType("Standard_LRS")
+ *                 .caching("ReadWrite")
  *                 .build())
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(String.format(&#34;%s-netapp-account&#34;, prefix))
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name(String.format("%s-netapp-account", prefix))
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var examplePool = new Pool(&#34;examplePool&#34;, PoolArgs.builder()        
- *             .name(String.format(&#34;%s-netapp-pool&#34;, prefix))
+ *         var examplePool = new Pool("examplePool", PoolArgs.builder()        
+ *             .name(String.format("%s-netapp-pool", prefix))
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .accountName(exampleAccount.name())
- *             .serviceLevel(&#34;Standard&#34;)
+ *             .serviceLevel("Standard")
  *             .sizeInTb(8)
- *             .qosType(&#34;Manual&#34;)
+ *             .qosType("Manual")
  *             .build());
  * 
- *         var exampleVolumeGroupSapHana = new VolumeGroupSapHana(&#34;exampleVolumeGroupSapHana&#34;, VolumeGroupSapHanaArgs.builder()        
- *             .name(String.format(&#34;%s-netapp-volumegroup&#34;, prefix))
+ *         var exampleVolumeGroupSapHana = new VolumeGroupSapHana("exampleVolumeGroupSapHana", VolumeGroupSapHanaArgs.builder()        
+ *             .name(String.format("%s-netapp-volumegroup", prefix))
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .accountName(exampleAccount.name())
- *             .groupDescription(&#34;Test volume group&#34;)
- *             .applicationIdentifier(&#34;TST&#34;)
+ *             .groupDescription("Test volume group")
+ *             .applicationIdentifier("TST")
  *             .volumes(            
  *                 VolumeGroupSapHanaVolumeArgs.builder()
- *                     .name(String.format(&#34;%s-netapp-volume-1&#34;, prefix))
- *                     .volumePath(&#34;my-unique-file-path-1&#34;)
- *                     .serviceLevel(&#34;Standard&#34;)
+ *                     .name(String.format("%s-netapp-volume-1", prefix))
+ *                     .volumePath("my-unique-file-path-1")
+ *                     .serviceLevel("Standard")
  *                     .capacityPoolId(examplePool.id())
  *                     .subnetId(exampleSubnet.id())
  *                     .proximityPlacementGroupId(examplePlacementGroup.id())
- *                     .volumeSpecName(&#34;data&#34;)
+ *                     .volumeSpecName("data")
  *                     .storageQuotaInGb(1024)
  *                     .throughputInMibps(24)
- *                     .protocols(&#34;NFSv4.1&#34;)
- *                     .securityStyle(&#34;unix&#34;)
+ *                     .protocols("NFSv4.1")
+ *                     .securityStyle("unix")
  *                     .snapshotDirectoryVisible(false)
  *                     .exportPolicyRules(VolumeGroupSapHanaVolumeExportPolicyRuleArgs.builder()
  *                         .ruleIndex(1)
- *                         .allowedClients(&#34;0.0.0.0/0&#34;)
+ *                         .allowedClients("0.0.0.0/0")
  *                         .nfsv3Enabled(false)
  *                         .nfsv41Enabled(true)
  *                         .unixReadOnly(false)
  *                         .unixReadWrite(true)
  *                         .rootAccessEnabled(false)
  *                         .build())
- *                     .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *                     .tags(Map.of("foo", "bar"))
  *                     .build(),
  *                 VolumeGroupSapHanaVolumeArgs.builder()
- *                     .name(String.format(&#34;%s-netapp-volume-2&#34;, prefix))
- *                     .volumePath(&#34;my-unique-file-path-2&#34;)
- *                     .serviceLevel(&#34;Standard&#34;)
+ *                     .name(String.format("%s-netapp-volume-2", prefix))
+ *                     .volumePath("my-unique-file-path-2")
+ *                     .serviceLevel("Standard")
  *                     .capacityPoolId(examplePool.id())
  *                     .subnetId(exampleSubnet.id())
  *                     .proximityPlacementGroupId(examplePlacementGroup.id())
- *                     .volumeSpecName(&#34;log&#34;)
+ *                     .volumeSpecName("log")
  *                     .storageQuotaInGb(1024)
  *                     .throughputInMibps(24)
- *                     .protocols(&#34;NFSv4.1&#34;)
- *                     .securityStyle(&#34;unix&#34;)
+ *                     .protocols("NFSv4.1")
+ *                     .securityStyle("unix")
  *                     .snapshotDirectoryVisible(false)
  *                     .exportPolicyRules(VolumeGroupSapHanaVolumeExportPolicyRuleArgs.builder()
  *                         .ruleIndex(1)
- *                         .allowedClients(&#34;0.0.0.0/0&#34;)
+ *                         .allowedClients("0.0.0.0/0")
  *                         .nfsv3Enabled(false)
  *                         .nfsv41Enabled(true)
  *                         .unixReadOnly(false)
  *                         .unixReadWrite(true)
  *                         .rootAccessEnabled(false)
  *                         .build())
- *                     .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *                     .tags(Map.of("foo", "bar"))
  *                     .build(),
  *                 VolumeGroupSapHanaVolumeArgs.builder()
- *                     .name(String.format(&#34;%s-netapp-volume-3&#34;, prefix))
- *                     .volumePath(&#34;my-unique-file-path-3&#34;)
- *                     .serviceLevel(&#34;Standard&#34;)
+ *                     .name(String.format("%s-netapp-volume-3", prefix))
+ *                     .volumePath("my-unique-file-path-3")
+ *                     .serviceLevel("Standard")
  *                     .capacityPoolId(examplePool.id())
  *                     .subnetId(exampleSubnet.id())
  *                     .proximityPlacementGroupId(examplePlacementGroup.id())
- *                     .volumeSpecName(&#34;shared&#34;)
+ *                     .volumeSpecName("shared")
  *                     .storageQuotaInGb(1024)
  *                     .throughputInMibps(24)
- *                     .protocols(&#34;NFSv4.1&#34;)
- *                     .securityStyle(&#34;unix&#34;)
+ *                     .protocols("NFSv4.1")
+ *                     .securityStyle("unix")
  *                     .snapshotDirectoryVisible(false)
  *                     .exportPolicyRules(VolumeGroupSapHanaVolumeExportPolicyRuleArgs.builder()
  *                         .ruleIndex(1)
- *                         .allowedClients(&#34;0.0.0.0/0&#34;)
+ *                         .allowedClients("0.0.0.0/0")
  *                         .nfsv3Enabled(false)
  *                         .nfsv41Enabled(true)
  *                         .unixReadOnly(false)
@@ -256,7 +257,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

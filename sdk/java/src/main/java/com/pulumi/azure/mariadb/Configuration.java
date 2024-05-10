@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,32 +45,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;api-rg-pro&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("api-rg-pro")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
- *             .name(&#34;mariadb-server-1&#34;)
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+ *             .name("mariadb-server-1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;B_Gen5_2&#34;)
+ *             .skuName("B_Gen5_2")
  *             .sslEnforcementEnabled(true)
- *             .administratorLogin(&#34;mariadbadmin&#34;)
- *             .administratorLoginPassword(&#34;H@Sh1CoR3!&#34;)
- *             .version(&#34;10.2&#34;)
+ *             .administratorLogin("mariadbadmin")
+ *             .administratorLoginPassword("H{@literal @}Sh1CoR3!")
+ *             .version("10.2")
  *             .build());
  * 
- *         var exampleConfiguration = new Configuration(&#34;exampleConfiguration&#34;, ConfigurationArgs.builder()        
- *             .name(&#34;interactive_timeout&#34;)
+ *         var exampleConfiguration = new Configuration("exampleConfiguration", ConfigurationArgs.builder()        
+ *             .name("interactive_timeout")
  *             .resourceGroupName(example.name())
  *             .serverName(exampleServer.name())
- *             .value(&#34;600&#34;)
+ *             .value("600")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

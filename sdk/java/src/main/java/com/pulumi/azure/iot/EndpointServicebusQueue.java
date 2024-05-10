@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,53 +56,54 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleNamespace = new Namespace(&#34;exampleNamespace&#34;, NamespaceArgs.builder()        
- *             .name(&#34;exampleNamespace&#34;)
+ *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()        
+ *             .name("exampleNamespace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;Standard&#34;)
+ *             .sku("Standard")
  *             .build());
  * 
- *         var exampleQueue = new Queue(&#34;exampleQueue&#34;, QueueArgs.builder()        
- *             .name(&#34;exampleQueue&#34;)
+ *         var exampleQueue = new Queue("exampleQueue", QueueArgs.builder()        
+ *             .name("exampleQueue")
  *             .namespaceId(exampleNamespace.id())
  *             .enablePartitioning(true)
  *             .build());
  * 
- *         var exampleQueueAuthorizationRule = new QueueAuthorizationRule(&#34;exampleQueueAuthorizationRule&#34;, QueueAuthorizationRuleArgs.builder()        
- *             .name(&#34;exampleRule&#34;)
+ *         var exampleQueueAuthorizationRule = new QueueAuthorizationRule("exampleQueueAuthorizationRule", QueueAuthorizationRuleArgs.builder()        
+ *             .name("exampleRule")
  *             .queueId(exampleQueue.id())
  *             .listen(false)
  *             .send(true)
  *             .manage(false)
  *             .build());
  * 
- *         var exampleIoTHub = new IoTHub(&#34;exampleIoTHub&#34;, IoTHubArgs.builder()        
- *             .name(&#34;exampleIothub&#34;)
+ *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()        
+ *             .name("exampleIothub")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .sku(IoTHubSkuArgs.builder()
- *                 .name(&#34;B1&#34;)
- *                 .capacity(&#34;1&#34;)
+ *                 .name("B1")
+ *                 .capacity("1")
  *                 .build())
- *             .tags(Map.of(&#34;purpose&#34;, &#34;example&#34;))
+ *             .tags(Map.of("purpose", "example"))
  *             .build());
  * 
- *         var exampleEndpointServicebusQueue = new EndpointServicebusQueue(&#34;exampleEndpointServicebusQueue&#34;, EndpointServicebusQueueArgs.builder()        
+ *         var exampleEndpointServicebusQueue = new EndpointServicebusQueue("exampleEndpointServicebusQueue", EndpointServicebusQueueArgs.builder()        
  *             .resourceGroupName(example.name())
  *             .iothubId(exampleIoTHub.id())
- *             .name(&#34;example&#34;)
+ *             .name("example")
  *             .connectionString(exampleQueueAuthorizationRule.primaryConnectionString())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

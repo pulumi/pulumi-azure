@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,35 +50,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;database-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("database-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
- *             .name(&#34;mssqlserver&#34;)
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+ *             .name("mssqlserver")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .version(&#34;12.0&#34;)
- *             .administratorLogin(&#34;missadministrator&#34;)
- *             .administratorLoginPassword(&#34;thisIsKat11&#34;)
- *             .minimumTlsVersion(&#34;1.2&#34;)
+ *             .version("12.0")
+ *             .administratorLogin("missadministrator")
+ *             .administratorLoginPassword("thisIsKat11")
+ *             .minimumTlsVersion("1.2")
  *             .azureadAdministrator(ServerAzureadAdministratorArgs.builder()
- *                 .loginUsername(&#34;AzureAD Admin&#34;)
- *                 .objectId(&#34;00000000-0000-0000-0000-000000000000&#34;)
+ *                 .loginUsername("AzureAD Admin")
+ *                 .objectId("00000000-0000-0000-0000-000000000000")
  *                 .build())
- *             .tags(Map.of(&#34;environment&#34;, &#34;production&#34;))
+ *             .tags(Map.of("environment", "production"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Transparent Data Encryption(TDE) With A Customer Managed Key(CMK) During Create
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -112,75 +115,75 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
- *             .name(&#34;example-admin&#34;)
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()        
+ *             .name("example-admin")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         // Create a key vault with access policies which allow for the current user to get, list, create, delete, update, recover, purge and getRotationPolicy for the key vault key and also add a key vault access policy for the Microsoft Sql Server instance User Managed Identity to get, wrap, and unwrap key(s)
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;mssqltdeexample&#34;)
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("mssqltdeexample")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .enabledForDiskEncryption(true)
  *             .tenantId(exampleUserAssignedIdentity.tenantId())
  *             .softDeleteRetentionDays(7)
  *             .purgeProtectionEnabled(true)
- *             .skuName(&#34;standard&#34;)
+ *             .skuName("standard")
  *             .accessPolicies(            
  *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *                     .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *                     .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *                     .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *                     .keyPermissions(                    
- *                         &#34;Get&#34;,
- *                         &#34;List&#34;,
- *                         &#34;Create&#34;,
- *                         &#34;Delete&#34;,
- *                         &#34;Update&#34;,
- *                         &#34;Recover&#34;,
- *                         &#34;Purge&#34;,
- *                         &#34;GetRotationPolicy&#34;)
+ *                         "Get",
+ *                         "List",
+ *                         "Create",
+ *                         "Delete",
+ *                         "Update",
+ *                         "Recover",
+ *                         "Purge",
+ *                         "GetRotationPolicy")
  *                     .build(),
  *                 KeyVaultAccessPolicyArgs.builder()
  *                     .tenantId(exampleUserAssignedIdentity.tenantId())
  *                     .objectId(exampleUserAssignedIdentity.principalId())
  *                     .keyPermissions(                    
- *                         &#34;Get&#34;,
- *                         &#34;WrapKey&#34;,
- *                         &#34;UnwrapKey&#34;)
+ *                         "Get",
+ *                         "WrapKey",
+ *                         "UnwrapKey")
  *                     .build())
  *             .build());
  * 
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
- *             .name(&#34;example-key&#34;)
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *             .name("example-key")
  *             .keyVaultId(exampleKeyVault.id())
- *             .keyType(&#34;RSA&#34;)
+ *             .keyType("RSA")
  *             .keySize(2048)
  *             .keyOpts(            
- *                 &#34;unwrapKey&#34;,
- *                 &#34;wrapKey&#34;)
+ *                 "unwrapKey",
+ *                 "wrapKey")
  *             .build());
  * 
- *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
- *             .name(&#34;example-resource&#34;)
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+ *             .name("example-resource")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .version(&#34;12.0&#34;)
- *             .administratorLogin(&#34;Example-Administrator&#34;)
- *             .administratorLoginPassword(&#34;Example_Password!&#34;)
- *             .minimumTlsVersion(&#34;1.2&#34;)
+ *             .version("12.0")
+ *             .administratorLogin("Example-Administrator")
+ *             .administratorLoginPassword("Example_Password!")
+ *             .minimumTlsVersion("1.2")
  *             .azureadAdministrator(ServerAzureadAdministratorArgs.builder()
  *                 .loginUsername(exampleUserAssignedIdentity.name())
  *                 .objectId(exampleUserAssignedIdentity.principalId())
  *                 .build())
  *             .identity(ServerIdentityArgs.builder()
- *                 .type(&#34;UserAssigned&#34;)
+ *                 .type("UserAssigned")
  *                 .identityIds(exampleUserAssignedIdentity.id())
  *                 .build())
  *             .primaryUserAssignedIdentityId(exampleUserAssignedIdentity.id())
@@ -189,7 +192,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

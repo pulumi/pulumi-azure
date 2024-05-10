@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,29 +46,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;exprtTest&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("exprtTest")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleExpressRoutePort = new ExpressRoutePort(&#34;exampleExpressRoutePort&#34;, ExpressRoutePortArgs.builder()        
- *             .name(&#34;port1&#34;)
+ *         var exampleExpressRoutePort = new ExpressRoutePort("exampleExpressRoutePort", ExpressRoutePortArgs.builder()        
+ *             .name("port1")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .peeringLocation(&#34;Airtel-Chennai-CLS&#34;)
+ *             .peeringLocation("Airtel-Chennai-CLS")
  *             .bandwidthInGbps(10)
- *             .encapsulation(&#34;Dot1Q&#34;)
+ *             .encapsulation("Dot1Q")
  *             .build());
  * 
- *         var exampleExpressRoutePortAuthorization = new ExpressRoutePortAuthorization(&#34;exampleExpressRoutePortAuthorization&#34;, ExpressRoutePortAuthorizationArgs.builder()        
- *             .name(&#34;exampleERCAuth&#34;)
+ *         var exampleExpressRoutePortAuthorization = new ExpressRoutePortAuthorization("exampleExpressRoutePortAuthorization", ExpressRoutePortAuthorizationArgs.builder()        
+ *             .name("exampleERCAuth")
  *             .expressRoutePortName(exampleExpressRoutePort.name())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

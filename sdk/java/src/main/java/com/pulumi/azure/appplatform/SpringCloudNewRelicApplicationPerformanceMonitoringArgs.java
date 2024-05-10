@@ -110,14 +110,14 @@ public final class SpringCloudNewRelicApplicationPerformanceMonitoringArgs exten
     }
 
     /**
-     * Specifies whether enable all instrumentation using an `@Trace` annotation. Disabling this causes `@Trace` annotations to be ignored. Defaults to `true`.
+     * Specifies whether enable all instrumentation using an `{@literal @}Trace` annotation. Disabling this causes `{@literal @}Trace` annotations to be ignored. Defaults to `true`.
      * 
      */
     @Import(name="customTracingEnabled")
     private @Nullable Output<Boolean> customTracingEnabled;
 
     /**
-     * @return Specifies whether enable all instrumentation using an `@Trace` annotation. Disabling this causes `@Trace` annotations to be ignored. Defaults to `true`.
+     * @return Specifies whether enable all instrumentation using an `{@literal @}Trace` annotation. Disabling this causes `{@literal @}Trace` annotations to be ignored. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> customTracingEnabled() {
@@ -361,7 +361,7 @@ public final class SpringCloudNewRelicApplicationPerformanceMonitoringArgs exten
         }
 
         /**
-         * @param customTracingEnabled Specifies whether enable all instrumentation using an `@Trace` annotation. Disabling this causes `@Trace` annotations to be ignored. Defaults to `true`.
+         * @param customTracingEnabled Specifies whether enable all instrumentation using an `{@literal @}Trace` annotation. Disabling this causes `{@literal @}Trace` annotations to be ignored. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -372,7 +372,7 @@ public final class SpringCloudNewRelicApplicationPerformanceMonitoringArgs exten
         }
 
         /**
-         * @param customTracingEnabled Specifies whether enable all instrumentation using an `@Trace` annotation. Disabling this causes `@Trace` annotations to be ignored. Defaults to `true`.
+         * @param customTracingEnabled Specifies whether enable all instrumentation using an `{@literal @}Trace` annotation. Disabling this causes `{@literal @}Trace` annotations to be ignored. Defaults to `true`.
          * 
          * @return builder
          * 

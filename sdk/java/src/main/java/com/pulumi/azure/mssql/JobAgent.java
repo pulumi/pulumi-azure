@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,36 +49,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;northeurope&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example")
+ *             .location("northeurope")
  *             .build());
  * 
- *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
- *             .name(&#34;example-server&#34;)
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+ *             .name("example-server")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .version(&#34;12.0&#34;)
- *             .administratorLogin(&#34;4dm1n157r470r&#34;)
- *             .administratorLoginPassword(&#34;4-v3ry-53cr37-p455w0rd&#34;)
+ *             .version("12.0")
+ *             .administratorLogin("4dm1n157r470r")
+ *             .administratorLoginPassword("4-v3ry-53cr37-p455w0rd")
  *             .build());
  * 
- *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
- *             .name(&#34;example-db&#34;)
+ *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()        
+ *             .name("example-db")
  *             .serverId(exampleServer.id())
- *             .collation(&#34;SQL_Latin1_General_CP1_CI_AS&#34;)
- *             .skuName(&#34;S1&#34;)
+ *             .collation("SQL_Latin1_General_CP1_CI_AS")
+ *             .skuName("S1")
  *             .build());
  * 
- *         var exampleJobAgent = new JobAgent(&#34;exampleJobAgent&#34;, JobAgentArgs.builder()        
- *             .name(&#34;example-job-agent&#34;)
+ *         var exampleJobAgent = new JobAgent("exampleJobAgent", JobAgentArgs.builder()        
+ *             .name("example-job-agent")
  *             .location(example.location())
  *             .databaseId(exampleDatabase.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

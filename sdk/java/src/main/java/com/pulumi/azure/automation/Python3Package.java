@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,32 +47,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;rg-example&#34;)
- *             .location(&#34;%[2]s&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("rg-example")
+ *             .location("%[2]s")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;accexample&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("accexample")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;Basic&#34;)
+ *             .skuName("Basic")
  *             .build());
  * 
- *         var examplePython3Package = new Python3Package(&#34;examplePython3Package&#34;, Python3PackageArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var examplePython3Package = new Python3Package("examplePython3Package", Python3PackageArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .automationAccountName(exampleAccount.name())
- *             .contentUri(&#34;https://pypi.org/packages/source/r/requests/requests-2.31.0.tar.gz&#34;)
- *             .contentVersion(&#34;2.31.0&#34;)
- *             .hashAlgorithm(&#34;sha256&#34;)
- *             .hashValue(&#34;942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1&#34;)
- *             .tags(Map.of(&#34;key&#34;, &#34;foo&#34;))
+ *             .contentUri("https://pypi.org/packages/source/r/requests/requests-2.31.0.tar.gz")
+ *             .contentVersion("2.31.0")
+ *             .hashAlgorithm("sha256")
+ *             .hashValue("942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1")
+ *             .tags(Map.of("key", "foo"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

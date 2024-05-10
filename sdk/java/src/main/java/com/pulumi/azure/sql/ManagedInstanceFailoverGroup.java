@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** For a more complete example, see the the `examples/sql-azure/managed_instance_failover_group` directory within the GitHub Repository.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,54 +55,55 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;rg-example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("rg-example")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var primary = new ManagedInstance(&#34;primary&#34;, ManagedInstanceArgs.builder()        
- *             .name(&#34;example-primary&#34;)
+ *         var primary = new ManagedInstance("primary", ManagedInstanceArgs.builder()        
+ *             .name("example-primary")
  *             .resourceGroupName(primaryAzurermResourceGroup.name())
  *             .location(primaryAzurermResourceGroup.location())
- *             .administratorLogin(&#34;mradministrator&#34;)
- *             .administratorLoginPassword(&#34;thisIsDog11&#34;)
- *             .licenseType(&#34;BasePrice&#34;)
+ *             .administratorLogin("mradministrator")
+ *             .administratorLoginPassword("thisIsDog11")
+ *             .licenseType("BasePrice")
  *             .subnetId(primaryAzurermSubnet.id())
- *             .skuName(&#34;GP_Gen5&#34;)
+ *             .skuName("GP_Gen5")
  *             .vcores(4)
  *             .storageSizeInGb(32)
- *             .tags(Map.of(&#34;environment&#34;, &#34;prod&#34;))
+ *             .tags(Map.of("environment", "prod"))
  *             .build());
  * 
- *         var secondary = new ManagedInstance(&#34;secondary&#34;, ManagedInstanceArgs.builder()        
- *             .name(&#34;example-secondary&#34;)
+ *         var secondary = new ManagedInstance("secondary", ManagedInstanceArgs.builder()        
+ *             .name("example-secondary")
  *             .resourceGroupName(secondaryAzurermResourceGroup.name())
  *             .location(secondaryAzurermResourceGroup.location())
- *             .administratorLogin(&#34;mradministrator&#34;)
- *             .administratorLoginPassword(&#34;thisIsDog11&#34;)
- *             .licenseType(&#34;BasePrice&#34;)
+ *             .administratorLogin("mradministrator")
+ *             .administratorLoginPassword("thisIsDog11")
+ *             .licenseType("BasePrice")
  *             .subnetId(secondaryAzurermSubnet.id())
- *             .skuName(&#34;GP_Gen5&#34;)
+ *             .skuName("GP_Gen5")
  *             .vcores(4)
  *             .storageSizeInGb(32)
- *             .tags(Map.of(&#34;environment&#34;, &#34;prod&#34;))
+ *             .tags(Map.of("environment", "prod"))
  *             .build());
  * 
- *         var exampleManagedInstanceFailoverGroup = new ManagedInstanceFailoverGroup(&#34;exampleManagedInstanceFailoverGroup&#34;, ManagedInstanceFailoverGroupArgs.builder()        
- *             .name(&#34;example-failover-group&#34;)
+ *         var exampleManagedInstanceFailoverGroup = new ManagedInstanceFailoverGroup("exampleManagedInstanceFailoverGroup", ManagedInstanceFailoverGroupArgs.builder()        
+ *             .name("example-failover-group")
  *             .resourceGroupName(primaryAzurermResourceGroup.name())
  *             .location(primary.location())
  *             .managedInstanceName(primary.name())
  *             .partnerManagedInstanceId(secondary.id())
  *             .readWriteEndpointFailoverPolicy(ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs.builder()
- *                 .mode(&#34;Automatic&#34;)
+ *                 .mode("Automatic")
  *                 .graceMinutes(60)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

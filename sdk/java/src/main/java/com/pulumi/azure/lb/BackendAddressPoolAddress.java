@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,47 +52,48 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = NetworkFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
- *             .name(&#34;example-network&#34;)
- *             .resourceGroupName(&#34;example-resources&#34;)
+ *             .name("example-network")
+ *             .resourceGroupName("example-resources")
  *             .build());
  * 
  *         final var exampleGetLB = LbFunctions.getLB(GetLBArgs.builder()
- *             .name(&#34;example-lb&#34;)
- *             .resourceGroupName(&#34;example-resources&#34;)
+ *             .name("example-lb")
+ *             .resourceGroupName("example-resources")
  *             .build());
  * 
  *         final var exampleGetBackendAddressPool = LbFunctions.getBackendAddressPool(GetBackendAddressPoolArgs.builder()
- *             .name(&#34;first&#34;)
- *             .loadbalancerId(exampleGetLB.applyValue(getLBResult -&gt; getLBResult.id()))
+ *             .name("first")
+ *             .loadbalancerId(exampleGetLB.applyValue(getLBResult -> getLBResult.id()))
  *             .build());
  * 
- *         var exampleBackendAddressPoolAddress = new BackendAddressPoolAddress(&#34;exampleBackendAddressPoolAddress&#34;, BackendAddressPoolAddressArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .backendAddressPoolId(exampleGetBackendAddressPool.applyValue(getBackendAddressPoolResult -&gt; getBackendAddressPoolResult.id()))
- *             .virtualNetworkId(example.applyValue(getVirtualNetworkResult -&gt; getVirtualNetworkResult.id()))
- *             .ipAddress(&#34;10.0.0.1&#34;)
+ *         var exampleBackendAddressPoolAddress = new BackendAddressPoolAddress("exampleBackendAddressPoolAddress", BackendAddressPoolAddressArgs.builder()        
+ *             .name("example")
+ *             .backendAddressPoolId(exampleGetBackendAddressPool.applyValue(getBackendAddressPoolResult -> getBackendAddressPoolResult.id()))
+ *             .virtualNetworkId(example.applyValue(getVirtualNetworkResult -> getVirtualNetworkResult.id()))
+ *             .ipAddress("10.0.0.1")
  *             .build());
  * 
  *         final var backend-pool-cr = LbFunctions.getBackendAddressPool(GetBackendAddressPoolArgs.builder()
- *             .name(&#34;globalLBBackendPool&#34;)
- *             .loadbalancerId(exampleGetLB.applyValue(getLBResult -&gt; getLBResult.id()))
+ *             .name("globalLBBackendPool")
+ *             .loadbalancerId(exampleGetLB.applyValue(getLBResult -> getLBResult.id()))
  *             .build());
  * 
- *         var example_1 = new BackendAddressPoolAddress(&#34;example-1&#34;, BackendAddressPoolAddressArgs.builder()        
- *             .name(&#34;address1&#34;)
+ *         var example_1 = new BackendAddressPoolAddress("example-1", BackendAddressPoolAddressArgs.builder()        
+ *             .name("address1")
  *             .backendAddressPoolId(backend_pool_cr.id())
  *             .backendAddressIpConfigurationId(backend_lb_R1.frontendIpConfiguration()[0].id())
  *             .build());
  * 
- *         var example_2 = new BackendAddressPoolAddress(&#34;example-2&#34;, BackendAddressPoolAddressArgs.builder()        
- *             .name(&#34;address2&#34;)
+ *         var example_2 = new BackendAddressPoolAddress("example-2", BackendAddressPoolAddressArgs.builder()        
+ *             .name("address2")
  *             .backendAddressPoolId(backend_pool_cr.id())
  *             .backendAddressIpConfigurationId(backend_lb_R2.frontendIpConfiguration()[0].id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

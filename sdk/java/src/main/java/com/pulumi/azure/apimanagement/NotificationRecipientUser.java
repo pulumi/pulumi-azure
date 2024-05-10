@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,39 +47,40 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .name(&#34;example-apim&#34;)
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *             .name("example-apim")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .publisherName(&#34;My Company&#34;)
- *             .publisherEmail(&#34;company@terraform.io&#34;)
- *             .skuName(&#34;Developer_1&#34;)
+ *             .publisherName("My Company")
+ *             .publisherEmail("company{@literal @}terraform.io")
+ *             .skuName("Developer_1")
  *             .build());
  * 
- *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
- *             .userId(&#34;123&#34;)
+ *         var exampleUser = new User("exampleUser", UserArgs.builder()        
+ *             .userId("123")
  *             .apiManagementName(exampleService.name())
  *             .resourceGroupName(example.name())
- *             .firstName(&#34;Example&#34;)
- *             .lastName(&#34;User&#34;)
- *             .email(&#34;foo@bar.com&#34;)
- *             .state(&#34;active&#34;)
+ *             .firstName("Example")
+ *             .lastName("User")
+ *             .email("foo{@literal @}bar.com")
+ *             .state("active")
  *             .build());
  * 
- *         var exampleNotificationRecipientUser = new NotificationRecipientUser(&#34;exampleNotificationRecipientUser&#34;, NotificationRecipientUserArgs.builder()        
+ *         var exampleNotificationRecipientUser = new NotificationRecipientUser("exampleNotificationRecipientUser", NotificationRecipientUserArgs.builder()        
  *             .apiManagementId(exampleService.id())
- *             .notificationType(&#34;AccountClosedPublisher&#34;)
+ *             .notificationType("AccountClosedPublisher")
  *             .userId(exampleUser.userId())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

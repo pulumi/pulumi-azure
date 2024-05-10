@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,54 +57,55 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleSpringCloudService = new SpringCloudService(&#34;exampleSpringCloudService&#34;, SpringCloudServiceArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;E0&#34;)
+ *             .skuName("E0")
  *             .build());
  * 
- *         var exampleSpringCloudApp = new SpringCloudApp(&#34;exampleSpringCloudApp&#34;, SpringCloudAppArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleSpringCloudApp = new SpringCloudApp("exampleSpringCloudApp", SpringCloudAppArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .serviceName(exampleSpringCloudService.name())
  *             .build());
  * 
- *         var exampleSpringCloudGateway = new SpringCloudGateway(&#34;exampleSpringCloudGateway&#34;, SpringCloudGatewayArgs.builder()        
- *             .name(&#34;default&#34;)
+ *         var exampleSpringCloudGateway = new SpringCloudGateway("exampleSpringCloudGateway", SpringCloudGatewayArgs.builder()        
+ *             .name("default")
  *             .springCloudServiceId(exampleSpringCloudService.id())
  *             .build());
  * 
- *         var exampleSpringCloudGatewayRouteConfig = new SpringCloudGatewayRouteConfig(&#34;exampleSpringCloudGatewayRouteConfig&#34;, SpringCloudGatewayRouteConfigArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleSpringCloudGatewayRouteConfig = new SpringCloudGatewayRouteConfig("exampleSpringCloudGatewayRouteConfig", SpringCloudGatewayRouteConfigArgs.builder()        
+ *             .name("example")
  *             .springCloudGatewayId(exampleSpringCloudGateway.id())
  *             .springCloudAppId(exampleSpringCloudApp.id())
- *             .protocol(&#34;HTTPS&#34;)
+ *             .protocol("HTTPS")
  *             .routes(SpringCloudGatewayRouteConfigRouteArgs.builder()
- *                 .description(&#34;example description&#34;)
+ *                 .description("example description")
  *                 .filters(                
- *                     &#34;StripPrefix=2&#34;,
- *                     &#34;RateLimit=1,1s&#34;)
+ *                     "StripPrefix=2",
+ *                     "RateLimit=1,1s")
  *                 .order(1)
- *                 .predicates(&#34;Path=/api5/customer/**&#34;)
+ *                 .predicates("Path=/api5/customer/**")
  *                 .ssoValidationEnabled(true)
- *                 .title(&#34;myApp route config&#34;)
+ *                 .title("myApp route config")
  *                 .tokenRelay(true)
- *                 .uri(&#34;https://www.example.com&#34;)
+ *                 .uri("https://www.example.com")
  *                 .classificationTags(                
- *                     &#34;tag1&#34;,
- *                     &#34;tag2&#34;)
+ *                     "tag1",
+ *                     "tag2")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

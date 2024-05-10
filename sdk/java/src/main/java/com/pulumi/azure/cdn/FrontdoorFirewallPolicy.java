@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,116 +54,117 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-cdn-frontdoor&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-cdn-frontdoor")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFrontdoorProfile = new FrontdoorProfile(&#34;exampleFrontdoorProfile&#34;, FrontdoorProfileArgs.builder()        
- *             .name(&#34;example-profile&#34;)
+ *         var exampleFrontdoorProfile = new FrontdoorProfile("exampleFrontdoorProfile", FrontdoorProfileArgs.builder()        
+ *             .name("example-profile")
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;Premium_AzureFrontDoor&#34;)
+ *             .skuName("Premium_AzureFrontDoor")
  *             .build());
  * 
- *         var exampleFrontdoorFirewallPolicy = new FrontdoorFirewallPolicy(&#34;exampleFrontdoorFirewallPolicy&#34;, FrontdoorFirewallPolicyArgs.builder()        
- *             .name(&#34;examplecdnfdwafpolicy&#34;)
+ *         var exampleFrontdoorFirewallPolicy = new FrontdoorFirewallPolicy("exampleFrontdoorFirewallPolicy", FrontdoorFirewallPolicyArgs.builder()        
+ *             .name("examplecdnfdwafpolicy")
  *             .resourceGroupName(example.name())
  *             .skuName(exampleFrontdoorProfile.skuName())
  *             .enabled(true)
- *             .mode(&#34;Prevention&#34;)
- *             .redirectUrl(&#34;https://www.contoso.com&#34;)
+ *             .mode("Prevention")
+ *             .redirectUrl("https://www.contoso.com")
  *             .customBlockResponseStatusCode(403)
- *             .customBlockResponseBody(&#34;PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==&#34;)
+ *             .customBlockResponseBody("PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==")
  *             .customRules(            
  *                 FrontdoorFirewallPolicyCustomRuleArgs.builder()
- *                     .name(&#34;Rule1&#34;)
+ *                     .name("Rule1")
  *                     .enabled(true)
  *                     .priority(1)
  *                     .rateLimitDurationInMinutes(1)
  *                     .rateLimitThreshold(10)
- *                     .type(&#34;MatchRule&#34;)
- *                     .action(&#34;Block&#34;)
+ *                     .type("MatchRule")
+ *                     .action("Block")
  *                     .matchConditions(FrontdoorFirewallPolicyCustomRuleMatchConditionArgs.builder()
- *                         .matchVariable(&#34;RemoteAddr&#34;)
- *                         .operator(&#34;IPMatch&#34;)
+ *                         .matchVariable("RemoteAddr")
+ *                         .operator("IPMatch")
  *                         .negationCondition(false)
  *                         .matchValues(                        
- *                             &#34;10.0.1.0/24&#34;,
- *                             &#34;10.0.0.0/24&#34;)
+ *                             "10.0.1.0/24",
+ *                             "10.0.0.0/24")
  *                         .build())
  *                     .build(),
  *                 FrontdoorFirewallPolicyCustomRuleArgs.builder()
- *                     .name(&#34;Rule2&#34;)
+ *                     .name("Rule2")
  *                     .enabled(true)
  *                     .priority(2)
  *                     .rateLimitDurationInMinutes(1)
  *                     .rateLimitThreshold(10)
- *                     .type(&#34;MatchRule&#34;)
- *                     .action(&#34;Block&#34;)
+ *                     .type("MatchRule")
+ *                     .action("Block")
  *                     .matchConditions(                    
  *                         FrontdoorFirewallPolicyCustomRuleMatchConditionArgs.builder()
- *                             .matchVariable(&#34;RemoteAddr&#34;)
- *                             .operator(&#34;IPMatch&#34;)
+ *                             .matchVariable("RemoteAddr")
+ *                             .operator("IPMatch")
  *                             .negationCondition(false)
- *                             .matchValues(&#34;192.168.1.0/24&#34;)
+ *                             .matchValues("192.168.1.0/24")
  *                             .build(),
  *                         FrontdoorFirewallPolicyCustomRuleMatchConditionArgs.builder()
- *                             .matchVariable(&#34;RequestHeader&#34;)
- *                             .selector(&#34;UserAgent&#34;)
- *                             .operator(&#34;Contains&#34;)
+ *                             .matchVariable("RequestHeader")
+ *                             .selector("UserAgent")
+ *                             .operator("Contains")
  *                             .negationCondition(false)
- *                             .matchValues(&#34;windows&#34;)
+ *                             .matchValues("windows")
  *                             .transforms(                            
- *                                 &#34;Lowercase&#34;,
- *                                 &#34;Trim&#34;)
+ *                                 "Lowercase",
+ *                                 "Trim")
  *                             .build())
  *                     .build())
  *             .managedRules(            
  *                 FrontdoorFirewallPolicyManagedRuleArgs.builder()
- *                     .type(&#34;DefaultRuleSet&#34;)
- *                     .version(&#34;1.0&#34;)
+ *                     .type("DefaultRuleSet")
+ *                     .version("1.0")
  *                     .exclusions(FrontdoorFirewallPolicyManagedRuleExclusionArgs.builder()
- *                         .matchVariable(&#34;QueryStringArgNames&#34;)
- *                         .operator(&#34;Equals&#34;)
- *                         .selector(&#34;not_suspicious&#34;)
+ *                         .matchVariable("QueryStringArgNames")
+ *                         .operator("Equals")
+ *                         .selector("not_suspicious")
  *                         .build())
  *                     .overrides(                    
  *                         FrontdoorFirewallPolicyManagedRuleOverrideArgs.builder()
- *                             .ruleGroupName(&#34;PHP&#34;)
+ *                             .ruleGroupName("PHP")
  *                             .rules(FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs.builder()
- *                                 .ruleId(&#34;933100&#34;)
+ *                                 .ruleId("933100")
  *                                 .enabled(false)
- *                                 .action(&#34;Block&#34;)
+ *                                 .action("Block")
  *                                 .build())
  *                             .build(),
  *                         FrontdoorFirewallPolicyManagedRuleOverrideArgs.builder()
- *                             .ruleGroupName(&#34;SQLI&#34;)
+ *                             .ruleGroupName("SQLI")
  *                             .exclusions(FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs.builder()
- *                                 .matchVariable(&#34;QueryStringArgNames&#34;)
- *                                 .operator(&#34;Equals&#34;)
- *                                 .selector(&#34;really_not_suspicious&#34;)
+ *                                 .matchVariable("QueryStringArgNames")
+ *                                 .operator("Equals")
+ *                                 .selector("really_not_suspicious")
  *                                 .build())
  *                             .rules(FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs.builder()
- *                                 .ruleId(&#34;942200&#34;)
- *                                 .action(&#34;Block&#34;)
+ *                                 .ruleId("942200")
+ *                                 .action("Block")
  *                                 .exclusions(FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs.builder()
- *                                     .matchVariable(&#34;QueryStringArgNames&#34;)
- *                                     .operator(&#34;Equals&#34;)
- *                                     .selector(&#34;innocent&#34;)
+ *                                     .matchVariable("QueryStringArgNames")
+ *                                     .operator("Equals")
+ *                                     .selector("innocent")
  *                                     .build())
  *                                 .build())
  *                             .build())
  *                     .build(),
  *                 FrontdoorFirewallPolicyManagedRuleArgs.builder()
- *                     .type(&#34;Microsoft_BotManagerRuleSet&#34;)
- *                     .version(&#34;1.0&#34;)
- *                     .action(&#34;Log&#34;)
+ *                     .type("Microsoft_BotManagerRuleSet")
+ *                     .version("1.0")
+ *                     .action("Log")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

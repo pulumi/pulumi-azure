@@ -26,7 +26,8 @@ public final class SentinelFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -50,19 +51,20 @@ public final class SentinelFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OperationalinsightsFunctions.getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetAlertRule = SentinelFunctions.getAlertRule(GetAlertRuleArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .logAnalyticsWorkspaceId(example.applyValue(getAnalyticsWorkspaceResult -&gt; getAnalyticsWorkspaceResult.id()))
+     *             .name("existing")
+     *             .logAnalyticsWorkspaceId(example.applyValue(getAnalyticsWorkspaceResult -> getAnalyticsWorkspaceResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleGetAlertRule.applyValue(getAlertRuleResult -&gt; getAlertRuleResult.id()));
+     *         ctx.export("id", exampleGetAlertRule.applyValue(getAlertRuleResult -> getAlertRuleResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -75,7 +77,8 @@ public final class SentinelFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -99,19 +102,20 @@ public final class SentinelFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OperationalinsightsFunctions.getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetAlertRule = SentinelFunctions.getAlertRule(GetAlertRuleArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .logAnalyticsWorkspaceId(example.applyValue(getAnalyticsWorkspaceResult -&gt; getAnalyticsWorkspaceResult.id()))
+     *             .name("existing")
+     *             .logAnalyticsWorkspaceId(example.applyValue(getAnalyticsWorkspaceResult -> getAnalyticsWorkspaceResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleGetAlertRule.applyValue(getAlertRuleResult -&gt; getAlertRuleResult.id()));
+     *         ctx.export("id", exampleGetAlertRule.applyValue(getAlertRuleResult -> getAlertRuleResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -124,7 +128,8 @@ public final class SentinelFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -148,19 +153,20 @@ public final class SentinelFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OperationalinsightsFunctions.getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetAlertRule = SentinelFunctions.getAlertRule(GetAlertRuleArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .logAnalyticsWorkspaceId(example.applyValue(getAnalyticsWorkspaceResult -&gt; getAnalyticsWorkspaceResult.id()))
+     *             .name("existing")
+     *             .logAnalyticsWorkspaceId(example.applyValue(getAnalyticsWorkspaceResult -> getAnalyticsWorkspaceResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleGetAlertRule.applyValue(getAlertRuleResult -&gt; getAlertRuleResult.id()));
+     *         ctx.export("id", exampleGetAlertRule.applyValue(getAlertRuleResult -> getAlertRuleResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -173,7 +179,8 @@ public final class SentinelFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -197,19 +204,20 @@ public final class SentinelFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OperationalinsightsFunctions.getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetAlertRule = SentinelFunctions.getAlertRule(GetAlertRuleArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .logAnalyticsWorkspaceId(example.applyValue(getAnalyticsWorkspaceResult -&gt; getAnalyticsWorkspaceResult.id()))
+     *             .name("existing")
+     *             .logAnalyticsWorkspaceId(example.applyValue(getAnalyticsWorkspaceResult -> getAnalyticsWorkspaceResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleGetAlertRule.applyValue(getAlertRuleResult -&gt; getAlertRuleResult.id()));
+     *         ctx.export("id", exampleGetAlertRule.applyValue(getAlertRuleResult -> getAlertRuleResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -222,7 +230,8 @@ public final class SentinelFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -249,32 +258,33 @@ public final class SentinelFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *             .name("example-resources")
+     *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
-     *             .name(&#34;example-law&#34;)
+     *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()        
+     *             .name("example-law")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
-     *             .sku(&#34;PerGB2018&#34;)
+     *             .sku("PerGB2018")
      *             .build());
      * 
-     *         var exampleLogAnalyticsWorkspaceOnboarding = new LogAnalyticsWorkspaceOnboarding(&#34;exampleLogAnalyticsWorkspaceOnboarding&#34;, LogAnalyticsWorkspaceOnboardingArgs.builder()        
+     *         var exampleLogAnalyticsWorkspaceOnboarding = new LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", LogAnalyticsWorkspaceOnboardingArgs.builder()        
      *             .workspaceId(exampleAnalyticsWorkspace.id())
      *             .customerManagedKeyEnabled(false)
      *             .build());
      * 
      *         final var example = SentinelFunctions.getAlertRuleAnomaly(GetAlertRuleAnomalyArgs.builder()
      *             .logAnalyticsWorkspaceId(exampleLogAnalyticsWorkspaceOnboarding.workspaceId())
-     *             .displayName(&#34;Potential data staging&#34;)
+     *             .displayName("Potential data staging")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAlertRuleAnomalyResult -&gt; getAlertRuleAnomalyResult).applyValue(example -&gt; example.applyValue(getAlertRuleAnomalyResult -&gt; getAlertRuleAnomalyResult.id())));
+     *         ctx.export("id", example.applyValue(getAlertRuleAnomalyResult -> getAlertRuleAnomalyResult).applyValue(example -> example.applyValue(getAlertRuleAnomalyResult -> getAlertRuleAnomalyResult.id())));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -287,7 +297,8 @@ public final class SentinelFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -314,32 +325,33 @@ public final class SentinelFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *             .name("example-resources")
+     *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
-     *             .name(&#34;example-law&#34;)
+     *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()        
+     *             .name("example-law")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
-     *             .sku(&#34;PerGB2018&#34;)
+     *             .sku("PerGB2018")
      *             .build());
      * 
-     *         var exampleLogAnalyticsWorkspaceOnboarding = new LogAnalyticsWorkspaceOnboarding(&#34;exampleLogAnalyticsWorkspaceOnboarding&#34;, LogAnalyticsWorkspaceOnboardingArgs.builder()        
+     *         var exampleLogAnalyticsWorkspaceOnboarding = new LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", LogAnalyticsWorkspaceOnboardingArgs.builder()        
      *             .workspaceId(exampleAnalyticsWorkspace.id())
      *             .customerManagedKeyEnabled(false)
      *             .build());
      * 
      *         final var example = SentinelFunctions.getAlertRuleAnomaly(GetAlertRuleAnomalyArgs.builder()
      *             .logAnalyticsWorkspaceId(exampleLogAnalyticsWorkspaceOnboarding.workspaceId())
-     *             .displayName(&#34;Potential data staging&#34;)
+     *             .displayName("Potential data staging")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAlertRuleAnomalyResult -&gt; getAlertRuleAnomalyResult).applyValue(example -&gt; example.applyValue(getAlertRuleAnomalyResult -&gt; getAlertRuleAnomalyResult.id())));
+     *         ctx.export("id", example.applyValue(getAlertRuleAnomalyResult -> getAlertRuleAnomalyResult).applyValue(example -> example.applyValue(getAlertRuleAnomalyResult -> getAlertRuleAnomalyResult.id())));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -352,7 +364,8 @@ public final class SentinelFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -379,32 +392,33 @@ public final class SentinelFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *             .name("example-resources")
+     *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
-     *             .name(&#34;example-law&#34;)
+     *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()        
+     *             .name("example-law")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
-     *             .sku(&#34;PerGB2018&#34;)
+     *             .sku("PerGB2018")
      *             .build());
      * 
-     *         var exampleLogAnalyticsWorkspaceOnboarding = new LogAnalyticsWorkspaceOnboarding(&#34;exampleLogAnalyticsWorkspaceOnboarding&#34;, LogAnalyticsWorkspaceOnboardingArgs.builder()        
+     *         var exampleLogAnalyticsWorkspaceOnboarding = new LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", LogAnalyticsWorkspaceOnboardingArgs.builder()        
      *             .workspaceId(exampleAnalyticsWorkspace.id())
      *             .customerManagedKeyEnabled(false)
      *             .build());
      * 
      *         final var example = SentinelFunctions.getAlertRuleAnomaly(GetAlertRuleAnomalyArgs.builder()
      *             .logAnalyticsWorkspaceId(exampleLogAnalyticsWorkspaceOnboarding.workspaceId())
-     *             .displayName(&#34;Potential data staging&#34;)
+     *             .displayName("Potential data staging")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAlertRuleAnomalyResult -&gt; getAlertRuleAnomalyResult).applyValue(example -&gt; example.applyValue(getAlertRuleAnomalyResult -&gt; getAlertRuleAnomalyResult.id())));
+     *         ctx.export("id", example.applyValue(getAlertRuleAnomalyResult -> getAlertRuleAnomalyResult).applyValue(example -> example.applyValue(getAlertRuleAnomalyResult -> getAlertRuleAnomalyResult.id())));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -417,7 +431,8 @@ public final class SentinelFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -444,32 +459,33 @@ public final class SentinelFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *             .name("example-resources")
+     *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
-     *             .name(&#34;example-law&#34;)
+     *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()        
+     *             .name("example-law")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
-     *             .sku(&#34;PerGB2018&#34;)
+     *             .sku("PerGB2018")
      *             .build());
      * 
-     *         var exampleLogAnalyticsWorkspaceOnboarding = new LogAnalyticsWorkspaceOnboarding(&#34;exampleLogAnalyticsWorkspaceOnboarding&#34;, LogAnalyticsWorkspaceOnboardingArgs.builder()        
+     *         var exampleLogAnalyticsWorkspaceOnboarding = new LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", LogAnalyticsWorkspaceOnboardingArgs.builder()        
      *             .workspaceId(exampleAnalyticsWorkspace.id())
      *             .customerManagedKeyEnabled(false)
      *             .build());
      * 
      *         final var example = SentinelFunctions.getAlertRuleAnomaly(GetAlertRuleAnomalyArgs.builder()
      *             .logAnalyticsWorkspaceId(exampleLogAnalyticsWorkspaceOnboarding.workspaceId())
-     *             .displayName(&#34;Potential data staging&#34;)
+     *             .displayName("Potential data staging")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAlertRuleAnomalyResult -&gt; getAlertRuleAnomalyResult).applyValue(example -&gt; example.applyValue(getAlertRuleAnomalyResult -&gt; getAlertRuleAnomalyResult.id())));
+     *         ctx.export("id", example.applyValue(getAlertRuleAnomalyResult -> getAlertRuleAnomalyResult).applyValue(example -> example.applyValue(getAlertRuleAnomalyResult -> getAlertRuleAnomalyResult.id())));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -482,7 +498,8 @@ public final class SentinelFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -504,14 +521,15 @@ public final class SentinelFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SentinelFunctions.getAlertRuleTemplate(GetAlertRuleTemplateArgs.builder()
-     *             .logAnalyticsWorkspaceId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1&#34;)
-     *             .displayName(&#34;Create incidents based on Azure Security Center for IoT alerts&#34;)
+     *             .logAnalyticsWorkspaceId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1")
+     *             .displayName("Create incidents based on Azure Security Center for IoT alerts")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAlertRuleTemplateResult -&gt; getAlertRuleTemplateResult.id()));
+     *         ctx.export("id", example.applyValue(getAlertRuleTemplateResult -> getAlertRuleTemplateResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -524,7 +542,8 @@ public final class SentinelFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -546,14 +565,15 @@ public final class SentinelFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SentinelFunctions.getAlertRuleTemplate(GetAlertRuleTemplateArgs.builder()
-     *             .logAnalyticsWorkspaceId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1&#34;)
-     *             .displayName(&#34;Create incidents based on Azure Security Center for IoT alerts&#34;)
+     *             .logAnalyticsWorkspaceId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1")
+     *             .displayName("Create incidents based on Azure Security Center for IoT alerts")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAlertRuleTemplateResult -&gt; getAlertRuleTemplateResult.id()));
+     *         ctx.export("id", example.applyValue(getAlertRuleTemplateResult -> getAlertRuleTemplateResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -566,7 +586,8 @@ public final class SentinelFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -588,14 +609,15 @@ public final class SentinelFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SentinelFunctions.getAlertRuleTemplate(GetAlertRuleTemplateArgs.builder()
-     *             .logAnalyticsWorkspaceId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1&#34;)
-     *             .displayName(&#34;Create incidents based on Azure Security Center for IoT alerts&#34;)
+     *             .logAnalyticsWorkspaceId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1")
+     *             .displayName("Create incidents based on Azure Security Center for IoT alerts")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAlertRuleTemplateResult -&gt; getAlertRuleTemplateResult.id()));
+     *         ctx.export("id", example.applyValue(getAlertRuleTemplateResult -> getAlertRuleTemplateResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -608,7 +630,8 @@ public final class SentinelFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -630,14 +653,15 @@ public final class SentinelFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SentinelFunctions.getAlertRuleTemplate(GetAlertRuleTemplateArgs.builder()
-     *             .logAnalyticsWorkspaceId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1&#34;)
-     *             .displayName(&#34;Create incidents based on Azure Security Center for IoT alerts&#34;)
+     *             .logAnalyticsWorkspaceId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1")
+     *             .displayName("Create incidents based on Azure Security Center for IoT alerts")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAlertRuleTemplateResult -&gt; getAlertRuleTemplateResult.id()));
+     *         ctx.export("id", example.applyValue(getAlertRuleTemplateResult -> getAlertRuleTemplateResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

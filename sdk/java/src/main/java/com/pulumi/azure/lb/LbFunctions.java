@@ -29,7 +29,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -52,20 +53,21 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LbFunctions.getLB(GetLBArgs.builder()
-     *             .name(&#34;example-lb&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-lb")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetBackendAddressPool = LbFunctions.getBackendAddressPool(GetBackendAddressPoolArgs.builder()
-     *             .name(&#34;first&#34;)
-     *             .loadbalancerId(example.applyValue(getLBResult -&gt; getLBResult.id()))
+     *             .name("first")
+     *             .loadbalancerId(example.applyValue(getLBResult -> getLBResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;backendAddressPoolId&#34;, exampleGetBackendAddressPool.applyValue(getBackendAddressPoolResult -&gt; getBackendAddressPoolResult.id()));
-     *         ctx.export(&#34;backendIpConfigurationIds&#34;, beap.backendIpConfigurations().stream().map(element -&gt; element.id()).collect(toList()));
+     *         ctx.export("backendAddressPoolId", exampleGetBackendAddressPool.applyValue(getBackendAddressPoolResult -> getBackendAddressPoolResult.id()));
+     *         ctx.export("backendIpConfigurationIds", beap.backendIpConfigurations().stream().map(element -> element.id()).collect(toList()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -78,7 +80,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -101,20 +104,21 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LbFunctions.getLB(GetLBArgs.builder()
-     *             .name(&#34;example-lb&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-lb")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetBackendAddressPool = LbFunctions.getBackendAddressPool(GetBackendAddressPoolArgs.builder()
-     *             .name(&#34;first&#34;)
-     *             .loadbalancerId(example.applyValue(getLBResult -&gt; getLBResult.id()))
+     *             .name("first")
+     *             .loadbalancerId(example.applyValue(getLBResult -> getLBResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;backendAddressPoolId&#34;, exampleGetBackendAddressPool.applyValue(getBackendAddressPoolResult -&gt; getBackendAddressPoolResult.id()));
-     *         ctx.export(&#34;backendIpConfigurationIds&#34;, beap.backendIpConfigurations().stream().map(element -&gt; element.id()).collect(toList()));
+     *         ctx.export("backendAddressPoolId", exampleGetBackendAddressPool.applyValue(getBackendAddressPoolResult -> getBackendAddressPoolResult.id()));
+     *         ctx.export("backendIpConfigurationIds", beap.backendIpConfigurations().stream().map(element -> element.id()).collect(toList()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -127,7 +131,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -150,20 +155,21 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LbFunctions.getLB(GetLBArgs.builder()
-     *             .name(&#34;example-lb&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-lb")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetBackendAddressPool = LbFunctions.getBackendAddressPool(GetBackendAddressPoolArgs.builder()
-     *             .name(&#34;first&#34;)
-     *             .loadbalancerId(example.applyValue(getLBResult -&gt; getLBResult.id()))
+     *             .name("first")
+     *             .loadbalancerId(example.applyValue(getLBResult -> getLBResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;backendAddressPoolId&#34;, exampleGetBackendAddressPool.applyValue(getBackendAddressPoolResult -&gt; getBackendAddressPoolResult.id()));
-     *         ctx.export(&#34;backendIpConfigurationIds&#34;, beap.backendIpConfigurations().stream().map(element -&gt; element.id()).collect(toList()));
+     *         ctx.export("backendAddressPoolId", exampleGetBackendAddressPool.applyValue(getBackendAddressPoolResult -> getBackendAddressPoolResult.id()));
+     *         ctx.export("backendIpConfigurationIds", beap.backendIpConfigurations().stream().map(element -> element.id()).collect(toList()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -176,7 +182,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -199,20 +206,21 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LbFunctions.getLB(GetLBArgs.builder()
-     *             .name(&#34;example-lb&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-lb")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetBackendAddressPool = LbFunctions.getBackendAddressPool(GetBackendAddressPoolArgs.builder()
-     *             .name(&#34;first&#34;)
-     *             .loadbalancerId(example.applyValue(getLBResult -&gt; getLBResult.id()))
+     *             .name("first")
+     *             .loadbalancerId(example.applyValue(getLBResult -> getLBResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;backendAddressPoolId&#34;, exampleGetBackendAddressPool.applyValue(getBackendAddressPoolResult -&gt; getBackendAddressPoolResult.id()));
-     *         ctx.export(&#34;backendIpConfigurationIds&#34;, beap.backendIpConfigurations().stream().map(element -&gt; element.id()).collect(toList()));
+     *         ctx.export("backendAddressPoolId", exampleGetBackendAddressPool.applyValue(getBackendAddressPoolResult -> getBackendAddressPoolResult.id()));
+     *         ctx.export("backendIpConfigurationIds", beap.backendIpConfigurations().stream().map(element -> element.id()).collect(toList()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -225,7 +233,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -247,14 +256,15 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LbFunctions.getLB(GetLBArgs.builder()
-     *             .name(&#34;example-lb&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-lb")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;loadbalancerId&#34;, example.applyValue(getLBResult -&gt; getLBResult.id()));
+     *         ctx.export("loadbalancerId", example.applyValue(getLBResult -> getLBResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -267,7 +277,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -289,14 +300,15 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LbFunctions.getLB(GetLBArgs.builder()
-     *             .name(&#34;example-lb&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-lb")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;loadbalancerId&#34;, example.applyValue(getLBResult -&gt; getLBResult.id()));
+     *         ctx.export("loadbalancerId", example.applyValue(getLBResult -> getLBResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -309,7 +321,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -331,14 +344,15 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LbFunctions.getLB(GetLBArgs.builder()
-     *             .name(&#34;example-lb&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-lb")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;loadbalancerId&#34;, example.applyValue(getLBResult -&gt; getLBResult.id()));
+     *         ctx.export("loadbalancerId", example.applyValue(getLBResult -> getLBResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -351,7 +365,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -373,14 +388,15 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LbFunctions.getLB(GetLBArgs.builder()
-     *             .name(&#34;example-lb&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-lb")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;loadbalancerId&#34;, example.applyValue(getLBResult -&gt; getLBResult.id()));
+     *         ctx.export("loadbalancerId", example.applyValue(getLBResult -> getLBResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -393,7 +409,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -415,14 +432,15 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LbFunctions.getLBOutboundRule(GetLBOutboundRuleArgs.builder()
-     *             .name(&#34;existing_lb_outbound_rule&#34;)
-     *             .loadbalancerId(&#34;existing_load_balancer_id&#34;)
+     *             .name("existing_lb_outbound_rule")
+     *             .loadbalancerId("existing_load_balancer_id")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getLBOutboundRuleResult -&gt; getLBOutboundRuleResult.id()));
+     *         ctx.export("id", example.applyValue(getLBOutboundRuleResult -> getLBOutboundRuleResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -435,7 +453,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -457,14 +476,15 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LbFunctions.getLBOutboundRule(GetLBOutboundRuleArgs.builder()
-     *             .name(&#34;existing_lb_outbound_rule&#34;)
-     *             .loadbalancerId(&#34;existing_load_balancer_id&#34;)
+     *             .name("existing_lb_outbound_rule")
+     *             .loadbalancerId("existing_load_balancer_id")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getLBOutboundRuleResult -&gt; getLBOutboundRuleResult.id()));
+     *         ctx.export("id", example.applyValue(getLBOutboundRuleResult -> getLBOutboundRuleResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -477,7 +497,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -499,14 +520,15 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LbFunctions.getLBOutboundRule(GetLBOutboundRuleArgs.builder()
-     *             .name(&#34;existing_lb_outbound_rule&#34;)
-     *             .loadbalancerId(&#34;existing_load_balancer_id&#34;)
+     *             .name("existing_lb_outbound_rule")
+     *             .loadbalancerId("existing_load_balancer_id")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getLBOutboundRuleResult -&gt; getLBOutboundRuleResult.id()));
+     *         ctx.export("id", example.applyValue(getLBOutboundRuleResult -> getLBOutboundRuleResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -519,7 +541,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -541,14 +564,15 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LbFunctions.getLBOutboundRule(GetLBOutboundRuleArgs.builder()
-     *             .name(&#34;existing_lb_outbound_rule&#34;)
-     *             .loadbalancerId(&#34;existing_load_balancer_id&#34;)
+     *             .name("existing_lb_outbound_rule")
+     *             .loadbalancerId("existing_load_balancer_id")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getLBOutboundRuleResult -&gt; getLBOutboundRuleResult.id()));
+     *         ctx.export("id", example.applyValue(getLBOutboundRuleResult -> getLBOutboundRuleResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -561,7 +585,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -584,20 +609,21 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LbFunctions.getLB(GetLBArgs.builder()
-     *             .name(&#34;example-lb&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-lb")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetLBRule = LbFunctions.getLBRule(GetLBRuleArgs.builder()
-     *             .name(&#34;first&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .loadbalancerId(example.applyValue(getLBResult -&gt; getLBResult.id()))
+     *             .name("first")
+     *             .resourceGroupName("example-resources")
+     *             .loadbalancerId(example.applyValue(getLBResult -> getLBResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;lbRuleId&#34;, exampleGetLBRule.applyValue(getLBRuleResult -&gt; getLBRuleResult.id()));
+     *         ctx.export("lbRuleId", exampleGetLBRule.applyValue(getLBRuleResult -> getLBRuleResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -610,7 +636,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -633,20 +660,21 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LbFunctions.getLB(GetLBArgs.builder()
-     *             .name(&#34;example-lb&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-lb")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetLBRule = LbFunctions.getLBRule(GetLBRuleArgs.builder()
-     *             .name(&#34;first&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .loadbalancerId(example.applyValue(getLBResult -&gt; getLBResult.id()))
+     *             .name("first")
+     *             .resourceGroupName("example-resources")
+     *             .loadbalancerId(example.applyValue(getLBResult -> getLBResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;lbRuleId&#34;, exampleGetLBRule.applyValue(getLBRuleResult -&gt; getLBRuleResult.id()));
+     *         ctx.export("lbRuleId", exampleGetLBRule.applyValue(getLBRuleResult -> getLBRuleResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -659,7 +687,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -682,20 +711,21 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LbFunctions.getLB(GetLBArgs.builder()
-     *             .name(&#34;example-lb&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-lb")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetLBRule = LbFunctions.getLBRule(GetLBRuleArgs.builder()
-     *             .name(&#34;first&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .loadbalancerId(example.applyValue(getLBResult -&gt; getLBResult.id()))
+     *             .name("first")
+     *             .resourceGroupName("example-resources")
+     *             .loadbalancerId(example.applyValue(getLBResult -> getLBResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;lbRuleId&#34;, exampleGetLBRule.applyValue(getLBRuleResult -&gt; getLBRuleResult.id()));
+     *         ctx.export("lbRuleId", exampleGetLBRule.applyValue(getLBRuleResult -> getLBRuleResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -708,7 +738,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -731,20 +762,21 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LbFunctions.getLB(GetLBArgs.builder()
-     *             .name(&#34;example-lb&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-lb")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetLBRule = LbFunctions.getLBRule(GetLBRuleArgs.builder()
-     *             .name(&#34;first&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .loadbalancerId(example.applyValue(getLBResult -&gt; getLBResult.id()))
+     *             .name("first")
+     *             .resourceGroupName("example-resources")
+     *             .loadbalancerId(example.applyValue(getLBResult -> getLBResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;lbRuleId&#34;, exampleGetLBRule.applyValue(getLBRuleResult -&gt; getLBRuleResult.id()));
+     *         ctx.export("lbRuleId", exampleGetLBRule.applyValue(getLBRuleResult -> getLBRuleResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,50 +55,51 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleServicePlan = new ServicePlan(&#34;exampleServicePlan&#34;, ServicePlanArgs.builder()        
- *             .name(&#34;example-plan&#34;)
+ *         var exampleServicePlan = new ServicePlan("exampleServicePlan", ServicePlanArgs.builder()        
+ *             .name("example-plan")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .osType(&#34;Windows&#34;)
- *             .skuName(&#34;S1&#34;)
+ *             .osType("Windows")
+ *             .skuName("S1")
  *             .build());
  * 
- *         var exampleNamespace = new Namespace(&#34;exampleNamespace&#34;, NamespaceArgs.builder()        
- *             .name(&#34;example-relay&#34;)
+ *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()        
+ *             .name("example-relay")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;Standard&#34;)
+ *             .skuName("Standard")
  *             .build());
  * 
- *         var exampleHybridConnection = new HybridConnection(&#34;exampleHybridConnection&#34;, HybridConnectionArgs.builder()        
- *             .name(&#34;examplerhc1&#34;)
+ *         var exampleHybridConnection = new HybridConnection("exampleHybridConnection", HybridConnectionArgs.builder()        
+ *             .name("examplerhc1")
  *             .resourceGroupName(example.name())
  *             .relayNamespaceName(exampleNamespace.name())
  *             .build());
  * 
- *         var exampleWindowsWebApp = new WindowsWebApp(&#34;exampleWindowsWebApp&#34;, WindowsWebAppArgs.builder()        
- *             .name(&#34;example-web-app&#34;)
+ *         var exampleWindowsWebApp = new WindowsWebApp("exampleWindowsWebApp", WindowsWebAppArgs.builder()        
+ *             .name("example-web-app")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .servicePlanId(exampleServicePlan.id())
  *             .siteConfig()
  *             .build());
  * 
- *         var exampleWebAppHybridConnection = new WebAppHybridConnection(&#34;exampleWebAppHybridConnection&#34;, WebAppHybridConnectionArgs.builder()        
+ *         var exampleWebAppHybridConnection = new WebAppHybridConnection("exampleWebAppHybridConnection", WebAppHybridConnectionArgs.builder()        
  *             .webAppId(exampleWindowsWebApp.id())
  *             .relayId(exampleHybridConnection.id())
- *             .hostname(&#34;myhostname.example&#34;)
+ *             .hostname("myhostname.example")
  *             .port(8081)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

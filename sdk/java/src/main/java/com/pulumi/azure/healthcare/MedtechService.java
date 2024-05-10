@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,41 +50,41 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-rg&#34;)
- *             .location(&#34;east us&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-rg")
+ *             .location("east us")
  *             .build());
  * 
- *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
- *             .name(&#34;examplewkspace&#34;)
+ *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()        
+ *             .name("examplewkspace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleMedtechService = new MedtechService(&#34;exampleMedtechService&#34;, MedtechServiceArgs.builder()        
- *             .name(&#34;examplemed&#34;)
+ *         var exampleMedtechService = new MedtechService("exampleMedtechService", MedtechServiceArgs.builder()        
+ *             .name("examplemed")
  *             .workspaceId(exampleWorkspace.id())
- *             .location(&#34;east us&#34;)
+ *             .location("east us")
  *             .identity(MedtechServiceIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
- *             .eventhubNamespaceName(&#34;example-eventhub-namespace&#34;)
- *             .eventhubName(&#34;example-eventhub&#34;)
- *             .eventhubConsumerGroupName(&#34;$Default&#34;)
+ *             .eventhubNamespaceName("example-eventhub-namespace")
+ *             .eventhubName("example-eventhub")
+ *             .eventhubConsumerGroupName("$Default")
  *             .deviceMappingJson(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;templateType&#34;, &#34;CollectionContent&#34;),
- *                     jsonProperty(&#34;template&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;templateType&#34;, &#34;JsonPathContent&#34;),
- *                         jsonProperty(&#34;template&#34;, jsonObject(
- *                             jsonProperty(&#34;typeName&#34;, &#34;heartrate&#34;),
- *                             jsonProperty(&#34;typeMatchExpression&#34;, &#34;$..[?(@heartrate)]&#34;),
- *                             jsonProperty(&#34;deviceIdExpression&#34;, &#34;$.deviceid&#34;),
- *                             jsonProperty(&#34;timestampExpression&#34;, &#34;$.measurementdatetime&#34;),
- *                             jsonProperty(&#34;values&#34;, jsonArray(jsonObject(
- *                                 jsonProperty(&#34;required&#34;, &#34;true&#34;),
- *                                 jsonProperty(&#34;valueExpression&#34;, &#34;$.heartrate&#34;),
- *                                 jsonProperty(&#34;valueName&#34;, &#34;hr&#34;)
+ *                     jsonProperty("templateType", "CollectionContent"),
+ *                     jsonProperty("template", jsonArray(jsonObject(
+ *                         jsonProperty("templateType", "JsonPathContent"),
+ *                         jsonProperty("template", jsonObject(
+ *                             jsonProperty("typeName", "heartrate"),
+ *                             jsonProperty("typeMatchExpression", "$..[?({@literal @}heartrate)]"),
+ *                             jsonProperty("deviceIdExpression", "$.deviceid"),
+ *                             jsonProperty("timestampExpression", "$.measurementdatetime"),
+ *                             jsonProperty("values", jsonArray(jsonObject(
+ *                                 jsonProperty("required", "true"),
+ *                                 jsonProperty("valueExpression", "$.heartrate"),
+ *                                 jsonProperty("valueName", "hr")
  *                             )))
  *                         ))
  *                     )))
@@ -92,7 +93,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

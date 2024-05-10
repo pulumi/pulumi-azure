@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -65,90 +66,90 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRandomUuid = new RandomUuid(&#34;exampleRandomUuid&#34;);
+ *         var exampleRandomUuid = new RandomUuid("exampleRandomUuid");
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleRoleDefinition = new RoleDefinition(&#34;exampleRoleDefinition&#34;, RoleDefinitionArgs.builder()        
- *             .name(&#34;AVD-AutoScale&#34;)
+ *         var exampleRoleDefinition = new RoleDefinition("exampleRoleDefinition", RoleDefinitionArgs.builder()        
+ *             .name("AVD-AutoScale")
  *             .scope(exampleResourceGroup.id())
- *             .description(&#34;AVD AutoScale Role&#34;)
+ *             .description("AVD AutoScale Role")
  *             .permissions(RoleDefinitionPermissionArgs.builder()
  *                 .actions(                
- *                     &#34;Microsoft.Insights/eventtypes/values/read&#34;,
- *                     &#34;Microsoft.Compute/virtualMachines/deallocate/action&#34;,
- *                     &#34;Microsoft.Compute/virtualMachines/restart/action&#34;,
- *                     &#34;Microsoft.Compute/virtualMachines/powerOff/action&#34;,
- *                     &#34;Microsoft.Compute/virtualMachines/start/action&#34;,
- *                     &#34;Microsoft.Compute/virtualMachines/read&#34;,
- *                     &#34;Microsoft.DesktopVirtualization/hostpools/read&#34;,
- *                     &#34;Microsoft.DesktopVirtualization/hostpools/write&#34;,
- *                     &#34;Microsoft.DesktopVirtualization/hostpools/sessionhosts/read&#34;,
- *                     &#34;Microsoft.DesktopVirtualization/hostpools/sessionhosts/write&#34;,
- *                     &#34;Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete&#34;,
- *                     &#34;Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read&#34;,
- *                     &#34;Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action&#34;,
- *                     &#34;Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read&#34;)
+ *                     "Microsoft.Insights/eventtypes/values/read",
+ *                     "Microsoft.Compute/virtualMachines/deallocate/action",
+ *                     "Microsoft.Compute/virtualMachines/restart/action",
+ *                     "Microsoft.Compute/virtualMachines/powerOff/action",
+ *                     "Microsoft.Compute/virtualMachines/start/action",
+ *                     "Microsoft.Compute/virtualMachines/read",
+ *                     "Microsoft.DesktopVirtualization/hostpools/read",
+ *                     "Microsoft.DesktopVirtualization/hostpools/write",
+ *                     "Microsoft.DesktopVirtualization/hostpools/sessionhosts/read",
+ *                     "Microsoft.DesktopVirtualization/hostpools/sessionhosts/write",
+ *                     "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete",
+ *                     "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read",
+ *                     "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action",
+ *                     "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read")
  *                 .notActions()
  *                 .build())
  *             .assignableScopes(exampleResourceGroup.id())
  *             .build());
  * 
  *         final var example = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
- *             .displayName(&#34;Windows Virtual Desktop&#34;)
+ *             .displayName("Windows Virtual Desktop")
  *             .build());
  * 
- *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()        
  *             .name(exampleRandomUuid.result())
  *             .scope(exampleResourceGroup.id())
  *             .roleDefinitionId(exampleRoleDefinition.roleDefinitionResourceId())
- *             .principalId(example.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.id()))
+ *             .principalId(example.applyValue(getServicePrincipalResult -> getServicePrincipalResult.id()))
  *             .skipServicePrincipalAadCheck(true)
  *             .build());
  * 
- *         var exampleHostPool = new HostPool(&#34;exampleHostPool&#34;, HostPoolArgs.builder()        
- *             .name(&#34;example-hostpool&#34;)
+ *         var exampleHostPool = new HostPool("exampleHostPool", HostPoolArgs.builder()        
+ *             .name("example-hostpool")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .type(&#34;Pooled&#34;)
+ *             .type("Pooled")
  *             .validateEnvironment(true)
- *             .loadBalancerType(&#34;BreadthFirst&#34;)
+ *             .loadBalancerType("BreadthFirst")
  *             .build());
  * 
- *         var exampleScalingPlan = new ScalingPlan(&#34;exampleScalingPlan&#34;, ScalingPlanArgs.builder()        
- *             .name(&#34;example-scaling-plan&#34;)
+ *         var exampleScalingPlan = new ScalingPlan("exampleScalingPlan", ScalingPlanArgs.builder()        
+ *             .name("example-scaling-plan")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .friendlyName(&#34;Scaling Plan Example&#34;)
- *             .description(&#34;Example Scaling Plan&#34;)
- *             .timeZone(&#34;GMT Standard Time&#34;)
+ *             .friendlyName("Scaling Plan Example")
+ *             .description("Example Scaling Plan")
+ *             .timeZone("GMT Standard Time")
  *             .schedules(ScalingPlanScheduleArgs.builder()
- *                 .name(&#34;Weekdays&#34;)
+ *                 .name("Weekdays")
  *                 .daysOfWeeks(                
- *                     &#34;Monday&#34;,
- *                     &#34;Tuesday&#34;,
- *                     &#34;Wednesday&#34;,
- *                     &#34;Thursday&#34;,
- *                     &#34;Friday&#34;)
- *                 .rampUpStartTime(&#34;05:00&#34;)
- *                 .rampUpLoadBalancingAlgorithm(&#34;BreadthFirst&#34;)
+ *                     "Monday",
+ *                     "Tuesday",
+ *                     "Wednesday",
+ *                     "Thursday",
+ *                     "Friday")
+ *                 .rampUpStartTime("05:00")
+ *                 .rampUpLoadBalancingAlgorithm("BreadthFirst")
  *                 .rampUpMinimumHostsPercent(20)
  *                 .rampUpCapacityThresholdPercent(10)
- *                 .peakStartTime(&#34;09:00&#34;)
- *                 .peakLoadBalancingAlgorithm(&#34;BreadthFirst&#34;)
- *                 .rampDownStartTime(&#34;19:00&#34;)
- *                 .rampDownLoadBalancingAlgorithm(&#34;DepthFirst&#34;)
+ *                 .peakStartTime("09:00")
+ *                 .peakLoadBalancingAlgorithm("BreadthFirst")
+ *                 .rampDownStartTime("19:00")
+ *                 .rampDownLoadBalancingAlgorithm("DepthFirst")
  *                 .rampDownMinimumHostsPercent(10)
  *                 .rampDownForceLogoffUsers(false)
  *                 .rampDownWaitTimeMinutes(45)
- *                 .rampDownNotificationMessage(&#34;Please log off in the next 45 minutes...&#34;)
+ *                 .rampDownNotificationMessage("Please log off in the next 45 minutes...")
  *                 .rampDownCapacityThresholdPercent(5)
- *                 .rampDownStopHostsWhen(&#34;ZeroSessions&#34;)
- *                 .offPeakStartTime(&#34;22:00&#34;)
- *                 .offPeakLoadBalancingAlgorithm(&#34;DepthFirst&#34;)
+ *                 .rampDownStopHostsWhen("ZeroSessions")
+ *                 .offPeakStartTime("22:00")
+ *                 .offPeakLoadBalancingAlgorithm("DepthFirst")
  *                 .build())
  *             .hostPools(ScalingPlanHostPoolArgs.builder()
  *                 .hostpoolId(exampleHostPool.id())
@@ -158,7 +159,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

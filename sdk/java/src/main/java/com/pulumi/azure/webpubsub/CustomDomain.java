@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,82 +57,83 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .name(&#34;example-webpubsub&#34;)
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *             .name("example-webpubsub")
  *             .location(testAzurermResourceGroup.location())
  *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .sku(Map.ofEntries(
- *                 Map.entry(&#34;name&#34;, &#34;Premium_P1&#34;),
- *                 Map.entry(&#34;capacity&#34;, 1)
+ *                 Map.entry("name", "Premium_P1"),
+ *                 Map.entry("capacity", 1)
  *             ))
  *             .identity(ServiceIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;examplekeyvault&#34;)
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("examplekeyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .skuName(&#34;premium&#34;)
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .skuName("premium")
  *             .accessPolicies(            
  *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *                     .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *                     .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *                     .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *                     .certificatePermissions(                    
- *                         &#34;Create&#34;,
- *                         &#34;Get&#34;,
- *                         &#34;List&#34;)
+ *                         "Create",
+ *                         "Get",
+ *                         "List")
  *                     .secretPermissions(                    
- *                         &#34;Get&#34;,
- *                         &#34;List&#34;)
+ *                         "Get",
+ *                         "List")
  *                     .build(),
  *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *                     .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
  *                     .objectId(testAzurermWebPubsub.identity()[0].principalId())
  *                     .certificatePermissions(                    
- *                         &#34;Create&#34;,
- *                         &#34;Get&#34;,
- *                         &#34;List&#34;)
+ *                         "Create",
+ *                         "Get",
+ *                         "List")
  *                     .secretPermissions(                    
- *                         &#34;Get&#34;,
- *                         &#34;List&#34;)
+ *                         "Get",
+ *                         "List")
  *                     .build())
  *             .build());
  * 
- *         var exampleCertificate = new Certificate(&#34;exampleCertificate&#34;, CertificateArgs.builder()        
- *             .name(&#34;imported-cert&#34;)
+ *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()        
+ *             .name("imported-cert")
  *             .keyVaultId(exampleKeyVault.id())
  *             .certificate(CertificateCertificateArgs.builder()
  *                 .contents(StdFunctions.filebase64(Filebase64Args.builder()
- *                     .input(&#34;certificate-to-import.pfx&#34;)
+ *                     .input("certificate-to-import.pfx")
  *                     .build()).result())
- *                 .password(&#34;&#34;)
+ *                 .password("")
  *                 .build())
  *             .build());
  * 
- *         var test = new CustomCertificate(&#34;test&#34;, CustomCertificateArgs.builder()        
- *             .name(&#34;example-cert&#34;)
+ *         var test = new CustomCertificate("test", CustomCertificateArgs.builder()        
+ *             .name("example-cert")
  *             .webPubsubId(exampleService.id())
  *             .customCertificateId(exampleCertificate.id())
  *             .build());
  * 
- *         var testCustomDomain = new CustomDomain(&#34;testCustomDomain&#34;, CustomDomainArgs.builder()        
- *             .name(&#34;example-domain&#34;)
- *             .domainName(&#34;tftest.com&#34;)
+ *         var testCustomDomain = new CustomDomain("testCustomDomain", CustomDomainArgs.builder()        
+ *             .name("example-domain")
+ *             .domainName("tftest.com")
  *             .webPubsubId(testAzurermWebPubsub.id())
  *             .webPubsubCustomCertificateId(test.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

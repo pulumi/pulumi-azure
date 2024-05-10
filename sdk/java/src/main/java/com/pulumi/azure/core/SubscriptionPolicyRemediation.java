@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,33 +55,34 @@ import javax.annotation.Nullable;
  *         final var example = CoreFunctions.getSubscription();
  * 
  *         final var exampleGetPolicyDefintion = PolicyFunctions.getPolicyDefintion(GetPolicyDefintionArgs.builder()
- *             .displayName(&#34;Allowed resource types&#34;)
+ *             .displayName("Allowed resource types")
  *             .build());
  * 
- *         var exampleSubscriptionPolicyAssignment = new SubscriptionPolicyAssignment(&#34;exampleSubscriptionPolicyAssignment&#34;, SubscriptionPolicyAssignmentArgs.builder()        
- *             .name(&#34;exampleAssignment&#34;)
- *             .subscriptionId(example.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
- *             .policyDefinitionId(exampleGetPolicyDefintion.applyValue(getPolicyDefintionResult -&gt; getPolicyDefintionResult.id()))
+ *         var exampleSubscriptionPolicyAssignment = new SubscriptionPolicyAssignment("exampleSubscriptionPolicyAssignment", SubscriptionPolicyAssignmentArgs.builder()        
+ *             .name("exampleAssignment")
+ *             .subscriptionId(example.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *             .policyDefinitionId(exampleGetPolicyDefintion.applyValue(getPolicyDefintionResult -> getPolicyDefintionResult.id()))
  *             .parameters(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;listOfAllowedLocations&#34;, jsonObject(
- *                         jsonProperty(&#34;value&#34;, jsonArray(
- *                             &#34;West Europe&#34;, 
- *                             &#34;East US&#34;
+ *                     jsonProperty("listOfAllowedLocations", jsonObject(
+ *                         jsonProperty("value", jsonArray(
+ *                             "West Europe", 
+ *                             "East US"
  *                         ))
  *                     ))
  *                 )))
  *             .build());
  * 
- *         var exampleSubscriptionPolicyRemediation = new SubscriptionPolicyRemediation(&#34;exampleSubscriptionPolicyRemediation&#34;, SubscriptionPolicyRemediationArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .subscriptionId(example.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+ *         var exampleSubscriptionPolicyRemediation = new SubscriptionPolicyRemediation("exampleSubscriptionPolicyRemediation", SubscriptionPolicyRemediationArgs.builder()        
+ *             .name("example")
+ *             .subscriptionId(example.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *             .policyAssignmentId(exampleSubscriptionPolicyAssignment.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

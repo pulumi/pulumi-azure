@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,92 +55,93 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;rg-example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("rg-example")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleSpacecraft = new Spacecraft(&#34;exampleSpacecraft&#34;, SpacecraftArgs.builder()        
- *             .name(&#34;example-spacecraft&#34;)
+ *         var exampleSpacecraft = new Spacecraft("exampleSpacecraft", SpacecraftArgs.builder()        
+ *             .name("example-spacecraft")
  *             .resourceGroupName(example.name())
- *             .location(&#34;westeurope&#34;)
- *             .noradId(&#34;12345&#34;)
+ *             .location("westeurope")
+ *             .noradId("12345")
  *             .links(SpacecraftLinkArgs.builder()
  *                 .bandwidthMhz(100)
  *                 .centerFrequencyMhz(101)
- *                 .direction(&#34;Uplink&#34;)
- *                 .polarization(&#34;LHCP&#34;)
- *                 .name(&#34;examplename&#34;)
+ *                 .direction("Uplink")
+ *                 .polarization("LHCP")
+ *                 .name("examplename")
  *                 .build())
  *             .twoLineElements(            
- *                 &#34;1 23455U 94089A   97320.90946019  .00000140  00000-0  10191-3 0  2621&#34;,
- *                 &#34;2 23455  99.0090 272.6745 0008546 223.1686 136.8816 14.11711747148495&#34;)
- *             .titleLine(&#34;AQUA&#34;)
- *             .tags(Map.of(&#34;aks-managed-cluster-name&#34;, &#34;9a57225d-a405-4d40-aa46-f13d2342abef&#34;))
+ *                 "1 23455U 94089A   97320.90946019  .00000140  00000-0  10191-3 0  2621",
+ *                 "2 23455  99.0090 272.6745 0008546 223.1686 136.8816 14.11711747148495")
+ *             .titleLine("AQUA")
+ *             .tags(Map.of("aks-managed-cluster-name", "9a57225d-a405-4d40-aa46-f13d2342abef"))
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-vnet&#34;)
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example-vnet")
+ *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;example-subnet&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("example-subnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.1.0/24&#34;)
+ *             .addressPrefixes("10.0.1.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;orbitalgateway&#34;)
+ *                 .name("orbitalgateway")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .name(&#34;Microsoft.Orbital/orbitalGateways&#34;)
+ *                     .name("Microsoft.Orbital/orbitalGateways")
  *                     .actions(                    
- *                         &#34;Microsoft.Network/publicIPAddresses/join/action&#34;,
- *                         &#34;Microsoft.Network/virtualNetworks/subnets/join/action&#34;,
- *                         &#34;Microsoft.Network/virtualNetworks/read&#34;,
- *                         &#34;Microsoft.Network/publicIPAddresses/read&#34;)
+ *                         "Microsoft.Network/publicIPAddresses/join/action",
+ *                         "Microsoft.Network/virtualNetworks/subnets/join/action",
+ *                         "Microsoft.Network/virtualNetworks/read",
+ *                         "Microsoft.Network/publicIPAddresses/read")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleContactProfile = new ContactProfile(&#34;exampleContactProfile&#34;, ContactProfileArgs.builder()        
- *             .name(&#34;example-contactprofile&#34;)
+ *         var exampleContactProfile = new ContactProfile("exampleContactProfile", ContactProfileArgs.builder()        
+ *             .name("example-contactprofile")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .minimumVariableContactDuration(&#34;PT1M&#34;)
- *             .autoTracking(&#34;disabled&#34;)
+ *             .minimumVariableContactDuration("PT1M")
+ *             .autoTracking("disabled")
  *             .links(ContactProfileLinkArgs.builder()
  *                 .channels(ContactProfileLinkChannelArgs.builder()
- *                     .name(&#34;channelname&#34;)
+ *                     .name("channelname")
  *                     .bandwidthMhz(100)
  *                     .centerFrequencyMhz(101)
  *                     .endPoints(ContactProfileLinkChannelEndPointArgs.builder()
- *                         .endPointName(&#34;AQUA_command&#34;)
- *                         .ipAddress(&#34;10.0.1.0&#34;)
- *                         .port(&#34;49153&#34;)
- *                         .protocol(&#34;TCP&#34;)
+ *                         .endPointName("AQUA_command")
+ *                         .ipAddress("10.0.1.0")
+ *                         .port("49153")
+ *                         .protocol("TCP")
  *                         .build())
  *                     .build())
- *                 .direction(&#34;Uplink&#34;)
- *                 .name(&#34;RHCP_UL&#34;)
- *                 .polarization(&#34;RHCP&#34;)
+ *                 .direction("Uplink")
+ *                 .name("RHCP_UL")
+ *                 .polarization("RHCP")
  *                 .build())
  *             .networkConfigurationSubnetId(exampleSubnet.id())
  *             .build());
  * 
- *         var exampleContact = new Contact(&#34;exampleContact&#34;, ContactArgs.builder()        
- *             .name(&#34;example-contact&#34;)
+ *         var exampleContact = new Contact("exampleContact", ContactArgs.builder()        
+ *             .name("example-contact")
  *             .spacecraftId(exampleSpacecraft.id())
- *             .reservationStartTime(&#34;2020-07-16T20:35:00.00Z&#34;)
- *             .reservationEndTime(&#34;2020-07-16T20:55:00.00Z&#34;)
- *             .groundStationName(&#34;WESTUS2_0&#34;)
+ *             .reservationStartTime("2020-07-16T20:35:00.00Z")
+ *             .reservationEndTime("2020-07-16T20:55:00.00Z")
+ *             .groundStationName("WESTUS2_0")
  *             .contactProfileId(exampleContactProfile.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,22 +46,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleEmbedded = new Embedded(&#34;exampleEmbedded&#34;, EmbeddedArgs.builder()        
- *             .name(&#34;examplepowerbi&#34;)
+ *         var exampleEmbedded = new Embedded("exampleEmbedded", EmbeddedArgs.builder()        
+ *             .name("examplepowerbi")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;A1&#34;)
- *             .administrators(&#34;azsdktest@microsoft.com&#34;)
+ *             .skuName("A1")
+ *             .administrators("azsdktest{@literal @}microsoft.com")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

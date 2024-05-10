@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,34 +49,35 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;KustoRG&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("KustoRG")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
- *             .name(&#34;kustocluster&#34;)
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()        
+ *             .name("kustocluster")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku(ClusterSkuArgs.builder()
- *                 .name(&#34;Standard_D13_v2&#34;)
+ *                 .name("Standard_D13_v2")
  *                 .capacity(2)
  *                 .build())
  *             .build());
  * 
- *         var exampleClusterPrincipalAssignment = new ClusterPrincipalAssignment(&#34;exampleClusterPrincipalAssignment&#34;, ClusterPrincipalAssignmentArgs.builder()        
- *             .name(&#34;KustoPrincipalAssignment&#34;)
+ *         var exampleClusterPrincipalAssignment = new ClusterPrincipalAssignment("exampleClusterPrincipalAssignment", ClusterPrincipalAssignmentArgs.builder()        
+ *             .name("KustoPrincipalAssignment")
  *             .resourceGroupName(example.name())
  *             .clusterName(exampleCluster.name())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .principalId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.clientId()))
- *             .principalType(&#34;App&#34;)
- *             .role(&#34;AllDatabasesAdmin&#34;)
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .principalId(current.applyValue(getClientConfigResult -> getClientConfigResult.clientId()))
+ *             .principalType("App")
+ *             .role("AllDatabasesAdmin")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

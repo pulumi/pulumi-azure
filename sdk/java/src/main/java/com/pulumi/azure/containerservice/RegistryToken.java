@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * Manages an Azure Container Registry token. Tokens are a preview feature only available in Premium SKU Container registries.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,37 +48,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resource-group&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resource-group")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleRegistry = new Registry(&#34;exampleRegistry&#34;, RegistryArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleRegistry = new Registry("exampleRegistry", RegistryArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .sku(&#34;Premium&#34;)
+ *             .sku("Premium")
  *             .adminEnabled(false)
  *             .georeplications(            
  *                 RegistryGeoreplicationArgs.builder()
- *                     .location(&#34;East US&#34;)
+ *                     .location("East US")
  *                     .build(),
  *                 RegistryGeoreplicationArgs.builder()
- *                     .location(&#34;West Europe&#34;)
+ *                     .location("West Europe")
  *                     .build())
  *             .build());
  * 
- *         var exampleRegistryScopeMap = new RegistryScopeMap(&#34;exampleRegistryScopeMap&#34;, RegistryScopeMapArgs.builder()        
- *             .name(&#34;example-scope-map&#34;)
+ *         var exampleRegistryScopeMap = new RegistryScopeMap("exampleRegistryScopeMap", RegistryScopeMapArgs.builder()        
+ *             .name("example-scope-map")
  *             .containerRegistryName(exampleRegistry.name())
  *             .resourceGroupName(example.name())
  *             .actions(            
- *                 &#34;repositories/repo1/content/read&#34;,
- *                 &#34;repositories/repo1/content/write&#34;)
+ *                 "repositories/repo1/content/read",
+ *                 "repositories/repo1/content/write")
  *             .build());
  * 
- *         var exampleRegistryToken = new RegistryToken(&#34;exampleRegistryToken&#34;, RegistryTokenArgs.builder()        
- *             .name(&#34;exampletoken&#34;)
+ *         var exampleRegistryToken = new RegistryToken("exampleRegistryToken", RegistryTokenArgs.builder()        
+ *             .name("exampletoken")
  *             .containerRegistryName(exampleRegistry.name())
  *             .resourceGroupName(example.name())
  *             .scopeMapId(exampleRegistryScopeMap.id())
@@ -85,7 +86,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

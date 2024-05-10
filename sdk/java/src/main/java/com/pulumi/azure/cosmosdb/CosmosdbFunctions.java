@@ -32,7 +32,8 @@ public final class CosmosdbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -54,14 +55,15 @@ public final class CosmosdbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CosmosdbFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;tfex-cosmosdb-account&#34;)
-     *             .resourceGroupName(&#34;tfex-cosmosdb-account-rg&#34;)
+     *             .name("tfex-cosmosdb-account")
+     *             .resourceGroupName("tfex-cosmosdb-account-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;cosmosdbAccountEndpoint&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.endpoint()));
+     *         ctx.export("cosmosdbAccountEndpoint", example.applyValue(getAccountResult -> getAccountResult.endpoint()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -74,7 +76,8 @@ public final class CosmosdbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -96,14 +99,15 @@ public final class CosmosdbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CosmosdbFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;tfex-cosmosdb-account&#34;)
-     *             .resourceGroupName(&#34;tfex-cosmosdb-account-rg&#34;)
+     *             .name("tfex-cosmosdb-account")
+     *             .resourceGroupName("tfex-cosmosdb-account-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;cosmosdbAccountEndpoint&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.endpoint()));
+     *         ctx.export("cosmosdbAccountEndpoint", example.applyValue(getAccountResult -> getAccountResult.endpoint()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -116,7 +120,8 @@ public final class CosmosdbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -138,14 +143,15 @@ public final class CosmosdbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CosmosdbFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;tfex-cosmosdb-account&#34;)
-     *             .resourceGroupName(&#34;tfex-cosmosdb-account-rg&#34;)
+     *             .name("tfex-cosmosdb-account")
+     *             .resourceGroupName("tfex-cosmosdb-account-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;cosmosdbAccountEndpoint&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.endpoint()));
+     *         ctx.export("cosmosdbAccountEndpoint", example.applyValue(getAccountResult -> getAccountResult.endpoint()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -158,7 +164,8 @@ public final class CosmosdbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -180,14 +187,15 @@ public final class CosmosdbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CosmosdbFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;tfex-cosmosdb-account&#34;)
-     *             .resourceGroupName(&#34;tfex-cosmosdb-account-rg&#34;)
+     *             .name("tfex-cosmosdb-account")
+     *             .resourceGroupName("tfex-cosmosdb-account-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;cosmosdbAccountEndpoint&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.endpoint()));
+     *         ctx.export("cosmosdbAccountEndpoint", example.applyValue(getAccountResult -> getAccountResult.endpoint()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -200,7 +208,8 @@ public final class CosmosdbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -222,15 +231,16 @@ public final class CosmosdbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CosmosdbFunctions.getMongoDatabase(GetMongoDatabaseArgs.builder()
-     *             .name(&#34;test-cosmosdb-mongo-db&#34;)
-     *             .resourceGroupName(&#34;test-cosmosdb-account-rg&#34;)
-     *             .accountName(&#34;test-cosmosdb-account&#34;)
+     *             .name("test-cosmosdb-mongo-db")
+     *             .resourceGroupName("test-cosmosdb-account-rg")
+     *             .accountName("test-cosmosdb-account")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getMongoDatabaseResult -&gt; getMongoDatabaseResult.id()));
+     *         ctx.export("id", example.applyValue(getMongoDatabaseResult -> getMongoDatabaseResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -243,7 +253,8 @@ public final class CosmosdbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -265,15 +276,16 @@ public final class CosmosdbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CosmosdbFunctions.getMongoDatabase(GetMongoDatabaseArgs.builder()
-     *             .name(&#34;test-cosmosdb-mongo-db&#34;)
-     *             .resourceGroupName(&#34;test-cosmosdb-account-rg&#34;)
-     *             .accountName(&#34;test-cosmosdb-account&#34;)
+     *             .name("test-cosmosdb-mongo-db")
+     *             .resourceGroupName("test-cosmosdb-account-rg")
+     *             .accountName("test-cosmosdb-account")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getMongoDatabaseResult -&gt; getMongoDatabaseResult.id()));
+     *         ctx.export("id", example.applyValue(getMongoDatabaseResult -> getMongoDatabaseResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -286,7 +298,8 @@ public final class CosmosdbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -308,15 +321,16 @@ public final class CosmosdbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CosmosdbFunctions.getMongoDatabase(GetMongoDatabaseArgs.builder()
-     *             .name(&#34;test-cosmosdb-mongo-db&#34;)
-     *             .resourceGroupName(&#34;test-cosmosdb-account-rg&#34;)
-     *             .accountName(&#34;test-cosmosdb-account&#34;)
+     *             .name("test-cosmosdb-mongo-db")
+     *             .resourceGroupName("test-cosmosdb-account-rg")
+     *             .accountName("test-cosmosdb-account")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getMongoDatabaseResult -&gt; getMongoDatabaseResult.id()));
+     *         ctx.export("id", example.applyValue(getMongoDatabaseResult -> getMongoDatabaseResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -329,7 +343,8 @@ public final class CosmosdbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -351,15 +366,16 @@ public final class CosmosdbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CosmosdbFunctions.getMongoDatabase(GetMongoDatabaseArgs.builder()
-     *             .name(&#34;test-cosmosdb-mongo-db&#34;)
-     *             .resourceGroupName(&#34;test-cosmosdb-account-rg&#34;)
-     *             .accountName(&#34;test-cosmosdb-account&#34;)
+     *             .name("test-cosmosdb-mongo-db")
+     *             .resourceGroupName("test-cosmosdb-account-rg")
+     *             .accountName("test-cosmosdb-account")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getMongoDatabaseResult -&gt; getMongoDatabaseResult.id()));
+     *         ctx.export("id", example.applyValue(getMongoDatabaseResult -> getMongoDatabaseResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -372,7 +388,8 @@ public final class CosmosdbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -394,14 +411,15 @@ public final class CosmosdbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CosmosdbFunctions.getRestorableDatabaseAccounts(GetRestorableDatabaseAccountsArgs.builder()
-     *             .name(&#34;example-ca&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *             .name("example-ca")
+     *             .location("West Europe")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getRestorableDatabaseAccountsResult -&gt; getRestorableDatabaseAccountsResult.id()));
+     *         ctx.export("id", example.applyValue(getRestorableDatabaseAccountsResult -> getRestorableDatabaseAccountsResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -414,7 +432,8 @@ public final class CosmosdbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -436,14 +455,15 @@ public final class CosmosdbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CosmosdbFunctions.getRestorableDatabaseAccounts(GetRestorableDatabaseAccountsArgs.builder()
-     *             .name(&#34;example-ca&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *             .name("example-ca")
+     *             .location("West Europe")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getRestorableDatabaseAccountsResult -&gt; getRestorableDatabaseAccountsResult.id()));
+     *         ctx.export("id", example.applyValue(getRestorableDatabaseAccountsResult -> getRestorableDatabaseAccountsResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -456,7 +476,8 @@ public final class CosmosdbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -478,14 +499,15 @@ public final class CosmosdbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CosmosdbFunctions.getRestorableDatabaseAccounts(GetRestorableDatabaseAccountsArgs.builder()
-     *             .name(&#34;example-ca&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *             .name("example-ca")
+     *             .location("West Europe")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getRestorableDatabaseAccountsResult -&gt; getRestorableDatabaseAccountsResult.id()));
+     *         ctx.export("id", example.applyValue(getRestorableDatabaseAccountsResult -> getRestorableDatabaseAccountsResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -498,7 +520,8 @@ public final class CosmosdbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -520,14 +543,15 @@ public final class CosmosdbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CosmosdbFunctions.getRestorableDatabaseAccounts(GetRestorableDatabaseAccountsArgs.builder()
-     *             .name(&#34;example-ca&#34;)
-     *             .location(&#34;West Europe&#34;)
+     *             .name("example-ca")
+     *             .location("West Europe")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getRestorableDatabaseAccountsResult -&gt; getRestorableDatabaseAccountsResult.id()));
+     *         ctx.export("id", example.applyValue(getRestorableDatabaseAccountsResult -> getRestorableDatabaseAccountsResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -540,7 +564,8 @@ public final class CosmosdbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -562,14 +587,15 @@ public final class CosmosdbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CosmosdbFunctions.getSqlDatabase(GetSqlDatabaseArgs.builder()
-     *             .name(&#34;tfex-cosmosdb-sql-database&#34;)
-     *             .resourceGroupName(&#34;tfex-cosmosdb-sql-database-rg&#34;)
-     *             .accountName(&#34;tfex-cosmosdb-sql-database-account-name&#34;)
+     *             .name("tfex-cosmosdb-sql-database")
+     *             .resourceGroupName("tfex-cosmosdb-sql-database-rg")
+     *             .accountName("tfex-cosmosdb-sql-database-account-name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -582,7 +608,8 @@ public final class CosmosdbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -604,14 +631,15 @@ public final class CosmosdbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CosmosdbFunctions.getSqlDatabase(GetSqlDatabaseArgs.builder()
-     *             .name(&#34;tfex-cosmosdb-sql-database&#34;)
-     *             .resourceGroupName(&#34;tfex-cosmosdb-sql-database-rg&#34;)
-     *             .accountName(&#34;tfex-cosmosdb-sql-database-account-name&#34;)
+     *             .name("tfex-cosmosdb-sql-database")
+     *             .resourceGroupName("tfex-cosmosdb-sql-database-rg")
+     *             .accountName("tfex-cosmosdb-sql-database-account-name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -624,7 +652,8 @@ public final class CosmosdbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -646,14 +675,15 @@ public final class CosmosdbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CosmosdbFunctions.getSqlDatabase(GetSqlDatabaseArgs.builder()
-     *             .name(&#34;tfex-cosmosdb-sql-database&#34;)
-     *             .resourceGroupName(&#34;tfex-cosmosdb-sql-database-rg&#34;)
-     *             .accountName(&#34;tfex-cosmosdb-sql-database-account-name&#34;)
+     *             .name("tfex-cosmosdb-sql-database")
+     *             .resourceGroupName("tfex-cosmosdb-sql-database-rg")
+     *             .accountName("tfex-cosmosdb-sql-database-account-name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -666,7 +696,8 @@ public final class CosmosdbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -688,14 +719,15 @@ public final class CosmosdbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CosmosdbFunctions.getSqlDatabase(GetSqlDatabaseArgs.builder()
-     *             .name(&#34;tfex-cosmosdb-sql-database&#34;)
-     *             .resourceGroupName(&#34;tfex-cosmosdb-sql-database-rg&#34;)
-     *             .accountName(&#34;tfex-cosmosdb-sql-database-account-name&#34;)
+     *             .name("tfex-cosmosdb-sql-database")
+     *             .resourceGroupName("tfex-cosmosdb-sql-database-rg")
+     *             .accountName("tfex-cosmosdb-sql-database-account-name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -708,7 +740,8 @@ public final class CosmosdbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -730,14 +763,15 @@ public final class CosmosdbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CosmosdbFunctions.getSqlRoleDefinition(GetSqlRoleDefinitionArgs.builder()
-     *             .resourceGroupName(&#34;tfex-cosmosdb-sql-role-definition-rg&#34;)
-     *             .accountName(&#34;tfex-cosmosdb-sql-role-definition-account-name&#34;)
-     *             .roleDefinitionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
+     *             .resourceGroupName("tfex-cosmosdb-sql-role-definition-rg")
+     *             .accountName("tfex-cosmosdb-sql-role-definition-account-name")
+     *             .roleDefinitionId("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -750,7 +784,8 @@ public final class CosmosdbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -772,14 +807,15 @@ public final class CosmosdbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CosmosdbFunctions.getSqlRoleDefinition(GetSqlRoleDefinitionArgs.builder()
-     *             .resourceGroupName(&#34;tfex-cosmosdb-sql-role-definition-rg&#34;)
-     *             .accountName(&#34;tfex-cosmosdb-sql-role-definition-account-name&#34;)
-     *             .roleDefinitionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
+     *             .resourceGroupName("tfex-cosmosdb-sql-role-definition-rg")
+     *             .accountName("tfex-cosmosdb-sql-role-definition-account-name")
+     *             .roleDefinitionId("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -792,7 +828,8 @@ public final class CosmosdbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -814,14 +851,15 @@ public final class CosmosdbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CosmosdbFunctions.getSqlRoleDefinition(GetSqlRoleDefinitionArgs.builder()
-     *             .resourceGroupName(&#34;tfex-cosmosdb-sql-role-definition-rg&#34;)
-     *             .accountName(&#34;tfex-cosmosdb-sql-role-definition-account-name&#34;)
-     *             .roleDefinitionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
+     *             .resourceGroupName("tfex-cosmosdb-sql-role-definition-rg")
+     *             .accountName("tfex-cosmosdb-sql-role-definition-account-name")
+     *             .roleDefinitionId("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -834,7 +872,8 @@ public final class CosmosdbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -856,14 +895,15 @@ public final class CosmosdbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CosmosdbFunctions.getSqlRoleDefinition(GetSqlRoleDefinitionArgs.builder()
-     *             .resourceGroupName(&#34;tfex-cosmosdb-sql-role-definition-rg&#34;)
-     *             .accountName(&#34;tfex-cosmosdb-sql-role-definition-account-name&#34;)
-     *             .roleDefinitionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
+     *             .resourceGroupName("tfex-cosmosdb-sql-role-definition-rg")
+     *             .accountName("tfex-cosmosdb-sql-role-definition-account-name")
+     *             .roleDefinitionId("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

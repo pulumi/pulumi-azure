@@ -20,7 +20,8 @@ public final class CognitiveFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -42,14 +43,15 @@ public final class CognitiveFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CognitiveFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;cognitive_account_rg&#34;)
+     *             .name("example-account")
+     *             .resourceGroupName("cognitive_account_rg")
      *             .build());
      * 
-     *         ctx.export(&#34;primaryAccessKey&#34;, test.applyValue(getAccountResult -&gt; getAccountResult.primaryAccessKey()));
+     *         ctx.export("primaryAccessKey", test.applyValue(getAccountResult -> getAccountResult.primaryAccessKey()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -62,7 +64,8 @@ public final class CognitiveFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -84,14 +87,15 @@ public final class CognitiveFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CognitiveFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;cognitive_account_rg&#34;)
+     *             .name("example-account")
+     *             .resourceGroupName("cognitive_account_rg")
      *             .build());
      * 
-     *         ctx.export(&#34;primaryAccessKey&#34;, test.applyValue(getAccountResult -&gt; getAccountResult.primaryAccessKey()));
+     *         ctx.export("primaryAccessKey", test.applyValue(getAccountResult -> getAccountResult.primaryAccessKey()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -104,7 +108,8 @@ public final class CognitiveFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -126,14 +131,15 @@ public final class CognitiveFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CognitiveFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;cognitive_account_rg&#34;)
+     *             .name("example-account")
+     *             .resourceGroupName("cognitive_account_rg")
      *             .build());
      * 
-     *         ctx.export(&#34;primaryAccessKey&#34;, test.applyValue(getAccountResult -&gt; getAccountResult.primaryAccessKey()));
+     *         ctx.export("primaryAccessKey", test.applyValue(getAccountResult -> getAccountResult.primaryAccessKey()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -146,7 +152,8 @@ public final class CognitiveFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -168,14 +175,15 @@ public final class CognitiveFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CognitiveFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;cognitive_account_rg&#34;)
+     *             .name("example-account")
+     *             .resourceGroupName("cognitive_account_rg")
      *             .build());
      * 
-     *         ctx.export(&#34;primaryAccessKey&#34;, test.applyValue(getAccountResult -&gt; getAccountResult.primaryAccessKey()));
+     *         ctx.export("primaryAccessKey", test.applyValue(getAccountResult -> getAccountResult.primaryAccessKey()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

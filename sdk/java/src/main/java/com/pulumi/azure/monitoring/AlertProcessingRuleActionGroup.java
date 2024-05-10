@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,57 +56,58 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleActionGroup = new ActionGroup(&#34;exampleActionGroup&#34;, ActionGroupArgs.builder()        
- *             .name(&#34;example-action-group&#34;)
+ *         var exampleActionGroup = new ActionGroup("exampleActionGroup", ActionGroupArgs.builder()        
+ *             .name("example-action-group")
  *             .resourceGroupName(example.name())
- *             .shortName(&#34;action&#34;)
+ *             .shortName("action")
  *             .build());
  * 
- *         var exampleAlertProcessingRuleActionGroup = new AlertProcessingRuleActionGroup(&#34;exampleAlertProcessingRuleActionGroup&#34;, AlertProcessingRuleActionGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .resourceGroupName(&#34;example&#34;)
+ *         var exampleAlertProcessingRuleActionGroup = new AlertProcessingRuleActionGroup("exampleAlertProcessingRuleActionGroup", AlertProcessingRuleActionGroupArgs.builder()        
+ *             .name("example")
+ *             .resourceGroupName("example")
  *             .scopes(example.id())
  *             .addActionGroupIds(exampleActionGroup.id())
  *             .condition(AlertProcessingRuleActionGroupConditionArgs.builder()
  *                 .targetResourceType(AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs.builder()
- *                     .operator(&#34;Equals&#34;)
- *                     .values(&#34;Microsoft.Compute/VirtualMachines&#34;)
+ *                     .operator("Equals")
+ *                     .values("Microsoft.Compute/VirtualMachines")
  *                     .build())
  *                 .severity(AlertProcessingRuleActionGroupConditionSeverityArgs.builder()
- *                     .operator(&#34;Equals&#34;)
+ *                     .operator("Equals")
  *                     .values(                    
- *                         &#34;Sev0&#34;,
- *                         &#34;Sev1&#34;,
- *                         &#34;Sev2&#34;)
+ *                         "Sev0",
+ *                         "Sev1",
+ *                         "Sev2")
  *                     .build())
  *                 .build())
  *             .schedule(AlertProcessingRuleActionGroupScheduleArgs.builder()
- *                 .effectiveFrom(&#34;2022-01-01T01:02:03&#34;)
- *                 .effectiveUntil(&#34;2022-02-02T01:02:03&#34;)
- *                 .timeZone(&#34;Pacific Standard Time&#34;)
+ *                 .effectiveFrom("2022-01-01T01:02:03")
+ *                 .effectiveUntil("2022-02-02T01:02:03")
+ *                 .timeZone("Pacific Standard Time")
  *                 .recurrence(AlertProcessingRuleActionGroupScheduleRecurrenceArgs.builder()
  *                     .dailies(AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs.builder()
- *                         .startTime(&#34;17:00:00&#34;)
- *                         .endTime(&#34;09:00:00&#34;)
+ *                         .startTime("17:00:00")
+ *                         .endTime("09:00:00")
  *                         .build())
  *                     .weeklies(AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs.builder()
  *                         .daysOfWeeks(                        
- *                             &#34;Saturday&#34;,
- *                             &#34;Sunday&#34;)
+ *                             "Saturday",
+ *                             "Sunday")
  *                         .build())
  *                     .build())
  *                 .build())
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -58,21 +59,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;media-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("media-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;examplestoracc&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("examplestoracc")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;GRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("GRS")
  *             .build());
  * 
- *         var exampleServiceAccount = new ServiceAccount(&#34;exampleServiceAccount&#34;, ServiceAccountArgs.builder()        
- *             .name(&#34;examplemediaacc&#34;)
+ *         var exampleServiceAccount = new ServiceAccount("exampleServiceAccount", ServiceAccountArgs.builder()        
+ *             .name("examplemediaacc")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .storageAccounts(ServiceAccountStorageAccountArgs.builder()
@@ -81,42 +82,43 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleLiveEvent = new LiveEvent(&#34;exampleLiveEvent&#34;, LiveEventArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleLiveEvent = new LiveEvent("exampleLiveEvent", LiveEventArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .mediaServicesAccountName(exampleServiceAccount.name())
- *             .description(&#34;My Event Description&#34;)
+ *             .description("My Event Description")
  *             .input(LiveEventInputArgs.builder()
- *                 .streamingProtocol(&#34;RTMP&#34;)
+ *                 .streamingProtocol("RTMP")
  *                 .ipAccessControlAllows(LiveEventInputIpAccessControlAllowArgs.builder()
- *                     .name(&#34;AllowAll&#34;)
- *                     .address(&#34;0.0.0.0&#34;)
+ *                     .name("AllowAll")
+ *                     .address("0.0.0.0")
  *                     .subnetPrefixLength(0)
  *                     .build())
  *                 .build())
  *             .encoding(LiveEventEncodingArgs.builder()
- *                 .type(&#34;Standard&#34;)
- *                 .presetName(&#34;Default720p&#34;)
- *                 .stretchMode(&#34;AutoFit&#34;)
- *                 .keyFrameInterval(&#34;PT2S&#34;)
+ *                 .type("Standard")
+ *                 .presetName("Default720p")
+ *                 .stretchMode("AutoFit")
+ *                 .keyFrameInterval("PT2S")
  *                 .build())
  *             .preview(LiveEventPreviewArgs.builder()
  *                 .ipAccessControlAllows(LiveEventPreviewIpAccessControlAllowArgs.builder()
- *                     .name(&#34;AllowAll&#34;)
- *                     .address(&#34;0.0.0.0&#34;)
+ *                     .name("AllowAll")
+ *                     .address("0.0.0.0")
  *                     .subnetPrefixLength(0)
  *                     .build())
  *                 .build())
- *             .streamOptions(&#34;LowLatency&#34;)
+ *             .streamOptions("LowLatency")
  *             .useStaticHostname(true)
- *             .hostnamePrefix(&#34;special-event&#34;)
- *             .transcriptionLanguages(&#34;en-US&#34;)
+ *             .hostnamePrefix("special-event")
+ *             .transcriptionLanguages("en-US")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

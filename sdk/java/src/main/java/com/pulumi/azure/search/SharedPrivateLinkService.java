@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,37 +48,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new ResourceGroup(&#34;test&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resourceGroup&#34;)
- *             .location(&#34;east us&#34;)
+ *         var test = new ResourceGroup("test", ResourceGroupArgs.builder()        
+ *             .name("example-resourceGroup")
+ *             .location("east us")
  *             .build());
  * 
- *         var testService = new Service(&#34;testService&#34;, ServiceArgs.builder()        
- *             .name(&#34;example-search&#34;)
+ *         var testService = new Service("testService", ServiceArgs.builder()        
+ *             .name("example-search")
  *             .resourceGroupName(test.name())
  *             .location(test.location())
- *             .sku(&#34;standard&#34;)
+ *             .sku("standard")
  *             .build());
  * 
- *         var testAccount = new Account(&#34;testAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;xiaxintestsaforsearchspl&#34;)
+ *         var testAccount = new Account("testAccount", AccountArgs.builder()        
+ *             .name("xiaxintestsaforsearchspl")
  *             .resourceGroupName(test.name())
  *             .location(test.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var testSharedPrivateLinkService = new SharedPrivateLinkService(&#34;testSharedPrivateLinkService&#34;, SharedPrivateLinkServiceArgs.builder()        
- *             .name(&#34;example-spl&#34;)
+ *         var testSharedPrivateLinkService = new SharedPrivateLinkService("testSharedPrivateLinkService", SharedPrivateLinkServiceArgs.builder()        
+ *             .name("example-spl")
  *             .searchServiceId(testService.id())
- *             .subresourceName(&#34;blob&#34;)
+ *             .subresourceName("blob")
  *             .targetResourceId(testAccount.id())
- *             .requestMessage(&#34;please approve&#34;)
+ *             .requestMessage("please approve")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

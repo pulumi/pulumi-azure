@@ -63,7 +63,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -84,16 +85,17 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new AAAARecord(&#34;example&#34;, AAAARecordArgs.builder()        
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *         var example = new AAAARecord("example", AAAARecordArgs.builder()        
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsAaaaRecordId&#34;, exampleAzurermPrivateDnsAaaaRecord.id());
+     *         ctx.export("privateDnsAaaaRecordId", exampleAzurermPrivateDnsAaaaRecord.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -104,7 +106,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -125,16 +128,17 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new AAAARecord(&#34;example&#34;, AAAARecordArgs.builder()        
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *         var example = new AAAARecord("example", AAAARecordArgs.builder()        
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsAaaaRecordId&#34;, exampleAzurermPrivateDnsAaaaRecord.id());
+     *         ctx.export("privateDnsAaaaRecordId", exampleAzurermPrivateDnsAaaaRecord.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -145,7 +149,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -166,16 +171,17 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new AAAARecord(&#34;example&#34;, AAAARecordArgs.builder()        
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *         var example = new AAAARecord("example", AAAARecordArgs.builder()        
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsAaaaRecordId&#34;, exampleAzurermPrivateDnsAaaaRecord.id());
+     *         ctx.export("privateDnsAaaaRecordId", exampleAzurermPrivateDnsAaaaRecord.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -186,7 +192,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -207,16 +214,17 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new AAAARecord(&#34;example&#34;, AAAARecordArgs.builder()        
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *         var example = new AAAARecord("example", AAAARecordArgs.builder()        
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsAaaaRecordId&#34;, exampleAzurermPrivateDnsAaaaRecord.id());
+     *         ctx.export("privateDnsAaaaRecordId", exampleAzurermPrivateDnsAaaaRecord.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -227,7 +235,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -249,15 +258,16 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getARecord(GetARecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsARecordId&#34;, example.applyValue(getARecordResult -&gt; getARecordResult.id()));
+     *         ctx.export("privateDnsARecordId", example.applyValue(getARecordResult -> getARecordResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -268,7 +278,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -290,15 +301,16 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getARecord(GetARecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsARecordId&#34;, example.applyValue(getARecordResult -&gt; getARecordResult.id()));
+     *         ctx.export("privateDnsARecordId", example.applyValue(getARecordResult -> getARecordResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -309,7 +321,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -331,15 +344,16 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getARecord(GetARecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsARecordId&#34;, example.applyValue(getARecordResult -&gt; getARecordResult.id()));
+     *         ctx.export("privateDnsARecordId", example.applyValue(getARecordResult -> getARecordResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -350,7 +364,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -372,15 +387,16 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getARecord(GetARecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsARecordId&#34;, example.applyValue(getARecordResult -&gt; getARecordResult.id()));
+     *         ctx.export("privateDnsARecordId", example.applyValue(getARecordResult -> getARecordResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -391,7 +407,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -412,16 +429,17 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new CnameRecord(&#34;example&#34;, CnameRecordArgs.builder()        
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *         var example = new CnameRecord("example", CnameRecordArgs.builder()        
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsCnameRecordId&#34;, exampleAzurermPrivateDnsCnameRecord.id());
+     *         ctx.export("privateDnsCnameRecordId", exampleAzurermPrivateDnsCnameRecord.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -432,7 +450,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -453,16 +472,17 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new CnameRecord(&#34;example&#34;, CnameRecordArgs.builder()        
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *         var example = new CnameRecord("example", CnameRecordArgs.builder()        
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsCnameRecordId&#34;, exampleAzurermPrivateDnsCnameRecord.id());
+     *         ctx.export("privateDnsCnameRecordId", exampleAzurermPrivateDnsCnameRecord.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -473,7 +493,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -494,16 +515,17 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new CnameRecord(&#34;example&#34;, CnameRecordArgs.builder()        
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *         var example = new CnameRecord("example", CnameRecordArgs.builder()        
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsCnameRecordId&#34;, exampleAzurermPrivateDnsCnameRecord.id());
+     *         ctx.export("privateDnsCnameRecordId", exampleAzurermPrivateDnsCnameRecord.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -514,7 +536,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -535,16 +558,17 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new CnameRecord(&#34;example&#34;, CnameRecordArgs.builder()        
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *         var example = new CnameRecord("example", CnameRecordArgs.builder()        
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsCnameRecordId&#34;, exampleAzurermPrivateDnsCnameRecord.id());
+     *         ctx.export("privateDnsCnameRecordId", exampleAzurermPrivateDnsCnameRecord.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -557,7 +581,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -579,14 +604,15 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getDnsZone(GetDnsZoneArgs.builder()
-     *             .name(&#34;contoso.internal&#34;)
-     *             .resourceGroupName(&#34;contoso-dns&#34;)
+     *             .name("contoso.internal")
+     *             .resourceGroupName("contoso-dns")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsZoneId&#34;, example.applyValue(getDnsZoneResult -&gt; getDnsZoneResult.id()));
+     *         ctx.export("privateDnsZoneId", example.applyValue(getDnsZoneResult -> getDnsZoneResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -599,7 +625,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -621,14 +648,15 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getDnsZone(GetDnsZoneArgs.builder()
-     *             .name(&#34;contoso.internal&#34;)
-     *             .resourceGroupName(&#34;contoso-dns&#34;)
+     *             .name("contoso.internal")
+     *             .resourceGroupName("contoso-dns")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsZoneId&#34;, example.applyValue(getDnsZoneResult -&gt; getDnsZoneResult.id()));
+     *         ctx.export("privateDnsZoneId", example.applyValue(getDnsZoneResult -> getDnsZoneResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -641,7 +669,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -663,14 +692,15 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getDnsZone(GetDnsZoneArgs.builder()
-     *             .name(&#34;contoso.internal&#34;)
-     *             .resourceGroupName(&#34;contoso-dns&#34;)
+     *             .name("contoso.internal")
+     *             .resourceGroupName("contoso-dns")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsZoneId&#34;, example.applyValue(getDnsZoneResult -&gt; getDnsZoneResult.id()));
+     *         ctx.export("privateDnsZoneId", example.applyValue(getDnsZoneResult -> getDnsZoneResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -683,7 +713,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -705,14 +736,15 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getDnsZone(GetDnsZoneArgs.builder()
-     *             .name(&#34;contoso.internal&#34;)
-     *             .resourceGroupName(&#34;contoso-dns&#34;)
+     *             .name("contoso.internal")
+     *             .resourceGroupName("contoso-dns")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsZoneId&#34;, example.applyValue(getDnsZoneResult -&gt; getDnsZoneResult.id()));
+     *         ctx.export("privateDnsZoneId", example.applyValue(getDnsZoneResult -> getDnsZoneResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -723,7 +755,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -744,16 +777,17 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new MxRecord(&#34;example&#34;, MxRecordArgs.builder()        
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *         var example = new MxRecord("example", MxRecordArgs.builder()        
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsMxRecordId&#34;, exampleAzurermPrivateDnsMxRecord.id());
+     *         ctx.export("privateDnsMxRecordId", exampleAzurermPrivateDnsMxRecord.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -764,7 +798,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -785,16 +820,17 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new MxRecord(&#34;example&#34;, MxRecordArgs.builder()        
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *         var example = new MxRecord("example", MxRecordArgs.builder()        
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsMxRecordId&#34;, exampleAzurermPrivateDnsMxRecord.id());
+     *         ctx.export("privateDnsMxRecordId", exampleAzurermPrivateDnsMxRecord.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -805,7 +841,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -826,16 +863,17 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new MxRecord(&#34;example&#34;, MxRecordArgs.builder()        
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *         var example = new MxRecord("example", MxRecordArgs.builder()        
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsMxRecordId&#34;, exampleAzurermPrivateDnsMxRecord.id());
+     *         ctx.export("privateDnsMxRecordId", exampleAzurermPrivateDnsMxRecord.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -846,7 +884,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -867,16 +906,17 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new MxRecord(&#34;example&#34;, MxRecordArgs.builder()        
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *         var example = new MxRecord("example", MxRecordArgs.builder()        
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsMxRecordId&#34;, exampleAzurermPrivateDnsMxRecord.id());
+     *         ctx.export("privateDnsMxRecordId", exampleAzurermPrivateDnsMxRecord.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -887,7 +927,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -908,16 +949,17 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new PTRRecord(&#34;example&#34;, PTRRecordArgs.builder()        
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *         var example = new PTRRecord("example", PTRRecordArgs.builder()        
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsPtrRecordId&#34;, exampleAzurermPrivateDnsPtrRecord.id());
+     *         ctx.export("privateDnsPtrRecordId", exampleAzurermPrivateDnsPtrRecord.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -928,7 +970,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -949,16 +992,17 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new PTRRecord(&#34;example&#34;, PTRRecordArgs.builder()        
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *         var example = new PTRRecord("example", PTRRecordArgs.builder()        
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsPtrRecordId&#34;, exampleAzurermPrivateDnsPtrRecord.id());
+     *         ctx.export("privateDnsPtrRecordId", exampleAzurermPrivateDnsPtrRecord.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -969,7 +1013,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -990,16 +1035,17 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new PTRRecord(&#34;example&#34;, PTRRecordArgs.builder()        
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *         var example = new PTRRecord("example", PTRRecordArgs.builder()        
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsPtrRecordId&#34;, exampleAzurermPrivateDnsPtrRecord.id());
+     *         ctx.export("privateDnsPtrRecordId", exampleAzurermPrivateDnsPtrRecord.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1010,7 +1056,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1031,16 +1078,17 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new PTRRecord(&#34;example&#34;, PTRRecordArgs.builder()        
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *         var example = new PTRRecord("example", PTRRecordArgs.builder()        
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsPtrRecordId&#34;, exampleAzurermPrivateDnsPtrRecord.id());
+     *         ctx.export("privateDnsPtrRecordId", exampleAzurermPrivateDnsPtrRecord.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1053,7 +1101,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1075,13 +1124,14 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = PrivatednsFunctions.getResolver(GetResolverArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(&#34;example-resourcegroup-name&#34;)
+     *             .name("example")
+     *             .resourceGroupName("example-resourcegroup-name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1094,7 +1144,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1116,13 +1167,14 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = PrivatednsFunctions.getResolver(GetResolverArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(&#34;example-resourcegroup-name&#34;)
+     *             .name("example")
+     *             .resourceGroupName("example-resourcegroup-name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1135,7 +1187,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1157,13 +1210,14 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = PrivatednsFunctions.getResolver(GetResolverArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(&#34;example-resourcegroup-name&#34;)
+     *             .name("example")
+     *             .resourceGroupName("example-resourcegroup-name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1176,7 +1230,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1198,13 +1253,14 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = PrivatednsFunctions.getResolver(GetResolverArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(&#34;example-resourcegroup-name&#34;)
+     *             .name("example")
+     *             .resourceGroupName("example-resourcegroup-name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1217,7 +1273,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1239,13 +1296,14 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getResolverDnsForwardingRuleset(GetResolverDnsForwardingRulesetArgs.builder()
-     *             .name(&#34;example-ruleset&#34;)
-     *             .resourceGroupName(&#34;example-ruleset-resourcegroup&#34;)
+     *             .name("example-ruleset")
+     *             .resourceGroupName("example-ruleset-resourcegroup")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1258,7 +1316,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1280,13 +1339,14 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getResolverDnsForwardingRuleset(GetResolverDnsForwardingRulesetArgs.builder()
-     *             .name(&#34;example-ruleset&#34;)
-     *             .resourceGroupName(&#34;example-ruleset-resourcegroup&#34;)
+     *             .name("example-ruleset")
+     *             .resourceGroupName("example-ruleset-resourcegroup")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1299,7 +1359,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1321,13 +1382,14 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getResolverDnsForwardingRuleset(GetResolverDnsForwardingRulesetArgs.builder()
-     *             .name(&#34;example-ruleset&#34;)
-     *             .resourceGroupName(&#34;example-ruleset-resourcegroup&#34;)
+     *             .name("example-ruleset")
+     *             .resourceGroupName("example-ruleset-resourcegroup")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1340,7 +1402,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1362,13 +1425,14 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getResolverDnsForwardingRuleset(GetResolverDnsForwardingRulesetArgs.builder()
-     *             .name(&#34;example-ruleset&#34;)
-     *             .resourceGroupName(&#34;example-ruleset-resourcegroup&#34;)
+     *             .name("example-ruleset")
+     *             .resourceGroupName("example-ruleset-resourcegroup")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1381,7 +1445,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1403,13 +1468,14 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getResolverForwardingRule(GetResolverForwardingRuleArgs.builder()
-     *             .name(&#34;example-rule&#34;)
-     *             .dnsForwardingRulesetId(&#34;example-forwarding-rulset-id&#34;)
+     *             .name("example-rule")
+     *             .dnsForwardingRulesetId("example-forwarding-rulset-id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1422,7 +1488,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1444,13 +1511,14 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getResolverForwardingRule(GetResolverForwardingRuleArgs.builder()
-     *             .name(&#34;example-rule&#34;)
-     *             .dnsForwardingRulesetId(&#34;example-forwarding-rulset-id&#34;)
+     *             .name("example-rule")
+     *             .dnsForwardingRulesetId("example-forwarding-rulset-id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1463,7 +1531,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1485,13 +1554,14 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getResolverForwardingRule(GetResolverForwardingRuleArgs.builder()
-     *             .name(&#34;example-rule&#34;)
-     *             .dnsForwardingRulesetId(&#34;example-forwarding-rulset-id&#34;)
+     *             .name("example-rule")
+     *             .dnsForwardingRulesetId("example-forwarding-rulset-id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1504,7 +1574,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1526,13 +1597,14 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getResolverForwardingRule(GetResolverForwardingRuleArgs.builder()
-     *             .name(&#34;example-rule&#34;)
-     *             .dnsForwardingRulesetId(&#34;example-forwarding-rulset-id&#34;)
+     *             .name("example-rule")
+     *             .dnsForwardingRulesetId("example-forwarding-rulset-id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1545,7 +1617,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1567,13 +1640,14 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getResolverInboundEndpoint(GetResolverInboundEndpointArgs.builder()
-     *             .name(&#34;example-drie&#34;)
-     *             .privateDnsResolverId(&#34;example-private-dns-resolver-id&#34;)
+     *             .name("example-drie")
+     *             .privateDnsResolverId("example-private-dns-resolver-id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1586,7 +1660,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1608,13 +1683,14 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getResolverInboundEndpoint(GetResolverInboundEndpointArgs.builder()
-     *             .name(&#34;example-drie&#34;)
-     *             .privateDnsResolverId(&#34;example-private-dns-resolver-id&#34;)
+     *             .name("example-drie")
+     *             .privateDnsResolverId("example-private-dns-resolver-id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1627,7 +1703,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1649,13 +1726,14 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getResolverInboundEndpoint(GetResolverInboundEndpointArgs.builder()
-     *             .name(&#34;example-drie&#34;)
-     *             .privateDnsResolverId(&#34;example-private-dns-resolver-id&#34;)
+     *             .name("example-drie")
+     *             .privateDnsResolverId("example-private-dns-resolver-id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1668,7 +1746,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1690,13 +1769,14 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getResolverInboundEndpoint(GetResolverInboundEndpointArgs.builder()
-     *             .name(&#34;example-drie&#34;)
-     *             .privateDnsResolverId(&#34;example-private-dns-resolver-id&#34;)
+     *             .name("example-drie")
+     *             .privateDnsResolverId("example-private-dns-resolver-id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1709,7 +1789,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1731,13 +1812,14 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getResolverOutboundEndpoint(GetResolverOutboundEndpointArgs.builder()
-     *             .name(&#34;example-endpoint&#34;)
-     *             .privateDnsResolverId(&#34;example-private-dns-resolver-id&#34;)
+     *             .name("example-endpoint")
+     *             .privateDnsResolverId("example-private-dns-resolver-id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1750,7 +1832,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1772,13 +1855,14 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getResolverOutboundEndpoint(GetResolverOutboundEndpointArgs.builder()
-     *             .name(&#34;example-endpoint&#34;)
-     *             .privateDnsResolverId(&#34;example-private-dns-resolver-id&#34;)
+     *             .name("example-endpoint")
+     *             .privateDnsResolverId("example-private-dns-resolver-id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1791,7 +1875,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1813,13 +1898,14 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getResolverOutboundEndpoint(GetResolverOutboundEndpointArgs.builder()
-     *             .name(&#34;example-endpoint&#34;)
-     *             .privateDnsResolverId(&#34;example-private-dns-resolver-id&#34;)
+     *             .name("example-endpoint")
+     *             .privateDnsResolverId("example-private-dns-resolver-id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1832,7 +1918,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1854,13 +1941,14 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getResolverOutboundEndpoint(GetResolverOutboundEndpointArgs.builder()
-     *             .name(&#34;example-endpoint&#34;)
-     *             .privateDnsResolverId(&#34;example-private-dns-resolver-id&#34;)
+     *             .name("example-endpoint")
+     *             .privateDnsResolverId("example-private-dns-resolver-id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1873,7 +1961,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1895,13 +1984,14 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getResolverVirtualNetworkLink(GetResolverVirtualNetworkLinkArgs.builder()
-     *             .name(&#34;example-link&#34;)
-     *             .dnsForwardingRulesetId(&#34;example-dns-forwarding-ruleset-id&#34;)
+     *             .name("example-link")
+     *             .dnsForwardingRulesetId("example-dns-forwarding-ruleset-id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1914,7 +2004,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1936,13 +2027,14 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getResolverVirtualNetworkLink(GetResolverVirtualNetworkLinkArgs.builder()
-     *             .name(&#34;example-link&#34;)
-     *             .dnsForwardingRulesetId(&#34;example-dns-forwarding-ruleset-id&#34;)
+     *             .name("example-link")
+     *             .dnsForwardingRulesetId("example-dns-forwarding-ruleset-id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1955,7 +2047,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1977,13 +2070,14 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getResolverVirtualNetworkLink(GetResolverVirtualNetworkLinkArgs.builder()
-     *             .name(&#34;example-link&#34;)
-     *             .dnsForwardingRulesetId(&#34;example-dns-forwarding-ruleset-id&#34;)
+     *             .name("example-link")
+     *             .dnsForwardingRulesetId("example-dns-forwarding-ruleset-id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1996,7 +2090,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2018,13 +2113,14 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getResolverVirtualNetworkLink(GetResolverVirtualNetworkLinkArgs.builder()
-     *             .name(&#34;example-link&#34;)
-     *             .dnsForwardingRulesetId(&#34;example-dns-forwarding-ruleset-id&#34;)
+     *             .name("example-link")
+     *             .dnsForwardingRulesetId("example-dns-forwarding-ruleset-id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2035,7 +2131,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2056,15 +2153,16 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new PrivateDnsSoaRecord(&#34;example&#34;, PrivateDnsSoaRecordArgs.builder()        
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *         var example = new PrivateDnsSoaRecord("example", PrivateDnsSoaRecordArgs.builder()        
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsSoaRecordId&#34;, exampleAzurermPrivateDnsSoaRecord.id());
+     *         ctx.export("privateDnsSoaRecordId", exampleAzurermPrivateDnsSoaRecord.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2075,7 +2173,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2096,15 +2195,16 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new PrivateDnsSoaRecord(&#34;example&#34;, PrivateDnsSoaRecordArgs.builder()        
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *         var example = new PrivateDnsSoaRecord("example", PrivateDnsSoaRecordArgs.builder()        
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsSoaRecordId&#34;, exampleAzurermPrivateDnsSoaRecord.id());
+     *         ctx.export("privateDnsSoaRecordId", exampleAzurermPrivateDnsSoaRecord.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2115,7 +2215,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2136,15 +2237,16 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new PrivateDnsSoaRecord(&#34;example&#34;, PrivateDnsSoaRecordArgs.builder()        
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *         var example = new PrivateDnsSoaRecord("example", PrivateDnsSoaRecordArgs.builder()        
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsSoaRecordId&#34;, exampleAzurermPrivateDnsSoaRecord.id());
+     *         ctx.export("privateDnsSoaRecordId", exampleAzurermPrivateDnsSoaRecord.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2155,7 +2257,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2176,15 +2279,16 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new PrivateDnsSoaRecord(&#34;example&#34;, PrivateDnsSoaRecordArgs.builder()        
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *         var example = new PrivateDnsSoaRecord("example", PrivateDnsSoaRecordArgs.builder()        
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsSoaRecordId&#34;, exampleAzurermPrivateDnsSoaRecord.id());
+     *         ctx.export("privateDnsSoaRecordId", exampleAzurermPrivateDnsSoaRecord.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2195,7 +2299,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2216,16 +2321,17 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new SRVRecord(&#34;example&#34;, SRVRecordArgs.builder()        
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *         var example = new SRVRecord("example", SRVRecordArgs.builder()        
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsSrvRecordId&#34;, exampleAzurermPrivateDnsSrvRecord.id());
+     *         ctx.export("privateDnsSrvRecordId", exampleAzurermPrivateDnsSrvRecord.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2236,7 +2342,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2257,16 +2364,17 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new SRVRecord(&#34;example&#34;, SRVRecordArgs.builder()        
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *         var example = new SRVRecord("example", SRVRecordArgs.builder()        
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsSrvRecordId&#34;, exampleAzurermPrivateDnsSrvRecord.id());
+     *         ctx.export("privateDnsSrvRecordId", exampleAzurermPrivateDnsSrvRecord.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2277,7 +2385,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2298,16 +2407,17 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new SRVRecord(&#34;example&#34;, SRVRecordArgs.builder()        
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *         var example = new SRVRecord("example", SRVRecordArgs.builder()        
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsSrvRecordId&#34;, exampleAzurermPrivateDnsSrvRecord.id());
+     *         ctx.export("privateDnsSrvRecordId", exampleAzurermPrivateDnsSrvRecord.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2318,7 +2428,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2339,16 +2450,17 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new SRVRecord(&#34;example&#34;, SRVRecordArgs.builder()        
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *         var example = new SRVRecord("example", SRVRecordArgs.builder()        
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsSrvRecordId&#34;, exampleAzurermPrivateDnsSrvRecord.id());
+     *         ctx.export("privateDnsSrvRecordId", exampleAzurermPrivateDnsSrvRecord.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2359,7 +2471,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2380,16 +2493,17 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new TxtRecord(&#34;example&#34;, TxtRecordArgs.builder()        
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *         var example = new TxtRecord("example", TxtRecordArgs.builder()        
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsTxtRecordId&#34;, exampleAzurermPrivateDnsTxtRecord.id());
+     *         ctx.export("privateDnsTxtRecordId", exampleAzurermPrivateDnsTxtRecord.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2400,7 +2514,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2421,16 +2536,17 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new TxtRecord(&#34;example&#34;, TxtRecordArgs.builder()        
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *         var example = new TxtRecord("example", TxtRecordArgs.builder()        
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsTxtRecordId&#34;, exampleAzurermPrivateDnsTxtRecord.id());
+     *         ctx.export("privateDnsTxtRecordId", exampleAzurermPrivateDnsTxtRecord.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2441,7 +2557,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2462,16 +2579,17 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new TxtRecord(&#34;example&#34;, TxtRecordArgs.builder()        
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *         var example = new TxtRecord("example", TxtRecordArgs.builder()        
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsTxtRecordId&#34;, exampleAzurermPrivateDnsTxtRecord.id());
+     *         ctx.export("privateDnsTxtRecordId", exampleAzurermPrivateDnsTxtRecord.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2482,7 +2600,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2503,16 +2622,17 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new TxtRecord(&#34;example&#34;, TxtRecordArgs.builder()        
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
+     *         var example = new TxtRecord("example", TxtRecordArgs.builder()        
+     *             .name("test")
+     *             .zoneName("test-zone")
+     *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsTxtRecordId&#34;, exampleAzurermPrivateDnsTxtRecord.id());
+     *         ctx.export("privateDnsTxtRecordId", exampleAzurermPrivateDnsTxtRecord.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2525,7 +2645,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2547,15 +2668,16 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getZoneVirtualNetworkLink(GetZoneVirtualNetworkLinkArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
-     *             .privateDnsZoneName(&#34;test-zone&#34;)
+     *             .name("test")
+     *             .resourceGroupName("test-rg")
+     *             .privateDnsZoneName("test-zone")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsARecordId&#34;, example.applyValue(getZoneVirtualNetworkLinkResult -&gt; getZoneVirtualNetworkLinkResult.id()));
+     *         ctx.export("privateDnsARecordId", example.applyValue(getZoneVirtualNetworkLinkResult -> getZoneVirtualNetworkLinkResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2568,7 +2690,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2590,15 +2713,16 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getZoneVirtualNetworkLink(GetZoneVirtualNetworkLinkArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
-     *             .privateDnsZoneName(&#34;test-zone&#34;)
+     *             .name("test")
+     *             .resourceGroupName("test-rg")
+     *             .privateDnsZoneName("test-zone")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsARecordId&#34;, example.applyValue(getZoneVirtualNetworkLinkResult -&gt; getZoneVirtualNetworkLinkResult.id()));
+     *         ctx.export("privateDnsARecordId", example.applyValue(getZoneVirtualNetworkLinkResult -> getZoneVirtualNetworkLinkResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2611,7 +2735,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2633,15 +2758,16 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getZoneVirtualNetworkLink(GetZoneVirtualNetworkLinkArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
-     *             .privateDnsZoneName(&#34;test-zone&#34;)
+     *             .name("test")
+     *             .resourceGroupName("test-rg")
+     *             .privateDnsZoneName("test-zone")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsARecordId&#34;, example.applyValue(getZoneVirtualNetworkLinkResult -&gt; getZoneVirtualNetworkLinkResult.id()));
+     *         ctx.export("privateDnsARecordId", example.applyValue(getZoneVirtualNetworkLinkResult -> getZoneVirtualNetworkLinkResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2654,7 +2780,8 @@ public final class PrivatednsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2676,15 +2803,16 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getZoneVirtualNetworkLink(GetZoneVirtualNetworkLinkArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
-     *             .privateDnsZoneName(&#34;test-zone&#34;)
+     *             .name("test")
+     *             .resourceGroupName("test-rg")
+     *             .privateDnsZoneName("test-zone")
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsARecordId&#34;, example.applyValue(getZoneVirtualNetworkLinkResult -&gt; getZoneVirtualNetworkLinkResult.id()));
+     *         ctx.export("privateDnsARecordId", example.applyValue(getZoneVirtualNetworkLinkResult -> getZoneVirtualNetworkLinkResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

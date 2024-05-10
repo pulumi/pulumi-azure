@@ -38,7 +38,8 @@ import javax.annotation.Nullable;
  * This example provisions a Windows App Service.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -66,41 +67,42 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var examplePlan = new Plan(&#34;examplePlan&#34;, PlanArgs.builder()        
- *             .name(&#34;example-appserviceplan&#34;)
+ *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()        
+ *             .name("example-appserviceplan")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku(PlanSkuArgs.builder()
- *                 .tier(&#34;Standard&#34;)
- *                 .size(&#34;S1&#34;)
+ *                 .tier("Standard")
+ *                 .size("S1")
  *                 .build())
  *             .build());
  * 
- *         var exampleAppService = new AppService(&#34;exampleAppService&#34;, AppServiceArgs.builder()        
- *             .name(&#34;example-app-service&#34;)
+ *         var exampleAppService = new AppService("exampleAppService", AppServiceArgs.builder()        
+ *             .name("example-app-service")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
  *             .siteConfig(AppServiceSiteConfigArgs.builder()
- *                 .dotnetFrameworkVersion(&#34;v4.0&#34;)
- *                 .scmType(&#34;LocalGit&#34;)
+ *                 .dotnetFrameworkVersion("v4.0")
+ *                 .scmType("LocalGit")
  *                 .build())
- *             .appSettings(Map.of(&#34;SOME_KEY&#34;, &#34;some-value&#34;))
+ *             .appSettings(Map.of("SOME_KEY", "some-value"))
  *             .connectionStrings(AppServiceConnectionStringArgs.builder()
- *                 .name(&#34;Database&#34;)
- *                 .type(&#34;SQLServer&#34;)
- *                 .value(&#34;Server=some-server.mydomain.com;Integrated Security=SSPI&#34;)
+ *                 .name("Database")
+ *                 .type("SQLServer")
+ *                 .value("Server=some-server.mydomain.com;Integrated Security=SSPI")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

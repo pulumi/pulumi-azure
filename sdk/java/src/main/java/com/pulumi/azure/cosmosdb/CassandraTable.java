@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,21 +55,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;tflex-cosmosdb-account-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("tflex-cosmosdb-account-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;tfex-cosmosdb-account&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("tfex-cosmosdb-account")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .offerType(&#34;Standard&#34;)
+ *             .offerType("Standard")
  *             .capabilities(AccountCapabilityArgs.builder()
- *                 .name(&#34;EnableCassandra&#34;)
+ *                 .name("EnableCassandra")
  *                 .build())
  *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
- *                 .consistencyLevel(&#34;Strong&#34;)
+ *                 .consistencyLevel("Strong")
  *                 .build())
  *             .geoLocations(AccountGeoLocationArgs.builder()
  *                 .location(example.location())
@@ -76,35 +77,36 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleCassandraKeyspace = new CassandraKeyspace(&#34;exampleCassandraKeyspace&#34;, CassandraKeyspaceArgs.builder()        
- *             .name(&#34;tfex-cosmos-cassandra-keyspace&#34;)
+ *         var exampleCassandraKeyspace = new CassandraKeyspace("exampleCassandraKeyspace", CassandraKeyspaceArgs.builder()        
+ *             .name("tfex-cosmos-cassandra-keyspace")
  *             .resourceGroupName(exampleAccount.resourceGroupName())
  *             .accountName(exampleAccount.name())
  *             .throughput(400)
  *             .build());
  * 
- *         var exampleCassandraTable = new CassandraTable(&#34;exampleCassandraTable&#34;, CassandraTableArgs.builder()        
- *             .name(&#34;testtable&#34;)
+ *         var exampleCassandraTable = new CassandraTable("exampleCassandraTable", CassandraTableArgs.builder()        
+ *             .name("testtable")
  *             .cassandraKeyspaceId(exampleCassandraKeyspace.id())
  *             .schema(CassandraTableSchemaArgs.builder()
  *                 .columns(                
  *                     CassandraTableSchemaColumnArgs.builder()
- *                         .name(&#34;test1&#34;)
- *                         .type(&#34;ascii&#34;)
+ *                         .name("test1")
+ *                         .type("ascii")
  *                         .build(),
  *                     CassandraTableSchemaColumnArgs.builder()
- *                         .name(&#34;test2&#34;)
- *                         .type(&#34;int&#34;)
+ *                         .name("test2")
+ *                         .type("int")
  *                         .build())
  *                 .partitionKeys(CassandraTableSchemaPartitionKeyArgs.builder()
- *                     .name(&#34;test1&#34;)
+ *                     .name("test1")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

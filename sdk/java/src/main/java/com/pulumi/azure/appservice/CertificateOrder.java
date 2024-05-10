@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,22 +49,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleCertificateOrder = new CertificateOrder(&#34;exampleCertificateOrder&#34;, CertificateOrderArgs.builder()        
- *             .name(&#34;example-cert-order&#34;)
+ *         var exampleCertificateOrder = new CertificateOrder("exampleCertificateOrder", CertificateOrderArgs.builder()        
+ *             .name("example-cert-order")
  *             .resourceGroupName(example.name())
- *             .location(&#34;global&#34;)
- *             .distinguishedName(&#34;CN=example.com&#34;)
- *             .productType(&#34;Standard&#34;)
+ *             .location("global")
+ *             .distinguishedName("CN=example.com")
+ *             .productType("Standard")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

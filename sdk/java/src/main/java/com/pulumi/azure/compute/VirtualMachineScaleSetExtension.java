@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,51 +55,52 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleLinuxVirtualMachineScaleSet = new LinuxVirtualMachineScaleSet(&#34;exampleLinuxVirtualMachineScaleSet&#34;, LinuxVirtualMachineScaleSetArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleLinuxVirtualMachineScaleSet = new LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", LinuxVirtualMachineScaleSetArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .sku(&#34;Standard_F2&#34;)
- *             .adminUsername(&#34;adminuser&#34;)
+ *             .sku("Standard_F2")
+ *             .adminUsername("adminuser")
  *             .instances(1)
  *             .sourceImageReference(LinuxVirtualMachineScaleSetSourceImageReferenceArgs.builder()
- *                 .publisher(&#34;Canonical&#34;)
- *                 .offer(&#34;0001-com-ubuntu-server-jammy&#34;)
- *                 .sku(&#34;22_04-lts&#34;)
- *                 .version(&#34;latest&#34;)
+ *                 .publisher("Canonical")
+ *                 .offer("0001-com-ubuntu-server-jammy")
+ *                 .sku("22_04-lts")
+ *                 .version("latest")
  *                 .build())
  *             .networkInterfaces(LinuxVirtualMachineScaleSetNetworkInterfaceArgs.builder()
- *                 .name(&#34;example&#34;)
+ *                 .name("example")
  *                 .ipConfigurations(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs.builder()
- *                     .name(&#34;internal&#34;)
+ *                     .name("internal")
  *                     .build())
  *                 .build())
  *             .osDisk(LinuxVirtualMachineScaleSetOsDiskArgs.builder()
- *                 .storageAccountType(&#34;Standard_LRS&#34;)
- *                 .caching(&#34;ReadWrite&#34;)
+ *                 .storageAccountType("Standard_LRS")
+ *                 .caching("ReadWrite")
  *                 .build())
  *             .build());
  * 
- *         var exampleVirtualMachineScaleSetExtension = new VirtualMachineScaleSetExtension(&#34;exampleVirtualMachineScaleSetExtension&#34;, VirtualMachineScaleSetExtensionArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleVirtualMachineScaleSetExtension = new VirtualMachineScaleSetExtension("exampleVirtualMachineScaleSetExtension", VirtualMachineScaleSetExtensionArgs.builder()        
+ *             .name("example")
  *             .virtualMachineScaleSetId(exampleLinuxVirtualMachineScaleSet.id())
- *             .publisher(&#34;Microsoft.Azure.Extensions&#34;)
- *             .type(&#34;CustomScript&#34;)
- *             .typeHandlerVersion(&#34;2.0&#34;)
+ *             .publisher("Microsoft.Azure.Extensions")
+ *             .type("CustomScript")
+ *             .typeHandlerVersion("2.0")
  *             .settings(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;commandToExecute&#34;, &#34;echo $HOSTNAME&#34;)
+ *                     jsonProperty("commandToExecute", "echo $HOSTNAME")
  *                 )))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

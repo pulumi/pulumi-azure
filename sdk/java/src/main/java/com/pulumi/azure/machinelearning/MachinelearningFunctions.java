@@ -20,7 +20,8 @@ public final class MachinelearningFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -42,14 +43,15 @@ public final class MachinelearningFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existing = MachinelearningFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name(&#34;example-workspace&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-workspace")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, existingAzurermMachineLearningWorkspace.id());
+     *         ctx.export("id", existingAzurermMachineLearningWorkspace.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -62,7 +64,8 @@ public final class MachinelearningFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -84,14 +87,15 @@ public final class MachinelearningFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existing = MachinelearningFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name(&#34;example-workspace&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-workspace")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, existingAzurermMachineLearningWorkspace.id());
+     *         ctx.export("id", existingAzurermMachineLearningWorkspace.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -104,7 +108,8 @@ public final class MachinelearningFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -126,14 +131,15 @@ public final class MachinelearningFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existing = MachinelearningFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name(&#34;example-workspace&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-workspace")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, existingAzurermMachineLearningWorkspace.id());
+     *         ctx.export("id", existingAzurermMachineLearningWorkspace.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -146,7 +152,8 @@ public final class MachinelearningFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -168,14 +175,15 @@ public final class MachinelearningFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existing = MachinelearningFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name(&#34;example-workspace&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("example-workspace")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, existingAzurermMachineLearningWorkspace.id());
+     *         ctx.export("id", existingAzurermMachineLearningWorkspace.id());
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## NetApp Snapshot Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,63 +55,63 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-virtualnetwork&#34;)
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example-virtualnetwork")
+ *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;example-subnet&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("example-subnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
+ *             .addressPrefixes("10.0.2.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;netapp&#34;)
+ *                 .name("netapp")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .name(&#34;Microsoft.Netapp/volumes&#34;)
+ *                     .name("Microsoft.Netapp/volumes")
  *                     .actions(                    
- *                         &#34;Microsoft.Network/networkinterfaces/*&#34;,
- *                         &#34;Microsoft.Network/virtualNetworks/subnets/join/action&#34;)
+ *                         "Microsoft.Network/networkinterfaces/*",
+ *                         "Microsoft.Network/virtualNetworks/subnets/join/action")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;example-netappaccount&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("example-netappaccount")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var examplePool = new Pool(&#34;examplePool&#34;, PoolArgs.builder()        
- *             .name(&#34;example-netapppool&#34;)
+ *         var examplePool = new Pool("examplePool", PoolArgs.builder()        
+ *             .name("example-netapppool")
  *             .accountName(exampleAccount.name())
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .serviceLevel(&#34;Premium&#34;)
- *             .sizeInTb(&#34;4&#34;)
+ *             .serviceLevel("Premium")
+ *             .sizeInTb("4")
  *             .build());
  * 
- *         var exampleVolume = new Volume(&#34;exampleVolume&#34;, VolumeArgs.builder()        
- *             .name(&#34;example-netappvolume&#34;)
+ *         var exampleVolume = new Volume("exampleVolume", VolumeArgs.builder()        
+ *             .name("example-netappvolume")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .accountName(exampleAccount.name())
  *             .poolName(examplePool.name())
- *             .volumePath(&#34;my-unique-file-path&#34;)
- *             .serviceLevel(&#34;Premium&#34;)
+ *             .volumePath("my-unique-file-path")
+ *             .serviceLevel("Premium")
  *             .subnetId(exampleSubnet.id())
- *             .storageQuotaInGb(&#34;100&#34;)
+ *             .storageQuotaInGb("100")
  *             .build());
  * 
- *         var exampleSnapshot = new Snapshot(&#34;exampleSnapshot&#34;, SnapshotArgs.builder()        
- *             .name(&#34;example-netappsnapshot&#34;)
+ *         var exampleSnapshot = new Snapshot("exampleSnapshot", SnapshotArgs.builder()        
+ *             .name("example-netappsnapshot")
  *             .accountName(exampleAccount.name())
  *             .poolName(examplePool.name())
  *             .volumeName(exampleVolume.name())
@@ -120,7 +121,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

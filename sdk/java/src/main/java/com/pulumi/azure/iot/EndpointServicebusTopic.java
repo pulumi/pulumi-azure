@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,52 +56,53 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleNamespace = new Namespace(&#34;exampleNamespace&#34;, NamespaceArgs.builder()        
- *             .name(&#34;exampleNamespace&#34;)
+ *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()        
+ *             .name("exampleNamespace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;Standard&#34;)
+ *             .sku("Standard")
  *             .build());
  * 
- *         var exampleTopic = new Topic(&#34;exampleTopic&#34;, TopicArgs.builder()        
- *             .name(&#34;exampleTopic&#34;)
+ *         var exampleTopic = new Topic("exampleTopic", TopicArgs.builder()        
+ *             .name("exampleTopic")
  *             .namespaceId(exampleNamespace.id())
  *             .build());
  * 
- *         var exampleTopicAuthorizationRule = new TopicAuthorizationRule(&#34;exampleTopicAuthorizationRule&#34;, TopicAuthorizationRuleArgs.builder()        
- *             .name(&#34;exampleRule&#34;)
+ *         var exampleTopicAuthorizationRule = new TopicAuthorizationRule("exampleTopicAuthorizationRule", TopicAuthorizationRuleArgs.builder()        
+ *             .name("exampleRule")
  *             .topicId(exampleTopic.id())
  *             .listen(false)
  *             .send(true)
  *             .manage(false)
  *             .build());
  * 
- *         var exampleIoTHub = new IoTHub(&#34;exampleIoTHub&#34;, IoTHubArgs.builder()        
- *             .name(&#34;exampleIothub&#34;)
+ *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()        
+ *             .name("exampleIothub")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .sku(IoTHubSkuArgs.builder()
- *                 .name(&#34;B1&#34;)
- *                 .capacity(&#34;1&#34;)
+ *                 .name("B1")
+ *                 .capacity("1")
  *                 .build())
- *             .tags(Map.of(&#34;purpose&#34;, &#34;example&#34;))
+ *             .tags(Map.of("purpose", "example"))
  *             .build());
  * 
- *         var exampleEndpointServicebusTopic = new EndpointServicebusTopic(&#34;exampleEndpointServicebusTopic&#34;, EndpointServicebusTopicArgs.builder()        
+ *         var exampleEndpointServicebusTopic = new EndpointServicebusTopic("exampleEndpointServicebusTopic", EndpointServicebusTopicArgs.builder()        
  *             .resourceGroupName(example.name())
  *             .iothubId(exampleIoTHub.id())
- *             .name(&#34;example&#34;)
+ *             .name("example")
  *             .connectionString(exampleTopicAuthorizationRule.primaryConnectionString())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

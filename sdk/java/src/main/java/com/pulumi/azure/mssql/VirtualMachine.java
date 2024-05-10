@@ -33,7 +33,8 @@ import javax.annotation.Nullable;
  * This example provisions a brief Managed Microsoft SQL Virtual Machine.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -58,20 +59,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = ComputeFunctions.getVirtualMachine(GetVirtualMachineArgs.builder()
- *             .name(&#34;example-vm&#34;)
- *             .resourceGroupName(&#34;example-resources&#34;)
+ *             .name("example-vm")
+ *             .resourceGroupName("example-resources")
  *             .build());
  * 
- *         var exampleVirtualMachine = new VirtualMachine(&#34;exampleVirtualMachine&#34;, VirtualMachineArgs.builder()        
- *             .virtualMachineId(example.applyValue(getVirtualMachineResult -&gt; getVirtualMachineResult.id()))
- *             .sqlLicenseType(&#34;PAYG&#34;)
+ *         var exampleVirtualMachine = new VirtualMachine("exampleVirtualMachine", VirtualMachineArgs.builder()        
+ *             .virtualMachineId(example.applyValue(getVirtualMachineResult -> getVirtualMachineResult.id()))
+ *             .sqlLicenseType("PAYG")
  *             .rServicesEnabled(true)
  *             .sqlConnectivityPort(1433)
- *             .sqlConnectivityType(&#34;PRIVATE&#34;)
- *             .sqlConnectivityUpdatePassword(&#34;Password1234!&#34;)
- *             .sqlConnectivityUpdateUsername(&#34;sqllogin&#34;)
+ *             .sqlConnectivityType("PRIVATE")
+ *             .sqlConnectivityUpdatePassword("Password1234!")
+ *             .sqlConnectivityUpdateUsername("sqllogin")
  *             .autoPatching(VirtualMachineAutoPatchingArgs.builder()
- *                 .dayOfWeek(&#34;Sunday&#34;)
+ *                 .dayOfWeek("Sunday")
  *                 .maintenanceWindowDurationInMinutes(60)
  *                 .maintenanceWindowStartingHour(2)
  *                 .build())
@@ -79,7 +80,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

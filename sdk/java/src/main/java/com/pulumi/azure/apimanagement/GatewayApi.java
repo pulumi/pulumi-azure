@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,30 +46,31 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
- *             .name(&#34;example-api&#34;)
- *             .resourceGroupName(&#34;example-resources&#34;)
+ *             .name("example-api")
+ *             .resourceGroupName("example-resources")
  *             .build());
  * 
  *         final var exampleGetApi = ApimanagementFunctions.getApi(GetApiArgs.builder()
- *             .name(&#34;search-api&#34;)
- *             .apiManagementName(example.applyValue(getServiceResult -&gt; getServiceResult.name()))
- *             .resourceGroupName(example.applyValue(getServiceResult -&gt; getServiceResult.resourceGroupName()))
- *             .revision(&#34;2&#34;)
+ *             .name("search-api")
+ *             .apiManagementName(example.applyValue(getServiceResult -> getServiceResult.name()))
+ *             .resourceGroupName(example.applyValue(getServiceResult -> getServiceResult.resourceGroupName()))
+ *             .revision("2")
  *             .build());
  * 
  *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
- *             .name(&#34;example-gateway&#34;)
- *             .apiManagementId(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
+ *             .name("example-gateway")
+ *             .apiManagementId(example.applyValue(getServiceResult -> getServiceResult.id()))
  *             .build());
  * 
- *         var exampleGatewayApi = new GatewayApi(&#34;exampleGatewayApi&#34;, GatewayApiArgs.builder()        
- *             .gatewayId(exampleGetGateway.applyValue(getGatewayResult -&gt; getGatewayResult.id()))
- *             .apiId(exampleGetApi.applyValue(getApiResult -&gt; getApiResult.id()))
+ *         var exampleGatewayApi = new GatewayApi("exampleGatewayApi", GatewayApiArgs.builder()        
+ *             .gatewayId(exampleGetGateway.applyValue(getGatewayResult -> getGatewayResult.id()))
+ *             .apiId(exampleGetApi.applyValue(getApiResult -> getApiResult.id()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

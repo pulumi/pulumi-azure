@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,17 +45,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AnomalyAlert(&#34;example&#34;, AnomalyAlertArgs.builder()        
- *             .name(&#34;alertname&#34;)
- *             .displayName(&#34;Alert DisplayName&#34;)
- *             .subscriptionId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000&#34;)
- *             .emailSubject(&#34;My Test Anomaly Alert&#34;)
- *             .emailAddresses(&#34;example@test.net&#34;)
+ *         var example = new AnomalyAlert("example", AnomalyAlertArgs.builder()        
+ *             .name("alertname")
+ *             .displayName("Alert DisplayName")
+ *             .subscriptionId("/subscriptions/00000000-0000-0000-0000-000000000000")
+ *             .emailSubject("My Test Anomaly Alert")
+ *             .emailAddresses("example{@literal @}test.net")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** This example uses Storage Accounts and Public IP&#39;s which are natively supported by this provider - we&#39;d highly recommend using the Native Resources where possible instead rather than an ARM Template, for the reasons outlined above.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,79 +51,80 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleTemplateDeployment = new TemplateDeployment(&#34;exampleTemplateDeployment&#34;, TemplateDeploymentArgs.builder()        
- *             .name(&#34;acctesttemplate-01&#34;)
+ *         var exampleTemplateDeployment = new TemplateDeployment("exampleTemplateDeployment", TemplateDeploymentArgs.builder()        
+ *             .name("acctesttemplate-01")
  *             .resourceGroupName(example.name())
- *             .templateBody(&#34;&#34;&#34;
+ *             .templateBody("""
  * {
- *   &#34;$schema&#34;: &#34;https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#&#34;,
- *   &#34;contentVersion&#34;: &#34;1.0.0.0&#34;,
- *   &#34;parameters&#34;: {
- *     &#34;storageAccountType&#34;: {
- *       &#34;type&#34;: &#34;string&#34;,
- *       &#34;defaultValue&#34;: &#34;Standard_LRS&#34;,
- *       &#34;allowedValues&#34;: [
- *         &#34;Standard_LRS&#34;,
- *         &#34;Standard_GRS&#34;,
- *         &#34;Standard_ZRS&#34;
+ *   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+ *   "contentVersion": "1.0.0.0",
+ *   "parameters": {
+ *     "storageAccountType": {
+ *       "type": "string",
+ *       "defaultValue": "Standard_LRS",
+ *       "allowedValues": [
+ *         "Standard_LRS",
+ *         "Standard_GRS",
+ *         "Standard_ZRS"
  *       ],
- *       &#34;metadata&#34;: {
- *         &#34;description&#34;: &#34;Storage Account type&#34;
+ *       "metadata": {
+ *         "description": "Storage Account type"
  *       }
  *     }
  *   },
- *   &#34;variables&#34;: {
- *     &#34;location&#34;: &#34;[resourceGroup().location]&#34;,
- *     &#34;storageAccountName&#34;: &#34;[concat(uniquestring(resourceGroup().id), &#39;storage&#39;)]&#34;,
- *     &#34;publicIPAddressName&#34;: &#34;[concat(&#39;myPublicIp&#39;, uniquestring(resourceGroup().id))]&#34;,
- *     &#34;publicIPAddressType&#34;: &#34;Dynamic&#34;,
- *     &#34;apiVersion&#34;: &#34;2015-06-15&#34;,
- *     &#34;dnsLabelPrefix&#34;: &#34;example-acctest&#34;
+ *   "variables": {
+ *     "location": "[resourceGroup().location]",
+ *     "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'storage')]",
+ *     "publicIPAddressName": "[concat('myPublicIp', uniquestring(resourceGroup().id))]",
+ *     "publicIPAddressType": "Dynamic",
+ *     "apiVersion": "2015-06-15",
+ *     "dnsLabelPrefix": "example-acctest"
  *   },
- *   &#34;resources&#34;: [
+ *   "resources": [
  *     {
- *       &#34;type&#34;: &#34;Microsoft.Storage/storageAccounts&#34;,
- *       &#34;name&#34;: &#34;[variables(&#39;storageAccountName&#39;)]&#34;,
- *       &#34;apiVersion&#34;: &#34;[variables(&#39;apiVersion&#39;)]&#34;,
- *       &#34;location&#34;: &#34;[variables(&#39;location&#39;)]&#34;,
- *       &#34;properties&#34;: {
- *         &#34;accountType&#34;: &#34;[parameters(&#39;storageAccountType&#39;)]&#34;
+ *       "type": "Microsoft.Storage/storageAccounts",
+ *       "name": "[variables('storageAccountName')]",
+ *       "apiVersion": "[variables('apiVersion')]",
+ *       "location": "[variables('location')]",
+ *       "properties": {
+ *         "accountType": "[parameters('storageAccountType')]"
  *       }
  *     },
  *     {
- *       &#34;type&#34;: &#34;Microsoft.Network/publicIPAddresses&#34;,
- *       &#34;apiVersion&#34;: &#34;[variables(&#39;apiVersion&#39;)]&#34;,
- *       &#34;name&#34;: &#34;[variables(&#39;publicIPAddressName&#39;)]&#34;,
- *       &#34;location&#34;: &#34;[variables(&#39;location&#39;)]&#34;,
- *       &#34;properties&#34;: {
- *         &#34;publicIPAllocationMethod&#34;: &#34;[variables(&#39;publicIPAddressType&#39;)]&#34;,
- *         &#34;dnsSettings&#34;: {
- *           &#34;domainNameLabel&#34;: &#34;[variables(&#39;dnsLabelPrefix&#39;)]&#34;
+ *       "type": "Microsoft.Network/publicIPAddresses",
+ *       "apiVersion": "[variables('apiVersion')]",
+ *       "name": "[variables('publicIPAddressName')]",
+ *       "location": "[variables('location')]",
+ *       "properties": {
+ *         "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
+ *         "dnsSettings": {
+ *           "domainNameLabel": "[variables('dnsLabelPrefix')]"
  *         }
  *       }
  *     }
  *   ],
- *   &#34;outputs&#34;: {
- *     &#34;storageAccountName&#34;: {
- *       &#34;type&#34;: &#34;string&#34;,
- *       &#34;value&#34;: &#34;[variables(&#39;storageAccountName&#39;)]&#34;
+ *   "outputs": {
+ *     "storageAccountName": {
+ *       "type": "string",
+ *       "value": "[variables('storageAccountName')]"
  *     }
  *   }
  * }
- *             &#34;&#34;&#34;)
- *             .parameters(Map.of(&#34;storageAccountType&#34;, &#34;Standard_GRS&#34;))
- *             .deploymentMode(&#34;Incremental&#34;)
+ *             """)
+ *             .parameters(Map.of("storageAccountType", "Standard_GRS"))
+ *             .deploymentMode("Incremental")
  *             .build());
  * 
- *         ctx.export(&#34;storageAccountName&#34;, exampleTemplateDeployment.outputs().applyValue(outputs -&gt; outputs.storageAccountName()));
+ *         ctx.export("storageAccountName", exampleTemplateDeployment.outputs().applyValue(outputs -> outputs.storageAccountName()));
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Note

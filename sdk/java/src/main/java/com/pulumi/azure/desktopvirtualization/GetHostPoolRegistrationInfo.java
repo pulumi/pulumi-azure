@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,28 +46,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-hostpool&#34;)
- *             .location(&#34;westeurope&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-hostpool")
+ *             .location("westeurope")
  *             .build());
  * 
- *         var exampleHostPool = new HostPool(&#34;exampleHostPool&#34;, HostPoolArgs.builder()        
- *             .name(&#34;example-HP&#34;)
+ *         var exampleHostPool = new HostPool("exampleHostPool", HostPoolArgs.builder()        
+ *             .name("example-HP")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .type(&#34;Pooled&#34;)
+ *             .type("Pooled")
  *             .validateEnvironment(true)
- *             .loadBalancerType(&#34;BreadthFirst&#34;)
+ *             .loadBalancerType("BreadthFirst")
  *             .build());
  * 
- *         var exampleGetHostPoolRegistrationInfo = new GetHostPoolRegistrationInfo(&#34;exampleGetHostPoolRegistrationInfo&#34;, GetHostPoolRegistrationInfoArgs.builder()        
+ *         var exampleGetHostPoolRegistrationInfo = new GetHostPoolRegistrationInfo("exampleGetHostPoolRegistrationInfo", GetHostPoolRegistrationInfoArgs.builder()        
  *             .hostpoolId(exampleHostPool.id())
- *             .expirationDate(&#34;2022-01-01T23:40:52Z&#34;)
+ *             .expirationDate("2022-01-01T23:40:52Z")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

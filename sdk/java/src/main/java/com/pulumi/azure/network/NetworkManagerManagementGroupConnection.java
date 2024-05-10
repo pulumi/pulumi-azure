@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,52 +54,53 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Group(&#34;example&#34;);
+ *         var example = new Group("example");
  * 
  *         final var alt = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
- *             .subscriptionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
+ *             .subscriptionId("00000000-0000-0000-0000-000000000000")
  *             .build());
  * 
- *         var exampleGroupSubscriptionAssociation = new GroupSubscriptionAssociation(&#34;exampleGroupSubscriptionAssociation&#34;, GroupSubscriptionAssociationArgs.builder()        
+ *         var exampleGroupSubscriptionAssociation = new GroupSubscriptionAssociation("exampleGroupSubscriptionAssociation", GroupSubscriptionAssociationArgs.builder()        
  *             .managementGroupId(example.id())
- *             .subscriptionId(alt.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+ *             .subscriptionId(alt.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *             .build());
  * 
  *         final var current = CoreFunctions.getSubscription();
  * 
  *         final var currentGetClientConfig = CoreFunctions.getClientConfig();
  * 
- *         var networkContributor = new Assignment(&#34;networkContributor&#34;, AssignmentArgs.builder()        
+ *         var networkContributor = new Assignment("networkContributor", AssignmentArgs.builder()        
  *             .scope(example.id())
- *             .roleDefinitionName(&#34;Network Contributor&#34;)
- *             .principalId(currentGetClientConfig.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .roleDefinitionName("Network Contributor")
+ *             .principalId(currentGetClientConfig.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *             .build());
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleNetworkManager = new NetworkManager(&#34;exampleNetworkManager&#34;, NetworkManagerArgs.builder()        
- *             .name(&#34;example-networkmanager&#34;)
+ *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()        
+ *             .name("example-networkmanager")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .scope(NetworkManagerScopeArgs.builder()
- *                 .subscriptionIds(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+ *                 .subscriptionIds(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *                 .build())
- *             .scopeAccesses(&#34;SecurityAdmin&#34;)
+ *             .scopeAccesses("SecurityAdmin")
  *             .build());
  * 
- *         var exampleNetworkManagerManagementGroupConnection = new NetworkManagerManagementGroupConnection(&#34;exampleNetworkManagerManagementGroupConnection&#34;, NetworkManagerManagementGroupConnectionArgs.builder()        
- *             .name(&#34;example-nmmgc&#34;)
+ *         var exampleNetworkManagerManagementGroupConnection = new NetworkManagerManagementGroupConnection("exampleNetworkManagerManagementGroupConnection", NetworkManagerManagementGroupConnectionArgs.builder()        
+ *             .name("example-nmmgc")
  *             .managementGroupId(example.id())
  *             .networkManagerId(exampleNetworkManager.id())
- *             .description(&#34;example&#34;)
+ *             .description("example")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

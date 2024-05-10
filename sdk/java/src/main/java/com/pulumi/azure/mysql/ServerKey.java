@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,91 +57,92 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;examplekv&#34;)
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("examplekv")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .skuName(&#34;premium&#34;)
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .skuName("premium")
  *             .purgeProtectionEnabled(true)
  *             .build());
  * 
- *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
- *             .name(&#34;example-mysql-server&#34;)
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+ *             .name("example-mysql-server")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;GP_Gen5_2&#34;)
- *             .administratorLogin(&#34;acctestun&#34;)
- *             .administratorLoginPassword(&#34;H@Sh1CoR3!&#34;)
+ *             .skuName("GP_Gen5_2")
+ *             .administratorLogin("acctestun")
+ *             .administratorLoginPassword("H{@literal @}Sh1CoR3!")
  *             .sslEnforcementEnabled(true)
- *             .sslMinimalTlsVersionEnforced(&#34;TLS1_1&#34;)
+ *             .sslMinimalTlsVersionEnforced("TLS1_1")
  *             .storageMb(51200)
- *             .version(&#34;5.7&#34;)
+ *             .version("5.7")
  *             .identity(ServerIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
- *         var server = new AccessPolicy(&#34;server&#34;, AccessPolicyArgs.builder()        
+ *         var server = new AccessPolicy("server", AccessPolicyArgs.builder()        
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .objectId(exampleServer.identity().applyValue(identity -&gt; identity.principalId()))
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .objectId(exampleServer.identity().applyValue(identity -> identity.principalId()))
  *             .keyPermissions(            
- *                 &#34;Get&#34;,
- *                 &#34;UnwrapKey&#34;,
- *                 &#34;WrapKey&#34;)
- *             .secretPermissions(&#34;Get&#34;)
+ *                 "Get",
+ *                 "UnwrapKey",
+ *                 "WrapKey")
+ *             .secretPermissions("Get")
  *             .build());
  * 
- *         var client = new AccessPolicy(&#34;client&#34;, AccessPolicyArgs.builder()        
+ *         var client = new AccessPolicy("client", AccessPolicyArgs.builder()        
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *             .keyPermissions(            
- *                 &#34;Get&#34;,
- *                 &#34;Create&#34;,
- *                 &#34;Delete&#34;,
- *                 &#34;List&#34;,
- *                 &#34;Restore&#34;,
- *                 &#34;Recover&#34;,
- *                 &#34;UnwrapKey&#34;,
- *                 &#34;WrapKey&#34;,
- *                 &#34;Purge&#34;,
- *                 &#34;Encrypt&#34;,
- *                 &#34;Decrypt&#34;,
- *                 &#34;Sign&#34;,
- *                 &#34;Verify&#34;,
- *                 &#34;GetRotationPolicy&#34;)
- *             .secretPermissions(&#34;Get&#34;)
+ *                 "Get",
+ *                 "Create",
+ *                 "Delete",
+ *                 "List",
+ *                 "Restore",
+ *                 "Recover",
+ *                 "UnwrapKey",
+ *                 "WrapKey",
+ *                 "Purge",
+ *                 "Encrypt",
+ *                 "Decrypt",
+ *                 "Sign",
+ *                 "Verify",
+ *                 "GetRotationPolicy")
+ *             .secretPermissions("Get")
  *             .build());
  * 
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
- *             .name(&#34;tfex-key&#34;)
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *             .name("tfex-key")
  *             .keyVaultId(exampleKeyVault.id())
- *             .keyType(&#34;RSA&#34;)
+ *             .keyType("RSA")
  *             .keySize(2048)
  *             .keyOpts(            
- *                 &#34;decrypt&#34;,
- *                 &#34;encrypt&#34;,
- *                 &#34;sign&#34;,
- *                 &#34;unwrapKey&#34;,
- *                 &#34;verify&#34;,
- *                 &#34;wrapKey&#34;)
+ *                 "decrypt",
+ *                 "encrypt",
+ *                 "sign",
+ *                 "unwrapKey",
+ *                 "verify",
+ *                 "wrapKey")
  *             .build());
  * 
- *         var exampleServerKey = new ServerKey(&#34;exampleServerKey&#34;, ServerKeyArgs.builder()        
+ *         var exampleServerKey = new ServerKey("exampleServerKey", ServerKeyArgs.builder()        
  *             .serverId(exampleServer.id())
  *             .keyVaultKeyId(exampleKey.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

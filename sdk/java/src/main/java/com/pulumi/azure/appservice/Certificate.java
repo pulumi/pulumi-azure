@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * This example provisions an App Service Certificate from a Local File.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,24 +48,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleCertificate = new Certificate(&#34;exampleCertificate&#34;, CertificateArgs.builder()        
- *             .name(&#34;example-cert&#34;)
+ *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()        
+ *             .name("example-cert")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .pfxBlob(StdFunctions.filebase64(Filebase64Args.builder()
- *                 .input(&#34;certificate.pfx&#34;)
+ *                 .input("certificate.pfx")
  *                 .build()).result())
- *             .password(&#34;password123!&#34;)
+ *             .password("password123!")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

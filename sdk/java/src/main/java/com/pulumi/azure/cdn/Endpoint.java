@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,32 +56,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleProfile = new Profile(&#34;exampleProfile&#34;, ProfileArgs.builder()        
- *             .name(&#34;example-cdn&#34;)
+ *         var exampleProfile = new Profile("exampleProfile", ProfileArgs.builder()        
+ *             .name("example-cdn")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;Standard_Verizon&#34;)
+ *             .sku("Standard_Verizon")
  *             .build());
  * 
- *         var exampleEndpoint = new Endpoint(&#34;exampleEndpoint&#34;, EndpointArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()        
+ *             .name("example")
  *             .profileName(exampleProfile.name())
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .origins(EndpointOriginArgs.builder()
- *                 .name(&#34;example&#34;)
- *                 .hostName(&#34;www.contoso.com&#34;)
+ *                 .name("example")
+ *                 .hostName("www.contoso.com")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

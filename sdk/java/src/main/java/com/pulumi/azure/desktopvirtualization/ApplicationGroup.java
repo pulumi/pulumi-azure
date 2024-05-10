@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,51 +47,52 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;rg-example-virtualdesktop&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("rg-example-virtualdesktop")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var pooledbreadthfirst = new HostPool(&#34;pooledbreadthfirst&#34;, HostPoolArgs.builder()        
- *             .name(&#34;pooledbreadthfirst&#34;)
+ *         var pooledbreadthfirst = new HostPool("pooledbreadthfirst", HostPoolArgs.builder()        
+ *             .name("pooledbreadthfirst")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .type(&#34;Pooled&#34;)
- *             .loadBalancerType(&#34;BreadthFirst&#34;)
+ *             .type("Pooled")
+ *             .loadBalancerType("BreadthFirst")
  *             .build());
  * 
- *         var personalautomatic = new HostPool(&#34;personalautomatic&#34;, HostPoolArgs.builder()        
- *             .name(&#34;personalautomatic&#34;)
+ *         var personalautomatic = new HostPool("personalautomatic", HostPoolArgs.builder()        
+ *             .name("personalautomatic")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .type(&#34;Personal&#34;)
- *             .personalDesktopAssignmentType(&#34;Automatic&#34;)
- *             .loadBalancerType(&#34;BreadthFirst&#34;)
+ *             .type("Personal")
+ *             .personalDesktopAssignmentType("Automatic")
+ *             .loadBalancerType("BreadthFirst")
  *             .build());
  * 
- *         var remoteapp = new ApplicationGroup(&#34;remoteapp&#34;, ApplicationGroupArgs.builder()        
- *             .name(&#34;acctag&#34;)
+ *         var remoteapp = new ApplicationGroup("remoteapp", ApplicationGroupArgs.builder()        
+ *             .name("acctag")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .type(&#34;RemoteApp&#34;)
+ *             .type("RemoteApp")
  *             .hostPoolId(pooledbreadthfirst.id())
- *             .friendlyName(&#34;TestAppGroup&#34;)
- *             .description(&#34;Acceptance Test: An application group&#34;)
+ *             .friendlyName("TestAppGroup")
+ *             .description("Acceptance Test: An application group")
  *             .build());
  * 
- *         var desktopapp = new ApplicationGroup(&#34;desktopapp&#34;, ApplicationGroupArgs.builder()        
- *             .name(&#34;appgroupdesktop&#34;)
+ *         var desktopapp = new ApplicationGroup("desktopapp", ApplicationGroupArgs.builder()        
+ *             .name("appgroupdesktop")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .type(&#34;Desktop&#34;)
+ *             .type("Desktop")
  *             .hostPoolId(personalautomatic.id())
- *             .friendlyName(&#34;TestAppGroup&#34;)
- *             .description(&#34;Acceptance Test: An application group&#34;)
+ *             .friendlyName("TestAppGroup")
+ *             .description("Acceptance Test: An application group")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

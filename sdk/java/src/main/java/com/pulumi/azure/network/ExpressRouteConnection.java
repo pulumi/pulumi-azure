@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -61,74 +62,75 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualWan = new VirtualWan(&#34;exampleVirtualWan&#34;, VirtualWanArgs.builder()        
- *             .name(&#34;example-vwan&#34;)
+ *         var exampleVirtualWan = new VirtualWan("exampleVirtualWan", VirtualWanArgs.builder()        
+ *             .name("example-vwan")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleVirtualHub = new VirtualHub(&#34;exampleVirtualHub&#34;, VirtualHubArgs.builder()        
- *             .name(&#34;example-vhub&#34;)
+ *         var exampleVirtualHub = new VirtualHub("exampleVirtualHub", VirtualHubArgs.builder()        
+ *             .name("example-vhub")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .virtualWanId(exampleVirtualWan.id())
- *             .addressPrefix(&#34;10.0.1.0/24&#34;)
+ *             .addressPrefix("10.0.1.0/24")
  *             .build());
  * 
- *         var exampleExpressRouteGateway = new ExpressRouteGateway(&#34;exampleExpressRouteGateway&#34;, ExpressRouteGatewayArgs.builder()        
- *             .name(&#34;example-expressroutegateway&#34;)
+ *         var exampleExpressRouteGateway = new ExpressRouteGateway("exampleExpressRouteGateway", ExpressRouteGatewayArgs.builder()        
+ *             .name("example-expressroutegateway")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .virtualHubId(exampleVirtualHub.id())
  *             .scaleUnits(1)
  *             .build());
  * 
- *         var exampleExpressRoutePort = new ExpressRoutePort(&#34;exampleExpressRoutePort&#34;, ExpressRoutePortArgs.builder()        
- *             .name(&#34;example-erp&#34;)
+ *         var exampleExpressRoutePort = new ExpressRoutePort("exampleExpressRoutePort", ExpressRoutePortArgs.builder()        
+ *             .name("example-erp")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .peeringLocation(&#34;Equinix-Seattle-SE2&#34;)
+ *             .peeringLocation("Equinix-Seattle-SE2")
  *             .bandwidthInGbps(10)
- *             .encapsulation(&#34;Dot1Q&#34;)
+ *             .encapsulation("Dot1Q")
  *             .build());
  * 
- *         var exampleExpressRouteCircuit = new ExpressRouteCircuit(&#34;exampleExpressRouteCircuit&#34;, ExpressRouteCircuitArgs.builder()        
- *             .name(&#34;example-erc&#34;)
+ *         var exampleExpressRouteCircuit = new ExpressRouteCircuit("exampleExpressRouteCircuit", ExpressRouteCircuitArgs.builder()        
+ *             .name("example-erc")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .expressRoutePortId(exampleExpressRoutePort.id())
  *             .bandwidthInGbps(5)
  *             .sku(ExpressRouteCircuitSkuArgs.builder()
- *                 .tier(&#34;Standard&#34;)
- *                 .family(&#34;MeteredData&#34;)
+ *                 .tier("Standard")
+ *                 .family("MeteredData")
  *                 .build())
  *             .build());
  * 
- *         var exampleExpressRouteCircuitPeering = new ExpressRouteCircuitPeering(&#34;exampleExpressRouteCircuitPeering&#34;, ExpressRouteCircuitPeeringArgs.builder()        
- *             .peeringType(&#34;AzurePrivatePeering&#34;)
+ *         var exampleExpressRouteCircuitPeering = new ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering", ExpressRouteCircuitPeeringArgs.builder()        
+ *             .peeringType("AzurePrivatePeering")
  *             .expressRouteCircuitName(exampleExpressRouteCircuit.name())
  *             .resourceGroupName(example.name())
- *             .sharedKey(&#34;ItsASecret&#34;)
+ *             .sharedKey("ItsASecret")
  *             .peerAsn(100)
- *             .primaryPeerAddressPrefix(&#34;192.168.1.0/30&#34;)
- *             .secondaryPeerAddressPrefix(&#34;192.168.2.0/30&#34;)
+ *             .primaryPeerAddressPrefix("192.168.1.0/30")
+ *             .secondaryPeerAddressPrefix("192.168.2.0/30")
  *             .vlanId(100)
  *             .build());
  * 
- *         var exampleExpressRouteConnection = new ExpressRouteConnection(&#34;exampleExpressRouteConnection&#34;, ExpressRouteConnectionArgs.builder()        
- *             .name(&#34;example-expressrouteconn&#34;)
+ *         var exampleExpressRouteConnection = new ExpressRouteConnection("exampleExpressRouteConnection", ExpressRouteConnectionArgs.builder()        
+ *             .name("example-expressrouteconn")
  *             .expressRouteGatewayId(exampleExpressRouteGateway.id())
  *             .expressRouteCircuitPeeringId(exampleExpressRouteCircuitPeering.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

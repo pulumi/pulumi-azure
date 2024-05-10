@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -58,57 +59,57 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-automanage&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-automanage")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleConfiguration = new Configuration(&#34;exampleConfiguration&#34;, ConfigurationArgs.builder()        
- *             .name(&#34;example-acmp&#34;)
+ *         var exampleConfiguration = new Configuration("exampleConfiguration", ConfigurationArgs.builder()        
+ *             .name("example-acmp")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .antimalware(ConfigurationAntimalwareArgs.builder()
  *                 .exclusions(ConfigurationAntimalwareExclusionsArgs.builder()
- *                     .extensions(&#34;exe;dll&#34;)
- *                     .paths(&#34;C:\\Windows\\Temp;D:\\Temp&#34;)
- *                     .processes(&#34;svchost.exe;notepad.exe&#34;)
+ *                     .extensions("exe;dll")
+ *                     .paths("C:\\Windows\\Temp;D:\\Temp")
+ *                     .processes("svchost.exe;notepad.exe")
  *                     .build())
  *                 .realTimeProtectionEnabled(true)
  *                 .scheduledScanEnabled(true)
- *                 .scheduledScanType(&#34;Quick&#34;)
+ *                 .scheduledScanType("Quick")
  *                 .scheduledScanDay(1)
  *                 .scheduledScanTimeInMinutes(1339)
  *                 .build())
  *             .azureSecurityBaseline(ConfigurationAzureSecurityBaselineArgs.builder()
- *                 .assignmentType(&#34;ApplyAndAutoCorrect&#34;)
+ *                 .assignmentType("ApplyAndAutoCorrect")
  *                 .build())
  *             .automationAccountEnabled(true)
  *             .backup(ConfigurationBackupArgs.builder()
- *                 .policyName(&#34;acctest-backup-policy-%d&#34;)
- *                 .timeZone(&#34;UTC&#34;)
+ *                 .policyName("acctest-backup-policy-%d")
+ *                 .timeZone("UTC")
  *                 .instantRpRetentionRangeInDays(2)
  *                 .schedulePolicy(ConfigurationBackupSchedulePolicyArgs.builder()
- *                     .scheduleRunFrequency(&#34;Daily&#34;)
+ *                     .scheduleRunFrequency("Daily")
  *                     .scheduleRunDays(                    
- *                         &#34;Monday&#34;,
- *                         &#34;Tuesday&#34;)
- *                     .scheduleRunTimes(&#34;12:00&#34;)
- *                     .schedulePolicyType(&#34;SimpleSchedulePolicy&#34;)
+ *                         "Monday",
+ *                         "Tuesday")
+ *                     .scheduleRunTimes("12:00")
+ *                     .schedulePolicyType("SimpleSchedulePolicy")
  *                     .build())
  *                 .retentionPolicy(ConfigurationBackupRetentionPolicyArgs.builder()
- *                     .retentionPolicyType(&#34;LongTermRetentionPolicy&#34;)
+ *                     .retentionPolicyType("LongTermRetentionPolicy")
  *                     .dailySchedule(ConfigurationBackupRetentionPolicyDailyScheduleArgs.builder()
- *                         .retentionTimes(&#34;12:00&#34;)
+ *                         .retentionTimes("12:00")
  *                         .retentionDuration(ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs.builder()
  *                             .count(7)
- *                             .durationType(&#34;Days&#34;)
+ *                             .durationType("Days")
  *                             .build())
  *                         .build())
  *                     .weeklySchedule(ConfigurationBackupRetentionPolicyWeeklyScheduleArgs.builder()
- *                         .retentionTimes(&#34;14:00&#34;)
+ *                         .retentionTimes("14:00")
  *                         .retentionDuration(ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs.builder()
  *                             .count(4)
- *                             .durationType(&#34;Weeks&#34;)
+ *                             .durationType("Weeks")
  *                             .build())
  *                         .build())
  *                     .build())
@@ -118,12 +119,13 @@ import javax.annotation.Nullable;
  *             .guestConfigurationEnabled(true)
  *             .logAnalyticsEnabled(true)
  *             .statusChangeAlertEnabled(true)
- *             .tags(Map.of(&#34;env&#34;, &#34;test&#34;))
+ *             .tags(Map.of("env", "test"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

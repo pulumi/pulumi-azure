@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,62 +56,63 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleIoTHub = new IoTHub(&#34;exampleIoTHub&#34;, IoTHubArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .sku(IoTHubSkuArgs.builder()
- *                 .name(&#34;B1&#34;)
- *                 .capacity(&#34;1&#34;)
+ *                 .name("B1")
+ *                 .capacity("1")
  *                 .build())
  *             .build());
  * 
- *         var exampleConsumerGroup = new ConsumerGroup(&#34;exampleConsumerGroup&#34;, ConsumerGroupArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleConsumerGroup = new ConsumerGroup("exampleConsumerGroup", ConsumerGroupArgs.builder()        
+ *             .name("example")
  *             .iothubName(exampleIoTHub.name())
- *             .eventhubEndpointName(&#34;events&#34;)
+ *             .eventhubEndpointName("events")
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var storage = new Account(&#34;storage&#34;, AccountArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var storage = new Account("storage", AccountArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleTimeSeriesInsightsGen2Environment = new TimeSeriesInsightsGen2Environment(&#34;exampleTimeSeriesInsightsGen2Environment&#34;, TimeSeriesInsightsGen2EnvironmentArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleTimeSeriesInsightsGen2Environment = new TimeSeriesInsightsGen2Environment("exampleTimeSeriesInsightsGen2Environment", TimeSeriesInsightsGen2EnvironmentArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;L1&#34;)
- *             .idProperties(&#34;id&#34;)
+ *             .skuName("L1")
+ *             .idProperties("id")
  *             .storage(TimeSeriesInsightsGen2EnvironmentStorageArgs.builder()
  *                 .name(storage.name())
  *                 .key(storage.primaryAccessKey())
  *                 .build())
  *             .build());
  * 
- *         var exampleTimeSeriesInsightsEventSourceIothub = new TimeSeriesInsightsEventSourceIothub(&#34;exampleTimeSeriesInsightsEventSourceIothub&#34;, TimeSeriesInsightsEventSourceIothubArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleTimeSeriesInsightsEventSourceIothub = new TimeSeriesInsightsEventSourceIothub("exampleTimeSeriesInsightsEventSourceIothub", TimeSeriesInsightsEventSourceIothubArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .environmentId(exampleTimeSeriesInsightsGen2Environment.id())
  *             .iothubName(exampleIoTHub.name())
- *             .sharedAccessKey(exampleIoTHub.sharedAccessPolicies().applyValue(sharedAccessPolicies -&gt; sharedAccessPolicies[0].primaryKey()))
- *             .sharedAccessKeyName(exampleIoTHub.sharedAccessPolicies().applyValue(sharedAccessPolicies -&gt; sharedAccessPolicies[0].keyName()))
+ *             .sharedAccessKey(exampleIoTHub.sharedAccessPolicies().applyValue(sharedAccessPolicies -> sharedAccessPolicies[0].primaryKey()))
+ *             .sharedAccessKeyName(exampleIoTHub.sharedAccessPolicies().applyValue(sharedAccessPolicies -> sharedAccessPolicies[0].keyName()))
  *             .consumerGroupName(exampleConsumerGroup.name())
  *             .eventSourceResourceId(exampleIoTHub.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

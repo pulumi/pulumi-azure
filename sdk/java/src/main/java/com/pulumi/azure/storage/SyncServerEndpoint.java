@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,51 +55,52 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleSync = new Sync(&#34;exampleSync&#34;, SyncArgs.builder()        
- *             .name(&#34;example-storage-sync&#34;)
+ *         var exampleSync = new Sync("exampleSync", SyncArgs.builder()        
+ *             .name("example-storage-sync")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleSyncGroup = new SyncGroup(&#34;exampleSyncGroup&#34;, SyncGroupArgs.builder()        
- *             .name(&#34;example-storage-sync-group&#34;)
+ *         var exampleSyncGroup = new SyncGroup("exampleSyncGroup", SyncGroupArgs.builder()        
+ *             .name("example-storage-sync-group")
  *             .storageSyncId(exampleSync.id())
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;example-storage-account&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("example-storage-account")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleShare = new Share(&#34;exampleShare&#34;, ShareArgs.builder()        
- *             .name(&#34;example-storage-share&#34;)
+ *         var exampleShare = new Share("exampleShare", ShareArgs.builder()        
+ *             .name("example-storage-share")
  *             .storageAccountName(exampleAccount.name())
  *             .quota(1)
  *             .acls(ShareAclArgs.builder()
- *                 .id(&#34;GhostedRecall&#34;)
+ *                 .id("GhostedRecall")
  *                 .accessPolicies(ShareAclAccessPolicyArgs.builder()
- *                     .permissions(&#34;r&#34;)
+ *                     .permissions("r")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleSyncServerEndpoint = new SyncServerEndpoint(&#34;exampleSyncServerEndpoint&#34;, SyncServerEndpointArgs.builder()        
- *             .name(&#34;example-storage-sync-server-endpoint&#34;)
+ *         var exampleSyncServerEndpoint = new SyncServerEndpoint("exampleSyncServerEndpoint", SyncServerEndpointArgs.builder()        
+ *             .name("example-storage-sync-server-endpoint")
  *             .storageSyncGroupId(exampleSyncGroup.id())
- *             .registeredServerId(exampleSync.registeredServers().applyValue(registeredServers -&gt; registeredServers[0]))
+ *             .registeredServerId(exampleSync.registeredServers().applyValue(registeredServers -> registeredServers[0]))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

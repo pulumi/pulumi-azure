@@ -37,7 +37,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -71,37 +72,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;hdinsightstor&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("hdinsightstor")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleContainer = new Container(&#34;exampleContainer&#34;, ContainerArgs.builder()        
- *             .name(&#34;hdinsight&#34;)
+ *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()        
+ *             .name("hdinsight")
  *             .storageAccountName(exampleAccount.name())
- *             .containerAccessType(&#34;private&#34;)
+ *             .containerAccessType("private")
  *             .build());
  * 
- *         var exampleKafkaCluster = new KafkaCluster(&#34;exampleKafkaCluster&#34;, KafkaClusterArgs.builder()        
- *             .name(&#34;example-hdicluster&#34;)
+ *         var exampleKafkaCluster = new KafkaCluster("exampleKafkaCluster", KafkaClusterArgs.builder()        
+ *             .name("example-hdicluster")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .clusterVersion(&#34;4.0&#34;)
- *             .tier(&#34;Standard&#34;)
+ *             .clusterVersion("4.0")
+ *             .tier("Standard")
  *             .componentVersion(KafkaClusterComponentVersionArgs.builder()
- *                 .kafka(&#34;2.1&#34;)
+ *                 .kafka("2.1")
  *                 .build())
  *             .gateway(KafkaClusterGatewayArgs.builder()
- *                 .username(&#34;acctestusrgw&#34;)
- *                 .password(&#34;Password123!&#34;)
+ *                 .username("acctestusrgw")
+ *                 .password("Password123!")
  *                 .build())
  *             .storageAccounts(KafkaClusterStorageAccountArgs.builder()
  *                 .storageContainerId(exampleContainer.id())
@@ -110,28 +111,29 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .roles(KafkaClusterRolesArgs.builder()
  *                 .headNode(KafkaClusterRolesHeadNodeArgs.builder()
- *                     .vmSize(&#34;Standard_D3_V2&#34;)
- *                     .username(&#34;acctestusrvm&#34;)
- *                     .password(&#34;AccTestvdSC4daf986!&#34;)
+ *                     .vmSize("Standard_D3_V2")
+ *                     .username("acctestusrvm")
+ *                     .password("AccTestvdSC4daf986!")
  *                     .build())
  *                 .workerNode(KafkaClusterRolesWorkerNodeArgs.builder()
- *                     .vmSize(&#34;Standard_D3_V2&#34;)
- *                     .username(&#34;acctestusrvm&#34;)
- *                     .password(&#34;AccTestvdSC4daf986!&#34;)
+ *                     .vmSize("Standard_D3_V2")
+ *                     .username("acctestusrvm")
+ *                     .password("AccTestvdSC4daf986!")
  *                     .numberOfDisksPerNode(3)
  *                     .targetInstanceCount(3)
  *                     .build())
  *                 .zookeeperNode(KafkaClusterRolesZookeeperNodeArgs.builder()
- *                     .vmSize(&#34;Standard_D3_V2&#34;)
- *                     .username(&#34;acctestusrvm&#34;)
- *                     .password(&#34;AccTestvdSC4daf986!&#34;)
+ *                     .vmSize("Standard_D3_V2")
+ *                     .username("acctestusrvm")
+ *                     .password("AccTestvdSC4daf986!")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

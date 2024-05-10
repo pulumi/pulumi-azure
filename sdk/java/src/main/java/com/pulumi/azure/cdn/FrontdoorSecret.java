@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -69,62 +70,62 @@ import javax.annotation.Nullable;
  *         final var current = CoreFunctions.getClientConfig();
  * 
  *         final var frontdoor = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
- *             .displayName(&#34;Microsoft.Azure.Cdn&#34;)
+ *             .displayName("Microsoft.Azure.Cdn")
  *             .build());
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-cdn-frontdoor&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-cdn-frontdoor")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;example-keyvault&#34;)
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("example-keyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .skuName(&#34;premium&#34;)
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .skuName("premium")
  *             .softDeleteRetentionDays(7)
  *             .networkAcls(KeyVaultNetworkAclsArgs.builder()
- *                 .defaultAction(&#34;Deny&#34;)
- *                 .bypass(&#34;AzureServices&#34;)
- *                 .ipRules(&#34;10.0.0.0/24&#34;)
+ *                 .defaultAction("Deny")
+ *                 .bypass("AzureServices")
+ *                 .ipRules("10.0.0.0/24")
  *                 .build())
  *             .accessPolicies(            
  *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *                     .objectId(frontdoor.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.objectId()))
- *                     .secretPermissions(&#34;Get&#34;)
+ *                     .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *                     .objectId(frontdoor.applyValue(getServicePrincipalResult -> getServicePrincipalResult.objectId()))
+ *                     .secretPermissions("Get")
  *                     .build(),
  *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *                     .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *                     .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *                     .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *                     .certificatePermissions(                    
- *                         &#34;Get&#34;,
- *                         &#34;Import&#34;,
- *                         &#34;Delete&#34;,
- *                         &#34;Purge&#34;)
- *                     .secretPermissions(&#34;Get&#34;)
+ *                         "Get",
+ *                         "Import",
+ *                         "Delete",
+ *                         "Purge")
+ *                     .secretPermissions("Get")
  *                     .build())
  *             .build());
  * 
- *         var exampleCertificate = new Certificate(&#34;exampleCertificate&#34;, CertificateArgs.builder()        
- *             .name(&#34;example-cert&#34;)
+ *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()        
+ *             .name("example-cert")
  *             .keyVaultId(exampleKeyVault.id())
  *             .certificate(CertificateCertificateArgs.builder()
  *                 .contents(StdFunctions.filebase64(Filebase64Args.builder()
- *                     .input(&#34;my-certificate.pfx&#34;)
+ *                     .input("my-certificate.pfx")
  *                     .build()).result())
  *                 .build())
  *             .build());
  * 
- *         var exampleFrontdoorProfile = new FrontdoorProfile(&#34;exampleFrontdoorProfile&#34;, FrontdoorProfileArgs.builder()        
- *             .name(&#34;example-cdn-profile&#34;)
+ *         var exampleFrontdoorProfile = new FrontdoorProfile("exampleFrontdoorProfile", FrontdoorProfileArgs.builder()        
+ *             .name("example-cdn-profile")
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;Standard_AzureFrontDoor&#34;)
+ *             .skuName("Standard_AzureFrontDoor")
  *             .build());
  * 
- *         var exampleFrontdoorSecret = new FrontdoorSecret(&#34;exampleFrontdoorSecret&#34;, FrontdoorSecretArgs.builder()        
- *             .name(&#34;example-customer-managed-secret&#34;)
+ *         var exampleFrontdoorSecret = new FrontdoorSecret("exampleFrontdoorSecret", FrontdoorSecretArgs.builder()        
+ *             .name("example-customer-managed-secret")
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .secret(FrontdoorSecretSecretArgs.builder()
  *                 .customerCertificates(FrontdoorSecretSecretCustomerCertificateArgs.builder()
@@ -135,7 +136,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

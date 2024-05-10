@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,59 +57,60 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-rg&#34;)
- *             .location(&#34;west europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("example-rg")
+ *             .location("west europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;GRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("GRS")
  *             .build());
  * 
- *         var exampleProfile = new Profile(&#34;exampleProfile&#34;, ProfileArgs.builder()        
- *             .name(&#34;example-profile&#34;)
+ *         var exampleProfile = new Profile("exampleProfile", ProfileArgs.builder()        
+ *             .name("example-profile")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .sku(&#34;Standard_Verizon&#34;)
+ *             .sku("Standard_Verizon")
  *             .build());
  * 
- *         var exampleEndpoint = new Endpoint(&#34;exampleEndpoint&#34;, EndpointArgs.builder()        
- *             .name(&#34;example-endpoint&#34;)
+ *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()        
+ *             .name("example-endpoint")
  *             .profileName(exampleProfile.name())
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .origins(EndpointOriginArgs.builder()
- *                 .name(&#34;example&#34;)
+ *                 .name("example")
  *                 .hostName(exampleAccount.primaryBlobHost())
  *                 .build())
  *             .build());
  * 
  *         final var example = DnsFunctions.getZone(GetZoneArgs.builder()
- *             .name(&#34;example-domain.com&#34;)
- *             .resourceGroupName(&#34;domain-rg&#34;)
+ *             .name("example-domain.com")
+ *             .resourceGroupName("domain-rg")
  *             .build());
  * 
- *         var exampleCNameRecord = new CNameRecord(&#34;exampleCNameRecord&#34;, CNameRecordArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .zoneName(example.applyValue(getZoneResult -&gt; getZoneResult.name()))
- *             .resourceGroupName(example.applyValue(getZoneResult -&gt; getZoneResult.resourceGroupName()))
+ *         var exampleCNameRecord = new CNameRecord("exampleCNameRecord", CNameRecordArgs.builder()        
+ *             .name("example")
+ *             .zoneName(example.applyValue(getZoneResult -> getZoneResult.name()))
+ *             .resourceGroupName(example.applyValue(getZoneResult -> getZoneResult.resourceGroupName()))
  *             .ttl(3600)
  *             .targetResourceId(exampleEndpoint.id())
  *             .build());
  * 
- *         var exampleEndpointCustomDomain = new EndpointCustomDomain(&#34;exampleEndpointCustomDomain&#34;, EndpointCustomDomainArgs.builder()        
- *             .name(&#34;example-domain&#34;)
+ *         var exampleEndpointCustomDomain = new EndpointCustomDomain("exampleEndpointCustomDomain", EndpointCustomDomainArgs.builder()        
+ *             .name("example-domain")
  *             .cdnEndpointId(exampleEndpoint.id())
- *             .hostName(exampleCNameRecord.name().applyValue(name -&gt; String.format(&#34;%s.%s&#34;, name,example.applyValue(getZoneResult -&gt; getZoneResult.name()))))
+ *             .hostName(exampleCNameRecord.name().applyValue(name -> String.format("%s.%s", name,example.applyValue(getZoneResult -> getZoneResult.name()))))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

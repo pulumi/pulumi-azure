@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,35 +48,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PolicySetDefinition(&#34;example&#34;, PolicySetDefinitionArgs.builder()        
- *             .name(&#34;testPolicySet&#34;)
- *             .policyType(&#34;Custom&#34;)
- *             .displayName(&#34;Test Policy Set&#34;)
- *             .parameters(&#34;&#34;&#34;
+ *         var example = new PolicySetDefinition("example", PolicySetDefinitionArgs.builder()        
+ *             .name("testPolicySet")
+ *             .policyType("Custom")
+ *             .displayName("Test Policy Set")
+ *             .parameters("""
  *     {
- *         &#34;allowedLocations&#34;: {
- *             &#34;type&#34;: &#34;Array&#34;,
- *             &#34;metadata&#34;: {
- *                 &#34;description&#34;: &#34;The list of allowed locations for resources.&#34;,
- *                 &#34;displayName&#34;: &#34;Allowed locations&#34;,
- *                 &#34;strongType&#34;: &#34;location&#34;
+ *         "allowedLocations": {
+ *             "type": "Array",
+ *             "metadata": {
+ *                 "description": "The list of allowed locations for resources.",
+ *                 "displayName": "Allowed locations",
+ *                 "strongType": "location"
  *             }
  *         }
  *     }
- *             &#34;&#34;&#34;)
+ *             """)
  *             .policyDefinitionReferences(PolicySetDefinitionPolicyDefinitionReferenceArgs.builder()
- *                 .policyDefinitionId(&#34;/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988&#34;)
- *                 .parameterValues(&#34;&#34;&#34;
+ *                 .policyDefinitionId("/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988")
+ *                 .parameterValues("""
  *     {
- *       &#34;listOfAllowedLocations&#34;: {&#34;value&#34;: &#34;[parameters(&#39;allowedLocations&#39;)]&#34;}
+ *       "listOfAllowedLocations": {"value": "[parameters('allowedLocations')]"}
  *     }
- *                 &#34;&#34;&#34;)
+ *                 """)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

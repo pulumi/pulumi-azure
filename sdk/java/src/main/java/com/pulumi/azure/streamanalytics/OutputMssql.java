@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,50 +52,51 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;rg-example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("rg-example")
+ *             .location("West Europe")
  *             .build());
  * 
  *         final var example = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
- *             .name(&#34;example-job&#34;)
+ *             .name("example-job")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleSqlServer = new SqlServer(&#34;exampleSqlServer&#34;, SqlServerArgs.builder()        
- *             .name(&#34;example-server&#34;)
+ *         var exampleSqlServer = new SqlServer("exampleSqlServer", SqlServerArgs.builder()        
+ *             .name("example-server")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
- *             .version(&#34;12.0&#34;)
- *             .administratorLogin(&#34;dbadmin&#34;)
- *             .administratorLoginPassword(&#34;example-password&#34;)
+ *             .version("12.0")
+ *             .administratorLogin("dbadmin")
+ *             .administratorLoginPassword("example-password")
  *             .build());
  * 
- *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
- *             .name(&#34;exampledb&#34;)
+ *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()        
+ *             .name("exampledb")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .serverName(exampleSqlServer.name())
- *             .requestedServiceObjectiveName(&#34;S0&#34;)
- *             .collation(&#34;SQL_LATIN1_GENERAL_CP1_CI_AS&#34;)
- *             .maxSizeBytes(&#34;268435456000&#34;)
- *             .createMode(&#34;Default&#34;)
+ *             .requestedServiceObjectiveName("S0")
+ *             .collation("SQL_LATIN1_GENERAL_CP1_CI_AS")
+ *             .maxSizeBytes("268435456000")
+ *             .createMode("Default")
  *             .build());
  * 
- *         var exampleOutputMssql = new OutputMssql(&#34;exampleOutputMssql&#34;, OutputMssqlArgs.builder()        
- *             .name(&#34;example-output-sql&#34;)
- *             .streamAnalyticsJobName(example.applyValue(getJobResult -&gt; getJobResult).applyValue(example -&gt; example.applyValue(getJobResult -&gt; getJobResult.name())))
- *             .resourceGroupName(example.applyValue(getJobResult -&gt; getJobResult).applyValue(example -&gt; example.applyValue(getJobResult -&gt; getJobResult.resourceGroupName())))
+ *         var exampleOutputMssql = new OutputMssql("exampleOutputMssql", OutputMssqlArgs.builder()        
+ *             .name("example-output-sql")
+ *             .streamAnalyticsJobName(example.applyValue(getJobResult -> getJobResult).applyValue(example -> example.applyValue(getJobResult -> getJobResult.name())))
+ *             .resourceGroupName(example.applyValue(getJobResult -> getJobResult).applyValue(example -> example.applyValue(getJobResult -> getJobResult.resourceGroupName())))
  *             .server(exampleSqlServer.fullyQualifiedDomainName())
  *             .user(exampleSqlServer.administratorLogin())
  *             .password(exampleSqlServer.administratorLoginPassword())
  *             .database(exampleDatabase.name())
- *             .table(&#34;ExampleTable&#34;)
+ *             .table("ExampleTable")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

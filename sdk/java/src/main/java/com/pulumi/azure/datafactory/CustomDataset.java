@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,105 +57,106 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFactory = new Factory(&#34;exampleFactory&#34;, FactoryArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .identity(FactoryIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountKind(&#34;BlobStorage&#34;)
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountKind("BlobStorage")
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleLinkedCustomService = new LinkedCustomService(&#34;exampleLinkedCustomService&#34;, LinkedCustomServiceArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleLinkedCustomService = new LinkedCustomService("exampleLinkedCustomService", LinkedCustomServiceArgs.builder()        
+ *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
- *             .type(&#34;AzureBlobStorage&#34;)
- *             .typePropertiesJson(exampleAccount.primaryConnectionString().applyValue(primaryConnectionString -&gt; &#34;&#34;&#34;
+ *             .type("AzureBlobStorage")
+ *             .typePropertiesJson(exampleAccount.primaryConnectionString().applyValue(primaryConnectionString -> """
  * {
- *   &#34;connectionString&#34;:&#34;%s&#34;
+ *   "connectionString":"%s"
  * }
- * &#34;, primaryConnectionString)))
+ * ", primaryConnectionString)))
  *             .build());
  * 
- *         var exampleContainer = new Container(&#34;exampleContainer&#34;, ContainerArgs.builder()        
- *             .name(&#34;content&#34;)
+ *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()        
+ *             .name("content")
  *             .storageAccountName(exampleAccount.name())
- *             .containerAccessType(&#34;private&#34;)
+ *             .containerAccessType("private")
  *             .build());
  * 
- *         var exampleCustomDataset = new CustomDataset(&#34;exampleCustomDataset&#34;, CustomDatasetArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleCustomDataset = new CustomDataset("exampleCustomDataset", CustomDatasetArgs.builder()        
+ *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
- *             .type(&#34;Json&#34;)
+ *             .type("Json")
  *             .linkedService(CustomDatasetLinkedServiceArgs.builder()
  *                 .name(exampleLinkedCustomService.name())
- *                 .parameters(Map.of(&#34;key1&#34;, &#34;value1&#34;))
+ *                 .parameters(Map.of("key1", "value1"))
  *                 .build())
- *             .typePropertiesJson(exampleContainer.name().applyValue(name -&gt; &#34;&#34;&#34;
+ *             .typePropertiesJson(exampleContainer.name().applyValue(name -> """
  * {
- *   &#34;location&#34;: {
- *     &#34;container&#34;:&#34;%s&#34;,
- *     &#34;fileName&#34;:&#34;foo.txt&#34;,
- *     &#34;folderPath&#34;: &#34;foo/bar/&#34;,
- *     &#34;type&#34;:&#34;AzureBlobStorageLocation&#34;
+ *   "location": {
+ *     "container":"%s",
+ *     "fileName":"foo.txt",
+ *     "folderPath": "foo/bar/",
+ *     "type":"AzureBlobStorageLocation"
  *   },
- *   &#34;encodingName&#34;:&#34;UTF-8&#34;
+ *   "encodingName":"UTF-8"
  * }
- * &#34;, name)))
- *             .description(&#34;test description&#34;)
+ * ", name)))
+ *             .description("test description")
  *             .annotations(            
- *                 &#34;test1&#34;,
- *                 &#34;test2&#34;,
- *                 &#34;test3&#34;)
- *             .folder(&#34;testFolder&#34;)
+ *                 "test1",
+ *                 "test2",
+ *                 "test3")
+ *             .folder("testFolder")
  *             .parameters(Map.ofEntries(
- *                 Map.entry(&#34;foo&#34;, &#34;test1&#34;),
- *                 Map.entry(&#34;Bar&#34;, &#34;Test2&#34;)
+ *                 Map.entry("foo", "test1"),
+ *                 Map.entry("Bar", "Test2")
  *             ))
  *             .additionalProperties(Map.ofEntries(
- *                 Map.entry(&#34;foo&#34;, &#34;test1&#34;),
- *                 Map.entry(&#34;bar&#34;, &#34;test2&#34;)
+ *                 Map.entry("foo", "test1"),
+ *                 Map.entry("bar", "test2")
  *             ))
- *             .schemaJson(&#34;&#34;&#34;
+ *             .schemaJson("""
  * {
- *   &#34;type&#34;: &#34;object&#34;,
- *   &#34;properties&#34;: {
- *     &#34;name&#34;: {
- *       &#34;type&#34;: &#34;object&#34;,
- *       &#34;properties&#34;: {
- *         &#34;firstName&#34;: {
- *           &#34;type&#34;: &#34;string&#34;
+ *   "type": "object",
+ *   "properties": {
+ *     "name": {
+ *       "type": "object",
+ *       "properties": {
+ *         "firstName": {
+ *           "type": "string"
  *         },
- *         &#34;lastName&#34;: {
- *           &#34;type&#34;: &#34;string&#34;
+ *         "lastName": {
+ *           "type": "string"
  *         }
  *       }
  *     },
- *     &#34;age&#34;: {
- *       &#34;type&#34;: &#34;integer&#34;
+ *     "age": {
+ *       "type": "integer"
  *     }
  *   }
  * }
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,33 +47,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
- *             .name(&#34;mydomain.com&#34;)
+ *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()        
+ *             .name("mydomain.com")
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleAaaaRecord = new AaaaRecord(&#34;exampleAaaaRecord&#34;, AaaaRecordArgs.builder()        
- *             .name(&#34;test&#34;)
+ *         var exampleAaaaRecord = new AaaaRecord("exampleAaaaRecord", AaaaRecordArgs.builder()        
+ *             .name("test")
  *             .zoneName(exampleZone.name())
  *             .resourceGroupName(example.name())
  *             .ttl(300)
- *             .records(&#34;2001:db8::1:0:0:1&#34;)
+ *             .records("2001:db8::1:0:0:1")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Alias Record)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -99,26 +102,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
- *             .name(&#34;mydomain.com&#34;)
+ *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()        
+ *             .name("mydomain.com")
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
- *             .name(&#34;mypublicip&#34;)
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *             .name("mypublicip")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .allocationMethod(&#34;Dynamic&#34;)
- *             .ipVersion(&#34;IPv6&#34;)
+ *             .allocationMethod("Dynamic")
+ *             .ipVersion("IPv6")
  *             .build());
  * 
- *         var exampleAaaaRecord = new AaaaRecord(&#34;exampleAaaaRecord&#34;, AaaaRecordArgs.builder()        
- *             .name(&#34;test&#34;)
+ *         var exampleAaaaRecord = new AaaaRecord("exampleAaaaRecord", AaaaRecordArgs.builder()        
+ *             .name("test")
  *             .zoneName(exampleZone.name())
  *             .resourceGroupName(example.name())
  *             .ttl(300)
@@ -127,7 +130,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

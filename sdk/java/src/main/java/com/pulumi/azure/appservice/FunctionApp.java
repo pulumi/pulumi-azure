@@ -37,7 +37,8 @@ import javax.annotation.Nullable;
  * ### With App Service Plan)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -65,31 +66,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;azure-functions-test-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("azure-functions-test-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;functionsapptestsa&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("functionsapptestsa")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var examplePlan = new Plan(&#34;examplePlan&#34;, PlanArgs.builder()        
- *             .name(&#34;azure-functions-test-service-plan&#34;)
+ *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()        
+ *             .name("azure-functions-test-service-plan")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku(PlanSkuArgs.builder()
- *                 .tier(&#34;Standard&#34;)
- *                 .size(&#34;S1&#34;)
+ *                 .tier("Standard")
+ *                 .size("S1")
  *                 .build())
  *             .build());
  * 
- *         var exampleFunctionApp = new FunctionApp(&#34;exampleFunctionApp&#34;, FunctionAppArgs.builder()        
- *             .name(&#34;test-azure-functions&#34;)
+ *         var exampleFunctionApp = new FunctionApp("exampleFunctionApp", FunctionAppArgs.builder()        
+ *             .name("test-azure-functions")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
@@ -99,13 +100,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### In A Consumption Plan)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -133,32 +136,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;azure-functions-cptest-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("azure-functions-cptest-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;functionsapptestsa&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("functionsapptestsa")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var examplePlan = new Plan(&#34;examplePlan&#34;, PlanArgs.builder()        
- *             .name(&#34;azure-functions-test-service-plan&#34;)
+ *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()        
+ *             .name("azure-functions-test-service-plan")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .kind(&#34;FunctionApp&#34;)
+ *             .kind("FunctionApp")
  *             .sku(PlanSkuArgs.builder()
- *                 .tier(&#34;Dynamic&#34;)
- *                 .size(&#34;Y1&#34;)
+ *                 .tier("Dynamic")
+ *                 .size("Y1")
  *                 .build())
  *             .build());
  * 
- *         var exampleFunctionApp = new FunctionApp(&#34;exampleFunctionApp&#34;, FunctionAppArgs.builder()        
- *             .name(&#34;test-azure-functions&#34;)
+ *         var exampleFunctionApp = new FunctionApp("exampleFunctionApp", FunctionAppArgs.builder()        
+ *             .name("test-azure-functions")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
@@ -168,13 +171,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Linux)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -202,45 +207,46 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;azure-functions-cptest-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("azure-functions-cptest-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;functionsapptestsa&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("functionsapptestsa")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var examplePlan = new Plan(&#34;examplePlan&#34;, PlanArgs.builder()        
- *             .name(&#34;azure-functions-test-service-plan&#34;)
+ *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()        
+ *             .name("azure-functions-test-service-plan")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .kind(&#34;Linux&#34;)
+ *             .kind("Linux")
  *             .reserved(true)
  *             .sku(PlanSkuArgs.builder()
- *                 .tier(&#34;Dynamic&#34;)
- *                 .size(&#34;Y1&#34;)
+ *                 .tier("Dynamic")
+ *                 .size("Y1")
  *                 .build())
  *             .build());
  * 
- *         var exampleFunctionApp = new FunctionApp(&#34;exampleFunctionApp&#34;, FunctionAppArgs.builder()        
- *             .name(&#34;test-azure-functions&#34;)
+ *         var exampleFunctionApp = new FunctionApp("exampleFunctionApp", FunctionAppArgs.builder()        
+ *             .name("test-azure-functions")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
  *             .storageAccountName(exampleAccount.name())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
- *             .osType(&#34;linux&#34;)
- *             .version(&#34;~3&#34;)
+ *             .osType("linux")
+ *             .version("~3")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; **Note:** Version `~3` or `~4` is required for Linux Function Apps.
@@ -248,7 +254,8 @@ import javax.annotation.Nullable;
  * ### Python In A Consumption Plan)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -277,49 +284,50 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;azure-functions-example-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("azure-functions-example-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;functionsappexamlpesa&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("functionsappexamlpesa")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var examplePlan = new Plan(&#34;examplePlan&#34;, PlanArgs.builder()        
- *             .name(&#34;azure-functions-example-sp&#34;)
+ *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()        
+ *             .name("azure-functions-example-sp")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .kind(&#34;Linux&#34;)
+ *             .kind("Linux")
  *             .reserved(true)
  *             .sku(PlanSkuArgs.builder()
- *                 .tier(&#34;Dynamic&#34;)
- *                 .size(&#34;Y1&#34;)
+ *                 .tier("Dynamic")
+ *                 .size("Y1")
  *                 .build())
  *             .build());
  * 
- *         var exampleFunctionApp = new FunctionApp(&#34;exampleFunctionApp&#34;, FunctionAppArgs.builder()        
- *             .name(&#34;example-azure-function&#34;)
+ *         var exampleFunctionApp = new FunctionApp("exampleFunctionApp", FunctionAppArgs.builder()        
+ *             .name("example-azure-function")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
  *             .storageAccountName(exampleAccount.name())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
- *             .osType(&#34;linux&#34;)
- *             .version(&#34;~4&#34;)
- *             .appSettings(Map.of(&#34;FUNCTIONS_WORKER_RUNTIME&#34;, &#34;python&#34;))
+ *             .osType("linux")
+ *             .version("~4")
+ *             .appSettings(Map.of("FUNCTIONS_WORKER_RUNTIME", "python"))
  *             .siteConfig(FunctionAppSiteConfigArgs.builder()
- *                 .linuxFxVersion(&#34;python|3.9&#34;)
+ *                 .linuxFxVersion("python|3.9")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; **Note:** The Python runtime is only supported on a Linux based hosting plan.  See [the documentation for additional information](https://docs.microsoft.com/azure/azure-functions/functions-reference-python).

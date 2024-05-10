@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,48 +49,49 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
- *             .name(&#34;mydomain.com&#34;)
+ *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()        
+ *             .name("mydomain.com")
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleCaaRecord = new CaaRecord(&#34;exampleCaaRecord&#34;, CaaRecordArgs.builder()        
- *             .name(&#34;test&#34;)
+ *         var exampleCaaRecord = new CaaRecord("exampleCaaRecord", CaaRecordArgs.builder()        
+ *             .name("test")
  *             .zoneName(exampleZone.name())
  *             .resourceGroupName(example.name())
  *             .ttl(300)
  *             .records(            
  *                 CaaRecordRecordArgs.builder()
  *                     .flags(0)
- *                     .tag(&#34;issue&#34;)
- *                     .value(&#34;example.com&#34;)
+ *                     .tag("issue")
+ *                     .value("example.com")
  *                     .build(),
  *                 CaaRecordRecordArgs.builder()
  *                     .flags(0)
- *                     .tag(&#34;issue&#34;)
- *                     .value(&#34;example.net&#34;)
+ *                     .tag("issue")
+ *                     .value("example.net")
  *                     .build(),
  *                 CaaRecordRecordArgs.builder()
  *                     .flags(0)
- *                     .tag(&#34;issuewild&#34;)
- *                     .value(&#34;;&#34;)
+ *                     .tag("issuewild")
+ *                     .value(";")
  *                     .build(),
  *                 CaaRecordRecordArgs.builder()
  *                     .flags(0)
- *                     .tag(&#34;iodef&#34;)
- *                     .value(&#34;mailto:user@nonexisting.tld&#34;)
+ *                     .tag("iodef")
+ *                     .value("mailto:user{@literal @}nonexisting.tld")
  *                     .build())
- *             .tags(Map.of(&#34;Environment&#34;, &#34;Production&#34;))
+ *             .tags(Map.of("Environment", "Production"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -118,14 +120,14 @@ public class CaaRecord extends com.pulumi.resources.CustomResource {
         return this.fqdn;
     }
     /**
-     * The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `&#34;@&#34;` as the name. Changing this forces a new resource to be created.
+     * The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `&#34;{@literal @}&#34;` as the name. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `&#34;@&#34;` as the name. Changing this forces a new resource to be created.
+     * @return The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `&#34;{@literal @}&#34;` as the name. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {

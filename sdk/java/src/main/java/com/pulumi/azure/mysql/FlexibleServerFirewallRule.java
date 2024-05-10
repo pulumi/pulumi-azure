@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ### Single IP Address)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,34 +47,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;api-rg-pro&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("api-rg-pro")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFlexibleServer = new FlexibleServer(&#34;exampleFlexibleServer&#34;, FlexibleServerArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleFlexibleServer = new FlexibleServer("exampleFlexibleServer", FlexibleServerArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleFlexibleServerFirewallRule = new FlexibleServerFirewallRule(&#34;exampleFlexibleServerFirewallRule&#34;, FlexibleServerFirewallRuleArgs.builder()        
- *             .name(&#34;office&#34;)
+ *         var exampleFlexibleServerFirewallRule = new FlexibleServerFirewallRule("exampleFlexibleServerFirewallRule", FlexibleServerFirewallRuleArgs.builder()        
+ *             .name("office")
  *             .resourceGroupName(example.name())
  *             .serverName(exampleFlexibleServer.name())
- *             .startIpAddress(&#34;40.112.8.12&#34;)
- *             .endIpAddress(&#34;40.112.8.12&#34;)
+ *             .startIpAddress("40.112.8.12")
+ *             .endIpAddress("40.112.8.12")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### IP Range)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -98,34 +101,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;api-rg-pro&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("api-rg-pro")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFlexibleServer = new FlexibleServer(&#34;exampleFlexibleServer&#34;, FlexibleServerArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleFlexibleServer = new FlexibleServer("exampleFlexibleServer", FlexibleServerArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleFlexibleServerFirewallRule = new FlexibleServerFirewallRule(&#34;exampleFlexibleServerFirewallRule&#34;, FlexibleServerFirewallRuleArgs.builder()        
- *             .name(&#34;office&#34;)
+ *         var exampleFlexibleServerFirewallRule = new FlexibleServerFirewallRule("exampleFlexibleServerFirewallRule", FlexibleServerFirewallRuleArgs.builder()        
+ *             .name("office")
  *             .resourceGroupName(example.name())
  *             .serverName(exampleFlexibleServer.name())
- *             .startIpAddress(&#34;40.112.0.0&#34;)
- *             .endIpAddress(&#34;40.112.255.255&#34;)
+ *             .startIpAddress("40.112.0.0")
+ *             .endIpAddress("40.112.255.255")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Allow Access To Azure Services)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -150,28 +155,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;api-rg-pro&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("api-rg-pro")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFlexibleServer = new FlexibleServer(&#34;exampleFlexibleServer&#34;, FlexibleServerArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleFlexibleServer = new FlexibleServer("exampleFlexibleServer", FlexibleServerArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleFlexibleServerFirewallRule = new FlexibleServerFirewallRule(&#34;exampleFlexibleServerFirewallRule&#34;, FlexibleServerFirewallRuleArgs.builder()        
- *             .name(&#34;office&#34;)
+ *         var exampleFlexibleServerFirewallRule = new FlexibleServerFirewallRule("exampleFlexibleServerFirewallRule", FlexibleServerFirewallRuleArgs.builder()        
+ *             .name("office")
  *             .resourceGroupName(example.name())
  *             .serverName(exampleFlexibleServer.name())
- *             .startIpAddress(&#34;0.0.0.0&#34;)
- *             .endIpAddress(&#34;0.0.0.0&#34;)
+ *             .startIpAddress("0.0.0.0")
+ *             .endIpAddress("0.0.0.0")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

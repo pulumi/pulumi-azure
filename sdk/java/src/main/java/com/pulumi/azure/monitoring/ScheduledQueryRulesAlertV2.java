@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -62,58 +63,58 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleInsights = new Insights(&#34;exampleInsights&#34;, InsightsArgs.builder()        
- *             .name(&#34;example-ai&#34;)
+ *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()        
+ *             .name("example-ai")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .applicationType(&#34;web&#34;)
+ *             .applicationType("web")
  *             .build());
  * 
- *         var exampleActionGroup = new ActionGroup(&#34;exampleActionGroup&#34;, ActionGroupArgs.builder()        
- *             .name(&#34;example-mag&#34;)
+ *         var exampleActionGroup = new ActionGroup("exampleActionGroup", ActionGroupArgs.builder()        
+ *             .name("example-mag")
  *             .resourceGroupName(example.name())
- *             .shortName(&#34;test mag&#34;)
+ *             .shortName("test mag")
  *             .build());
  * 
- *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
- *             .name(&#34;example-uai&#34;)
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()        
+ *             .name("example-uai")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()        
  *             .scope(exampleInsights.id())
- *             .roleDefinitionName(&#34;Reader&#34;)
+ *             .roleDefinitionName("Reader")
  *             .principalId(exampleUserAssignedIdentity.principalId())
  *             .build());
  * 
- *         var exampleScheduledQueryRulesAlertV2 = new ScheduledQueryRulesAlertV2(&#34;exampleScheduledQueryRulesAlertV2&#34;, ScheduledQueryRulesAlertV2Args.builder()        
- *             .name(&#34;example-msqrv2&#34;)
+ *         var exampleScheduledQueryRulesAlertV2 = new ScheduledQueryRulesAlertV2("exampleScheduledQueryRulesAlertV2", ScheduledQueryRulesAlertV2Args.builder()        
+ *             .name("example-msqrv2")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .evaluationFrequency(&#34;PT10M&#34;)
- *             .windowDuration(&#34;PT10M&#34;)
+ *             .evaluationFrequency("PT10M")
+ *             .windowDuration("PT10M")
  *             .scopes(exampleInsights.id())
  *             .severity(4)
  *             .criterias(ScheduledQueryRulesAlertV2CriteriaArgs.builder()
- *                 .query(&#34;&#34;&#34;
+ *                 .query("""
  * requests
  *   | summarize CountByCountry=count() by client_CountryOrRegion
- *                 &#34;&#34;&#34;)
- *                 .timeAggregationMethod(&#34;Maximum&#34;)
+ *                 """)
+ *                 .timeAggregationMethod("Maximum")
  *                 .threshold(17.5)
- *                 .operator(&#34;LessThan&#34;)
- *                 .resourceIdColumn(&#34;client_CountryOrRegion&#34;)
- *                 .metricMeasureColumn(&#34;CountByCountry&#34;)
+ *                 .operator("LessThan")
+ *                 .resourceIdColumn("client_CountryOrRegion")
+ *                 .metricMeasureColumn("CountByCountry")
  *                 .dimensions(ScheduledQueryRulesAlertV2CriteriaDimensionArgs.builder()
- *                     .name(&#34;client_CountryOrRegion&#34;)
- *                     .operator(&#34;Exclude&#34;)
- *                     .values(&#34;123&#34;)
+ *                     .name("client_CountryOrRegion")
+ *                     .operator("Exclude")
+ *                     .values("123")
  *                     .build())
  *                 .failingPeriods(ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs.builder()
  *                     .minimumFailingPeriodsToTriggerAlert(1)
@@ -122,31 +123,32 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .autoMitigationEnabled(true)
  *             .workspaceAlertsStorageEnabled(false)
- *             .description(&#34;example sqr&#34;)
- *             .displayName(&#34;example-sqr&#34;)
+ *             .description("example sqr")
+ *             .displayName("example-sqr")
  *             .enabled(true)
- *             .queryTimeRangeOverride(&#34;PT1H&#34;)
+ *             .queryTimeRangeOverride("PT1H")
  *             .skipQueryValidation(true)
  *             .action(ScheduledQueryRulesAlertV2ActionArgs.builder()
  *                 .actionGroups(exampleActionGroup.id())
  *                 .customProperties(Map.ofEntries(
- *                     Map.entry(&#34;key&#34;, &#34;value&#34;),
- *                     Map.entry(&#34;key2&#34;, &#34;value2&#34;)
+ *                     Map.entry("key", "value"),
+ *                     Map.entry("key2", "value2")
  *                 ))
  *                 .build())
  *             .identity(ScheduledQueryRulesAlertV2IdentityArgs.builder()
- *                 .type(&#34;UserAssigned&#34;)
+ *                 .type("UserAssigned")
  *                 .identityIds(exampleUserAssignedIdentity.id())
  *                 .build())
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;key&#34;, &#34;value&#34;),
- *                 Map.entry(&#34;key2&#34;, &#34;value2&#34;)
+ *                 Map.entry("key", "value"),
+ *                 Map.entry("key2", "value2")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

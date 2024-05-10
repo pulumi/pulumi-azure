@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -57,44 +58,45 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;examplekeyvault&#34;)
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("examplekeyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .skuName(&#34;premium&#34;)
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .skuName("premium")
  *             .build());
  * 
- *         var exampleAccessPolicy = new AccessPolicy(&#34;exampleAccessPolicy&#34;, AccessPolicyArgs.builder()        
+ *         var exampleAccessPolicy = new AccessPolicy("exampleAccessPolicy", AccessPolicyArgs.builder()        
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
- *             .certificatePermissions(&#34;ManageContacts&#34;)
- *             .keyPermissions(&#34;Create&#34;)
- *             .secretPermissions(&#34;Set&#34;)
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *             .certificatePermissions("ManageContacts")
+ *             .keyPermissions("Create")
+ *             .secretPermissions("Set")
  *             .build());
  * 
- *         var exampleCertificateContacts = new CertificateContacts(&#34;exampleCertificateContacts&#34;, CertificateContactsArgs.builder()        
+ *         var exampleCertificateContacts = new CertificateContacts("exampleCertificateContacts", CertificateContactsArgs.builder()        
  *             .keyVaultId(exampleKeyVault.id())
  *             .contacts(            
  *                 CertificateContactsContactArgs.builder()
- *                     .email(&#34;example@example.com&#34;)
- *                     .name(&#34;example&#34;)
- *                     .phone(&#34;01234567890&#34;)
+ *                     .email("example{@literal @}example.com")
+ *                     .name("example")
+ *                     .phone("01234567890")
  *                     .build(),
  *                 CertificateContactsContactArgs.builder()
- *                     .email(&#34;example2@example.com&#34;)
+ *                     .email("example2{@literal @}example.com")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

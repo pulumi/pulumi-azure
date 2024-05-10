@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,34 +52,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleSpringCloudService = new SpringCloudService(&#34;exampleSpringCloudService&#34;, SpringCloudServiceArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .skuName(&#34;E0&#34;)
+ *             .skuName("E0")
  *             .build());
  * 
- *         var exampleSpringCloudNewRelicApplicationPerformanceMonitoring = new SpringCloudNewRelicApplicationPerformanceMonitoring(&#34;exampleSpringCloudNewRelicApplicationPerformanceMonitoring&#34;, SpringCloudNewRelicApplicationPerformanceMonitoringArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleSpringCloudNewRelicApplicationPerformanceMonitoring = new SpringCloudNewRelicApplicationPerformanceMonitoring("exampleSpringCloudNewRelicApplicationPerformanceMonitoring", SpringCloudNewRelicApplicationPerformanceMonitoringArgs.builder()        
+ *             .name("example")
  *             .springCloudServiceId(exampleSpringCloudService.id())
- *             .appName(&#34;example-app-name&#34;)
- *             .licenseKey(&#34;example-license-key&#34;)
+ *             .appName("example-app-name")
+ *             .licenseKey("example-license-key")
  *             .appServerPort(8080)
  *             .labels(Map.ofEntries(
- *                 Map.entry(&#34;tagName1&#34;, &#34;tagValue1&#34;),
- *                 Map.entry(&#34;tagName2&#34;, &#34;tagValue2&#34;)
+ *                 Map.entry("tagName1", "tagValue1"),
+ *                 Map.entry("tagName2", "tagValue2")
  *             ))
  *             .globallyEnabled(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -177,14 +179,14 @@ public class SpringCloudNewRelicApplicationPerformanceMonitoring extends com.pul
         return Codegen.optional(this.autoTransactionNamingEnabled);
     }
     /**
-     * Specifies whether enable all instrumentation using an `@Trace` annotation. Disabling this causes `@Trace` annotations to be ignored. Defaults to `true`.
+     * Specifies whether enable all instrumentation using an `{@literal @}Trace` annotation. Disabling this causes `{@literal @}Trace` annotations to be ignored. Defaults to `true`.
      * 
      */
     @Export(name="customTracingEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> customTracingEnabled;
 
     /**
-     * @return Specifies whether enable all instrumentation using an `@Trace` annotation. Disabling this causes `@Trace` annotations to be ignored. Defaults to `true`.
+     * @return Specifies whether enable all instrumentation using an `{@literal @}Trace` annotation. Disabling this causes `{@literal @}Trace` annotations to be ignored. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> customTracingEnabled() {

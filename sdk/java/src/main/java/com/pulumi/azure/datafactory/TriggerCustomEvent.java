@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,55 +55,56 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFactory = new Factory(&#34;exampleFactory&#34;, FactoryArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var examplePipeline = new Pipeline(&#34;examplePipeline&#34;, PipelineArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var examplePipeline = new Pipeline("examplePipeline", PipelineArgs.builder()        
+ *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .build());
  * 
- *         var exampleTopic = new Topic(&#34;exampleTopic&#34;, TopicArgs.builder()        
- *             .name(&#34;example-topic&#34;)
+ *         var exampleTopic = new Topic("exampleTopic", TopicArgs.builder()        
+ *             .name("example-topic")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleTriggerCustomEvent = new TriggerCustomEvent(&#34;exampleTriggerCustomEvent&#34;, TriggerCustomEventArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleTriggerCustomEvent = new TriggerCustomEvent("exampleTriggerCustomEvent", TriggerCustomEventArgs.builder()        
+ *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .eventgridTopicId(exampleTopic.id())
  *             .events(            
- *                 &#34;event1&#34;,
- *                 &#34;event2&#34;)
- *             .subjectBeginsWith(&#34;abc&#34;)
- *             .subjectEndsWith(&#34;xyz&#34;)
+ *                 "event1",
+ *                 "event2")
+ *             .subjectBeginsWith("abc")
+ *             .subjectEndsWith("xyz")
  *             .annotations(            
- *                 &#34;example1&#34;,
- *                 &#34;example2&#34;,
- *                 &#34;example3&#34;)
- *             .description(&#34;example description&#34;)
+ *                 "example1",
+ *                 "example2",
+ *                 "example3")
+ *             .description("example description")
  *             .pipelines(TriggerCustomEventPipelineArgs.builder()
  *                 .name(examplePipeline.name())
- *                 .parameters(Map.of(&#34;Env&#34;, &#34;Prod&#34;))
+ *                 .parameters(Map.of("Env", "Prod"))
  *                 .build())
  *             .additionalProperties(Map.ofEntries(
- *                 Map.entry(&#34;foo&#34;, &#34;foo1&#34;),
- *                 Map.entry(&#34;bar&#34;, &#34;bar2&#34;)
+ *                 Map.entry("foo", "foo1"),
+ *                 Map.entry("bar", "bar2")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

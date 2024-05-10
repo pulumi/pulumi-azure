@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,44 +51,45 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .name(&#34;example-apim&#34;)
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *             .name("example-apim")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .publisherName(&#34;My Company&#34;)
- *             .publisherEmail(&#34;company@terraform.io&#34;)
- *             .skuName(&#34;Developer_1&#34;)
+ *             .publisherName("My Company")
+ *             .publisherEmail("company{@literal @}terraform.io")
+ *             .skuName("Developer_1")
  *             .build());
  * 
- *         var exampleApplication = new Application(&#34;exampleApplication&#34;, ApplicationArgs.builder()        
- *             .displayName(&#34;acctestam-example&#34;)
+ *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()        
+ *             .displayName("acctestam-example")
  *             .build());
  * 
- *         var exampleApplicationPassword = new ApplicationPassword(&#34;exampleApplicationPassword&#34;, ApplicationPasswordArgs.builder()        
+ *         var exampleApplicationPassword = new ApplicationPassword("exampleApplicationPassword", ApplicationPasswordArgs.builder()        
  *             .applicationObjectId(exampleApplication.objectId())
- *             .endDateRelative(&#34;36h&#34;)
+ *             .endDateRelative("36h")
  *             .build());
  * 
- *         var exampleIdentityProviderAadb2c = new IdentityProviderAadb2c(&#34;exampleIdentityProviderAadb2c&#34;, IdentityProviderAadb2cArgs.builder()        
+ *         var exampleIdentityProviderAadb2c = new IdentityProviderAadb2c("exampleIdentityProviderAadb2c", IdentityProviderAadb2cArgs.builder()        
  *             .resourceGroupName(example.name())
  *             .apiManagementName(exampleService.name())
  *             .clientId(exampleApplication.applicationId())
- *             .clientSecret(&#34;P@55w0rD!&#34;)
- *             .allowedTenant(&#34;myb2ctenant.onmicrosoft.com&#34;)
- *             .signinTenant(&#34;myb2ctenant.onmicrosoft.com&#34;)
- *             .authority(&#34;myb2ctenant.b2clogin.com&#34;)
- *             .signinPolicy(&#34;B2C_1_Login&#34;)
- *             .signupPolicy(&#34;B2C_1_Signup&#34;)
+ *             .clientSecret("P{@literal @}55w0rD!")
+ *             .allowedTenant("myb2ctenant.onmicrosoft.com")
+ *             .signinTenant("myb2ctenant.onmicrosoft.com")
+ *             .authority("myb2ctenant.b2clogin.com")
+ *             .signinPolicy("B2C_1_Login")
+ *             .signupPolicy("B2C_1_Signup")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

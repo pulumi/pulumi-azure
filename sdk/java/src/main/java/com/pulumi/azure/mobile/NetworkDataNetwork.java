@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,30 +47,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;East Us&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("East Us")
  *             .build());
  * 
- *         var exampleNetwork = new Network(&#34;exampleNetwork&#34;, NetworkArgs.builder()        
- *             .name(&#34;example-mn&#34;)
+ *         var exampleNetwork = new Network("exampleNetwork", NetworkArgs.builder()        
+ *             .name("example-mn")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .mobileCountryCode(&#34;001&#34;)
- *             .mobileNetworkCode(&#34;01&#34;)
+ *             .mobileCountryCode("001")
+ *             .mobileNetworkCode("01")
  *             .build());
  * 
- *         var exampleNetworkDataNetwork = new NetworkDataNetwork(&#34;exampleNetworkDataNetwork&#34;, NetworkDataNetworkArgs.builder()        
- *             .name(&#34;example-mndn&#34;)
+ *         var exampleNetworkDataNetwork = new NetworkDataNetwork("exampleNetworkDataNetwork", NetworkDataNetworkArgs.builder()        
+ *             .name("example-mndn")
  *             .mobileNetworkId(exampleNetwork.id())
  *             .location(example.location())
- *             .description(&#34;example description&#34;)
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .description("example description")
+ *             .tags(Map.of("key", "value"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

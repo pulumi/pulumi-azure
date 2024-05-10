@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,36 +47,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var target = new ResourceGroup(&#34;target&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;tfex-network-mapping&#34;)
- *             .location(&#34;East US&#34;)
+ *         var target = new ResourceGroup("target", ResourceGroupArgs.builder()        
+ *             .name("tfex-network-mapping")
+ *             .location("East US")
  *             .build());
  * 
- *         var vault = new Vault(&#34;vault&#34;, VaultArgs.builder()        
- *             .name(&#34;example-recovery-vault&#34;)
+ *         var vault = new Vault("vault", VaultArgs.builder()        
+ *             .name("example-recovery-vault")
  *             .location(target.location())
  *             .resourceGroupName(target.name())
- *             .sku(&#34;Standard&#34;)
+ *             .sku("Standard")
  *             .build());
  * 
- *         var targetVirtualNetwork = new VirtualNetwork(&#34;targetVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;network&#34;)
+ *         var targetVirtualNetwork = new VirtualNetwork("targetVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("network")
  *             .resourceGroupName(target.name())
- *             .addressSpaces(&#34;192.168.2.0/24&#34;)
+ *             .addressSpaces("192.168.2.0/24")
  *             .location(target.location())
  *             .build());
  * 
- *         var recovery_mapping = new HypervNetworkMapping(&#34;recovery-mapping&#34;, HypervNetworkMappingArgs.builder()        
- *             .name(&#34;recovery-network-mapping&#34;)
+ *         var recovery_mapping = new HypervNetworkMapping("recovery-mapping", HypervNetworkMappingArgs.builder()        
+ *             .name("recovery-network-mapping")
  *             .recoveryVaultId(vault.id())
- *             .sourceSystemCenterVirtualMachineManagerName(&#34;my-vmm-server&#34;)
- *             .sourceNetworkName(&#34;my-vmm-network&#34;)
+ *             .sourceSystemCenterVirtualMachineManagerName("my-vmm-server")
+ *             .sourceNetworkName("my-vmm-network")
  *             .targetNetworkId(targetVirtualNetwork.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

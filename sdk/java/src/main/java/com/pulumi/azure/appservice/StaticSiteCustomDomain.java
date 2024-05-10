@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ### CNAME validation
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,44 +49,46 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleStaticSite = new StaticSite(&#34;exampleStaticSite&#34;, StaticSiteArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleStaticSite = new StaticSite("exampleStaticSite", StaticSiteArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleCNameRecord = new CNameRecord(&#34;exampleCNameRecord&#34;, CNameRecordArgs.builder()        
- *             .name(&#34;my-domain&#34;)
- *             .zoneName(&#34;contoso.com&#34;)
+ *         var exampleCNameRecord = new CNameRecord("exampleCNameRecord", CNameRecordArgs.builder()        
+ *             .name("my-domain")
+ *             .zoneName("contoso.com")
  *             .resourceGroupName(example.name())
  *             .ttl(300)
  *             .record(exampleStaticSite.defaultHostName())
  *             .build());
  * 
- *         var exampleStaticSiteCustomDomain = new StaticSiteCustomDomain(&#34;exampleStaticSiteCustomDomain&#34;, StaticSiteCustomDomainArgs.builder()        
+ *         var exampleStaticSiteCustomDomain = new StaticSiteCustomDomain("exampleStaticSiteCustomDomain", StaticSiteCustomDomainArgs.builder()        
  *             .staticSiteId(exampleStaticSite.id())
- *             .domainName(Output.tuple(exampleCNameRecord.name(), exampleCNameRecord.zoneName()).applyValue(values -&gt; {
+ *             .domainName(Output.tuple(exampleCNameRecord.name(), exampleCNameRecord.zoneName()).applyValue(values -> {
  *                 var name = values.t1;
  *                 var zoneName = values.t2;
- *                 return String.format(&#34;%s.%s&#34;, name,zoneName);
+ *                 return String.format("%s.%s", name,zoneName);
  *             }))
- *             .validationType(&#34;cname-delegation&#34;)
+ *             .validationType("cname-delegation")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### TXT validation
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -113,26 +116,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleStaticSite = new StaticSite(&#34;exampleStaticSite&#34;, StaticSiteArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleStaticSite = new StaticSite("exampleStaticSite", StaticSiteArgs.builder()        
+ *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleStaticSiteCustomDomain = new StaticSiteCustomDomain(&#34;exampleStaticSiteCustomDomain&#34;, StaticSiteCustomDomainArgs.builder()        
+ *         var exampleStaticSiteCustomDomain = new StaticSiteCustomDomain("exampleStaticSiteCustomDomain", StaticSiteCustomDomainArgs.builder()        
  *             .staticSiteId(exampleStaticSite.id())
- *             .domainName(&#34;my-domain.contoso.com&#34;)
- *             .validationType(&#34;dns-txt-token&#34;)
+ *             .domainName("my-domain.contoso.com")
+ *             .validationType("dns-txt-token")
  *             .build());
  * 
- *         var exampleTxtRecord = new TxtRecord(&#34;exampleTxtRecord&#34;, TxtRecordArgs.builder()        
- *             .name(&#34;_dnsauth.my-domain&#34;)
- *             .zoneName(&#34;contoso.com&#34;)
+ *         var exampleTxtRecord = new TxtRecord("exampleTxtRecord", TxtRecordArgs.builder()        
+ *             .name("_dnsauth.my-domain")
+ *             .zoneName("contoso.com")
  *             .resourceGroupName(example.name())
  *             .ttl(300)
  *             .records(TxtRecordRecordArgs.builder()
@@ -142,7 +145,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

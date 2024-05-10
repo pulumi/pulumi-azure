@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -62,63 +63,64 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-vn&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example-vn")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *             .addressSpaces("10.0.0.0/16")
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;example-sn&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("example-sn")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
- *             .serviceEndpoints(&#34;Microsoft.Storage&#34;)
+ *             .addressPrefixes("10.0.2.0/24")
+ *             .serviceEndpoints("Microsoft.Storage")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;fs&#34;)
+ *                 .name("fs")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .name(&#34;Microsoft.DBforPostgreSQL/flexibleServers&#34;)
- *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/join/action&#34;)
+ *                     .name("Microsoft.DBforPostgreSQL/flexibleServers")
+ *                     .actions("Microsoft.Network/virtualNetworks/subnets/join/action")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
- *             .name(&#34;example.postgres.database.azure.com&#34;)
+ *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()        
+ *             .name("example.postgres.database.azure.com")
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleZoneVirtualNetworkLink = new ZoneVirtualNetworkLink(&#34;exampleZoneVirtualNetworkLink&#34;, ZoneVirtualNetworkLinkArgs.builder()        
- *             .name(&#34;exampleVnetZone.com&#34;)
+ *         var exampleZoneVirtualNetworkLink = new ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink", ZoneVirtualNetworkLinkArgs.builder()        
+ *             .name("exampleVnetZone.com")
  *             .privateDnsZoneName(exampleZone.name())
  *             .virtualNetworkId(exampleVirtualNetwork.id())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleFlexibleServer = new FlexibleServer(&#34;exampleFlexibleServer&#34;, FlexibleServerArgs.builder()        
- *             .name(&#34;example-psqlflexibleserver&#34;)
+ *         var exampleFlexibleServer = new FlexibleServer("exampleFlexibleServer", FlexibleServerArgs.builder()        
+ *             .name("example-psqlflexibleserver")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .version(&#34;12&#34;)
+ *             .version("12")
  *             .delegatedSubnetId(exampleSubnet.id())
  *             .privateDnsZoneId(exampleZone.id())
- *             .administratorLogin(&#34;psqladmin&#34;)
- *             .administratorPassword(&#34;H@Sh1CoR3!&#34;)
- *             .zone(&#34;1&#34;)
+ *             .administratorLogin("psqladmin")
+ *             .administratorPassword("H{@literal @}Sh1CoR3!")
+ *             .zone("1")
  *             .storageMb(32768)
- *             .storageTier(&#34;P30&#34;)
- *             .skuName(&#34;GP_Standard_D4s_v3&#34;)
+ *             .storageTier("P30")
+ *             .skuName("GP_Standard_D4s_v3")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## `storage_tier` defaults based on `storage_mb`

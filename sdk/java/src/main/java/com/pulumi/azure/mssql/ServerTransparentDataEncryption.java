@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * ### With Service Managed Key
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,39 +56,41 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;EastUs&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("EastUs")
  *             .build());
  * 
- *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
- *             .name(&#34;mssqlserver&#34;)
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+ *             .name("mssqlserver")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .version(&#34;12.0&#34;)
- *             .administratorLogin(&#34;missadministrator&#34;)
- *             .administratorLoginPassword(&#34;thisIsKat11&#34;)
- *             .minimumTlsVersion(&#34;1.2&#34;)
+ *             .version("12.0")
+ *             .administratorLogin("missadministrator")
+ *             .administratorLoginPassword("thisIsKat11")
+ *             .minimumTlsVersion("1.2")
  *             .azureadAdministrator(ServerAzureadAdministratorArgs.builder()
- *                 .loginUsername(&#34;AzureAD Admin&#34;)
- *                 .objectId(&#34;00000000-0000-0000-0000-000000000000&#34;)
+ *                 .loginUsername("AzureAD Admin")
+ *                 .objectId("00000000-0000-0000-0000-000000000000")
  *                 .build())
- *             .tags(Map.of(&#34;environment&#34;, &#34;production&#34;))
+ *             .tags(Map.of("environment", "production"))
  *             .build());
  * 
- *         var exampleServerTransparentDataEncryption = new ServerTransparentDataEncryption(&#34;exampleServerTransparentDataEncryption&#34;, ServerTransparentDataEncryptionArgs.builder()        
+ *         var exampleServerTransparentDataEncryption = new ServerTransparentDataEncryption("exampleServerTransparentDataEncryption", ServerTransparentDataEncryptionArgs.builder()        
  *             .serverId(exampleServer.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Customer Managed Key
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -122,81 +125,82 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;EastUs&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("EastUs")
  *             .build());
  * 
- *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
- *             .name(&#34;mssqlserver&#34;)
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+ *             .name("mssqlserver")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .version(&#34;12.0&#34;)
- *             .administratorLogin(&#34;missadministrator&#34;)
- *             .administratorLoginPassword(&#34;thisIsKat11&#34;)
- *             .minimumTlsVersion(&#34;1.2&#34;)
+ *             .version("12.0")
+ *             .administratorLogin("missadministrator")
+ *             .administratorLoginPassword("thisIsKat11")
+ *             .minimumTlsVersion("1.2")
  *             .azureadAdministrator(ServerAzureadAdministratorArgs.builder()
- *                 .loginUsername(&#34;AzureAD Admin&#34;)
- *                 .objectId(&#34;00000000-0000-0000-0000-000000000000&#34;)
+ *                 .loginUsername("AzureAD Admin")
+ *                 .objectId("00000000-0000-0000-0000-000000000000")
  *                 .build())
- *             .tags(Map.of(&#34;environment&#34;, &#34;production&#34;))
+ *             .tags(Map.of("environment", "production"))
  *             .identity(ServerIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
- *         // Create a key vault with policies for the deployer to create a key &amp; SQL Server to wrap/unwrap/get key
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         // Create a key vault with policies for the deployer to create a key & SQL Server to wrap/unwrap/get key
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .enabledForDiskEncryption(true)
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
  *             .softDeleteRetentionDays(7)
  *             .purgeProtectionEnabled(false)
- *             .skuName(&#34;standard&#34;)
+ *             .skuName("standard")
  *             .accessPolicies(            
  *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *                     .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *                     .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *                     .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *                     .keyPermissions(                    
- *                         &#34;Get&#34;,
- *                         &#34;List&#34;,
- *                         &#34;Create&#34;,
- *                         &#34;Delete&#34;,
- *                         &#34;Update&#34;,
- *                         &#34;Recover&#34;,
- *                         &#34;Purge&#34;,
- *                         &#34;GetRotationPolicy&#34;)
+ *                         "Get",
+ *                         "List",
+ *                         "Create",
+ *                         "Delete",
+ *                         "Update",
+ *                         "Recover",
+ *                         "Purge",
+ *                         "GetRotationPolicy")
  *                     .build(),
  *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(exampleServer.identity().applyValue(identity -&gt; identity.tenantId()))
- *                     .objectId(exampleServer.identity().applyValue(identity -&gt; identity.principalId()))
+ *                     .tenantId(exampleServer.identity().applyValue(identity -> identity.tenantId()))
+ *                     .objectId(exampleServer.identity().applyValue(identity -> identity.principalId()))
  *                     .keyPermissions(                    
- *                         &#34;Get&#34;,
- *                         &#34;WrapKey&#34;,
- *                         &#34;UnwrapKey&#34;)
+ *                         "Get",
+ *                         "WrapKey",
+ *                         "UnwrapKey")
  *                     .build())
  *             .build());
  * 
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
- *             .name(&#34;byok&#34;)
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *             .name("byok")
  *             .keyVaultId(exampleKeyVault.id())
- *             .keyType(&#34;RSA&#34;)
+ *             .keyType("RSA")
  *             .keySize(2048)
  *             .keyOpts(            
- *                 &#34;unwrapKey&#34;,
- *                 &#34;wrapKey&#34;)
+ *                 "unwrapKey",
+ *                 "wrapKey")
  *             .build());
  * 
- *         var exampleServerTransparentDataEncryption = new ServerTransparentDataEncryption(&#34;exampleServerTransparentDataEncryption&#34;, ServerTransparentDataEncryptionArgs.builder()        
+ *         var exampleServerTransparentDataEncryption = new ServerTransparentDataEncryption("exampleServerTransparentDataEncryption", ServerTransparentDataEncryptionArgs.builder()        
  *             .serverId(exampleServer.id())
  *             .keyVaultKeyId(exampleKey.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

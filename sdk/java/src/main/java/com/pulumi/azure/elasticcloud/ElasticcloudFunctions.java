@@ -20,7 +20,8 @@ public final class ElasticcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -42,15 +43,16 @@ public final class ElasticcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ElasticcloudFunctions.getElasticsearch(GetElasticsearchArgs.builder()
-     *             .name(&#34;my-elastic-search&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("my-elastic-search")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;elasticsearchEndpoint&#34;, example.applyValue(getElasticsearchResult -&gt; getElasticsearchResult.elasticsearchServiceUrl()));
-     *         ctx.export(&#34;kibanaEndpoint&#34;, example.applyValue(getElasticsearchResult -&gt; getElasticsearchResult.kibanaServiceUrl()));
+     *         ctx.export("elasticsearchEndpoint", example.applyValue(getElasticsearchResult -> getElasticsearchResult.elasticsearchServiceUrl()));
+     *         ctx.export("kibanaEndpoint", example.applyValue(getElasticsearchResult -> getElasticsearchResult.kibanaServiceUrl()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -63,7 +65,8 @@ public final class ElasticcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -85,15 +88,16 @@ public final class ElasticcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ElasticcloudFunctions.getElasticsearch(GetElasticsearchArgs.builder()
-     *             .name(&#34;my-elastic-search&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("my-elastic-search")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;elasticsearchEndpoint&#34;, example.applyValue(getElasticsearchResult -&gt; getElasticsearchResult.elasticsearchServiceUrl()));
-     *         ctx.export(&#34;kibanaEndpoint&#34;, example.applyValue(getElasticsearchResult -&gt; getElasticsearchResult.kibanaServiceUrl()));
+     *         ctx.export("elasticsearchEndpoint", example.applyValue(getElasticsearchResult -> getElasticsearchResult.elasticsearchServiceUrl()));
+     *         ctx.export("kibanaEndpoint", example.applyValue(getElasticsearchResult -> getElasticsearchResult.kibanaServiceUrl()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -106,7 +110,8 @@ public final class ElasticcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -128,15 +133,16 @@ public final class ElasticcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ElasticcloudFunctions.getElasticsearch(GetElasticsearchArgs.builder()
-     *             .name(&#34;my-elastic-search&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("my-elastic-search")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;elasticsearchEndpoint&#34;, example.applyValue(getElasticsearchResult -&gt; getElasticsearchResult.elasticsearchServiceUrl()));
-     *         ctx.export(&#34;kibanaEndpoint&#34;, example.applyValue(getElasticsearchResult -&gt; getElasticsearchResult.kibanaServiceUrl()));
+     *         ctx.export("elasticsearchEndpoint", example.applyValue(getElasticsearchResult -> getElasticsearchResult.elasticsearchServiceUrl()));
+     *         ctx.export("kibanaEndpoint", example.applyValue(getElasticsearchResult -> getElasticsearchResult.kibanaServiceUrl()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -149,7 +155,8 @@ public final class ElasticcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -171,15 +178,16 @@ public final class ElasticcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ElasticcloudFunctions.getElasticsearch(GetElasticsearchArgs.builder()
-     *             .name(&#34;my-elastic-search&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .name("my-elastic-search")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export(&#34;elasticsearchEndpoint&#34;, example.applyValue(getElasticsearchResult -&gt; getElasticsearchResult.elasticsearchServiceUrl()));
-     *         ctx.export(&#34;kibanaEndpoint&#34;, example.applyValue(getElasticsearchResult -&gt; getElasticsearchResult.kibanaServiceUrl()));
+     *         ctx.export("elasticsearchEndpoint", example.applyValue(getElasticsearchResult -> getElasticsearchResult.elasticsearchServiceUrl()));
+     *         ctx.export("kibanaEndpoint", example.applyValue(getElasticsearchResult -> getElasticsearchResult.kibanaServiceUrl()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,47 +53,48 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-rg&#34;)
- *             .location(&#34;westeurope&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-rg")
+ *             .location("westeurope")
  *             .build());
  * 
- *         var exampleLicationLoadBalancer = new LicationLoadBalancer(&#34;exampleLicationLoadBalancer&#34;, LicationLoadBalancerArgs.builder()        
- *             .name(&#34;example-alb&#34;)
+ *         var exampleLicationLoadBalancer = new LicationLoadBalancer("exampleLicationLoadBalancer", LicationLoadBalancerArgs.builder()        
+ *             .name("example-alb")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-vnet&#34;)
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example-vnet")
+ *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;example-subnet&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("example-subnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.1.0/24&#34;)
+ *             .addressPrefixes("10.0.1.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;delegation&#34;)
+ *                 .name("delegation")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .name(&#34;Microsoft.ServiceNetworking/trafficControllers&#34;)
- *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/join/action&#34;)
+ *                     .name("Microsoft.ServiceNetworking/trafficControllers")
+ *                     .actions("Microsoft.Network/virtualNetworks/subnets/join/action")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleLicationLoadBalancerSubnetAssociation = new LicationLoadBalancerSubnetAssociation(&#34;exampleLicationLoadBalancerSubnetAssociation&#34;, LicationLoadBalancerSubnetAssociationArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleLicationLoadBalancerSubnetAssociation = new LicationLoadBalancerSubnetAssociation("exampleLicationLoadBalancerSubnetAssociation", LicationLoadBalancerSubnetAssociationArgs.builder()        
+ *             .name("example")
  *             .applicationLoadBalancerId(exampleLicationLoadBalancer.id())
  *             .subnetId(exampleSubnet.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

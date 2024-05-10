@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -57,49 +58,50 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleKubernetesCluster = new KubernetesCluster(&#34;exampleKubernetesCluster&#34;, KubernetesClusterArgs.builder()        
- *             .name(&#34;example-aks&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleKubernetesCluster = new KubernetesCluster("exampleKubernetesCluster", KubernetesClusterArgs.builder()        
+ *             .name("example-aks")
+ *             .location("West Europe")
  *             .resourceGroupName(example.name())
- *             .dnsPrefix(&#34;example-aks&#34;)
+ *             .dnsPrefix("example-aks")
  *             .defaultNodePool(KubernetesClusterDefaultNodePoolArgs.builder()
- *                 .name(&#34;default&#34;)
+ *                 .name("default")
  *                 .nodeCount(1)
- *                 .vmSize(&#34;Standard_DS2_v2&#34;)
+ *                 .vmSize("Standard_DS2_v2")
  *                 .build())
  *             .identity(KubernetesClusterIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
+ *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
  * 
- *         var exampleKubernetesClusterExtension = new KubernetesClusterExtension(&#34;exampleKubernetesClusterExtension&#34;, KubernetesClusterExtensionArgs.builder()        
- *             .name(&#34;example-ext&#34;)
+ *         var exampleKubernetesClusterExtension = new KubernetesClusterExtension("exampleKubernetesClusterExtension", KubernetesClusterExtensionArgs.builder()        
+ *             .name("example-ext")
  *             .clusterId(test.id())
- *             .extensionType(&#34;microsoft.flux&#34;)
+ *             .extensionType("microsoft.flux")
  *             .build());
  * 
- *         var exampleFluxConfiguration = new FluxConfiguration(&#34;exampleFluxConfiguration&#34;, FluxConfigurationArgs.builder()        
- *             .name(&#34;example-fc&#34;)
+ *         var exampleFluxConfiguration = new FluxConfiguration("exampleFluxConfiguration", FluxConfigurationArgs.builder()        
+ *             .name("example-fc")
  *             .clusterId(test.id())
- *             .namespace(&#34;flux&#34;)
+ *             .namespace("flux")
  *             .gitRepository(FluxConfigurationGitRepositoryArgs.builder()
- *                 .url(&#34;https://github.com/Azure/arc-k8s-demo&#34;)
- *                 .referenceType(&#34;branch&#34;)
- *                 .referenceValue(&#34;main&#34;)
+ *                 .url("https://github.com/Azure/arc-k8s-demo")
+ *                 .referenceType("branch")
+ *                 .referenceValue("main")
  *                 .build())
  *             .kustomizations(FluxConfigurationKustomizationArgs.builder()
- *                 .name(&#34;kustomization-1&#34;)
+ *                 .name("kustomization-1")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

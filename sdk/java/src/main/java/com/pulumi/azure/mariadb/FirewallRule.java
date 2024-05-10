@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ### Single IP Address)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,23 +43,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FirewallRule(&#34;example&#34;, FirewallRuleArgs.builder()        
- *             .name(&#34;test-rule&#34;)
- *             .resourceGroupName(&#34;test-rg&#34;)
- *             .serverName(&#34;test-server&#34;)
- *             .startIpAddress(&#34;40.112.8.12&#34;)
- *             .endIpAddress(&#34;40.112.8.12&#34;)
+ *         var example = new FirewallRule("example", FirewallRuleArgs.builder()        
+ *             .name("test-rule")
+ *             .resourceGroupName("test-rg")
+ *             .serverName("test-server")
+ *             .startIpAddress("40.112.8.12")
+ *             .endIpAddress("40.112.8.12")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### IP Range)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -79,17 +82,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FirewallRule(&#34;example&#34;, FirewallRuleArgs.builder()        
- *             .name(&#34;test-rule&#34;)
- *             .resourceGroupName(&#34;test-rg&#34;)
- *             .serverName(&#34;test-server&#34;)
- *             .startIpAddress(&#34;40.112.0.0&#34;)
- *             .endIpAddress(&#34;40.112.255.255&#34;)
+ *         var example = new FirewallRule("example", FirewallRuleArgs.builder()        
+ *             .name("test-rule")
+ *             .resourceGroupName("test-rg")
+ *             .serverName("test-server")
+ *             .startIpAddress("40.112.0.0")
+ *             .endIpAddress("40.112.255.255")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

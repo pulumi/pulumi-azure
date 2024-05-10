@@ -50,7 +50,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -72,13 +73,14 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
+     *             .name("example-mn")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -91,7 +93,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -113,13 +116,14 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
+     *             .name("example-mn")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -132,7 +136,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -154,13 +159,14 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
+     *             .name("example-mn")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -173,7 +179,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -195,13 +202,14 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
+     *             .name("example-mn")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -214,7 +222,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -237,18 +246,19 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs.builder()
-     *             .name(&#34;example-mnpccp&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-mnpccp")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
      *         final var exampleGetNetworkAttachedDataNetwork = MobileFunctions.getNetworkAttachedDataNetwork(GetNetworkAttachedDataNetworkArgs.builder()
-     *             .mobileNetworkDataNetworkName(example.applyValue(getNetworkPacketCoreControlPlaneResult -&gt; getNetworkPacketCoreControlPlaneResult.name()))
-     *             .mobileNetworkPacketCoreDataPlaneId(example.applyValue(getNetworkPacketCoreControlPlaneResult -&gt; getNetworkPacketCoreControlPlaneResult.id()))
+     *             .mobileNetworkDataNetworkName(example.applyValue(getNetworkPacketCoreControlPlaneResult -> getNetworkPacketCoreControlPlaneResult.name()))
+     *             .mobileNetworkPacketCoreDataPlaneId(example.applyValue(getNetworkPacketCoreControlPlaneResult -> getNetworkPacketCoreControlPlaneResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -261,7 +271,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -284,18 +295,19 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs.builder()
-     *             .name(&#34;example-mnpccp&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-mnpccp")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
      *         final var exampleGetNetworkAttachedDataNetwork = MobileFunctions.getNetworkAttachedDataNetwork(GetNetworkAttachedDataNetworkArgs.builder()
-     *             .mobileNetworkDataNetworkName(example.applyValue(getNetworkPacketCoreControlPlaneResult -&gt; getNetworkPacketCoreControlPlaneResult.name()))
-     *             .mobileNetworkPacketCoreDataPlaneId(example.applyValue(getNetworkPacketCoreControlPlaneResult -&gt; getNetworkPacketCoreControlPlaneResult.id()))
+     *             .mobileNetworkDataNetworkName(example.applyValue(getNetworkPacketCoreControlPlaneResult -> getNetworkPacketCoreControlPlaneResult.name()))
+     *             .mobileNetworkPacketCoreDataPlaneId(example.applyValue(getNetworkPacketCoreControlPlaneResult -> getNetworkPacketCoreControlPlaneResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -308,7 +320,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -331,18 +344,19 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs.builder()
-     *             .name(&#34;example-mnpccp&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-mnpccp")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
      *         final var exampleGetNetworkAttachedDataNetwork = MobileFunctions.getNetworkAttachedDataNetwork(GetNetworkAttachedDataNetworkArgs.builder()
-     *             .mobileNetworkDataNetworkName(example.applyValue(getNetworkPacketCoreControlPlaneResult -&gt; getNetworkPacketCoreControlPlaneResult.name()))
-     *             .mobileNetworkPacketCoreDataPlaneId(example.applyValue(getNetworkPacketCoreControlPlaneResult -&gt; getNetworkPacketCoreControlPlaneResult.id()))
+     *             .mobileNetworkDataNetworkName(example.applyValue(getNetworkPacketCoreControlPlaneResult -> getNetworkPacketCoreControlPlaneResult.name()))
+     *             .mobileNetworkPacketCoreDataPlaneId(example.applyValue(getNetworkPacketCoreControlPlaneResult -> getNetworkPacketCoreControlPlaneResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -355,7 +369,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -378,18 +393,19 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs.builder()
-     *             .name(&#34;example-mnpccp&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-mnpccp")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
      *         final var exampleGetNetworkAttachedDataNetwork = MobileFunctions.getNetworkAttachedDataNetwork(GetNetworkAttachedDataNetworkArgs.builder()
-     *             .mobileNetworkDataNetworkName(example.applyValue(getNetworkPacketCoreControlPlaneResult -&gt; getNetworkPacketCoreControlPlaneResult.name()))
-     *             .mobileNetworkPacketCoreDataPlaneId(example.applyValue(getNetworkPacketCoreControlPlaneResult -&gt; getNetworkPacketCoreControlPlaneResult.id()))
+     *             .mobileNetworkDataNetworkName(example.applyValue(getNetworkPacketCoreControlPlaneResult -> getNetworkPacketCoreControlPlaneResult.name()))
+     *             .mobileNetworkPacketCoreDataPlaneId(example.applyValue(getNetworkPacketCoreControlPlaneResult -> getNetworkPacketCoreControlPlaneResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -402,7 +418,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -425,18 +442,19 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-mn")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
      *         final var exampleGetNetworkDataNetwork = MobileFunctions.getNetworkDataNetwork(GetNetworkDataNetworkArgs.builder()
-     *             .name(&#34;example-mndn&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
+     *             .name("example-mndn")
+     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -449,7 +467,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -472,18 +491,19 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-mn")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
      *         final var exampleGetNetworkDataNetwork = MobileFunctions.getNetworkDataNetwork(GetNetworkDataNetworkArgs.builder()
-     *             .name(&#34;example-mndn&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
+     *             .name("example-mndn")
+     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -496,7 +516,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -519,18 +540,19 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-mn")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
      *         final var exampleGetNetworkDataNetwork = MobileFunctions.getNetworkDataNetwork(GetNetworkDataNetworkArgs.builder()
-     *             .name(&#34;example-mndn&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
+     *             .name("example-mndn")
+     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -543,7 +565,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -566,18 +589,19 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-mn")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
      *         final var exampleGetNetworkDataNetwork = MobileFunctions.getNetworkDataNetwork(GetNetworkDataNetworkArgs.builder()
-     *             .name(&#34;example-mndn&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
+     *             .name("example-mndn")
+     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -590,7 +614,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -612,13 +637,14 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs.builder()
-     *             .name(&#34;example-mnpccp&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-mnpccp")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -631,7 +657,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -653,13 +680,14 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs.builder()
-     *             .name(&#34;example-mnpccp&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-mnpccp")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -672,7 +700,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -694,13 +723,14 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs.builder()
-     *             .name(&#34;example-mnpccp&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-mnpccp")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -713,7 +743,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -735,13 +766,14 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs.builder()
-     *             .name(&#34;example-mnpccp&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-mnpccp")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -754,7 +786,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -777,18 +810,19 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs.builder()
-     *             .name(&#34;example-mnpccp&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-mnpccp")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
      *         final var exampleGetNetworkPacketCoreDataPlane = MobileFunctions.getNetworkPacketCoreDataPlane(GetNetworkPacketCoreDataPlaneArgs.builder()
-     *             .name(&#34;example-mnpcdp&#34;)
-     *             .mobileNetworkPacketCoreControlPlaneId(example.applyValue(getNetworkPacketCoreControlPlaneResult -&gt; getNetworkPacketCoreControlPlaneResult.id()))
+     *             .name("example-mnpcdp")
+     *             .mobileNetworkPacketCoreControlPlaneId(example.applyValue(getNetworkPacketCoreControlPlaneResult -> getNetworkPacketCoreControlPlaneResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -801,7 +835,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -824,18 +859,19 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs.builder()
-     *             .name(&#34;example-mnpccp&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-mnpccp")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
      *         final var exampleGetNetworkPacketCoreDataPlane = MobileFunctions.getNetworkPacketCoreDataPlane(GetNetworkPacketCoreDataPlaneArgs.builder()
-     *             .name(&#34;example-mnpcdp&#34;)
-     *             .mobileNetworkPacketCoreControlPlaneId(example.applyValue(getNetworkPacketCoreControlPlaneResult -&gt; getNetworkPacketCoreControlPlaneResult.id()))
+     *             .name("example-mnpcdp")
+     *             .mobileNetworkPacketCoreControlPlaneId(example.applyValue(getNetworkPacketCoreControlPlaneResult -> getNetworkPacketCoreControlPlaneResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -848,7 +884,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -871,18 +908,19 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs.builder()
-     *             .name(&#34;example-mnpccp&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-mnpccp")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
      *         final var exampleGetNetworkPacketCoreDataPlane = MobileFunctions.getNetworkPacketCoreDataPlane(GetNetworkPacketCoreDataPlaneArgs.builder()
-     *             .name(&#34;example-mnpcdp&#34;)
-     *             .mobileNetworkPacketCoreControlPlaneId(example.applyValue(getNetworkPacketCoreControlPlaneResult -&gt; getNetworkPacketCoreControlPlaneResult.id()))
+     *             .name("example-mnpcdp")
+     *             .mobileNetworkPacketCoreControlPlaneId(example.applyValue(getNetworkPacketCoreControlPlaneResult -> getNetworkPacketCoreControlPlaneResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -895,7 +933,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -918,18 +957,19 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs.builder()
-     *             .name(&#34;example-mnpccp&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-mnpccp")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
      *         final var exampleGetNetworkPacketCoreDataPlane = MobileFunctions.getNetworkPacketCoreDataPlane(GetNetworkPacketCoreDataPlaneArgs.builder()
-     *             .name(&#34;example-mnpcdp&#34;)
-     *             .mobileNetworkPacketCoreControlPlaneId(example.applyValue(getNetworkPacketCoreControlPlaneResult -&gt; getNetworkPacketCoreControlPlaneResult.id()))
+     *             .name("example-mnpcdp")
+     *             .mobileNetworkPacketCoreControlPlaneId(example.applyValue(getNetworkPacketCoreControlPlaneResult -> getNetworkPacketCoreControlPlaneResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -942,7 +982,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -966,18 +1007,19 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-mn")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         var exampleNetworkService = new NetworkService(&#34;exampleNetworkService&#34;, NetworkServiceArgs.builder()        
-     *             .name(&#34;example-mns&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
+     *         var exampleNetworkService = new NetworkService("exampleNetworkService", NetworkServiceArgs.builder()        
+     *             .name("example-mns")
+     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -990,7 +1032,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1014,18 +1057,19 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-mn")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         var exampleNetworkService = new NetworkService(&#34;exampleNetworkService&#34;, NetworkServiceArgs.builder()        
-     *             .name(&#34;example-mns&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
+     *         var exampleNetworkService = new NetworkService("exampleNetworkService", NetworkServiceArgs.builder()        
+     *             .name("example-mns")
+     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1038,7 +1082,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1062,18 +1107,19 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-mn")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         var exampleNetworkService = new NetworkService(&#34;exampleNetworkService&#34;, NetworkServiceArgs.builder()        
-     *             .name(&#34;example-mns&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
+     *         var exampleNetworkService = new NetworkService("exampleNetworkService", NetworkServiceArgs.builder()        
+     *             .name("example-mns")
+     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1086,7 +1132,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1110,18 +1157,19 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-mn")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         var exampleNetworkService = new NetworkService(&#34;exampleNetworkService&#34;, NetworkServiceArgs.builder()        
-     *             .name(&#34;example-mns&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
+     *         var exampleNetworkService = new NetworkService("exampleNetworkService", NetworkServiceArgs.builder()        
+     *             .name("example-mns")
+     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1134,7 +1182,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1157,18 +1206,19 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetworkSimGroup(GetNetworkSimGroupArgs.builder()
-     *             .name(&#34;example-mnsg&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-mnsg")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
      *         final var exampleGetNetworkSim = MobileFunctions.getNetworkSim(GetNetworkSimArgs.builder()
-     *             .name(&#34;example-sim&#34;)
-     *             .mobileNetworkSimGroupId(example.applyValue(getNetworkSimGroupResult -&gt; getNetworkSimGroupResult.id()))
+     *             .name("example-sim")
+     *             .mobileNetworkSimGroupId(example.applyValue(getNetworkSimGroupResult -> getNetworkSimGroupResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1181,7 +1231,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1204,18 +1255,19 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetworkSimGroup(GetNetworkSimGroupArgs.builder()
-     *             .name(&#34;example-mnsg&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-mnsg")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
      *         final var exampleGetNetworkSim = MobileFunctions.getNetworkSim(GetNetworkSimArgs.builder()
-     *             .name(&#34;example-sim&#34;)
-     *             .mobileNetworkSimGroupId(example.applyValue(getNetworkSimGroupResult -&gt; getNetworkSimGroupResult.id()))
+     *             .name("example-sim")
+     *             .mobileNetworkSimGroupId(example.applyValue(getNetworkSimGroupResult -> getNetworkSimGroupResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1228,7 +1280,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1251,18 +1304,19 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetworkSimGroup(GetNetworkSimGroupArgs.builder()
-     *             .name(&#34;example-mnsg&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-mnsg")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
      *         final var exampleGetNetworkSim = MobileFunctions.getNetworkSim(GetNetworkSimArgs.builder()
-     *             .name(&#34;example-sim&#34;)
-     *             .mobileNetworkSimGroupId(example.applyValue(getNetworkSimGroupResult -&gt; getNetworkSimGroupResult.id()))
+     *             .name("example-sim")
+     *             .mobileNetworkSimGroupId(example.applyValue(getNetworkSimGroupResult -> getNetworkSimGroupResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1275,7 +1329,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1298,18 +1353,19 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetworkSimGroup(GetNetworkSimGroupArgs.builder()
-     *             .name(&#34;example-mnsg&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-mnsg")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
      *         final var exampleGetNetworkSim = MobileFunctions.getNetworkSim(GetNetworkSimArgs.builder()
-     *             .name(&#34;example-sim&#34;)
-     *             .mobileNetworkSimGroupId(example.applyValue(getNetworkSimGroupResult -&gt; getNetworkSimGroupResult.id()))
+     *             .name("example-sim")
+     *             .mobileNetworkSimGroupId(example.applyValue(getNetworkSimGroupResult -> getNetworkSimGroupResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1322,7 +1378,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1345,18 +1402,19 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
+     *             .name("example-mn")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *         final var exampleGetNetworkSimGroup = MobileFunctions.getNetworkSimGroup(GetNetworkSimGroupArgs.builder()
-     *             .name(&#34;example-mnsg&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
+     *             .name("example-mnsg")
+     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1369,7 +1427,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1392,18 +1451,19 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
+     *             .name("example-mn")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *         final var exampleGetNetworkSimGroup = MobileFunctions.getNetworkSimGroup(GetNetworkSimGroupArgs.builder()
-     *             .name(&#34;example-mnsg&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
+     *             .name("example-mnsg")
+     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1416,7 +1476,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1439,18 +1500,19 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
+     *             .name("example-mn")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *         final var exampleGetNetworkSimGroup = MobileFunctions.getNetworkSimGroup(GetNetworkSimGroupArgs.builder()
-     *             .name(&#34;example-mnsg&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
+     *             .name("example-mnsg")
+     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1463,7 +1525,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1486,18 +1549,19 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
+     *             .name("example-mn")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *         final var exampleGetNetworkSimGroup = MobileFunctions.getNetworkSimGroup(GetNetworkSimGroupArgs.builder()
-     *             .name(&#34;example-mnsg&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
+     *             .name("example-mnsg")
+     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1510,7 +1574,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1533,18 +1598,19 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-mn")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
      *         final var exampleGetNetworkSimPolicy = MobileFunctions.getNetworkSimPolicy(GetNetworkSimPolicyArgs.builder()
-     *             .name(&#34;example-mnsp&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
+     *             .name("example-mnsp")
+     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1557,7 +1623,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1580,18 +1647,19 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-mn")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
      *         final var exampleGetNetworkSimPolicy = MobileFunctions.getNetworkSimPolicy(GetNetworkSimPolicyArgs.builder()
-     *             .name(&#34;example-mnsp&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
+     *             .name("example-mnsp")
+     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1604,7 +1672,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1627,18 +1696,19 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-mn")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
      *         final var exampleGetNetworkSimPolicy = MobileFunctions.getNetworkSimPolicy(GetNetworkSimPolicyArgs.builder()
-     *             .name(&#34;example-mnsp&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
+     *             .name("example-mnsp")
+     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1651,7 +1721,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1674,18 +1745,19 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-mn")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
      *         final var exampleGetNetworkSimPolicy = MobileFunctions.getNetworkSimPolicy(GetNetworkSimPolicyArgs.builder()
-     *             .name(&#34;example-mnsp&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
+     *             .name("example-mnsp")
+     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1698,7 +1770,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1721,18 +1794,19 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-mn")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
      *         final var exampleGetNetworkSite = MobileFunctions.getNetworkSite(GetNetworkSiteArgs.builder()
-     *             .name(&#34;example-mns&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
+     *             .name("example-mns")
+     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1745,7 +1819,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1768,18 +1843,19 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-mn")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
      *         final var exampleGetNetworkSite = MobileFunctions.getNetworkSite(GetNetworkSiteArgs.builder()
-     *             .name(&#34;example-mns&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
+     *             .name("example-mns")
+     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1792,7 +1868,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1815,18 +1892,19 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-mn")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
      *         final var exampleGetNetworkSite = MobileFunctions.getNetworkSite(GetNetworkSiteArgs.builder()
-     *             .name(&#34;example-mns&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
+     *             .name("example-mns")
+     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1839,7 +1917,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1862,18 +1941,19 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-mn")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
      *         final var exampleGetNetworkSite = MobileFunctions.getNetworkSite(GetNetworkSiteArgs.builder()
-     *             .name(&#34;example-mns&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
+     *             .name("example-mns")
+     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1886,7 +1966,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1909,18 +1990,19 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-mn")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
      *         final var exampleGetNetworkSlice = MobileFunctions.getNetworkSlice(GetNetworkSliceArgs.builder()
-     *             .name(&#34;example-mns&#34;)
+     *             .name("example-mns")
      *             .mobileNetworkId(test.id())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1933,7 +2015,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1956,18 +2039,19 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-mn")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
      *         final var exampleGetNetworkSlice = MobileFunctions.getNetworkSlice(GetNetworkSliceArgs.builder()
-     *             .name(&#34;example-mns&#34;)
+     *             .name("example-mns")
      *             .mobileNetworkId(test.id())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1980,7 +2064,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2003,18 +2088,19 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-mn")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
      *         final var exampleGetNetworkSlice = MobileFunctions.getNetworkSlice(GetNetworkSliceArgs.builder()
-     *             .name(&#34;example-mns&#34;)
+     *             .name("example-mns")
      *             .mobileNetworkId(test.id())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2027,7 +2113,8 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2050,18 +2137,19 @@ public final class MobileFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .name("example-mn")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
      *         final var exampleGetNetworkSlice = MobileFunctions.getNetworkSlice(GetNetworkSliceArgs.builder()
-     *             .name(&#34;example-mns&#34;)
+     *             .name("example-mns")
      *             .mobileNetworkId(test.id())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

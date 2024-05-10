@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -66,123 +67,124 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-rg&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-rg")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleElasticSan = new ElasticSan(&#34;exampleElasticSan&#34;, ElasticSanArgs.builder()        
- *             .name(&#34;examplees-es&#34;)
+ *         var exampleElasticSan = new ElasticSan("exampleElasticSan", ElasticSanArgs.builder()        
+ *             .name("examplees-es")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .baseSizeInTib(1)
  *             .sku(ElasticSanSkuArgs.builder()
- *                 .name(&#34;Premium_LRS&#34;)
+ *                 .name("Premium_LRS")
  *                 .build())
  *             .build());
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
- *             .name(&#34;example-uai&#34;)
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()        
+ *             .name("example-uai")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-vnet&#34;)
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example-vnet")
+ *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;example-subnet&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("example-subnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.1.0/24&#34;)
- *             .serviceEndpoints(&#34;Microsoft.Storage.Global&#34;)
+ *             .addressPrefixes("10.0.1.0/24")
+ *             .serviceEndpoints("Microsoft.Storage.Global")
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;examplekv&#34;)
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *             .name("examplekv")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .enabledForDiskEncryption(true)
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
  *             .softDeleteRetentionDays(7)
  *             .purgeProtectionEnabled(true)
- *             .skuName(&#34;standard&#34;)
+ *             .skuName("standard")
  *             .build());
  * 
- *         var userAssignedIdentity = new AccessPolicy(&#34;userAssignedIdentity&#34;, AccessPolicyArgs.builder()        
+ *         var userAssignedIdentity = new AccessPolicy("userAssignedIdentity", AccessPolicyArgs.builder()        
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
  *             .objectId(exampleUserAssignedIdentity.principalId())
  *             .keyPermissions(            
- *                 &#34;Get&#34;,
- *                 &#34;UnwrapKey&#34;,
- *                 &#34;WrapKey&#34;)
- *             .secretPermissions(&#34;Get&#34;)
+ *                 "Get",
+ *                 "UnwrapKey",
+ *                 "WrapKey")
+ *             .secretPermissions("Get")
  *             .build());
  * 
- *         var client = new AccessPolicy(&#34;client&#34;, AccessPolicyArgs.builder()        
+ *         var client = new AccessPolicy("client", AccessPolicyArgs.builder()        
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *             .keyPermissions(            
- *                 &#34;Get&#34;,
- *                 &#34;Create&#34;,
- *                 &#34;Delete&#34;,
- *                 &#34;List&#34;,
- *                 &#34;Restore&#34;,
- *                 &#34;Recover&#34;,
- *                 &#34;UnwrapKey&#34;,
- *                 &#34;WrapKey&#34;,
- *                 &#34;Purge&#34;,
- *                 &#34;Encrypt&#34;,
- *                 &#34;Decrypt&#34;,
- *                 &#34;Sign&#34;,
- *                 &#34;Verify&#34;,
- *                 &#34;GetRotationPolicy&#34;)
- *             .secretPermissions(&#34;Get&#34;)
+ *                 "Get",
+ *                 "Create",
+ *                 "Delete",
+ *                 "List",
+ *                 "Restore",
+ *                 "Recover",
+ *                 "UnwrapKey",
+ *                 "WrapKey",
+ *                 "Purge",
+ *                 "Encrypt",
+ *                 "Decrypt",
+ *                 "Sign",
+ *                 "Verify",
+ *                 "GetRotationPolicy")
+ *             .secretPermissions("Get")
  *             .build());
  * 
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
- *             .name(&#34;example-kvk&#34;)
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *             .name("example-kvk")
  *             .keyVaultId(exampleKeyVault.id())
- *             .keyType(&#34;RSA&#34;)
+ *             .keyType("RSA")
  *             .keySize(2048)
  *             .keyOpts(            
- *                 &#34;decrypt&#34;,
- *                 &#34;encrypt&#34;,
- *                 &#34;sign&#34;,
- *                 &#34;unwrapKey&#34;,
- *                 &#34;verify&#34;,
- *                 &#34;wrapKey&#34;)
+ *                 "decrypt",
+ *                 "encrypt",
+ *                 "sign",
+ *                 "unwrapKey",
+ *                 "verify",
+ *                 "wrapKey")
  *             .build());
  * 
- *         var exampleVolumeGroup = new VolumeGroup(&#34;exampleVolumeGroup&#34;, VolumeGroupArgs.builder()        
- *             .name(&#34;example-esvg&#34;)
+ *         var exampleVolumeGroup = new VolumeGroup("exampleVolumeGroup", VolumeGroupArgs.builder()        
+ *             .name("example-esvg")
  *             .elasticSanId(exampleElasticSan.id())
- *             .encryptionType(&#34;EncryptionAtRestWithCustomerManagedKey&#34;)
+ *             .encryptionType("EncryptionAtRestWithCustomerManagedKey")
  *             .encryption(VolumeGroupEncryptionArgs.builder()
  *                 .keyVaultKeyId(exampleKey.versionlessId())
  *                 .userAssignedIdentityId(exampleUserAssignedIdentity.id())
  *                 .build())
  *             .identity(VolumeGroupIdentityArgs.builder()
- *                 .type(&#34;UserAssigned&#34;)
+ *                 .type("UserAssigned")
  *                 .identityIds(exampleUserAssignedIdentity.id())
  *                 .build())
  *             .networkRules(VolumeGroupNetworkRuleArgs.builder()
  *                 .subnetId(exampleSubnet.id())
- *                 .action(&#34;Allow&#34;)
+ *                 .action("Allow")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

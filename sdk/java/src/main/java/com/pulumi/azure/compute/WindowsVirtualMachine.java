@@ -51,7 +51,8 @@ import javax.annotation.Nullable;
  * This example provisions a basic Windows Virtual Machine on an internal network.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -83,59 +84,60 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;example-network&#34;)
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *             .name("example-network")
+ *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;internal&#34;)
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .name("internal")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
+ *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
- *         var exampleNetworkInterface = new NetworkInterface(&#34;exampleNetworkInterface&#34;, NetworkInterfaceArgs.builder()        
- *             .name(&#34;example-nic&#34;)
+ *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()        
+ *             .name("example-nic")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
- *                 .name(&#34;internal&#34;)
+ *                 .name("internal")
  *                 .subnetId(exampleSubnet.id())
- *                 .privateIpAddressAllocation(&#34;Dynamic&#34;)
+ *                 .privateIpAddressAllocation("Dynamic")
  *                 .build())
  *             .build());
  * 
- *         var exampleWindowsVirtualMachine = new WindowsVirtualMachine(&#34;exampleWindowsVirtualMachine&#34;, WindowsVirtualMachineArgs.builder()        
- *             .name(&#34;example-machine&#34;)
+ *         var exampleWindowsVirtualMachine = new WindowsVirtualMachine("exampleWindowsVirtualMachine", WindowsVirtualMachineArgs.builder()        
+ *             .name("example-machine")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .size(&#34;Standard_F2&#34;)
- *             .adminUsername(&#34;adminuser&#34;)
- *             .adminPassword(&#34;P@$$w0rd1234!&#34;)
+ *             .size("Standard_F2")
+ *             .adminUsername("adminuser")
+ *             .adminPassword("P{@literal @}$$w0rd1234!")
  *             .networkInterfaceIds(exampleNetworkInterface.id())
  *             .osDisk(WindowsVirtualMachineOsDiskArgs.builder()
- *                 .caching(&#34;ReadWrite&#34;)
- *                 .storageAccountType(&#34;Standard_LRS&#34;)
+ *                 .caching("ReadWrite")
+ *                 .storageAccountType("Standard_LRS")
  *                 .build())
  *             .sourceImageReference(WindowsVirtualMachineSourceImageReferenceArgs.builder()
- *                 .publisher(&#34;MicrosoftWindowsServer&#34;)
- *                 .offer(&#34;WindowsServer&#34;)
- *                 .sku(&#34;2016-Datacenter&#34;)
- *                 .version(&#34;latest&#34;)
+ *                 .publisher("MicrosoftWindowsServer")
+ *                 .offer("WindowsServer")
+ *                 .sku("2016-Datacenter")
+ *                 .version("latest")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

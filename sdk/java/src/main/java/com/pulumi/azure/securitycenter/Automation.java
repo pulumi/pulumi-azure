@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -59,29 +60,29 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleEventHubNamespace = new EventHubNamespace(&#34;exampleEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
- *             .name(&#34;example-namespace&#34;)
+ *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()        
+ *             .name("example-namespace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(&#34;Standard&#34;)
+ *             .sku("Standard")
  *             .capacity(2)
  *             .build());
  * 
- *         var exampleEventHub = new EventHub(&#34;exampleEventHub&#34;, EventHubArgs.builder()        
- *             .name(&#34;acceptanceTestEventHub&#34;)
+ *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()        
+ *             .name("acceptanceTestEventHub")
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .resourceGroupName(example.name())
  *             .partitionCount(2)
  *             .messageRetention(2)
  *             .build());
  * 
- *         var exampleAuthorizationRule = new AuthorizationRule(&#34;exampleAuthorizationRule&#34;, AuthorizationRuleArgs.builder()        
- *             .name(&#34;example-rule&#34;)
+ *         var exampleAuthorizationRule = new AuthorizationRule("exampleAuthorizationRule", AuthorizationRuleArgs.builder()        
+ *             .name("example-rule")
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .eventhubName(exampleEventHub.name())
  *             .resourceGroupName(example.name())
@@ -90,32 +91,33 @@ import javax.annotation.Nullable;
  *             .manage(false)
  *             .build());
  * 
- *         var exampleAutomation = new Automation(&#34;exampleAutomation&#34;, AutomationArgs.builder()        
- *             .name(&#34;example-automation&#34;)
+ *         var exampleAutomation = new Automation("exampleAutomation", AutomationArgs.builder()        
+ *             .name("example-automation")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .actions(AutomationActionArgs.builder()
- *                 .type(&#34;eventhub&#34;)
+ *                 .type("eventhub")
  *                 .resourceId(exampleEventHub.id())
  *                 .connectionString(exampleAuthorizationRule.primaryConnectionString())
  *                 .build())
  *             .sources(AutomationSourceArgs.builder()
- *                 .eventSource(&#34;Alerts&#34;)
+ *                 .eventSource("Alerts")
  *                 .ruleSets(AutomationSourceRuleSetArgs.builder()
  *                     .rules(AutomationSourceRuleSetRuleArgs.builder()
- *                         .propertyPath(&#34;properties.metadata.severity&#34;)
- *                         .operator(&#34;Equals&#34;)
- *                         .expectedValue(&#34;High&#34;)
- *                         .propertyType(&#34;String&#34;)
+ *                         .propertyPath("properties.metadata.severity")
+ *                         .operator("Equals")
+ *                         .expectedValue("High")
+ *                         .propertyType("String")
  *                         .build())
  *                     .build())
  *                 .build())
- *             .scopes(String.format(&#34;/subscriptions/%s&#34;, current.applyValue(getClientConfigResult -&gt; getClientConfigResult.subscriptionId())))
+ *             .scopes(String.format("/subscriptions/%s", current.applyValue(getClientConfigResult -> getClientConfigResult.subscriptionId())))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

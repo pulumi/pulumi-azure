@@ -33,7 +33,8 @@ import javax.annotation.Nullable;
  * This example provisions a Basic Container.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -57,41 +58,42 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
- *             .name(&#34;example-continst&#34;)
+ *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+ *             .name("example-continst")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .ipAddressType(&#34;Public&#34;)
- *             .dnsNameLabel(&#34;aci-label&#34;)
- *             .osType(&#34;Linux&#34;)
+ *             .ipAddressType("Public")
+ *             .dnsNameLabel("aci-label")
+ *             .osType("Linux")
  *             .containers(            
  *                 GroupContainerArgs.builder()
- *                     .name(&#34;hello-world&#34;)
- *                     .image(&#34;mcr.microsoft.com/azuredocs/aci-helloworld:latest&#34;)
- *                     .cpu(&#34;0.5&#34;)
- *                     .memory(&#34;1.5&#34;)
+ *                     .name("hello-world")
+ *                     .image("mcr.microsoft.com/azuredocs/aci-helloworld:latest")
+ *                     .cpu("0.5")
+ *                     .memory("1.5")
  *                     .ports(GroupContainerPortArgs.builder()
  *                         .port(443)
- *                         .protocol(&#34;TCP&#34;)
+ *                         .protocol("TCP")
  *                         .build())
  *                     .build(),
  *                 GroupContainerArgs.builder()
- *                     .name(&#34;sidecar&#34;)
- *                     .image(&#34;mcr.microsoft.com/azuredocs/aci-tutorial-sidecar&#34;)
- *                     .cpu(&#34;0.5&#34;)
- *                     .memory(&#34;1.5&#34;)
+ *                     .name("sidecar")
+ *                     .image("mcr.microsoft.com/azuredocs/aci-tutorial-sidecar")
+ *                     .cpu("0.5")
+ *                     .memory("1.5")
  *                     .build())
- *             .tags(Map.of(&#34;environment&#34;, &#34;testing&#34;))
+ *             .tags(Map.of("environment", "testing"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

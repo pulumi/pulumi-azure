@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,29 +49,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var test = new Zone(&#34;test&#34;, ZoneArgs.builder()        
- *             .name(&#34;mydomain.com&#34;)
+ *         var test = new Zone("test", ZoneArgs.builder()        
+ *             .name("mydomain.com")
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var testAAAARecord = new AAAARecord(&#34;testAAAARecord&#34;, AAAARecordArgs.builder()        
- *             .name(&#34;test&#34;)
+ *         var testAAAARecord = new AAAARecord("testAAAARecord", AAAARecordArgs.builder()        
+ *             .name("test")
  *             .zoneName(test.name())
  *             .resourceGroupName(example.name())
  *             .ttl(300)
  *             .records(            
- *                 &#34;fd5d:70bc:930e:d008:0000:0000:0000:7334&#34;,
- *                 &#34;fd5d:70bc:930e:d008::7335&#34;)
+ *                 "fd5d:70bc:930e:d008:0000:0000:0000:7334",
+ *                 "fd5d:70bc:930e:d008::7335")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

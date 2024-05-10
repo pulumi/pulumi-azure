@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,31 +51,32 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleChannelsRegistration = new ChannelsRegistration(&#34;exampleChannelsRegistration&#34;, ChannelsRegistrationArgs.builder()        
- *             .name(&#34;example-bcr&#34;)
- *             .location(&#34;global&#34;)
+ *         var exampleChannelsRegistration = new ChannelsRegistration("exampleChannelsRegistration", ChannelsRegistrationArgs.builder()        
+ *             .name("example-bcr")
+ *             .location("global")
  *             .resourceGroupName(example.name())
- *             .sku(&#34;F0&#34;)
- *             .microsoftAppId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.clientId()))
+ *             .sku("F0")
+ *             .microsoftAppId(current.applyValue(getClientConfigResult -> getClientConfigResult.clientId()))
  *             .build());
  * 
- *         var exampleChannelSms = new ChannelSms(&#34;exampleChannelSms&#34;, ChannelSmsArgs.builder()        
+ *         var exampleChannelSms = new ChannelSms("exampleChannelSms", ChannelSmsArgs.builder()        
  *             .botName(exampleChannelsRegistration.name())
  *             .location(exampleChannelsRegistration.location())
  *             .resourceGroupName(example.name())
- *             .smsChannelAccountSecurityId(&#34;BG61f7cf5157f439b084e98256409c2815&#34;)
- *             .smsChannelAuthToken(&#34;jh8980432610052ed4e29565c5e232f&#34;)
- *             .phoneNumber(&#34;+12313803556&#34;)
+ *             .smsChannelAccountSecurityId("BG61f7cf5157f439b084e98256409c2815")
+ *             .smsChannelAuthToken("jh8980432610052ed4e29565c5e232f")
+ *             .phoneNumber("+12313803556")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

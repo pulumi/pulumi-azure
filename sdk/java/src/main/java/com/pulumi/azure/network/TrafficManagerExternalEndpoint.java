@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,41 +53,42 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleTrafficManagerProfile = new TrafficManagerProfile(&#34;exampleTrafficManagerProfile&#34;, TrafficManagerProfileArgs.builder()        
- *             .name(&#34;example-profile&#34;)
+ *         var exampleTrafficManagerProfile = new TrafficManagerProfile("exampleTrafficManagerProfile", TrafficManagerProfileArgs.builder()        
+ *             .name("example-profile")
  *             .resourceGroupName(example.name())
- *             .trafficRoutingMethod(&#34;Weighted&#34;)
+ *             .trafficRoutingMethod("Weighted")
  *             .dnsConfig(TrafficManagerProfileDnsConfigArgs.builder()
- *                 .relativeName(&#34;example-profile&#34;)
+ *                 .relativeName("example-profile")
  *                 .ttl(100)
  *                 .build())
  *             .monitorConfig(TrafficManagerProfileMonitorConfigArgs.builder()
- *                 .protocol(&#34;HTTP&#34;)
+ *                 .protocol("HTTP")
  *                 .port(80)
- *                 .path(&#34;/&#34;)
+ *                 .path("/")
  *                 .intervalInSeconds(30)
  *                 .timeoutInSeconds(9)
  *                 .toleratedNumberOfFailures(3)
  *                 .build())
- *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *             .tags(Map.of("environment", "Production"))
  *             .build());
  * 
- *         var exampleTrafficManagerExternalEndpoint = new TrafficManagerExternalEndpoint(&#34;exampleTrafficManagerExternalEndpoint&#34;, TrafficManagerExternalEndpointArgs.builder()        
- *             .name(&#34;example-endpoint&#34;)
+ *         var exampleTrafficManagerExternalEndpoint = new TrafficManagerExternalEndpoint("exampleTrafficManagerExternalEndpoint", TrafficManagerExternalEndpointArgs.builder()        
+ *             .name("example-endpoint")
  *             .profileId(exampleTrafficManagerProfile.id())
  *             .alwaysServeEnabled(true)
  *             .weight(100)
- *             .target(&#34;www.example.com&#34;)
+ *             .target("www.example.com")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
