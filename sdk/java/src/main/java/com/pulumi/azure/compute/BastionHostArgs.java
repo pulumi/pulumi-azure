@@ -89,6 +89,25 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
+     * 
+     * &gt; **Note:** `kerberos_enabled` is only supported when `sku` is `Standard`.
+     * 
+     */
+    @Import(name="kerberosEnabled")
+    private @Nullable Output<Boolean> kerberosEnabled;
+
+    /**
+     * @return Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
+     * 
+     * &gt; **Note:** `kerberos_enabled` is only supported when `sku` is `Standard`.
+     * 
+     */
+    public Optional<Output<Boolean>> kerberosEnabled() {
+        return Optional.ofNullable(this.kerberosEnabled);
+    }
+
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
      * 
      */
@@ -231,6 +250,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
         this.fileCopyEnabled = $.fileCopyEnabled;
         this.ipConfiguration = $.ipConfiguration;
         this.ipConnectEnabled = $.ipConnectEnabled;
+        this.kerberosEnabled = $.kerberosEnabled;
         this.location = $.location;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
@@ -349,6 +369,31 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder ipConnectEnabled(Boolean ipConnectEnabled) {
             return ipConnectEnabled(Output.of(ipConnectEnabled));
+        }
+
+        /**
+         * @param kerberosEnabled Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
+         * 
+         * &gt; **Note:** `kerberos_enabled` is only supported when `sku` is `Standard`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kerberosEnabled(@Nullable Output<Boolean> kerberosEnabled) {
+            $.kerberosEnabled = kerberosEnabled;
+            return this;
+        }
+
+        /**
+         * @param kerberosEnabled Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
+         * 
+         * &gt; **Note:** `kerberos_enabled` is only supported when `sku` is `Standard`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kerberosEnabled(Boolean kerberosEnabled) {
+            return kerberosEnabled(Output.of(kerberosEnabled));
         }
 
         /**

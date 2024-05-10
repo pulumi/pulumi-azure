@@ -13,6 +13,11 @@ import java.util.Objects;
 @CustomType
 public final class GetEnvironmentResult {
     /**
+     * @return The ID of the Custom Domain Verification for this Container App Environment.
+     * 
+     */
+    private String customDomainVerificationId;
+    /**
      * @return The default publicly resolvable name of this Container App Environment. This is generated at creation time to be globally unique.
      * 
      */
@@ -71,6 +76,13 @@ public final class GetEnvironmentResult {
     private Map<String,String> tags;
 
     private GetEnvironmentResult() {}
+    /**
+     * @return The ID of the Custom Domain Verification for this Container App Environment.
+     * 
+     */
+    public String customDomainVerificationId() {
+        return this.customDomainVerificationId;
+    }
     /**
      * @return The default publicly resolvable name of this Container App Environment. This is generated at creation time to be globally unique.
      * 
@@ -164,6 +176,7 @@ public final class GetEnvironmentResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String customDomainVerificationId;
         private String defaultDomain;
         private String dockerBridgeCidr;
         private String id;
@@ -180,6 +193,7 @@ public final class GetEnvironmentResult {
         public Builder() {}
         public Builder(GetEnvironmentResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.customDomainVerificationId = defaults.customDomainVerificationId;
     	      this.defaultDomain = defaults.defaultDomain;
     	      this.dockerBridgeCidr = defaults.dockerBridgeCidr;
     	      this.id = defaults.id;
@@ -195,6 +209,14 @@ public final class GetEnvironmentResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
+        public Builder customDomainVerificationId(String customDomainVerificationId) {
+            if (customDomainVerificationId == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentResult", "customDomainVerificationId");
+            }
+            this.customDomainVerificationId = customDomainVerificationId;
+            return this;
+        }
         @CustomType.Setter
         public Builder defaultDomain(String defaultDomain) {
             if (defaultDomain == null) {
@@ -301,6 +323,7 @@ public final class GetEnvironmentResult {
         }
         public GetEnvironmentResult build() {
             final var _resultValue = new GetEnvironmentResult();
+            _resultValue.customDomainVerificationId = customDomainVerificationId;
             _resultValue.defaultDomain = defaultDomain;
             _resultValue.dockerBridgeCidr = dockerBridgeCidr;
             _resultValue.id = id;

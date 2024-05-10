@@ -26,7 +26,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string Path;
         /// <summary>
-        /// The amount of time that qualifies as slow for this rule.
+        /// (Required) The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
         /// </summary>
         public readonly string TimeTaken;
 

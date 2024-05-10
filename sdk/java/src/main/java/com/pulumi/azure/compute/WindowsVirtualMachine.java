@@ -432,12 +432,16 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * One or more `gallery_application` blocks as defined below.
      * 
+     * &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.WindowsVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
+     * 
      */
     @Export(name="galleryApplications", refs={List.class,WindowsVirtualMachineGalleryApplication.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WindowsVirtualMachineGalleryApplication>> galleryApplications;
 
     /**
      * @return One or more `gallery_application` blocks as defined below.
+     * 
+     * &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.WindowsVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
      * 
      */
     public Output<Optional<List<WindowsVirtualMachineGalleryApplication>>> galleryApplications() {

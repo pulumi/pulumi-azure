@@ -22,7 +22,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly Outputs.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequests? Requests;
         /// <summary>
-        /// One or more `slow_request` blocks as defined above.
+        /// One or more `slow_request_with_path` blocks as defined above.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath> SlowRequestWithPaths;
+        /// <summary>
+        /// A `slow_request` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest> SlowRequests;
         /// <summary>
@@ -36,12 +40,15 @@ namespace Pulumi.Azure.AppService.Outputs
 
             Outputs.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequests? requests,
 
+            ImmutableArray<Outputs.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath> slowRequestWithPaths,
+
             ImmutableArray<Outputs.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests,
 
             ImmutableArray<Outputs.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode> statusCodes)
         {
             PrivateMemoryKb = privateMemoryKb;
             Requests = requests;
+            SlowRequestWithPaths = slowRequestWithPaths;
             SlowRequests = slowRequests;
             StatusCodes = statusCodes;
         }

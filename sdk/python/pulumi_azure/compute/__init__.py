@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .automanage_configuration_assignment import *
 from .availability_set import *
 from .bastion_host import *
 from .capacity_reservation import *
@@ -20,6 +21,7 @@ from .disk_pool_iscsi_target_lun import *
 from .disk_pool_managed_disk_attachment import *
 from .extension import *
 from .gallery_application import *
+from .gallery_application_assignment import *
 from .gallery_application_version import *
 from .get_availability_set import *
 from .get_bastion_host import *

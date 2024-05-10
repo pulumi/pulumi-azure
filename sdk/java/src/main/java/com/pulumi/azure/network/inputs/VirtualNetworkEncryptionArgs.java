@@ -17,12 +17,16 @@ public final class VirtualNetworkEncryptionArgs extends com.pulumi.resources.Res
     /**
      * Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
      * 
+     * &gt; **NOTE:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
+     * 
      */
     @Import(name="enforcement", required=true)
     private Output<String> enforcement;
 
     /**
      * @return Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
+     * 
+     * &gt; **NOTE:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
      * 
      */
     public Output<String> enforcement() {
@@ -56,6 +60,8 @@ public final class VirtualNetworkEncryptionArgs extends com.pulumi.resources.Res
         /**
          * @param enforcement Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
          * 
+         * &gt; **NOTE:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
+         * 
          * @return builder
          * 
          */
@@ -66,6 +72,8 @@ public final class VirtualNetworkEncryptionArgs extends com.pulumi.resources.Res
 
         /**
          * @param enforcement Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
+         * 
+         * &gt; **NOTE:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
          * 
          * @return builder
          * 

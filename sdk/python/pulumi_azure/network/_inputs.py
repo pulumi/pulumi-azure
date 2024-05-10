@@ -9841,6 +9841,8 @@ class VirtualNetworkEncryptionArgs:
                  enforcement: pulumi.Input[str]):
         """
         :param pulumi.Input[str] enforcement: Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
+               
+               > **NOTE:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
         """
         pulumi.set(__self__, "enforcement", enforcement)
 
@@ -9849,6 +9851,8 @@ class VirtualNetworkEncryptionArgs:
     def enforcement(self) -> pulumi.Input[str]:
         """
         Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
+
+        > **NOTE:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
         """
         return pulumi.get(self, "enforcement")
 

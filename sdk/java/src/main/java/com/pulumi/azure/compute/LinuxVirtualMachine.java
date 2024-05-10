@@ -455,12 +455,16 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * One or more `gallery_application` blocks as defined below.
      * 
+     * &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.LinuxVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
+     * 
      */
     @Export(name="galleryApplications", refs={List.class,LinuxVirtualMachineGalleryApplication.class}, tree="[0,1]")
     private Output</* @Nullable */ List<LinuxVirtualMachineGalleryApplication>> galleryApplications;
 
     /**
      * @return One or more `gallery_application` blocks as defined below.
+     * 
+     * &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.LinuxVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
      * 
      */
     public Output<Optional<List<LinuxVirtualMachineGalleryApplication>>> galleryApplications() {
@@ -481,14 +485,14 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.identity);
     }
     /**
-     * Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE` and `SLES_BYOS`.
+     * Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`.
      * 
      */
     @Export(name="licenseType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> licenseType;
 
     /**
-     * @return Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE` and `SLES_BYOS`.
+     * @return Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`.
      * 
      */
     public Output<Optional<String>> licenseType() {

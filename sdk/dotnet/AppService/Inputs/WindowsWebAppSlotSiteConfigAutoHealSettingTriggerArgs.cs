@@ -24,11 +24,23 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("requests")]
         public Input<Inputs.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs>? Requests { get; set; }
 
+        [Input("slowRequestWithPaths")]
+        private InputList<Inputs.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs>? _slowRequestWithPaths;
+
+        /// <summary>
+        /// One or more `slow_request_with_path` blocks as defined above.
+        /// </summary>
+        public InputList<Inputs.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs> SlowRequestWithPaths
+        {
+            get => _slowRequestWithPaths ?? (_slowRequestWithPaths = new InputList<Inputs.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs>());
+            set => _slowRequestWithPaths = value;
+        }
+
         [Input("slowRequests")]
         private InputList<Inputs.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs>? _slowRequests;
 
         /// <summary>
-        /// One or more `slow_request` blocks as defined above.
+        /// A `slow_request` block as defined above.
         /// </summary>
         public InputList<Inputs.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs> SlowRequests
         {

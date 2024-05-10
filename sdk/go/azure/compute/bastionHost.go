@@ -114,6 +114,10 @@ type BastionHost struct {
 	//
 	// > **Note:** `ipConnectEnabled` is only supported when `sku` is `Standard`.
 	IpConnectEnabled pulumi.BoolPtrOutput `pulumi:"ipConnectEnabled"`
+	// Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
+	//
+	// > **Note:** `kerberosEnabled` is only supported when `sku` is `Standard`.
+	KerberosEnabled pulumi.BoolPtrOutput `pulumi:"kerberosEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
@@ -190,6 +194,10 @@ type bastionHostState struct {
 	//
 	// > **Note:** `ipConnectEnabled` is only supported when `sku` is `Standard`.
 	IpConnectEnabled *bool `pulumi:"ipConnectEnabled"`
+	// Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
+	//
+	// > **Note:** `kerberosEnabled` is only supported when `sku` is `Standard`.
+	KerberosEnabled *bool `pulumi:"kerberosEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
@@ -231,6 +239,10 @@ type BastionHostState struct {
 	//
 	// > **Note:** `ipConnectEnabled` is only supported when `sku` is `Standard`.
 	IpConnectEnabled pulumi.BoolPtrInput
+	// Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
+	//
+	// > **Note:** `kerberosEnabled` is only supported when `sku` is `Standard`.
+	KerberosEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
@@ -274,6 +286,10 @@ type bastionHostArgs struct {
 	//
 	// > **Note:** `ipConnectEnabled` is only supported when `sku` is `Standard`.
 	IpConnectEnabled *bool `pulumi:"ipConnectEnabled"`
+	// Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
+	//
+	// > **Note:** `kerberosEnabled` is only supported when `sku` is `Standard`.
+	KerberosEnabled *bool `pulumi:"kerberosEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
@@ -314,6 +330,10 @@ type BastionHostArgs struct {
 	//
 	// > **Note:** `ipConnectEnabled` is only supported when `sku` is `Standard`.
 	IpConnectEnabled pulumi.BoolPtrInput
+	// Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
+	//
+	// > **Note:** `kerberosEnabled` is only supported when `sku` is `Standard`.
+	KerberosEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
@@ -454,6 +474,13 @@ func (o BastionHostOutput) IpConfiguration() BastionHostIpConfigurationOutput {
 // > **Note:** `ipConnectEnabled` is only supported when `sku` is `Standard`.
 func (o BastionHostOutput) IpConnectEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BastionHost) pulumi.BoolPtrOutput { return v.IpConnectEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
+//
+// > **Note:** `kerberosEnabled` is only supported when `sku` is `Standard`.
+func (o BastionHostOutput) KerberosEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BastionHost) pulumi.BoolPtrOutput { return v.KerberosEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.

@@ -1550,6 +1550,8 @@ func (o ImageOsDiskPtrOutput) SizeGb() pulumi.IntPtrOutput {
 }
 
 type LinuxVirtualMachineAdditionalCapabilities struct {
+	// Whether to enable the hibernation capability or not. Changing this forces a new Linux Virtual Machine to be created.
+	HibernationEnabled *bool `pulumi:"hibernationEnabled"`
 	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
 	UltraSsdEnabled *bool `pulumi:"ultraSsdEnabled"`
 }
@@ -1566,6 +1568,8 @@ type LinuxVirtualMachineAdditionalCapabilitiesInput interface {
 }
 
 type LinuxVirtualMachineAdditionalCapabilitiesArgs struct {
+	// Whether to enable the hibernation capability or not. Changing this forces a new Linux Virtual Machine to be created.
+	HibernationEnabled pulumi.BoolPtrInput `pulumi:"hibernationEnabled"`
 	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
 	UltraSsdEnabled pulumi.BoolPtrInput `pulumi:"ultraSsdEnabled"`
 }
@@ -1647,6 +1651,11 @@ func (o LinuxVirtualMachineAdditionalCapabilitiesOutput) ToLinuxVirtualMachineAd
 	}).(LinuxVirtualMachineAdditionalCapabilitiesPtrOutput)
 }
 
+// Whether to enable the hibernation capability or not. Changing this forces a new Linux Virtual Machine to be created.
+func (o LinuxVirtualMachineAdditionalCapabilitiesOutput) HibernationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineAdditionalCapabilities) *bool { return v.HibernationEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
 func (o LinuxVirtualMachineAdditionalCapabilitiesOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineAdditionalCapabilities) *bool { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
@@ -1674,6 +1683,16 @@ func (o LinuxVirtualMachineAdditionalCapabilitiesPtrOutput) Elem() LinuxVirtualM
 		var ret LinuxVirtualMachineAdditionalCapabilities
 		return ret
 	}).(LinuxVirtualMachineAdditionalCapabilitiesOutput)
+}
+
+// Whether to enable the hibernation capability or not. Changing this forces a new Linux Virtual Machine to be created.
+func (o LinuxVirtualMachineAdditionalCapabilitiesPtrOutput) HibernationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineAdditionalCapabilities) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.HibernationEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
@@ -1948,7 +1967,7 @@ type LinuxVirtualMachineGalleryApplication struct {
 	AutomaticUpgradeEnabled *bool `pulumi:"automaticUpgradeEnabled"`
 	// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.
 	ConfigurationBlobUri *string `pulumi:"configurationBlobUri"`
-	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`.
+	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`.
 	Order *int `pulumi:"order"`
 	// Specifies a passthrough value for more generic context. This field can be any valid `string` value.
 	Tag *string `pulumi:"tag"`
@@ -1974,7 +1993,7 @@ type LinuxVirtualMachineGalleryApplicationArgs struct {
 	AutomaticUpgradeEnabled pulumi.BoolPtrInput `pulumi:"automaticUpgradeEnabled"`
 	// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.
 	ConfigurationBlobUri pulumi.StringPtrInput `pulumi:"configurationBlobUri"`
-	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`.
+	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`.
 	Order pulumi.IntPtrInput `pulumi:"order"`
 	// Specifies a passthrough value for more generic context. This field can be any valid `string` value.
 	Tag pulumi.StringPtrInput `pulumi:"tag"`
@@ -2045,7 +2064,7 @@ func (o LinuxVirtualMachineGalleryApplicationOutput) ConfigurationBlobUri() pulu
 	return o.ApplyT(func(v LinuxVirtualMachineGalleryApplication) *string { return v.ConfigurationBlobUri }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`.
+// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`.
 func (o LinuxVirtualMachineGalleryApplicationOutput) Order() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineGalleryApplication) *int { return v.Order }).(pulumi.IntPtrOutput)
 }
@@ -5992,6 +6011,10 @@ type LinuxVirtualMachineScaleSetRollingUpgradePolicy struct {
 	MaxUnhealthyInstancePercent int `pulumi:"maxUnhealthyInstancePercent"`
 	// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts.
 	MaxUnhealthyUpgradedInstancePercent int `pulumi:"maxUnhealthyUpgradedInstancePercent"`
+	// Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+	//
+	// > **NOTE:** `overprovision` must be set to `false` when `maximumSurgeInstancesEnabled` is specified.
+	MaximumSurgeInstancesEnabled *bool `pulumi:"maximumSurgeInstancesEnabled"`
 	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
 	PauseTimeBetweenBatches string `pulumi:"pauseTimeBetweenBatches"`
 	// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
@@ -6018,6 +6041,10 @@ type LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs struct {
 	MaxUnhealthyInstancePercent pulumi.IntInput `pulumi:"maxUnhealthyInstancePercent"`
 	// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts.
 	MaxUnhealthyUpgradedInstancePercent pulumi.IntInput `pulumi:"maxUnhealthyUpgradedInstancePercent"`
+	// Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+	//
+	// > **NOTE:** `overprovision` must be set to `false` when `maximumSurgeInstancesEnabled` is specified.
+	MaximumSurgeInstancesEnabled pulumi.BoolPtrInput `pulumi:"maximumSurgeInstancesEnabled"`
 	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
 	PauseTimeBetweenBatches pulumi.StringInput `pulumi:"pauseTimeBetweenBatches"`
 	// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
@@ -6123,6 +6150,13 @@ func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput) MaxUnhealthyUpgra
 	}).(pulumi.IntOutput)
 }
 
+// Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+//
+// > **NOTE:** `overprovision` must be set to `false` when `maximumSurgeInstancesEnabled` is specified.
+func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput) MaximumSurgeInstancesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetRollingUpgradePolicy) *bool { return v.MaximumSurgeInstancesEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
 func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput) PauseTimeBetweenBatches() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetRollingUpgradePolicy) string { return v.PauseTimeBetweenBatches }).(pulumi.StringOutput)
@@ -6197,6 +6231,18 @@ func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) MaxUnhealthyUp
 		}
 		return &v.MaxUnhealthyUpgradedInstancePercent
 	}).(pulumi.IntPtrOutput)
+}
+
+// Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+//
+// > **NOTE:** `overprovision` must be set to `false` when `maximumSurgeInstancesEnabled` is specified.
+func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) MaximumSurgeInstancesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetRollingUpgradePolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumSurgeInstancesEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
@@ -22317,6 +22363,8 @@ func (o VirtualMachineStorageOsDiskPtrOutput) WriteAcceleratorEnabled() pulumi.B
 }
 
 type WindowsVirtualMachineAdditionalCapabilities struct {
+	// Whether to enable the hibernation capability or not. Changing this forces a new Windows Virtual Machine to be created.
+	HibernationEnabled *bool `pulumi:"hibernationEnabled"`
 	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
 	UltraSsdEnabled *bool `pulumi:"ultraSsdEnabled"`
 }
@@ -22333,6 +22381,8 @@ type WindowsVirtualMachineAdditionalCapabilitiesInput interface {
 }
 
 type WindowsVirtualMachineAdditionalCapabilitiesArgs struct {
+	// Whether to enable the hibernation capability or not. Changing this forces a new Windows Virtual Machine to be created.
+	HibernationEnabled pulumi.BoolPtrInput `pulumi:"hibernationEnabled"`
 	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
 	UltraSsdEnabled pulumi.BoolPtrInput `pulumi:"ultraSsdEnabled"`
 }
@@ -22414,6 +22464,11 @@ func (o WindowsVirtualMachineAdditionalCapabilitiesOutput) ToWindowsVirtualMachi
 	}).(WindowsVirtualMachineAdditionalCapabilitiesPtrOutput)
 }
 
+// Whether to enable the hibernation capability or not. Changing this forces a new Windows Virtual Machine to be created.
+func (o WindowsVirtualMachineAdditionalCapabilitiesOutput) HibernationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineAdditionalCapabilities) *bool { return v.HibernationEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
 func (o WindowsVirtualMachineAdditionalCapabilitiesOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineAdditionalCapabilities) *bool { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
@@ -22441,6 +22496,16 @@ func (o WindowsVirtualMachineAdditionalCapabilitiesPtrOutput) Elem() WindowsVirt
 		var ret WindowsVirtualMachineAdditionalCapabilities
 		return ret
 	}).(WindowsVirtualMachineAdditionalCapabilitiesOutput)
+}
+
+// Whether to enable the hibernation capability or not. Changing this forces a new Windows Virtual Machine to be created.
+func (o WindowsVirtualMachineAdditionalCapabilitiesPtrOutput) HibernationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineAdditionalCapabilities) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.HibernationEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
@@ -22709,7 +22774,7 @@ type WindowsVirtualMachineGalleryApplication struct {
 	AutomaticUpgradeEnabled *bool `pulumi:"automaticUpgradeEnabled"`
 	// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.
 	ConfigurationBlobUri *string `pulumi:"configurationBlobUri"`
-	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`.
+	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`.
 	Order *int `pulumi:"order"`
 	// Specifies a passthrough value for more generic context. This field can be any valid `string` value.
 	Tag *string `pulumi:"tag"`
@@ -22735,7 +22800,7 @@ type WindowsVirtualMachineGalleryApplicationArgs struct {
 	AutomaticUpgradeEnabled pulumi.BoolPtrInput `pulumi:"automaticUpgradeEnabled"`
 	// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.
 	ConfigurationBlobUri pulumi.StringPtrInput `pulumi:"configurationBlobUri"`
-	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`.
+	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`.
 	Order pulumi.IntPtrInput `pulumi:"order"`
 	// Specifies a passthrough value for more generic context. This field can be any valid `string` value.
 	Tag pulumi.StringPtrInput `pulumi:"tag"`
@@ -22806,7 +22871,7 @@ func (o WindowsVirtualMachineGalleryApplicationOutput) ConfigurationBlobUri() pu
 	return o.ApplyT(func(v WindowsVirtualMachineGalleryApplication) *string { return v.ConfigurationBlobUri }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`.
+// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`.
 func (o WindowsVirtualMachineGalleryApplicationOutput) Order() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineGalleryApplication) *int { return v.Order }).(pulumi.IntPtrOutput)
 }
@@ -26757,6 +26822,10 @@ type WindowsVirtualMachineScaleSetRollingUpgradePolicy struct {
 	MaxUnhealthyInstancePercent int `pulumi:"maxUnhealthyInstancePercent"`
 	// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts.
 	MaxUnhealthyUpgradedInstancePercent int `pulumi:"maxUnhealthyUpgradedInstancePercent"`
+	// Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+	//
+	// > **NOTE:** `overprovision` must be set to `false` when `maximumSurgeInstancesEnabled` is specified.
+	MaximumSurgeInstancesEnabled *bool `pulumi:"maximumSurgeInstancesEnabled"`
 	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
 	PauseTimeBetweenBatches string `pulumi:"pauseTimeBetweenBatches"`
 	// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
@@ -26783,6 +26852,10 @@ type WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs struct {
 	MaxUnhealthyInstancePercent pulumi.IntInput `pulumi:"maxUnhealthyInstancePercent"`
 	// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts.
 	MaxUnhealthyUpgradedInstancePercent pulumi.IntInput `pulumi:"maxUnhealthyUpgradedInstancePercent"`
+	// Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+	//
+	// > **NOTE:** `overprovision` must be set to `false` when `maximumSurgeInstancesEnabled` is specified.
+	MaximumSurgeInstancesEnabled pulumi.BoolPtrInput `pulumi:"maximumSurgeInstancesEnabled"`
 	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
 	PauseTimeBetweenBatches pulumi.StringInput `pulumi:"pauseTimeBetweenBatches"`
 	// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
@@ -26888,6 +26961,13 @@ func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput) MaxUnhealthyUpg
 	}).(pulumi.IntOutput)
 }
 
+// Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+//
+// > **NOTE:** `overprovision` must be set to `false` when `maximumSurgeInstancesEnabled` is specified.
+func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput) MaximumSurgeInstancesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetRollingUpgradePolicy) *bool { return v.MaximumSurgeInstancesEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
 func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput) PauseTimeBetweenBatches() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetRollingUpgradePolicy) string { return v.PauseTimeBetweenBatches }).(pulumi.StringOutput)
@@ -26962,6 +27042,18 @@ func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) MaxUnhealthy
 		}
 		return &v.MaxUnhealthyUpgradedInstancePercent
 	}).(pulumi.IntPtrOutput)
+}
+
+// Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+//
+// > **NOTE:** `overprovision` must be set to `false` when `maximumSurgeInstancesEnabled` is specified.
+func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) MaximumSurgeInstancesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetRollingUpgradePolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumSurgeInstancesEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.

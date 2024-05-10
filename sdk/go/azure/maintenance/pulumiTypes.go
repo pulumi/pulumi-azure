@@ -13,6 +13,344 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AssignmentDynamicScopeFilter struct {
+	// Specifies a list of locations to scope the query to.
+	Locations []string `pulumi:"locations"`
+	// Specifies a list of allowed operating systems.
+	OsTypes []string `pulumi:"osTypes"`
+	// Specifies a list of allowed resource groups.
+	ResourceGroups []string `pulumi:"resourceGroups"`
+	// Specifies a list of allowed resources.
+	ResourceTypes []string `pulumi:"resourceTypes"`
+	// Filter VMs by `Any` or `All` specified tags. Defaults to `Any`.
+	TagFilter *string `pulumi:"tagFilter"`
+	// A mapping of tags for the VM
+	Tags []AssignmentDynamicScopeFilterTag `pulumi:"tags"`
+}
+
+// AssignmentDynamicScopeFilterInput is an input type that accepts AssignmentDynamicScopeFilterArgs and AssignmentDynamicScopeFilterOutput values.
+// You can construct a concrete instance of `AssignmentDynamicScopeFilterInput` via:
+//
+//	AssignmentDynamicScopeFilterArgs{...}
+type AssignmentDynamicScopeFilterInput interface {
+	pulumi.Input
+
+	ToAssignmentDynamicScopeFilterOutput() AssignmentDynamicScopeFilterOutput
+	ToAssignmentDynamicScopeFilterOutputWithContext(context.Context) AssignmentDynamicScopeFilterOutput
+}
+
+type AssignmentDynamicScopeFilterArgs struct {
+	// Specifies a list of locations to scope the query to.
+	Locations pulumi.StringArrayInput `pulumi:"locations"`
+	// Specifies a list of allowed operating systems.
+	OsTypes pulumi.StringArrayInput `pulumi:"osTypes"`
+	// Specifies a list of allowed resource groups.
+	ResourceGroups pulumi.StringArrayInput `pulumi:"resourceGroups"`
+	// Specifies a list of allowed resources.
+	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
+	// Filter VMs by `Any` or `All` specified tags. Defaults to `Any`.
+	TagFilter pulumi.StringPtrInput `pulumi:"tagFilter"`
+	// A mapping of tags for the VM
+	Tags AssignmentDynamicScopeFilterTagArrayInput `pulumi:"tags"`
+}
+
+func (AssignmentDynamicScopeFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignmentDynamicScopeFilter)(nil)).Elem()
+}
+
+func (i AssignmentDynamicScopeFilterArgs) ToAssignmentDynamicScopeFilterOutput() AssignmentDynamicScopeFilterOutput {
+	return i.ToAssignmentDynamicScopeFilterOutputWithContext(context.Background())
+}
+
+func (i AssignmentDynamicScopeFilterArgs) ToAssignmentDynamicScopeFilterOutputWithContext(ctx context.Context) AssignmentDynamicScopeFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentDynamicScopeFilterOutput)
+}
+
+func (i AssignmentDynamicScopeFilterArgs) ToAssignmentDynamicScopeFilterPtrOutput() AssignmentDynamicScopeFilterPtrOutput {
+	return i.ToAssignmentDynamicScopeFilterPtrOutputWithContext(context.Background())
+}
+
+func (i AssignmentDynamicScopeFilterArgs) ToAssignmentDynamicScopeFilterPtrOutputWithContext(ctx context.Context) AssignmentDynamicScopeFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentDynamicScopeFilterOutput).ToAssignmentDynamicScopeFilterPtrOutputWithContext(ctx)
+}
+
+// AssignmentDynamicScopeFilterPtrInput is an input type that accepts AssignmentDynamicScopeFilterArgs, AssignmentDynamicScopeFilterPtr and AssignmentDynamicScopeFilterPtrOutput values.
+// You can construct a concrete instance of `AssignmentDynamicScopeFilterPtrInput` via:
+//
+//	        AssignmentDynamicScopeFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type AssignmentDynamicScopeFilterPtrInput interface {
+	pulumi.Input
+
+	ToAssignmentDynamicScopeFilterPtrOutput() AssignmentDynamicScopeFilterPtrOutput
+	ToAssignmentDynamicScopeFilterPtrOutputWithContext(context.Context) AssignmentDynamicScopeFilterPtrOutput
+}
+
+type assignmentDynamicScopeFilterPtrType AssignmentDynamicScopeFilterArgs
+
+func AssignmentDynamicScopeFilterPtr(v *AssignmentDynamicScopeFilterArgs) AssignmentDynamicScopeFilterPtrInput {
+	return (*assignmentDynamicScopeFilterPtrType)(v)
+}
+
+func (*assignmentDynamicScopeFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssignmentDynamicScopeFilter)(nil)).Elem()
+}
+
+func (i *assignmentDynamicScopeFilterPtrType) ToAssignmentDynamicScopeFilterPtrOutput() AssignmentDynamicScopeFilterPtrOutput {
+	return i.ToAssignmentDynamicScopeFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *assignmentDynamicScopeFilterPtrType) ToAssignmentDynamicScopeFilterPtrOutputWithContext(ctx context.Context) AssignmentDynamicScopeFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentDynamicScopeFilterPtrOutput)
+}
+
+type AssignmentDynamicScopeFilterOutput struct{ *pulumi.OutputState }
+
+func (AssignmentDynamicScopeFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignmentDynamicScopeFilter)(nil)).Elem()
+}
+
+func (o AssignmentDynamicScopeFilterOutput) ToAssignmentDynamicScopeFilterOutput() AssignmentDynamicScopeFilterOutput {
+	return o
+}
+
+func (o AssignmentDynamicScopeFilterOutput) ToAssignmentDynamicScopeFilterOutputWithContext(ctx context.Context) AssignmentDynamicScopeFilterOutput {
+	return o
+}
+
+func (o AssignmentDynamicScopeFilterOutput) ToAssignmentDynamicScopeFilterPtrOutput() AssignmentDynamicScopeFilterPtrOutput {
+	return o.ToAssignmentDynamicScopeFilterPtrOutputWithContext(context.Background())
+}
+
+func (o AssignmentDynamicScopeFilterOutput) ToAssignmentDynamicScopeFilterPtrOutputWithContext(ctx context.Context) AssignmentDynamicScopeFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssignmentDynamicScopeFilter) *AssignmentDynamicScopeFilter {
+		return &v
+	}).(AssignmentDynamicScopeFilterPtrOutput)
+}
+
+// Specifies a list of locations to scope the query to.
+func (o AssignmentDynamicScopeFilterOutput) Locations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AssignmentDynamicScopeFilter) []string { return v.Locations }).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of allowed operating systems.
+func (o AssignmentDynamicScopeFilterOutput) OsTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AssignmentDynamicScopeFilter) []string { return v.OsTypes }).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of allowed resource groups.
+func (o AssignmentDynamicScopeFilterOutput) ResourceGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AssignmentDynamicScopeFilter) []string { return v.ResourceGroups }).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of allowed resources.
+func (o AssignmentDynamicScopeFilterOutput) ResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AssignmentDynamicScopeFilter) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
+}
+
+// Filter VMs by `Any` or `All` specified tags. Defaults to `Any`.
+func (o AssignmentDynamicScopeFilterOutput) TagFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssignmentDynamicScopeFilter) *string { return v.TagFilter }).(pulumi.StringPtrOutput)
+}
+
+// A mapping of tags for the VM
+func (o AssignmentDynamicScopeFilterOutput) Tags() AssignmentDynamicScopeFilterTagArrayOutput {
+	return o.ApplyT(func(v AssignmentDynamicScopeFilter) []AssignmentDynamicScopeFilterTag { return v.Tags }).(AssignmentDynamicScopeFilterTagArrayOutput)
+}
+
+type AssignmentDynamicScopeFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (AssignmentDynamicScopeFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssignmentDynamicScopeFilter)(nil)).Elem()
+}
+
+func (o AssignmentDynamicScopeFilterPtrOutput) ToAssignmentDynamicScopeFilterPtrOutput() AssignmentDynamicScopeFilterPtrOutput {
+	return o
+}
+
+func (o AssignmentDynamicScopeFilterPtrOutput) ToAssignmentDynamicScopeFilterPtrOutputWithContext(ctx context.Context) AssignmentDynamicScopeFilterPtrOutput {
+	return o
+}
+
+func (o AssignmentDynamicScopeFilterPtrOutput) Elem() AssignmentDynamicScopeFilterOutput {
+	return o.ApplyT(func(v *AssignmentDynamicScopeFilter) AssignmentDynamicScopeFilter {
+		if v != nil {
+			return *v
+		}
+		var ret AssignmentDynamicScopeFilter
+		return ret
+	}).(AssignmentDynamicScopeFilterOutput)
+}
+
+// Specifies a list of locations to scope the query to.
+func (o AssignmentDynamicScopeFilterPtrOutput) Locations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AssignmentDynamicScopeFilter) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Locations
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of allowed operating systems.
+func (o AssignmentDynamicScopeFilterPtrOutput) OsTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AssignmentDynamicScopeFilter) []string {
+		if v == nil {
+			return nil
+		}
+		return v.OsTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of allowed resource groups.
+func (o AssignmentDynamicScopeFilterPtrOutput) ResourceGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AssignmentDynamicScopeFilter) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of allowed resources.
+func (o AssignmentDynamicScopeFilterPtrOutput) ResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AssignmentDynamicScopeFilter) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Filter VMs by `Any` or `All` specified tags. Defaults to `Any`.
+func (o AssignmentDynamicScopeFilterPtrOutput) TagFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssignmentDynamicScopeFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TagFilter
+	}).(pulumi.StringPtrOutput)
+}
+
+// A mapping of tags for the VM
+func (o AssignmentDynamicScopeFilterPtrOutput) Tags() AssignmentDynamicScopeFilterTagArrayOutput {
+	return o.ApplyT(func(v *AssignmentDynamicScopeFilter) []AssignmentDynamicScopeFilterTag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(AssignmentDynamicScopeFilterTagArrayOutput)
+}
+
+type AssignmentDynamicScopeFilterTag struct {
+	// Specifies the tag to filter by.
+	Tag string `pulumi:"tag"`
+	// Specifies a list of values the defined tag can have.
+	Values []string `pulumi:"values"`
+}
+
+// AssignmentDynamicScopeFilterTagInput is an input type that accepts AssignmentDynamicScopeFilterTagArgs and AssignmentDynamicScopeFilterTagOutput values.
+// You can construct a concrete instance of `AssignmentDynamicScopeFilterTagInput` via:
+//
+//	AssignmentDynamicScopeFilterTagArgs{...}
+type AssignmentDynamicScopeFilterTagInput interface {
+	pulumi.Input
+
+	ToAssignmentDynamicScopeFilterTagOutput() AssignmentDynamicScopeFilterTagOutput
+	ToAssignmentDynamicScopeFilterTagOutputWithContext(context.Context) AssignmentDynamicScopeFilterTagOutput
+}
+
+type AssignmentDynamicScopeFilterTagArgs struct {
+	// Specifies the tag to filter by.
+	Tag pulumi.StringInput `pulumi:"tag"`
+	// Specifies a list of values the defined tag can have.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AssignmentDynamicScopeFilterTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignmentDynamicScopeFilterTag)(nil)).Elem()
+}
+
+func (i AssignmentDynamicScopeFilterTagArgs) ToAssignmentDynamicScopeFilterTagOutput() AssignmentDynamicScopeFilterTagOutput {
+	return i.ToAssignmentDynamicScopeFilterTagOutputWithContext(context.Background())
+}
+
+func (i AssignmentDynamicScopeFilterTagArgs) ToAssignmentDynamicScopeFilterTagOutputWithContext(ctx context.Context) AssignmentDynamicScopeFilterTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentDynamicScopeFilterTagOutput)
+}
+
+// AssignmentDynamicScopeFilterTagArrayInput is an input type that accepts AssignmentDynamicScopeFilterTagArray and AssignmentDynamicScopeFilterTagArrayOutput values.
+// You can construct a concrete instance of `AssignmentDynamicScopeFilterTagArrayInput` via:
+//
+//	AssignmentDynamicScopeFilterTagArray{ AssignmentDynamicScopeFilterTagArgs{...} }
+type AssignmentDynamicScopeFilterTagArrayInput interface {
+	pulumi.Input
+
+	ToAssignmentDynamicScopeFilterTagArrayOutput() AssignmentDynamicScopeFilterTagArrayOutput
+	ToAssignmentDynamicScopeFilterTagArrayOutputWithContext(context.Context) AssignmentDynamicScopeFilterTagArrayOutput
+}
+
+type AssignmentDynamicScopeFilterTagArray []AssignmentDynamicScopeFilterTagInput
+
+func (AssignmentDynamicScopeFilterTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssignmentDynamicScopeFilterTag)(nil)).Elem()
+}
+
+func (i AssignmentDynamicScopeFilterTagArray) ToAssignmentDynamicScopeFilterTagArrayOutput() AssignmentDynamicScopeFilterTagArrayOutput {
+	return i.ToAssignmentDynamicScopeFilterTagArrayOutputWithContext(context.Background())
+}
+
+func (i AssignmentDynamicScopeFilterTagArray) ToAssignmentDynamicScopeFilterTagArrayOutputWithContext(ctx context.Context) AssignmentDynamicScopeFilterTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentDynamicScopeFilterTagArrayOutput)
+}
+
+type AssignmentDynamicScopeFilterTagOutput struct{ *pulumi.OutputState }
+
+func (AssignmentDynamicScopeFilterTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignmentDynamicScopeFilterTag)(nil)).Elem()
+}
+
+func (o AssignmentDynamicScopeFilterTagOutput) ToAssignmentDynamicScopeFilterTagOutput() AssignmentDynamicScopeFilterTagOutput {
+	return o
+}
+
+func (o AssignmentDynamicScopeFilterTagOutput) ToAssignmentDynamicScopeFilterTagOutputWithContext(ctx context.Context) AssignmentDynamicScopeFilterTagOutput {
+	return o
+}
+
+// Specifies the tag to filter by.
+func (o AssignmentDynamicScopeFilterTagOutput) Tag() pulumi.StringOutput {
+	return o.ApplyT(func(v AssignmentDynamicScopeFilterTag) string { return v.Tag }).(pulumi.StringOutput)
+}
+
+// Specifies a list of values the defined tag can have.
+func (o AssignmentDynamicScopeFilterTagOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AssignmentDynamicScopeFilterTag) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AssignmentDynamicScopeFilterTagArrayOutput struct{ *pulumi.OutputState }
+
+func (AssignmentDynamicScopeFilterTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssignmentDynamicScopeFilterTag)(nil)).Elem()
+}
+
+func (o AssignmentDynamicScopeFilterTagArrayOutput) ToAssignmentDynamicScopeFilterTagArrayOutput() AssignmentDynamicScopeFilterTagArrayOutput {
+	return o
+}
+
+func (o AssignmentDynamicScopeFilterTagArrayOutput) ToAssignmentDynamicScopeFilterTagArrayOutputWithContext(ctx context.Context) AssignmentDynamicScopeFilterTagArrayOutput {
+	return o
+}
+
+func (o AssignmentDynamicScopeFilterTagArrayOutput) Index(i pulumi.IntInput) AssignmentDynamicScopeFilterTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssignmentDynamicScopeFilterTag {
+		return vs[0].([]AssignmentDynamicScopeFilterTag)[vs[1].(int)]
+	}).(AssignmentDynamicScopeFilterTagOutput)
+}
+
 type ConfigurationInstallPatches struct {
 	// A `linux` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
 	Linuxes []ConfigurationInstallPatchesLinux `pulumi:"linuxes"`
@@ -1270,6 +1608,10 @@ func (o GetPublicConfigurationsConfigArrayOutput) Index(i pulumi.IntInput) GetPu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AssignmentDynamicScopeFilterInput)(nil)).Elem(), AssignmentDynamicScopeFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssignmentDynamicScopeFilterPtrInput)(nil)).Elem(), AssignmentDynamicScopeFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssignmentDynamicScopeFilterTagInput)(nil)).Elem(), AssignmentDynamicScopeFilterTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssignmentDynamicScopeFilterTagArrayInput)(nil)).Elem(), AssignmentDynamicScopeFilterTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationInstallPatchesInput)(nil)).Elem(), ConfigurationInstallPatchesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationInstallPatchesPtrInput)(nil)).Elem(), ConfigurationInstallPatchesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationInstallPatchesLinuxInput)(nil)).Elem(), ConfigurationInstallPatchesLinuxArgs{})
@@ -1288,6 +1630,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationWindowArrayInput)(nil)).Elem(), GetConfigurationWindowArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPublicConfigurationsConfigInput)(nil)).Elem(), GetPublicConfigurationsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPublicConfigurationsConfigArrayInput)(nil)).Elem(), GetPublicConfigurationsConfigArray{})
+	pulumi.RegisterOutputType(AssignmentDynamicScopeFilterOutput{})
+	pulumi.RegisterOutputType(AssignmentDynamicScopeFilterPtrOutput{})
+	pulumi.RegisterOutputType(AssignmentDynamicScopeFilterTagOutput{})
+	pulumi.RegisterOutputType(AssignmentDynamicScopeFilterTagArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationInstallPatchesOutput{})
 	pulumi.RegisterOutputType(ConfigurationInstallPatchesPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationInstallPatchesLinuxOutput{})

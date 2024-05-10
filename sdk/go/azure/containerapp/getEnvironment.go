@@ -59,6 +59,8 @@ type LookupEnvironmentArgs struct {
 
 // A collection of values returned by getEnvironment.
 type LookupEnvironmentResult struct {
+	// The ID of the Custom Domain Verification for this Container App Environment.
+	CustomDomainVerificationId string `pulumi:"customDomainVerificationId"`
 	// The default publicly resolvable name of this Container App Environment. This is generated at creation time to be globally unique.
 	DefaultDomain string `pulumi:"defaultDomain"`
 	// The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
@@ -123,6 +125,11 @@ func (o LookupEnvironmentResultOutput) ToLookupEnvironmentResultOutput() LookupE
 
 func (o LookupEnvironmentResultOutput) ToLookupEnvironmentResultOutputWithContext(ctx context.Context) LookupEnvironmentResultOutput {
 	return o
+}
+
+// The ID of the Custom Domain Verification for this Container App Environment.
+func (o LookupEnvironmentResultOutput) CustomDomainVerificationId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEnvironmentResult) string { return v.CustomDomainVerificationId }).(pulumi.StringOutput)
 }
 
 // The default publicly resolvable name of this Container App Environment. This is generated at creation time to be globally unique.

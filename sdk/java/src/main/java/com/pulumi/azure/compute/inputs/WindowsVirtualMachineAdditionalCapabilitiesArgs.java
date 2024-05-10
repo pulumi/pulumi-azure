@@ -16,6 +16,21 @@ public final class WindowsVirtualMachineAdditionalCapabilitiesArgs extends com.p
     public static final WindowsVirtualMachineAdditionalCapabilitiesArgs Empty = new WindowsVirtualMachineAdditionalCapabilitiesArgs();
 
     /**
+     * Whether to enable the hibernation capability or not. Changing this forces a new Windows Virtual Machine to be created.
+     * 
+     */
+    @Import(name="hibernationEnabled")
+    private @Nullable Output<Boolean> hibernationEnabled;
+
+    /**
+     * @return Whether to enable the hibernation capability or not. Changing this forces a new Windows Virtual Machine to be created.
+     * 
+     */
+    public Optional<Output<Boolean>> hibernationEnabled() {
+        return Optional.ofNullable(this.hibernationEnabled);
+    }
+
+    /**
      * Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
      * 
      */
@@ -33,6 +48,7 @@ public final class WindowsVirtualMachineAdditionalCapabilitiesArgs extends com.p
     private WindowsVirtualMachineAdditionalCapabilitiesArgs() {}
 
     private WindowsVirtualMachineAdditionalCapabilitiesArgs(WindowsVirtualMachineAdditionalCapabilitiesArgs $) {
+        this.hibernationEnabled = $.hibernationEnabled;
         this.ultraSsdEnabled = $.ultraSsdEnabled;
     }
 
@@ -52,6 +68,27 @@ public final class WindowsVirtualMachineAdditionalCapabilitiesArgs extends com.p
 
         public Builder(WindowsVirtualMachineAdditionalCapabilitiesArgs defaults) {
             $ = new WindowsVirtualMachineAdditionalCapabilitiesArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param hibernationEnabled Whether to enable the hibernation capability or not. Changing this forces a new Windows Virtual Machine to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hibernationEnabled(@Nullable Output<Boolean> hibernationEnabled) {
+            $.hibernationEnabled = hibernationEnabled;
+            return this;
+        }
+
+        /**
+         * @param hibernationEnabled Whether to enable the hibernation capability or not. Changing this forces a new Windows Virtual Machine to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hibernationEnabled(Boolean hibernationEnabled) {
+            return hibernationEnabled(Output.of(hibernationEnabled));
         }
 
         /**

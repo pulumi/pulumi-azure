@@ -25,6 +25,11 @@ export type EnvironmentCertificate = import("./environmentCertificate").Environm
 export const EnvironmentCertificate: typeof import("./environmentCertificate").EnvironmentCertificate = null as any;
 utilities.lazyLoad(exports, ["EnvironmentCertificate"], () => require("./environmentCertificate"));
 
+export { EnvironmentCustomDomainArgs, EnvironmentCustomDomainState } from "./environmentCustomDomain";
+export type EnvironmentCustomDomain = import("./environmentCustomDomain").EnvironmentCustomDomain;
+export const EnvironmentCustomDomain: typeof import("./environmentCustomDomain").EnvironmentCustomDomain = null as any;
+utilities.lazyLoad(exports, ["EnvironmentCustomDomain"], () => require("./environmentCustomDomain"));
+
 export { EnvironmentDaprComponentArgs, EnvironmentDaprComponentState } from "./environmentDaprComponent";
 export type EnvironmentDaprComponent = import("./environmentDaprComponent").EnvironmentDaprComponent;
 export const EnvironmentDaprComponent: typeof import("./environmentDaprComponent").EnvironmentDaprComponent = null as any;
@@ -50,6 +55,11 @@ export const getEnvironmentCertificate: typeof import("./getEnvironmentCertifica
 export const getEnvironmentCertificateOutput: typeof import("./getEnvironmentCertificate").getEnvironmentCertificateOutput = null as any;
 utilities.lazyLoad(exports, ["getEnvironmentCertificate","getEnvironmentCertificateOutput"], () => require("./getEnvironmentCertificate"));
 
+export { JobArgs, JobState } from "./job";
+export type Job = import("./job").Job;
+export const Job: typeof import("./job").Job = null as any;
+utilities.lazyLoad(exports, ["Job"], () => require("./job"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -63,10 +73,14 @@ const _module = {
                 return new Environment(name, <any>undefined, { urn })
             case "azure:containerapp/environmentCertificate:EnvironmentCertificate":
                 return new EnvironmentCertificate(name, <any>undefined, { urn })
+            case "azure:containerapp/environmentCustomDomain:EnvironmentCustomDomain":
+                return new EnvironmentCustomDomain(name, <any>undefined, { urn })
             case "azure:containerapp/environmentDaprComponent:EnvironmentDaprComponent":
                 return new EnvironmentDaprComponent(name, <any>undefined, { urn })
             case "azure:containerapp/environmentStorage:EnvironmentStorage":
                 return new EnvironmentStorage(name, <any>undefined, { urn })
+            case "azure:containerapp/job:Job":
+                return new Job(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -76,5 +90,7 @@ pulumi.runtime.registerResourceModule("azure", "containerapp/app", _module)
 pulumi.runtime.registerResourceModule("azure", "containerapp/customDomain", _module)
 pulumi.runtime.registerResourceModule("azure", "containerapp/environment", _module)
 pulumi.runtime.registerResourceModule("azure", "containerapp/environmentCertificate", _module)
+pulumi.runtime.registerResourceModule("azure", "containerapp/environmentCustomDomain", _module)
 pulumi.runtime.registerResourceModule("azure", "containerapp/environmentDaprComponent", _module)
 pulumi.runtime.registerResourceModule("azure", "containerapp/environmentStorage", _module)
+pulumi.runtime.registerResourceModule("azure", "containerapp/job", _module)

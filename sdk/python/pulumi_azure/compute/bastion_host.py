@@ -21,6 +21,7 @@ class BastionHostArgs:
                  copy_paste_enabled: Optional[pulumi.Input[bool]] = None,
                  file_copy_enabled: Optional[pulumi.Input[bool]] = None,
                  ip_connect_enabled: Optional[pulumi.Input[bool]] = None,
+                 kerberos_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  scale_units: Optional[pulumi.Input[int]] = None,
@@ -39,6 +40,9 @@ class BastionHostArgs:
         :param pulumi.Input[bool] ip_connect_enabled: Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
                
                > **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard`.
+        :param pulumi.Input[bool] kerberos_enabled: Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
+               
+               > **Note:** `kerberos_enabled` is only supported when `sku` is `Standard`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
         :param pulumi.Input[str] name: Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
         :param pulumi.Input[int] scale_units: The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
@@ -63,6 +67,8 @@ class BastionHostArgs:
             pulumi.set(__self__, "file_copy_enabled", file_copy_enabled)
         if ip_connect_enabled is not None:
             pulumi.set(__self__, "ip_connect_enabled", ip_connect_enabled)
+        if kerberos_enabled is not None:
+            pulumi.set(__self__, "kerberos_enabled", kerberos_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -141,6 +147,20 @@ class BastionHostArgs:
     @ip_connect_enabled.setter
     def ip_connect_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "ip_connect_enabled", value)
+
+    @property
+    @pulumi.getter(name="kerberosEnabled")
+    def kerberos_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
+
+        > **Note:** `kerberos_enabled` is only supported when `sku` is `Standard`.
+        """
+        return pulumi.get(self, "kerberos_enabled")
+
+    @kerberos_enabled.setter
+    def kerberos_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "kerberos_enabled", value)
 
     @property
     @pulumi.getter
@@ -243,6 +263,7 @@ class _BastionHostState:
                  file_copy_enabled: Optional[pulumi.Input[bool]] = None,
                  ip_configuration: Optional[pulumi.Input['BastionHostIpConfigurationArgs']] = None,
                  ip_connect_enabled: Optional[pulumi.Input[bool]] = None,
+                 kerberos_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -262,6 +283,9 @@ class _BastionHostState:
         :param pulumi.Input[bool] ip_connect_enabled: Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
                
                > **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard`.
+        :param pulumi.Input[bool] kerberos_enabled: Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
+               
+               > **Note:** `kerberos_enabled` is only supported when `sku` is `Standard`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
         :param pulumi.Input[str] name: Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
@@ -289,6 +313,8 @@ class _BastionHostState:
             pulumi.set(__self__, "ip_configuration", ip_configuration)
         if ip_connect_enabled is not None:
             pulumi.set(__self__, "ip_connect_enabled", ip_connect_enabled)
+        if kerberos_enabled is not None:
+            pulumi.set(__self__, "kerberos_enabled", kerberos_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -369,6 +395,20 @@ class _BastionHostState:
     @ip_connect_enabled.setter
     def ip_connect_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "ip_connect_enabled", value)
+
+    @property
+    @pulumi.getter(name="kerberosEnabled")
+    def kerberos_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
+
+        > **Note:** `kerberos_enabled` is only supported when `sku` is `Standard`.
+        """
+        return pulumi.get(self, "kerberos_enabled")
+
+    @kerberos_enabled.setter
+    def kerberos_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "kerberos_enabled", value)
 
     @property
     @pulumi.getter
@@ -484,6 +524,7 @@ class BastionHost(pulumi.CustomResource):
                  file_copy_enabled: Optional[pulumi.Input[bool]] = None,
                  ip_configuration: Optional[pulumi.Input[pulumi.InputType['BastionHostIpConfigurationArgs']]] = None,
                  ip_connect_enabled: Optional[pulumi.Input[bool]] = None,
+                 kerberos_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -552,6 +593,9 @@ class BastionHost(pulumi.CustomResource):
         :param pulumi.Input[bool] ip_connect_enabled: Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
                
                > **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard`.
+        :param pulumi.Input[bool] kerberos_enabled: Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
+               
+               > **Note:** `kerberos_enabled` is only supported when `sku` is `Standard`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
         :param pulumi.Input[str] name: Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
@@ -643,6 +687,7 @@ class BastionHost(pulumi.CustomResource):
                  file_copy_enabled: Optional[pulumi.Input[bool]] = None,
                  ip_configuration: Optional[pulumi.Input[pulumi.InputType['BastionHostIpConfigurationArgs']]] = None,
                  ip_connect_enabled: Optional[pulumi.Input[bool]] = None,
+                 kerberos_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -666,6 +711,7 @@ class BastionHost(pulumi.CustomResource):
                 raise TypeError("Missing required property 'ip_configuration'")
             __props__.__dict__["ip_configuration"] = ip_configuration
             __props__.__dict__["ip_connect_enabled"] = ip_connect_enabled
+            __props__.__dict__["kerberos_enabled"] = kerberos_enabled
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
@@ -692,6 +738,7 @@ class BastionHost(pulumi.CustomResource):
             file_copy_enabled: Optional[pulumi.Input[bool]] = None,
             ip_configuration: Optional[pulumi.Input[pulumi.InputType['BastionHostIpConfigurationArgs']]] = None,
             ip_connect_enabled: Optional[pulumi.Input[bool]] = None,
+            kerberos_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -716,6 +763,9 @@ class BastionHost(pulumi.CustomResource):
         :param pulumi.Input[bool] ip_connect_enabled: Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
                
                > **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard`.
+        :param pulumi.Input[bool] kerberos_enabled: Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
+               
+               > **Note:** `kerberos_enabled` is only supported when `sku` is `Standard`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
         :param pulumi.Input[str] name: Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
@@ -742,6 +792,7 @@ class BastionHost(pulumi.CustomResource):
         __props__.__dict__["file_copy_enabled"] = file_copy_enabled
         __props__.__dict__["ip_configuration"] = ip_configuration
         __props__.__dict__["ip_connect_enabled"] = ip_connect_enabled
+        __props__.__dict__["kerberos_enabled"] = kerberos_enabled
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -795,6 +846,16 @@ class BastionHost(pulumi.CustomResource):
         > **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard`.
         """
         return pulumi.get(self, "ip_connect_enabled")
+
+    @property
+    @pulumi.getter(name="kerberosEnabled")
+    def kerberos_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
+
+        > **Note:** `kerberos_enabled` is only supported when `sku` is `Standard`.
+        """
+        return pulumi.get(self, "kerberos_enabled")
 
     @property
     @pulumi.getter

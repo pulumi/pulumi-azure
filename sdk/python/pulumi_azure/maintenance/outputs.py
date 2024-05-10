@@ -11,6 +11,8 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'AssignmentDynamicScopeFilter',
+    'AssignmentDynamicScopeFilterTag',
     'ConfigurationInstallPatches',
     'ConfigurationInstallPatchesLinux',
     'ConfigurationInstallPatchesWindow',
@@ -21,6 +23,137 @@ __all__ = [
     'GetConfigurationWindowResult',
     'GetPublicConfigurationsConfigResult',
 ]
+
+@pulumi.output_type
+class AssignmentDynamicScopeFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "osTypes":
+            suggest = "os_types"
+        elif key == "resourceGroups":
+            suggest = "resource_groups"
+        elif key == "resourceTypes":
+            suggest = "resource_types"
+        elif key == "tagFilter":
+            suggest = "tag_filter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssignmentDynamicScopeFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssignmentDynamicScopeFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssignmentDynamicScopeFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 locations: Optional[Sequence[str]] = None,
+                 os_types: Optional[Sequence[str]] = None,
+                 resource_groups: Optional[Sequence[str]] = None,
+                 resource_types: Optional[Sequence[str]] = None,
+                 tag_filter: Optional[str] = None,
+                 tags: Optional[Sequence['outputs.AssignmentDynamicScopeFilterTag']] = None):
+        """
+        :param Sequence[str] locations: Specifies a list of locations to scope the query to.
+        :param Sequence[str] os_types: Specifies a list of allowed operating systems.
+        :param Sequence[str] resource_groups: Specifies a list of allowed resource groups.
+        :param Sequence[str] resource_types: Specifies a list of allowed resources.
+        :param str tag_filter: Filter VMs by `Any` or `All` specified tags. Defaults to `Any`.
+        :param Sequence['AssignmentDynamicScopeFilterTagArgs'] tags: A mapping of tags for the VM
+        """
+        if locations is not None:
+            pulumi.set(__self__, "locations", locations)
+        if os_types is not None:
+            pulumi.set(__self__, "os_types", os_types)
+        if resource_groups is not None:
+            pulumi.set(__self__, "resource_groups", resource_groups)
+        if resource_types is not None:
+            pulumi.set(__self__, "resource_types", resource_types)
+        if tag_filter is not None:
+            pulumi.set(__self__, "tag_filter", tag_filter)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def locations(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of locations to scope the query to.
+        """
+        return pulumi.get(self, "locations")
+
+    @property
+    @pulumi.getter(name="osTypes")
+    def os_types(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of allowed operating systems.
+        """
+        return pulumi.get(self, "os_types")
+
+    @property
+    @pulumi.getter(name="resourceGroups")
+    def resource_groups(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of allowed resource groups.
+        """
+        return pulumi.get(self, "resource_groups")
+
+    @property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of allowed resources.
+        """
+        return pulumi.get(self, "resource_types")
+
+    @property
+    @pulumi.getter(name="tagFilter")
+    def tag_filter(self) -> Optional[str]:
+        """
+        Filter VMs by `Any` or `All` specified tags. Defaults to `Any`.
+        """
+        return pulumi.get(self, "tag_filter")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.AssignmentDynamicScopeFilterTag']]:
+        """
+        A mapping of tags for the VM
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class AssignmentDynamicScopeFilterTag(dict):
+    def __init__(__self__, *,
+                 tag: str,
+                 values: Sequence[str]):
+        """
+        :param str tag: Specifies the tag to filter by.
+        :param Sequence[str] values: Specifies a list of values the defined tag can have.
+        """
+        pulumi.set(__self__, "tag", tag)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def tag(self) -> str:
+        """
+        Specifies the tag to filter by.
+        """
+        return pulumi.get(self, "tag")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Specifies a list of values the defined tag can have.
+        """
+        return pulumi.get(self, "values")
+
 
 @pulumi.output_type
 class ConfigurationInstallPatches(dict):

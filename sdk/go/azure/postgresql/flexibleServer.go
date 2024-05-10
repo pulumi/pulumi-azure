@@ -158,7 +158,9 @@ type FlexibleServer struct {
 	AutoGrowEnabled pulumi.BoolPtrOutput `pulumi:"autoGrowEnabled"`
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays pulumi.IntOutput `pulumi:"backupRetentionDays"`
-	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
+	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	//
+	// > **Note:** `createMode` cannot be changed once it's set since it's a parameter at creation.
 	//
 	// > **Note:** While creating the resource, `createMode` cannot be set to `Update`.
 	CreateMode pulumi.StringPtrOutput `pulumi:"createMode"`
@@ -273,7 +275,9 @@ type flexibleServerState struct {
 	AutoGrowEnabled *bool `pulumi:"autoGrowEnabled"`
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
-	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
+	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	//
+	// > **Note:** `createMode` cannot be changed once it's set since it's a parameter at creation.
 	//
 	// > **Note:** While creating the resource, `createMode` cannot be set to `Update`.
 	CreateMode *string `pulumi:"createMode"`
@@ -349,7 +353,9 @@ type FlexibleServerState struct {
 	AutoGrowEnabled pulumi.BoolPtrInput
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays pulumi.IntPtrInput
-	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
+	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	//
+	// > **Note:** `createMode` cannot be changed once it's set since it's a parameter at creation.
 	//
 	// > **Note:** While creating the resource, `createMode` cannot be set to `Update`.
 	CreateMode pulumi.StringPtrInput
@@ -429,7 +435,9 @@ type flexibleServerArgs struct {
 	AutoGrowEnabled *bool `pulumi:"autoGrowEnabled"`
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
-	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
+	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	//
+	// > **Note:** `createMode` cannot be changed once it's set since it's a parameter at creation.
 	//
 	// > **Note:** While creating the resource, `createMode` cannot be set to `Update`.
 	CreateMode *string `pulumi:"createMode"`
@@ -502,7 +510,9 @@ type FlexibleServerArgs struct {
 	AutoGrowEnabled pulumi.BoolPtrInput
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays pulumi.IntPtrInput
-	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
+	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	//
+	// > **Note:** `createMode` cannot be changed once it's set since it's a parameter at creation.
 	//
 	// > **Note:** While creating the resource, `createMode` cannot be set to `Update`.
 	CreateMode pulumi.StringPtrInput
@@ -675,7 +685,9 @@ func (o FlexibleServerOutput) BackupRetentionDays() pulumi.IntOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.IntOutput { return v.BackupRetentionDays }).(pulumi.IntOutput)
 }
 
-// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
+// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
+//
+// > **Note:** `createMode` cannot be changed once it's set since it's a parameter at creation.
 //
 // > **Note:** While creating the resource, `createMode` cannot be set to `Update`.
 func (o FlexibleServerOutput) CreateMode() pulumi.StringPtrOutput {

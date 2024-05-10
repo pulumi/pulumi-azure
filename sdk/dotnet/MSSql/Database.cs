@@ -416,6 +416,8 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// Boolean flag to specify whether TDE automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** When the `sku_name` is `DW100c`, the `transparent_data_encryption_key_automatic_rotation_enabled` and the `transparent_data_encryption_key_vault_key_id` properties should not be specified, as database-level CMK is not supported for Data Warehouse SKUs.
         /// </summary>
         [Output("transparentDataEncryptionKeyAutomaticRotationEnabled")]
         public Output<bool?> TransparentDataEncryptionKeyAutomaticRotationEnabled { get; private set; } = null!;
@@ -700,6 +702,8 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// Boolean flag to specify whether TDE automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** When the `sku_name` is `DW100c`, the `transparent_data_encryption_key_automatic_rotation_enabled` and the `transparent_data_encryption_key_vault_key_id` properties should not be specified, as database-level CMK is not supported for Data Warehouse SKUs.
         /// </summary>
         [Input("transparentDataEncryptionKeyAutomaticRotationEnabled")]
         public Input<bool>? TransparentDataEncryptionKeyAutomaticRotationEnabled { get; set; }
@@ -946,6 +950,8 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// Boolean flag to specify whether TDE automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** When the `sku_name` is `DW100c`, the `transparent_data_encryption_key_automatic_rotation_enabled` and the `transparent_data_encryption_key_vault_key_id` properties should not be specified, as database-level CMK is not supported for Data Warehouse SKUs.
         /// </summary>
         [Input("transparentDataEncryptionKeyAutomaticRotationEnabled")]
         public Input<bool>? TransparentDataEncryptionKeyAutomaticRotationEnabled { get; set; }

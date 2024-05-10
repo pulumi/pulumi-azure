@@ -109,7 +109,7 @@ export class Profile extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A mapping of tags assigned to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
@@ -177,7 +177,7 @@ export interface ProfileState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A mapping of tags assigned to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -203,7 +203,7 @@ export interface ProfileArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A mapping of tags assigned to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

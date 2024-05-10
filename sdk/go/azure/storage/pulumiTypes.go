@@ -1020,6 +1020,10 @@ func (o AccountBlobPropertiesCorsRuleArrayOutput) Index(i pulumi.IntInput) Accou
 type AccountBlobPropertiesDeleteRetentionPolicy struct {
 	// Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
 	Days *int `pulumi:"days"`
+	// Indicates whether permanent deletion of the soft deleted blob versions and snapshots is allowed. Defaults to `false`.
+	//
+	// > **NOTE:** `permanentDeleteEnabled` cannot be set to true if a `restorePolicy` block is defined.
+	PermanentDeleteEnabled *bool `pulumi:"permanentDeleteEnabled"`
 }
 
 // AccountBlobPropertiesDeleteRetentionPolicyInput is an input type that accepts AccountBlobPropertiesDeleteRetentionPolicyArgs and AccountBlobPropertiesDeleteRetentionPolicyOutput values.
@@ -1036,6 +1040,10 @@ type AccountBlobPropertiesDeleteRetentionPolicyInput interface {
 type AccountBlobPropertiesDeleteRetentionPolicyArgs struct {
 	// Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
 	Days pulumi.IntPtrInput `pulumi:"days"`
+	// Indicates whether permanent deletion of the soft deleted blob versions and snapshots is allowed. Defaults to `false`.
+	//
+	// > **NOTE:** `permanentDeleteEnabled` cannot be set to true if a `restorePolicy` block is defined.
+	PermanentDeleteEnabled pulumi.BoolPtrInput `pulumi:"permanentDeleteEnabled"`
 }
 
 func (AccountBlobPropertiesDeleteRetentionPolicyArgs) ElementType() reflect.Type {
@@ -1120,6 +1128,13 @@ func (o AccountBlobPropertiesDeleteRetentionPolicyOutput) Days() pulumi.IntPtrOu
 	return o.ApplyT(func(v AccountBlobPropertiesDeleteRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
+// Indicates whether permanent deletion of the soft deleted blob versions and snapshots is allowed. Defaults to `false`.
+//
+// > **NOTE:** `permanentDeleteEnabled` cannot be set to true if a `restorePolicy` block is defined.
+func (o AccountBlobPropertiesDeleteRetentionPolicyOutput) PermanentDeleteEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccountBlobPropertiesDeleteRetentionPolicy) *bool { return v.PermanentDeleteEnabled }).(pulumi.BoolPtrOutput)
+}
+
 type AccountBlobPropertiesDeleteRetentionPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (AccountBlobPropertiesDeleteRetentionPolicyPtrOutput) ElementType() reflect.Type {
@@ -1152,6 +1167,18 @@ func (o AccountBlobPropertiesDeleteRetentionPolicyPtrOutput) Days() pulumi.IntPt
 		}
 		return v.Days
 	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether permanent deletion of the soft deleted blob versions and snapshots is allowed. Defaults to `false`.
+//
+// > **NOTE:** `permanentDeleteEnabled` cannot be set to true if a `restorePolicy` block is defined.
+func (o AccountBlobPropertiesDeleteRetentionPolicyPtrOutput) PermanentDeleteEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccountBlobPropertiesDeleteRetentionPolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PermanentDeleteEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type AccountBlobPropertiesRestorePolicy struct {

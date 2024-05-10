@@ -196,6 +196,8 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
     public readonly extensionsTimeBudget!: pulumi.Output<string | undefined>;
     /**
      * One or more `galleryApplication` blocks as defined below.
+     *
+     * > **Note** Gallery Application Assignments can be defined either directly on `azure.compute.WindowsVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it's recommended to use `ignoreChanges` for the `galleryApplication` block on the corresponding `azure.compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
      */
     public readonly galleryApplications!: pulumi.Output<outputs.compute.WindowsVirtualMachineGalleryApplication[] | undefined>;
     /**
@@ -610,6 +612,8 @@ export interface WindowsVirtualMachineState {
     extensionsTimeBudget?: pulumi.Input<string>;
     /**
      * One or more `galleryApplication` blocks as defined below.
+     *
+     * > **Note** Gallery Application Assignments can be defined either directly on `azure.compute.WindowsVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it's recommended to use `ignoreChanges` for the `galleryApplication` block on the corresponding `azure.compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
      */
     galleryApplications?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineGalleryApplication>[]>;
     /**
@@ -870,6 +874,8 @@ export interface WindowsVirtualMachineArgs {
     extensionsTimeBudget?: pulumi.Input<string>;
     /**
      * One or more `galleryApplication` blocks as defined below.
+     *
+     * > **Note** Gallery Application Assignments can be defined either directly on `azure.compute.WindowsVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it's recommended to use `ignoreChanges` for the `galleryApplication` block on the corresponding `azure.compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
      */
     galleryApplications?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineGalleryApplication>[]>;
     /**

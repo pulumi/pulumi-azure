@@ -100,6 +100,8 @@ class WindowsVirtualMachineArgs:
                > **NOTE:** This can only be configured when `priority` is set to `Spot`.
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineGalleryApplicationArgs']]] gallery_applications: One or more `gallery_application` blocks as defined below.
+               
+               > **Note** Gallery Application Assignments can be defined either directly on `compute.WindowsVirtualMachine` resource, or using the `compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `compute.GalleryApplicationAssignment` is used, it's recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
         :param pulumi.Input[bool] hotpatching_enabled: Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
                
                > **NOTE:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, and the VM's `size` is set to a Azure generation 2 directory within the GitHub Repository.
@@ -535,6 +537,8 @@ class WindowsVirtualMachineArgs:
     def gallery_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineGalleryApplicationArgs']]]]:
         """
         One or more `gallery_application` blocks as defined below.
+
+        > **Note** Gallery Application Assignments can be defined either directly on `compute.WindowsVirtualMachine` resource, or using the `compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `compute.GalleryApplicationAssignment` is used, it's recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
         """
         return pulumi.get(self, "gallery_applications")
 
@@ -987,6 +991,8 @@ class _WindowsVirtualMachineState:
                > **NOTE:** This can only be configured when `priority` is set to `Spot`.
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineGalleryApplicationArgs']]] gallery_applications: One or more `gallery_application` blocks as defined below.
+               
+               > **Note** Gallery Application Assignments can be defined either directly on `compute.WindowsVirtualMachine` resource, or using the `compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `compute.GalleryApplicationAssignment` is used, it's recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
         :param pulumi.Input[bool] hotpatching_enabled: Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
                
                > **NOTE:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, and the VM's `size` is set to a Azure generation 2 directory within the GitHub Repository.
@@ -1399,6 +1405,8 @@ class _WindowsVirtualMachineState:
     def gallery_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineGalleryApplicationArgs']]]]:
         """
         One or more `gallery_application` blocks as defined below.
+
+        > **Note** Gallery Application Assignments can be defined either directly on `compute.WindowsVirtualMachine` resource, or using the `compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `compute.GalleryApplicationAssignment` is used, it's recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
         """
         return pulumi.get(self, "gallery_applications")
 
@@ -2030,6 +2038,8 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                > **NOTE:** This can only be configured when `priority` is set to `Spot`.
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineGalleryApplicationArgs']]]] gallery_applications: One or more `gallery_application` blocks as defined below.
+               
+               > **Note** Gallery Application Assignments can be defined either directly on `compute.WindowsVirtualMachine` resource, or using the `compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `compute.GalleryApplicationAssignment` is used, it's recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
         :param pulumi.Input[bool] hotpatching_enabled: Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
                
                > **NOTE:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, and the VM's `size` is set to a Azure generation 2 directory within the GitHub Repository.
@@ -2409,6 +2419,8 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                > **NOTE:** This can only be configured when `priority` is set to `Spot`.
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineGalleryApplicationArgs']]]] gallery_applications: One or more `gallery_application` blocks as defined below.
+               
+               > **Note** Gallery Application Assignments can be defined either directly on `compute.WindowsVirtualMachine` resource, or using the `compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `compute.GalleryApplicationAssignment` is used, it's recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
         :param pulumi.Input[bool] hotpatching_enabled: Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
                
                > **NOTE:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, and the VM's `size` is set to a Azure generation 2 directory within the GitHub Repository.
@@ -2693,6 +2705,8 @@ class WindowsVirtualMachine(pulumi.CustomResource):
     def gallery_applications(self) -> pulumi.Output[Optional[Sequence['outputs.WindowsVirtualMachineGalleryApplication']]]:
         """
         One or more `gallery_application` blocks as defined below.
+
+        > **Note** Gallery Application Assignments can be defined either directly on `compute.WindowsVirtualMachine` resource, or using the `compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `compute.GalleryApplicationAssignment` is used, it's recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
         """
         return pulumi.get(self, "gallery_applications")
 

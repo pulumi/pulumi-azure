@@ -14,13 +14,21 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class WindowsVirtualMachineAdditionalCapabilities
     {
         /// <summary>
+        /// Whether to enable the hibernation capability or not. Changing this forces a new Windows Virtual Machine to be created.
+        /// </summary>
+        public readonly bool? HibernationEnabled;
+        /// <summary>
         /// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
         /// </summary>
         public readonly bool? UltraSsdEnabled;
 
         [OutputConstructor]
-        private WindowsVirtualMachineAdditionalCapabilities(bool? ultraSsdEnabled)
+        private WindowsVirtualMachineAdditionalCapabilities(
+            bool? hibernationEnabled,
+
+            bool? ultraSsdEnabled)
         {
+            HibernationEnabled = hibernationEnabled;
             UltraSsdEnabled = ultraSsdEnabled;
         }
     }

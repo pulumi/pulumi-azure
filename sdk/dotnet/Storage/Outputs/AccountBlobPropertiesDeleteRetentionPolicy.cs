@@ -17,11 +17,21 @@ namespace Pulumi.Azure.Storage.Outputs
         /// Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
         /// </summary>
         public readonly int? Days;
+        /// <summary>
+        /// Indicates whether permanent deletion of the soft deleted blob versions and snapshots is allowed. Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** `permanent_delete_enabled` cannot be set to true if a `restore_policy` block is defined.
+        /// </summary>
+        public readonly bool? PermanentDeleteEnabled;
 
         [OutputConstructor]
-        private AccountBlobPropertiesDeleteRetentionPolicy(int? days)
+        private AccountBlobPropertiesDeleteRetentionPolicy(
+            int? days,
+
+            bool? permanentDeleteEnabled)
         {
             Days = days;
+            PermanentDeleteEnabled = permanentDeleteEnabled;
         }
     }
 }

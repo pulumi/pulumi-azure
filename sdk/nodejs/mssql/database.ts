@@ -330,6 +330,8 @@ export class Database extends pulumi.CustomResource {
     public readonly transparentDataEncryptionEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Boolean flag to specify whether TDE automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+     *
+     * > **NOTE:** When the `skuName` is `DW100c`, the `transparentDataEncryptionKeyAutomaticRotationEnabled` and the `transparentDataEncryptionKeyVaultKeyId` properties should not be specified, as database-level CMK is not supported for Data Warehouse SKUs.
      */
     public readonly transparentDataEncryptionKeyAutomaticRotationEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -591,6 +593,8 @@ export interface DatabaseState {
     transparentDataEncryptionEnabled?: pulumi.Input<boolean>;
     /**
      * Boolean flag to specify whether TDE automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+     *
+     * > **NOTE:** When the `skuName` is `DW100c`, the `transparentDataEncryptionKeyAutomaticRotationEnabled` and the `transparentDataEncryptionKeyVaultKeyId` properties should not be specified, as database-level CMK is not supported for Data Warehouse SKUs.
      */
     transparentDataEncryptionKeyAutomaticRotationEnabled?: pulumi.Input<boolean>;
     /**
@@ -759,6 +763,8 @@ export interface DatabaseArgs {
     transparentDataEncryptionEnabled?: pulumi.Input<boolean>;
     /**
      * Boolean flag to specify whether TDE automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+     *
+     * > **NOTE:** When the `skuName` is `DW100c`, the `transparentDataEncryptionKeyAutomaticRotationEnabled` and the `transparentDataEncryptionKeyVaultKeyId` properties should not be specified, as database-level CMK is not supported for Data Warehouse SKUs.
      */
     transparentDataEncryptionKeyAutomaticRotationEnabled?: pulumi.Input<boolean>;
     /**

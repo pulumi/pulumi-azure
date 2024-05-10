@@ -13,6 +13,7 @@ import com.pulumi.azure.config.outputs.FeaturesMachineLearning;
 import com.pulumi.azure.config.outputs.FeaturesManagedDisk;
 import com.pulumi.azure.config.outputs.FeaturesPostgresqlFlexibleServer;
 import com.pulumi.azure.config.outputs.FeaturesRecoveryService;
+import com.pulumi.azure.config.outputs.FeaturesRecoveryServicesVaults;
 import com.pulumi.azure.config.outputs.FeaturesResourceGroup;
 import com.pulumi.azure.config.outputs.FeaturesSubscription;
 import com.pulumi.azure.config.outputs.FeaturesTemplateDeployment;
@@ -35,6 +36,7 @@ public final class Features {
     private @Nullable FeaturesManagedDisk managedDisk;
     private @Nullable FeaturesPostgresqlFlexibleServer postgresqlFlexibleServer;
     private @Nullable FeaturesRecoveryService recoveryService;
+    private @Nullable FeaturesRecoveryServicesVaults recoveryServicesVaults;
     private @Nullable FeaturesResourceGroup resourceGroup;
     private @Nullable FeaturesSubscription subscription;
     private @Nullable FeaturesTemplateDeployment templateDeployment;
@@ -72,6 +74,9 @@ public final class Features {
     public Optional<FeaturesRecoveryService> recoveryService() {
         return Optional.ofNullable(this.recoveryService);
     }
+    public Optional<FeaturesRecoveryServicesVaults> recoveryServicesVaults() {
+        return Optional.ofNullable(this.recoveryServicesVaults);
+    }
     public Optional<FeaturesResourceGroup> resourceGroup() {
         return Optional.ofNullable(this.resourceGroup);
     }
@@ -107,6 +112,7 @@ public final class Features {
         private @Nullable FeaturesManagedDisk managedDisk;
         private @Nullable FeaturesPostgresqlFlexibleServer postgresqlFlexibleServer;
         private @Nullable FeaturesRecoveryService recoveryService;
+        private @Nullable FeaturesRecoveryServicesVaults recoveryServicesVaults;
         private @Nullable FeaturesResourceGroup resourceGroup;
         private @Nullable FeaturesSubscription subscription;
         private @Nullable FeaturesTemplateDeployment templateDeployment;
@@ -125,6 +131,7 @@ public final class Features {
     	      this.managedDisk = defaults.managedDisk;
     	      this.postgresqlFlexibleServer = defaults.postgresqlFlexibleServer;
     	      this.recoveryService = defaults.recoveryService;
+    	      this.recoveryServicesVaults = defaults.recoveryServicesVaults;
     	      this.resourceGroup = defaults.resourceGroup;
     	      this.subscription = defaults.subscription;
     	      this.templateDeployment = defaults.templateDeployment;
@@ -193,6 +200,12 @@ public final class Features {
             return this;
         }
         @CustomType.Setter
+        public Builder recoveryServicesVaults(@Nullable FeaturesRecoveryServicesVaults recoveryServicesVaults) {
+
+            this.recoveryServicesVaults = recoveryServicesVaults;
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourceGroup(@Nullable FeaturesResourceGroup resourceGroup) {
 
             this.resourceGroup = resourceGroup;
@@ -234,6 +247,7 @@ public final class Features {
             _resultValue.managedDisk = managedDisk;
             _resultValue.postgresqlFlexibleServer = postgresqlFlexibleServer;
             _resultValue.recoveryService = recoveryService;
+            _resultValue.recoveryServicesVaults = recoveryServicesVaults;
             _resultValue.resourceGroup = resourceGroup;
             _resultValue.subscription = subscription;
             _resultValue.templateDeployment = templateDeployment;

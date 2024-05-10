@@ -30,6 +30,12 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly int MaxUnhealthyUpgradedInstancePercent;
         /// <summary>
+        /// Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+        /// 
+        /// &gt; **NOTE:** `overprovision` must be set to `false` when `maximum_surge_instances_enabled` is specified.
+        /// </summary>
+        public readonly bool? MaximumSurgeInstancesEnabled;
+        /// <summary>
         /// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
         /// </summary>
         public readonly string PauseTimeBetweenBatches;
@@ -48,6 +54,8 @@ namespace Pulumi.Azure.Compute.Outputs
 
             int maxUnhealthyUpgradedInstancePercent,
 
+            bool? maximumSurgeInstancesEnabled,
+
             string pauseTimeBetweenBatches,
 
             bool? prioritizeUnhealthyInstancesEnabled)
@@ -56,6 +64,7 @@ namespace Pulumi.Azure.Compute.Outputs
             MaxBatchInstancePercent = maxBatchInstancePercent;
             MaxUnhealthyInstancePercent = maxUnhealthyInstancePercent;
             MaxUnhealthyUpgradedInstancePercent = maxUnhealthyUpgradedInstancePercent;
+            MaximumSurgeInstancesEnabled = maximumSurgeInstancesEnabled;
             PauseTimeBetweenBatches = pauseTimeBetweenBatches;
             PrioritizeUnhealthyInstancesEnabled = prioritizeUnhealthyInstancesEnabled;
         }

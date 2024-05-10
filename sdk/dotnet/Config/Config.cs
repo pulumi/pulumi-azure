@@ -323,6 +323,7 @@ namespace Pulumi.Azure
                 public Pulumi.Azure.Config.Types.FeaturesManagedDisk? ManagedDisk { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesPostgresqlFlexibleServer? PostgresqlFlexibleServer { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesRecoveryService? RecoveryService { get; set; } = null!;
+                public Pulumi.Azure.Config.Types.FeaturesRecoveryServicesVaults? RecoveryServicesVaults { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesResourceGroup? ResourceGroup { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesSubscription? Subscription { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesTemplateDeployment? TemplateDeployment { get; set; } = null!;
@@ -416,6 +417,11 @@ namespace Pulumi.Azure
              {
                 public bool? PurgeProtectedItemsFromVaultOnDestroy { get; set; }
                 public bool? VmBackupStopProtectionAndRetainDataOnDestroy { get; set; }
+            }
+
+             public class FeaturesRecoveryServicesVaults
+             {
+                public bool? RecoverSoftDeletedBackupProtectedVm { get; set; }
             }
 
              public class FeaturesResourceGroup

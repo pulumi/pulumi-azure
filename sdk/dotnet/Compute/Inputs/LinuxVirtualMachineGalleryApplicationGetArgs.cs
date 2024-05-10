@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string>? ConfigurationBlobUri { get; set; }
 
         /// <summary>
-        /// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`.
+        /// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`.
         /// </summary>
         [Input("order")]
         public Input<int>? Order { get; set; }

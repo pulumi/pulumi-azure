@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AutomanageConfigurationAssignmentArgs, AutomanageConfigurationAssignmentState } from "./automanageConfigurationAssignment";
+export type AutomanageConfigurationAssignment = import("./automanageConfigurationAssignment").AutomanageConfigurationAssignment;
+export const AutomanageConfigurationAssignment: typeof import("./automanageConfigurationAssignment").AutomanageConfigurationAssignment = null as any;
+utilities.lazyLoad(exports, ["AutomanageConfigurationAssignment"], () => require("./automanageConfigurationAssignment"));
+
 export { AvailabilitySetArgs, AvailabilitySetState } from "./availabilitySet";
 export type AvailabilitySet = import("./availabilitySet").AvailabilitySet;
 export const AvailabilitySet: typeof import("./availabilitySet").AvailabilitySet = null as any;
@@ -79,6 +84,11 @@ export { GalleryApplicationArgs, GalleryApplicationState } from "./galleryApplic
 export type GalleryApplication = import("./galleryApplication").GalleryApplication;
 export const GalleryApplication: typeof import("./galleryApplication").GalleryApplication = null as any;
 utilities.lazyLoad(exports, ["GalleryApplication"], () => require("./galleryApplication"));
+
+export { GalleryApplicationAssignmentArgs, GalleryApplicationAssignmentState } from "./galleryApplicationAssignment";
+export type GalleryApplicationAssignment = import("./galleryApplicationAssignment").GalleryApplicationAssignment;
+export const GalleryApplicationAssignment: typeof import("./galleryApplicationAssignment").GalleryApplicationAssignment = null as any;
+utilities.lazyLoad(exports, ["GalleryApplicationAssignment"], () => require("./galleryApplicationAssignment"));
 
 export { GalleryApplicationVersionArgs, GalleryApplicationVersionState } from "./galleryApplicationVersion";
 export type GalleryApplicationVersion = import("./galleryApplicationVersion").GalleryApplicationVersion;
@@ -290,6 +300,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure:compute/automanageConfigurationAssignment:AutomanageConfigurationAssignment":
+                return new AutomanageConfigurationAssignment(name, <any>undefined, { urn })
             case "azure:compute/availabilitySet:AvailabilitySet":
                 return new AvailabilitySet(name, <any>undefined, { urn })
             case "azure:compute/bastionHost:BastionHost":
@@ -320,6 +332,8 @@ const _module = {
                 return new Extension(name, <any>undefined, { urn })
             case "azure:compute/galleryApplication:GalleryApplication":
                 return new GalleryApplication(name, <any>undefined, { urn })
+            case "azure:compute/galleryApplicationAssignment:GalleryApplicationAssignment":
+                return new GalleryApplicationAssignment(name, <any>undefined, { urn })
             case "azure:compute/galleryApplicationVersion:GalleryApplicationVersion":
                 return new GalleryApplicationVersion(name, <any>undefined, { urn })
             case "azure:compute/image:Image":
@@ -365,6 +379,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azure", "compute/automanageConfigurationAssignment", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/availabilitySet", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/bastionHost", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/capacityReservation", _module)
@@ -380,6 +395,7 @@ pulumi.runtime.registerResourceModule("azure", "compute/diskPoolIscsiTargetLun",
 pulumi.runtime.registerResourceModule("azure", "compute/diskPoolManagedDiskAttachment", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/extension", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/galleryApplication", _module)
+pulumi.runtime.registerResourceModule("azure", "compute/galleryApplicationAssignment", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/galleryApplicationVersion", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/image", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/linuxVirtualMachine", _module)

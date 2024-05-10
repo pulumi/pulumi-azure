@@ -350,12 +350,16 @@ public final class LinuxVirtualMachineArgs extends com.pulumi.resources.Resource
     /**
      * One or more `gallery_application` blocks as defined below.
      * 
+     * &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.LinuxVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
+     * 
      */
     @Import(name="galleryApplications")
     private @Nullable Output<List<LinuxVirtualMachineGalleryApplicationArgs>> galleryApplications;
 
     /**
      * @return One or more `gallery_application` blocks as defined below.
+     * 
+     * &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.LinuxVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
      * 
      */
     public Optional<Output<List<LinuxVirtualMachineGalleryApplicationArgs>>> galleryApplications() {
@@ -378,14 +382,14 @@ public final class LinuxVirtualMachineArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE` and `SLES_BYOS`.
+     * Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`.
      * 
      */
     @Import(name="licenseType")
     private @Nullable Output<String> licenseType;
 
     /**
-     * @return Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE` and `SLES_BYOS`.
+     * @return Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`.
      * 
      */
     public Optional<Output<String>> licenseType() {
@@ -1349,6 +1353,8 @@ public final class LinuxVirtualMachineArgs extends com.pulumi.resources.Resource
         /**
          * @param galleryApplications One or more `gallery_application` blocks as defined below.
          * 
+         * &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.LinuxVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
+         * 
          * @return builder
          * 
          */
@@ -1360,6 +1366,8 @@ public final class LinuxVirtualMachineArgs extends com.pulumi.resources.Resource
         /**
          * @param galleryApplications One or more `gallery_application` blocks as defined below.
          * 
+         * &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.LinuxVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
+         * 
          * @return builder
          * 
          */
@@ -1369,6 +1377,8 @@ public final class LinuxVirtualMachineArgs extends com.pulumi.resources.Resource
 
         /**
          * @param galleryApplications One or more `gallery_application` blocks as defined below.
+         * 
+         * &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.LinuxVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
          * 
          * @return builder
          * 
@@ -1399,7 +1409,7 @@ public final class LinuxVirtualMachineArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param licenseType Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE` and `SLES_BYOS`.
+         * @param licenseType Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`.
          * 
          * @return builder
          * 
@@ -1410,7 +1420,7 @@ public final class LinuxVirtualMachineArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param licenseType Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE` and `SLES_BYOS`.
+         * @param licenseType Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`.
          * 
          * @return builder
          * 

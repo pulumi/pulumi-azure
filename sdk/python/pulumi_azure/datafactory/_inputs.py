@@ -10,6 +10,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'CredentialServicePrincipalServicePrincipalKeyArgs',
     'CustomDatasetLinkedServiceArgs',
     'DataFlowSinkArgs',
     'DataFlowSinkDatasetArgs',
@@ -112,6 +113,59 @@ __all__ = [
     'TriggerTumblingWindowRetryArgs',
     'TriggerTumblingWindowTriggerDependencyArgs',
 ]
+
+@pulumi.input_type
+class CredentialServicePrincipalServicePrincipalKeyArgs:
+    def __init__(__self__, *,
+                 linked_service_name: pulumi.Input[str],
+                 secret_name: pulumi.Input[str],
+                 secret_version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] linked_service_name: The name of the Linked Service to use for the Service Principal Key.
+        :param pulumi.Input[str] secret_name: The name of the Secret in the Key Vault.
+        :param pulumi.Input[str] secret_version: The version of the Secret in the Key Vault.
+        """
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "secret_name", secret_name)
+        if secret_version is not None:
+            pulumi.set(__self__, "secret_version", secret_version)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Linked Service to use for the Service Principal Key.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "linked_service_name", value)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Secret in the Key Vault.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @secret_name.setter
+    def secret_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret_name", value)
+
+    @property
+    @pulumi.getter(name="secretVersion")
+    def secret_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the Secret in the Key Vault.
+        """
+        return pulumi.get(self, "secret_version")
+
+    @secret_version.setter
+    def secret_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_version", value)
+
 
 @pulumi.input_type
 class CustomDatasetLinkedServiceArgs:

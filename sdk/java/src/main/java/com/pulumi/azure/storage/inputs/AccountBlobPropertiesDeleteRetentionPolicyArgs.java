@@ -5,6 +5,7 @@ package com.pulumi.azure.storage.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -30,10 +31,30 @@ public final class AccountBlobPropertiesDeleteRetentionPolicyArgs extends com.pu
         return Optional.ofNullable(this.days);
     }
 
+    /**
+     * Indicates whether permanent deletion of the soft deleted blob versions and snapshots is allowed. Defaults to `false`.
+     * 
+     * &gt; **NOTE:** `permanent_delete_enabled` cannot be set to true if a `restore_policy` block is defined.
+     * 
+     */
+    @Import(name="permanentDeleteEnabled")
+    private @Nullable Output<Boolean> permanentDeleteEnabled;
+
+    /**
+     * @return Indicates whether permanent deletion of the soft deleted blob versions and snapshots is allowed. Defaults to `false`.
+     * 
+     * &gt; **NOTE:** `permanent_delete_enabled` cannot be set to true if a `restore_policy` block is defined.
+     * 
+     */
+    public Optional<Output<Boolean>> permanentDeleteEnabled() {
+        return Optional.ofNullable(this.permanentDeleteEnabled);
+    }
+
     private AccountBlobPropertiesDeleteRetentionPolicyArgs() {}
 
     private AccountBlobPropertiesDeleteRetentionPolicyArgs(AccountBlobPropertiesDeleteRetentionPolicyArgs $) {
         this.days = $.days;
+        this.permanentDeleteEnabled = $.permanentDeleteEnabled;
     }
 
     public static Builder builder() {
@@ -73,6 +94,31 @@ public final class AccountBlobPropertiesDeleteRetentionPolicyArgs extends com.pu
          */
         public Builder days(Integer days) {
             return days(Output.of(days));
+        }
+
+        /**
+         * @param permanentDeleteEnabled Indicates whether permanent deletion of the soft deleted blob versions and snapshots is allowed. Defaults to `false`.
+         * 
+         * &gt; **NOTE:** `permanent_delete_enabled` cannot be set to true if a `restore_policy` block is defined.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder permanentDeleteEnabled(@Nullable Output<Boolean> permanentDeleteEnabled) {
+            $.permanentDeleteEnabled = permanentDeleteEnabled;
+            return this;
+        }
+
+        /**
+         * @param permanentDeleteEnabled Indicates whether permanent deletion of the soft deleted blob versions and snapshots is allowed. Defaults to `false`.
+         * 
+         * &gt; **NOTE:** `permanent_delete_enabled` cannot be set to true if a `restore_policy` block is defined.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder permanentDeleteEnabled(Boolean permanentDeleteEnabled) {
+            return permanentDeleteEnabled(Output.of(permanentDeleteEnabled));
         }
 
         public AccountBlobPropertiesDeleteRetentionPolicyArgs build() {

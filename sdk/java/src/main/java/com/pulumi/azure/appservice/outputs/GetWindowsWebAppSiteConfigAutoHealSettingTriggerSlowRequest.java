@@ -24,10 +24,14 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest {
     /**
      * @return The path to which this rule status code applies.
      * 
+     * @deprecated
+     * `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider. */
     private String path;
     /**
-     * @return The amount of time that qualifies as slow for this rule.
+     * @return (Required) The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
      * 
      */
     private String timeTaken;
@@ -50,12 +54,16 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest {
     /**
      * @return The path to which this rule status code applies.
      * 
+     * @deprecated
+     * `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider. */
     public String path() {
         return this.path;
     }
     /**
-     * @return The amount of time that qualifies as slow for this rule.
+     * @return (Required) The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
      * 
      */
     public String timeTaken() {

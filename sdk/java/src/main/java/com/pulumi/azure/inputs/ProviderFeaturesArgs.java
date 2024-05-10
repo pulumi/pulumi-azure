@@ -13,6 +13,7 @@ import com.pulumi.azure.inputs.ProviderFeaturesMachineLearningArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesManagedDiskArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesPostgresqlFlexibleServerArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesRecoveryServiceArgs;
+import com.pulumi.azure.inputs.ProviderFeaturesRecoveryServicesVaultsArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesResourceGroupArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesSubscriptionArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesTemplateDeploymentArgs;
@@ -99,6 +100,13 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.recoveryService);
     }
 
+    @Import(name="recoveryServicesVaults")
+    private @Nullable Output<ProviderFeaturesRecoveryServicesVaultsArgs> recoveryServicesVaults;
+
+    public Optional<Output<ProviderFeaturesRecoveryServicesVaultsArgs>> recoveryServicesVaults() {
+        return Optional.ofNullable(this.recoveryServicesVaults);
+    }
+
     @Import(name="resourceGroup")
     private @Nullable Output<ProviderFeaturesResourceGroupArgs> resourceGroup;
 
@@ -147,6 +155,7 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
         this.managedDisk = $.managedDisk;
         this.postgresqlFlexibleServer = $.postgresqlFlexibleServer;
         this.recoveryService = $.recoveryService;
+        this.recoveryServicesVaults = $.recoveryServicesVaults;
         this.resourceGroup = $.resourceGroup;
         this.subscription = $.subscription;
         this.templateDeployment = $.templateDeployment;
@@ -260,6 +269,15 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
 
         public Builder recoveryService(ProviderFeaturesRecoveryServiceArgs recoveryService) {
             return recoveryService(Output.of(recoveryService));
+        }
+
+        public Builder recoveryServicesVaults(@Nullable Output<ProviderFeaturesRecoveryServicesVaultsArgs> recoveryServicesVaults) {
+            $.recoveryServicesVaults = recoveryServicesVaults;
+            return this;
+        }
+
+        public Builder recoveryServicesVaults(ProviderFeaturesRecoveryServicesVaultsArgs recoveryServicesVaults) {
+            return recoveryServicesVaults(Output.of(recoveryServicesVaults));
         }
 
         public Builder resourceGroup(@Nullable Output<ProviderFeaturesResourceGroupArgs> resourceGroup) {

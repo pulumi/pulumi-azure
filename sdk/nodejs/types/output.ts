@@ -5881,7 +5881,7 @@ export namespace appservice {
          */
         loginParameters: {[key: string]: string};
         /**
-         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
          */
         tenantAuthEndpoint: string;
         /**
@@ -6828,7 +6828,7 @@ export namespace appservice {
          */
         loginParameters: {[key: string]: string};
         /**
-         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
          */
         tenantAuthEndpoint: string;
         /**
@@ -7415,9 +7415,13 @@ export namespace appservice {
          */
         requests: outputs.appservice.GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest[];
         /**
+         * (Optional) One or more `slowRequestWithPath` blocks as defined above.
+         */
+        slowRequestWithPaths: outputs.appservice.GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath[];
+        /**
          * A `slowRequest` block as defined above.
          */
-        slowRequests?: outputs.appservice.GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest[];
+        slowRequests: outputs.appservice.GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest[];
         /**
          * A `statusCode` block as defined above.
          */
@@ -7446,10 +7450,31 @@ export namespace appservice {
         interval: string;
         /**
          * The path to which this rule status code applies.
+         *
+         * @deprecated `path` will be removed in `slowRequest` and please use `slowRequestWithPath` to set the path in version 4.0 of the AzureRM Provider.
          */
         path: string;
         /**
-         * The amount of time that qualifies as slow for this rule.
+         * (Required) The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+         */
+        timeTaken: string;
+    }
+
+    export interface GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath {
+        /**
+         * The number of occurrences of the defined `statusCode` in the specified `interval` on which to trigger this rule.
+         */
+        count: number;
+        /**
+         * The time interval in the form `hh:mm:ss`.
+         */
+        interval: string;
+        /**
+         * The path to which this rule status code applies.
+         */
+        path: string;
+        /**
+         * (Required) The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
          */
         timeTaken: string;
     }
@@ -7969,7 +7994,7 @@ export namespace appservice {
          */
         loginParameters: {[key: string]: string};
         /**
-         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
          */
         tenantAuthEndpoint: string;
         /**
@@ -8880,7 +8905,7 @@ export namespace appservice {
          */
         loginParameters: {[key: string]: string};
         /**
-         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
          */
         tenantAuthEndpoint: string;
         /**
@@ -9495,6 +9520,10 @@ export namespace appservice {
          */
         requests: outputs.appservice.GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequest[];
         /**
+         * (Optional) One or more `slowRequestWithPath` blocks as defined above.
+         */
+        slowRequestWithPaths: outputs.appservice.GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath[];
+        /**
          * A `slowRequest` block as defined above.
          */
         slowRequests: outputs.appservice.GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest[];
@@ -9526,10 +9555,31 @@ export namespace appservice {
         interval: string;
         /**
          * The path to which this rule status code applies.
+         *
+         * @deprecated `path` will be removed in `slowRequest` and please use `slowRequestWithPath` to set the path in version 4.0 of the AzureRM Provider.
          */
         path: string;
         /**
-         * The amount of time that qualifies as slow for this rule.
+         * (Required) The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+         */
+        timeTaken: string;
+    }
+
+    export interface GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath {
+        /**
+         * The number of occurrences of the defined `statusCode` in the specified `interval` on which to trigger this rule.
+         */
+        count: number;
+        /**
+         * The time interval in the form `hh:mm:ss`.
+         */
+        interval: string;
+        /**
+         * The path to which this rule status code applies.
+         */
+        path: string;
+        /**
+         * (Required) The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
          */
         timeTaken: string;
     }
@@ -10090,7 +10140,9 @@ export namespace appservice {
          */
         loginParameters?: {[key: string]: string};
         /**
-         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+         *
+         * > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
          */
         tenantAuthEndpoint: string;
         /**
@@ -11092,7 +11144,9 @@ export namespace appservice {
          */
         loginParameters?: {[key: string]: string};
         /**
-         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+         *
+         * > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
          */
         tenantAuthEndpoint: string;
         /**
@@ -12159,7 +12213,9 @@ export namespace appservice {
          */
         loginParameters?: {[key: string]: string};
         /**
-         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+         *
+         * > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
          */
         tenantAuthEndpoint: string;
         /**
@@ -12779,7 +12835,11 @@ export namespace appservice {
          */
         requests?: outputs.appservice.LinuxWebAppSiteConfigAutoHealSettingTriggerRequests;
         /**
-         * One or more `slowRequest` blocks as defined above.
+         * One or more `slowRequestWithPath` blocks as defined above.
+         */
+        slowRequestWithPaths?: outputs.appservice.LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath[];
+        /**
+         * A `slowRequest` blocks as defined above.
          */
         slowRequests?: outputs.appservice.LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest[];
         /**
@@ -12800,6 +12860,29 @@ export namespace appservice {
     }
 
     export interface LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest {
+        /**
+         * The number of Slow Requests in the time `interval` to trigger this rule.
+         */
+        count: number;
+        /**
+         * The time interval in the form `hh:mm:ss`.
+         */
+        interval: string;
+        /**
+         * The path for which this slow request rule applies.
+         *
+         * > **NOTE:** `path` in `slowRequest` block will be deprecated in 4.0 provider. Please use `slowRequestWithPath` to set a slow request trigger with path specified.
+         *
+         * @deprecated `path` will be removed in `slowRequest` and please use `slowRequestWithPath` to set the path in version 4.0 of the AzureRM Provider.
+         */
+        path?: string;
+        /**
+         * The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+         */
+        timeTaken: string;
+    }
+
+    export interface LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath {
         /**
          * The number of Slow Requests in the time `interval` to trigger this rule.
          */
@@ -13301,7 +13384,9 @@ export namespace appservice {
          */
         loginParameters?: {[key: string]: string};
         /**
-         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+         *
+         * > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
          */
         tenantAuthEndpoint: string;
         /**
@@ -13923,7 +14008,11 @@ export namespace appservice {
          */
         requests?: outputs.appservice.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequests;
         /**
-         * One or more `slowRequest` blocks as defined above.
+         * One or more `slowRequestWithPath` blocks as defined above.
+         */
+        slowRequestWithPaths?: outputs.appservice.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath[];
+        /**
+         * A `slowRequest` block as defined above.
          */
         slowRequests?: outputs.appservice.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest[];
         /**
@@ -13944,6 +14033,29 @@ export namespace appservice {
     }
 
     export interface LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest {
+        /**
+         * The number of Slow Requests in the time `interval` to trigger this rule.
+         */
+        count: number;
+        /**
+         * The time interval in the form `hh:mm:ss`.
+         */
+        interval: string;
+        /**
+         * The path for which this slow request rule applies.
+         *
+         * > **NOTE:** `path` in `slowRequest` block will be deprecated in 4.0 provider. Please use `slowRequestWithPath` to set a slow request trigger with path specified.
+         *
+         * @deprecated `path` will be removed in `slowRequest` and please use `slowRequestWithPath` to set the path in version 4.0 of the AzureRM Provider.
+         */
+        path?: string;
+        /**
+         * The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+         */
+        timeTaken: string;
+    }
+
+    export interface LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath {
         /**
          * The number of Slow Requests in the time `interval` to trigger this rule.
          */
@@ -15204,7 +15316,9 @@ export namespace appservice {
          */
         loginParameters?: {[key: string]: string};
         /**
-         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+         *
+         * > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
          */
         tenantAuthEndpoint: string;
         /**
@@ -16165,7 +16279,9 @@ export namespace appservice {
          */
         loginParameters?: {[key: string]: string};
         /**
-         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+         *
+         * > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
          */
         tenantAuthEndpoint: string;
         /**
@@ -17189,7 +17305,9 @@ export namespace appservice {
          */
         loginParameters?: {[key: string]: string};
         /**
-         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+         *
+         * > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
          */
         tenantAuthEndpoint: string;
         /**
@@ -17864,7 +17982,11 @@ export namespace appservice {
          */
         requests?: outputs.appservice.WindowsWebAppSiteConfigAutoHealSettingTriggerRequests;
         /**
-         * One or more `slowRequest` blocks as defined above.
+         * One or more `slowRequestWithPath` blocks as defined above.
+         */
+        slowRequestWithPaths?: outputs.appservice.WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath[];
+        /**
+         * A `slowRequest` block as defined above.
          */
         slowRequests?: outputs.appservice.WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest[];
         /**
@@ -17885,6 +18007,27 @@ export namespace appservice {
     }
 
     export interface WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest {
+        /**
+         * The number of Slow Requests in the time `interval` to trigger this rule.
+         */
+        count: number;
+        /**
+         * The time interval in the form `hh:mm:ss`.
+         */
+        interval: string;
+        /**
+         * The path for which this slow request rule applies.
+         *
+         * @deprecated `path` will be removed in `slowRequest` and please use `slowRequestWithPath` to set the path in version 4.0 of the AzureRM Provider.
+         */
+        path?: string;
+        /**
+         * The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+         */
+        timeTaken: string;
+    }
+
+    export interface WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath {
         /**
          * The number of Slow Requests in the time `interval` to trigger this rule.
          */
@@ -18431,7 +18574,9 @@ export namespace appservice {
          */
         loginParameters?: {[key: string]: string};
         /**
-         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+         *
+         * > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
          */
         tenantAuthEndpoint: string;
         /**
@@ -19098,7 +19243,11 @@ export namespace appservice {
          */
         requests?: outputs.appservice.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequests;
         /**
-         * One or more `slowRequest` blocks as defined above.
+         * One or more `slowRequestWithPath` blocks as defined above.
+         */
+        slowRequestWithPaths?: outputs.appservice.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath[];
+        /**
+         * A `slowRequest` block as defined above.
          */
         slowRequests?: outputs.appservice.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest[];
         /**
@@ -19119,6 +19268,27 @@ export namespace appservice {
     }
 
     export interface WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest {
+        /**
+         * The number of Slow Requests in the time `interval` to trigger this rule.
+         */
+        count: number;
+        /**
+         * The time interval in the form `hh:mm:ss`.
+         */
+        interval: string;
+        /**
+         * The path for which this slow request rule applies.
+         *
+         * @deprecated `path` will be removed in `slowRequest` and please use `slowRequestWithPath` to set the path in version 4.0 of the AzureRM Provider.
+         */
+        path?: string;
+        /**
+         * The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+         */
+        timeTaken: string;
+    }
+
+    export interface WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath {
         /**
          * The number of Slow Requests in the time `interval` to trigger this rule.
          */
@@ -24988,6 +25158,10 @@ export namespace compute {
 
     export interface LinuxVirtualMachineAdditionalCapabilities {
         /**
+         * Whether to enable the hibernation capability or not. Changing this forces a new Linux Virtual Machine to be created.
+         */
+        hibernationEnabled?: boolean;
+        /**
          * Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
          */
         ultraSsdEnabled?: boolean;
@@ -25025,7 +25199,7 @@ export namespace compute {
          */
         configurationBlobUri?: string;
         /**
-         * Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`.
+         * Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`.
          */
         order?: number;
         /**
@@ -25558,6 +25732,12 @@ export namespace compute {
          * The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts.
          */
         maxUnhealthyUpgradedInstancePercent: number;
+        /**
+         * Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+         *
+         * > **NOTE:** `overprovision` must be set to `false` when `maximumSurgeInstancesEnabled` is specified.
+         */
+        maximumSurgeInstancesEnabled?: boolean;
         /**
          * The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
          */
@@ -27343,6 +27523,10 @@ export namespace compute {
 
     export interface WindowsVirtualMachineAdditionalCapabilities {
         /**
+         * Whether to enable the hibernation capability or not. Changing this forces a new Windows Virtual Machine to be created.
+         */
+        hibernationEnabled?: boolean;
+        /**
          * Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
          */
         ultraSsdEnabled?: boolean;
@@ -27378,7 +27562,7 @@ export namespace compute {
          */
         configurationBlobUri?: string;
         /**
-         * Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`.
+         * Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`.
          */
         order?: number;
         /**
@@ -27912,6 +28096,12 @@ export namespace compute {
          */
         maxUnhealthyUpgradedInstancePercent: number;
         /**
+         * Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+         *
+         * > **NOTE:** `overprovision` must be set to `false` when `maximumSurgeInstancesEnabled` is specified.
+         */
+        maximumSurgeInstancesEnabled?: boolean;
+        /**
          * The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
          */
         pauseTimeBetweenBatches: string;
@@ -28135,6 +28325,7 @@ export namespace config {
         managedDisk?: outputs.config.FeaturesManagedDisk;
         postgresqlFlexibleServer?: outputs.config.FeaturesPostgresqlFlexibleServer;
         recoveryService?: outputs.config.FeaturesRecoveryService;
+        recoveryServicesVaults?: outputs.config.FeaturesRecoveryServicesVaults;
         resourceGroup?: outputs.config.FeaturesResourceGroup;
         subscription?: outputs.config.FeaturesSubscription;
         templateDeployment?: outputs.config.FeaturesTemplateDeployment;
@@ -28218,6 +28409,10 @@ export namespace config {
     export interface FeaturesRecoveryService {
         purgeProtectedItemsFromVaultOnDestroy?: boolean;
         vmBackupStopProtectionAndRetainDataOnDestroy?: boolean;
+    }
+
+    export interface FeaturesRecoveryServicesVaults {
+        recoverSoftDeletedBackupProtectedVm?: boolean;
     }
 
     export interface FeaturesResourceGroup {
@@ -29061,8 +29256,6 @@ export namespace containerapp {
          * The value for this secret.
          *
          * !> **Note:** `value` will be ignored if `keyVaultSecretId` and `identity` are provided.
-         *
-         * !> **Note:** Secrets cannot be removed from the service once added, attempting to do so will result in an error. Their values may be zeroed, i.e. set to `""`, but the named secret must persist. This is due to a technical limitation on the service which causes the service to become unmanageable. See [this issue](https://github.com/microsoft/azure-container-apps/issues/395) for more details.
          */
         value?: string;
     }
@@ -30174,6 +30367,485 @@ export namespace containerapp {
          * The type of storage volume. Possible values include `AzureFile` and `EmptyDir`. Defaults to `EmptyDir`.
          */
         storageType: string;
+    }
+
+    export interface JobEventTriggerConfig {
+        /**
+         * Number of parallel replicas of a job that can run at a given time.
+         */
+        parallelism?: number;
+        /**
+         * Minimum number of successful replica completions before overall job completion.
+         */
+        replicaCompletionCount?: number;
+        /**
+         * A `scale` block as defined below.
+         */
+        scales?: outputs.containerapp.JobEventTriggerConfigScale[];
+    }
+
+    export interface JobEventTriggerConfigScale {
+        /**
+         * Maximum number of job executions that are created for a trigger.
+         */
+        maxExecutions?: number;
+        /**
+         * Minimum number of job executions that are created for a trigger.
+         */
+        minExecutions?: number;
+        /**
+         * Interval to check each event source in seconds.
+         */
+        pollingIntervalInSeconds?: number;
+        /**
+         * A `rules` block as defined below.
+         */
+        rules?: outputs.containerapp.JobEventTriggerConfigScaleRule[];
+    }
+
+    export interface JobEventTriggerConfigScaleRule {
+        /**
+         * A `authentication` block as defined below.
+         */
+        authentications?: outputs.containerapp.JobEventTriggerConfigScaleRuleAuthentication[];
+        /**
+         * Type of the scale rule.
+         */
+        customRuleType: string;
+        /**
+         * Metadata properties to describe the scale rule.
+         */
+        metadata: {[key: string]: string};
+        /**
+         * Name of the scale rule.
+         */
+        name: string;
+    }
+
+    export interface JobEventTriggerConfigScaleRuleAuthentication {
+        /**
+         * Name of the secret from which to pull the auth params.
+         */
+        secretName: string;
+        /**
+         * Trigger Parameter that uses the secret.
+         */
+        triggerParameter: string;
+    }
+
+    export interface JobIdentity {
+        /**
+         * A list of Managed Identity IDs to assign to the Container App Job.
+         */
+        identityIds?: string[];
+        principalId: string;
+        tenantId: string;
+        /**
+         * The type of identity used for the Container App Job. Possible values are `SystemAssigned` and `None`. Defaults to `None`.
+         */
+        type: string;
+    }
+
+    export interface JobManualTriggerConfig {
+        /**
+         * Number of parallel replicas of a job that can run at a given time.
+         */
+        parallelism?: number;
+        /**
+         * Minimum number of successful replica completions before overall job completion.
+         */
+        replicaCompletionCount?: number;
+    }
+
+    export interface JobRegistry {
+        /**
+         * A Managed Identity to use to authenticate with Azure Container Registry.
+         */
+        identity?: string;
+        /**
+         * The name of the Secret that contains the registry login password.
+         */
+        passwordSecretName?: string;
+        /**
+         * The URL of the Azure Container Registry server.
+         */
+        server: string;
+        /**
+         * The username to use to authenticate with Azure Container Registry.
+         */
+        username?: string;
+    }
+
+    export interface JobScheduleTriggerConfig {
+        /**
+         * Cron formatted repeating schedule of a Cron Job.
+         */
+        cronExpression: string;
+        /**
+         * Number of parallel replicas of a job that can run at a given time.
+         */
+        parallelism?: number;
+        /**
+         * Minimum number of successful replica completions before overall job completion.
+         */
+        replicaCompletionCount?: number;
+    }
+
+    export interface JobSecret {
+        /**
+         * A `identity` block as defined below.
+         */
+        identity?: string;
+        /**
+         * The Key Vault Secret ID. Could be either one of `id` or `versionlessId`.
+         */
+        keyVaultSecretId?: string;
+        /**
+         * Name of the secret.
+         */
+        name: string;
+        /**
+         * Value of the secret.
+         */
+        value?: string;
+    }
+
+    export interface JobTemplate {
+        /**
+         * A `container` block as defined below.
+         */
+        containers: outputs.containerapp.JobTemplateContainer[];
+        /**
+         * A `initContainer` block as defined below.
+         */
+        initContainers?: outputs.containerapp.JobTemplateInitContainer[];
+        /**
+         * A `volume` block as defined below.
+         */
+        volumes?: outputs.containerapp.JobTemplateVolume[];
+    }
+
+    export interface JobTemplateContainer {
+        /**
+         * A list of extra arguments to pass to the container.
+         */
+        args?: string[];
+        /**
+         * A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+         */
+        commands?: string[];
+        /**
+         * The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+         *
+         * > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+         */
+        cpu: number;
+        /**
+         * One or more `env` blocks as detailed below.
+         */
+        envs?: outputs.containerapp.JobTemplateContainerEnv[];
+        /**
+         * The amount of ephemeral storage available to the Container App.
+         *
+         * > **NOTE:** `ephemeralStorage` is currently in preview and not configurable at this time.
+         */
+        ephemeralStorage: string;
+        /**
+         * The image to use to create the container.
+         */
+        image: string;
+        /**
+         * A `livenessProbe` block as detailed below.
+         */
+        livenessProbes?: outputs.containerapp.JobTemplateContainerLivenessProbe[];
+        /**
+         * The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+         *
+         * > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+         */
+        memory: string;
+        /**
+         * The name of the container.
+         */
+        name: string;
+        /**
+         * A `readinessProbe` block as detailed below.
+         */
+        readinessProbes?: outputs.containerapp.JobTemplateContainerReadinessProbe[];
+        /**
+         * A `startupProbe` block as detailed below.
+         */
+        startupProbes?: outputs.containerapp.JobTemplateContainerStartupProbe[];
+        /**
+         * A `volumeMounts` block as detailed below.
+         */
+        volumeMounts?: outputs.containerapp.JobTemplateContainerVolumeMount[];
+    }
+
+    export interface JobTemplateContainerEnv {
+        /**
+         * The name of the environment variable.
+         */
+        name: string;
+        /**
+         * Name of the Container App secret from which to pull the environment variable value.
+         */
+        secretName?: string;
+        /**
+         * The value of the environment variable.
+         */
+        value?: string;
+    }
+
+    export interface JobTemplateContainerLivenessProbe {
+        /**
+         * The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+         */
+        failureCountThreshold?: number;
+        /**
+         * A `header` block as detailed below.
+         */
+        headers?: outputs.containerapp.JobTemplateContainerLivenessProbeHeader[];
+        /**
+         * The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+         */
+        host?: string;
+        /**
+         * The time in seconds to wait after the container has started before the probe is started.
+         */
+        initialDelay?: number;
+        /**
+         * How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
+         */
+        intervalSeconds?: number;
+        /**
+         * The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
+         */
+        path: string;
+        /**
+         * The port number on which to connect. Possible values are between `1` and `65535`.
+         */
+        port: number;
+        /**
+         * The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+         */
+        terminationGracePeriodSeconds: number;
+        /**
+         * Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+         */
+        timeout?: number;
+        /**
+         * Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
+         */
+        transport: string;
+    }
+
+    export interface JobTemplateContainerLivenessProbeHeader {
+        /**
+         * The HTTP Header Name.
+         */
+        name: string;
+        /**
+         * The HTTP Header value.
+         */
+        value: string;
+    }
+
+    export interface JobTemplateContainerReadinessProbe {
+        /**
+         * The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+         */
+        failureCountThreshold?: number;
+        /**
+         * A `header` block as detailed below.
+         */
+        headers?: outputs.containerapp.JobTemplateContainerReadinessProbeHeader[];
+        /**
+         * The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+         */
+        host?: string;
+        /**
+         * How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+         */
+        intervalSeconds?: number;
+        /**
+         * The URI to use for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
+         */
+        path: string;
+        /**
+         * The port number on which to connect. Possible values are between `1` and `65535`.
+         */
+        port: number;
+        /**
+         * The number of consecutive successful responses required to consider this probe as successful. Possible values are between `1` and `10`. Defaults to `3`.
+         */
+        successCountThreshold?: number;
+        /**
+         * Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+         */
+        timeout?: number;
+        /**
+         * Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
+         */
+        transport: string;
+    }
+
+    export interface JobTemplateContainerReadinessProbeHeader {
+        /**
+         * The HTTP Header Name.
+         */
+        name: string;
+        /**
+         * The HTTP Header value.
+         */
+        value: string;
+    }
+
+    export interface JobTemplateContainerStartupProbe {
+        /**
+         * The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+         */
+        failureCountThreshold?: number;
+        /**
+         * A `header` block as detailed below.
+         */
+        headers?: outputs.containerapp.JobTemplateContainerStartupProbeHeader[];
+        /**
+         * The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+         */
+        host?: string;
+        /**
+         * How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+         */
+        intervalSeconds?: number;
+        /**
+         * The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
+         */
+        path: string;
+        /**
+         * The port number on which to connect. Possible values are between `1` and `65535`.
+         */
+        port: number;
+        /**
+         * The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+         */
+        terminationGracePeriodSeconds: number;
+        /**
+         * Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+         */
+        timeout?: number;
+        /**
+         * Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
+         */
+        transport: string;
+    }
+
+    export interface JobTemplateContainerStartupProbeHeader {
+        /**
+         * The HTTP Header Name.
+         */
+        name: string;
+        /**
+         * The HTTP Header value.
+         */
+        value: string;
+    }
+
+    export interface JobTemplateContainerVolumeMount {
+        /**
+         * The name of the volume to mount. This must match the name of a volume defined in the `volume` block.
+         */
+        name: string;
+        /**
+         * The path within the container at which the volume should be mounted. Must not contain `:`.
+         */
+        path: string;
+    }
+
+    export interface JobTemplateInitContainer {
+        /**
+         * A list of extra arguments to pass to the container.
+         */
+        args?: string[];
+        /**
+         * A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+         */
+        commands?: string[];
+        /**
+         * The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+         *
+         * > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+         */
+        cpu?: number;
+        /**
+         * One or more `env` blocks as detailed below.
+         */
+        envs?: outputs.containerapp.JobTemplateInitContainerEnv[];
+        /**
+         * The amount of ephemeral storage available to the Container App.
+         *
+         * > **NOTE:** `ephemeralStorage` is currently in preview and not configurable at this time.
+         */
+        ephemeralStorage: string;
+        /**
+         * The image to use to create the container.
+         */
+        image: string;
+        /**
+         * The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+         *
+         * > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+         */
+        memory?: string;
+        /**
+         * The name of the container.
+         */
+        name: string;
+        /**
+         * A `volumeMounts` block as detailed below.
+         */
+        volumeMounts?: outputs.containerapp.JobTemplateInitContainerVolumeMount[];
+    }
+
+    export interface JobTemplateInitContainerEnv {
+        /**
+         * The name of the environment variable.
+         */
+        name: string;
+        /**
+         * Name of the Container App secret from which to pull the environment variable value.
+         */
+        secretName?: string;
+        /**
+         * The value of the environment variable.
+         */
+        value?: string;
+    }
+
+    export interface JobTemplateInitContainerVolumeMount {
+        /**
+         * The name of the volume to mount. This must match the name of a volume defined in the `volume` block.
+         */
+        name: string;
+        /**
+         * The path within the container at which the volume should be mounted. Must not contain `:`.
+         */
+        path: string;
+    }
+
+    export interface JobTemplateVolume {
+        /**
+         * The name of the volume.
+         */
+        name: string;
+        /**
+         * The name of the storage to use for the volume.
+         */
+        storageName?: string;
+        /**
+         * The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`.
+         */
+        storageType?: string;
     }
 
 }
@@ -35115,6 +35787,21 @@ export namespace datadog {
 }
 
 export namespace datafactory {
+    export interface CredentialServicePrincipalServicePrincipalKey {
+        /**
+         * The name of the Linked Service to use for the Service Principal Key.
+         */
+        linkedServiceName: string;
+        /**
+         * The name of the Secret in the Key Vault.
+         */
+        secretName: string;
+        /**
+         * The version of the Secret in the Key Vault.
+         */
+        secretVersion?: string;
+    }
+
     export interface CustomDatasetLinkedService {
         /**
          * The name of the Data Factory Linked Service.
@@ -46329,6 +47016,44 @@ export namespace machinelearning {
 }
 
 export namespace maintenance {
+    export interface AssignmentDynamicScopeFilter {
+        /**
+         * Specifies a list of locations to scope the query to.
+         */
+        locations?: string[];
+        /**
+         * Specifies a list of allowed operating systems.
+         */
+        osTypes?: string[];
+        /**
+         * Specifies a list of allowed resource groups.
+         */
+        resourceGroups?: string[];
+        /**
+         * Specifies a list of allowed resources.
+         */
+        resourceTypes?: string[];
+        /**
+         * Filter VMs by `Any` or `All` specified tags. Defaults to `Any`.
+         */
+        tagFilter?: string;
+        /**
+         * A mapping of tags for the VM
+         */
+        tags?: outputs.maintenance.AssignmentDynamicScopeFilterTag[];
+    }
+
+    export interface AssignmentDynamicScopeFilterTag {
+        /**
+         * Specifies the tag to filter by.
+         */
+        tag: string;
+        /**
+         * Specifies a list of values the defined tag can have.
+         */
+        values: string[];
+    }
+
     export interface ConfigurationInstallPatches {
         /**
          * A `linux` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
@@ -56698,6 +57423,36 @@ export namespace network {
         subnetId: string;
     }
 
+    export interface GetNetworkManagerConnectivityConfigurationAppliesToGroup {
+        /**
+         * Whether global mesh is supported.
+         */
+        globalMeshEnabled: boolean;
+        /**
+         * The group connectivity type.
+         */
+        groupConnectivity: string;
+        /**
+         * The ID of the Network Manager Network Group.
+         */
+        networkGroupId: string;
+        /**
+         * Whether hub gateway is used.
+         */
+        useHubGateway: boolean;
+    }
+
+    export interface GetNetworkManagerConnectivityConfigurationHub {
+        /**
+         * The resource ID used as hub in Hub and Spoke topology.
+         */
+        resourceId: string;
+        /**
+         * The resource type used as hub in Hub and Spoke topology.
+         */
+        resourceType: string;
+    }
+
     export interface GetNetworkManagerCrossTenantScope {
         /**
          * A list of management groups used as cross tenant scope for the Network Manager.
@@ -58119,6 +58874,8 @@ export namespace network {
     export interface VirtualNetworkEncryption {
         /**
          * Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
+         *
+         * > **NOTE:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
          */
         enforcement: string;
     }
@@ -63596,6 +64353,12 @@ export namespace storage {
          * Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
          */
         days?: number;
+        /**
+         * Indicates whether permanent deletion of the soft deleted blob versions and snapshots is allowed. Defaults to `false`.
+         *
+         * > **NOTE:** `permanentDeleteEnabled` cannot be set to true if a `restorePolicy` block is defined.
+         */
+        permanentDeleteEnabled?: boolean;
     }
 
     export interface AccountBlobPropertiesRestorePolicy {

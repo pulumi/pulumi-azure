@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.azure.appservice.outputs.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequests;
 import com.pulumi.azure.appservice.outputs.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest;
+import com.pulumi.azure.appservice.outputs.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath;
 import com.pulumi.azure.appservice.outputs.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
@@ -26,7 +27,12 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingTrigger {
      */
     private @Nullable WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequests requests;
     /**
-     * @return One or more `slow_request` blocks as defined above.
+     * @return One or more `slow_request_with_path` blocks as defined above.
+     * 
+     */
+    private @Nullable List<WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath> slowRequestWithPaths;
+    /**
+     * @return A `slow_request` block as defined above.
      * 
      */
     private @Nullable List<WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests;
@@ -52,7 +58,14 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingTrigger {
         return Optional.ofNullable(this.requests);
     }
     /**
-     * @return One or more `slow_request` blocks as defined above.
+     * @return One or more `slow_request_with_path` blocks as defined above.
+     * 
+     */
+    public List<WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath> slowRequestWithPaths() {
+        return this.slowRequestWithPaths == null ? List.of() : this.slowRequestWithPaths;
+    }
+    /**
+     * @return A `slow_request` block as defined above.
      * 
      */
     public List<WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests() {
@@ -77,6 +90,7 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingTrigger {
     public static final class Builder {
         private @Nullable Integer privateMemoryKb;
         private @Nullable WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequests requests;
+        private @Nullable List<WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath> slowRequestWithPaths;
         private @Nullable List<WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests;
         private @Nullable List<WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode> statusCodes;
         public Builder() {}
@@ -84,6 +98,7 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingTrigger {
     	      Objects.requireNonNull(defaults);
     	      this.privateMemoryKb = defaults.privateMemoryKb;
     	      this.requests = defaults.requests;
+    	      this.slowRequestWithPaths = defaults.slowRequestWithPaths;
     	      this.slowRequests = defaults.slowRequests;
     	      this.statusCodes = defaults.statusCodes;
         }
@@ -99,6 +114,15 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingTrigger {
 
             this.requests = requests;
             return this;
+        }
+        @CustomType.Setter
+        public Builder slowRequestWithPaths(@Nullable List<WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath> slowRequestWithPaths) {
+
+            this.slowRequestWithPaths = slowRequestWithPaths;
+            return this;
+        }
+        public Builder slowRequestWithPaths(WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath... slowRequestWithPaths) {
+            return slowRequestWithPaths(List.of(slowRequestWithPaths));
         }
         @CustomType.Setter
         public Builder slowRequests(@Nullable List<WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests) {
@@ -122,6 +146,7 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingTrigger {
             final var _resultValue = new WindowsWebAppSlotSiteConfigAutoHealSettingTrigger();
             _resultValue.privateMemoryKb = privateMemoryKb;
             _resultValue.requests = requests;
+            _resultValue.slowRequestWithPaths = slowRequestWithPaths;
             _resultValue.slowRequests = slowRequests;
             _resultValue.statusCodes = statusCodes;
             return _resultValue;

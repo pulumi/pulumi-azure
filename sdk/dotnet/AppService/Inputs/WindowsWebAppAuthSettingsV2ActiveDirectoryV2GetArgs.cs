@@ -119,7 +119,9 @@ namespace Pulumi.Azure.AppService.Inputs
         }
 
         /// <summary>
-        /// The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        /// The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+        /// 
+        /// &gt; **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         /// </summary>
         [Input("tenantAuthEndpoint", required: true)]
         public Input<string> TenantAuthEndpoint { get; set; } = null!;

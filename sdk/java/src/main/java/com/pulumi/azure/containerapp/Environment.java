@@ -88,6 +88,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:containerapp/environment:Environment")
 public class Environment extends com.pulumi.resources.CustomResource {
     /**
+     * The ID of the Custom Domain Verification for this Container App Environment.
+     * 
+     */
+    @Export(name="customDomainVerificationId", refs={String.class}, tree="[0]")
+    private Output<String> customDomainVerificationId;
+
+    /**
+     * @return The ID of the Custom Domain Verification for this Container App Environment.
+     * 
+     */
+    public Output<String> customDomainVerificationId() {
+        return this.customDomainVerificationId;
+    }
+    /**
      * Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
      * 
      */

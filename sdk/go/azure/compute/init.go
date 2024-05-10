@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure:compute/automanageConfigurationAssignment:AutomanageConfigurationAssignment":
+		r = &AutomanageConfigurationAssignment{}
 	case "azure:compute/availabilitySet:AvailabilitySet":
 		r = &AvailabilitySet{}
 	case "azure:compute/bastionHost:BastionHost":
@@ -51,6 +53,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Extension{}
 	case "azure:compute/galleryApplication:GalleryApplication":
 		r = &GalleryApplication{}
+	case "azure:compute/galleryApplicationAssignment:GalleryApplicationAssignment":
+		r = &GalleryApplicationAssignment{}
 	case "azure:compute/galleryApplicationVersion:GalleryApplicationVersion":
 		r = &GalleryApplicationVersion{}
 	case "azure:compute/image:Image":
@@ -104,6 +108,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"azure",
+		"compute/automanageConfigurationAssignment",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"azure",
 		"compute/availabilitySet",
@@ -177,6 +186,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"compute/galleryApplication",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"compute/galleryApplicationAssignment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -35,6 +35,13 @@ public final class GetSubnetResult {
      * @return Enable or Disable network policies for the private endpoint on the subnet.
      * 
      */
+    private String privateEndpointNetworkPolicies;
+    /**
+     * @deprecated
+     * This property has been superseded by `private_endpoint_network_policies` and will be removed in v4.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* This property has been superseded by `private_endpoint_network_policies` and will be removed in v4.0 of the AzureRM Provider. */
     private Boolean privateEndpointNetworkPoliciesEnabled;
     /**
      * @return Enable or Disable network policies for the private link service on the subnet.
@@ -92,6 +99,15 @@ public final class GetSubnetResult {
      * @return Enable or Disable network policies for the private endpoint on the subnet.
      * 
      */
+    public String privateEndpointNetworkPolicies() {
+        return this.privateEndpointNetworkPolicies;
+    }
+    /**
+     * @deprecated
+     * This property has been superseded by `private_endpoint_network_policies` and will be removed in v4.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* This property has been superseded by `private_endpoint_network_policies` and will be removed in v4.0 of the AzureRM Provider. */
     public Boolean privateEndpointNetworkPoliciesEnabled() {
         return this.privateEndpointNetworkPoliciesEnabled;
     }
@@ -139,6 +155,7 @@ public final class GetSubnetResult {
         private String id;
         private String name;
         private String networkSecurityGroupId;
+        private String privateEndpointNetworkPolicies;
         private Boolean privateEndpointNetworkPoliciesEnabled;
         private Boolean privateLinkServiceNetworkPoliciesEnabled;
         private String resourceGroupName;
@@ -155,6 +172,7 @@ public final class GetSubnetResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.networkSecurityGroupId = defaults.networkSecurityGroupId;
+    	      this.privateEndpointNetworkPolicies = defaults.privateEndpointNetworkPolicies;
     	      this.privateEndpointNetworkPoliciesEnabled = defaults.privateEndpointNetworkPoliciesEnabled;
     	      this.privateLinkServiceNetworkPoliciesEnabled = defaults.privateLinkServiceNetworkPoliciesEnabled;
     	      this.resourceGroupName = defaults.resourceGroupName;
@@ -223,6 +241,14 @@ public final class GetSubnetResult {
             return this;
         }
         @CustomType.Setter
+        public Builder privateEndpointNetworkPolicies(String privateEndpointNetworkPolicies) {
+            if (privateEndpointNetworkPolicies == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "privateEndpointNetworkPolicies");
+            }
+            this.privateEndpointNetworkPolicies = privateEndpointNetworkPolicies;
+            return this;
+        }
+        @CustomType.Setter
         public Builder privateEndpointNetworkPoliciesEnabled(Boolean privateEndpointNetworkPoliciesEnabled) {
             if (privateEndpointNetworkPoliciesEnabled == null) {
               throw new MissingRequiredPropertyException("GetSubnetResult", "privateEndpointNetworkPoliciesEnabled");
@@ -282,6 +308,7 @@ public final class GetSubnetResult {
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.networkSecurityGroupId = networkSecurityGroupId;
+            _resultValue.privateEndpointNetworkPolicies = privateEndpointNetworkPolicies;
             _resultValue.privateEndpointNetworkPoliciesEnabled = privateEndpointNetworkPoliciesEnabled;
             _resultValue.privateLinkServiceNetworkPoliciesEnabled = privateLinkServiceNetworkPoliciesEnabled;
             _resultValue.resourceGroupName = resourceGroupName;

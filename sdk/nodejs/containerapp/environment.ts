@@ -71,6 +71,10 @@ export class Environment extends pulumi.CustomResource {
     }
 
     /**
+     * The ID of the Custom Domain Verification for this Container App Environment.
+     */
+    public /*out*/ readonly customDomainVerificationId!: pulumi.Output<string>;
+    /**
      * Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
      */
     public readonly daprApplicationInsightsConnectionString!: pulumi.Output<string | undefined>;
@@ -156,6 +160,7 @@ export class Environment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EnvironmentState | undefined;
+            resourceInputs["customDomainVerificationId"] = state ? state.customDomainVerificationId : undefined;
             resourceInputs["daprApplicationInsightsConnectionString"] = state ? state.daprApplicationInsightsConnectionString : undefined;
             resourceInputs["defaultDomain"] = state ? state.defaultDomain : undefined;
             resourceInputs["dockerBridgeCidr"] = state ? state.dockerBridgeCidr : undefined;
@@ -188,6 +193,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workloadProfiles"] = args ? args.workloadProfiles : undefined;
             resourceInputs["zoneRedundancyEnabled"] = args ? args.zoneRedundancyEnabled : undefined;
+            resourceInputs["customDomainVerificationId"] = undefined /*out*/;
             resourceInputs["defaultDomain"] = undefined /*out*/;
             resourceInputs["dockerBridgeCidr"] = undefined /*out*/;
             resourceInputs["platformReservedCidr"] = undefined /*out*/;
@@ -205,6 +211,10 @@ export class Environment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Environment resources.
  */
 export interface EnvironmentState {
+    /**
+     * The ID of the Custom Domain Verification for this Container App Environment.
+     */
+    customDomainVerificationId?: pulumi.Input<string>;
     /**
      * Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
      */

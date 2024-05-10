@@ -10,6 +10,11 @@ export type AssignmentDedicatedHost = import("./assignmentDedicatedHost").Assign
 export const AssignmentDedicatedHost: typeof import("./assignmentDedicatedHost").AssignmentDedicatedHost = null as any;
 utilities.lazyLoad(exports, ["AssignmentDedicatedHost"], () => require("./assignmentDedicatedHost"));
 
+export { AssignmentDynamicScopeArgs, AssignmentDynamicScopeState } from "./assignmentDynamicScope";
+export type AssignmentDynamicScope = import("./assignmentDynamicScope").AssignmentDynamicScope;
+export const AssignmentDynamicScope: typeof import("./assignmentDynamicScope").AssignmentDynamicScope = null as any;
+utilities.lazyLoad(exports, ["AssignmentDynamicScope"], () => require("./assignmentDynamicScope"));
+
 export { AssignmentVirtualMachineArgs, AssignmentVirtualMachineState } from "./assignmentVirtualMachine";
 export type AssignmentVirtualMachine = import("./assignmentVirtualMachine").AssignmentVirtualMachine;
 export const AssignmentVirtualMachine: typeof import("./assignmentVirtualMachine").AssignmentVirtualMachine = null as any;
@@ -42,6 +47,8 @@ const _module = {
         switch (type) {
             case "azure:maintenance/assignmentDedicatedHost:AssignmentDedicatedHost":
                 return new AssignmentDedicatedHost(name, <any>undefined, { urn })
+            case "azure:maintenance/assignmentDynamicScope:AssignmentDynamicScope":
+                return new AssignmentDynamicScope(name, <any>undefined, { urn })
             case "azure:maintenance/assignmentVirtualMachine:AssignmentVirtualMachine":
                 return new AssignmentVirtualMachine(name, <any>undefined, { urn })
             case "azure:maintenance/assignmentVirtualMachineScaleSet:AssignmentVirtualMachineScaleSet":
@@ -54,6 +61,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("azure", "maintenance/assignmentDedicatedHost", _module)
+pulumi.runtime.registerResourceModule("azure", "maintenance/assignmentDynamicScope", _module)
 pulumi.runtime.registerResourceModule("azure", "maintenance/assignmentVirtualMachine", _module)
 pulumi.runtime.registerResourceModule("azure", "maintenance/assignmentVirtualMachineScaleSet", _module)
 pulumi.runtime.registerResourceModule("azure", "maintenance/configuration", _module)

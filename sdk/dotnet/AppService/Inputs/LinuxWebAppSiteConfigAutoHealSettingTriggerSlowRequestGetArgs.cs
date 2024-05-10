@@ -26,6 +26,8 @@ namespace Pulumi.Azure.AppService.Inputs
 
         /// <summary>
         /// The path for which this slow request rule applies.
+        /// 
+        /// &gt; **NOTE:** `path` in `slow_request` block will be deprecated in 4.0 provider. Please use `slow_request_with_path` to set a slow request trigger with path specified.
         /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }

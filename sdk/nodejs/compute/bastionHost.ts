@@ -113,6 +113,12 @@ export class BastionHost extends pulumi.CustomResource {
      */
     public readonly ipConnectEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
+     *
+     * > **Note:** `kerberosEnabled` is only supported when `sku` is `Standard`.
+     */
+    public readonly kerberosEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
      */
     public readonly location!: pulumi.Output<string>;
@@ -171,6 +177,7 @@ export class BastionHost extends pulumi.CustomResource {
             resourceInputs["fileCopyEnabled"] = state ? state.fileCopyEnabled : undefined;
             resourceInputs["ipConfiguration"] = state ? state.ipConfiguration : undefined;
             resourceInputs["ipConnectEnabled"] = state ? state.ipConnectEnabled : undefined;
+            resourceInputs["kerberosEnabled"] = state ? state.kerberosEnabled : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -191,6 +198,7 @@ export class BastionHost extends pulumi.CustomResource {
             resourceInputs["fileCopyEnabled"] = args ? args.fileCopyEnabled : undefined;
             resourceInputs["ipConfiguration"] = args ? args.ipConfiguration : undefined;
             resourceInputs["ipConnectEnabled"] = args ? args.ipConnectEnabled : undefined;
+            resourceInputs["kerberosEnabled"] = args ? args.kerberosEnabled : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -234,6 +242,12 @@ export interface BastionHostState {
      * > **Note:** `ipConnectEnabled` is only supported when `sku` is `Standard`.
      */
     ipConnectEnabled?: pulumi.Input<boolean>;
+    /**
+     * Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
+     *
+     * > **Note:** `kerberosEnabled` is only supported when `sku` is `Standard`.
+     */
+    kerberosEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
      */
@@ -300,6 +314,12 @@ export interface BastionHostArgs {
      * > **Note:** `ipConnectEnabled` is only supported when `sku` is `Standard`.
      */
     ipConnectEnabled?: pulumi.Input<boolean>;
+    /**
+     * Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
+     *
+     * > **Note:** `kerberosEnabled` is only supported when `sku` is `Standard`.
+     */
+    kerberosEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
      */

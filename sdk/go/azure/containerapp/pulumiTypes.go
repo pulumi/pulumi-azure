@@ -1270,8 +1270,6 @@ type AppSecret struct {
 	// The value for this secret.
 	//
 	// !> **Note:** `value` will be ignored if `keyVaultSecretId` and `identity` are provided.
-	//
-	// !> **Note:** Secrets cannot be removed from the service once added, attempting to do so will result in an error. Their values may be zeroed, i.e. set to `""`, but the named secret must persist. This is due to a technical limitation on the service which causes the service to become unmanageable. See [this issue](https://github.com/microsoft/azure-container-apps/issues/395) for more details.
 	Value *string `pulumi:"value"`
 }
 
@@ -1300,8 +1298,6 @@ type AppSecretArgs struct {
 	// The value for this secret.
 	//
 	// !> **Note:** `value` will be ignored if `keyVaultSecretId` and `identity` are provided.
-	//
-	// !> **Note:** Secrets cannot be removed from the service once added, attempting to do so will result in an error. Their values may be zeroed, i.e. set to `""`, but the named secret must persist. This is due to a technical limitation on the service which causes the service to become unmanageable. See [this issue](https://github.com/microsoft/azure-container-apps/issues/395) for more details.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -1378,8 +1374,6 @@ func (o AppSecretOutput) Name() pulumi.StringOutput {
 // The value for this secret.
 //
 // !> **Note:** `value` will be ignored if `keyVaultSecretId` and `identity` are provided.
-//
-// !> **Note:** Secrets cannot be removed from the service once added, attempting to do so will result in an error. Their values may be zeroed, i.e. set to `""`, but the named secret must persist. This is due to a technical limitation on the service which causes the service to become unmanageable. See [this issue](https://github.com/microsoft/azure-container-apps/issues/395) for more details.
 func (o AppSecretOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppSecret) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -4797,6 +4791,3271 @@ func (o EnvironmentWorkloadProfileArrayOutput) Index(i pulumi.IntInput) Environm
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentWorkloadProfile {
 		return vs[0].([]EnvironmentWorkloadProfile)[vs[1].(int)]
 	}).(EnvironmentWorkloadProfileOutput)
+}
+
+type JobEventTriggerConfig struct {
+	// Number of parallel replicas of a job that can run at a given time.
+	Parallelism *int `pulumi:"parallelism"`
+	// Minimum number of successful replica completions before overall job completion.
+	ReplicaCompletionCount *int `pulumi:"replicaCompletionCount"`
+	// A `scale` block as defined below.
+	Scales []JobEventTriggerConfigScale `pulumi:"scales"`
+}
+
+// JobEventTriggerConfigInput is an input type that accepts JobEventTriggerConfigArgs and JobEventTriggerConfigOutput values.
+// You can construct a concrete instance of `JobEventTriggerConfigInput` via:
+//
+//	JobEventTriggerConfigArgs{...}
+type JobEventTriggerConfigInput interface {
+	pulumi.Input
+
+	ToJobEventTriggerConfigOutput() JobEventTriggerConfigOutput
+	ToJobEventTriggerConfigOutputWithContext(context.Context) JobEventTriggerConfigOutput
+}
+
+type JobEventTriggerConfigArgs struct {
+	// Number of parallel replicas of a job that can run at a given time.
+	Parallelism pulumi.IntPtrInput `pulumi:"parallelism"`
+	// Minimum number of successful replica completions before overall job completion.
+	ReplicaCompletionCount pulumi.IntPtrInput `pulumi:"replicaCompletionCount"`
+	// A `scale` block as defined below.
+	Scales JobEventTriggerConfigScaleArrayInput `pulumi:"scales"`
+}
+
+func (JobEventTriggerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobEventTriggerConfig)(nil)).Elem()
+}
+
+func (i JobEventTriggerConfigArgs) ToJobEventTriggerConfigOutput() JobEventTriggerConfigOutput {
+	return i.ToJobEventTriggerConfigOutputWithContext(context.Background())
+}
+
+func (i JobEventTriggerConfigArgs) ToJobEventTriggerConfigOutputWithContext(ctx context.Context) JobEventTriggerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobEventTriggerConfigOutput)
+}
+
+func (i JobEventTriggerConfigArgs) ToJobEventTriggerConfigPtrOutput() JobEventTriggerConfigPtrOutput {
+	return i.ToJobEventTriggerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i JobEventTriggerConfigArgs) ToJobEventTriggerConfigPtrOutputWithContext(ctx context.Context) JobEventTriggerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobEventTriggerConfigOutput).ToJobEventTriggerConfigPtrOutputWithContext(ctx)
+}
+
+// JobEventTriggerConfigPtrInput is an input type that accepts JobEventTriggerConfigArgs, JobEventTriggerConfigPtr and JobEventTriggerConfigPtrOutput values.
+// You can construct a concrete instance of `JobEventTriggerConfigPtrInput` via:
+//
+//	        JobEventTriggerConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobEventTriggerConfigPtrInput interface {
+	pulumi.Input
+
+	ToJobEventTriggerConfigPtrOutput() JobEventTriggerConfigPtrOutput
+	ToJobEventTriggerConfigPtrOutputWithContext(context.Context) JobEventTriggerConfigPtrOutput
+}
+
+type jobEventTriggerConfigPtrType JobEventTriggerConfigArgs
+
+func JobEventTriggerConfigPtr(v *JobEventTriggerConfigArgs) JobEventTriggerConfigPtrInput {
+	return (*jobEventTriggerConfigPtrType)(v)
+}
+
+func (*jobEventTriggerConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobEventTriggerConfig)(nil)).Elem()
+}
+
+func (i *jobEventTriggerConfigPtrType) ToJobEventTriggerConfigPtrOutput() JobEventTriggerConfigPtrOutput {
+	return i.ToJobEventTriggerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *jobEventTriggerConfigPtrType) ToJobEventTriggerConfigPtrOutputWithContext(ctx context.Context) JobEventTriggerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobEventTriggerConfigPtrOutput)
+}
+
+type JobEventTriggerConfigOutput struct{ *pulumi.OutputState }
+
+func (JobEventTriggerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobEventTriggerConfig)(nil)).Elem()
+}
+
+func (o JobEventTriggerConfigOutput) ToJobEventTriggerConfigOutput() JobEventTriggerConfigOutput {
+	return o
+}
+
+func (o JobEventTriggerConfigOutput) ToJobEventTriggerConfigOutputWithContext(ctx context.Context) JobEventTriggerConfigOutput {
+	return o
+}
+
+func (o JobEventTriggerConfigOutput) ToJobEventTriggerConfigPtrOutput() JobEventTriggerConfigPtrOutput {
+	return o.ToJobEventTriggerConfigPtrOutputWithContext(context.Background())
+}
+
+func (o JobEventTriggerConfigOutput) ToJobEventTriggerConfigPtrOutputWithContext(ctx context.Context) JobEventTriggerConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobEventTriggerConfig) *JobEventTriggerConfig {
+		return &v
+	}).(JobEventTriggerConfigPtrOutput)
+}
+
+// Number of parallel replicas of a job that can run at a given time.
+func (o JobEventTriggerConfigOutput) Parallelism() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobEventTriggerConfig) *int { return v.Parallelism }).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of successful replica completions before overall job completion.
+func (o JobEventTriggerConfigOutput) ReplicaCompletionCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobEventTriggerConfig) *int { return v.ReplicaCompletionCount }).(pulumi.IntPtrOutput)
+}
+
+// A `scale` block as defined below.
+func (o JobEventTriggerConfigOutput) Scales() JobEventTriggerConfigScaleArrayOutput {
+	return o.ApplyT(func(v JobEventTriggerConfig) []JobEventTriggerConfigScale { return v.Scales }).(JobEventTriggerConfigScaleArrayOutput)
+}
+
+type JobEventTriggerConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (JobEventTriggerConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobEventTriggerConfig)(nil)).Elem()
+}
+
+func (o JobEventTriggerConfigPtrOutput) ToJobEventTriggerConfigPtrOutput() JobEventTriggerConfigPtrOutput {
+	return o
+}
+
+func (o JobEventTriggerConfigPtrOutput) ToJobEventTriggerConfigPtrOutputWithContext(ctx context.Context) JobEventTriggerConfigPtrOutput {
+	return o
+}
+
+func (o JobEventTriggerConfigPtrOutput) Elem() JobEventTriggerConfigOutput {
+	return o.ApplyT(func(v *JobEventTriggerConfig) JobEventTriggerConfig {
+		if v != nil {
+			return *v
+		}
+		var ret JobEventTriggerConfig
+		return ret
+	}).(JobEventTriggerConfigOutput)
+}
+
+// Number of parallel replicas of a job that can run at a given time.
+func (o JobEventTriggerConfigPtrOutput) Parallelism() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobEventTriggerConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Parallelism
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of successful replica completions before overall job completion.
+func (o JobEventTriggerConfigPtrOutput) ReplicaCompletionCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobEventTriggerConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ReplicaCompletionCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// A `scale` block as defined below.
+func (o JobEventTriggerConfigPtrOutput) Scales() JobEventTriggerConfigScaleArrayOutput {
+	return o.ApplyT(func(v *JobEventTriggerConfig) []JobEventTriggerConfigScale {
+		if v == nil {
+			return nil
+		}
+		return v.Scales
+	}).(JobEventTriggerConfigScaleArrayOutput)
+}
+
+type JobEventTriggerConfigScale struct {
+	// Maximum number of job executions that are created for a trigger.
+	MaxExecutions *int `pulumi:"maxExecutions"`
+	// Minimum number of job executions that are created for a trigger.
+	MinExecutions *int `pulumi:"minExecutions"`
+	// Interval to check each event source in seconds.
+	PollingIntervalInSeconds *int `pulumi:"pollingIntervalInSeconds"`
+	// A `rules` block as defined below.
+	Rules []JobEventTriggerConfigScaleRule `pulumi:"rules"`
+}
+
+// JobEventTriggerConfigScaleInput is an input type that accepts JobEventTriggerConfigScaleArgs and JobEventTriggerConfigScaleOutput values.
+// You can construct a concrete instance of `JobEventTriggerConfigScaleInput` via:
+//
+//	JobEventTriggerConfigScaleArgs{...}
+type JobEventTriggerConfigScaleInput interface {
+	pulumi.Input
+
+	ToJobEventTriggerConfigScaleOutput() JobEventTriggerConfigScaleOutput
+	ToJobEventTriggerConfigScaleOutputWithContext(context.Context) JobEventTriggerConfigScaleOutput
+}
+
+type JobEventTriggerConfigScaleArgs struct {
+	// Maximum number of job executions that are created for a trigger.
+	MaxExecutions pulumi.IntPtrInput `pulumi:"maxExecutions"`
+	// Minimum number of job executions that are created for a trigger.
+	MinExecutions pulumi.IntPtrInput `pulumi:"minExecutions"`
+	// Interval to check each event source in seconds.
+	PollingIntervalInSeconds pulumi.IntPtrInput `pulumi:"pollingIntervalInSeconds"`
+	// A `rules` block as defined below.
+	Rules JobEventTriggerConfigScaleRuleArrayInput `pulumi:"rules"`
+}
+
+func (JobEventTriggerConfigScaleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobEventTriggerConfigScale)(nil)).Elem()
+}
+
+func (i JobEventTriggerConfigScaleArgs) ToJobEventTriggerConfigScaleOutput() JobEventTriggerConfigScaleOutput {
+	return i.ToJobEventTriggerConfigScaleOutputWithContext(context.Background())
+}
+
+func (i JobEventTriggerConfigScaleArgs) ToJobEventTriggerConfigScaleOutputWithContext(ctx context.Context) JobEventTriggerConfigScaleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobEventTriggerConfigScaleOutput)
+}
+
+// JobEventTriggerConfigScaleArrayInput is an input type that accepts JobEventTriggerConfigScaleArray and JobEventTriggerConfigScaleArrayOutput values.
+// You can construct a concrete instance of `JobEventTriggerConfigScaleArrayInput` via:
+//
+//	JobEventTriggerConfigScaleArray{ JobEventTriggerConfigScaleArgs{...} }
+type JobEventTriggerConfigScaleArrayInput interface {
+	pulumi.Input
+
+	ToJobEventTriggerConfigScaleArrayOutput() JobEventTriggerConfigScaleArrayOutput
+	ToJobEventTriggerConfigScaleArrayOutputWithContext(context.Context) JobEventTriggerConfigScaleArrayOutput
+}
+
+type JobEventTriggerConfigScaleArray []JobEventTriggerConfigScaleInput
+
+func (JobEventTriggerConfigScaleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobEventTriggerConfigScale)(nil)).Elem()
+}
+
+func (i JobEventTriggerConfigScaleArray) ToJobEventTriggerConfigScaleArrayOutput() JobEventTriggerConfigScaleArrayOutput {
+	return i.ToJobEventTriggerConfigScaleArrayOutputWithContext(context.Background())
+}
+
+func (i JobEventTriggerConfigScaleArray) ToJobEventTriggerConfigScaleArrayOutputWithContext(ctx context.Context) JobEventTriggerConfigScaleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobEventTriggerConfigScaleArrayOutput)
+}
+
+type JobEventTriggerConfigScaleOutput struct{ *pulumi.OutputState }
+
+func (JobEventTriggerConfigScaleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobEventTriggerConfigScale)(nil)).Elem()
+}
+
+func (o JobEventTriggerConfigScaleOutput) ToJobEventTriggerConfigScaleOutput() JobEventTriggerConfigScaleOutput {
+	return o
+}
+
+func (o JobEventTriggerConfigScaleOutput) ToJobEventTriggerConfigScaleOutputWithContext(ctx context.Context) JobEventTriggerConfigScaleOutput {
+	return o
+}
+
+// Maximum number of job executions that are created for a trigger.
+func (o JobEventTriggerConfigScaleOutput) MaxExecutions() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobEventTriggerConfigScale) *int { return v.MaxExecutions }).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of job executions that are created for a trigger.
+func (o JobEventTriggerConfigScaleOutput) MinExecutions() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobEventTriggerConfigScale) *int { return v.MinExecutions }).(pulumi.IntPtrOutput)
+}
+
+// Interval to check each event source in seconds.
+func (o JobEventTriggerConfigScaleOutput) PollingIntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobEventTriggerConfigScale) *int { return v.PollingIntervalInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// A `rules` block as defined below.
+func (o JobEventTriggerConfigScaleOutput) Rules() JobEventTriggerConfigScaleRuleArrayOutput {
+	return o.ApplyT(func(v JobEventTriggerConfigScale) []JobEventTriggerConfigScaleRule { return v.Rules }).(JobEventTriggerConfigScaleRuleArrayOutput)
+}
+
+type JobEventTriggerConfigScaleArrayOutput struct{ *pulumi.OutputState }
+
+func (JobEventTriggerConfigScaleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobEventTriggerConfigScale)(nil)).Elem()
+}
+
+func (o JobEventTriggerConfigScaleArrayOutput) ToJobEventTriggerConfigScaleArrayOutput() JobEventTriggerConfigScaleArrayOutput {
+	return o
+}
+
+func (o JobEventTriggerConfigScaleArrayOutput) ToJobEventTriggerConfigScaleArrayOutputWithContext(ctx context.Context) JobEventTriggerConfigScaleArrayOutput {
+	return o
+}
+
+func (o JobEventTriggerConfigScaleArrayOutput) Index(i pulumi.IntInput) JobEventTriggerConfigScaleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobEventTriggerConfigScale {
+		return vs[0].([]JobEventTriggerConfigScale)[vs[1].(int)]
+	}).(JobEventTriggerConfigScaleOutput)
+}
+
+type JobEventTriggerConfigScaleRule struct {
+	// A `authentication` block as defined below.
+	Authentications []JobEventTriggerConfigScaleRuleAuthentication `pulumi:"authentications"`
+	// Type of the scale rule.
+	CustomRuleType string `pulumi:"customRuleType"`
+	// Metadata properties to describe the scale rule.
+	Metadata map[string]string `pulumi:"metadata"`
+	// Name of the scale rule.
+	Name string `pulumi:"name"`
+}
+
+// JobEventTriggerConfigScaleRuleInput is an input type that accepts JobEventTriggerConfigScaleRuleArgs and JobEventTriggerConfigScaleRuleOutput values.
+// You can construct a concrete instance of `JobEventTriggerConfigScaleRuleInput` via:
+//
+//	JobEventTriggerConfigScaleRuleArgs{...}
+type JobEventTriggerConfigScaleRuleInput interface {
+	pulumi.Input
+
+	ToJobEventTriggerConfigScaleRuleOutput() JobEventTriggerConfigScaleRuleOutput
+	ToJobEventTriggerConfigScaleRuleOutputWithContext(context.Context) JobEventTriggerConfigScaleRuleOutput
+}
+
+type JobEventTriggerConfigScaleRuleArgs struct {
+	// A `authentication` block as defined below.
+	Authentications JobEventTriggerConfigScaleRuleAuthenticationArrayInput `pulumi:"authentications"`
+	// Type of the scale rule.
+	CustomRuleType pulumi.StringInput `pulumi:"customRuleType"`
+	// Metadata properties to describe the scale rule.
+	Metadata pulumi.StringMapInput `pulumi:"metadata"`
+	// Name of the scale rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (JobEventTriggerConfigScaleRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobEventTriggerConfigScaleRule)(nil)).Elem()
+}
+
+func (i JobEventTriggerConfigScaleRuleArgs) ToJobEventTriggerConfigScaleRuleOutput() JobEventTriggerConfigScaleRuleOutput {
+	return i.ToJobEventTriggerConfigScaleRuleOutputWithContext(context.Background())
+}
+
+func (i JobEventTriggerConfigScaleRuleArgs) ToJobEventTriggerConfigScaleRuleOutputWithContext(ctx context.Context) JobEventTriggerConfigScaleRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobEventTriggerConfigScaleRuleOutput)
+}
+
+// JobEventTriggerConfigScaleRuleArrayInput is an input type that accepts JobEventTriggerConfigScaleRuleArray and JobEventTriggerConfigScaleRuleArrayOutput values.
+// You can construct a concrete instance of `JobEventTriggerConfigScaleRuleArrayInput` via:
+//
+//	JobEventTriggerConfigScaleRuleArray{ JobEventTriggerConfigScaleRuleArgs{...} }
+type JobEventTriggerConfigScaleRuleArrayInput interface {
+	pulumi.Input
+
+	ToJobEventTriggerConfigScaleRuleArrayOutput() JobEventTriggerConfigScaleRuleArrayOutput
+	ToJobEventTriggerConfigScaleRuleArrayOutputWithContext(context.Context) JobEventTriggerConfigScaleRuleArrayOutput
+}
+
+type JobEventTriggerConfigScaleRuleArray []JobEventTriggerConfigScaleRuleInput
+
+func (JobEventTriggerConfigScaleRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobEventTriggerConfigScaleRule)(nil)).Elem()
+}
+
+func (i JobEventTriggerConfigScaleRuleArray) ToJobEventTriggerConfigScaleRuleArrayOutput() JobEventTriggerConfigScaleRuleArrayOutput {
+	return i.ToJobEventTriggerConfigScaleRuleArrayOutputWithContext(context.Background())
+}
+
+func (i JobEventTriggerConfigScaleRuleArray) ToJobEventTriggerConfigScaleRuleArrayOutputWithContext(ctx context.Context) JobEventTriggerConfigScaleRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobEventTriggerConfigScaleRuleArrayOutput)
+}
+
+type JobEventTriggerConfigScaleRuleOutput struct{ *pulumi.OutputState }
+
+func (JobEventTriggerConfigScaleRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobEventTriggerConfigScaleRule)(nil)).Elem()
+}
+
+func (o JobEventTriggerConfigScaleRuleOutput) ToJobEventTriggerConfigScaleRuleOutput() JobEventTriggerConfigScaleRuleOutput {
+	return o
+}
+
+func (o JobEventTriggerConfigScaleRuleOutput) ToJobEventTriggerConfigScaleRuleOutputWithContext(ctx context.Context) JobEventTriggerConfigScaleRuleOutput {
+	return o
+}
+
+// A `authentication` block as defined below.
+func (o JobEventTriggerConfigScaleRuleOutput) Authentications() JobEventTriggerConfigScaleRuleAuthenticationArrayOutput {
+	return o.ApplyT(func(v JobEventTriggerConfigScaleRule) []JobEventTriggerConfigScaleRuleAuthentication {
+		return v.Authentications
+	}).(JobEventTriggerConfigScaleRuleAuthenticationArrayOutput)
+}
+
+// Type of the scale rule.
+func (o JobEventTriggerConfigScaleRuleOutput) CustomRuleType() pulumi.StringOutput {
+	return o.ApplyT(func(v JobEventTriggerConfigScaleRule) string { return v.CustomRuleType }).(pulumi.StringOutput)
+}
+
+// Metadata properties to describe the scale rule.
+func (o JobEventTriggerConfigScaleRuleOutput) Metadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v JobEventTriggerConfigScaleRule) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+}
+
+// Name of the scale rule.
+func (o JobEventTriggerConfigScaleRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v JobEventTriggerConfigScaleRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type JobEventTriggerConfigScaleRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (JobEventTriggerConfigScaleRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobEventTriggerConfigScaleRule)(nil)).Elem()
+}
+
+func (o JobEventTriggerConfigScaleRuleArrayOutput) ToJobEventTriggerConfigScaleRuleArrayOutput() JobEventTriggerConfigScaleRuleArrayOutput {
+	return o
+}
+
+func (o JobEventTriggerConfigScaleRuleArrayOutput) ToJobEventTriggerConfigScaleRuleArrayOutputWithContext(ctx context.Context) JobEventTriggerConfigScaleRuleArrayOutput {
+	return o
+}
+
+func (o JobEventTriggerConfigScaleRuleArrayOutput) Index(i pulumi.IntInput) JobEventTriggerConfigScaleRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobEventTriggerConfigScaleRule {
+		return vs[0].([]JobEventTriggerConfigScaleRule)[vs[1].(int)]
+	}).(JobEventTriggerConfigScaleRuleOutput)
+}
+
+type JobEventTriggerConfigScaleRuleAuthentication struct {
+	// Name of the secret from which to pull the auth params.
+	SecretName string `pulumi:"secretName"`
+	// Trigger Parameter that uses the secret.
+	TriggerParameter string `pulumi:"triggerParameter"`
+}
+
+// JobEventTriggerConfigScaleRuleAuthenticationInput is an input type that accepts JobEventTriggerConfigScaleRuleAuthenticationArgs and JobEventTriggerConfigScaleRuleAuthenticationOutput values.
+// You can construct a concrete instance of `JobEventTriggerConfigScaleRuleAuthenticationInput` via:
+//
+//	JobEventTriggerConfigScaleRuleAuthenticationArgs{...}
+type JobEventTriggerConfigScaleRuleAuthenticationInput interface {
+	pulumi.Input
+
+	ToJobEventTriggerConfigScaleRuleAuthenticationOutput() JobEventTriggerConfigScaleRuleAuthenticationOutput
+	ToJobEventTriggerConfigScaleRuleAuthenticationOutputWithContext(context.Context) JobEventTriggerConfigScaleRuleAuthenticationOutput
+}
+
+type JobEventTriggerConfigScaleRuleAuthenticationArgs struct {
+	// Name of the secret from which to pull the auth params.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+	// Trigger Parameter that uses the secret.
+	TriggerParameter pulumi.StringInput `pulumi:"triggerParameter"`
+}
+
+func (JobEventTriggerConfigScaleRuleAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobEventTriggerConfigScaleRuleAuthentication)(nil)).Elem()
+}
+
+func (i JobEventTriggerConfigScaleRuleAuthenticationArgs) ToJobEventTriggerConfigScaleRuleAuthenticationOutput() JobEventTriggerConfigScaleRuleAuthenticationOutput {
+	return i.ToJobEventTriggerConfigScaleRuleAuthenticationOutputWithContext(context.Background())
+}
+
+func (i JobEventTriggerConfigScaleRuleAuthenticationArgs) ToJobEventTriggerConfigScaleRuleAuthenticationOutputWithContext(ctx context.Context) JobEventTriggerConfigScaleRuleAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobEventTriggerConfigScaleRuleAuthenticationOutput)
+}
+
+// JobEventTriggerConfigScaleRuleAuthenticationArrayInput is an input type that accepts JobEventTriggerConfigScaleRuleAuthenticationArray and JobEventTriggerConfigScaleRuleAuthenticationArrayOutput values.
+// You can construct a concrete instance of `JobEventTriggerConfigScaleRuleAuthenticationArrayInput` via:
+//
+//	JobEventTriggerConfigScaleRuleAuthenticationArray{ JobEventTriggerConfigScaleRuleAuthenticationArgs{...} }
+type JobEventTriggerConfigScaleRuleAuthenticationArrayInput interface {
+	pulumi.Input
+
+	ToJobEventTriggerConfigScaleRuleAuthenticationArrayOutput() JobEventTriggerConfigScaleRuleAuthenticationArrayOutput
+	ToJobEventTriggerConfigScaleRuleAuthenticationArrayOutputWithContext(context.Context) JobEventTriggerConfigScaleRuleAuthenticationArrayOutput
+}
+
+type JobEventTriggerConfigScaleRuleAuthenticationArray []JobEventTriggerConfigScaleRuleAuthenticationInput
+
+func (JobEventTriggerConfigScaleRuleAuthenticationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobEventTriggerConfigScaleRuleAuthentication)(nil)).Elem()
+}
+
+func (i JobEventTriggerConfigScaleRuleAuthenticationArray) ToJobEventTriggerConfigScaleRuleAuthenticationArrayOutput() JobEventTriggerConfigScaleRuleAuthenticationArrayOutput {
+	return i.ToJobEventTriggerConfigScaleRuleAuthenticationArrayOutputWithContext(context.Background())
+}
+
+func (i JobEventTriggerConfigScaleRuleAuthenticationArray) ToJobEventTriggerConfigScaleRuleAuthenticationArrayOutputWithContext(ctx context.Context) JobEventTriggerConfigScaleRuleAuthenticationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobEventTriggerConfigScaleRuleAuthenticationArrayOutput)
+}
+
+type JobEventTriggerConfigScaleRuleAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (JobEventTriggerConfigScaleRuleAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobEventTriggerConfigScaleRuleAuthentication)(nil)).Elem()
+}
+
+func (o JobEventTriggerConfigScaleRuleAuthenticationOutput) ToJobEventTriggerConfigScaleRuleAuthenticationOutput() JobEventTriggerConfigScaleRuleAuthenticationOutput {
+	return o
+}
+
+func (o JobEventTriggerConfigScaleRuleAuthenticationOutput) ToJobEventTriggerConfigScaleRuleAuthenticationOutputWithContext(ctx context.Context) JobEventTriggerConfigScaleRuleAuthenticationOutput {
+	return o
+}
+
+// Name of the secret from which to pull the auth params.
+func (o JobEventTriggerConfigScaleRuleAuthenticationOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v JobEventTriggerConfigScaleRuleAuthentication) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+// Trigger Parameter that uses the secret.
+func (o JobEventTriggerConfigScaleRuleAuthenticationOutput) TriggerParameter() pulumi.StringOutput {
+	return o.ApplyT(func(v JobEventTriggerConfigScaleRuleAuthentication) string { return v.TriggerParameter }).(pulumi.StringOutput)
+}
+
+type JobEventTriggerConfigScaleRuleAuthenticationArrayOutput struct{ *pulumi.OutputState }
+
+func (JobEventTriggerConfigScaleRuleAuthenticationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobEventTriggerConfigScaleRuleAuthentication)(nil)).Elem()
+}
+
+func (o JobEventTriggerConfigScaleRuleAuthenticationArrayOutput) ToJobEventTriggerConfigScaleRuleAuthenticationArrayOutput() JobEventTriggerConfigScaleRuleAuthenticationArrayOutput {
+	return o
+}
+
+func (o JobEventTriggerConfigScaleRuleAuthenticationArrayOutput) ToJobEventTriggerConfigScaleRuleAuthenticationArrayOutputWithContext(ctx context.Context) JobEventTriggerConfigScaleRuleAuthenticationArrayOutput {
+	return o
+}
+
+func (o JobEventTriggerConfigScaleRuleAuthenticationArrayOutput) Index(i pulumi.IntInput) JobEventTriggerConfigScaleRuleAuthenticationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobEventTriggerConfigScaleRuleAuthentication {
+		return vs[0].([]JobEventTriggerConfigScaleRuleAuthentication)[vs[1].(int)]
+	}).(JobEventTriggerConfigScaleRuleAuthenticationOutput)
+}
+
+type JobIdentity struct {
+	// A list of Managed Identity IDs to assign to the Container App Job.
+	IdentityIds []string `pulumi:"identityIds"`
+	PrincipalId *string  `pulumi:"principalId"`
+	TenantId    *string  `pulumi:"tenantId"`
+	// The type of identity used for the Container App Job. Possible values are `SystemAssigned` and `None`. Defaults to `None`.
+	Type string `pulumi:"type"`
+}
+
+// JobIdentityInput is an input type that accepts JobIdentityArgs and JobIdentityOutput values.
+// You can construct a concrete instance of `JobIdentityInput` via:
+//
+//	JobIdentityArgs{...}
+type JobIdentityInput interface {
+	pulumi.Input
+
+	ToJobIdentityOutput() JobIdentityOutput
+	ToJobIdentityOutputWithContext(context.Context) JobIdentityOutput
+}
+
+type JobIdentityArgs struct {
+	// A list of Managed Identity IDs to assign to the Container App Job.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
+	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
+	// The type of identity used for the Container App Job. Possible values are `SystemAssigned` and `None`. Defaults to `None`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (JobIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobIdentity)(nil)).Elem()
+}
+
+func (i JobIdentityArgs) ToJobIdentityOutput() JobIdentityOutput {
+	return i.ToJobIdentityOutputWithContext(context.Background())
+}
+
+func (i JobIdentityArgs) ToJobIdentityOutputWithContext(ctx context.Context) JobIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobIdentityOutput)
+}
+
+func (i JobIdentityArgs) ToJobIdentityPtrOutput() JobIdentityPtrOutput {
+	return i.ToJobIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i JobIdentityArgs) ToJobIdentityPtrOutputWithContext(ctx context.Context) JobIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobIdentityOutput).ToJobIdentityPtrOutputWithContext(ctx)
+}
+
+// JobIdentityPtrInput is an input type that accepts JobIdentityArgs, JobIdentityPtr and JobIdentityPtrOutput values.
+// You can construct a concrete instance of `JobIdentityPtrInput` via:
+//
+//	        JobIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobIdentityPtrInput interface {
+	pulumi.Input
+
+	ToJobIdentityPtrOutput() JobIdentityPtrOutput
+	ToJobIdentityPtrOutputWithContext(context.Context) JobIdentityPtrOutput
+}
+
+type jobIdentityPtrType JobIdentityArgs
+
+func JobIdentityPtr(v *JobIdentityArgs) JobIdentityPtrInput {
+	return (*jobIdentityPtrType)(v)
+}
+
+func (*jobIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobIdentity)(nil)).Elem()
+}
+
+func (i *jobIdentityPtrType) ToJobIdentityPtrOutput() JobIdentityPtrOutput {
+	return i.ToJobIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *jobIdentityPtrType) ToJobIdentityPtrOutputWithContext(ctx context.Context) JobIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobIdentityPtrOutput)
+}
+
+type JobIdentityOutput struct{ *pulumi.OutputState }
+
+func (JobIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobIdentity)(nil)).Elem()
+}
+
+func (o JobIdentityOutput) ToJobIdentityOutput() JobIdentityOutput {
+	return o
+}
+
+func (o JobIdentityOutput) ToJobIdentityOutputWithContext(ctx context.Context) JobIdentityOutput {
+	return o
+}
+
+func (o JobIdentityOutput) ToJobIdentityPtrOutput() JobIdentityPtrOutput {
+	return o.ToJobIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o JobIdentityOutput) ToJobIdentityPtrOutputWithContext(ctx context.Context) JobIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobIdentity) *JobIdentity {
+		return &v
+	}).(JobIdentityPtrOutput)
+}
+
+// A list of Managed Identity IDs to assign to the Container App Job.
+func (o JobIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JobIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+func (o JobIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+func (o JobIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity used for the Container App Job. Possible values are `SystemAssigned` and `None`. Defaults to `None`.
+func (o JobIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v JobIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type JobIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (JobIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobIdentity)(nil)).Elem()
+}
+
+func (o JobIdentityPtrOutput) ToJobIdentityPtrOutput() JobIdentityPtrOutput {
+	return o
+}
+
+func (o JobIdentityPtrOutput) ToJobIdentityPtrOutputWithContext(ctx context.Context) JobIdentityPtrOutput {
+	return o
+}
+
+func (o JobIdentityPtrOutput) Elem() JobIdentityOutput {
+	return o.ApplyT(func(v *JobIdentity) JobIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret JobIdentity
+		return ret
+	}).(JobIdentityOutput)
+}
+
+// A list of Managed Identity IDs to assign to the Container App Job.
+func (o JobIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *JobIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o JobIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity used for the Container App Job. Possible values are `SystemAssigned` and `None`. Defaults to `None`.
+func (o JobIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type JobManualTriggerConfig struct {
+	// Number of parallel replicas of a job that can run at a given time.
+	Parallelism *int `pulumi:"parallelism"`
+	// Minimum number of successful replica completions before overall job completion.
+	ReplicaCompletionCount *int `pulumi:"replicaCompletionCount"`
+}
+
+// JobManualTriggerConfigInput is an input type that accepts JobManualTriggerConfigArgs and JobManualTriggerConfigOutput values.
+// You can construct a concrete instance of `JobManualTriggerConfigInput` via:
+//
+//	JobManualTriggerConfigArgs{...}
+type JobManualTriggerConfigInput interface {
+	pulumi.Input
+
+	ToJobManualTriggerConfigOutput() JobManualTriggerConfigOutput
+	ToJobManualTriggerConfigOutputWithContext(context.Context) JobManualTriggerConfigOutput
+}
+
+type JobManualTriggerConfigArgs struct {
+	// Number of parallel replicas of a job that can run at a given time.
+	Parallelism pulumi.IntPtrInput `pulumi:"parallelism"`
+	// Minimum number of successful replica completions before overall job completion.
+	ReplicaCompletionCount pulumi.IntPtrInput `pulumi:"replicaCompletionCount"`
+}
+
+func (JobManualTriggerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobManualTriggerConfig)(nil)).Elem()
+}
+
+func (i JobManualTriggerConfigArgs) ToJobManualTriggerConfigOutput() JobManualTriggerConfigOutput {
+	return i.ToJobManualTriggerConfigOutputWithContext(context.Background())
+}
+
+func (i JobManualTriggerConfigArgs) ToJobManualTriggerConfigOutputWithContext(ctx context.Context) JobManualTriggerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobManualTriggerConfigOutput)
+}
+
+func (i JobManualTriggerConfigArgs) ToJobManualTriggerConfigPtrOutput() JobManualTriggerConfigPtrOutput {
+	return i.ToJobManualTriggerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i JobManualTriggerConfigArgs) ToJobManualTriggerConfigPtrOutputWithContext(ctx context.Context) JobManualTriggerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobManualTriggerConfigOutput).ToJobManualTriggerConfigPtrOutputWithContext(ctx)
+}
+
+// JobManualTriggerConfigPtrInput is an input type that accepts JobManualTriggerConfigArgs, JobManualTriggerConfigPtr and JobManualTriggerConfigPtrOutput values.
+// You can construct a concrete instance of `JobManualTriggerConfigPtrInput` via:
+//
+//	        JobManualTriggerConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobManualTriggerConfigPtrInput interface {
+	pulumi.Input
+
+	ToJobManualTriggerConfigPtrOutput() JobManualTriggerConfigPtrOutput
+	ToJobManualTriggerConfigPtrOutputWithContext(context.Context) JobManualTriggerConfigPtrOutput
+}
+
+type jobManualTriggerConfigPtrType JobManualTriggerConfigArgs
+
+func JobManualTriggerConfigPtr(v *JobManualTriggerConfigArgs) JobManualTriggerConfigPtrInput {
+	return (*jobManualTriggerConfigPtrType)(v)
+}
+
+func (*jobManualTriggerConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobManualTriggerConfig)(nil)).Elem()
+}
+
+func (i *jobManualTriggerConfigPtrType) ToJobManualTriggerConfigPtrOutput() JobManualTriggerConfigPtrOutput {
+	return i.ToJobManualTriggerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *jobManualTriggerConfigPtrType) ToJobManualTriggerConfigPtrOutputWithContext(ctx context.Context) JobManualTriggerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobManualTriggerConfigPtrOutput)
+}
+
+type JobManualTriggerConfigOutput struct{ *pulumi.OutputState }
+
+func (JobManualTriggerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobManualTriggerConfig)(nil)).Elem()
+}
+
+func (o JobManualTriggerConfigOutput) ToJobManualTriggerConfigOutput() JobManualTriggerConfigOutput {
+	return o
+}
+
+func (o JobManualTriggerConfigOutput) ToJobManualTriggerConfigOutputWithContext(ctx context.Context) JobManualTriggerConfigOutput {
+	return o
+}
+
+func (o JobManualTriggerConfigOutput) ToJobManualTriggerConfigPtrOutput() JobManualTriggerConfigPtrOutput {
+	return o.ToJobManualTriggerConfigPtrOutputWithContext(context.Background())
+}
+
+func (o JobManualTriggerConfigOutput) ToJobManualTriggerConfigPtrOutputWithContext(ctx context.Context) JobManualTriggerConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobManualTriggerConfig) *JobManualTriggerConfig {
+		return &v
+	}).(JobManualTriggerConfigPtrOutput)
+}
+
+// Number of parallel replicas of a job that can run at a given time.
+func (o JobManualTriggerConfigOutput) Parallelism() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobManualTriggerConfig) *int { return v.Parallelism }).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of successful replica completions before overall job completion.
+func (o JobManualTriggerConfigOutput) ReplicaCompletionCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobManualTriggerConfig) *int { return v.ReplicaCompletionCount }).(pulumi.IntPtrOutput)
+}
+
+type JobManualTriggerConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (JobManualTriggerConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobManualTriggerConfig)(nil)).Elem()
+}
+
+func (o JobManualTriggerConfigPtrOutput) ToJobManualTriggerConfigPtrOutput() JobManualTriggerConfigPtrOutput {
+	return o
+}
+
+func (o JobManualTriggerConfigPtrOutput) ToJobManualTriggerConfigPtrOutputWithContext(ctx context.Context) JobManualTriggerConfigPtrOutput {
+	return o
+}
+
+func (o JobManualTriggerConfigPtrOutput) Elem() JobManualTriggerConfigOutput {
+	return o.ApplyT(func(v *JobManualTriggerConfig) JobManualTriggerConfig {
+		if v != nil {
+			return *v
+		}
+		var ret JobManualTriggerConfig
+		return ret
+	}).(JobManualTriggerConfigOutput)
+}
+
+// Number of parallel replicas of a job that can run at a given time.
+func (o JobManualTriggerConfigPtrOutput) Parallelism() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobManualTriggerConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Parallelism
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of successful replica completions before overall job completion.
+func (o JobManualTriggerConfigPtrOutput) ReplicaCompletionCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobManualTriggerConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ReplicaCompletionCount
+	}).(pulumi.IntPtrOutput)
+}
+
+type JobRegistry struct {
+	// A Managed Identity to use to authenticate with Azure Container Registry.
+	Identity *string `pulumi:"identity"`
+	// The name of the Secret that contains the registry login password.
+	PasswordSecretName *string `pulumi:"passwordSecretName"`
+	// The URL of the Azure Container Registry server.
+	Server string `pulumi:"server"`
+	// The username to use to authenticate with Azure Container Registry.
+	Username *string `pulumi:"username"`
+}
+
+// JobRegistryInput is an input type that accepts JobRegistryArgs and JobRegistryOutput values.
+// You can construct a concrete instance of `JobRegistryInput` via:
+//
+//	JobRegistryArgs{...}
+type JobRegistryInput interface {
+	pulumi.Input
+
+	ToJobRegistryOutput() JobRegistryOutput
+	ToJobRegistryOutputWithContext(context.Context) JobRegistryOutput
+}
+
+type JobRegistryArgs struct {
+	// A Managed Identity to use to authenticate with Azure Container Registry.
+	Identity pulumi.StringPtrInput `pulumi:"identity"`
+	// The name of the Secret that contains the registry login password.
+	PasswordSecretName pulumi.StringPtrInput `pulumi:"passwordSecretName"`
+	// The URL of the Azure Container Registry server.
+	Server pulumi.StringInput `pulumi:"server"`
+	// The username to use to authenticate with Azure Container Registry.
+	Username pulumi.StringPtrInput `pulumi:"username"`
+}
+
+func (JobRegistryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobRegistry)(nil)).Elem()
+}
+
+func (i JobRegistryArgs) ToJobRegistryOutput() JobRegistryOutput {
+	return i.ToJobRegistryOutputWithContext(context.Background())
+}
+
+func (i JobRegistryArgs) ToJobRegistryOutputWithContext(ctx context.Context) JobRegistryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobRegistryOutput)
+}
+
+// JobRegistryArrayInput is an input type that accepts JobRegistryArray and JobRegistryArrayOutput values.
+// You can construct a concrete instance of `JobRegistryArrayInput` via:
+//
+//	JobRegistryArray{ JobRegistryArgs{...} }
+type JobRegistryArrayInput interface {
+	pulumi.Input
+
+	ToJobRegistryArrayOutput() JobRegistryArrayOutput
+	ToJobRegistryArrayOutputWithContext(context.Context) JobRegistryArrayOutput
+}
+
+type JobRegistryArray []JobRegistryInput
+
+func (JobRegistryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobRegistry)(nil)).Elem()
+}
+
+func (i JobRegistryArray) ToJobRegistryArrayOutput() JobRegistryArrayOutput {
+	return i.ToJobRegistryArrayOutputWithContext(context.Background())
+}
+
+func (i JobRegistryArray) ToJobRegistryArrayOutputWithContext(ctx context.Context) JobRegistryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobRegistryArrayOutput)
+}
+
+type JobRegistryOutput struct{ *pulumi.OutputState }
+
+func (JobRegistryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobRegistry)(nil)).Elem()
+}
+
+func (o JobRegistryOutput) ToJobRegistryOutput() JobRegistryOutput {
+	return o
+}
+
+func (o JobRegistryOutput) ToJobRegistryOutputWithContext(ctx context.Context) JobRegistryOutput {
+	return o
+}
+
+// A Managed Identity to use to authenticate with Azure Container Registry.
+func (o JobRegistryOutput) Identity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobRegistry) *string { return v.Identity }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Secret that contains the registry login password.
+func (o JobRegistryOutput) PasswordSecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobRegistry) *string { return v.PasswordSecretName }).(pulumi.StringPtrOutput)
+}
+
+// The URL of the Azure Container Registry server.
+func (o JobRegistryOutput) Server() pulumi.StringOutput {
+	return o.ApplyT(func(v JobRegistry) string { return v.Server }).(pulumi.StringOutput)
+}
+
+// The username to use to authenticate with Azure Container Registry.
+func (o JobRegistryOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobRegistry) *string { return v.Username }).(pulumi.StringPtrOutput)
+}
+
+type JobRegistryArrayOutput struct{ *pulumi.OutputState }
+
+func (JobRegistryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobRegistry)(nil)).Elem()
+}
+
+func (o JobRegistryArrayOutput) ToJobRegistryArrayOutput() JobRegistryArrayOutput {
+	return o
+}
+
+func (o JobRegistryArrayOutput) ToJobRegistryArrayOutputWithContext(ctx context.Context) JobRegistryArrayOutput {
+	return o
+}
+
+func (o JobRegistryArrayOutput) Index(i pulumi.IntInput) JobRegistryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobRegistry {
+		return vs[0].([]JobRegistry)[vs[1].(int)]
+	}).(JobRegistryOutput)
+}
+
+type JobScheduleTriggerConfig struct {
+	// Cron formatted repeating schedule of a Cron Job.
+	CronExpression string `pulumi:"cronExpression"`
+	// Number of parallel replicas of a job that can run at a given time.
+	Parallelism *int `pulumi:"parallelism"`
+	// Minimum number of successful replica completions before overall job completion.
+	ReplicaCompletionCount *int `pulumi:"replicaCompletionCount"`
+}
+
+// JobScheduleTriggerConfigInput is an input type that accepts JobScheduleTriggerConfigArgs and JobScheduleTriggerConfigOutput values.
+// You can construct a concrete instance of `JobScheduleTriggerConfigInput` via:
+//
+//	JobScheduleTriggerConfigArgs{...}
+type JobScheduleTriggerConfigInput interface {
+	pulumi.Input
+
+	ToJobScheduleTriggerConfigOutput() JobScheduleTriggerConfigOutput
+	ToJobScheduleTriggerConfigOutputWithContext(context.Context) JobScheduleTriggerConfigOutput
+}
+
+type JobScheduleTriggerConfigArgs struct {
+	// Cron formatted repeating schedule of a Cron Job.
+	CronExpression pulumi.StringInput `pulumi:"cronExpression"`
+	// Number of parallel replicas of a job that can run at a given time.
+	Parallelism pulumi.IntPtrInput `pulumi:"parallelism"`
+	// Minimum number of successful replica completions before overall job completion.
+	ReplicaCompletionCount pulumi.IntPtrInput `pulumi:"replicaCompletionCount"`
+}
+
+func (JobScheduleTriggerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobScheduleTriggerConfig)(nil)).Elem()
+}
+
+func (i JobScheduleTriggerConfigArgs) ToJobScheduleTriggerConfigOutput() JobScheduleTriggerConfigOutput {
+	return i.ToJobScheduleTriggerConfigOutputWithContext(context.Background())
+}
+
+func (i JobScheduleTriggerConfigArgs) ToJobScheduleTriggerConfigOutputWithContext(ctx context.Context) JobScheduleTriggerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobScheduleTriggerConfigOutput)
+}
+
+func (i JobScheduleTriggerConfigArgs) ToJobScheduleTriggerConfigPtrOutput() JobScheduleTriggerConfigPtrOutput {
+	return i.ToJobScheduleTriggerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i JobScheduleTriggerConfigArgs) ToJobScheduleTriggerConfigPtrOutputWithContext(ctx context.Context) JobScheduleTriggerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobScheduleTriggerConfigOutput).ToJobScheduleTriggerConfigPtrOutputWithContext(ctx)
+}
+
+// JobScheduleTriggerConfigPtrInput is an input type that accepts JobScheduleTriggerConfigArgs, JobScheduleTriggerConfigPtr and JobScheduleTriggerConfigPtrOutput values.
+// You can construct a concrete instance of `JobScheduleTriggerConfigPtrInput` via:
+//
+//	        JobScheduleTriggerConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobScheduleTriggerConfigPtrInput interface {
+	pulumi.Input
+
+	ToJobScheduleTriggerConfigPtrOutput() JobScheduleTriggerConfigPtrOutput
+	ToJobScheduleTriggerConfigPtrOutputWithContext(context.Context) JobScheduleTriggerConfigPtrOutput
+}
+
+type jobScheduleTriggerConfigPtrType JobScheduleTriggerConfigArgs
+
+func JobScheduleTriggerConfigPtr(v *JobScheduleTriggerConfigArgs) JobScheduleTriggerConfigPtrInput {
+	return (*jobScheduleTriggerConfigPtrType)(v)
+}
+
+func (*jobScheduleTriggerConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobScheduleTriggerConfig)(nil)).Elem()
+}
+
+func (i *jobScheduleTriggerConfigPtrType) ToJobScheduleTriggerConfigPtrOutput() JobScheduleTriggerConfigPtrOutput {
+	return i.ToJobScheduleTriggerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *jobScheduleTriggerConfigPtrType) ToJobScheduleTriggerConfigPtrOutputWithContext(ctx context.Context) JobScheduleTriggerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobScheduleTriggerConfigPtrOutput)
+}
+
+type JobScheduleTriggerConfigOutput struct{ *pulumi.OutputState }
+
+func (JobScheduleTriggerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobScheduleTriggerConfig)(nil)).Elem()
+}
+
+func (o JobScheduleTriggerConfigOutput) ToJobScheduleTriggerConfigOutput() JobScheduleTriggerConfigOutput {
+	return o
+}
+
+func (o JobScheduleTriggerConfigOutput) ToJobScheduleTriggerConfigOutputWithContext(ctx context.Context) JobScheduleTriggerConfigOutput {
+	return o
+}
+
+func (o JobScheduleTriggerConfigOutput) ToJobScheduleTriggerConfigPtrOutput() JobScheduleTriggerConfigPtrOutput {
+	return o.ToJobScheduleTriggerConfigPtrOutputWithContext(context.Background())
+}
+
+func (o JobScheduleTriggerConfigOutput) ToJobScheduleTriggerConfigPtrOutputWithContext(ctx context.Context) JobScheduleTriggerConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobScheduleTriggerConfig) *JobScheduleTriggerConfig {
+		return &v
+	}).(JobScheduleTriggerConfigPtrOutput)
+}
+
+// Cron formatted repeating schedule of a Cron Job.
+func (o JobScheduleTriggerConfigOutput) CronExpression() pulumi.StringOutput {
+	return o.ApplyT(func(v JobScheduleTriggerConfig) string { return v.CronExpression }).(pulumi.StringOutput)
+}
+
+// Number of parallel replicas of a job that can run at a given time.
+func (o JobScheduleTriggerConfigOutput) Parallelism() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobScheduleTriggerConfig) *int { return v.Parallelism }).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of successful replica completions before overall job completion.
+func (o JobScheduleTriggerConfigOutput) ReplicaCompletionCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobScheduleTriggerConfig) *int { return v.ReplicaCompletionCount }).(pulumi.IntPtrOutput)
+}
+
+type JobScheduleTriggerConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (JobScheduleTriggerConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobScheduleTriggerConfig)(nil)).Elem()
+}
+
+func (o JobScheduleTriggerConfigPtrOutput) ToJobScheduleTriggerConfigPtrOutput() JobScheduleTriggerConfigPtrOutput {
+	return o
+}
+
+func (o JobScheduleTriggerConfigPtrOutput) ToJobScheduleTriggerConfigPtrOutputWithContext(ctx context.Context) JobScheduleTriggerConfigPtrOutput {
+	return o
+}
+
+func (o JobScheduleTriggerConfigPtrOutput) Elem() JobScheduleTriggerConfigOutput {
+	return o.ApplyT(func(v *JobScheduleTriggerConfig) JobScheduleTriggerConfig {
+		if v != nil {
+			return *v
+		}
+		var ret JobScheduleTriggerConfig
+		return ret
+	}).(JobScheduleTriggerConfigOutput)
+}
+
+// Cron formatted repeating schedule of a Cron Job.
+func (o JobScheduleTriggerConfigPtrOutput) CronExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobScheduleTriggerConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CronExpression
+	}).(pulumi.StringPtrOutput)
+}
+
+// Number of parallel replicas of a job that can run at a given time.
+func (o JobScheduleTriggerConfigPtrOutput) Parallelism() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobScheduleTriggerConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Parallelism
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of successful replica completions before overall job completion.
+func (o JobScheduleTriggerConfigPtrOutput) ReplicaCompletionCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobScheduleTriggerConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ReplicaCompletionCount
+	}).(pulumi.IntPtrOutput)
+}
+
+type JobSecret struct {
+	// A `identity` block as defined below.
+	Identity *string `pulumi:"identity"`
+	// The Key Vault Secret ID. Could be either one of `id` or `versionlessId`.
+	KeyVaultSecretId *string `pulumi:"keyVaultSecretId"`
+	// Name of the secret.
+	Name string `pulumi:"name"`
+	// Value of the secret.
+	Value *string `pulumi:"value"`
+}
+
+// JobSecretInput is an input type that accepts JobSecretArgs and JobSecretOutput values.
+// You can construct a concrete instance of `JobSecretInput` via:
+//
+//	JobSecretArgs{...}
+type JobSecretInput interface {
+	pulumi.Input
+
+	ToJobSecretOutput() JobSecretOutput
+	ToJobSecretOutputWithContext(context.Context) JobSecretOutput
+}
+
+type JobSecretArgs struct {
+	// A `identity` block as defined below.
+	Identity pulumi.StringPtrInput `pulumi:"identity"`
+	// The Key Vault Secret ID. Could be either one of `id` or `versionlessId`.
+	KeyVaultSecretId pulumi.StringPtrInput `pulumi:"keyVaultSecretId"`
+	// Name of the secret.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Value of the secret.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (JobSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobSecret)(nil)).Elem()
+}
+
+func (i JobSecretArgs) ToJobSecretOutput() JobSecretOutput {
+	return i.ToJobSecretOutputWithContext(context.Background())
+}
+
+func (i JobSecretArgs) ToJobSecretOutputWithContext(ctx context.Context) JobSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobSecretOutput)
+}
+
+// JobSecretArrayInput is an input type that accepts JobSecretArray and JobSecretArrayOutput values.
+// You can construct a concrete instance of `JobSecretArrayInput` via:
+//
+//	JobSecretArray{ JobSecretArgs{...} }
+type JobSecretArrayInput interface {
+	pulumi.Input
+
+	ToJobSecretArrayOutput() JobSecretArrayOutput
+	ToJobSecretArrayOutputWithContext(context.Context) JobSecretArrayOutput
+}
+
+type JobSecretArray []JobSecretInput
+
+func (JobSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobSecret)(nil)).Elem()
+}
+
+func (i JobSecretArray) ToJobSecretArrayOutput() JobSecretArrayOutput {
+	return i.ToJobSecretArrayOutputWithContext(context.Background())
+}
+
+func (i JobSecretArray) ToJobSecretArrayOutputWithContext(ctx context.Context) JobSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobSecretArrayOutput)
+}
+
+type JobSecretOutput struct{ *pulumi.OutputState }
+
+func (JobSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobSecret)(nil)).Elem()
+}
+
+func (o JobSecretOutput) ToJobSecretOutput() JobSecretOutput {
+	return o
+}
+
+func (o JobSecretOutput) ToJobSecretOutputWithContext(ctx context.Context) JobSecretOutput {
+	return o
+}
+
+// A `identity` block as defined below.
+func (o JobSecretOutput) Identity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobSecret) *string { return v.Identity }).(pulumi.StringPtrOutput)
+}
+
+// The Key Vault Secret ID. Could be either one of `id` or `versionlessId`.
+func (o JobSecretOutput) KeyVaultSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobSecret) *string { return v.KeyVaultSecretId }).(pulumi.StringPtrOutput)
+}
+
+// Name of the secret.
+func (o JobSecretOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v JobSecret) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Value of the secret.
+func (o JobSecretOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobSecret) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type JobSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (JobSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobSecret)(nil)).Elem()
+}
+
+func (o JobSecretArrayOutput) ToJobSecretArrayOutput() JobSecretArrayOutput {
+	return o
+}
+
+func (o JobSecretArrayOutput) ToJobSecretArrayOutputWithContext(ctx context.Context) JobSecretArrayOutput {
+	return o
+}
+
+func (o JobSecretArrayOutput) Index(i pulumi.IntInput) JobSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobSecret {
+		return vs[0].([]JobSecret)[vs[1].(int)]
+	}).(JobSecretOutput)
+}
+
+type JobTemplate struct {
+	// A `container` block as defined below.
+	Containers []JobTemplateContainer `pulumi:"containers"`
+	// A `initContainer` block as defined below.
+	InitContainers []JobTemplateInitContainer `pulumi:"initContainers"`
+	// A `volume` block as defined below.
+	Volumes []JobTemplateVolume `pulumi:"volumes"`
+}
+
+// JobTemplateInput is an input type that accepts JobTemplateArgs and JobTemplateOutput values.
+// You can construct a concrete instance of `JobTemplateInput` via:
+//
+//	JobTemplateArgs{...}
+type JobTemplateInput interface {
+	pulumi.Input
+
+	ToJobTemplateOutput() JobTemplateOutput
+	ToJobTemplateOutputWithContext(context.Context) JobTemplateOutput
+}
+
+type JobTemplateArgs struct {
+	// A `container` block as defined below.
+	Containers JobTemplateContainerArrayInput `pulumi:"containers"`
+	// A `initContainer` block as defined below.
+	InitContainers JobTemplateInitContainerArrayInput `pulumi:"initContainers"`
+	// A `volume` block as defined below.
+	Volumes JobTemplateVolumeArrayInput `pulumi:"volumes"`
+}
+
+func (JobTemplateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplate)(nil)).Elem()
+}
+
+func (i JobTemplateArgs) ToJobTemplateOutput() JobTemplateOutput {
+	return i.ToJobTemplateOutputWithContext(context.Background())
+}
+
+func (i JobTemplateArgs) ToJobTemplateOutputWithContext(ctx context.Context) JobTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateOutput)
+}
+
+func (i JobTemplateArgs) ToJobTemplatePtrOutput() JobTemplatePtrOutput {
+	return i.ToJobTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i JobTemplateArgs) ToJobTemplatePtrOutputWithContext(ctx context.Context) JobTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateOutput).ToJobTemplatePtrOutputWithContext(ctx)
+}
+
+// JobTemplatePtrInput is an input type that accepts JobTemplateArgs, JobTemplatePtr and JobTemplatePtrOutput values.
+// You can construct a concrete instance of `JobTemplatePtrInput` via:
+//
+//	        JobTemplateArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobTemplatePtrInput interface {
+	pulumi.Input
+
+	ToJobTemplatePtrOutput() JobTemplatePtrOutput
+	ToJobTemplatePtrOutputWithContext(context.Context) JobTemplatePtrOutput
+}
+
+type jobTemplatePtrType JobTemplateArgs
+
+func JobTemplatePtr(v *JobTemplateArgs) JobTemplatePtrInput {
+	return (*jobTemplatePtrType)(v)
+}
+
+func (*jobTemplatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobTemplate)(nil)).Elem()
+}
+
+func (i *jobTemplatePtrType) ToJobTemplatePtrOutput() JobTemplatePtrOutput {
+	return i.ToJobTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i *jobTemplatePtrType) ToJobTemplatePtrOutputWithContext(ctx context.Context) JobTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplatePtrOutput)
+}
+
+type JobTemplateOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplate)(nil)).Elem()
+}
+
+func (o JobTemplateOutput) ToJobTemplateOutput() JobTemplateOutput {
+	return o
+}
+
+func (o JobTemplateOutput) ToJobTemplateOutputWithContext(ctx context.Context) JobTemplateOutput {
+	return o
+}
+
+func (o JobTemplateOutput) ToJobTemplatePtrOutput() JobTemplatePtrOutput {
+	return o.ToJobTemplatePtrOutputWithContext(context.Background())
+}
+
+func (o JobTemplateOutput) ToJobTemplatePtrOutputWithContext(ctx context.Context) JobTemplatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobTemplate) *JobTemplate {
+		return &v
+	}).(JobTemplatePtrOutput)
+}
+
+// A `container` block as defined below.
+func (o JobTemplateOutput) Containers() JobTemplateContainerArrayOutput {
+	return o.ApplyT(func(v JobTemplate) []JobTemplateContainer { return v.Containers }).(JobTemplateContainerArrayOutput)
+}
+
+// A `initContainer` block as defined below.
+func (o JobTemplateOutput) InitContainers() JobTemplateInitContainerArrayOutput {
+	return o.ApplyT(func(v JobTemplate) []JobTemplateInitContainer { return v.InitContainers }).(JobTemplateInitContainerArrayOutput)
+}
+
+// A `volume` block as defined below.
+func (o JobTemplateOutput) Volumes() JobTemplateVolumeArrayOutput {
+	return o.ApplyT(func(v JobTemplate) []JobTemplateVolume { return v.Volumes }).(JobTemplateVolumeArrayOutput)
+}
+
+type JobTemplatePtrOutput struct{ *pulumi.OutputState }
+
+func (JobTemplatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobTemplate)(nil)).Elem()
+}
+
+func (o JobTemplatePtrOutput) ToJobTemplatePtrOutput() JobTemplatePtrOutput {
+	return o
+}
+
+func (o JobTemplatePtrOutput) ToJobTemplatePtrOutputWithContext(ctx context.Context) JobTemplatePtrOutput {
+	return o
+}
+
+func (o JobTemplatePtrOutput) Elem() JobTemplateOutput {
+	return o.ApplyT(func(v *JobTemplate) JobTemplate {
+		if v != nil {
+			return *v
+		}
+		var ret JobTemplate
+		return ret
+	}).(JobTemplateOutput)
+}
+
+// A `container` block as defined below.
+func (o JobTemplatePtrOutput) Containers() JobTemplateContainerArrayOutput {
+	return o.ApplyT(func(v *JobTemplate) []JobTemplateContainer {
+		if v == nil {
+			return nil
+		}
+		return v.Containers
+	}).(JobTemplateContainerArrayOutput)
+}
+
+// A `initContainer` block as defined below.
+func (o JobTemplatePtrOutput) InitContainers() JobTemplateInitContainerArrayOutput {
+	return o.ApplyT(func(v *JobTemplate) []JobTemplateInitContainer {
+		if v == nil {
+			return nil
+		}
+		return v.InitContainers
+	}).(JobTemplateInitContainerArrayOutput)
+}
+
+// A `volume` block as defined below.
+func (o JobTemplatePtrOutput) Volumes() JobTemplateVolumeArrayOutput {
+	return o.ApplyT(func(v *JobTemplate) []JobTemplateVolume {
+		if v == nil {
+			return nil
+		}
+		return v.Volumes
+	}).(JobTemplateVolumeArrayOutput)
+}
+
+type JobTemplateContainer struct {
+	// A list of extra arguments to pass to the container.
+	Args []string `pulumi:"args"`
+	// A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+	Commands []string `pulumi:"commands"`
+	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+	//
+	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+	Cpu float64 `pulumi:"cpu"`
+	// One or more `env` blocks as detailed below.
+	Envs []JobTemplateContainerEnv `pulumi:"envs"`
+	// The amount of ephemeral storage available to the Container App.
+	//
+	// > **NOTE:** `ephemeralStorage` is currently in preview and not configurable at this time.
+	EphemeralStorage *string `pulumi:"ephemeralStorage"`
+	// The image to use to create the container.
+	Image string `pulumi:"image"`
+	// A `livenessProbe` block as detailed below.
+	LivenessProbes []JobTemplateContainerLivenessProbe `pulumi:"livenessProbes"`
+	// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+	//
+	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+	Memory string `pulumi:"memory"`
+	// The name of the container.
+	Name string `pulumi:"name"`
+	// A `readinessProbe` block as detailed below.
+	ReadinessProbes []JobTemplateContainerReadinessProbe `pulumi:"readinessProbes"`
+	// A `startupProbe` block as detailed below.
+	StartupProbes []JobTemplateContainerStartupProbe `pulumi:"startupProbes"`
+	// A `volumeMounts` block as detailed below.
+	VolumeMounts []JobTemplateContainerVolumeMount `pulumi:"volumeMounts"`
+}
+
+// JobTemplateContainerInput is an input type that accepts JobTemplateContainerArgs and JobTemplateContainerOutput values.
+// You can construct a concrete instance of `JobTemplateContainerInput` via:
+//
+//	JobTemplateContainerArgs{...}
+type JobTemplateContainerInput interface {
+	pulumi.Input
+
+	ToJobTemplateContainerOutput() JobTemplateContainerOutput
+	ToJobTemplateContainerOutputWithContext(context.Context) JobTemplateContainerOutput
+}
+
+type JobTemplateContainerArgs struct {
+	// A list of extra arguments to pass to the container.
+	Args pulumi.StringArrayInput `pulumi:"args"`
+	// A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+	Commands pulumi.StringArrayInput `pulumi:"commands"`
+	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+	//
+	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+	Cpu pulumi.Float64Input `pulumi:"cpu"`
+	// One or more `env` blocks as detailed below.
+	Envs JobTemplateContainerEnvArrayInput `pulumi:"envs"`
+	// The amount of ephemeral storage available to the Container App.
+	//
+	// > **NOTE:** `ephemeralStorage` is currently in preview and not configurable at this time.
+	EphemeralStorage pulumi.StringPtrInput `pulumi:"ephemeralStorage"`
+	// The image to use to create the container.
+	Image pulumi.StringInput `pulumi:"image"`
+	// A `livenessProbe` block as detailed below.
+	LivenessProbes JobTemplateContainerLivenessProbeArrayInput `pulumi:"livenessProbes"`
+	// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+	//
+	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+	Memory pulumi.StringInput `pulumi:"memory"`
+	// The name of the container.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A `readinessProbe` block as detailed below.
+	ReadinessProbes JobTemplateContainerReadinessProbeArrayInput `pulumi:"readinessProbes"`
+	// A `startupProbe` block as detailed below.
+	StartupProbes JobTemplateContainerStartupProbeArrayInput `pulumi:"startupProbes"`
+	// A `volumeMounts` block as detailed below.
+	VolumeMounts JobTemplateContainerVolumeMountArrayInput `pulumi:"volumeMounts"`
+}
+
+func (JobTemplateContainerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateContainer)(nil)).Elem()
+}
+
+func (i JobTemplateContainerArgs) ToJobTemplateContainerOutput() JobTemplateContainerOutput {
+	return i.ToJobTemplateContainerOutputWithContext(context.Background())
+}
+
+func (i JobTemplateContainerArgs) ToJobTemplateContainerOutputWithContext(ctx context.Context) JobTemplateContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateContainerOutput)
+}
+
+// JobTemplateContainerArrayInput is an input type that accepts JobTemplateContainerArray and JobTemplateContainerArrayOutput values.
+// You can construct a concrete instance of `JobTemplateContainerArrayInput` via:
+//
+//	JobTemplateContainerArray{ JobTemplateContainerArgs{...} }
+type JobTemplateContainerArrayInput interface {
+	pulumi.Input
+
+	ToJobTemplateContainerArrayOutput() JobTemplateContainerArrayOutput
+	ToJobTemplateContainerArrayOutputWithContext(context.Context) JobTemplateContainerArrayOutput
+}
+
+type JobTemplateContainerArray []JobTemplateContainerInput
+
+func (JobTemplateContainerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTemplateContainer)(nil)).Elem()
+}
+
+func (i JobTemplateContainerArray) ToJobTemplateContainerArrayOutput() JobTemplateContainerArrayOutput {
+	return i.ToJobTemplateContainerArrayOutputWithContext(context.Background())
+}
+
+func (i JobTemplateContainerArray) ToJobTemplateContainerArrayOutputWithContext(ctx context.Context) JobTemplateContainerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateContainerArrayOutput)
+}
+
+type JobTemplateContainerOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateContainer)(nil)).Elem()
+}
+
+func (o JobTemplateContainerOutput) ToJobTemplateContainerOutput() JobTemplateContainerOutput {
+	return o
+}
+
+func (o JobTemplateContainerOutput) ToJobTemplateContainerOutputWithContext(ctx context.Context) JobTemplateContainerOutput {
+	return o
+}
+
+// A list of extra arguments to pass to the container.
+func (o JobTemplateContainerOutput) Args() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JobTemplateContainer) []string { return v.Args }).(pulumi.StringArrayOutput)
+}
+
+// A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+func (o JobTemplateContainerOutput) Commands() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JobTemplateContainer) []string { return v.Commands }).(pulumi.StringArrayOutput)
+}
+
+// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+//
+// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+func (o JobTemplateContainerOutput) Cpu() pulumi.Float64Output {
+	return o.ApplyT(func(v JobTemplateContainer) float64 { return v.Cpu }).(pulumi.Float64Output)
+}
+
+// One or more `env` blocks as detailed below.
+func (o JobTemplateContainerOutput) Envs() JobTemplateContainerEnvArrayOutput {
+	return o.ApplyT(func(v JobTemplateContainer) []JobTemplateContainerEnv { return v.Envs }).(JobTemplateContainerEnvArrayOutput)
+}
+
+// The amount of ephemeral storage available to the Container App.
+//
+// > **NOTE:** `ephemeralStorage` is currently in preview and not configurable at this time.
+func (o JobTemplateContainerOutput) EphemeralStorage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTemplateContainer) *string { return v.EphemeralStorage }).(pulumi.StringPtrOutput)
+}
+
+// The image to use to create the container.
+func (o JobTemplateContainerOutput) Image() pulumi.StringOutput {
+	return o.ApplyT(func(v JobTemplateContainer) string { return v.Image }).(pulumi.StringOutput)
+}
+
+// A `livenessProbe` block as detailed below.
+func (o JobTemplateContainerOutput) LivenessProbes() JobTemplateContainerLivenessProbeArrayOutput {
+	return o.ApplyT(func(v JobTemplateContainer) []JobTemplateContainerLivenessProbe { return v.LivenessProbes }).(JobTemplateContainerLivenessProbeArrayOutput)
+}
+
+// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+//
+// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+func (o JobTemplateContainerOutput) Memory() pulumi.StringOutput {
+	return o.ApplyT(func(v JobTemplateContainer) string { return v.Memory }).(pulumi.StringOutput)
+}
+
+// The name of the container.
+func (o JobTemplateContainerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v JobTemplateContainer) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A `readinessProbe` block as detailed below.
+func (o JobTemplateContainerOutput) ReadinessProbes() JobTemplateContainerReadinessProbeArrayOutput {
+	return o.ApplyT(func(v JobTemplateContainer) []JobTemplateContainerReadinessProbe { return v.ReadinessProbes }).(JobTemplateContainerReadinessProbeArrayOutput)
+}
+
+// A `startupProbe` block as detailed below.
+func (o JobTemplateContainerOutput) StartupProbes() JobTemplateContainerStartupProbeArrayOutput {
+	return o.ApplyT(func(v JobTemplateContainer) []JobTemplateContainerStartupProbe { return v.StartupProbes }).(JobTemplateContainerStartupProbeArrayOutput)
+}
+
+// A `volumeMounts` block as detailed below.
+func (o JobTemplateContainerOutput) VolumeMounts() JobTemplateContainerVolumeMountArrayOutput {
+	return o.ApplyT(func(v JobTemplateContainer) []JobTemplateContainerVolumeMount { return v.VolumeMounts }).(JobTemplateContainerVolumeMountArrayOutput)
+}
+
+type JobTemplateContainerArrayOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateContainerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTemplateContainer)(nil)).Elem()
+}
+
+func (o JobTemplateContainerArrayOutput) ToJobTemplateContainerArrayOutput() JobTemplateContainerArrayOutput {
+	return o
+}
+
+func (o JobTemplateContainerArrayOutput) ToJobTemplateContainerArrayOutputWithContext(ctx context.Context) JobTemplateContainerArrayOutput {
+	return o
+}
+
+func (o JobTemplateContainerArrayOutput) Index(i pulumi.IntInput) JobTemplateContainerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobTemplateContainer {
+		return vs[0].([]JobTemplateContainer)[vs[1].(int)]
+	}).(JobTemplateContainerOutput)
+}
+
+type JobTemplateContainerEnv struct {
+	// The name of the environment variable.
+	Name string `pulumi:"name"`
+	// Name of the Container App secret from which to pull the environment variable value.
+	SecretName *string `pulumi:"secretName"`
+	// The value of the environment variable.
+	Value *string `pulumi:"value"`
+}
+
+// JobTemplateContainerEnvInput is an input type that accepts JobTemplateContainerEnvArgs and JobTemplateContainerEnvOutput values.
+// You can construct a concrete instance of `JobTemplateContainerEnvInput` via:
+//
+//	JobTemplateContainerEnvArgs{...}
+type JobTemplateContainerEnvInput interface {
+	pulumi.Input
+
+	ToJobTemplateContainerEnvOutput() JobTemplateContainerEnvOutput
+	ToJobTemplateContainerEnvOutputWithContext(context.Context) JobTemplateContainerEnvOutput
+}
+
+type JobTemplateContainerEnvArgs struct {
+	// The name of the environment variable.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the Container App secret from which to pull the environment variable value.
+	SecretName pulumi.StringPtrInput `pulumi:"secretName"`
+	// The value of the environment variable.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (JobTemplateContainerEnvArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateContainerEnv)(nil)).Elem()
+}
+
+func (i JobTemplateContainerEnvArgs) ToJobTemplateContainerEnvOutput() JobTemplateContainerEnvOutput {
+	return i.ToJobTemplateContainerEnvOutputWithContext(context.Background())
+}
+
+func (i JobTemplateContainerEnvArgs) ToJobTemplateContainerEnvOutputWithContext(ctx context.Context) JobTemplateContainerEnvOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateContainerEnvOutput)
+}
+
+// JobTemplateContainerEnvArrayInput is an input type that accepts JobTemplateContainerEnvArray and JobTemplateContainerEnvArrayOutput values.
+// You can construct a concrete instance of `JobTemplateContainerEnvArrayInput` via:
+//
+//	JobTemplateContainerEnvArray{ JobTemplateContainerEnvArgs{...} }
+type JobTemplateContainerEnvArrayInput interface {
+	pulumi.Input
+
+	ToJobTemplateContainerEnvArrayOutput() JobTemplateContainerEnvArrayOutput
+	ToJobTemplateContainerEnvArrayOutputWithContext(context.Context) JobTemplateContainerEnvArrayOutput
+}
+
+type JobTemplateContainerEnvArray []JobTemplateContainerEnvInput
+
+func (JobTemplateContainerEnvArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTemplateContainerEnv)(nil)).Elem()
+}
+
+func (i JobTemplateContainerEnvArray) ToJobTemplateContainerEnvArrayOutput() JobTemplateContainerEnvArrayOutput {
+	return i.ToJobTemplateContainerEnvArrayOutputWithContext(context.Background())
+}
+
+func (i JobTemplateContainerEnvArray) ToJobTemplateContainerEnvArrayOutputWithContext(ctx context.Context) JobTemplateContainerEnvArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateContainerEnvArrayOutput)
+}
+
+type JobTemplateContainerEnvOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateContainerEnvOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateContainerEnv)(nil)).Elem()
+}
+
+func (o JobTemplateContainerEnvOutput) ToJobTemplateContainerEnvOutput() JobTemplateContainerEnvOutput {
+	return o
+}
+
+func (o JobTemplateContainerEnvOutput) ToJobTemplateContainerEnvOutputWithContext(ctx context.Context) JobTemplateContainerEnvOutput {
+	return o
+}
+
+// The name of the environment variable.
+func (o JobTemplateContainerEnvOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v JobTemplateContainerEnv) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Name of the Container App secret from which to pull the environment variable value.
+func (o JobTemplateContainerEnvOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTemplateContainerEnv) *string { return v.SecretName }).(pulumi.StringPtrOutput)
+}
+
+// The value of the environment variable.
+func (o JobTemplateContainerEnvOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTemplateContainerEnv) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type JobTemplateContainerEnvArrayOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateContainerEnvArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTemplateContainerEnv)(nil)).Elem()
+}
+
+func (o JobTemplateContainerEnvArrayOutput) ToJobTemplateContainerEnvArrayOutput() JobTemplateContainerEnvArrayOutput {
+	return o
+}
+
+func (o JobTemplateContainerEnvArrayOutput) ToJobTemplateContainerEnvArrayOutputWithContext(ctx context.Context) JobTemplateContainerEnvArrayOutput {
+	return o
+}
+
+func (o JobTemplateContainerEnvArrayOutput) Index(i pulumi.IntInput) JobTemplateContainerEnvOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobTemplateContainerEnv {
+		return vs[0].([]JobTemplateContainerEnv)[vs[1].(int)]
+	}).(JobTemplateContainerEnvOutput)
+}
+
+type JobTemplateContainerLivenessProbe struct {
+	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+	FailureCountThreshold *int `pulumi:"failureCountThreshold"`
+	// A `header` block as detailed below.
+	Headers []JobTemplateContainerLivenessProbeHeader `pulumi:"headers"`
+	// The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+	Host *string `pulumi:"host"`
+	// The time in seconds to wait after the container has started before the probe is started.
+	InitialDelay *int `pulumi:"initialDelay"`
+	// How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
+	IntervalSeconds *int `pulumi:"intervalSeconds"`
+	// The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
+	Path *string `pulumi:"path"`
+	// The port number on which to connect. Possible values are between `1` and `65535`.
+	Port int `pulumi:"port"`
+	// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+	TerminationGracePeriodSeconds *int `pulumi:"terminationGracePeriodSeconds"`
+	// Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+	Timeout *int `pulumi:"timeout"`
+	// Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
+	Transport string `pulumi:"transport"`
+}
+
+// JobTemplateContainerLivenessProbeInput is an input type that accepts JobTemplateContainerLivenessProbeArgs and JobTemplateContainerLivenessProbeOutput values.
+// You can construct a concrete instance of `JobTemplateContainerLivenessProbeInput` via:
+//
+//	JobTemplateContainerLivenessProbeArgs{...}
+type JobTemplateContainerLivenessProbeInput interface {
+	pulumi.Input
+
+	ToJobTemplateContainerLivenessProbeOutput() JobTemplateContainerLivenessProbeOutput
+	ToJobTemplateContainerLivenessProbeOutputWithContext(context.Context) JobTemplateContainerLivenessProbeOutput
+}
+
+type JobTemplateContainerLivenessProbeArgs struct {
+	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+	FailureCountThreshold pulumi.IntPtrInput `pulumi:"failureCountThreshold"`
+	// A `header` block as detailed below.
+	Headers JobTemplateContainerLivenessProbeHeaderArrayInput `pulumi:"headers"`
+	// The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+	Host pulumi.StringPtrInput `pulumi:"host"`
+	// The time in seconds to wait after the container has started before the probe is started.
+	InitialDelay pulumi.IntPtrInput `pulumi:"initialDelay"`
+	// How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
+	IntervalSeconds pulumi.IntPtrInput `pulumi:"intervalSeconds"`
+	// The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The port number on which to connect. Possible values are between `1` and `65535`.
+	Port pulumi.IntInput `pulumi:"port"`
+	// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+	TerminationGracePeriodSeconds pulumi.IntPtrInput `pulumi:"terminationGracePeriodSeconds"`
+	// Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
+	// Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
+	Transport pulumi.StringInput `pulumi:"transport"`
+}
+
+func (JobTemplateContainerLivenessProbeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateContainerLivenessProbe)(nil)).Elem()
+}
+
+func (i JobTemplateContainerLivenessProbeArgs) ToJobTemplateContainerLivenessProbeOutput() JobTemplateContainerLivenessProbeOutput {
+	return i.ToJobTemplateContainerLivenessProbeOutputWithContext(context.Background())
+}
+
+func (i JobTemplateContainerLivenessProbeArgs) ToJobTemplateContainerLivenessProbeOutputWithContext(ctx context.Context) JobTemplateContainerLivenessProbeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateContainerLivenessProbeOutput)
+}
+
+// JobTemplateContainerLivenessProbeArrayInput is an input type that accepts JobTemplateContainerLivenessProbeArray and JobTemplateContainerLivenessProbeArrayOutput values.
+// You can construct a concrete instance of `JobTemplateContainerLivenessProbeArrayInput` via:
+//
+//	JobTemplateContainerLivenessProbeArray{ JobTemplateContainerLivenessProbeArgs{...} }
+type JobTemplateContainerLivenessProbeArrayInput interface {
+	pulumi.Input
+
+	ToJobTemplateContainerLivenessProbeArrayOutput() JobTemplateContainerLivenessProbeArrayOutput
+	ToJobTemplateContainerLivenessProbeArrayOutputWithContext(context.Context) JobTemplateContainerLivenessProbeArrayOutput
+}
+
+type JobTemplateContainerLivenessProbeArray []JobTemplateContainerLivenessProbeInput
+
+func (JobTemplateContainerLivenessProbeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTemplateContainerLivenessProbe)(nil)).Elem()
+}
+
+func (i JobTemplateContainerLivenessProbeArray) ToJobTemplateContainerLivenessProbeArrayOutput() JobTemplateContainerLivenessProbeArrayOutput {
+	return i.ToJobTemplateContainerLivenessProbeArrayOutputWithContext(context.Background())
+}
+
+func (i JobTemplateContainerLivenessProbeArray) ToJobTemplateContainerLivenessProbeArrayOutputWithContext(ctx context.Context) JobTemplateContainerLivenessProbeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateContainerLivenessProbeArrayOutput)
+}
+
+type JobTemplateContainerLivenessProbeOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateContainerLivenessProbeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateContainerLivenessProbe)(nil)).Elem()
+}
+
+func (o JobTemplateContainerLivenessProbeOutput) ToJobTemplateContainerLivenessProbeOutput() JobTemplateContainerLivenessProbeOutput {
+	return o
+}
+
+func (o JobTemplateContainerLivenessProbeOutput) ToJobTemplateContainerLivenessProbeOutputWithContext(ctx context.Context) JobTemplateContainerLivenessProbeOutput {
+	return o
+}
+
+// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+func (o JobTemplateContainerLivenessProbeOutput) FailureCountThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobTemplateContainerLivenessProbe) *int { return v.FailureCountThreshold }).(pulumi.IntPtrOutput)
+}
+
+// A `header` block as detailed below.
+func (o JobTemplateContainerLivenessProbeOutput) Headers() JobTemplateContainerLivenessProbeHeaderArrayOutput {
+	return o.ApplyT(func(v JobTemplateContainerLivenessProbe) []JobTemplateContainerLivenessProbeHeader { return v.Headers }).(JobTemplateContainerLivenessProbeHeaderArrayOutput)
+}
+
+// The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+func (o JobTemplateContainerLivenessProbeOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTemplateContainerLivenessProbe) *string { return v.Host }).(pulumi.StringPtrOutput)
+}
+
+// The time in seconds to wait after the container has started before the probe is started.
+func (o JobTemplateContainerLivenessProbeOutput) InitialDelay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobTemplateContainerLivenessProbe) *int { return v.InitialDelay }).(pulumi.IntPtrOutput)
+}
+
+// How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
+func (o JobTemplateContainerLivenessProbeOutput) IntervalSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobTemplateContainerLivenessProbe) *int { return v.IntervalSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
+func (o JobTemplateContainerLivenessProbeOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTemplateContainerLivenessProbe) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// The port number on which to connect. Possible values are between `1` and `65535`.
+func (o JobTemplateContainerLivenessProbeOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v JobTemplateContainerLivenessProbe) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+func (o JobTemplateContainerLivenessProbeOutput) TerminationGracePeriodSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobTemplateContainerLivenessProbe) *int { return v.TerminationGracePeriodSeconds }).(pulumi.IntPtrOutput)
+}
+
+// Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+func (o JobTemplateContainerLivenessProbeOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobTemplateContainerLivenessProbe) *int { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+// Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
+func (o JobTemplateContainerLivenessProbeOutput) Transport() pulumi.StringOutput {
+	return o.ApplyT(func(v JobTemplateContainerLivenessProbe) string { return v.Transport }).(pulumi.StringOutput)
+}
+
+type JobTemplateContainerLivenessProbeArrayOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateContainerLivenessProbeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTemplateContainerLivenessProbe)(nil)).Elem()
+}
+
+func (o JobTemplateContainerLivenessProbeArrayOutput) ToJobTemplateContainerLivenessProbeArrayOutput() JobTemplateContainerLivenessProbeArrayOutput {
+	return o
+}
+
+func (o JobTemplateContainerLivenessProbeArrayOutput) ToJobTemplateContainerLivenessProbeArrayOutputWithContext(ctx context.Context) JobTemplateContainerLivenessProbeArrayOutput {
+	return o
+}
+
+func (o JobTemplateContainerLivenessProbeArrayOutput) Index(i pulumi.IntInput) JobTemplateContainerLivenessProbeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobTemplateContainerLivenessProbe {
+		return vs[0].([]JobTemplateContainerLivenessProbe)[vs[1].(int)]
+	}).(JobTemplateContainerLivenessProbeOutput)
+}
+
+type JobTemplateContainerLivenessProbeHeader struct {
+	// The HTTP Header Name.
+	Name string `pulumi:"name"`
+	// The HTTP Header value.
+	Value string `pulumi:"value"`
+}
+
+// JobTemplateContainerLivenessProbeHeaderInput is an input type that accepts JobTemplateContainerLivenessProbeHeaderArgs and JobTemplateContainerLivenessProbeHeaderOutput values.
+// You can construct a concrete instance of `JobTemplateContainerLivenessProbeHeaderInput` via:
+//
+//	JobTemplateContainerLivenessProbeHeaderArgs{...}
+type JobTemplateContainerLivenessProbeHeaderInput interface {
+	pulumi.Input
+
+	ToJobTemplateContainerLivenessProbeHeaderOutput() JobTemplateContainerLivenessProbeHeaderOutput
+	ToJobTemplateContainerLivenessProbeHeaderOutputWithContext(context.Context) JobTemplateContainerLivenessProbeHeaderOutput
+}
+
+type JobTemplateContainerLivenessProbeHeaderArgs struct {
+	// The HTTP Header Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The HTTP Header value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (JobTemplateContainerLivenessProbeHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateContainerLivenessProbeHeader)(nil)).Elem()
+}
+
+func (i JobTemplateContainerLivenessProbeHeaderArgs) ToJobTemplateContainerLivenessProbeHeaderOutput() JobTemplateContainerLivenessProbeHeaderOutput {
+	return i.ToJobTemplateContainerLivenessProbeHeaderOutputWithContext(context.Background())
+}
+
+func (i JobTemplateContainerLivenessProbeHeaderArgs) ToJobTemplateContainerLivenessProbeHeaderOutputWithContext(ctx context.Context) JobTemplateContainerLivenessProbeHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateContainerLivenessProbeHeaderOutput)
+}
+
+// JobTemplateContainerLivenessProbeHeaderArrayInput is an input type that accepts JobTemplateContainerLivenessProbeHeaderArray and JobTemplateContainerLivenessProbeHeaderArrayOutput values.
+// You can construct a concrete instance of `JobTemplateContainerLivenessProbeHeaderArrayInput` via:
+//
+//	JobTemplateContainerLivenessProbeHeaderArray{ JobTemplateContainerLivenessProbeHeaderArgs{...} }
+type JobTemplateContainerLivenessProbeHeaderArrayInput interface {
+	pulumi.Input
+
+	ToJobTemplateContainerLivenessProbeHeaderArrayOutput() JobTemplateContainerLivenessProbeHeaderArrayOutput
+	ToJobTemplateContainerLivenessProbeHeaderArrayOutputWithContext(context.Context) JobTemplateContainerLivenessProbeHeaderArrayOutput
+}
+
+type JobTemplateContainerLivenessProbeHeaderArray []JobTemplateContainerLivenessProbeHeaderInput
+
+func (JobTemplateContainerLivenessProbeHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTemplateContainerLivenessProbeHeader)(nil)).Elem()
+}
+
+func (i JobTemplateContainerLivenessProbeHeaderArray) ToJobTemplateContainerLivenessProbeHeaderArrayOutput() JobTemplateContainerLivenessProbeHeaderArrayOutput {
+	return i.ToJobTemplateContainerLivenessProbeHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i JobTemplateContainerLivenessProbeHeaderArray) ToJobTemplateContainerLivenessProbeHeaderArrayOutputWithContext(ctx context.Context) JobTemplateContainerLivenessProbeHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateContainerLivenessProbeHeaderArrayOutput)
+}
+
+type JobTemplateContainerLivenessProbeHeaderOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateContainerLivenessProbeHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateContainerLivenessProbeHeader)(nil)).Elem()
+}
+
+func (o JobTemplateContainerLivenessProbeHeaderOutput) ToJobTemplateContainerLivenessProbeHeaderOutput() JobTemplateContainerLivenessProbeHeaderOutput {
+	return o
+}
+
+func (o JobTemplateContainerLivenessProbeHeaderOutput) ToJobTemplateContainerLivenessProbeHeaderOutputWithContext(ctx context.Context) JobTemplateContainerLivenessProbeHeaderOutput {
+	return o
+}
+
+// The HTTP Header Name.
+func (o JobTemplateContainerLivenessProbeHeaderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v JobTemplateContainerLivenessProbeHeader) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The HTTP Header value.
+func (o JobTemplateContainerLivenessProbeHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v JobTemplateContainerLivenessProbeHeader) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type JobTemplateContainerLivenessProbeHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateContainerLivenessProbeHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTemplateContainerLivenessProbeHeader)(nil)).Elem()
+}
+
+func (o JobTemplateContainerLivenessProbeHeaderArrayOutput) ToJobTemplateContainerLivenessProbeHeaderArrayOutput() JobTemplateContainerLivenessProbeHeaderArrayOutput {
+	return o
+}
+
+func (o JobTemplateContainerLivenessProbeHeaderArrayOutput) ToJobTemplateContainerLivenessProbeHeaderArrayOutputWithContext(ctx context.Context) JobTemplateContainerLivenessProbeHeaderArrayOutput {
+	return o
+}
+
+func (o JobTemplateContainerLivenessProbeHeaderArrayOutput) Index(i pulumi.IntInput) JobTemplateContainerLivenessProbeHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobTemplateContainerLivenessProbeHeader {
+		return vs[0].([]JobTemplateContainerLivenessProbeHeader)[vs[1].(int)]
+	}).(JobTemplateContainerLivenessProbeHeaderOutput)
+}
+
+type JobTemplateContainerReadinessProbe struct {
+	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+	FailureCountThreshold *int `pulumi:"failureCountThreshold"`
+	// A `header` block as detailed below.
+	Headers []JobTemplateContainerReadinessProbeHeader `pulumi:"headers"`
+	// The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+	Host *string `pulumi:"host"`
+	// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+	IntervalSeconds *int `pulumi:"intervalSeconds"`
+	// The URI to use for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
+	Path *string `pulumi:"path"`
+	// The port number on which to connect. Possible values are between `1` and `65535`.
+	Port int `pulumi:"port"`
+	// The number of consecutive successful responses required to consider this probe as successful. Possible values are between `1` and `10`. Defaults to `3`.
+	SuccessCountThreshold *int `pulumi:"successCountThreshold"`
+	// Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+	Timeout *int `pulumi:"timeout"`
+	// Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
+	Transport string `pulumi:"transport"`
+}
+
+// JobTemplateContainerReadinessProbeInput is an input type that accepts JobTemplateContainerReadinessProbeArgs and JobTemplateContainerReadinessProbeOutput values.
+// You can construct a concrete instance of `JobTemplateContainerReadinessProbeInput` via:
+//
+//	JobTemplateContainerReadinessProbeArgs{...}
+type JobTemplateContainerReadinessProbeInput interface {
+	pulumi.Input
+
+	ToJobTemplateContainerReadinessProbeOutput() JobTemplateContainerReadinessProbeOutput
+	ToJobTemplateContainerReadinessProbeOutputWithContext(context.Context) JobTemplateContainerReadinessProbeOutput
+}
+
+type JobTemplateContainerReadinessProbeArgs struct {
+	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+	FailureCountThreshold pulumi.IntPtrInput `pulumi:"failureCountThreshold"`
+	// A `header` block as detailed below.
+	Headers JobTemplateContainerReadinessProbeHeaderArrayInput `pulumi:"headers"`
+	// The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+	Host pulumi.StringPtrInput `pulumi:"host"`
+	// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+	IntervalSeconds pulumi.IntPtrInput `pulumi:"intervalSeconds"`
+	// The URI to use for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The port number on which to connect. Possible values are between `1` and `65535`.
+	Port pulumi.IntInput `pulumi:"port"`
+	// The number of consecutive successful responses required to consider this probe as successful. Possible values are between `1` and `10`. Defaults to `3`.
+	SuccessCountThreshold pulumi.IntPtrInput `pulumi:"successCountThreshold"`
+	// Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
+	// Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
+	Transport pulumi.StringInput `pulumi:"transport"`
+}
+
+func (JobTemplateContainerReadinessProbeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateContainerReadinessProbe)(nil)).Elem()
+}
+
+func (i JobTemplateContainerReadinessProbeArgs) ToJobTemplateContainerReadinessProbeOutput() JobTemplateContainerReadinessProbeOutput {
+	return i.ToJobTemplateContainerReadinessProbeOutputWithContext(context.Background())
+}
+
+func (i JobTemplateContainerReadinessProbeArgs) ToJobTemplateContainerReadinessProbeOutputWithContext(ctx context.Context) JobTemplateContainerReadinessProbeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateContainerReadinessProbeOutput)
+}
+
+// JobTemplateContainerReadinessProbeArrayInput is an input type that accepts JobTemplateContainerReadinessProbeArray and JobTemplateContainerReadinessProbeArrayOutput values.
+// You can construct a concrete instance of `JobTemplateContainerReadinessProbeArrayInput` via:
+//
+//	JobTemplateContainerReadinessProbeArray{ JobTemplateContainerReadinessProbeArgs{...} }
+type JobTemplateContainerReadinessProbeArrayInput interface {
+	pulumi.Input
+
+	ToJobTemplateContainerReadinessProbeArrayOutput() JobTemplateContainerReadinessProbeArrayOutput
+	ToJobTemplateContainerReadinessProbeArrayOutputWithContext(context.Context) JobTemplateContainerReadinessProbeArrayOutput
+}
+
+type JobTemplateContainerReadinessProbeArray []JobTemplateContainerReadinessProbeInput
+
+func (JobTemplateContainerReadinessProbeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTemplateContainerReadinessProbe)(nil)).Elem()
+}
+
+func (i JobTemplateContainerReadinessProbeArray) ToJobTemplateContainerReadinessProbeArrayOutput() JobTemplateContainerReadinessProbeArrayOutput {
+	return i.ToJobTemplateContainerReadinessProbeArrayOutputWithContext(context.Background())
+}
+
+func (i JobTemplateContainerReadinessProbeArray) ToJobTemplateContainerReadinessProbeArrayOutputWithContext(ctx context.Context) JobTemplateContainerReadinessProbeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateContainerReadinessProbeArrayOutput)
+}
+
+type JobTemplateContainerReadinessProbeOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateContainerReadinessProbeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateContainerReadinessProbe)(nil)).Elem()
+}
+
+func (o JobTemplateContainerReadinessProbeOutput) ToJobTemplateContainerReadinessProbeOutput() JobTemplateContainerReadinessProbeOutput {
+	return o
+}
+
+func (o JobTemplateContainerReadinessProbeOutput) ToJobTemplateContainerReadinessProbeOutputWithContext(ctx context.Context) JobTemplateContainerReadinessProbeOutput {
+	return o
+}
+
+// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+func (o JobTemplateContainerReadinessProbeOutput) FailureCountThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobTemplateContainerReadinessProbe) *int { return v.FailureCountThreshold }).(pulumi.IntPtrOutput)
+}
+
+// A `header` block as detailed below.
+func (o JobTemplateContainerReadinessProbeOutput) Headers() JobTemplateContainerReadinessProbeHeaderArrayOutput {
+	return o.ApplyT(func(v JobTemplateContainerReadinessProbe) []JobTemplateContainerReadinessProbeHeader {
+		return v.Headers
+	}).(JobTemplateContainerReadinessProbeHeaderArrayOutput)
+}
+
+// The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+func (o JobTemplateContainerReadinessProbeOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTemplateContainerReadinessProbe) *string { return v.Host }).(pulumi.StringPtrOutput)
+}
+
+// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+func (o JobTemplateContainerReadinessProbeOutput) IntervalSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobTemplateContainerReadinessProbe) *int { return v.IntervalSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The URI to use for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
+func (o JobTemplateContainerReadinessProbeOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTemplateContainerReadinessProbe) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// The port number on which to connect. Possible values are between `1` and `65535`.
+func (o JobTemplateContainerReadinessProbeOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v JobTemplateContainerReadinessProbe) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// The number of consecutive successful responses required to consider this probe as successful. Possible values are between `1` and `10`. Defaults to `3`.
+func (o JobTemplateContainerReadinessProbeOutput) SuccessCountThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobTemplateContainerReadinessProbe) *int { return v.SuccessCountThreshold }).(pulumi.IntPtrOutput)
+}
+
+// Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+func (o JobTemplateContainerReadinessProbeOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobTemplateContainerReadinessProbe) *int { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+// Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
+func (o JobTemplateContainerReadinessProbeOutput) Transport() pulumi.StringOutput {
+	return o.ApplyT(func(v JobTemplateContainerReadinessProbe) string { return v.Transport }).(pulumi.StringOutput)
+}
+
+type JobTemplateContainerReadinessProbeArrayOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateContainerReadinessProbeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTemplateContainerReadinessProbe)(nil)).Elem()
+}
+
+func (o JobTemplateContainerReadinessProbeArrayOutput) ToJobTemplateContainerReadinessProbeArrayOutput() JobTemplateContainerReadinessProbeArrayOutput {
+	return o
+}
+
+func (o JobTemplateContainerReadinessProbeArrayOutput) ToJobTemplateContainerReadinessProbeArrayOutputWithContext(ctx context.Context) JobTemplateContainerReadinessProbeArrayOutput {
+	return o
+}
+
+func (o JobTemplateContainerReadinessProbeArrayOutput) Index(i pulumi.IntInput) JobTemplateContainerReadinessProbeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobTemplateContainerReadinessProbe {
+		return vs[0].([]JobTemplateContainerReadinessProbe)[vs[1].(int)]
+	}).(JobTemplateContainerReadinessProbeOutput)
+}
+
+type JobTemplateContainerReadinessProbeHeader struct {
+	// The HTTP Header Name.
+	Name string `pulumi:"name"`
+	// The HTTP Header value.
+	Value string `pulumi:"value"`
+}
+
+// JobTemplateContainerReadinessProbeHeaderInput is an input type that accepts JobTemplateContainerReadinessProbeHeaderArgs and JobTemplateContainerReadinessProbeHeaderOutput values.
+// You can construct a concrete instance of `JobTemplateContainerReadinessProbeHeaderInput` via:
+//
+//	JobTemplateContainerReadinessProbeHeaderArgs{...}
+type JobTemplateContainerReadinessProbeHeaderInput interface {
+	pulumi.Input
+
+	ToJobTemplateContainerReadinessProbeHeaderOutput() JobTemplateContainerReadinessProbeHeaderOutput
+	ToJobTemplateContainerReadinessProbeHeaderOutputWithContext(context.Context) JobTemplateContainerReadinessProbeHeaderOutput
+}
+
+type JobTemplateContainerReadinessProbeHeaderArgs struct {
+	// The HTTP Header Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The HTTP Header value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (JobTemplateContainerReadinessProbeHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateContainerReadinessProbeHeader)(nil)).Elem()
+}
+
+func (i JobTemplateContainerReadinessProbeHeaderArgs) ToJobTemplateContainerReadinessProbeHeaderOutput() JobTemplateContainerReadinessProbeHeaderOutput {
+	return i.ToJobTemplateContainerReadinessProbeHeaderOutputWithContext(context.Background())
+}
+
+func (i JobTemplateContainerReadinessProbeHeaderArgs) ToJobTemplateContainerReadinessProbeHeaderOutputWithContext(ctx context.Context) JobTemplateContainerReadinessProbeHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateContainerReadinessProbeHeaderOutput)
+}
+
+// JobTemplateContainerReadinessProbeHeaderArrayInput is an input type that accepts JobTemplateContainerReadinessProbeHeaderArray and JobTemplateContainerReadinessProbeHeaderArrayOutput values.
+// You can construct a concrete instance of `JobTemplateContainerReadinessProbeHeaderArrayInput` via:
+//
+//	JobTemplateContainerReadinessProbeHeaderArray{ JobTemplateContainerReadinessProbeHeaderArgs{...} }
+type JobTemplateContainerReadinessProbeHeaderArrayInput interface {
+	pulumi.Input
+
+	ToJobTemplateContainerReadinessProbeHeaderArrayOutput() JobTemplateContainerReadinessProbeHeaderArrayOutput
+	ToJobTemplateContainerReadinessProbeHeaderArrayOutputWithContext(context.Context) JobTemplateContainerReadinessProbeHeaderArrayOutput
+}
+
+type JobTemplateContainerReadinessProbeHeaderArray []JobTemplateContainerReadinessProbeHeaderInput
+
+func (JobTemplateContainerReadinessProbeHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTemplateContainerReadinessProbeHeader)(nil)).Elem()
+}
+
+func (i JobTemplateContainerReadinessProbeHeaderArray) ToJobTemplateContainerReadinessProbeHeaderArrayOutput() JobTemplateContainerReadinessProbeHeaderArrayOutput {
+	return i.ToJobTemplateContainerReadinessProbeHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i JobTemplateContainerReadinessProbeHeaderArray) ToJobTemplateContainerReadinessProbeHeaderArrayOutputWithContext(ctx context.Context) JobTemplateContainerReadinessProbeHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateContainerReadinessProbeHeaderArrayOutput)
+}
+
+type JobTemplateContainerReadinessProbeHeaderOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateContainerReadinessProbeHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateContainerReadinessProbeHeader)(nil)).Elem()
+}
+
+func (o JobTemplateContainerReadinessProbeHeaderOutput) ToJobTemplateContainerReadinessProbeHeaderOutput() JobTemplateContainerReadinessProbeHeaderOutput {
+	return o
+}
+
+func (o JobTemplateContainerReadinessProbeHeaderOutput) ToJobTemplateContainerReadinessProbeHeaderOutputWithContext(ctx context.Context) JobTemplateContainerReadinessProbeHeaderOutput {
+	return o
+}
+
+// The HTTP Header Name.
+func (o JobTemplateContainerReadinessProbeHeaderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v JobTemplateContainerReadinessProbeHeader) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The HTTP Header value.
+func (o JobTemplateContainerReadinessProbeHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v JobTemplateContainerReadinessProbeHeader) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type JobTemplateContainerReadinessProbeHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateContainerReadinessProbeHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTemplateContainerReadinessProbeHeader)(nil)).Elem()
+}
+
+func (o JobTemplateContainerReadinessProbeHeaderArrayOutput) ToJobTemplateContainerReadinessProbeHeaderArrayOutput() JobTemplateContainerReadinessProbeHeaderArrayOutput {
+	return o
+}
+
+func (o JobTemplateContainerReadinessProbeHeaderArrayOutput) ToJobTemplateContainerReadinessProbeHeaderArrayOutputWithContext(ctx context.Context) JobTemplateContainerReadinessProbeHeaderArrayOutput {
+	return o
+}
+
+func (o JobTemplateContainerReadinessProbeHeaderArrayOutput) Index(i pulumi.IntInput) JobTemplateContainerReadinessProbeHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobTemplateContainerReadinessProbeHeader {
+		return vs[0].([]JobTemplateContainerReadinessProbeHeader)[vs[1].(int)]
+	}).(JobTemplateContainerReadinessProbeHeaderOutput)
+}
+
+type JobTemplateContainerStartupProbe struct {
+	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+	FailureCountThreshold *int `pulumi:"failureCountThreshold"`
+	// A `header` block as detailed below.
+	Headers []JobTemplateContainerStartupProbeHeader `pulumi:"headers"`
+	// The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+	Host *string `pulumi:"host"`
+	// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+	IntervalSeconds *int `pulumi:"intervalSeconds"`
+	// The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
+	Path *string `pulumi:"path"`
+	// The port number on which to connect. Possible values are between `1` and `65535`.
+	Port int `pulumi:"port"`
+	// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+	TerminationGracePeriodSeconds *int `pulumi:"terminationGracePeriodSeconds"`
+	// Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+	Timeout *int `pulumi:"timeout"`
+	// Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
+	Transport string `pulumi:"transport"`
+}
+
+// JobTemplateContainerStartupProbeInput is an input type that accepts JobTemplateContainerStartupProbeArgs and JobTemplateContainerStartupProbeOutput values.
+// You can construct a concrete instance of `JobTemplateContainerStartupProbeInput` via:
+//
+//	JobTemplateContainerStartupProbeArgs{...}
+type JobTemplateContainerStartupProbeInput interface {
+	pulumi.Input
+
+	ToJobTemplateContainerStartupProbeOutput() JobTemplateContainerStartupProbeOutput
+	ToJobTemplateContainerStartupProbeOutputWithContext(context.Context) JobTemplateContainerStartupProbeOutput
+}
+
+type JobTemplateContainerStartupProbeArgs struct {
+	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+	FailureCountThreshold pulumi.IntPtrInput `pulumi:"failureCountThreshold"`
+	// A `header` block as detailed below.
+	Headers JobTemplateContainerStartupProbeHeaderArrayInput `pulumi:"headers"`
+	// The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+	Host pulumi.StringPtrInput `pulumi:"host"`
+	// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+	IntervalSeconds pulumi.IntPtrInput `pulumi:"intervalSeconds"`
+	// The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The port number on which to connect. Possible values are between `1` and `65535`.
+	Port pulumi.IntInput `pulumi:"port"`
+	// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+	TerminationGracePeriodSeconds pulumi.IntPtrInput `pulumi:"terminationGracePeriodSeconds"`
+	// Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
+	// Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
+	Transport pulumi.StringInput `pulumi:"transport"`
+}
+
+func (JobTemplateContainerStartupProbeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateContainerStartupProbe)(nil)).Elem()
+}
+
+func (i JobTemplateContainerStartupProbeArgs) ToJobTemplateContainerStartupProbeOutput() JobTemplateContainerStartupProbeOutput {
+	return i.ToJobTemplateContainerStartupProbeOutputWithContext(context.Background())
+}
+
+func (i JobTemplateContainerStartupProbeArgs) ToJobTemplateContainerStartupProbeOutputWithContext(ctx context.Context) JobTemplateContainerStartupProbeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateContainerStartupProbeOutput)
+}
+
+// JobTemplateContainerStartupProbeArrayInput is an input type that accepts JobTemplateContainerStartupProbeArray and JobTemplateContainerStartupProbeArrayOutput values.
+// You can construct a concrete instance of `JobTemplateContainerStartupProbeArrayInput` via:
+//
+//	JobTemplateContainerStartupProbeArray{ JobTemplateContainerStartupProbeArgs{...} }
+type JobTemplateContainerStartupProbeArrayInput interface {
+	pulumi.Input
+
+	ToJobTemplateContainerStartupProbeArrayOutput() JobTemplateContainerStartupProbeArrayOutput
+	ToJobTemplateContainerStartupProbeArrayOutputWithContext(context.Context) JobTemplateContainerStartupProbeArrayOutput
+}
+
+type JobTemplateContainerStartupProbeArray []JobTemplateContainerStartupProbeInput
+
+func (JobTemplateContainerStartupProbeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTemplateContainerStartupProbe)(nil)).Elem()
+}
+
+func (i JobTemplateContainerStartupProbeArray) ToJobTemplateContainerStartupProbeArrayOutput() JobTemplateContainerStartupProbeArrayOutput {
+	return i.ToJobTemplateContainerStartupProbeArrayOutputWithContext(context.Background())
+}
+
+func (i JobTemplateContainerStartupProbeArray) ToJobTemplateContainerStartupProbeArrayOutputWithContext(ctx context.Context) JobTemplateContainerStartupProbeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateContainerStartupProbeArrayOutput)
+}
+
+type JobTemplateContainerStartupProbeOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateContainerStartupProbeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateContainerStartupProbe)(nil)).Elem()
+}
+
+func (o JobTemplateContainerStartupProbeOutput) ToJobTemplateContainerStartupProbeOutput() JobTemplateContainerStartupProbeOutput {
+	return o
+}
+
+func (o JobTemplateContainerStartupProbeOutput) ToJobTemplateContainerStartupProbeOutputWithContext(ctx context.Context) JobTemplateContainerStartupProbeOutput {
+	return o
+}
+
+// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+func (o JobTemplateContainerStartupProbeOutput) FailureCountThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobTemplateContainerStartupProbe) *int { return v.FailureCountThreshold }).(pulumi.IntPtrOutput)
+}
+
+// A `header` block as detailed below.
+func (o JobTemplateContainerStartupProbeOutput) Headers() JobTemplateContainerStartupProbeHeaderArrayOutput {
+	return o.ApplyT(func(v JobTemplateContainerStartupProbe) []JobTemplateContainerStartupProbeHeader { return v.Headers }).(JobTemplateContainerStartupProbeHeaderArrayOutput)
+}
+
+// The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+func (o JobTemplateContainerStartupProbeOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTemplateContainerStartupProbe) *string { return v.Host }).(pulumi.StringPtrOutput)
+}
+
+// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+func (o JobTemplateContainerStartupProbeOutput) IntervalSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobTemplateContainerStartupProbe) *int { return v.IntervalSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
+func (o JobTemplateContainerStartupProbeOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTemplateContainerStartupProbe) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// The port number on which to connect. Possible values are between `1` and `65535`.
+func (o JobTemplateContainerStartupProbeOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v JobTemplateContainerStartupProbe) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+func (o JobTemplateContainerStartupProbeOutput) TerminationGracePeriodSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobTemplateContainerStartupProbe) *int { return v.TerminationGracePeriodSeconds }).(pulumi.IntPtrOutput)
+}
+
+// Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+func (o JobTemplateContainerStartupProbeOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobTemplateContainerStartupProbe) *int { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+// Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
+func (o JobTemplateContainerStartupProbeOutput) Transport() pulumi.StringOutput {
+	return o.ApplyT(func(v JobTemplateContainerStartupProbe) string { return v.Transport }).(pulumi.StringOutput)
+}
+
+type JobTemplateContainerStartupProbeArrayOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateContainerStartupProbeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTemplateContainerStartupProbe)(nil)).Elem()
+}
+
+func (o JobTemplateContainerStartupProbeArrayOutput) ToJobTemplateContainerStartupProbeArrayOutput() JobTemplateContainerStartupProbeArrayOutput {
+	return o
+}
+
+func (o JobTemplateContainerStartupProbeArrayOutput) ToJobTemplateContainerStartupProbeArrayOutputWithContext(ctx context.Context) JobTemplateContainerStartupProbeArrayOutput {
+	return o
+}
+
+func (o JobTemplateContainerStartupProbeArrayOutput) Index(i pulumi.IntInput) JobTemplateContainerStartupProbeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobTemplateContainerStartupProbe {
+		return vs[0].([]JobTemplateContainerStartupProbe)[vs[1].(int)]
+	}).(JobTemplateContainerStartupProbeOutput)
+}
+
+type JobTemplateContainerStartupProbeHeader struct {
+	// The HTTP Header Name.
+	Name string `pulumi:"name"`
+	// The HTTP Header value.
+	Value string `pulumi:"value"`
+}
+
+// JobTemplateContainerStartupProbeHeaderInput is an input type that accepts JobTemplateContainerStartupProbeHeaderArgs and JobTemplateContainerStartupProbeHeaderOutput values.
+// You can construct a concrete instance of `JobTemplateContainerStartupProbeHeaderInput` via:
+//
+//	JobTemplateContainerStartupProbeHeaderArgs{...}
+type JobTemplateContainerStartupProbeHeaderInput interface {
+	pulumi.Input
+
+	ToJobTemplateContainerStartupProbeHeaderOutput() JobTemplateContainerStartupProbeHeaderOutput
+	ToJobTemplateContainerStartupProbeHeaderOutputWithContext(context.Context) JobTemplateContainerStartupProbeHeaderOutput
+}
+
+type JobTemplateContainerStartupProbeHeaderArgs struct {
+	// The HTTP Header Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The HTTP Header value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (JobTemplateContainerStartupProbeHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateContainerStartupProbeHeader)(nil)).Elem()
+}
+
+func (i JobTemplateContainerStartupProbeHeaderArgs) ToJobTemplateContainerStartupProbeHeaderOutput() JobTemplateContainerStartupProbeHeaderOutput {
+	return i.ToJobTemplateContainerStartupProbeHeaderOutputWithContext(context.Background())
+}
+
+func (i JobTemplateContainerStartupProbeHeaderArgs) ToJobTemplateContainerStartupProbeHeaderOutputWithContext(ctx context.Context) JobTemplateContainerStartupProbeHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateContainerStartupProbeHeaderOutput)
+}
+
+// JobTemplateContainerStartupProbeHeaderArrayInput is an input type that accepts JobTemplateContainerStartupProbeHeaderArray and JobTemplateContainerStartupProbeHeaderArrayOutput values.
+// You can construct a concrete instance of `JobTemplateContainerStartupProbeHeaderArrayInput` via:
+//
+//	JobTemplateContainerStartupProbeHeaderArray{ JobTemplateContainerStartupProbeHeaderArgs{...} }
+type JobTemplateContainerStartupProbeHeaderArrayInput interface {
+	pulumi.Input
+
+	ToJobTemplateContainerStartupProbeHeaderArrayOutput() JobTemplateContainerStartupProbeHeaderArrayOutput
+	ToJobTemplateContainerStartupProbeHeaderArrayOutputWithContext(context.Context) JobTemplateContainerStartupProbeHeaderArrayOutput
+}
+
+type JobTemplateContainerStartupProbeHeaderArray []JobTemplateContainerStartupProbeHeaderInput
+
+func (JobTemplateContainerStartupProbeHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTemplateContainerStartupProbeHeader)(nil)).Elem()
+}
+
+func (i JobTemplateContainerStartupProbeHeaderArray) ToJobTemplateContainerStartupProbeHeaderArrayOutput() JobTemplateContainerStartupProbeHeaderArrayOutput {
+	return i.ToJobTemplateContainerStartupProbeHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i JobTemplateContainerStartupProbeHeaderArray) ToJobTemplateContainerStartupProbeHeaderArrayOutputWithContext(ctx context.Context) JobTemplateContainerStartupProbeHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateContainerStartupProbeHeaderArrayOutput)
+}
+
+type JobTemplateContainerStartupProbeHeaderOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateContainerStartupProbeHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateContainerStartupProbeHeader)(nil)).Elem()
+}
+
+func (o JobTemplateContainerStartupProbeHeaderOutput) ToJobTemplateContainerStartupProbeHeaderOutput() JobTemplateContainerStartupProbeHeaderOutput {
+	return o
+}
+
+func (o JobTemplateContainerStartupProbeHeaderOutput) ToJobTemplateContainerStartupProbeHeaderOutputWithContext(ctx context.Context) JobTemplateContainerStartupProbeHeaderOutput {
+	return o
+}
+
+// The HTTP Header Name.
+func (o JobTemplateContainerStartupProbeHeaderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v JobTemplateContainerStartupProbeHeader) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The HTTP Header value.
+func (o JobTemplateContainerStartupProbeHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v JobTemplateContainerStartupProbeHeader) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type JobTemplateContainerStartupProbeHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateContainerStartupProbeHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTemplateContainerStartupProbeHeader)(nil)).Elem()
+}
+
+func (o JobTemplateContainerStartupProbeHeaderArrayOutput) ToJobTemplateContainerStartupProbeHeaderArrayOutput() JobTemplateContainerStartupProbeHeaderArrayOutput {
+	return o
+}
+
+func (o JobTemplateContainerStartupProbeHeaderArrayOutput) ToJobTemplateContainerStartupProbeHeaderArrayOutputWithContext(ctx context.Context) JobTemplateContainerStartupProbeHeaderArrayOutput {
+	return o
+}
+
+func (o JobTemplateContainerStartupProbeHeaderArrayOutput) Index(i pulumi.IntInput) JobTemplateContainerStartupProbeHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobTemplateContainerStartupProbeHeader {
+		return vs[0].([]JobTemplateContainerStartupProbeHeader)[vs[1].(int)]
+	}).(JobTemplateContainerStartupProbeHeaderOutput)
+}
+
+type JobTemplateContainerVolumeMount struct {
+	// The name of the volume to mount. This must match the name of a volume defined in the `volume` block.
+	Name string `pulumi:"name"`
+	// The path within the container at which the volume should be mounted. Must not contain `:`.
+	Path string `pulumi:"path"`
+}
+
+// JobTemplateContainerVolumeMountInput is an input type that accepts JobTemplateContainerVolumeMountArgs and JobTemplateContainerVolumeMountOutput values.
+// You can construct a concrete instance of `JobTemplateContainerVolumeMountInput` via:
+//
+//	JobTemplateContainerVolumeMountArgs{...}
+type JobTemplateContainerVolumeMountInput interface {
+	pulumi.Input
+
+	ToJobTemplateContainerVolumeMountOutput() JobTemplateContainerVolumeMountOutput
+	ToJobTemplateContainerVolumeMountOutputWithContext(context.Context) JobTemplateContainerVolumeMountOutput
+}
+
+type JobTemplateContainerVolumeMountArgs struct {
+	// The name of the volume to mount. This must match the name of a volume defined in the `volume` block.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The path within the container at which the volume should be mounted. Must not contain `:`.
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (JobTemplateContainerVolumeMountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateContainerVolumeMount)(nil)).Elem()
+}
+
+func (i JobTemplateContainerVolumeMountArgs) ToJobTemplateContainerVolumeMountOutput() JobTemplateContainerVolumeMountOutput {
+	return i.ToJobTemplateContainerVolumeMountOutputWithContext(context.Background())
+}
+
+func (i JobTemplateContainerVolumeMountArgs) ToJobTemplateContainerVolumeMountOutputWithContext(ctx context.Context) JobTemplateContainerVolumeMountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateContainerVolumeMountOutput)
+}
+
+// JobTemplateContainerVolumeMountArrayInput is an input type that accepts JobTemplateContainerVolumeMountArray and JobTemplateContainerVolumeMountArrayOutput values.
+// You can construct a concrete instance of `JobTemplateContainerVolumeMountArrayInput` via:
+//
+//	JobTemplateContainerVolumeMountArray{ JobTemplateContainerVolumeMountArgs{...} }
+type JobTemplateContainerVolumeMountArrayInput interface {
+	pulumi.Input
+
+	ToJobTemplateContainerVolumeMountArrayOutput() JobTemplateContainerVolumeMountArrayOutput
+	ToJobTemplateContainerVolumeMountArrayOutputWithContext(context.Context) JobTemplateContainerVolumeMountArrayOutput
+}
+
+type JobTemplateContainerVolumeMountArray []JobTemplateContainerVolumeMountInput
+
+func (JobTemplateContainerVolumeMountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTemplateContainerVolumeMount)(nil)).Elem()
+}
+
+func (i JobTemplateContainerVolumeMountArray) ToJobTemplateContainerVolumeMountArrayOutput() JobTemplateContainerVolumeMountArrayOutput {
+	return i.ToJobTemplateContainerVolumeMountArrayOutputWithContext(context.Background())
+}
+
+func (i JobTemplateContainerVolumeMountArray) ToJobTemplateContainerVolumeMountArrayOutputWithContext(ctx context.Context) JobTemplateContainerVolumeMountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateContainerVolumeMountArrayOutput)
+}
+
+type JobTemplateContainerVolumeMountOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateContainerVolumeMountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateContainerVolumeMount)(nil)).Elem()
+}
+
+func (o JobTemplateContainerVolumeMountOutput) ToJobTemplateContainerVolumeMountOutput() JobTemplateContainerVolumeMountOutput {
+	return o
+}
+
+func (o JobTemplateContainerVolumeMountOutput) ToJobTemplateContainerVolumeMountOutputWithContext(ctx context.Context) JobTemplateContainerVolumeMountOutput {
+	return o
+}
+
+// The name of the volume to mount. This must match the name of a volume defined in the `volume` block.
+func (o JobTemplateContainerVolumeMountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v JobTemplateContainerVolumeMount) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The path within the container at which the volume should be mounted. Must not contain `:`.
+func (o JobTemplateContainerVolumeMountOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v JobTemplateContainerVolumeMount) string { return v.Path }).(pulumi.StringOutput)
+}
+
+type JobTemplateContainerVolumeMountArrayOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateContainerVolumeMountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTemplateContainerVolumeMount)(nil)).Elem()
+}
+
+func (o JobTemplateContainerVolumeMountArrayOutput) ToJobTemplateContainerVolumeMountArrayOutput() JobTemplateContainerVolumeMountArrayOutput {
+	return o
+}
+
+func (o JobTemplateContainerVolumeMountArrayOutput) ToJobTemplateContainerVolumeMountArrayOutputWithContext(ctx context.Context) JobTemplateContainerVolumeMountArrayOutput {
+	return o
+}
+
+func (o JobTemplateContainerVolumeMountArrayOutput) Index(i pulumi.IntInput) JobTemplateContainerVolumeMountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobTemplateContainerVolumeMount {
+		return vs[0].([]JobTemplateContainerVolumeMount)[vs[1].(int)]
+	}).(JobTemplateContainerVolumeMountOutput)
+}
+
+type JobTemplateInitContainer struct {
+	// A list of extra arguments to pass to the container.
+	Args []string `pulumi:"args"`
+	// A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+	Commands []string `pulumi:"commands"`
+	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+	//
+	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+	Cpu *float64 `pulumi:"cpu"`
+	// One or more `env` blocks as detailed below.
+	Envs []JobTemplateInitContainerEnv `pulumi:"envs"`
+	// The amount of ephemeral storage available to the Container App.
+	//
+	// > **NOTE:** `ephemeralStorage` is currently in preview and not configurable at this time.
+	EphemeralStorage *string `pulumi:"ephemeralStorage"`
+	// The image to use to create the container.
+	Image string `pulumi:"image"`
+	// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+	//
+	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+	Memory *string `pulumi:"memory"`
+	// The name of the container.
+	Name string `pulumi:"name"`
+	// A `volumeMounts` block as detailed below.
+	VolumeMounts []JobTemplateInitContainerVolumeMount `pulumi:"volumeMounts"`
+}
+
+// JobTemplateInitContainerInput is an input type that accepts JobTemplateInitContainerArgs and JobTemplateInitContainerOutput values.
+// You can construct a concrete instance of `JobTemplateInitContainerInput` via:
+//
+//	JobTemplateInitContainerArgs{...}
+type JobTemplateInitContainerInput interface {
+	pulumi.Input
+
+	ToJobTemplateInitContainerOutput() JobTemplateInitContainerOutput
+	ToJobTemplateInitContainerOutputWithContext(context.Context) JobTemplateInitContainerOutput
+}
+
+type JobTemplateInitContainerArgs struct {
+	// A list of extra arguments to pass to the container.
+	Args pulumi.StringArrayInput `pulumi:"args"`
+	// A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+	Commands pulumi.StringArrayInput `pulumi:"commands"`
+	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+	//
+	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+	Cpu pulumi.Float64PtrInput `pulumi:"cpu"`
+	// One or more `env` blocks as detailed below.
+	Envs JobTemplateInitContainerEnvArrayInput `pulumi:"envs"`
+	// The amount of ephemeral storage available to the Container App.
+	//
+	// > **NOTE:** `ephemeralStorage` is currently in preview and not configurable at this time.
+	EphemeralStorage pulumi.StringPtrInput `pulumi:"ephemeralStorage"`
+	// The image to use to create the container.
+	Image pulumi.StringInput `pulumi:"image"`
+	// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+	//
+	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+	Memory pulumi.StringPtrInput `pulumi:"memory"`
+	// The name of the container.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A `volumeMounts` block as detailed below.
+	VolumeMounts JobTemplateInitContainerVolumeMountArrayInput `pulumi:"volumeMounts"`
+}
+
+func (JobTemplateInitContainerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateInitContainer)(nil)).Elem()
+}
+
+func (i JobTemplateInitContainerArgs) ToJobTemplateInitContainerOutput() JobTemplateInitContainerOutput {
+	return i.ToJobTemplateInitContainerOutputWithContext(context.Background())
+}
+
+func (i JobTemplateInitContainerArgs) ToJobTemplateInitContainerOutputWithContext(ctx context.Context) JobTemplateInitContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateInitContainerOutput)
+}
+
+// JobTemplateInitContainerArrayInput is an input type that accepts JobTemplateInitContainerArray and JobTemplateInitContainerArrayOutput values.
+// You can construct a concrete instance of `JobTemplateInitContainerArrayInput` via:
+//
+//	JobTemplateInitContainerArray{ JobTemplateInitContainerArgs{...} }
+type JobTemplateInitContainerArrayInput interface {
+	pulumi.Input
+
+	ToJobTemplateInitContainerArrayOutput() JobTemplateInitContainerArrayOutput
+	ToJobTemplateInitContainerArrayOutputWithContext(context.Context) JobTemplateInitContainerArrayOutput
+}
+
+type JobTemplateInitContainerArray []JobTemplateInitContainerInput
+
+func (JobTemplateInitContainerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTemplateInitContainer)(nil)).Elem()
+}
+
+func (i JobTemplateInitContainerArray) ToJobTemplateInitContainerArrayOutput() JobTemplateInitContainerArrayOutput {
+	return i.ToJobTemplateInitContainerArrayOutputWithContext(context.Background())
+}
+
+func (i JobTemplateInitContainerArray) ToJobTemplateInitContainerArrayOutputWithContext(ctx context.Context) JobTemplateInitContainerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateInitContainerArrayOutput)
+}
+
+type JobTemplateInitContainerOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateInitContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateInitContainer)(nil)).Elem()
+}
+
+func (o JobTemplateInitContainerOutput) ToJobTemplateInitContainerOutput() JobTemplateInitContainerOutput {
+	return o
+}
+
+func (o JobTemplateInitContainerOutput) ToJobTemplateInitContainerOutputWithContext(ctx context.Context) JobTemplateInitContainerOutput {
+	return o
+}
+
+// A list of extra arguments to pass to the container.
+func (o JobTemplateInitContainerOutput) Args() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JobTemplateInitContainer) []string { return v.Args }).(pulumi.StringArrayOutput)
+}
+
+// A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+func (o JobTemplateInitContainerOutput) Commands() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JobTemplateInitContainer) []string { return v.Commands }).(pulumi.StringArrayOutput)
+}
+
+// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+//
+// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+func (o JobTemplateInitContainerOutput) Cpu() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v JobTemplateInitContainer) *float64 { return v.Cpu }).(pulumi.Float64PtrOutput)
+}
+
+// One or more `env` blocks as detailed below.
+func (o JobTemplateInitContainerOutput) Envs() JobTemplateInitContainerEnvArrayOutput {
+	return o.ApplyT(func(v JobTemplateInitContainer) []JobTemplateInitContainerEnv { return v.Envs }).(JobTemplateInitContainerEnvArrayOutput)
+}
+
+// The amount of ephemeral storage available to the Container App.
+//
+// > **NOTE:** `ephemeralStorage` is currently in preview and not configurable at this time.
+func (o JobTemplateInitContainerOutput) EphemeralStorage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTemplateInitContainer) *string { return v.EphemeralStorage }).(pulumi.StringPtrOutput)
+}
+
+// The image to use to create the container.
+func (o JobTemplateInitContainerOutput) Image() pulumi.StringOutput {
+	return o.ApplyT(func(v JobTemplateInitContainer) string { return v.Image }).(pulumi.StringOutput)
+}
+
+// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+//
+// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+func (o JobTemplateInitContainerOutput) Memory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTemplateInitContainer) *string { return v.Memory }).(pulumi.StringPtrOutput)
+}
+
+// The name of the container.
+func (o JobTemplateInitContainerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v JobTemplateInitContainer) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A `volumeMounts` block as detailed below.
+func (o JobTemplateInitContainerOutput) VolumeMounts() JobTemplateInitContainerVolumeMountArrayOutput {
+	return o.ApplyT(func(v JobTemplateInitContainer) []JobTemplateInitContainerVolumeMount { return v.VolumeMounts }).(JobTemplateInitContainerVolumeMountArrayOutput)
+}
+
+type JobTemplateInitContainerArrayOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateInitContainerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTemplateInitContainer)(nil)).Elem()
+}
+
+func (o JobTemplateInitContainerArrayOutput) ToJobTemplateInitContainerArrayOutput() JobTemplateInitContainerArrayOutput {
+	return o
+}
+
+func (o JobTemplateInitContainerArrayOutput) ToJobTemplateInitContainerArrayOutputWithContext(ctx context.Context) JobTemplateInitContainerArrayOutput {
+	return o
+}
+
+func (o JobTemplateInitContainerArrayOutput) Index(i pulumi.IntInput) JobTemplateInitContainerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobTemplateInitContainer {
+		return vs[0].([]JobTemplateInitContainer)[vs[1].(int)]
+	}).(JobTemplateInitContainerOutput)
+}
+
+type JobTemplateInitContainerEnv struct {
+	// The name of the environment variable.
+	Name string `pulumi:"name"`
+	// Name of the Container App secret from which to pull the environment variable value.
+	SecretName *string `pulumi:"secretName"`
+	// The value of the environment variable.
+	Value *string `pulumi:"value"`
+}
+
+// JobTemplateInitContainerEnvInput is an input type that accepts JobTemplateInitContainerEnvArgs and JobTemplateInitContainerEnvOutput values.
+// You can construct a concrete instance of `JobTemplateInitContainerEnvInput` via:
+//
+//	JobTemplateInitContainerEnvArgs{...}
+type JobTemplateInitContainerEnvInput interface {
+	pulumi.Input
+
+	ToJobTemplateInitContainerEnvOutput() JobTemplateInitContainerEnvOutput
+	ToJobTemplateInitContainerEnvOutputWithContext(context.Context) JobTemplateInitContainerEnvOutput
+}
+
+type JobTemplateInitContainerEnvArgs struct {
+	// The name of the environment variable.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the Container App secret from which to pull the environment variable value.
+	SecretName pulumi.StringPtrInput `pulumi:"secretName"`
+	// The value of the environment variable.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (JobTemplateInitContainerEnvArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateInitContainerEnv)(nil)).Elem()
+}
+
+func (i JobTemplateInitContainerEnvArgs) ToJobTemplateInitContainerEnvOutput() JobTemplateInitContainerEnvOutput {
+	return i.ToJobTemplateInitContainerEnvOutputWithContext(context.Background())
+}
+
+func (i JobTemplateInitContainerEnvArgs) ToJobTemplateInitContainerEnvOutputWithContext(ctx context.Context) JobTemplateInitContainerEnvOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateInitContainerEnvOutput)
+}
+
+// JobTemplateInitContainerEnvArrayInput is an input type that accepts JobTemplateInitContainerEnvArray and JobTemplateInitContainerEnvArrayOutput values.
+// You can construct a concrete instance of `JobTemplateInitContainerEnvArrayInput` via:
+//
+//	JobTemplateInitContainerEnvArray{ JobTemplateInitContainerEnvArgs{...} }
+type JobTemplateInitContainerEnvArrayInput interface {
+	pulumi.Input
+
+	ToJobTemplateInitContainerEnvArrayOutput() JobTemplateInitContainerEnvArrayOutput
+	ToJobTemplateInitContainerEnvArrayOutputWithContext(context.Context) JobTemplateInitContainerEnvArrayOutput
+}
+
+type JobTemplateInitContainerEnvArray []JobTemplateInitContainerEnvInput
+
+func (JobTemplateInitContainerEnvArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTemplateInitContainerEnv)(nil)).Elem()
+}
+
+func (i JobTemplateInitContainerEnvArray) ToJobTemplateInitContainerEnvArrayOutput() JobTemplateInitContainerEnvArrayOutput {
+	return i.ToJobTemplateInitContainerEnvArrayOutputWithContext(context.Background())
+}
+
+func (i JobTemplateInitContainerEnvArray) ToJobTemplateInitContainerEnvArrayOutputWithContext(ctx context.Context) JobTemplateInitContainerEnvArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateInitContainerEnvArrayOutput)
+}
+
+type JobTemplateInitContainerEnvOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateInitContainerEnvOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateInitContainerEnv)(nil)).Elem()
+}
+
+func (o JobTemplateInitContainerEnvOutput) ToJobTemplateInitContainerEnvOutput() JobTemplateInitContainerEnvOutput {
+	return o
+}
+
+func (o JobTemplateInitContainerEnvOutput) ToJobTemplateInitContainerEnvOutputWithContext(ctx context.Context) JobTemplateInitContainerEnvOutput {
+	return o
+}
+
+// The name of the environment variable.
+func (o JobTemplateInitContainerEnvOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v JobTemplateInitContainerEnv) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Name of the Container App secret from which to pull the environment variable value.
+func (o JobTemplateInitContainerEnvOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTemplateInitContainerEnv) *string { return v.SecretName }).(pulumi.StringPtrOutput)
+}
+
+// The value of the environment variable.
+func (o JobTemplateInitContainerEnvOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTemplateInitContainerEnv) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type JobTemplateInitContainerEnvArrayOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateInitContainerEnvArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTemplateInitContainerEnv)(nil)).Elem()
+}
+
+func (o JobTemplateInitContainerEnvArrayOutput) ToJobTemplateInitContainerEnvArrayOutput() JobTemplateInitContainerEnvArrayOutput {
+	return o
+}
+
+func (o JobTemplateInitContainerEnvArrayOutput) ToJobTemplateInitContainerEnvArrayOutputWithContext(ctx context.Context) JobTemplateInitContainerEnvArrayOutput {
+	return o
+}
+
+func (o JobTemplateInitContainerEnvArrayOutput) Index(i pulumi.IntInput) JobTemplateInitContainerEnvOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobTemplateInitContainerEnv {
+		return vs[0].([]JobTemplateInitContainerEnv)[vs[1].(int)]
+	}).(JobTemplateInitContainerEnvOutput)
+}
+
+type JobTemplateInitContainerVolumeMount struct {
+	// The name of the volume to mount. This must match the name of a volume defined in the `volume` block.
+	Name string `pulumi:"name"`
+	// The path within the container at which the volume should be mounted. Must not contain `:`.
+	Path string `pulumi:"path"`
+}
+
+// JobTemplateInitContainerVolumeMountInput is an input type that accepts JobTemplateInitContainerVolumeMountArgs and JobTemplateInitContainerVolumeMountOutput values.
+// You can construct a concrete instance of `JobTemplateInitContainerVolumeMountInput` via:
+//
+//	JobTemplateInitContainerVolumeMountArgs{...}
+type JobTemplateInitContainerVolumeMountInput interface {
+	pulumi.Input
+
+	ToJobTemplateInitContainerVolumeMountOutput() JobTemplateInitContainerVolumeMountOutput
+	ToJobTemplateInitContainerVolumeMountOutputWithContext(context.Context) JobTemplateInitContainerVolumeMountOutput
+}
+
+type JobTemplateInitContainerVolumeMountArgs struct {
+	// The name of the volume to mount. This must match the name of a volume defined in the `volume` block.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The path within the container at which the volume should be mounted. Must not contain `:`.
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (JobTemplateInitContainerVolumeMountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateInitContainerVolumeMount)(nil)).Elem()
+}
+
+func (i JobTemplateInitContainerVolumeMountArgs) ToJobTemplateInitContainerVolumeMountOutput() JobTemplateInitContainerVolumeMountOutput {
+	return i.ToJobTemplateInitContainerVolumeMountOutputWithContext(context.Background())
+}
+
+func (i JobTemplateInitContainerVolumeMountArgs) ToJobTemplateInitContainerVolumeMountOutputWithContext(ctx context.Context) JobTemplateInitContainerVolumeMountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateInitContainerVolumeMountOutput)
+}
+
+// JobTemplateInitContainerVolumeMountArrayInput is an input type that accepts JobTemplateInitContainerVolumeMountArray and JobTemplateInitContainerVolumeMountArrayOutput values.
+// You can construct a concrete instance of `JobTemplateInitContainerVolumeMountArrayInput` via:
+//
+//	JobTemplateInitContainerVolumeMountArray{ JobTemplateInitContainerVolumeMountArgs{...} }
+type JobTemplateInitContainerVolumeMountArrayInput interface {
+	pulumi.Input
+
+	ToJobTemplateInitContainerVolumeMountArrayOutput() JobTemplateInitContainerVolumeMountArrayOutput
+	ToJobTemplateInitContainerVolumeMountArrayOutputWithContext(context.Context) JobTemplateInitContainerVolumeMountArrayOutput
+}
+
+type JobTemplateInitContainerVolumeMountArray []JobTemplateInitContainerVolumeMountInput
+
+func (JobTemplateInitContainerVolumeMountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTemplateInitContainerVolumeMount)(nil)).Elem()
+}
+
+func (i JobTemplateInitContainerVolumeMountArray) ToJobTemplateInitContainerVolumeMountArrayOutput() JobTemplateInitContainerVolumeMountArrayOutput {
+	return i.ToJobTemplateInitContainerVolumeMountArrayOutputWithContext(context.Background())
+}
+
+func (i JobTemplateInitContainerVolumeMountArray) ToJobTemplateInitContainerVolumeMountArrayOutputWithContext(ctx context.Context) JobTemplateInitContainerVolumeMountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateInitContainerVolumeMountArrayOutput)
+}
+
+type JobTemplateInitContainerVolumeMountOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateInitContainerVolumeMountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateInitContainerVolumeMount)(nil)).Elem()
+}
+
+func (o JobTemplateInitContainerVolumeMountOutput) ToJobTemplateInitContainerVolumeMountOutput() JobTemplateInitContainerVolumeMountOutput {
+	return o
+}
+
+func (o JobTemplateInitContainerVolumeMountOutput) ToJobTemplateInitContainerVolumeMountOutputWithContext(ctx context.Context) JobTemplateInitContainerVolumeMountOutput {
+	return o
+}
+
+// The name of the volume to mount. This must match the name of a volume defined in the `volume` block.
+func (o JobTemplateInitContainerVolumeMountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v JobTemplateInitContainerVolumeMount) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The path within the container at which the volume should be mounted. Must not contain `:`.
+func (o JobTemplateInitContainerVolumeMountOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v JobTemplateInitContainerVolumeMount) string { return v.Path }).(pulumi.StringOutput)
+}
+
+type JobTemplateInitContainerVolumeMountArrayOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateInitContainerVolumeMountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTemplateInitContainerVolumeMount)(nil)).Elem()
+}
+
+func (o JobTemplateInitContainerVolumeMountArrayOutput) ToJobTemplateInitContainerVolumeMountArrayOutput() JobTemplateInitContainerVolumeMountArrayOutput {
+	return o
+}
+
+func (o JobTemplateInitContainerVolumeMountArrayOutput) ToJobTemplateInitContainerVolumeMountArrayOutputWithContext(ctx context.Context) JobTemplateInitContainerVolumeMountArrayOutput {
+	return o
+}
+
+func (o JobTemplateInitContainerVolumeMountArrayOutput) Index(i pulumi.IntInput) JobTemplateInitContainerVolumeMountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobTemplateInitContainerVolumeMount {
+		return vs[0].([]JobTemplateInitContainerVolumeMount)[vs[1].(int)]
+	}).(JobTemplateInitContainerVolumeMountOutput)
+}
+
+type JobTemplateVolume struct {
+	// The name of the volume.
+	Name string `pulumi:"name"`
+	// The name of the storage to use for the volume.
+	StorageName *string `pulumi:"storageName"`
+	// The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`.
+	StorageType *string `pulumi:"storageType"`
+}
+
+// JobTemplateVolumeInput is an input type that accepts JobTemplateVolumeArgs and JobTemplateVolumeOutput values.
+// You can construct a concrete instance of `JobTemplateVolumeInput` via:
+//
+//	JobTemplateVolumeArgs{...}
+type JobTemplateVolumeInput interface {
+	pulumi.Input
+
+	ToJobTemplateVolumeOutput() JobTemplateVolumeOutput
+	ToJobTemplateVolumeOutputWithContext(context.Context) JobTemplateVolumeOutput
+}
+
+type JobTemplateVolumeArgs struct {
+	// The name of the volume.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the storage to use for the volume.
+	StorageName pulumi.StringPtrInput `pulumi:"storageName"`
+	// The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`.
+	StorageType pulumi.StringPtrInput `pulumi:"storageType"`
+}
+
+func (JobTemplateVolumeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateVolume)(nil)).Elem()
+}
+
+func (i JobTemplateVolumeArgs) ToJobTemplateVolumeOutput() JobTemplateVolumeOutput {
+	return i.ToJobTemplateVolumeOutputWithContext(context.Background())
+}
+
+func (i JobTemplateVolumeArgs) ToJobTemplateVolumeOutputWithContext(ctx context.Context) JobTemplateVolumeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateVolumeOutput)
+}
+
+// JobTemplateVolumeArrayInput is an input type that accepts JobTemplateVolumeArray and JobTemplateVolumeArrayOutput values.
+// You can construct a concrete instance of `JobTemplateVolumeArrayInput` via:
+//
+//	JobTemplateVolumeArray{ JobTemplateVolumeArgs{...} }
+type JobTemplateVolumeArrayInput interface {
+	pulumi.Input
+
+	ToJobTemplateVolumeArrayOutput() JobTemplateVolumeArrayOutput
+	ToJobTemplateVolumeArrayOutputWithContext(context.Context) JobTemplateVolumeArrayOutput
+}
+
+type JobTemplateVolumeArray []JobTemplateVolumeInput
+
+func (JobTemplateVolumeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTemplateVolume)(nil)).Elem()
+}
+
+func (i JobTemplateVolumeArray) ToJobTemplateVolumeArrayOutput() JobTemplateVolumeArrayOutput {
+	return i.ToJobTemplateVolumeArrayOutputWithContext(context.Background())
+}
+
+func (i JobTemplateVolumeArray) ToJobTemplateVolumeArrayOutputWithContext(ctx context.Context) JobTemplateVolumeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateVolumeArrayOutput)
+}
+
+type JobTemplateVolumeOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateVolumeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateVolume)(nil)).Elem()
+}
+
+func (o JobTemplateVolumeOutput) ToJobTemplateVolumeOutput() JobTemplateVolumeOutput {
+	return o
+}
+
+func (o JobTemplateVolumeOutput) ToJobTemplateVolumeOutputWithContext(ctx context.Context) JobTemplateVolumeOutput {
+	return o
+}
+
+// The name of the volume.
+func (o JobTemplateVolumeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v JobTemplateVolume) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The name of the storage to use for the volume.
+func (o JobTemplateVolumeOutput) StorageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTemplateVolume) *string { return v.StorageName }).(pulumi.StringPtrOutput)
+}
+
+// The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`.
+func (o JobTemplateVolumeOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTemplateVolume) *string { return v.StorageType }).(pulumi.StringPtrOutput)
+}
+
+type JobTemplateVolumeArrayOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateVolumeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTemplateVolume)(nil)).Elem()
+}
+
+func (o JobTemplateVolumeArrayOutput) ToJobTemplateVolumeArrayOutput() JobTemplateVolumeArrayOutput {
+	return o
+}
+
+func (o JobTemplateVolumeArrayOutput) ToJobTemplateVolumeArrayOutputWithContext(ctx context.Context) JobTemplateVolumeArrayOutput {
+	return o
+}
+
+func (o JobTemplateVolumeArrayOutput) Index(i pulumi.IntInput) JobTemplateVolumeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobTemplateVolume {
+		return vs[0].([]JobTemplateVolume)[vs[1].(int)]
+	}).(JobTemplateVolumeOutput)
 }
 
 type GetAppDapr struct {
@@ -8675,6 +11934,52 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentDaprComponentSecretArrayInput)(nil)).Elem(), EnvironmentDaprComponentSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentWorkloadProfileInput)(nil)).Elem(), EnvironmentWorkloadProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentWorkloadProfileArrayInput)(nil)).Elem(), EnvironmentWorkloadProfileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobEventTriggerConfigInput)(nil)).Elem(), JobEventTriggerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobEventTriggerConfigPtrInput)(nil)).Elem(), JobEventTriggerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobEventTriggerConfigScaleInput)(nil)).Elem(), JobEventTriggerConfigScaleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobEventTriggerConfigScaleArrayInput)(nil)).Elem(), JobEventTriggerConfigScaleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobEventTriggerConfigScaleRuleInput)(nil)).Elem(), JobEventTriggerConfigScaleRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobEventTriggerConfigScaleRuleArrayInput)(nil)).Elem(), JobEventTriggerConfigScaleRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobEventTriggerConfigScaleRuleAuthenticationInput)(nil)).Elem(), JobEventTriggerConfigScaleRuleAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobEventTriggerConfigScaleRuleAuthenticationArrayInput)(nil)).Elem(), JobEventTriggerConfigScaleRuleAuthenticationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobIdentityInput)(nil)).Elem(), JobIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobIdentityPtrInput)(nil)).Elem(), JobIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobManualTriggerConfigInput)(nil)).Elem(), JobManualTriggerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobManualTriggerConfigPtrInput)(nil)).Elem(), JobManualTriggerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobRegistryInput)(nil)).Elem(), JobRegistryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobRegistryArrayInput)(nil)).Elem(), JobRegistryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobScheduleTriggerConfigInput)(nil)).Elem(), JobScheduleTriggerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobScheduleTriggerConfigPtrInput)(nil)).Elem(), JobScheduleTriggerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobSecretInput)(nil)).Elem(), JobSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobSecretArrayInput)(nil)).Elem(), JobSecretArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateInput)(nil)).Elem(), JobTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplatePtrInput)(nil)).Elem(), JobTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateContainerInput)(nil)).Elem(), JobTemplateContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateContainerArrayInput)(nil)).Elem(), JobTemplateContainerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateContainerEnvInput)(nil)).Elem(), JobTemplateContainerEnvArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateContainerEnvArrayInput)(nil)).Elem(), JobTemplateContainerEnvArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateContainerLivenessProbeInput)(nil)).Elem(), JobTemplateContainerLivenessProbeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateContainerLivenessProbeArrayInput)(nil)).Elem(), JobTemplateContainerLivenessProbeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateContainerLivenessProbeHeaderInput)(nil)).Elem(), JobTemplateContainerLivenessProbeHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateContainerLivenessProbeHeaderArrayInput)(nil)).Elem(), JobTemplateContainerLivenessProbeHeaderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateContainerReadinessProbeInput)(nil)).Elem(), JobTemplateContainerReadinessProbeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateContainerReadinessProbeArrayInput)(nil)).Elem(), JobTemplateContainerReadinessProbeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateContainerReadinessProbeHeaderInput)(nil)).Elem(), JobTemplateContainerReadinessProbeHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateContainerReadinessProbeHeaderArrayInput)(nil)).Elem(), JobTemplateContainerReadinessProbeHeaderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateContainerStartupProbeInput)(nil)).Elem(), JobTemplateContainerStartupProbeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateContainerStartupProbeArrayInput)(nil)).Elem(), JobTemplateContainerStartupProbeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateContainerStartupProbeHeaderInput)(nil)).Elem(), JobTemplateContainerStartupProbeHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateContainerStartupProbeHeaderArrayInput)(nil)).Elem(), JobTemplateContainerStartupProbeHeaderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateContainerVolumeMountInput)(nil)).Elem(), JobTemplateContainerVolumeMountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateContainerVolumeMountArrayInput)(nil)).Elem(), JobTemplateContainerVolumeMountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateInitContainerInput)(nil)).Elem(), JobTemplateInitContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateInitContainerArrayInput)(nil)).Elem(), JobTemplateInitContainerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateInitContainerEnvInput)(nil)).Elem(), JobTemplateInitContainerEnvArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateInitContainerEnvArrayInput)(nil)).Elem(), JobTemplateInitContainerEnvArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateInitContainerVolumeMountInput)(nil)).Elem(), JobTemplateInitContainerVolumeMountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateInitContainerVolumeMountArrayInput)(nil)).Elem(), JobTemplateInitContainerVolumeMountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateVolumeInput)(nil)).Elem(), JobTemplateVolumeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateVolumeArrayInput)(nil)).Elem(), JobTemplateVolumeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppDaprInput)(nil)).Elem(), GetAppDaprArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppDaprArrayInput)(nil)).Elem(), GetAppDaprArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppIdentityInput)(nil)).Elem(), GetAppIdentityArgs{})
@@ -8801,6 +12106,52 @@ func init() {
 	pulumi.RegisterOutputType(EnvironmentDaprComponentSecretArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentWorkloadProfileOutput{})
 	pulumi.RegisterOutputType(EnvironmentWorkloadProfileArrayOutput{})
+	pulumi.RegisterOutputType(JobEventTriggerConfigOutput{})
+	pulumi.RegisterOutputType(JobEventTriggerConfigPtrOutput{})
+	pulumi.RegisterOutputType(JobEventTriggerConfigScaleOutput{})
+	pulumi.RegisterOutputType(JobEventTriggerConfigScaleArrayOutput{})
+	pulumi.RegisterOutputType(JobEventTriggerConfigScaleRuleOutput{})
+	pulumi.RegisterOutputType(JobEventTriggerConfigScaleRuleArrayOutput{})
+	pulumi.RegisterOutputType(JobEventTriggerConfigScaleRuleAuthenticationOutput{})
+	pulumi.RegisterOutputType(JobEventTriggerConfigScaleRuleAuthenticationArrayOutput{})
+	pulumi.RegisterOutputType(JobIdentityOutput{})
+	pulumi.RegisterOutputType(JobIdentityPtrOutput{})
+	pulumi.RegisterOutputType(JobManualTriggerConfigOutput{})
+	pulumi.RegisterOutputType(JobManualTriggerConfigPtrOutput{})
+	pulumi.RegisterOutputType(JobRegistryOutput{})
+	pulumi.RegisterOutputType(JobRegistryArrayOutput{})
+	pulumi.RegisterOutputType(JobScheduleTriggerConfigOutput{})
+	pulumi.RegisterOutputType(JobScheduleTriggerConfigPtrOutput{})
+	pulumi.RegisterOutputType(JobSecretOutput{})
+	pulumi.RegisterOutputType(JobSecretArrayOutput{})
+	pulumi.RegisterOutputType(JobTemplateOutput{})
+	pulumi.RegisterOutputType(JobTemplatePtrOutput{})
+	pulumi.RegisterOutputType(JobTemplateContainerOutput{})
+	pulumi.RegisterOutputType(JobTemplateContainerArrayOutput{})
+	pulumi.RegisterOutputType(JobTemplateContainerEnvOutput{})
+	pulumi.RegisterOutputType(JobTemplateContainerEnvArrayOutput{})
+	pulumi.RegisterOutputType(JobTemplateContainerLivenessProbeOutput{})
+	pulumi.RegisterOutputType(JobTemplateContainerLivenessProbeArrayOutput{})
+	pulumi.RegisterOutputType(JobTemplateContainerLivenessProbeHeaderOutput{})
+	pulumi.RegisterOutputType(JobTemplateContainerLivenessProbeHeaderArrayOutput{})
+	pulumi.RegisterOutputType(JobTemplateContainerReadinessProbeOutput{})
+	pulumi.RegisterOutputType(JobTemplateContainerReadinessProbeArrayOutput{})
+	pulumi.RegisterOutputType(JobTemplateContainerReadinessProbeHeaderOutput{})
+	pulumi.RegisterOutputType(JobTemplateContainerReadinessProbeHeaderArrayOutput{})
+	pulumi.RegisterOutputType(JobTemplateContainerStartupProbeOutput{})
+	pulumi.RegisterOutputType(JobTemplateContainerStartupProbeArrayOutput{})
+	pulumi.RegisterOutputType(JobTemplateContainerStartupProbeHeaderOutput{})
+	pulumi.RegisterOutputType(JobTemplateContainerStartupProbeHeaderArrayOutput{})
+	pulumi.RegisterOutputType(JobTemplateContainerVolumeMountOutput{})
+	pulumi.RegisterOutputType(JobTemplateContainerVolumeMountArrayOutput{})
+	pulumi.RegisterOutputType(JobTemplateInitContainerOutput{})
+	pulumi.RegisterOutputType(JobTemplateInitContainerArrayOutput{})
+	pulumi.RegisterOutputType(JobTemplateInitContainerEnvOutput{})
+	pulumi.RegisterOutputType(JobTemplateInitContainerEnvArrayOutput{})
+	pulumi.RegisterOutputType(JobTemplateInitContainerVolumeMountOutput{})
+	pulumi.RegisterOutputType(JobTemplateInitContainerVolumeMountArrayOutput{})
+	pulumi.RegisterOutputType(JobTemplateVolumeOutput{})
+	pulumi.RegisterOutputType(JobTemplateVolumeArrayOutput{})
 	pulumi.RegisterOutputType(GetAppDaprOutput{})
 	pulumi.RegisterOutputType(GetAppDaprArrayOutput{})
 	pulumi.RegisterOutputType(GetAppIdentityOutput{})

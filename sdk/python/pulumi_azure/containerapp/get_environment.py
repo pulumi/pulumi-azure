@@ -21,7 +21,10 @@ class GetEnvironmentResult:
     """
     A collection of values returned by getEnvironment.
     """
-    def __init__(__self__, default_domain=None, docker_bridge_cidr=None, id=None, infrastructure_subnet_id=None, internal_load_balancer_enabled=None, location=None, log_analytics_workspace_name=None, name=None, platform_reserved_cidr=None, platform_reserved_dns_ip_address=None, resource_group_name=None, static_ip_address=None, tags=None):
+    def __init__(__self__, custom_domain_verification_id=None, default_domain=None, docker_bridge_cidr=None, id=None, infrastructure_subnet_id=None, internal_load_balancer_enabled=None, location=None, log_analytics_workspace_name=None, name=None, platform_reserved_cidr=None, platform_reserved_dns_ip_address=None, resource_group_name=None, static_ip_address=None, tags=None):
+        if custom_domain_verification_id and not isinstance(custom_domain_verification_id, str):
+            raise TypeError("Expected argument 'custom_domain_verification_id' to be a str")
+        pulumi.set(__self__, "custom_domain_verification_id", custom_domain_verification_id)
         if default_domain and not isinstance(default_domain, str):
             raise TypeError("Expected argument 'default_domain' to be a str")
         pulumi.set(__self__, "default_domain", default_domain)
@@ -61,6 +64,14 @@ class GetEnvironmentResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="customDomainVerificationId")
+    def custom_domain_verification_id(self) -> str:
+        """
+        The ID of the Custom Domain Verification for this Container App Environment.
+        """
+        return pulumi.get(self, "custom_domain_verification_id")
 
     @property
     @pulumi.getter(name="defaultDomain")
@@ -167,6 +178,7 @@ class AwaitableGetEnvironmentResult(GetEnvironmentResult):
         if False:
             yield self
         return GetEnvironmentResult(
+            custom_domain_verification_id=self.custom_domain_verification_id,
             default_domain=self.default_domain,
             docker_bridge_cidr=self.docker_bridge_cidr,
             id=self.id,
@@ -209,6 +221,7 @@ def get_environment(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:containerapp/getEnvironment:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult).value
 
     return AwaitableGetEnvironmentResult(
+        custom_domain_verification_id=pulumi.get(__ret__, 'custom_domain_verification_id'),
         default_domain=pulumi.get(__ret__, 'default_domain'),
         docker_bridge_cidr=pulumi.get(__ret__, 'docker_bridge_cidr'),
         id=pulumi.get(__ret__, 'id'),

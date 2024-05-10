@@ -50,14 +50,26 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArg
     /**
      * The path for which this slow request rule applies.
      * 
+     * &gt; **NOTE:** `path` in `slow_request` block will be deprecated in 4.0 provider. Please use `slow_request_with_path` to set a slow request trigger with path specified.
+     * 
+     * @deprecated
+     * `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider. */
     @Import(name="path")
     private @Nullable Output<String> path;
 
     /**
      * @return The path for which this slow request rule applies.
      * 
+     * &gt; **NOTE:** `path` in `slow_request` block will be deprecated in 4.0 provider. Please use `slow_request_with_path` to set a slow request trigger with path specified.
+     * 
+     * @deprecated
+     * `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider. */
     public Optional<Output<String>> path() {
         return Optional.ofNullable(this.path);
     }
@@ -149,9 +161,15 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArg
         /**
          * @param path The path for which this slow request rule applies.
          * 
+         * &gt; **NOTE:** `path` in `slow_request` block will be deprecated in 4.0 provider. Please use `slow_request_with_path` to set a slow request trigger with path specified.
+         * 
          * @return builder
          * 
+         * @deprecated
+         * `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider. */
         public Builder path(@Nullable Output<String> path) {
             $.path = path;
             return this;
@@ -160,9 +178,15 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArg
         /**
          * @param path The path for which this slow request rule applies.
          * 
+         * &gt; **NOTE:** `path` in `slow_request` block will be deprecated in 4.0 provider. Please use `slow_request_with_path` to set a slow request trigger with path specified.
+         * 
          * @return builder
          * 
+         * @deprecated
+         * `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider. */
         public Builder path(String path) {
             return path(Output.of(path));
         }

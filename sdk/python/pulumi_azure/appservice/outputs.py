@@ -178,6 +178,7 @@ __all__ = [
     'LinuxWebAppSiteConfigAutoHealSettingTrigger',
     'LinuxWebAppSiteConfigAutoHealSettingTriggerRequests',
     'LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest',
+    'LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath',
     'LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode',
     'LinuxWebAppSiteConfigCors',
     'LinuxWebAppSiteConfigIpRestriction',
@@ -220,6 +221,7 @@ __all__ = [
     'LinuxWebAppSlotSiteConfigAutoHealSettingTrigger',
     'LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequests',
     'LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest',
+    'LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath',
     'LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode',
     'LinuxWebAppSlotSiteConfigCors',
     'LinuxWebAppSlotSiteConfigIpRestriction',
@@ -363,6 +365,7 @@ __all__ = [
     'WindowsWebAppSiteConfigAutoHealSettingTrigger',
     'WindowsWebAppSiteConfigAutoHealSettingTriggerRequests',
     'WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest',
+    'WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath',
     'WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode',
     'WindowsWebAppSiteConfigCors',
     'WindowsWebAppSiteConfigHandlerMapping',
@@ -409,6 +412,7 @@ __all__ = [
     'WindowsWebAppSlotSiteConfigAutoHealSettingTrigger',
     'WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequests',
     'WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest',
+    'WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath',
     'WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode',
     'WindowsWebAppSlotSiteConfigCors',
     'WindowsWebAppSlotSiteConfigHandlerMapping',
@@ -514,6 +518,7 @@ __all__ = [
     'GetLinuxWebAppSiteConfigAutoHealSettingTriggerResult',
     'GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestResult',
     'GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestResult',
+    'GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathResult',
     'GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeResult',
     'GetLinuxWebAppSiteConfigCorResult',
     'GetLinuxWebAppSiteConfigIpRestrictionResult',
@@ -593,6 +598,7 @@ __all__ = [
     'GetWindowsWebAppSiteConfigAutoHealSettingTriggerResult',
     'GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequestResult',
     'GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestResult',
+    'GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathResult',
     'GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeResult',
     'GetWindowsWebAppSiteConfigCorResult',
     'GetWindowsWebAppSiteConfigHandlerMappingResult',
@@ -7386,7 +7392,9 @@ class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
                  www_authentication_disabled: Optional[bool] = None):
         """
         :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        :param str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+               
+               > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         :param Sequence[str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
         :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
@@ -7437,7 +7445,9 @@ class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
     @pulumi.getter(name="tenantAuthEndpoint")
     def tenant_auth_endpoint(self) -> str:
         """
-        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+
+        > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         """
         return pulumi.get(self, "tenant_auth_endpoint")
 
@@ -11050,7 +11060,9 @@ class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
                  www_authentication_disabled: Optional[bool] = None):
         """
         :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        :param str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+               
+               > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         :param Sequence[str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
         :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
@@ -11101,7 +11113,9 @@ class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
     @pulumi.getter(name="tenantAuthEndpoint")
     def tenant_auth_endpoint(self) -> str:
         """
-        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+
+        > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         """
         return pulumi.get(self, "tenant_auth_endpoint")
 
@@ -14964,7 +14978,9 @@ class LinuxWebAppAuthSettingsV2ActiveDirectoryV2(dict):
                  www_authentication_disabled: Optional[bool] = None):
         """
         :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        :param str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+               
+               > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         :param Sequence[str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
         :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
@@ -15015,7 +15031,9 @@ class LinuxWebAppAuthSettingsV2ActiveDirectoryV2(dict):
     @pulumi.getter(name="tenantAuthEndpoint")
     def tenant_auth_endpoint(self) -> str:
         """
-        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+
+        > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         """
         return pulumi.get(self, "tenant_auth_endpoint")
 
@@ -17372,7 +17390,9 @@ class LinuxWebAppSiteConfigAutoHealSettingTrigger(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "slowRequests":
+        if key == "slowRequestWithPaths":
+            suggest = "slow_request_with_paths"
+        elif key == "slowRequests":
             suggest = "slow_requests"
         elif key == "statusCodes":
             suggest = "status_codes"
@@ -17390,15 +17410,19 @@ class LinuxWebAppSiteConfigAutoHealSettingTrigger(dict):
 
     def __init__(__self__, *,
                  requests: Optional['outputs.LinuxWebAppSiteConfigAutoHealSettingTriggerRequests'] = None,
+                 slow_request_with_paths: Optional[Sequence['outputs.LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath']] = None,
                  slow_requests: Optional[Sequence['outputs.LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest']] = None,
                  status_codes: Optional[Sequence['outputs.LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode']] = None):
         """
         :param 'LinuxWebAppSiteConfigAutoHealSettingTriggerRequestsArgs' requests: A `requests` block as defined above.
-        :param Sequence['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs'] slow_requests: One or more `slow_request` blocks as defined above.
+        :param Sequence['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs'] slow_request_with_paths: One or more `slow_request_with_path` blocks as defined above.
+        :param Sequence['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs'] slow_requests: A `slow_request` blocks as defined above.
         :param Sequence['LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs'] status_codes: One or more `status_code` blocks as defined above.
         """
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
+        if slow_request_with_paths is not None:
+            pulumi.set(__self__, "slow_request_with_paths", slow_request_with_paths)
         if slow_requests is not None:
             pulumi.set(__self__, "slow_requests", slow_requests)
         if status_codes is not None:
@@ -17413,10 +17437,18 @@ class LinuxWebAppSiteConfigAutoHealSettingTrigger(dict):
         return pulumi.get(self, "requests")
 
     @property
+    @pulumi.getter(name="slowRequestWithPaths")
+    def slow_request_with_paths(self) -> Optional[Sequence['outputs.LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath']]:
+        """
+        One or more `slow_request_with_path` blocks as defined above.
+        """
+        return pulumi.get(self, "slow_request_with_paths")
+
+    @property
     @pulumi.getter(name="slowRequests")
     def slow_requests(self) -> Optional[Sequence['outputs.LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest']]:
         """
-        One or more `slow_request` blocks as defined above.
+        A `slow_request` blocks as defined above.
         """
         return pulumi.get(self, "slow_requests")
 
@@ -17475,6 +17507,82 @@ class LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest(dict):
 
     def get(self, key: str, default = None) -> Any:
         LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 count: int,
+                 interval: str,
+                 time_taken: str,
+                 path: Optional[str] = None):
+        """
+        :param int count: The number of Slow Requests in the time `interval` to trigger this rule.
+        :param str interval: The time interval in the form `hh:mm:ss`.
+        :param str time_taken: The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+        :param str path: The path for which this slow request rule applies.
+               
+               > **NOTE:** `path` in `slow_request` block will be deprecated in 4.0 provider. Please use `slow_request_with_path` to set a slow request trigger with path specified.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "interval", interval)
+        pulumi.set(__self__, "time_taken", time_taken)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def count(self) -> int:
+        """
+        The number of Slow Requests in the time `interval` to trigger this rule.
+        """
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> str:
+        """
+        The time interval in the form `hh:mm:ss`.
+        """
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter(name="timeTaken")
+    def time_taken(self) -> str:
+        """
+        The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+        """
+        return pulumi.get(self, "time_taken")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        The path for which this slow request rule applies.
+
+        > **NOTE:** `path` in `slow_request` block will be deprecated in 4.0 provider. Please use `slow_request_with_path` to set a slow request trigger with path specified.
+        """
+        warnings.warn("""`path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""path is deprecated: `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.""")
+
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeTaken":
+            suggest = "time_taken"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -19189,7 +19297,9 @@ class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
                  www_authentication_disabled: Optional[bool] = None):
         """
         :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        :param str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+               
+               > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         :param Sequence[str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
         :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
@@ -19240,7 +19350,9 @@ class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
     @pulumi.getter(name="tenantAuthEndpoint")
     def tenant_auth_endpoint(self) -> str:
         """
-        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+
+        > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         """
         return pulumi.get(self, "tenant_auth_endpoint")
 
@@ -21607,7 +21719,9 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingTrigger(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "slowRequests":
+        if key == "slowRequestWithPaths":
+            suggest = "slow_request_with_paths"
+        elif key == "slowRequests":
             suggest = "slow_requests"
         elif key == "statusCodes":
             suggest = "status_codes"
@@ -21625,15 +21739,19 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingTrigger(dict):
 
     def __init__(__self__, *,
                  requests: Optional['outputs.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequests'] = None,
+                 slow_request_with_paths: Optional[Sequence['outputs.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath']] = None,
                  slow_requests: Optional[Sequence['outputs.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest']] = None,
                  status_codes: Optional[Sequence['outputs.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode']] = None):
         """
         :param 'LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs' requests: A `requests` block as defined above.
-        :param Sequence['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs'] slow_requests: One or more `slow_request` blocks as defined above.
+        :param Sequence['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs'] slow_request_with_paths: One or more `slow_request_with_path` blocks as defined above.
+        :param Sequence['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs'] slow_requests: A `slow_request` block as defined above.
         :param Sequence['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs'] status_codes: One or more `status_code` blocks as defined above.
         """
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
+        if slow_request_with_paths is not None:
+            pulumi.set(__self__, "slow_request_with_paths", slow_request_with_paths)
         if slow_requests is not None:
             pulumi.set(__self__, "slow_requests", slow_requests)
         if status_codes is not None:
@@ -21648,10 +21766,18 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingTrigger(dict):
         return pulumi.get(self, "requests")
 
     @property
+    @pulumi.getter(name="slowRequestWithPaths")
+    def slow_request_with_paths(self) -> Optional[Sequence['outputs.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath']]:
+        """
+        One or more `slow_request_with_path` blocks as defined above.
+        """
+        return pulumi.get(self, "slow_request_with_paths")
+
+    @property
     @pulumi.getter(name="slowRequests")
     def slow_requests(self) -> Optional[Sequence['outputs.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest']]:
         """
-        One or more `slow_request` blocks as defined above.
+        A `slow_request` block as defined above.
         """
         return pulumi.get(self, "slow_requests")
 
@@ -21710,6 +21836,82 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest(dict):
 
     def get(self, key: str, default = None) -> Any:
         LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 count: int,
+                 interval: str,
+                 time_taken: str,
+                 path: Optional[str] = None):
+        """
+        :param int count: The number of Slow Requests in the time `interval` to trigger this rule.
+        :param str interval: The time interval in the form `hh:mm:ss`.
+        :param str time_taken: The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+        :param str path: The path for which this slow request rule applies.
+               
+               > **NOTE:** `path` in `slow_request` block will be deprecated in 4.0 provider. Please use `slow_request_with_path` to set a slow request trigger with path specified.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "interval", interval)
+        pulumi.set(__self__, "time_taken", time_taken)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def count(self) -> int:
+        """
+        The number of Slow Requests in the time `interval` to trigger this rule.
+        """
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> str:
+        """
+        The time interval in the form `hh:mm:ss`.
+        """
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter(name="timeTaken")
+    def time_taken(self) -> str:
+        """
+        The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+        """
+        return pulumi.get(self, "time_taken")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        The path for which this slow request rule applies.
+
+        > **NOTE:** `path` in `slow_request` block will be deprecated in 4.0 provider. Please use `slow_request_with_path` to set a slow request trigger with path specified.
+        """
+        warnings.warn("""`path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""path is deprecated: `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.""")
+
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeTaken":
+            suggest = "time_taken"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -26289,7 +26491,9 @@ class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
                  www_authentication_disabled: Optional[bool] = None):
         """
         :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        :param str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+               
+               > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         :param Sequence[str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
         :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
@@ -26340,7 +26544,9 @@ class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
     @pulumi.getter(name="tenantAuthEndpoint")
     def tenant_auth_endpoint(self) -> str:
         """
-        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+
+        > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         """
         return pulumi.get(self, "tenant_auth_endpoint")
 
@@ -29806,7 +30012,9 @@ class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
                  www_authentication_disabled: Optional[bool] = None):
         """
         :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        :param str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+               
+               > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         :param Sequence[str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
         :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
@@ -29857,7 +30065,9 @@ class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
     @pulumi.getter(name="tenantAuthEndpoint")
     def tenant_auth_endpoint(self) -> str:
         """
-        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+
+        > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         """
         return pulumi.get(self, "tenant_auth_endpoint")
 
@@ -33569,7 +33779,9 @@ class WindowsWebAppAuthSettingsV2ActiveDirectoryV2(dict):
                  www_authentication_disabled: Optional[bool] = None):
         """
         :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        :param str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+               
+               > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         :param Sequence[str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
         :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
@@ -33620,7 +33832,9 @@ class WindowsWebAppAuthSettingsV2ActiveDirectoryV2(dict):
     @pulumi.getter(name="tenantAuthEndpoint")
     def tenant_auth_endpoint(self) -> str:
         """
-        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+
+        > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         """
         return pulumi.get(self, "tenant_auth_endpoint")
 
@@ -36133,6 +36347,8 @@ class WindowsWebAppSiteConfigAutoHealSettingTrigger(dict):
         suggest = None
         if key == "privateMemoryKb":
             suggest = "private_memory_kb"
+        elif key == "slowRequestWithPaths":
+            suggest = "slow_request_with_paths"
         elif key == "slowRequests":
             suggest = "slow_requests"
         elif key == "statusCodes":
@@ -36152,18 +36368,22 @@ class WindowsWebAppSiteConfigAutoHealSettingTrigger(dict):
     def __init__(__self__, *,
                  private_memory_kb: Optional[int] = None,
                  requests: Optional['outputs.WindowsWebAppSiteConfigAutoHealSettingTriggerRequests'] = None,
+                 slow_request_with_paths: Optional[Sequence['outputs.WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath']] = None,
                  slow_requests: Optional[Sequence['outputs.WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest']] = None,
                  status_codes: Optional[Sequence['outputs.WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode']] = None):
         """
         :param int private_memory_kb: The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and `13631488`.
         :param 'WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsArgs' requests: A `requests` block as defined above.
-        :param Sequence['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs'] slow_requests: One or more `slow_request` blocks as defined above.
+        :param Sequence['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs'] slow_request_with_paths: One or more `slow_request_with_path` blocks as defined above.
+        :param Sequence['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs'] slow_requests: A `slow_request` block as defined above.
         :param Sequence['WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs'] status_codes: One or more `status_code` blocks as defined above.
         """
         if private_memory_kb is not None:
             pulumi.set(__self__, "private_memory_kb", private_memory_kb)
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
+        if slow_request_with_paths is not None:
+            pulumi.set(__self__, "slow_request_with_paths", slow_request_with_paths)
         if slow_requests is not None:
             pulumi.set(__self__, "slow_requests", slow_requests)
         if status_codes is not None:
@@ -36186,10 +36406,18 @@ class WindowsWebAppSiteConfigAutoHealSettingTrigger(dict):
         return pulumi.get(self, "requests")
 
     @property
+    @pulumi.getter(name="slowRequestWithPaths")
+    def slow_request_with_paths(self) -> Optional[Sequence['outputs.WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath']]:
+        """
+        One or more `slow_request_with_path` blocks as defined above.
+        """
+        return pulumi.get(self, "slow_request_with_paths")
+
+    @property
     @pulumi.getter(name="slowRequests")
     def slow_requests(self) -> Optional[Sequence['outputs.WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest']]:
         """
-        One or more `slow_request` blocks as defined above.
+        A `slow_request` block as defined above.
         """
         return pulumi.get(self, "slow_requests")
 
@@ -36248,6 +36476,78 @@ class WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest(dict):
 
     def get(self, key: str, default = None) -> Any:
         WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 count: int,
+                 interval: str,
+                 time_taken: str,
+                 path: Optional[str] = None):
+        """
+        :param int count: The number of Slow Requests in the time `interval` to trigger this rule.
+        :param str interval: The time interval in the form `hh:mm:ss`.
+        :param str time_taken: The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+        :param str path: The path for which this slow request rule applies.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "interval", interval)
+        pulumi.set(__self__, "time_taken", time_taken)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def count(self) -> int:
+        """
+        The number of Slow Requests in the time `interval` to trigger this rule.
+        """
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> str:
+        """
+        The time interval in the form `hh:mm:ss`.
+        """
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter(name="timeTaken")
+    def time_taken(self) -> str:
+        """
+        The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+        """
+        return pulumi.get(self, "time_taken")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        The path for which this slow request rule applies.
+        """
+        warnings.warn("""`path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""path is deprecated: `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.""")
+
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeTaken":
+            suggest = "time_taken"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -38143,7 +38443,9 @@ class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
                  www_authentication_disabled: Optional[bool] = None):
         """
         :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        :param str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+               
+               > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         :param Sequence[str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
         :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
@@ -38194,7 +38496,9 @@ class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
     @pulumi.getter(name="tenantAuthEndpoint")
     def tenant_auth_endpoint(self) -> str:
         """
-        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+
+        > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         """
         return pulumi.get(self, "tenant_auth_endpoint")
 
@@ -40689,6 +40993,8 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTrigger(dict):
         suggest = None
         if key == "privateMemoryKb":
             suggest = "private_memory_kb"
+        elif key == "slowRequestWithPaths":
+            suggest = "slow_request_with_paths"
         elif key == "slowRequests":
             suggest = "slow_requests"
         elif key == "statusCodes":
@@ -40708,18 +41014,22 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTrigger(dict):
     def __init__(__self__, *,
                  private_memory_kb: Optional[int] = None,
                  requests: Optional['outputs.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequests'] = None,
+                 slow_request_with_paths: Optional[Sequence['outputs.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath']] = None,
                  slow_requests: Optional[Sequence['outputs.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest']] = None,
                  status_codes: Optional[Sequence['outputs.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode']] = None):
         """
         :param int private_memory_kb: The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and `13631488`.
         :param 'WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs' requests: A `requests` block as defined above.
-        :param Sequence['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs'] slow_requests: One or more `slow_request` blocks as defined above.
+        :param Sequence['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs'] slow_request_with_paths: One or more `slow_request_with_path` blocks as defined above.
+        :param Sequence['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs'] slow_requests: A `slow_request` block as defined above.
         :param Sequence['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs'] status_codes: One or more `status_code` blocks as defined above.
         """
         if private_memory_kb is not None:
             pulumi.set(__self__, "private_memory_kb", private_memory_kb)
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
+        if slow_request_with_paths is not None:
+            pulumi.set(__self__, "slow_request_with_paths", slow_request_with_paths)
         if slow_requests is not None:
             pulumi.set(__self__, "slow_requests", slow_requests)
         if status_codes is not None:
@@ -40742,10 +41052,18 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTrigger(dict):
         return pulumi.get(self, "requests")
 
     @property
+    @pulumi.getter(name="slowRequestWithPaths")
+    def slow_request_with_paths(self) -> Optional[Sequence['outputs.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath']]:
+        """
+        One or more `slow_request_with_path` blocks as defined above.
+        """
+        return pulumi.get(self, "slow_request_with_paths")
+
+    @property
     @pulumi.getter(name="slowRequests")
     def slow_requests(self) -> Optional[Sequence['outputs.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest']]:
         """
-        One or more `slow_request` blocks as defined above.
+        A `slow_request` block as defined above.
         """
         return pulumi.get(self, "slow_requests")
 
@@ -40804,6 +41122,78 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest(dict):
 
     def get(self, key: str, default = None) -> Any:
         WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 count: int,
+                 interval: str,
+                 time_taken: str,
+                 path: Optional[str] = None):
+        """
+        :param int count: The number of Slow Requests in the time `interval` to trigger this rule.
+        :param str interval: The time interval in the form `hh:mm:ss`.
+        :param str time_taken: The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+        :param str path: The path for which this slow request rule applies.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "interval", interval)
+        pulumi.set(__self__, "time_taken", time_taken)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def count(self) -> int:
+        """
+        The number of Slow Requests in the time `interval` to trigger this rule.
+        """
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> str:
+        """
+        The time interval in the form `hh:mm:ss`.
+        """
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter(name="timeTaken")
+    def time_taken(self) -> str:
+        """
+        The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+        """
+        return pulumi.get(self, "time_taken")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        The path for which this slow request rule applies.
+        """
+        warnings.warn("""`path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""path is deprecated: `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.""")
+
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeTaken":
+            suggest = "time_taken"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -44173,7 +44563,7 @@ class GetLinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Result(dict):
         :param Sequence[str] jwt_allowed_client_applications: The list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: The list of Allowed Groups in the JWT Claim.
         :param Mapping[str, str] login_parameters: A map of key-value pairs sent to the Authorisation Endpoint when a user logs in.
-        :param str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        :param str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
         :param bool www_authentication_disabled: Is the www-authenticate provider omitted from the request?
         """
         pulumi.set(__self__, "allowed_applications", allowed_applications)
@@ -44273,7 +44663,7 @@ class GetLinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Result(dict):
     @pulumi.getter(name="tenantAuthEndpoint")
     def tenant_auth_endpoint(self) -> str:
         """
-        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
         """
         return pulumi.get(self, "tenant_auth_endpoint")
 
@@ -46754,7 +47144,7 @@ class GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Result(dict):
         :param Sequence[str] jwt_allowed_client_applications: The list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: The list of Allowed Groups in the JWT Claim.
         :param Mapping[str, str] login_parameters: A map of key-value pairs sent to the Authorisation Endpoint when a user logs in.
-        :param str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        :param str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
         :param bool www_authentication_disabled: Is the www-authenticate provider omitted from the request?
         """
         pulumi.set(__self__, "allowed_applications", allowed_applications)
@@ -46854,7 +47244,7 @@ class GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Result(dict):
     @pulumi.getter(name="tenantAuthEndpoint")
     def tenant_auth_endpoint(self) -> str:
         """
-        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
         """
         return pulumi.get(self, "tenant_auth_endpoint")
 
@@ -48428,17 +48818,19 @@ class GetLinuxWebAppSiteConfigAutoHealSettingActionResult(dict):
 class GetLinuxWebAppSiteConfigAutoHealSettingTriggerResult(dict):
     def __init__(__self__, *,
                  requests: Sequence['outputs.GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestResult'],
-                 status_codes: Sequence['outputs.GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeResult'],
-                 slow_requests: Optional[Sequence['outputs.GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestResult']] = None):
+                 slow_request_with_paths: Sequence['outputs.GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathResult'],
+                 slow_requests: Sequence['outputs.GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestResult'],
+                 status_codes: Sequence['outputs.GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeResult']):
         """
         :param Sequence['GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArgs'] requests: A `requests` block as defined above.
-        :param Sequence['GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs'] status_codes: A `status_code` block as defined above.
+        :param Sequence['GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs'] slow_request_with_paths: (Optional) One or more `slow_request_with_path` blocks as defined above.
         :param Sequence['GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs'] slow_requests: A `slow_request` block as defined above.
+        :param Sequence['GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs'] status_codes: A `status_code` block as defined above.
         """
         pulumi.set(__self__, "requests", requests)
+        pulumi.set(__self__, "slow_request_with_paths", slow_request_with_paths)
+        pulumi.set(__self__, "slow_requests", slow_requests)
         pulumi.set(__self__, "status_codes", status_codes)
-        if slow_requests is not None:
-            pulumi.set(__self__, "slow_requests", slow_requests)
 
     @property
     @pulumi.getter
@@ -48449,20 +48841,28 @@ class GetLinuxWebAppSiteConfigAutoHealSettingTriggerResult(dict):
         return pulumi.get(self, "requests")
 
     @property
+    @pulumi.getter(name="slowRequestWithPaths")
+    def slow_request_with_paths(self) -> Sequence['outputs.GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathResult']:
+        """
+        (Optional) One or more `slow_request_with_path` blocks as defined above.
+        """
+        return pulumi.get(self, "slow_request_with_paths")
+
+    @property
+    @pulumi.getter(name="slowRequests")
+    def slow_requests(self) -> Sequence['outputs.GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestResult']:
+        """
+        A `slow_request` block as defined above.
+        """
+        return pulumi.get(self, "slow_requests")
+
+    @property
     @pulumi.getter(name="statusCodes")
     def status_codes(self) -> Sequence['outputs.GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeResult']:
         """
         A `status_code` block as defined above.
         """
         return pulumi.get(self, "status_codes")
-
-    @property
-    @pulumi.getter(name="slowRequests")
-    def slow_requests(self) -> Optional[Sequence['outputs.GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestResult']]:
-        """
-        A `slow_request` block as defined above.
-        """
-        return pulumi.get(self, "slow_requests")
 
 
 @pulumi.output_type
@@ -48505,7 +48905,61 @@ class GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestResult(dict):
         :param int count: The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
         :param str interval: The time interval in the form `hh:mm:ss`.
         :param str path: The path to which this rule status code applies.
-        :param str time_taken: The amount of time that qualifies as slow for this rule.
+        :param str time_taken: (Required) The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "interval", interval)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "time_taken", time_taken)
+
+    @property
+    @pulumi.getter
+    def count(self) -> int:
+        """
+        The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
+        """
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> str:
+        """
+        The time interval in the form `hh:mm:ss`.
+        """
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        The path to which this rule status code applies.
+        """
+        warnings.warn("""`path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""path is deprecated: `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.""")
+
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="timeTaken")
+    def time_taken(self) -> str:
+        """
+        (Required) The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+        """
+        return pulumi.get(self, "time_taken")
+
+
+@pulumi.output_type
+class GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathResult(dict):
+    def __init__(__self__, *,
+                 count: int,
+                 interval: str,
+                 path: str,
+                 time_taken: str):
+        """
+        :param int count: The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
+        :param str interval: The time interval in the form `hh:mm:ss`.
+        :param str path: The path to which this rule status code applies.
+        :param str time_taken: (Required) The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
         """
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "interval", interval)
@@ -48540,7 +48994,7 @@ class GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestResult(dict):
     @pulumi.getter(name="timeTaken")
     def time_taken(self) -> str:
         """
-        The amount of time that qualifies as slow for this rule.
+        (Required) The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
         """
         return pulumi.get(self, "time_taken")
 
@@ -49865,7 +50319,7 @@ class GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Result(dict):
         :param Sequence[str] jwt_allowed_client_applications: The list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: The list of Allowed Groups in the JWT Claim.
         :param Mapping[str, str] login_parameters: A map of key-value pairs sent to the Authorisation Endpoint when a user logs in.
-        :param str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        :param str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
         :param bool www_authentication_disabled: Is the www-authenticate provider omitted from the request?
         """
         pulumi.set(__self__, "allowed_applications", allowed_applications)
@@ -49965,7 +50419,7 @@ class GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Result(dict):
     @pulumi.getter(name="tenantAuthEndpoint")
     def tenant_auth_endpoint(self) -> str:
         """
-        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
         """
         return pulumi.get(self, "tenant_auth_endpoint")
 
@@ -52343,7 +52797,7 @@ class GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Result(dict):
         :param Sequence[str] jwt_allowed_client_applications: The list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: The list of Allowed Groups in the JWT Claim.
         :param Mapping[str, str] login_parameters: A map of key-value pairs sent to the Authorisation Endpoint when a user logs in.
-        :param str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        :param str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
         :param bool www_authentication_disabled: Is the www-authenticate provider omitted from the request?
         """
         pulumi.set(__self__, "allowed_applications", allowed_applications)
@@ -52443,7 +52897,7 @@ class GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Result(dict):
     @pulumi.getter(name="tenantAuthEndpoint")
     def tenant_auth_endpoint(self) -> str:
         """
-        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
         """
         return pulumi.get(self, "tenant_auth_endpoint")
 
@@ -54104,16 +54558,19 @@ class GetWindowsWebAppSiteConfigAutoHealSettingTriggerResult(dict):
     def __init__(__self__, *,
                  private_memory_kb: int,
                  requests: Sequence['outputs.GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequestResult'],
+                 slow_request_with_paths: Sequence['outputs.GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathResult'],
                  slow_requests: Sequence['outputs.GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestResult'],
                  status_codes: Sequence['outputs.GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeResult']):
         """
         :param int private_memory_kb: The amount of Private Memory used.
         :param Sequence['GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequestArgs'] requests: A `requests` block as defined above.
+        :param Sequence['GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs'] slow_request_with_paths: (Optional) One or more `slow_request_with_path` blocks as defined above.
         :param Sequence['GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs'] slow_requests: A `slow_request` block as defined above.
         :param Sequence['GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs'] status_codes: A `status_code` block as defined above.
         """
         pulumi.set(__self__, "private_memory_kb", private_memory_kb)
         pulumi.set(__self__, "requests", requests)
+        pulumi.set(__self__, "slow_request_with_paths", slow_request_with_paths)
         pulumi.set(__self__, "slow_requests", slow_requests)
         pulumi.set(__self__, "status_codes", status_codes)
 
@@ -54132,6 +54589,14 @@ class GetWindowsWebAppSiteConfigAutoHealSettingTriggerResult(dict):
         A `requests` block as defined above.
         """
         return pulumi.get(self, "requests")
+
+    @property
+    @pulumi.getter(name="slowRequestWithPaths")
+    def slow_request_with_paths(self) -> Sequence['outputs.GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathResult']:
+        """
+        (Optional) One or more `slow_request_with_path` blocks as defined above.
+        """
+        return pulumi.get(self, "slow_request_with_paths")
 
     @property
     @pulumi.getter(name="slowRequests")
@@ -54190,7 +54655,61 @@ class GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestResult(dict):
         :param int count: The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
         :param str interval: The time interval in the form `hh:mm:ss`.
         :param str path: The path to which this rule status code applies.
-        :param str time_taken: The amount of time that qualifies as slow for this rule.
+        :param str time_taken: (Required) The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "interval", interval)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "time_taken", time_taken)
+
+    @property
+    @pulumi.getter
+    def count(self) -> int:
+        """
+        The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
+        """
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> str:
+        """
+        The time interval in the form `hh:mm:ss`.
+        """
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        The path to which this rule status code applies.
+        """
+        warnings.warn("""`path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""path is deprecated: `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.""")
+
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="timeTaken")
+    def time_taken(self) -> str:
+        """
+        (Required) The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+        """
+        return pulumi.get(self, "time_taken")
+
+
+@pulumi.output_type
+class GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathResult(dict):
+    def __init__(__self__, *,
+                 count: int,
+                 interval: str,
+                 path: str,
+                 time_taken: str):
+        """
+        :param int count: The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
+        :param str interval: The time interval in the form `hh:mm:ss`.
+        :param str path: The path to which this rule status code applies.
+        :param str time_taken: (Required) The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
         """
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "interval", interval)
@@ -54225,7 +54744,7 @@ class GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestResult(dict):
     @pulumi.getter(name="timeTaken")
     def time_taken(self) -> str:
         """
-        The amount of time that qualifies as slow for this rule.
+        (Required) The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
         """
         return pulumi.get(self, "time_taken")
 

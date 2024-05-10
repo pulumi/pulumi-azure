@@ -53,7 +53,9 @@ class FlexibleServerArgs:
         :param pulumi.Input['FlexibleServerAuthenticationArgs'] authentication: An `authentication` block as defined below.
         :param pulumi.Input[bool] auto_grow_enabled: Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
         :param pulumi.Input[int] backup_retention_days: The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
-        :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
+        :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
+               
+               > **Note:** `create_mode` cannot be changed once it's set since it's a parameter at creation.
                
                > **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
         :param pulumi.Input['FlexibleServerCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
@@ -218,7 +220,9 @@ class FlexibleServerArgs:
     @pulumi.getter(name="createMode")
     def create_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
+        The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
+
+        > **Note:** `create_mode` cannot be changed once it's set since it's a parameter at creation.
 
         > **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
         """
@@ -497,7 +501,9 @@ class _FlexibleServerState:
         :param pulumi.Input['FlexibleServerAuthenticationArgs'] authentication: An `authentication` block as defined below.
         :param pulumi.Input[bool] auto_grow_enabled: Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
         :param pulumi.Input[int] backup_retention_days: The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
-        :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
+        :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
+               
+               > **Note:** `create_mode` cannot be changed once it's set since it's a parameter at creation.
                
                > **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
         :param pulumi.Input['FlexibleServerCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
@@ -658,7 +664,9 @@ class _FlexibleServerState:
     @pulumi.getter(name="createMode")
     def create_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
+        The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
+
+        > **Note:** `create_mode` cannot be changed once it's set since it's a parameter at creation.
 
         > **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
         """
@@ -1056,7 +1064,9 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FlexibleServerAuthenticationArgs']] authentication: An `authentication` block as defined below.
         :param pulumi.Input[bool] auto_grow_enabled: Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
         :param pulumi.Input[int] backup_retention_days: The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
-        :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
+        :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
+               
+               > **Note:** `create_mode` cannot be changed once it's set since it's a parameter at creation.
                
                > **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
         :param pulumi.Input[pulumi.InputType['FlexibleServerCustomerManagedKeyArgs']] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
@@ -1313,7 +1323,9 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FlexibleServerAuthenticationArgs']] authentication: An `authentication` block as defined below.
         :param pulumi.Input[bool] auto_grow_enabled: Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
         :param pulumi.Input[int] backup_retention_days: The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
-        :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
+        :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
+               
+               > **Note:** `create_mode` cannot be changed once it's set since it's a parameter at creation.
                
                > **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
         :param pulumi.Input[pulumi.InputType['FlexibleServerCustomerManagedKeyArgs']] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
@@ -1432,7 +1444,9 @@ class FlexibleServer(pulumi.CustomResource):
     @pulumi.getter(name="createMode")
     def create_mode(self) -> pulumi.Output[Optional[str]]:
         """
-        The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
+        The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
+
+        > **Note:** `create_mode` cannot be changed once it's set since it's a parameter at creation.
 
         > **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
         """

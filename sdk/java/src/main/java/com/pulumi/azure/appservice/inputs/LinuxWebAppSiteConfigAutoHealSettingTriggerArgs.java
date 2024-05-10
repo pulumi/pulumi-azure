@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.inputs;
 
 import com.pulumi.azure.appservice.inputs.LinuxWebAppSiteConfigAutoHealSettingTriggerRequestsArgs;
 import com.pulumi.azure.appservice.inputs.LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs;
+import com.pulumi.azure.appservice.inputs.LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs;
 import com.pulumi.azure.appservice.inputs.LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -34,14 +35,29 @@ public final class LinuxWebAppSiteConfigAutoHealSettingTriggerArgs extends com.p
     }
 
     /**
-     * One or more `slow_request` blocks as defined above.
+     * One or more `slow_request_with_path` blocks as defined above.
+     * 
+     */
+    @Import(name="slowRequestWithPaths")
+    private @Nullable Output<List<LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs>> slowRequestWithPaths;
+
+    /**
+     * @return One or more `slow_request_with_path` blocks as defined above.
+     * 
+     */
+    public Optional<Output<List<LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs>>> slowRequestWithPaths() {
+        return Optional.ofNullable(this.slowRequestWithPaths);
+    }
+
+    /**
+     * A `slow_request` blocks as defined above.
      * 
      */
     @Import(name="slowRequests")
     private @Nullable Output<List<LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs>> slowRequests;
 
     /**
-     * @return One or more `slow_request` blocks as defined above.
+     * @return A `slow_request` blocks as defined above.
      * 
      */
     public Optional<Output<List<LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs>>> slowRequests() {
@@ -67,6 +83,7 @@ public final class LinuxWebAppSiteConfigAutoHealSettingTriggerArgs extends com.p
 
     private LinuxWebAppSiteConfigAutoHealSettingTriggerArgs(LinuxWebAppSiteConfigAutoHealSettingTriggerArgs $) {
         this.requests = $.requests;
+        this.slowRequestWithPaths = $.slowRequestWithPaths;
         this.slowRequests = $.slowRequests;
         this.statusCodes = $.statusCodes;
     }
@@ -111,7 +128,38 @@ public final class LinuxWebAppSiteConfigAutoHealSettingTriggerArgs extends com.p
         }
 
         /**
-         * @param slowRequests One or more `slow_request` blocks as defined above.
+         * @param slowRequestWithPaths One or more `slow_request_with_path` blocks as defined above.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder slowRequestWithPaths(@Nullable Output<List<LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs>> slowRequestWithPaths) {
+            $.slowRequestWithPaths = slowRequestWithPaths;
+            return this;
+        }
+
+        /**
+         * @param slowRequestWithPaths One or more `slow_request_with_path` blocks as defined above.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder slowRequestWithPaths(List<LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs> slowRequestWithPaths) {
+            return slowRequestWithPaths(Output.of(slowRequestWithPaths));
+        }
+
+        /**
+         * @param slowRequestWithPaths One or more `slow_request_with_path` blocks as defined above.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder slowRequestWithPaths(LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs... slowRequestWithPaths) {
+            return slowRequestWithPaths(List.of(slowRequestWithPaths));
+        }
+
+        /**
+         * @param slowRequests A `slow_request` blocks as defined above.
          * 
          * @return builder
          * 
@@ -122,7 +170,7 @@ public final class LinuxWebAppSiteConfigAutoHealSettingTriggerArgs extends com.p
         }
 
         /**
-         * @param slowRequests One or more `slow_request` blocks as defined above.
+         * @param slowRequests A `slow_request` blocks as defined above.
          * 
          * @return builder
          * 
@@ -132,7 +180,7 @@ public final class LinuxWebAppSiteConfigAutoHealSettingTriggerArgs extends com.p
         }
 
         /**
-         * @param slowRequests One or more `slow_request` blocks as defined above.
+         * @param slowRequests A `slow_request` blocks as defined above.
          * 
          * @return builder
          * 

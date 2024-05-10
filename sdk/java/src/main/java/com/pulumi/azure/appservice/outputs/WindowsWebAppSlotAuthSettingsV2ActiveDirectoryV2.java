@@ -70,7 +70,9 @@ public final class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2 {
      */
     private @Nullable Map<String,String> loginParameters;
     /**
-     * @return The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+     * @return The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+     * 
+     * &gt; **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
      * 
      */
     private String tenantAuthEndpoint;
@@ -156,7 +158,9 @@ public final class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2 {
         return this.loginParameters == null ? Map.of() : this.loginParameters;
     }
     /**
-     * @return The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+     * @return The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+     * 
+     * &gt; **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
      * 
      */
     public String tenantAuthEndpoint() {

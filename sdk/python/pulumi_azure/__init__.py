@@ -2259,6 +2259,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "compute/automanageConfigurationAssignment",
+  "fqn": "pulumi_azure.compute",
+  "classes": {
+   "azure:compute/automanageConfigurationAssignment:AutomanageConfigurationAssignment": "AutomanageConfigurationAssignment"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "compute/availabilitySet",
   "fqn": "pulumi_azure.compute",
   "classes": {
@@ -2375,6 +2383,14 @@ _utilities.register(
   "fqn": "pulumi_azure.compute",
   "classes": {
    "azure:compute/galleryApplication:GalleryApplication": "GalleryApplication"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "compute/galleryApplicationAssignment",
+  "fqn": "pulumi_azure.compute",
+  "classes": {
+   "azure:compute/galleryApplicationAssignment:GalleryApplicationAssignment": "GalleryApplicationAssignment"
   }
  },
  {
@@ -2611,6 +2627,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "containerapp/environmentCustomDomain",
+  "fqn": "pulumi_azure.containerapp",
+  "classes": {
+   "azure:containerapp/environmentCustomDomain:EnvironmentCustomDomain": "EnvironmentCustomDomain"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "containerapp/environmentDaprComponent",
   "fqn": "pulumi_azure.containerapp",
   "classes": {
@@ -2623,6 +2647,14 @@ _utilities.register(
   "fqn": "pulumi_azure.containerapp",
   "classes": {
    "azure:containerapp/environmentStorage:EnvironmentStorage": "EnvironmentStorage"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "containerapp/job",
+  "fqn": "pulumi_azure.containerapp",
+  "classes": {
+   "azure:containerapp/job:Job": "Job"
   }
  },
  {
@@ -3319,6 +3351,14 @@ _utilities.register(
   "fqn": "pulumi_azure.datadog",
   "classes": {
    "azure:datadog/monitorTagRule:MonitorTagRule": "MonitorTagRule"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "datafactory/credentialServicePrincipal",
+  "fqn": "pulumi_azure.datafactory",
+  "classes": {
+   "azure:datafactory/credentialServicePrincipal:CredentialServicePrincipal": "CredentialServicePrincipal"
   }
  },
  {
@@ -5423,6 +5463,14 @@ _utilities.register(
   "fqn": "pulumi_azure.maintenance",
   "classes": {
    "azure:maintenance/assignmentDedicatedHost:AssignmentDedicatedHost": "AssignmentDedicatedHost"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "maintenance/assignmentDynamicScope",
+  "fqn": "pulumi_azure.maintenance",
+  "classes": {
+   "azure:maintenance/assignmentDynamicScope:AssignmentDynamicScope": "AssignmentDynamicScope"
   }
  },
  {

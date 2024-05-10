@@ -36,6 +36,7 @@ from .get_nat_gateway import *
 from .get_network_ddos_protection_plan import *
 from .get_network_interface import *
 from .get_network_manager import *
+from .get_network_manager_connectivity_configuration import *
 from .get_network_manager_network_group import *
 from .get_network_security_group import *
 from .get_network_watcher import *

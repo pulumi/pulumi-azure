@@ -169,7 +169,9 @@ namespace Pulumi.Azure.PostgreSql
         public Output<int> BackupRetentionDays { get; private set; } = null!;
 
         /// <summary>
-        /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
+        /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// 
+        /// &gt; **Note:** `create_mode` cannot be changed once it's set since it's a parameter at creation.
         /// 
         /// &gt; **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
         /// </summary>
@@ -408,7 +410,9 @@ namespace Pulumi.Azure.PostgreSql
         public Input<int>? BackupRetentionDays { get; set; }
 
         /// <summary>
-        /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
+        /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// 
+        /// &gt; **Note:** `create_mode` cannot be changed once it's set since it's a parameter at creation.
         /// 
         /// &gt; **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
         /// </summary>
@@ -599,7 +603,9 @@ namespace Pulumi.Azure.PostgreSql
         public Input<int>? BackupRetentionDays { get; set; }
 
         /// <summary>
-        /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
+        /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// 
+        /// &gt; **Note:** `create_mode` cannot be changed once it's set since it's a parameter at creation.
         /// 
         /// &gt; **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
         /// </summary>

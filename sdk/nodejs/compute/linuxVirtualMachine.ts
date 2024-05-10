@@ -211,6 +211,8 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
     public readonly extensionsTimeBudget!: pulumi.Output<string | undefined>;
     /**
      * One or more `galleryApplication` blocks as defined below.
+     *
+     * > **Note** Gallery Application Assignments can be defined either directly on `azure.compute.LinuxVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it's recommended to use `ignoreChanges` for the `galleryApplication` block on the corresponding `azure.compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
      */
     public readonly galleryApplications!: pulumi.Output<outputs.compute.LinuxVirtualMachineGalleryApplication[] | undefined>;
     /**
@@ -218,7 +220,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.compute.LinuxVirtualMachineIdentity | undefined>;
     /**
-     * Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE` and `SLES_BYOS`.
+     * Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`.
      */
     public readonly licenseType!: pulumi.Output<string | undefined>;
     /**
@@ -611,6 +613,8 @@ export interface LinuxVirtualMachineState {
     extensionsTimeBudget?: pulumi.Input<string>;
     /**
      * One or more `galleryApplication` blocks as defined below.
+     *
+     * > **Note** Gallery Application Assignments can be defined either directly on `azure.compute.LinuxVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it's recommended to use `ignoreChanges` for the `galleryApplication` block on the corresponding `azure.compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
      */
     galleryApplications?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineGalleryApplication>[]>;
     /**
@@ -618,7 +622,7 @@ export interface LinuxVirtualMachineState {
      */
     identity?: pulumi.Input<inputs.compute.LinuxVirtualMachineIdentity>;
     /**
-     * Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE` and `SLES_BYOS`.
+     * Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`.
      */
     licenseType?: pulumi.Input<string>;
     /**
@@ -866,6 +870,8 @@ export interface LinuxVirtualMachineArgs {
     extensionsTimeBudget?: pulumi.Input<string>;
     /**
      * One or more `galleryApplication` blocks as defined below.
+     *
+     * > **Note** Gallery Application Assignments can be defined either directly on `azure.compute.LinuxVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it's recommended to use `ignoreChanges` for the `galleryApplication` block on the corresponding `azure.compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
      */
     galleryApplications?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineGalleryApplication>[]>;
     /**
@@ -873,7 +879,7 @@ export interface LinuxVirtualMachineArgs {
      */
     identity?: pulumi.Input<inputs.compute.LinuxVirtualMachineIdentity>;
     /**
-     * Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE` and `SLES_BYOS`.
+     * Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`.
      */
     licenseType?: pulumi.Input<string>;
     /**

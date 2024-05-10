@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { CredentialServicePrincipalArgs, CredentialServicePrincipalState } from "./credentialServicePrincipal";
+export type CredentialServicePrincipal = import("./credentialServicePrincipal").CredentialServicePrincipal;
+export const CredentialServicePrincipal: typeof import("./credentialServicePrincipal").CredentialServicePrincipal = null as any;
+utilities.lazyLoad(exports, ["CredentialServicePrincipal"], () => require("./credentialServicePrincipal"));
+
 export { CredentialUserManagedIdentityArgs, CredentialUserManagedIdentityState } from "./credentialUserManagedIdentity";
 export type CredentialUserManagedIdentity = import("./credentialUserManagedIdentity").CredentialUserManagedIdentity;
 export const CredentialUserManagedIdentity: typeof import("./credentialUserManagedIdentity").CredentialUserManagedIdentity = null as any;
@@ -270,6 +275,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure:datafactory/credentialServicePrincipal:CredentialServicePrincipal":
+                return new CredentialServicePrincipal(name, <any>undefined, { urn })
             case "azure:datafactory/credentialUserManagedIdentity:CredentialUserManagedIdentity":
                 return new CredentialUserManagedIdentity(name, <any>undefined, { urn })
             case "azure:datafactory/customDataset:CustomDataset":
@@ -373,6 +380,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azure", "datafactory/credentialServicePrincipal", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/credentialUserManagedIdentity", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/customDataset", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/dataFlow", _module)

@@ -215,6 +215,7 @@ class EnvironmentArgs:
 @pulumi.input_type
 class _EnvironmentState:
     def __init__(__self__, *,
+                 custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
                  dapr_application_insights_connection_string: Optional[pulumi.Input[str]] = None,
                  default_domain: Optional[pulumi.Input[str]] = None,
                  docker_bridge_cidr: Optional[pulumi.Input[str]] = None,
@@ -233,6 +234,7 @@ class _EnvironmentState:
                  zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Environment resources.
+        :param pulumi.Input[str] custom_domain_verification_id: The ID of the Custom Domain Verification for this Container App Environment.
         :param pulumi.Input[str] dapr_application_insights_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
         :param pulumi.Input[str] default_domain: The default, publicly resolvable, name of this Container App Environment.
         :param pulumi.Input[str] docker_bridge_cidr: The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
@@ -258,6 +260,8 @@ class _EnvironmentState:
                
                > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
         """
+        if custom_domain_verification_id is not None:
+            pulumi.set(__self__, "custom_domain_verification_id", custom_domain_verification_id)
         if dapr_application_insights_connection_string is not None:
             pulumi.set(__self__, "dapr_application_insights_connection_string", dapr_application_insights_connection_string)
         if default_domain is not None:
@@ -290,6 +294,18 @@ class _EnvironmentState:
             pulumi.set(__self__, "workload_profiles", workload_profiles)
         if zone_redundancy_enabled is not None:
             pulumi.set(__self__, "zone_redundancy_enabled", zone_redundancy_enabled)
+
+    @property
+    @pulumi.getter(name="customDomainVerificationId")
+    def custom_domain_verification_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Custom Domain Verification for this Container App Environment.
+        """
+        return pulumi.get(self, "custom_domain_verification_id")
+
+    @custom_domain_verification_id.setter
+    def custom_domain_verification_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_domain_verification_id", value)
 
     @property
     @pulumi.getter(name="daprApplicationInsightsConnectionString")
@@ -651,6 +667,7 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["workload_profiles"] = workload_profiles
             __props__.__dict__["zone_redundancy_enabled"] = zone_redundancy_enabled
+            __props__.__dict__["custom_domain_verification_id"] = None
             __props__.__dict__["default_domain"] = None
             __props__.__dict__["docker_bridge_cidr"] = None
             __props__.__dict__["platform_reserved_cidr"] = None
@@ -668,6 +685,7 @@ class Environment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
             dapr_application_insights_connection_string: Optional[pulumi.Input[str]] = None,
             default_domain: Optional[pulumi.Input[str]] = None,
             docker_bridge_cidr: Optional[pulumi.Input[str]] = None,
@@ -691,6 +709,7 @@ class Environment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] custom_domain_verification_id: The ID of the Custom Domain Verification for this Container App Environment.
         :param pulumi.Input[str] dapr_application_insights_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
         :param pulumi.Input[str] default_domain: The default, publicly resolvable, name of this Container App Environment.
         :param pulumi.Input[str] docker_bridge_cidr: The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
@@ -720,6 +739,7 @@ class Environment(pulumi.CustomResource):
 
         __props__ = _EnvironmentState.__new__(_EnvironmentState)
 
+        __props__.__dict__["custom_domain_verification_id"] = custom_domain_verification_id
         __props__.__dict__["dapr_application_insights_connection_string"] = dapr_application_insights_connection_string
         __props__.__dict__["default_domain"] = default_domain
         __props__.__dict__["docker_bridge_cidr"] = docker_bridge_cidr
@@ -737,6 +757,14 @@ class Environment(pulumi.CustomResource):
         __props__.__dict__["workload_profiles"] = workload_profiles
         __props__.__dict__["zone_redundancy_enabled"] = zone_redundancy_enabled
         return Environment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="customDomainVerificationId")
+    def custom_domain_verification_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the Custom Domain Verification for this Container App Environment.
+        """
+        return pulumi.get(self, "custom_domain_verification_id")
 
     @property
     @pulumi.getter(name="daprApplicationInsightsConnectionString")

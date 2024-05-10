@@ -5,12 +5,12 @@ package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.azure.appservice.outputs.GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest;
 import com.pulumi.azure.appservice.outputs.GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest;
+import com.pulumi.azure.appservice.outputs.GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath;
 import com.pulumi.azure.appservice.outputs.GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLinuxWebAppSiteConfigAutoHealSettingTrigger {
@@ -20,10 +20,15 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingTrigger {
      */
     private List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest> requests;
     /**
+     * @return (Optional) One or more `slow_request_with_path` blocks as defined above.
+     * 
+     */
+    private List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath> slowRequestWithPaths;
+    /**
      * @return A `slow_request` block as defined above.
      * 
      */
-    private @Nullable List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests;
+    private List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests;
     /**
      * @return A `status_code` block as defined above.
      * 
@@ -39,11 +44,18 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingTrigger {
         return this.requests;
     }
     /**
+     * @return (Optional) One or more `slow_request_with_path` blocks as defined above.
+     * 
+     */
+    public List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath> slowRequestWithPaths() {
+        return this.slowRequestWithPaths;
+    }
+    /**
      * @return A `slow_request` block as defined above.
      * 
      */
     public List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests() {
-        return this.slowRequests == null ? List.of() : this.slowRequests;
+        return this.slowRequests;
     }
     /**
      * @return A `status_code` block as defined above.
@@ -63,12 +75,14 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingTrigger {
     @CustomType.Builder
     public static final class Builder {
         private List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest> requests;
-        private @Nullable List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests;
+        private List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath> slowRequestWithPaths;
+        private List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests;
         private List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode> statusCodes;
         public Builder() {}
         public Builder(GetLinuxWebAppSiteConfigAutoHealSettingTrigger defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.requests = defaults.requests;
+    	      this.slowRequestWithPaths = defaults.slowRequestWithPaths;
     	      this.slowRequests = defaults.slowRequests;
     	      this.statusCodes = defaults.statusCodes;
         }
@@ -85,8 +99,21 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingTrigger {
             return requests(List.of(requests));
         }
         @CustomType.Setter
-        public Builder slowRequests(@Nullable List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests) {
-
+        public Builder slowRequestWithPaths(List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath> slowRequestWithPaths) {
+            if (slowRequestWithPaths == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigAutoHealSettingTrigger", "slowRequestWithPaths");
+            }
+            this.slowRequestWithPaths = slowRequestWithPaths;
+            return this;
+        }
+        public Builder slowRequestWithPaths(GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath... slowRequestWithPaths) {
+            return slowRequestWithPaths(List.of(slowRequestWithPaths));
+        }
+        @CustomType.Setter
+        public Builder slowRequests(List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests) {
+            if (slowRequests == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigAutoHealSettingTrigger", "slowRequests");
+            }
             this.slowRequests = slowRequests;
             return this;
         }
@@ -107,6 +134,7 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingTrigger {
         public GetLinuxWebAppSiteConfigAutoHealSettingTrigger build() {
             final var _resultValue = new GetLinuxWebAppSiteConfigAutoHealSettingTrigger();
             _resultValue.requests = requests;
+            _resultValue.slowRequestWithPaths = slowRequestWithPaths;
             _resultValue.slowRequests = slowRequests;
             _resultValue.statusCodes = statusCodes;
             return _resultValue;

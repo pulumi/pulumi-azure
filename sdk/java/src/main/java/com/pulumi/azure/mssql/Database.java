@@ -732,12 +732,16 @@ public class Database extends com.pulumi.resources.CustomResource {
     /**
      * Boolean flag to specify whether TDE automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
      * 
+     * &gt; **NOTE:** When the `sku_name` is `DW100c`, the `transparent_data_encryption_key_automatic_rotation_enabled` and the `transparent_data_encryption_key_vault_key_id` properties should not be specified, as database-level CMK is not supported for Data Warehouse SKUs.
+     * 
      */
     @Export(name="transparentDataEncryptionKeyAutomaticRotationEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> transparentDataEncryptionKeyAutomaticRotationEnabled;
 
     /**
      * @return Boolean flag to specify whether TDE automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+     * 
+     * &gt; **NOTE:** When the `sku_name` is `DW100c`, the `transparent_data_encryption_key_automatic_rotation_enabled` and the `transparent_data_encryption_key_vault_key_id` properties should not be specified, as database-level CMK is not supported for Data Warehouse SKUs.
      * 
      */
     public Output<Optional<Boolean>> transparentDataEncryptionKeyAutomaticRotationEnabled() {
