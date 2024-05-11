@@ -123,6 +123,14 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> IpConnectEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** `kerberos_enabled` is only supported when `sku` is `Standard`.
+        /// </summary>
+        [Output("kerberosEnabled")]
+        public Output<bool?> KerberosEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
         /// </summary>
         [Output("location")]
@@ -253,6 +261,14 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? IpConnectEnabled { get; set; }
 
         /// <summary>
+        /// Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** `kerberos_enabled` is only supported when `sku` is `Standard`.
+        /// </summary>
+        [Input("kerberosEnabled")]
+        public Input<bool>? KerberosEnabled { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
         /// </summary>
         [Input("location")]
@@ -355,6 +371,14 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("ipConnectEnabled")]
         public Input<bool>? IpConnectEnabled { get; set; }
+
+        /// <summary>
+        /// Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** `kerberos_enabled` is only supported when `sku` is `Standard`.
+        /// </summary>
+        [Input("kerberosEnabled")]
+        public Input<bool>? KerberosEnabled { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.

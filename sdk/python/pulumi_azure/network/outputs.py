@@ -232,6 +232,8 @@ __all__ = [
     'GetGatewayConnectionTrafficSelectorPolicyResult',
     'GetLocalNetworkGatewayBgpSettingResult',
     'GetNetworkInterfaceIpConfigurationResult',
+    'GetNetworkManagerConnectivityConfigurationAppliesToGroupResult',
+    'GetNetworkManagerConnectivityConfigurationHubResult',
     'GetNetworkManagerCrossTenantScopeResult',
     'GetNetworkManagerScopeResult',
     'GetNetworkSecurityGroupSecurityRuleResult',
@@ -9813,6 +9815,8 @@ class VirtualNetworkEncryption(dict):
                  enforcement: str):
         """
         :param str enforcement: Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
+               
+               > **NOTE:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
         """
         pulumi.set(__self__, "enforcement", enforcement)
 
@@ -9821,6 +9825,8 @@ class VirtualNetworkEncryption(dict):
     def enforcement(self) -> str:
         """
         Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
+
+        > **NOTE:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
         """
         return pulumi.get(self, "enforcement")
 
@@ -15862,6 +15868,86 @@ class GetNetworkInterfaceIpConfigurationResult(dict):
         The ID of the Subnet which the Network Interface is connected to.
         """
         return pulumi.get(self, "subnet_id")
+
+
+@pulumi.output_type
+class GetNetworkManagerConnectivityConfigurationAppliesToGroupResult(dict):
+    def __init__(__self__, *,
+                 global_mesh_enabled: bool,
+                 group_connectivity: str,
+                 network_group_id: str,
+                 use_hub_gateway: bool):
+        """
+        :param bool global_mesh_enabled: Whether global mesh is supported.
+        :param str group_connectivity: The group connectivity type.
+        :param str network_group_id: The ID of the Network Manager Network Group.
+        :param bool use_hub_gateway: Whether hub gateway is used.
+        """
+        pulumi.set(__self__, "global_mesh_enabled", global_mesh_enabled)
+        pulumi.set(__self__, "group_connectivity", group_connectivity)
+        pulumi.set(__self__, "network_group_id", network_group_id)
+        pulumi.set(__self__, "use_hub_gateway", use_hub_gateway)
+
+    @property
+    @pulumi.getter(name="globalMeshEnabled")
+    def global_mesh_enabled(self) -> bool:
+        """
+        Whether global mesh is supported.
+        """
+        return pulumi.get(self, "global_mesh_enabled")
+
+    @property
+    @pulumi.getter(name="groupConnectivity")
+    def group_connectivity(self) -> str:
+        """
+        The group connectivity type.
+        """
+        return pulumi.get(self, "group_connectivity")
+
+    @property
+    @pulumi.getter(name="networkGroupId")
+    def network_group_id(self) -> str:
+        """
+        The ID of the Network Manager Network Group.
+        """
+        return pulumi.get(self, "network_group_id")
+
+    @property
+    @pulumi.getter(name="useHubGateway")
+    def use_hub_gateway(self) -> bool:
+        """
+        Whether hub gateway is used.
+        """
+        return pulumi.get(self, "use_hub_gateway")
+
+
+@pulumi.output_type
+class GetNetworkManagerConnectivityConfigurationHubResult(dict):
+    def __init__(__self__, *,
+                 resource_id: str,
+                 resource_type: str):
+        """
+        :param str resource_id: The resource ID used as hub in Hub and Spoke topology.
+        :param str resource_type: The resource type used as hub in Hub and Spoke topology.
+        """
+        pulumi.set(__self__, "resource_id", resource_id)
+        pulumi.set(__self__, "resource_type", resource_type)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> str:
+        """
+        The resource ID used as hub in Hub and Spoke topology.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> str:
+        """
+        The resource type used as hub in Hub and Spoke topology.
+        """
+        return pulumi.get(self, "resource_type")
 
 
 @pulumi.output_type

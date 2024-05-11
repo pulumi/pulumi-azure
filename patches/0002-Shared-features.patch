@@ -19,10 +19,10 @@ index d3723a3480..4953bff3b7 100644
 +	return true
 +}
 diff --git a/internal/provider/features.go b/internal/provider/features.go
-index 57238f1db2..a01fe3586c 100644
+index ac7f6da7d6..e41f13d5a6 100644
 --- a/internal/provider/features.go
 +++ b/internal/provider/features.go
-@@ -354,7 +354,7 @@ func schemaFeatures(supportLegacyTestSuite bool) *pluginsdk.Schema {
+@@ -369,7 +369,7 @@ func schemaFeatures(supportLegacyTestSuite bool) *pluginsdk.Schema {
  
  	return &pluginsdk.Schema{
  		Type:     pluginsdk.TypeList,

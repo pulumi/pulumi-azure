@@ -487,12 +487,18 @@ class AccountBlobPropertiesCorsRuleArgs:
 @pulumi.input_type
 class AccountBlobPropertiesDeleteRetentionPolicyArgs:
     def __init__(__self__, *,
-                 days: Optional[pulumi.Input[int]] = None):
+                 days: Optional[pulumi.Input[int]] = None,
+                 permanent_delete_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[int] days: Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
+        :param pulumi.Input[bool] permanent_delete_enabled: Indicates whether permanent deletion of the soft deleted blob versions and snapshots is allowed. Defaults to `false`.
+               
+               > **NOTE:** `permanent_delete_enabled` cannot be set to true if a `restore_policy` block is defined.
         """
         if days is not None:
             pulumi.set(__self__, "days", days)
+        if permanent_delete_enabled is not None:
+            pulumi.set(__self__, "permanent_delete_enabled", permanent_delete_enabled)
 
     @property
     @pulumi.getter
@@ -505,6 +511,20 @@ class AccountBlobPropertiesDeleteRetentionPolicyArgs:
     @days.setter
     def days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "days", value)
+
+    @property
+    @pulumi.getter(name="permanentDeleteEnabled")
+    def permanent_delete_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether permanent deletion of the soft deleted blob versions and snapshots is allowed. Defaults to `false`.
+
+        > **NOTE:** `permanent_delete_enabled` cannot be set to true if a `restore_policy` block is defined.
+        """
+        return pulumi.get(self, "permanent_delete_enabled")
+
+    @permanent_delete_enabled.setter
+    def permanent_delete_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "permanent_delete_enabled", value)
 
 
 @pulumi.input_type

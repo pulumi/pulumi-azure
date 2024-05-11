@@ -11,6 +11,7 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'CredentialServicePrincipalServicePrincipalKey',
     'CustomDatasetLinkedService',
     'DataFlowSink',
     'DataFlowSinkDataset',
@@ -118,6 +119,68 @@ __all__ = [
     'GetTriggerScheduleScheduleResult',
     'GetTriggerScheduleScheduleMonthlyResult',
 ]
+
+@pulumi.output_type
+class CredentialServicePrincipalServicePrincipalKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "secretName":
+            suggest = "secret_name"
+        elif key == "secretVersion":
+            suggest = "secret_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CredentialServicePrincipalServicePrincipalKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CredentialServicePrincipalServicePrincipalKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CredentialServicePrincipalServicePrincipalKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 linked_service_name: str,
+                 secret_name: str,
+                 secret_version: Optional[str] = None):
+        """
+        :param str linked_service_name: The name of the Linked Service to use for the Service Principal Key.
+        :param str secret_name: The name of the Secret in the Key Vault.
+        :param str secret_version: The version of the Secret in the Key Vault.
+        """
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "secret_name", secret_name)
+        if secret_version is not None:
+            pulumi.set(__self__, "secret_version", secret_version)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> str:
+        """
+        The name of the Linked Service to use for the Service Principal Key.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        The name of the Secret in the Key Vault.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @property
+    @pulumi.getter(name="secretVersion")
+    def secret_version(self) -> Optional[str]:
+        """
+        The version of the Secret in the Key Vault.
+        """
+        return pulumi.get(self, "secret_version")
+
 
 @pulumi.output_type
 class CustomDatasetLinkedService(dict):

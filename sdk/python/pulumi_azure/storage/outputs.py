@@ -512,13 +512,36 @@ class AccountBlobPropertiesCorsRule(dict):
 
 @pulumi.output_type
 class AccountBlobPropertiesDeleteRetentionPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "permanentDeleteEnabled":
+            suggest = "permanent_delete_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountBlobPropertiesDeleteRetentionPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountBlobPropertiesDeleteRetentionPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountBlobPropertiesDeleteRetentionPolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 days: Optional[int] = None):
+                 days: Optional[int] = None,
+                 permanent_delete_enabled: Optional[bool] = None):
         """
         :param int days: Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
+        :param bool permanent_delete_enabled: Indicates whether permanent deletion of the soft deleted blob versions and snapshots is allowed. Defaults to `false`.
+               
+               > **NOTE:** `permanent_delete_enabled` cannot be set to true if a `restore_policy` block is defined.
         """
         if days is not None:
             pulumi.set(__self__, "days", days)
+        if permanent_delete_enabled is not None:
+            pulumi.set(__self__, "permanent_delete_enabled", permanent_delete_enabled)
 
     @property
     @pulumi.getter
@@ -527,6 +550,16 @@ class AccountBlobPropertiesDeleteRetentionPolicy(dict):
         Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
         """
         return pulumi.get(self, "days")
+
+    @property
+    @pulumi.getter(name="permanentDeleteEnabled")
+    def permanent_delete_enabled(self) -> Optional[bool]:
+        """
+        Indicates whether permanent deletion of the soft deleted blob versions and snapshots is allowed. Defaults to `false`.
+
+        > **NOTE:** `permanent_delete_enabled` cannot be set to true if a `restore_policy` block is defined.
+        """
+        return pulumi.get(self, "permanent_delete_enabled")
 
 
 @pulumi.output_type

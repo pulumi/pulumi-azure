@@ -147,7 +147,9 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     public readonly backupRetentionDays!: pulumi.Output<number>;
     /**
-     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
+     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     *
+     * > **Note:** `createMode` cannot be changed once it's set since it's a parameter at creation.
      *
      * > **Note:** While creating the resource, `createMode` cannot be set to `Update`.
      */
@@ -357,7 +359,9 @@ export interface FlexibleServerState {
      */
     backupRetentionDays?: pulumi.Input<number>;
     /**
-     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
+     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     *
+     * > **Note:** `createMode` cannot be changed once it's set since it's a parameter at creation.
      *
      * > **Note:** While creating the resource, `createMode` cannot be set to `Update`.
      */
@@ -488,7 +492,9 @@ export interface FlexibleServerArgs {
      */
     backupRetentionDays?: pulumi.Input<number>;
     /**
-     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
+     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     *
+     * > **Note:** `createMode` cannot be changed once it's set since it's a parameter at creation.
      *
      * > **Note:** While creating the resource, `createMode` cannot be set to `Update`.
      */

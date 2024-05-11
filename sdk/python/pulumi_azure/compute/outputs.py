@@ -813,7 +813,9 @@ class LinuxVirtualMachineAdditionalCapabilities(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "ultraSsdEnabled":
+        if key == "hibernationEnabled":
+            suggest = "hibernation_enabled"
+        elif key == "ultraSsdEnabled":
             suggest = "ultra_ssd_enabled"
 
         if suggest:
@@ -828,12 +830,24 @@ class LinuxVirtualMachineAdditionalCapabilities(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 hibernation_enabled: Optional[bool] = None,
                  ultra_ssd_enabled: Optional[bool] = None):
         """
+        :param bool hibernation_enabled: Whether to enable the hibernation capability or not. Changing this forces a new Linux Virtual Machine to be created.
         :param bool ultra_ssd_enabled: Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
         """
+        if hibernation_enabled is not None:
+            pulumi.set(__self__, "hibernation_enabled", hibernation_enabled)
         if ultra_ssd_enabled is not None:
             pulumi.set(__self__, "ultra_ssd_enabled", ultra_ssd_enabled)
+
+    @property
+    @pulumi.getter(name="hibernationEnabled")
+    def hibernation_enabled(self) -> Optional[bool]:
+        """
+        Whether to enable the hibernation capability or not. Changing this forces a new Linux Virtual Machine to be created.
+        """
+        return pulumi.get(self, "hibernation_enabled")
 
     @property
     @pulumi.getter(name="ultraSsdEnabled")
@@ -970,7 +984,7 @@ class LinuxVirtualMachineGalleryApplication(dict):
         :param str version_id: Specifies the Gallery Application Version resource ID.
         :param bool automatic_upgrade_enabled: Specifies whether the version will be automatically updated for the VM when a new Gallery Application version is available in PIR/SIG. Defaults to `false`.
         :param str configuration_blob_uri: Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.
-        :param int order: Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`.
+        :param int order: Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`.
         :param str tag: Specifies a passthrough value for more generic context. This field can be any valid `string` value.
         :param bool treat_failure_as_deployment_failure_enabled: Specifies whether any failure for any operation in the VmApplication will fail the deployment of the VM. Defaults to `false`.
         """
@@ -1014,7 +1028,7 @@ class LinuxVirtualMachineGalleryApplication(dict):
     @pulumi.getter
     def order(self) -> Optional[int]:
         """
-        Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`.
+        Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`.
         """
         return pulumi.get(self, "order")
 
@@ -2774,6 +2788,8 @@ class LinuxVirtualMachineScaleSetRollingUpgradePolicy(dict):
             suggest = "pause_time_between_batches"
         elif key == "crossZoneUpgradesEnabled":
             suggest = "cross_zone_upgrades_enabled"
+        elif key == "maximumSurgeInstancesEnabled":
+            suggest = "maximum_surge_instances_enabled"
         elif key == "prioritizeUnhealthyInstancesEnabled":
             suggest = "prioritize_unhealthy_instances_enabled"
 
@@ -2794,6 +2810,7 @@ class LinuxVirtualMachineScaleSetRollingUpgradePolicy(dict):
                  max_unhealthy_upgraded_instance_percent: int,
                  pause_time_between_batches: str,
                  cross_zone_upgrades_enabled: Optional[bool] = None,
+                 maximum_surge_instances_enabled: Optional[bool] = None,
                  prioritize_unhealthy_instances_enabled: Optional[bool] = None):
         """
         :param int max_batch_instance_percent: The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
@@ -2801,6 +2818,9 @@ class LinuxVirtualMachineScaleSetRollingUpgradePolicy(dict):
         :param int max_unhealthy_upgraded_instance_percent: The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts.
         :param str pause_time_between_batches: The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
         :param bool cross_zone_upgrades_enabled: Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
+        :param bool maximum_surge_instances_enabled: Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+               
+               > **NOTE:** `overprovision` must be set to `false` when `maximum_surge_instances_enabled` is specified.
         :param bool prioritize_unhealthy_instances_enabled: Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
         """
         pulumi.set(__self__, "max_batch_instance_percent", max_batch_instance_percent)
@@ -2809,6 +2829,8 @@ class LinuxVirtualMachineScaleSetRollingUpgradePolicy(dict):
         pulumi.set(__self__, "pause_time_between_batches", pause_time_between_batches)
         if cross_zone_upgrades_enabled is not None:
             pulumi.set(__self__, "cross_zone_upgrades_enabled", cross_zone_upgrades_enabled)
+        if maximum_surge_instances_enabled is not None:
+            pulumi.set(__self__, "maximum_surge_instances_enabled", maximum_surge_instances_enabled)
         if prioritize_unhealthy_instances_enabled is not None:
             pulumi.set(__self__, "prioritize_unhealthy_instances_enabled", prioritize_unhealthy_instances_enabled)
 
@@ -2851,6 +2873,16 @@ class LinuxVirtualMachineScaleSetRollingUpgradePolicy(dict):
         Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
         """
         return pulumi.get(self, "cross_zone_upgrades_enabled")
+
+    @property
+    @pulumi.getter(name="maximumSurgeInstancesEnabled")
+    def maximum_surge_instances_enabled(self) -> Optional[bool]:
+        """
+        Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+
+        > **NOTE:** `overprovision` must be set to `false` when `maximum_surge_instances_enabled` is specified.
+        """
+        return pulumi.get(self, "maximum_surge_instances_enabled")
 
     @property
     @pulumi.getter(name="prioritizeUnhealthyInstancesEnabled")
@@ -9274,7 +9306,9 @@ class WindowsVirtualMachineAdditionalCapabilities(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "ultraSsdEnabled":
+        if key == "hibernationEnabled":
+            suggest = "hibernation_enabled"
+        elif key == "ultraSsdEnabled":
             suggest = "ultra_ssd_enabled"
 
         if suggest:
@@ -9289,12 +9323,24 @@ class WindowsVirtualMachineAdditionalCapabilities(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 hibernation_enabled: Optional[bool] = None,
                  ultra_ssd_enabled: Optional[bool] = None):
         """
+        :param bool hibernation_enabled: Whether to enable the hibernation capability or not. Changing this forces a new Windows Virtual Machine to be created.
         :param bool ultra_ssd_enabled: Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
         """
+        if hibernation_enabled is not None:
+            pulumi.set(__self__, "hibernation_enabled", hibernation_enabled)
         if ultra_ssd_enabled is not None:
             pulumi.set(__self__, "ultra_ssd_enabled", ultra_ssd_enabled)
+
+    @property
+    @pulumi.getter(name="hibernationEnabled")
+    def hibernation_enabled(self) -> Optional[bool]:
+        """
+        Whether to enable the hibernation capability or not. Changing this forces a new Windows Virtual Machine to be created.
+        """
+        return pulumi.get(self, "hibernation_enabled")
 
     @property
     @pulumi.getter(name="ultraSsdEnabled")
@@ -9410,7 +9456,7 @@ class WindowsVirtualMachineGalleryApplication(dict):
         :param str version_id: Specifies the Gallery Application Version resource ID.
         :param bool automatic_upgrade_enabled: Specifies whether the version will be automatically updated for the VM when a new Gallery Application version is available in PIR/SIG. Defaults to `false`.
         :param str configuration_blob_uri: Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.
-        :param int order: Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`.
+        :param int order: Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`.
         :param str tag: Specifies a passthrough value for more generic context. This field can be any valid `string` value.
         :param bool treat_failure_as_deployment_failure_enabled: Specifies whether any failure for any operation in the VmApplication will fail the deployment of the VM. Defaults to `false`.
         """
@@ -9454,7 +9500,7 @@ class WindowsVirtualMachineGalleryApplication(dict):
     @pulumi.getter
     def order(self) -> Optional[int]:
         """
-        Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`.
+        Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`.
         """
         return pulumi.get(self, "order")
 
@@ -11197,6 +11243,8 @@ class WindowsVirtualMachineScaleSetRollingUpgradePolicy(dict):
             suggest = "pause_time_between_batches"
         elif key == "crossZoneUpgradesEnabled":
             suggest = "cross_zone_upgrades_enabled"
+        elif key == "maximumSurgeInstancesEnabled":
+            suggest = "maximum_surge_instances_enabled"
         elif key == "prioritizeUnhealthyInstancesEnabled":
             suggest = "prioritize_unhealthy_instances_enabled"
 
@@ -11217,6 +11265,7 @@ class WindowsVirtualMachineScaleSetRollingUpgradePolicy(dict):
                  max_unhealthy_upgraded_instance_percent: int,
                  pause_time_between_batches: str,
                  cross_zone_upgrades_enabled: Optional[bool] = None,
+                 maximum_surge_instances_enabled: Optional[bool] = None,
                  prioritize_unhealthy_instances_enabled: Optional[bool] = None):
         """
         :param int max_batch_instance_percent: The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
@@ -11224,6 +11273,9 @@ class WindowsVirtualMachineScaleSetRollingUpgradePolicy(dict):
         :param int max_unhealthy_upgraded_instance_percent: The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts.
         :param str pause_time_between_batches: The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
         :param bool cross_zone_upgrades_enabled: Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
+        :param bool maximum_surge_instances_enabled: Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+               
+               > **NOTE:** `overprovision` must be set to `false` when `maximum_surge_instances_enabled` is specified.
         :param bool prioritize_unhealthy_instances_enabled: Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
         """
         pulumi.set(__self__, "max_batch_instance_percent", max_batch_instance_percent)
@@ -11232,6 +11284,8 @@ class WindowsVirtualMachineScaleSetRollingUpgradePolicy(dict):
         pulumi.set(__self__, "pause_time_between_batches", pause_time_between_batches)
         if cross_zone_upgrades_enabled is not None:
             pulumi.set(__self__, "cross_zone_upgrades_enabled", cross_zone_upgrades_enabled)
+        if maximum_surge_instances_enabled is not None:
+            pulumi.set(__self__, "maximum_surge_instances_enabled", maximum_surge_instances_enabled)
         if prioritize_unhealthy_instances_enabled is not None:
             pulumi.set(__self__, "prioritize_unhealthy_instances_enabled", prioritize_unhealthy_instances_enabled)
 
@@ -11274,6 +11328,16 @@ class WindowsVirtualMachineScaleSetRollingUpgradePolicy(dict):
         Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
         """
         return pulumi.get(self, "cross_zone_upgrades_enabled")
+
+    @property
+    @pulumi.getter(name="maximumSurgeInstancesEnabled")
+    def maximum_surge_instances_enabled(self) -> Optional[bool]:
+        """
+        Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+
+        > **NOTE:** `overprovision` must be set to `false` when `maximum_surge_instances_enabled` is specified.
+        """
+        return pulumi.get(self, "maximum_surge_instances_enabled")
 
     @property
     @pulumi.getter(name="prioritizeUnhealthyInstancesEnabled")

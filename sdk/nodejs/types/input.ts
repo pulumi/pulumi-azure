@@ -16,6 +16,7 @@ export interface ProviderFeatures {
     managedDisk?: pulumi.Input<inputs.ProviderFeaturesManagedDisk>;
     postgresqlFlexibleServer?: pulumi.Input<inputs.ProviderFeaturesPostgresqlFlexibleServer>;
     recoveryService?: pulumi.Input<inputs.ProviderFeaturesRecoveryService>;
+    recoveryServicesVaults?: pulumi.Input<inputs.ProviderFeaturesRecoveryServicesVaults>;
     resourceGroup?: pulumi.Input<inputs.ProviderFeaturesResourceGroup>;
     subscription?: pulumi.Input<inputs.ProviderFeaturesSubscription>;
     templateDeployment?: pulumi.Input<inputs.ProviderFeaturesTemplateDeployment>;
@@ -99,6 +100,10 @@ export interface ProviderFeaturesPostgresqlFlexibleServer {
 export interface ProviderFeaturesRecoveryService {
     purgeProtectedItemsFromVaultOnDestroy?: pulumi.Input<boolean>;
     vmBackupStopProtectionAndRetainDataOnDestroy?: pulumi.Input<boolean>;
+}
+
+export interface ProviderFeaturesRecoveryServicesVaults {
+    recoverSoftDeletedBackupProtectedVm?: pulumi.Input<boolean>;
 }
 
 export interface ProviderFeaturesResourceGroup {
@@ -4936,7 +4941,9 @@ export namespace appservice {
          */
         loginParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+         *
+         * > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
          */
         tenantAuthEndpoint: pulumi.Input<string>;
         /**
@@ -5938,7 +5945,9 @@ export namespace appservice {
          */
         loginParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+         *
+         * > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
          */
         tenantAuthEndpoint: pulumi.Input<string>;
         /**
@@ -7005,7 +7014,9 @@ export namespace appservice {
          */
         loginParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+         *
+         * > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
          */
         tenantAuthEndpoint: pulumi.Input<string>;
         /**
@@ -7625,7 +7636,11 @@ export namespace appservice {
          */
         requests?: pulumi.Input<inputs.appservice.LinuxWebAppSiteConfigAutoHealSettingTriggerRequests>;
         /**
-         * One or more `slowRequest` blocks as defined above.
+         * One or more `slowRequestWithPath` blocks as defined above.
+         */
+        slowRequestWithPaths?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath>[]>;
+        /**
+         * A `slowRequest` blocks as defined above.
          */
         slowRequests?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest>[]>;
         /**
@@ -7646,6 +7661,29 @@ export namespace appservice {
     }
 
     export interface LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest {
+        /**
+         * The number of Slow Requests in the time `interval` to trigger this rule.
+         */
+        count: pulumi.Input<number>;
+        /**
+         * The time interval in the form `hh:mm:ss`.
+         */
+        interval: pulumi.Input<string>;
+        /**
+         * The path for which this slow request rule applies.
+         *
+         * > **NOTE:** `path` in `slowRequest` block will be deprecated in 4.0 provider. Please use `slowRequestWithPath` to set a slow request trigger with path specified.
+         *
+         * @deprecated `path` will be removed in `slowRequest` and please use `slowRequestWithPath` to set the path in version 4.0 of the AzureRM Provider.
+         */
+        path?: pulumi.Input<string>;
+        /**
+         * The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+         */
+        timeTaken: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath {
         /**
          * The number of Slow Requests in the time `interval` to trigger this rule.
          */
@@ -8147,7 +8185,9 @@ export namespace appservice {
          */
         loginParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+         *
+         * > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
          */
         tenantAuthEndpoint: pulumi.Input<string>;
         /**
@@ -8769,7 +8809,11 @@ export namespace appservice {
          */
         requests?: pulumi.Input<inputs.appservice.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequests>;
         /**
-         * One or more `slowRequest` blocks as defined above.
+         * One or more `slowRequestWithPath` blocks as defined above.
+         */
+        slowRequestWithPaths?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath>[]>;
+        /**
+         * A `slowRequest` block as defined above.
          */
         slowRequests?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest>[]>;
         /**
@@ -8790,6 +8834,29 @@ export namespace appservice {
     }
 
     export interface LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest {
+        /**
+         * The number of Slow Requests in the time `interval` to trigger this rule.
+         */
+        count: pulumi.Input<number>;
+        /**
+         * The time interval in the form `hh:mm:ss`.
+         */
+        interval: pulumi.Input<string>;
+        /**
+         * The path for which this slow request rule applies.
+         *
+         * > **NOTE:** `path` in `slowRequest` block will be deprecated in 4.0 provider. Please use `slowRequestWithPath` to set a slow request trigger with path specified.
+         *
+         * @deprecated `path` will be removed in `slowRequest` and please use `slowRequestWithPath` to set the path in version 4.0 of the AzureRM Provider.
+         */
+        path?: pulumi.Input<string>;
+        /**
+         * The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+         */
+        timeTaken: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath {
         /**
          * The number of Slow Requests in the time `interval` to trigger this rule.
          */
@@ -10050,7 +10117,9 @@ export namespace appservice {
          */
         loginParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+         *
+         * > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
          */
         tenantAuthEndpoint: pulumi.Input<string>;
         /**
@@ -11011,7 +11080,9 @@ export namespace appservice {
          */
         loginParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+         *
+         * > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
          */
         tenantAuthEndpoint: pulumi.Input<string>;
         /**
@@ -12035,7 +12106,9 @@ export namespace appservice {
          */
         loginParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+         *
+         * > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
          */
         tenantAuthEndpoint: pulumi.Input<string>;
         /**
@@ -12710,7 +12783,11 @@ export namespace appservice {
          */
         requests?: pulumi.Input<inputs.appservice.WindowsWebAppSiteConfigAutoHealSettingTriggerRequests>;
         /**
-         * One or more `slowRequest` blocks as defined above.
+         * One or more `slowRequestWithPath` blocks as defined above.
+         */
+        slowRequestWithPaths?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath>[]>;
+        /**
+         * A `slowRequest` block as defined above.
          */
         slowRequests?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest>[]>;
         /**
@@ -12731,6 +12808,27 @@ export namespace appservice {
     }
 
     export interface WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest {
+        /**
+         * The number of Slow Requests in the time `interval` to trigger this rule.
+         */
+        count: pulumi.Input<number>;
+        /**
+         * The time interval in the form `hh:mm:ss`.
+         */
+        interval: pulumi.Input<string>;
+        /**
+         * The path for which this slow request rule applies.
+         *
+         * @deprecated `path` will be removed in `slowRequest` and please use `slowRequestWithPath` to set the path in version 4.0 of the AzureRM Provider.
+         */
+        path?: pulumi.Input<string>;
+        /**
+         * The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+         */
+        timeTaken: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath {
         /**
          * The number of Slow Requests in the time `interval` to trigger this rule.
          */
@@ -13277,7 +13375,9 @@ export namespace appservice {
          */
         loginParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+         *
+         * > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
          */
         tenantAuthEndpoint: pulumi.Input<string>;
         /**
@@ -13944,7 +14044,11 @@ export namespace appservice {
          */
         requests?: pulumi.Input<inputs.appservice.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequests>;
         /**
-         * One or more `slowRequest` blocks as defined above.
+         * One or more `slowRequestWithPath` blocks as defined above.
+         */
+        slowRequestWithPaths?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath>[]>;
+        /**
+         * A `slowRequest` block as defined above.
          */
         slowRequests?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest>[]>;
         /**
@@ -13965,6 +14069,27 @@ export namespace appservice {
     }
 
     export interface WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest {
+        /**
+         * The number of Slow Requests in the time `interval` to trigger this rule.
+         */
+        count: pulumi.Input<number>;
+        /**
+         * The time interval in the form `hh:mm:ss`.
+         */
+        interval: pulumi.Input<string>;
+        /**
+         * The path for which this slow request rule applies.
+         *
+         * @deprecated `path` will be removed in `slowRequest` and please use `slowRequestWithPath` to set the path in version 4.0 of the AzureRM Provider.
+         */
+        path?: pulumi.Input<string>;
+        /**
+         * The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+         */
+        timeTaken: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath {
         /**
          * The number of Slow Requests in the time `interval` to trigger this rule.
          */
@@ -18128,6 +18253,10 @@ export namespace compute {
 
     export interface LinuxVirtualMachineAdditionalCapabilities {
         /**
+         * Whether to enable the hibernation capability or not. Changing this forces a new Linux Virtual Machine to be created.
+         */
+        hibernationEnabled?: pulumi.Input<boolean>;
+        /**
          * Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
          */
         ultraSsdEnabled?: pulumi.Input<boolean>;
@@ -18165,7 +18294,7 @@ export namespace compute {
          */
         configurationBlobUri?: pulumi.Input<string>;
         /**
-         * Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`.
+         * Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`.
          */
         order?: pulumi.Input<number>;
         /**
@@ -18698,6 +18827,12 @@ export namespace compute {
          * The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts.
          */
         maxUnhealthyUpgradedInstancePercent: pulumi.Input<number>;
+        /**
+         * Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+         *
+         * > **NOTE:** `overprovision` must be set to `false` when `maximumSurgeInstancesEnabled` is specified.
+         */
+        maximumSurgeInstancesEnabled?: pulumi.Input<boolean>;
         /**
          * The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
          */
@@ -20483,6 +20618,10 @@ export namespace compute {
 
     export interface WindowsVirtualMachineAdditionalCapabilities {
         /**
+         * Whether to enable the hibernation capability or not. Changing this forces a new Windows Virtual Machine to be created.
+         */
+        hibernationEnabled?: pulumi.Input<boolean>;
+        /**
          * Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
          */
         ultraSsdEnabled?: pulumi.Input<boolean>;
@@ -20518,7 +20657,7 @@ export namespace compute {
          */
         configurationBlobUri?: pulumi.Input<string>;
         /**
-         * Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`.
+         * Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`.
          */
         order?: pulumi.Input<number>;
         /**
@@ -21051,6 +21190,12 @@ export namespace compute {
          * The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts.
          */
         maxUnhealthyUpgradedInstancePercent: pulumi.Input<number>;
+        /**
+         * Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+         *
+         * > **NOTE:** `overprovision` must be set to `false` when `maximumSurgeInstancesEnabled` is specified.
+         */
+        maximumSurgeInstancesEnabled?: pulumi.Input<boolean>;
         /**
          * The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
          */
@@ -21828,8 +21973,6 @@ export namespace containerapp {
          * The value for this secret.
          *
          * !> **Note:** `value` will be ignored if `keyVaultSecretId` and `identity` are provided.
-         *
-         * !> **Note:** Secrets cannot be removed from the service once added, attempting to do so will result in an error. Their values may be zeroed, i.e. set to `""`, but the named secret must persist. This is due to a technical limitation on the service which causes the service to become unmanageable. See [this issue](https://github.com/microsoft/azure-container-apps/issues/395) for more details.
          */
         value?: pulumi.Input<string>;
     }
@@ -22373,6 +22516,484 @@ export namespace containerapp {
         workloadProfileType: pulumi.Input<string>;
     }
 
+    export interface JobEventTriggerConfig {
+        /**
+         * Number of parallel replicas of a job that can run at a given time.
+         */
+        parallelism?: pulumi.Input<number>;
+        /**
+         * Minimum number of successful replica completions before overall job completion.
+         */
+        replicaCompletionCount?: pulumi.Input<number>;
+        /**
+         * A `scale` block as defined below.
+         */
+        scales?: pulumi.Input<pulumi.Input<inputs.containerapp.JobEventTriggerConfigScale>[]>;
+    }
+
+    export interface JobEventTriggerConfigScale {
+        /**
+         * Maximum number of job executions that are created for a trigger.
+         */
+        maxExecutions?: pulumi.Input<number>;
+        /**
+         * Minimum number of job executions that are created for a trigger.
+         */
+        minExecutions?: pulumi.Input<number>;
+        /**
+         * Interval to check each event source in seconds.
+         */
+        pollingIntervalInSeconds?: pulumi.Input<number>;
+        /**
+         * A `rules` block as defined below.
+         */
+        rules?: pulumi.Input<pulumi.Input<inputs.containerapp.JobEventTriggerConfigScaleRule>[]>;
+    }
+
+    export interface JobEventTriggerConfigScaleRule {
+        /**
+         * A `authentication` block as defined below.
+         */
+        authentications?: pulumi.Input<pulumi.Input<inputs.containerapp.JobEventTriggerConfigScaleRuleAuthentication>[]>;
+        /**
+         * Type of the scale rule.
+         */
+        customRuleType: pulumi.Input<string>;
+        /**
+         * Metadata properties to describe the scale rule.
+         */
+        metadata: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Name of the scale rule.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface JobEventTriggerConfigScaleRuleAuthentication {
+        /**
+         * Name of the secret from which to pull the auth params.
+         */
+        secretName: pulumi.Input<string>;
+        /**
+         * Trigger Parameter that uses the secret.
+         */
+        triggerParameter: pulumi.Input<string>;
+    }
+
+    export interface JobIdentity {
+        /**
+         * A list of Managed Identity IDs to assign to the Container App Job.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
+        /**
+         * The type of identity used for the Container App Job. Possible values are `SystemAssigned` and `None`. Defaults to `None`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface JobManualTriggerConfig {
+        /**
+         * Number of parallel replicas of a job that can run at a given time.
+         */
+        parallelism?: pulumi.Input<number>;
+        /**
+         * Minimum number of successful replica completions before overall job completion.
+         */
+        replicaCompletionCount?: pulumi.Input<number>;
+    }
+
+    export interface JobRegistry {
+        /**
+         * A Managed Identity to use to authenticate with Azure Container Registry.
+         */
+        identity?: pulumi.Input<string>;
+        /**
+         * The name of the Secret that contains the registry login password.
+         */
+        passwordSecretName?: pulumi.Input<string>;
+        /**
+         * The URL of the Azure Container Registry server.
+         */
+        server: pulumi.Input<string>;
+        /**
+         * The username to use to authenticate with Azure Container Registry.
+         */
+        username?: pulumi.Input<string>;
+    }
+
+    export interface JobScheduleTriggerConfig {
+        /**
+         * Cron formatted repeating schedule of a Cron Job.
+         */
+        cronExpression: pulumi.Input<string>;
+        /**
+         * Number of parallel replicas of a job that can run at a given time.
+         */
+        parallelism?: pulumi.Input<number>;
+        /**
+         * Minimum number of successful replica completions before overall job completion.
+         */
+        replicaCompletionCount?: pulumi.Input<number>;
+    }
+
+    export interface JobSecret {
+        /**
+         * A `identity` block as defined below.
+         */
+        identity?: pulumi.Input<string>;
+        /**
+         * The Key Vault Secret ID. Could be either one of `id` or `versionlessId`.
+         */
+        keyVaultSecretId?: pulumi.Input<string>;
+        /**
+         * Name of the secret.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Value of the secret.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface JobTemplate {
+        /**
+         * A `container` block as defined below.
+         */
+        containers: pulumi.Input<pulumi.Input<inputs.containerapp.JobTemplateContainer>[]>;
+        /**
+         * A `initContainer` block as defined below.
+         */
+        initContainers?: pulumi.Input<pulumi.Input<inputs.containerapp.JobTemplateInitContainer>[]>;
+        /**
+         * A `volume` block as defined below.
+         */
+        volumes?: pulumi.Input<pulumi.Input<inputs.containerapp.JobTemplateVolume>[]>;
+    }
+
+    export interface JobTemplateContainer {
+        /**
+         * A list of extra arguments to pass to the container.
+         */
+        args?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+         */
+        commands?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+         *
+         * > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+         */
+        cpu: pulumi.Input<number>;
+        /**
+         * One or more `env` blocks as detailed below.
+         */
+        envs?: pulumi.Input<pulumi.Input<inputs.containerapp.JobTemplateContainerEnv>[]>;
+        /**
+         * The amount of ephemeral storage available to the Container App.
+         *
+         * > **NOTE:** `ephemeralStorage` is currently in preview and not configurable at this time.
+         */
+        ephemeralStorage?: pulumi.Input<string>;
+        /**
+         * The image to use to create the container.
+         */
+        image: pulumi.Input<string>;
+        /**
+         * A `livenessProbe` block as detailed below.
+         */
+        livenessProbes?: pulumi.Input<pulumi.Input<inputs.containerapp.JobTemplateContainerLivenessProbe>[]>;
+        /**
+         * The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+         *
+         * > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+         */
+        memory: pulumi.Input<string>;
+        /**
+         * The name of the container.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A `readinessProbe` block as detailed below.
+         */
+        readinessProbes?: pulumi.Input<pulumi.Input<inputs.containerapp.JobTemplateContainerReadinessProbe>[]>;
+        /**
+         * A `startupProbe` block as detailed below.
+         */
+        startupProbes?: pulumi.Input<pulumi.Input<inputs.containerapp.JobTemplateContainerStartupProbe>[]>;
+        /**
+         * A `volumeMounts` block as detailed below.
+         */
+        volumeMounts?: pulumi.Input<pulumi.Input<inputs.containerapp.JobTemplateContainerVolumeMount>[]>;
+    }
+
+    export interface JobTemplateContainerEnv {
+        /**
+         * The name of the environment variable.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Name of the Container App secret from which to pull the environment variable value.
+         */
+        secretName?: pulumi.Input<string>;
+        /**
+         * The value of the environment variable.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface JobTemplateContainerLivenessProbe {
+        /**
+         * The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+         */
+        failureCountThreshold?: pulumi.Input<number>;
+        /**
+         * A `header` block as detailed below.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.containerapp.JobTemplateContainerLivenessProbeHeader>[]>;
+        /**
+         * The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+         */
+        host?: pulumi.Input<string>;
+        /**
+         * The time in seconds to wait after the container has started before the probe is started.
+         */
+        initialDelay?: pulumi.Input<number>;
+        /**
+         * How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
+         */
+        intervalSeconds?: pulumi.Input<number>;
+        /**
+         * The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
+         */
+        path?: pulumi.Input<string>;
+        /**
+         * The port number on which to connect. Possible values are between `1` and `65535`.
+         */
+        port: pulumi.Input<number>;
+        /**
+         * The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+         */
+        terminationGracePeriodSeconds?: pulumi.Input<number>;
+        /**
+         * Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+         */
+        timeout?: pulumi.Input<number>;
+        /**
+         * Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
+         */
+        transport: pulumi.Input<string>;
+    }
+
+    export interface JobTemplateContainerLivenessProbeHeader {
+        /**
+         * The HTTP Header Name.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The HTTP Header value.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface JobTemplateContainerReadinessProbe {
+        /**
+         * The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+         */
+        failureCountThreshold?: pulumi.Input<number>;
+        /**
+         * A `header` block as detailed below.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.containerapp.JobTemplateContainerReadinessProbeHeader>[]>;
+        /**
+         * The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+         */
+        host?: pulumi.Input<string>;
+        /**
+         * How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+         */
+        intervalSeconds?: pulumi.Input<number>;
+        /**
+         * The URI to use for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
+         */
+        path?: pulumi.Input<string>;
+        /**
+         * The port number on which to connect. Possible values are between `1` and `65535`.
+         */
+        port: pulumi.Input<number>;
+        /**
+         * The number of consecutive successful responses required to consider this probe as successful. Possible values are between `1` and `10`. Defaults to `3`.
+         */
+        successCountThreshold?: pulumi.Input<number>;
+        /**
+         * Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+         */
+        timeout?: pulumi.Input<number>;
+        /**
+         * Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
+         */
+        transport: pulumi.Input<string>;
+    }
+
+    export interface JobTemplateContainerReadinessProbeHeader {
+        /**
+         * The HTTP Header Name.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The HTTP Header value.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface JobTemplateContainerStartupProbe {
+        /**
+         * The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+         */
+        failureCountThreshold?: pulumi.Input<number>;
+        /**
+         * A `header` block as detailed below.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.containerapp.JobTemplateContainerStartupProbeHeader>[]>;
+        /**
+         * The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+         */
+        host?: pulumi.Input<string>;
+        /**
+         * How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+         */
+        intervalSeconds?: pulumi.Input<number>;
+        /**
+         * The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
+         */
+        path?: pulumi.Input<string>;
+        /**
+         * The port number on which to connect. Possible values are between `1` and `65535`.
+         */
+        port: pulumi.Input<number>;
+        /**
+         * The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+         */
+        terminationGracePeriodSeconds?: pulumi.Input<number>;
+        /**
+         * Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+         */
+        timeout?: pulumi.Input<number>;
+        /**
+         * Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
+         */
+        transport: pulumi.Input<string>;
+    }
+
+    export interface JobTemplateContainerStartupProbeHeader {
+        /**
+         * The HTTP Header Name.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The HTTP Header value.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface JobTemplateContainerVolumeMount {
+        /**
+         * The name of the volume to mount. This must match the name of a volume defined in the `volume` block.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The path within the container at which the volume should be mounted. Must not contain `:`.
+         */
+        path: pulumi.Input<string>;
+    }
+
+    export interface JobTemplateInitContainer {
+        /**
+         * A list of extra arguments to pass to the container.
+         */
+        args?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+         */
+        commands?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+         *
+         * > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+         */
+        cpu?: pulumi.Input<number>;
+        /**
+         * One or more `env` blocks as detailed below.
+         */
+        envs?: pulumi.Input<pulumi.Input<inputs.containerapp.JobTemplateInitContainerEnv>[]>;
+        /**
+         * The amount of ephemeral storage available to the Container App.
+         *
+         * > **NOTE:** `ephemeralStorage` is currently in preview and not configurable at this time.
+         */
+        ephemeralStorage?: pulumi.Input<string>;
+        /**
+         * The image to use to create the container.
+         */
+        image: pulumi.Input<string>;
+        /**
+         * The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+         *
+         * > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+         */
+        memory?: pulumi.Input<string>;
+        /**
+         * The name of the container.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A `volumeMounts` block as detailed below.
+         */
+        volumeMounts?: pulumi.Input<pulumi.Input<inputs.containerapp.JobTemplateInitContainerVolumeMount>[]>;
+    }
+
+    export interface JobTemplateInitContainerEnv {
+        /**
+         * The name of the environment variable.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Name of the Container App secret from which to pull the environment variable value.
+         */
+        secretName?: pulumi.Input<string>;
+        /**
+         * The value of the environment variable.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface JobTemplateInitContainerVolumeMount {
+        /**
+         * The name of the volume to mount. This must match the name of a volume defined in the `volume` block.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The path within the container at which the volume should be mounted. Must not contain `:`.
+         */
+        path: pulumi.Input<string>;
+    }
+
+    export interface JobTemplateVolume {
+        /**
+         * The name of the volume.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The name of the storage to use for the volume.
+         */
+        storageName?: pulumi.Input<string>;
+        /**
+         * The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`.
+         */
+        storageType?: pulumi.Input<string>;
+    }
 }
 
 export namespace containerservice {
@@ -26572,6 +27193,21 @@ export namespace datadog {
 }
 
 export namespace datafactory {
+    export interface CredentialServicePrincipalServicePrincipalKey {
+        /**
+         * The name of the Linked Service to use for the Service Principal Key.
+         */
+        linkedServiceName: pulumi.Input<string>;
+        /**
+         * The name of the Secret in the Key Vault.
+         */
+        secretName: pulumi.Input<string>;
+        /**
+         * The version of the Secret in the Key Vault.
+         */
+        secretVersion?: pulumi.Input<string>;
+    }
+
     export interface CustomDatasetLinkedService {
         /**
          * The name of the Data Factory Linked Service.
@@ -36620,6 +37256,44 @@ export namespace machinelearning {
 }
 
 export namespace maintenance {
+    export interface AssignmentDynamicScopeFilter {
+        /**
+         * Specifies a list of locations to scope the query to.
+         */
+        locations?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of allowed operating systems.
+         */
+        osTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of allowed resource groups.
+         */
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of allowed resources.
+         */
+        resourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Filter VMs by `Any` or `All` specified tags. Defaults to `Any`.
+         */
+        tagFilter?: pulumi.Input<string>;
+        /**
+         * A mapping of tags for the VM
+         */
+        tags?: pulumi.Input<pulumi.Input<inputs.maintenance.AssignmentDynamicScopeFilterTag>[]>;
+    }
+
+    export interface AssignmentDynamicScopeFilterTag {
+        /**
+         * Specifies the tag to filter by.
+         */
+        tag: pulumi.Input<string>;
+        /**
+         * Specifies a list of values the defined tag can have.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface ConfigurationInstallPatches {
         /**
          * A `linux` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
@@ -45219,6 +45893,8 @@ export namespace network {
     export interface VirtualNetworkEncryption {
         /**
          * Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
+         *
+         * > **NOTE:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
          */
         enforcement: pulumi.Input<string>;
     }
@@ -49898,6 +50574,12 @@ export namespace storage {
          * Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
          */
         days?: pulumi.Input<number>;
+        /**
+         * Indicates whether permanent deletion of the soft deleted blob versions and snapshots is allowed. Defaults to `false`.
+         *
+         * > **NOTE:** `permanentDeleteEnabled` cannot be set to true if a `restorePolicy` block is defined.
+         */
+        permanentDeleteEnabled?: pulumi.Input<boolean>;
     }
 
     export interface AccountBlobPropertiesRestorePolicy {

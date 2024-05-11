@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.inputs;
 
 import com.pulumi.azure.appservice.inputs.WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsArgs;
 import com.pulumi.azure.appservice.inputs.WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs;
+import com.pulumi.azure.appservice.inputs.WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs;
 import com.pulumi.azure.appservice.inputs.WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -50,14 +51,29 @@ public final class WindowsWebAppSiteConfigAutoHealSettingTriggerArgs extends com
     }
 
     /**
-     * One or more `slow_request` blocks as defined above.
+     * One or more `slow_request_with_path` blocks as defined above.
+     * 
+     */
+    @Import(name="slowRequestWithPaths")
+    private @Nullable Output<List<WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs>> slowRequestWithPaths;
+
+    /**
+     * @return One or more `slow_request_with_path` blocks as defined above.
+     * 
+     */
+    public Optional<Output<List<WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs>>> slowRequestWithPaths() {
+        return Optional.ofNullable(this.slowRequestWithPaths);
+    }
+
+    /**
+     * A `slow_request` block as defined above.
      * 
      */
     @Import(name="slowRequests")
     private @Nullable Output<List<WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs>> slowRequests;
 
     /**
-     * @return One or more `slow_request` blocks as defined above.
+     * @return A `slow_request` block as defined above.
      * 
      */
     public Optional<Output<List<WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs>>> slowRequests() {
@@ -84,6 +100,7 @@ public final class WindowsWebAppSiteConfigAutoHealSettingTriggerArgs extends com
     private WindowsWebAppSiteConfigAutoHealSettingTriggerArgs(WindowsWebAppSiteConfigAutoHealSettingTriggerArgs $) {
         this.privateMemoryKb = $.privateMemoryKb;
         this.requests = $.requests;
+        this.slowRequestWithPaths = $.slowRequestWithPaths;
         this.slowRequests = $.slowRequests;
         this.statusCodes = $.statusCodes;
     }
@@ -149,7 +166,38 @@ public final class WindowsWebAppSiteConfigAutoHealSettingTriggerArgs extends com
         }
 
         /**
-         * @param slowRequests One or more `slow_request` blocks as defined above.
+         * @param slowRequestWithPaths One or more `slow_request_with_path` blocks as defined above.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder slowRequestWithPaths(@Nullable Output<List<WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs>> slowRequestWithPaths) {
+            $.slowRequestWithPaths = slowRequestWithPaths;
+            return this;
+        }
+
+        /**
+         * @param slowRequestWithPaths One or more `slow_request_with_path` blocks as defined above.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder slowRequestWithPaths(List<WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs> slowRequestWithPaths) {
+            return slowRequestWithPaths(Output.of(slowRequestWithPaths));
+        }
+
+        /**
+         * @param slowRequestWithPaths One or more `slow_request_with_path` blocks as defined above.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder slowRequestWithPaths(WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs... slowRequestWithPaths) {
+            return slowRequestWithPaths(List.of(slowRequestWithPaths));
+        }
+
+        /**
+         * @param slowRequests A `slow_request` block as defined above.
          * 
          * @return builder
          * 
@@ -160,7 +208,7 @@ public final class WindowsWebAppSiteConfigAutoHealSettingTriggerArgs extends com
         }
 
         /**
-         * @param slowRequests One or more `slow_request` blocks as defined above.
+         * @param slowRequests A `slow_request` block as defined above.
          * 
          * @return builder
          * 
@@ -170,7 +218,7 @@ public final class WindowsWebAppSiteConfigAutoHealSettingTriggerArgs extends com
         }
 
         /**
-         * @param slowRequests One or more `slow_request` blocks as defined above.
+         * @param slowRequests A `slow_request` block as defined above.
          * 
          * @return builder
          * 

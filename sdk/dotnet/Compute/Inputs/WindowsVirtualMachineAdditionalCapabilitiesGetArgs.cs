@@ -13,6 +13,12 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class WindowsVirtualMachineAdditionalCapabilitiesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether to enable the hibernation capability or not. Changing this forces a new Windows Virtual Machine to be created.
+        /// </summary>
+        [Input("hibernationEnabled")]
+        public Input<bool>? HibernationEnabled { get; set; }
+
+        /// <summary>
         /// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
         /// </summary>
         [Input("ultraSsdEnabled")]

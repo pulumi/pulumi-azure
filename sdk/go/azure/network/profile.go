@@ -112,7 +112,7 @@ type Profile struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
@@ -162,7 +162,7 @@ type profileState struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -177,7 +177,7 @@ type ProfileState struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapInput
 }
 
@@ -194,7 +194,7 @@ type profileArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -208,7 +208,7 @@ type ProfileArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapInput
 }
 
@@ -324,7 +324,7 @@ func (o ProfileOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// A mapping of tags to assign to the resource.
+// A mapping of tags assigned to the resource.
 func (o ProfileOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -21,6 +21,7 @@ __all__ = [
     'ProviderFeaturesManagedDiskArgs',
     'ProviderFeaturesPostgresqlFlexibleServerArgs',
     'ProviderFeaturesRecoveryServiceArgs',
+    'ProviderFeaturesRecoveryServicesVaultsArgs',
     'ProviderFeaturesResourceGroupArgs',
     'ProviderFeaturesSubscriptionArgs',
     'ProviderFeaturesTemplateDeploymentArgs',
@@ -41,6 +42,7 @@ class ProviderFeaturesArgs:
                  managed_disk: Optional[pulumi.Input['ProviderFeaturesManagedDiskArgs']] = None,
                  postgresql_flexible_server: Optional[pulumi.Input['ProviderFeaturesPostgresqlFlexibleServerArgs']] = None,
                  recovery_service: Optional[pulumi.Input['ProviderFeaturesRecoveryServiceArgs']] = None,
+                 recovery_services_vaults: Optional[pulumi.Input['ProviderFeaturesRecoveryServicesVaultsArgs']] = None,
                  resource_group: Optional[pulumi.Input['ProviderFeaturesResourceGroupArgs']] = None,
                  subscription: Optional[pulumi.Input['ProviderFeaturesSubscriptionArgs']] = None,
                  template_deployment: Optional[pulumi.Input['ProviderFeaturesTemplateDeploymentArgs']] = None,
@@ -66,6 +68,8 @@ class ProviderFeaturesArgs:
             pulumi.set(__self__, "postgresql_flexible_server", postgresql_flexible_server)
         if recovery_service is not None:
             pulumi.set(__self__, "recovery_service", recovery_service)
+        if recovery_services_vaults is not None:
+            pulumi.set(__self__, "recovery_services_vaults", recovery_services_vaults)
         if resource_group is not None:
             pulumi.set(__self__, "resource_group", resource_group)
         if subscription is not None:
@@ -166,6 +170,15 @@ class ProviderFeaturesArgs:
     @recovery_service.setter
     def recovery_service(self, value: Optional[pulumi.Input['ProviderFeaturesRecoveryServiceArgs']]):
         pulumi.set(self, "recovery_service", value)
+
+    @property
+    @pulumi.getter(name="recoveryServicesVaults")
+    def recovery_services_vaults(self) -> Optional[pulumi.Input['ProviderFeaturesRecoveryServicesVaultsArgs']]:
+        return pulumi.get(self, "recovery_services_vaults")
+
+    @recovery_services_vaults.setter
+    def recovery_services_vaults(self, value: Optional[pulumi.Input['ProviderFeaturesRecoveryServicesVaultsArgs']]):
+        pulumi.set(self, "recovery_services_vaults", value)
 
     @property
     @pulumi.getter(name="resourceGroup")
@@ -551,6 +564,23 @@ class ProviderFeaturesRecoveryServiceArgs:
     @vm_backup_stop_protection_and_retain_data_on_destroy.setter
     def vm_backup_stop_protection_and_retain_data_on_destroy(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "vm_backup_stop_protection_and_retain_data_on_destroy", value)
+
+
+@pulumi.input_type
+class ProviderFeaturesRecoveryServicesVaultsArgs:
+    def __init__(__self__, *,
+                 recover_soft_deleted_backup_protected_vm: Optional[pulumi.Input[bool]] = None):
+        if recover_soft_deleted_backup_protected_vm is not None:
+            pulumi.set(__self__, "recover_soft_deleted_backup_protected_vm", recover_soft_deleted_backup_protected_vm)
+
+    @property
+    @pulumi.getter(name="recoverSoftDeletedBackupProtectedVm")
+    def recover_soft_deleted_backup_protected_vm(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "recover_soft_deleted_backup_protected_vm")
+
+    @recover_soft_deleted_backup_protected_vm.setter
+    def recover_soft_deleted_backup_protected_vm(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "recover_soft_deleted_backup_protected_vm", value)
 
 
 @pulumi.input_type

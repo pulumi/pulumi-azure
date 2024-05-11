@@ -148,6 +148,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Enable or Disable network policies for the private endpoint on the subnet.
         /// </summary>
+        public readonly string PrivateEndpointNetworkPolicies;
         public readonly bool PrivateEndpointNetworkPoliciesEnabled;
         /// <summary>
         /// Enable or Disable network policies for the private link service on the subnet.
@@ -180,6 +181,8 @@ namespace Pulumi.Azure.Network
 
             string networkSecurityGroupId,
 
+            string privateEndpointNetworkPolicies,
+
             bool privateEndpointNetworkPoliciesEnabled,
 
             bool privateLinkServiceNetworkPoliciesEnabled,
@@ -199,6 +202,7 @@ namespace Pulumi.Azure.Network
             Id = id;
             Name = name;
             NetworkSecurityGroupId = networkSecurityGroupId;
+            PrivateEndpointNetworkPolicies = privateEndpointNetworkPolicies;
             PrivateEndpointNetworkPoliciesEnabled = privateEndpointNetworkPoliciesEnabled;
             PrivateLinkServiceNetworkPoliciesEnabled = privateLinkServiceNetworkPoliciesEnabled;
             ResourceGroupName = resourceGroupName;

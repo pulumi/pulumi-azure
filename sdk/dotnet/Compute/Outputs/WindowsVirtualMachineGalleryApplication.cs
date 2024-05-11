@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string? ConfigurationBlobUri;
         /// <summary>
-        /// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`.
+        /// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`.
         /// </summary>
         public readonly int? Order;
         /// <summary>

@@ -262,6 +262,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// One or more `gallery_application` blocks as defined below.
+        /// 
+        /// &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.LinuxVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it's recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
         /// </summary>
         [Output("galleryApplications")]
         public Output<ImmutableArray<Outputs.LinuxVirtualMachineGalleryApplication>> GalleryApplications { get; private set; } = null!;
@@ -273,7 +275,7 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.LinuxVirtualMachineIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE` and `SLES_BYOS`.
+        /// Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`.
         /// </summary>
         [Output("licenseType")]
         public Output<string?> LicenseType { get; private set; } = null!;
@@ -699,6 +701,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// One or more `gallery_application` blocks as defined below.
+        /// 
+        /// &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.LinuxVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it's recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
         /// </summary>
         public InputList<Inputs.LinuxVirtualMachineGalleryApplicationArgs> GalleryApplications
         {
@@ -713,7 +717,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.LinuxVirtualMachineIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE` and `SLES_BYOS`.
+        /// Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`.
         /// </summary>
         [Input("licenseType")]
         public Input<string>? LicenseType { get; set; }
@@ -1084,6 +1088,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// One or more `gallery_application` blocks as defined below.
+        /// 
+        /// &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.LinuxVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it's recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
         /// </summary>
         public InputList<Inputs.LinuxVirtualMachineGalleryApplicationGetArgs> GalleryApplications
         {
@@ -1098,7 +1104,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.LinuxVirtualMachineIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE` and `SLES_BYOS`.
+        /// Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`.
         /// </summary>
         [Input("licenseType")]
         public Input<string>? LicenseType { get; set; }

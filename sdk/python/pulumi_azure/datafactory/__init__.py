@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .credential_service_principal import *
 from .credential_user_managed_identity import *
 from .custom_dataset import *
 from .data_flow import *

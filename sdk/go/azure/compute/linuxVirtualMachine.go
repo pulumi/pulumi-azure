@@ -194,10 +194,12 @@ type LinuxVirtualMachine struct {
 	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
 	ExtensionsTimeBudget pulumi.StringPtrOutput `pulumi:"extensionsTimeBudget"`
 	// One or more `galleryApplication` blocks as defined below.
+	//
+	// > **Note** Gallery Application Assignments can be defined either directly on `compute.LinuxVirtualMachine` resource, or using the `compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `compute.GalleryApplicationAssignment` is used, it's recommended to use `ignoreChanges` for the `galleryApplication` block on the corresponding `compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
 	GalleryApplications LinuxVirtualMachineGalleryApplicationArrayOutput `pulumi:"galleryApplications"`
 	// An `identity` block as defined below.
 	Identity LinuxVirtualMachineIdentityPtrOutput `pulumi:"identity"`
-	// Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE` and `SLES_BYOS`.
+	// Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`.
 	LicenseType pulumi.StringPtrOutput `pulumi:"licenseType"`
 	// The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -393,10 +395,12 @@ type linuxVirtualMachineState struct {
 	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
 	// One or more `galleryApplication` blocks as defined below.
+	//
+	// > **Note** Gallery Application Assignments can be defined either directly on `compute.LinuxVirtualMachine` resource, or using the `compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `compute.GalleryApplicationAssignment` is used, it's recommended to use `ignoreChanges` for the `galleryApplication` block on the corresponding `compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
 	GalleryApplications []LinuxVirtualMachineGalleryApplication `pulumi:"galleryApplications"`
 	// An `identity` block as defined below.
 	Identity *LinuxVirtualMachineIdentity `pulumi:"identity"`
-	// Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE` and `SLES_BYOS`.
+	// Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`.
 	LicenseType *string `pulumi:"licenseType"`
 	// The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -537,10 +541,12 @@ type LinuxVirtualMachineState struct {
 	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
 	ExtensionsTimeBudget pulumi.StringPtrInput
 	// One or more `galleryApplication` blocks as defined below.
+	//
+	// > **Note** Gallery Application Assignments can be defined either directly on `compute.LinuxVirtualMachine` resource, or using the `compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `compute.GalleryApplicationAssignment` is used, it's recommended to use `ignoreChanges` for the `galleryApplication` block on the corresponding `compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
 	GalleryApplications LinuxVirtualMachineGalleryApplicationArrayInput
 	// An `identity` block as defined below.
 	Identity LinuxVirtualMachineIdentityPtrInput
-	// Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE` and `SLES_BYOS`.
+	// Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`.
 	LicenseType pulumi.StringPtrInput
 	// The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -685,10 +691,12 @@ type linuxVirtualMachineArgs struct {
 	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
 	// One or more `galleryApplication` blocks as defined below.
+	//
+	// > **Note** Gallery Application Assignments can be defined either directly on `compute.LinuxVirtualMachine` resource, or using the `compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `compute.GalleryApplicationAssignment` is used, it's recommended to use `ignoreChanges` for the `galleryApplication` block on the corresponding `compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
 	GalleryApplications []LinuxVirtualMachineGalleryApplication `pulumi:"galleryApplications"`
 	// An `identity` block as defined below.
 	Identity *LinuxVirtualMachineIdentity `pulumi:"identity"`
-	// Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE` and `SLES_BYOS`.
+	// Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`.
 	LicenseType *string `pulumi:"licenseType"`
 	// The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -820,10 +828,12 @@ type LinuxVirtualMachineArgs struct {
 	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
 	ExtensionsTimeBudget pulumi.StringPtrInput
 	// One or more `galleryApplication` blocks as defined below.
+	//
+	// > **Note** Gallery Application Assignments can be defined either directly on `compute.LinuxVirtualMachine` resource, or using the `compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `compute.GalleryApplicationAssignment` is used, it's recommended to use `ignoreChanges` for the `galleryApplication` block on the corresponding `compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
 	GalleryApplications LinuxVirtualMachineGalleryApplicationArrayInput
 	// An `identity` block as defined below.
 	Identity LinuxVirtualMachineIdentityPtrInput
-	// Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE` and `SLES_BYOS`.
+	// Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`.
 	LicenseType pulumi.StringPtrInput
 	// The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -1101,6 +1111,8 @@ func (o LinuxVirtualMachineOutput) ExtensionsTimeBudget() pulumi.StringPtrOutput
 }
 
 // One or more `galleryApplication` blocks as defined below.
+//
+// > **Note** Gallery Application Assignments can be defined either directly on `compute.LinuxVirtualMachine` resource, or using the `compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `compute.GalleryApplicationAssignment` is used, it's recommended to use `ignoreChanges` for the `galleryApplication` block on the corresponding `compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
 func (o LinuxVirtualMachineOutput) GalleryApplications() LinuxVirtualMachineGalleryApplicationArrayOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachine) LinuxVirtualMachineGalleryApplicationArrayOutput {
 		return v.GalleryApplications
@@ -1112,7 +1124,7 @@ func (o LinuxVirtualMachineOutput) Identity() LinuxVirtualMachineIdentityPtrOutp
 	return o.ApplyT(func(v *LinuxVirtualMachine) LinuxVirtualMachineIdentityPtrOutput { return v.Identity }).(LinuxVirtualMachineIdentityPtrOutput)
 }
 
-// Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE` and `SLES_BYOS`.
+// Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`.
 func (o LinuxVirtualMachineOutput) LicenseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.StringPtrOutput { return v.LicenseType }).(pulumi.StringPtrOutput)
 }

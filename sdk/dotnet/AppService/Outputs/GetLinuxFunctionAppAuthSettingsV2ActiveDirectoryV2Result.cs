@@ -54,7 +54,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string> LoginParameters;
         /// <summary>
-        /// The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        /// The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
         /// </summary>
         public readonly string TenantAuthEndpoint;
         /// <summary>

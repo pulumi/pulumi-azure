@@ -191,6 +191,24 @@ public class BastionHost extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.ipConnectEnabled);
     }
     /**
+     * Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
+     * 
+     * &gt; **Note:** `kerberos_enabled` is only supported when `sku` is `Standard`.
+     * 
+     */
+    @Export(name="kerberosEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> kerberosEnabled;
+
+    /**
+     * @return Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
+     * 
+     * &gt; **Note:** `kerberos_enabled` is only supported when `sku` is `Standard`.
+     * 
+     */
+    public Output<Optional<Boolean>> kerberosEnabled() {
+        return Codegen.optional(this.kerberosEnabled);
+    }
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
      * 
      */

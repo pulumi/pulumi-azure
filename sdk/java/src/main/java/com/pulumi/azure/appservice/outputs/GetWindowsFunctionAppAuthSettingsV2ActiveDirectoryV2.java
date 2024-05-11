@@ -64,7 +64,7 @@ public final class GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2 {
      */
     private Map<String,String> loginParameters;
     /**
-     * @return The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+     * @return The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
      * 
      */
     private String tenantAuthEndpoint;
@@ -146,7 +146,7 @@ public final class GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2 {
         return this.loginParameters;
     }
     /**
-     * @return The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+     * @return The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
      * 
      */
     public String tenantAuthEndpoint() {

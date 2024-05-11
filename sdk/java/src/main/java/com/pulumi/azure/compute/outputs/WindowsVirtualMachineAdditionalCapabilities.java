@@ -12,12 +12,24 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WindowsVirtualMachineAdditionalCapabilities {
     /**
+     * @return Whether to enable the hibernation capability or not. Changing this forces a new Windows Virtual Machine to be created.
+     * 
+     */
+    private @Nullable Boolean hibernationEnabled;
+    /**
      * @return Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
      * 
      */
     private @Nullable Boolean ultraSsdEnabled;
 
     private WindowsVirtualMachineAdditionalCapabilities() {}
+    /**
+     * @return Whether to enable the hibernation capability or not. Changing this forces a new Windows Virtual Machine to be created.
+     * 
+     */
+    public Optional<Boolean> hibernationEnabled() {
+        return Optional.ofNullable(this.hibernationEnabled);
+    }
     /**
      * @return Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
      * 
@@ -35,13 +47,21 @@ public final class WindowsVirtualMachineAdditionalCapabilities {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean hibernationEnabled;
         private @Nullable Boolean ultraSsdEnabled;
         public Builder() {}
         public Builder(WindowsVirtualMachineAdditionalCapabilities defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.hibernationEnabled = defaults.hibernationEnabled;
     	      this.ultraSsdEnabled = defaults.ultraSsdEnabled;
         }
 
+        @CustomType.Setter
+        public Builder hibernationEnabled(@Nullable Boolean hibernationEnabled) {
+
+            this.hibernationEnabled = hibernationEnabled;
+            return this;
+        }
         @CustomType.Setter
         public Builder ultraSsdEnabled(@Nullable Boolean ultraSsdEnabled) {
 
@@ -50,6 +70,7 @@ public final class WindowsVirtualMachineAdditionalCapabilities {
         }
         public WindowsVirtualMachineAdditionalCapabilities build() {
             final var _resultValue = new WindowsVirtualMachineAdditionalCapabilities();
+            _resultValue.hibernationEnabled = hibernationEnabled;
             _resultValue.ultraSsdEnabled = ultraSsdEnabled;
             return _resultValue;
         }

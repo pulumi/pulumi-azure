@@ -42,6 +42,9 @@ namespace Pulumi.Azure.Inputs
         [Input("recoveryService")]
         public Input<Inputs.ProviderFeaturesRecoveryServiceArgs>? RecoveryService { get; set; }
 
+        [Input("recoveryServicesVaults")]
+        public Input<Inputs.ProviderFeaturesRecoveryServicesVaultsArgs>? RecoveryServicesVaults { get; set; }
+
         [Input("resourceGroup")]
         public Input<Inputs.ProviderFeaturesResourceGroupArgs>? ResourceGroup { get; set; }
 

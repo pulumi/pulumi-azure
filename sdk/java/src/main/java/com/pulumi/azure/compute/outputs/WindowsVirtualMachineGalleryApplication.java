@@ -25,7 +25,7 @@ public final class WindowsVirtualMachineGalleryApplication {
      */
     private @Nullable String configurationBlobUri;
     /**
-     * @return Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`.
+     * @return Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`.
      * 
      */
     private @Nullable Integer order;
@@ -61,7 +61,7 @@ public final class WindowsVirtualMachineGalleryApplication {
         return Optional.ofNullable(this.configurationBlobUri);
     }
     /**
-     * @return Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`.
+     * @return Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`.
      * 
      */
     public Optional<Integer> order() {

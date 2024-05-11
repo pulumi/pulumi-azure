@@ -309,6 +309,8 @@ type Database struct {
 	// > **NOTE:** `transparentDataEncryptionEnabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
 	TransparentDataEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"transparentDataEncryptionEnabled"`
 	// Boolean flag to specify whether TDE automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+	//
+	// > **NOTE:** When the `skuName` is `DW100c`, the `transparentDataEncryptionKeyAutomaticRotationEnabled` and the `transparentDataEncryptionKeyVaultKeyId` properties should not be specified, as database-level CMK is not supported for Data Warehouse SKUs.
 	TransparentDataEncryptionKeyAutomaticRotationEnabled pulumi.BoolPtrOutput `pulumi:"transparentDataEncryptionKeyAutomaticRotationEnabled"`
 	// The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
 	//
@@ -436,6 +438,8 @@ type databaseState struct {
 	// > **NOTE:** `transparentDataEncryptionEnabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
 	TransparentDataEncryptionEnabled *bool `pulumi:"transparentDataEncryptionEnabled"`
 	// Boolean flag to specify whether TDE automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+	//
+	// > **NOTE:** When the `skuName` is `DW100c`, the `transparentDataEncryptionKeyAutomaticRotationEnabled` and the `transparentDataEncryptionKeyVaultKeyId` properties should not be specified, as database-level CMK is not supported for Data Warehouse SKUs.
 	TransparentDataEncryptionKeyAutomaticRotationEnabled *bool `pulumi:"transparentDataEncryptionKeyAutomaticRotationEnabled"`
 	// The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
 	//
@@ -531,6 +535,8 @@ type DatabaseState struct {
 	// > **NOTE:** `transparentDataEncryptionEnabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
 	TransparentDataEncryptionEnabled pulumi.BoolPtrInput
 	// Boolean flag to specify whether TDE automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+	//
+	// > **NOTE:** When the `skuName` is `DW100c`, the `transparentDataEncryptionKeyAutomaticRotationEnabled` and the `transparentDataEncryptionKeyVaultKeyId` properties should not be specified, as database-level CMK is not supported for Data Warehouse SKUs.
 	TransparentDataEncryptionKeyAutomaticRotationEnabled pulumi.BoolPtrInput
 	// The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
 	//
@@ -630,6 +636,8 @@ type databaseArgs struct {
 	// > **NOTE:** `transparentDataEncryptionEnabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
 	TransparentDataEncryptionEnabled *bool `pulumi:"transparentDataEncryptionEnabled"`
 	// Boolean flag to specify whether TDE automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+	//
+	// > **NOTE:** When the `skuName` is `DW100c`, the `transparentDataEncryptionKeyAutomaticRotationEnabled` and the `transparentDataEncryptionKeyVaultKeyId` properties should not be specified, as database-level CMK is not supported for Data Warehouse SKUs.
 	TransparentDataEncryptionKeyAutomaticRotationEnabled *bool `pulumi:"transparentDataEncryptionKeyAutomaticRotationEnabled"`
 	// The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
 	//
@@ -726,6 +734,8 @@ type DatabaseArgs struct {
 	// > **NOTE:** `transparentDataEncryptionEnabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
 	TransparentDataEncryptionEnabled pulumi.BoolPtrInput
 	// Boolean flag to specify whether TDE automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+	//
+	// > **NOTE:** When the `skuName` is `DW100c`, the `transparentDataEncryptionKeyAutomaticRotationEnabled` and the `transparentDataEncryptionKeyVaultKeyId` properties should not be specified, as database-level CMK is not supported for Data Warehouse SKUs.
 	TransparentDataEncryptionKeyAutomaticRotationEnabled pulumi.BoolPtrInput
 	// The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
 	//
@@ -1003,6 +1013,8 @@ func (o DatabaseOutput) TransparentDataEncryptionEnabled() pulumi.BoolPtrOutput 
 }
 
 // Boolean flag to specify whether TDE automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+//
+// > **NOTE:** When the `skuName` is `DW100c`, the `transparentDataEncryptionKeyAutomaticRotationEnabled` and the `transparentDataEncryptionKeyVaultKeyId` properties should not be specified, as database-level CMK is not supported for Data Warehouse SKUs.
 func (o DatabaseOutput) TransparentDataEncryptionKeyAutomaticRotationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Database) pulumi.BoolPtrOutput { return v.TransparentDataEncryptionKeyAutomaticRotationEnabled }).(pulumi.BoolPtrOutput)
 }

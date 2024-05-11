@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.azure.appservice.outputs.GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequest;
 import com.pulumi.azure.appservice.outputs.GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest;
+import com.pulumi.azure.appservice.outputs.GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath;
 import com.pulumi.azure.appservice.outputs.GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -24,6 +25,11 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingTrigger {
      * 
      */
     private List<GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequest> requests;
+    /**
+     * @return (Optional) One or more `slow_request_with_path` blocks as defined above.
+     * 
+     */
+    private List<GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath> slowRequestWithPaths;
     /**
      * @return A `slow_request` block as defined above.
      * 
@@ -51,6 +57,13 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingTrigger {
         return this.requests;
     }
     /**
+     * @return (Optional) One or more `slow_request_with_path` blocks as defined above.
+     * 
+     */
+    public List<GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath> slowRequestWithPaths() {
+        return this.slowRequestWithPaths;
+    }
+    /**
      * @return A `slow_request` block as defined above.
      * 
      */
@@ -76,6 +89,7 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingTrigger {
     public static final class Builder {
         private Integer privateMemoryKb;
         private List<GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequest> requests;
+        private List<GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath> slowRequestWithPaths;
         private List<GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests;
         private List<GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode> statusCodes;
         public Builder() {}
@@ -83,6 +97,7 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingTrigger {
     	      Objects.requireNonNull(defaults);
     	      this.privateMemoryKb = defaults.privateMemoryKb;
     	      this.requests = defaults.requests;
+    	      this.slowRequestWithPaths = defaults.slowRequestWithPaths;
     	      this.slowRequests = defaults.slowRequests;
     	      this.statusCodes = defaults.statusCodes;
         }
@@ -105,6 +120,17 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingTrigger {
         }
         public Builder requests(GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequest... requests) {
             return requests(List.of(requests));
+        }
+        @CustomType.Setter
+        public Builder slowRequestWithPaths(List<GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath> slowRequestWithPaths) {
+            if (slowRequestWithPaths == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigAutoHealSettingTrigger", "slowRequestWithPaths");
+            }
+            this.slowRequestWithPaths = slowRequestWithPaths;
+            return this;
+        }
+        public Builder slowRequestWithPaths(GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath... slowRequestWithPaths) {
+            return slowRequestWithPaths(List.of(slowRequestWithPaths));
         }
         @CustomType.Setter
         public Builder slowRequests(List<GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests) {
@@ -132,6 +158,7 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingTrigger {
             final var _resultValue = new GetWindowsWebAppSiteConfigAutoHealSettingTrigger();
             _resultValue.privateMemoryKb = privateMemoryKb;
             _resultValue.requests = requests;
+            _resultValue.slowRequestWithPaths = slowRequestWithPaths;
             _resultValue.slowRequests = slowRequests;
             _resultValue.statusCodes = statusCodes;
             return _resultValue;

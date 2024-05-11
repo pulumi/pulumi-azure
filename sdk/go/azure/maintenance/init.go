@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:maintenance/assignmentDedicatedHost:AssignmentDedicatedHost":
 		r = &AssignmentDedicatedHost{}
+	case "azure:maintenance/assignmentDynamicScope:AssignmentDynamicScope":
+		r = &AssignmentDynamicScope{}
 	case "azure:maintenance/assignmentVirtualMachine:AssignmentVirtualMachine":
 		r = &AssignmentVirtualMachine{}
 	case "azure:maintenance/assignmentVirtualMachineScaleSet:AssignmentVirtualMachineScaleSet":
@@ -45,6 +47,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"maintenance/assignmentDedicatedHost",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"maintenance/assignmentDynamicScope",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

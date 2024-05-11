@@ -4,6 +4,7 @@
 package com.pulumi.azure.storage.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,6 +17,13 @@ public final class AccountBlobPropertiesDeleteRetentionPolicy {
      * 
      */
     private @Nullable Integer days;
+    /**
+     * @return Indicates whether permanent deletion of the soft deleted blob versions and snapshots is allowed. Defaults to `false`.
+     * 
+     * &gt; **NOTE:** `permanent_delete_enabled` cannot be set to true if a `restore_policy` block is defined.
+     * 
+     */
+    private @Nullable Boolean permanentDeleteEnabled;
 
     private AccountBlobPropertiesDeleteRetentionPolicy() {}
     /**
@@ -24,6 +32,15 @@ public final class AccountBlobPropertiesDeleteRetentionPolicy {
      */
     public Optional<Integer> days() {
         return Optional.ofNullable(this.days);
+    }
+    /**
+     * @return Indicates whether permanent deletion of the soft deleted blob versions and snapshots is allowed. Defaults to `false`.
+     * 
+     * &gt; **NOTE:** `permanent_delete_enabled` cannot be set to true if a `restore_policy` block is defined.
+     * 
+     */
+    public Optional<Boolean> permanentDeleteEnabled() {
+        return Optional.ofNullable(this.permanentDeleteEnabled);
     }
 
     public static Builder builder() {
@@ -36,10 +53,12 @@ public final class AccountBlobPropertiesDeleteRetentionPolicy {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer days;
+        private @Nullable Boolean permanentDeleteEnabled;
         public Builder() {}
         public Builder(AccountBlobPropertiesDeleteRetentionPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.days = defaults.days;
+    	      this.permanentDeleteEnabled = defaults.permanentDeleteEnabled;
         }
 
         @CustomType.Setter
@@ -48,9 +67,16 @@ public final class AccountBlobPropertiesDeleteRetentionPolicy {
             this.days = days;
             return this;
         }
+        @CustomType.Setter
+        public Builder permanentDeleteEnabled(@Nullable Boolean permanentDeleteEnabled) {
+
+            this.permanentDeleteEnabled = permanentDeleteEnabled;
+            return this;
+        }
         public AccountBlobPropertiesDeleteRetentionPolicy build() {
             final var _resultValue = new AccountBlobPropertiesDeleteRetentionPolicy();
             _resultValue.days = days;
+            _resultValue.permanentDeleteEnabled = permanentDeleteEnabled;
             return _resultValue;
         }
     }

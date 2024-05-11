@@ -29,6 +29,8 @@ import com.pulumi.azure.network.inputs.GetNetworkDdosProtectionPlanPlainArgs;
 import com.pulumi.azure.network.inputs.GetNetworkInterfaceArgs;
 import com.pulumi.azure.network.inputs.GetNetworkInterfacePlainArgs;
 import com.pulumi.azure.network.inputs.GetNetworkManagerArgs;
+import com.pulumi.azure.network.inputs.GetNetworkManagerConnectivityConfigurationArgs;
+import com.pulumi.azure.network.inputs.GetNetworkManagerConnectivityConfigurationPlainArgs;
 import com.pulumi.azure.network.inputs.GetNetworkManagerNetworkGroupArgs;
 import com.pulumi.azure.network.inputs.GetNetworkManagerNetworkGroupPlainArgs;
 import com.pulumi.azure.network.inputs.GetNetworkManagerPlainArgs;
@@ -80,6 +82,7 @@ import com.pulumi.azure.network.outputs.GetLocalNetworkGatewayResult;
 import com.pulumi.azure.network.outputs.GetNatGatewayResult;
 import com.pulumi.azure.network.outputs.GetNetworkDdosProtectionPlanResult;
 import com.pulumi.azure.network.outputs.GetNetworkInterfaceResult;
+import com.pulumi.azure.network.outputs.GetNetworkManagerConnectivityConfigurationResult;
 import com.pulumi.azure.network.outputs.GetNetworkManagerNetworkGroupResult;
 import com.pulumi.azure.network.outputs.GetNetworkManagerResult;
 import com.pulumi.azure.network.outputs.GetNetworkSecurityGroupResult;
@@ -2354,6 +2357,182 @@ public final class NetworkFunctions {
      */
     public static CompletableFuture<GetNetworkManagerResult> getNetworkManagerPlain(GetNetworkManagerPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:network/getNetworkManager:getNetworkManager", TypeShape.of(GetNetworkManagerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Network Manager Connectivity Configuration.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkManagerConnectivityConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getNetworkManagerConnectivityConfiguration(GetNetworkManagerConnectivityConfigurationArgs.builder()
+     *             .name("existing")
+     *             .networkManagerId("TODO")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getNetworkManagerConnectivityConfigurationResult -> getNetworkManagerConnectivityConfigurationResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetNetworkManagerConnectivityConfigurationResult> getNetworkManagerConnectivityConfiguration(GetNetworkManagerConnectivityConfigurationArgs args) {
+        return getNetworkManagerConnectivityConfiguration(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Network Manager Connectivity Configuration.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkManagerConnectivityConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getNetworkManagerConnectivityConfiguration(GetNetworkManagerConnectivityConfigurationArgs.builder()
+     *             .name("existing")
+     *             .networkManagerId("TODO")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getNetworkManagerConnectivityConfigurationResult -> getNetworkManagerConnectivityConfigurationResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetNetworkManagerConnectivityConfigurationResult> getNetworkManagerConnectivityConfigurationPlain(GetNetworkManagerConnectivityConfigurationPlainArgs args) {
+        return getNetworkManagerConnectivityConfigurationPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Network Manager Connectivity Configuration.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkManagerConnectivityConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getNetworkManagerConnectivityConfiguration(GetNetworkManagerConnectivityConfigurationArgs.builder()
+     *             .name("existing")
+     *             .networkManagerId("TODO")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getNetworkManagerConnectivityConfigurationResult -> getNetworkManagerConnectivityConfigurationResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetNetworkManagerConnectivityConfigurationResult> getNetworkManagerConnectivityConfiguration(GetNetworkManagerConnectivityConfigurationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:network/getNetworkManagerConnectivityConfiguration:getNetworkManagerConnectivityConfiguration", TypeShape.of(GetNetworkManagerConnectivityConfigurationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Network Manager Connectivity Configuration.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkManagerConnectivityConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getNetworkManagerConnectivityConfiguration(GetNetworkManagerConnectivityConfigurationArgs.builder()
+     *             .name("existing")
+     *             .networkManagerId("TODO")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getNetworkManagerConnectivityConfigurationResult -> getNetworkManagerConnectivityConfigurationResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetNetworkManagerConnectivityConfigurationResult> getNetworkManagerConnectivityConfigurationPlain(GetNetworkManagerConnectivityConfigurationPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:network/getNetworkManagerConnectivityConfiguration:getNetworkManagerConnectivityConfiguration", TypeShape.of(GetNetworkManagerConnectivityConfigurationResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about a Network Manager Network Group.

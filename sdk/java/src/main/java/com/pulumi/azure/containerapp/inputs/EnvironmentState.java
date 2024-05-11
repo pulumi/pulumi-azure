@@ -20,6 +20,21 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
     public static final EnvironmentState Empty = new EnvironmentState();
 
     /**
+     * The ID of the Custom Domain Verification for this Container App Environment.
+     * 
+     */
+    @Import(name="customDomainVerificationId")
+    private @Nullable Output<String> customDomainVerificationId;
+
+    /**
+     * @return The ID of the Custom Domain Verification for this Container App Environment.
+     * 
+     */
+    public Optional<Output<String>> customDomainVerificationId() {
+        return Optional.ofNullable(this.customDomainVerificationId);
+    }
+
+    /**
      * Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
      * 
      */
@@ -278,6 +293,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
     private EnvironmentState() {}
 
     private EnvironmentState(EnvironmentState $) {
+        this.customDomainVerificationId = $.customDomainVerificationId;
         this.daprApplicationInsightsConnectionString = $.daprApplicationInsightsConnectionString;
         this.defaultDomain = $.defaultDomain;
         this.dockerBridgeCidr = $.dockerBridgeCidr;
@@ -312,6 +328,27 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(EnvironmentState defaults) {
             $ = new EnvironmentState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param customDomainVerificationId The ID of the Custom Domain Verification for this Container App Environment.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customDomainVerificationId(@Nullable Output<String> customDomainVerificationId) {
+            $.customDomainVerificationId = customDomainVerificationId;
+            return this;
+        }
+
+        /**
+         * @param customDomainVerificationId The ID of the Custom Domain Verification for this Container App Environment.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customDomainVerificationId(String customDomainVerificationId) {
+            return customDomainVerificationId(Output.of(customDomainVerificationId));
         }
 
         /**

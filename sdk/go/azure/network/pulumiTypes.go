@@ -19793,6 +19793,8 @@ func (o VirtualNetworkDdosProtectionPlanPtrOutput) Id() pulumi.StringPtrOutput {
 
 type VirtualNetworkEncryption struct {
 	// Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
+	//
+	// > **NOTE:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
 	Enforcement string `pulumi:"enforcement"`
 }
 
@@ -19809,6 +19811,8 @@ type VirtualNetworkEncryptionInput interface {
 
 type VirtualNetworkEncryptionArgs struct {
 	// Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
+	//
+	// > **NOTE:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
 	Enforcement pulumi.StringInput `pulumi:"enforcement"`
 }
 
@@ -19890,6 +19894,8 @@ func (o VirtualNetworkEncryptionOutput) ToVirtualNetworkEncryptionPtrOutputWithC
 }
 
 // Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
+//
+// > **NOTE:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
 func (o VirtualNetworkEncryptionOutput) Enforcement() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkEncryption) string { return v.Enforcement }).(pulumi.StringOutput)
 }
@@ -19919,6 +19925,8 @@ func (o VirtualNetworkEncryptionPtrOutput) Elem() VirtualNetworkEncryptionOutput
 }
 
 // Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
+//
+// > **NOTE:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
 func (o VirtualNetworkEncryptionPtrOutput) Enforcement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkEncryption) *string {
 		if v == nil {
@@ -33174,6 +33182,236 @@ func (o GetNetworkInterfaceIpConfigurationArrayOutput) Index(i pulumi.IntInput) 
 	}).(GetNetworkInterfaceIpConfigurationOutput)
 }
 
+type GetNetworkManagerConnectivityConfigurationAppliesToGroup struct {
+	// Whether global mesh is supported.
+	GlobalMeshEnabled bool `pulumi:"globalMeshEnabled"`
+	// The group connectivity type.
+	GroupConnectivity string `pulumi:"groupConnectivity"`
+	// The ID of the Network Manager Network Group.
+	NetworkGroupId string `pulumi:"networkGroupId"`
+	// Whether hub gateway is used.
+	UseHubGateway bool `pulumi:"useHubGateway"`
+}
+
+// GetNetworkManagerConnectivityConfigurationAppliesToGroupInput is an input type that accepts GetNetworkManagerConnectivityConfigurationAppliesToGroupArgs and GetNetworkManagerConnectivityConfigurationAppliesToGroupOutput values.
+// You can construct a concrete instance of `GetNetworkManagerConnectivityConfigurationAppliesToGroupInput` via:
+//
+//	GetNetworkManagerConnectivityConfigurationAppliesToGroupArgs{...}
+type GetNetworkManagerConnectivityConfigurationAppliesToGroupInput interface {
+	pulumi.Input
+
+	ToGetNetworkManagerConnectivityConfigurationAppliesToGroupOutput() GetNetworkManagerConnectivityConfigurationAppliesToGroupOutput
+	ToGetNetworkManagerConnectivityConfigurationAppliesToGroupOutputWithContext(context.Context) GetNetworkManagerConnectivityConfigurationAppliesToGroupOutput
+}
+
+type GetNetworkManagerConnectivityConfigurationAppliesToGroupArgs struct {
+	// Whether global mesh is supported.
+	GlobalMeshEnabled pulumi.BoolInput `pulumi:"globalMeshEnabled"`
+	// The group connectivity type.
+	GroupConnectivity pulumi.StringInput `pulumi:"groupConnectivity"`
+	// The ID of the Network Manager Network Group.
+	NetworkGroupId pulumi.StringInput `pulumi:"networkGroupId"`
+	// Whether hub gateway is used.
+	UseHubGateway pulumi.BoolInput `pulumi:"useHubGateway"`
+}
+
+func (GetNetworkManagerConnectivityConfigurationAppliesToGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkManagerConnectivityConfigurationAppliesToGroup)(nil)).Elem()
+}
+
+func (i GetNetworkManagerConnectivityConfigurationAppliesToGroupArgs) ToGetNetworkManagerConnectivityConfigurationAppliesToGroupOutput() GetNetworkManagerConnectivityConfigurationAppliesToGroupOutput {
+	return i.ToGetNetworkManagerConnectivityConfigurationAppliesToGroupOutputWithContext(context.Background())
+}
+
+func (i GetNetworkManagerConnectivityConfigurationAppliesToGroupArgs) ToGetNetworkManagerConnectivityConfigurationAppliesToGroupOutputWithContext(ctx context.Context) GetNetworkManagerConnectivityConfigurationAppliesToGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkManagerConnectivityConfigurationAppliesToGroupOutput)
+}
+
+// GetNetworkManagerConnectivityConfigurationAppliesToGroupArrayInput is an input type that accepts GetNetworkManagerConnectivityConfigurationAppliesToGroupArray and GetNetworkManagerConnectivityConfigurationAppliesToGroupArrayOutput values.
+// You can construct a concrete instance of `GetNetworkManagerConnectivityConfigurationAppliesToGroupArrayInput` via:
+//
+//	GetNetworkManagerConnectivityConfigurationAppliesToGroupArray{ GetNetworkManagerConnectivityConfigurationAppliesToGroupArgs{...} }
+type GetNetworkManagerConnectivityConfigurationAppliesToGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkManagerConnectivityConfigurationAppliesToGroupArrayOutput() GetNetworkManagerConnectivityConfigurationAppliesToGroupArrayOutput
+	ToGetNetworkManagerConnectivityConfigurationAppliesToGroupArrayOutputWithContext(context.Context) GetNetworkManagerConnectivityConfigurationAppliesToGroupArrayOutput
+}
+
+type GetNetworkManagerConnectivityConfigurationAppliesToGroupArray []GetNetworkManagerConnectivityConfigurationAppliesToGroupInput
+
+func (GetNetworkManagerConnectivityConfigurationAppliesToGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkManagerConnectivityConfigurationAppliesToGroup)(nil)).Elem()
+}
+
+func (i GetNetworkManagerConnectivityConfigurationAppliesToGroupArray) ToGetNetworkManagerConnectivityConfigurationAppliesToGroupArrayOutput() GetNetworkManagerConnectivityConfigurationAppliesToGroupArrayOutput {
+	return i.ToGetNetworkManagerConnectivityConfigurationAppliesToGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkManagerConnectivityConfigurationAppliesToGroupArray) ToGetNetworkManagerConnectivityConfigurationAppliesToGroupArrayOutputWithContext(ctx context.Context) GetNetworkManagerConnectivityConfigurationAppliesToGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkManagerConnectivityConfigurationAppliesToGroupArrayOutput)
+}
+
+type GetNetworkManagerConnectivityConfigurationAppliesToGroupOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkManagerConnectivityConfigurationAppliesToGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkManagerConnectivityConfigurationAppliesToGroup)(nil)).Elem()
+}
+
+func (o GetNetworkManagerConnectivityConfigurationAppliesToGroupOutput) ToGetNetworkManagerConnectivityConfigurationAppliesToGroupOutput() GetNetworkManagerConnectivityConfigurationAppliesToGroupOutput {
+	return o
+}
+
+func (o GetNetworkManagerConnectivityConfigurationAppliesToGroupOutput) ToGetNetworkManagerConnectivityConfigurationAppliesToGroupOutputWithContext(ctx context.Context) GetNetworkManagerConnectivityConfigurationAppliesToGroupOutput {
+	return o
+}
+
+// Whether global mesh is supported.
+func (o GetNetworkManagerConnectivityConfigurationAppliesToGroupOutput) GlobalMeshEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetNetworkManagerConnectivityConfigurationAppliesToGroup) bool { return v.GlobalMeshEnabled }).(pulumi.BoolOutput)
+}
+
+// The group connectivity type.
+func (o GetNetworkManagerConnectivityConfigurationAppliesToGroupOutput) GroupConnectivity() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkManagerConnectivityConfigurationAppliesToGroup) string { return v.GroupConnectivity }).(pulumi.StringOutput)
+}
+
+// The ID of the Network Manager Network Group.
+func (o GetNetworkManagerConnectivityConfigurationAppliesToGroupOutput) NetworkGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkManagerConnectivityConfigurationAppliesToGroup) string { return v.NetworkGroupId }).(pulumi.StringOutput)
+}
+
+// Whether hub gateway is used.
+func (o GetNetworkManagerConnectivityConfigurationAppliesToGroupOutput) UseHubGateway() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetNetworkManagerConnectivityConfigurationAppliesToGroup) bool { return v.UseHubGateway }).(pulumi.BoolOutput)
+}
+
+type GetNetworkManagerConnectivityConfigurationAppliesToGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkManagerConnectivityConfigurationAppliesToGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkManagerConnectivityConfigurationAppliesToGroup)(nil)).Elem()
+}
+
+func (o GetNetworkManagerConnectivityConfigurationAppliesToGroupArrayOutput) ToGetNetworkManagerConnectivityConfigurationAppliesToGroupArrayOutput() GetNetworkManagerConnectivityConfigurationAppliesToGroupArrayOutput {
+	return o
+}
+
+func (o GetNetworkManagerConnectivityConfigurationAppliesToGroupArrayOutput) ToGetNetworkManagerConnectivityConfigurationAppliesToGroupArrayOutputWithContext(ctx context.Context) GetNetworkManagerConnectivityConfigurationAppliesToGroupArrayOutput {
+	return o
+}
+
+func (o GetNetworkManagerConnectivityConfigurationAppliesToGroupArrayOutput) Index(i pulumi.IntInput) GetNetworkManagerConnectivityConfigurationAppliesToGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkManagerConnectivityConfigurationAppliesToGroup {
+		return vs[0].([]GetNetworkManagerConnectivityConfigurationAppliesToGroup)[vs[1].(int)]
+	}).(GetNetworkManagerConnectivityConfigurationAppliesToGroupOutput)
+}
+
+type GetNetworkManagerConnectivityConfigurationHub struct {
+	// The resource ID used as hub in Hub and Spoke topology.
+	ResourceId string `pulumi:"resourceId"`
+	// The resource type used as hub in Hub and Spoke topology.
+	ResourceType string `pulumi:"resourceType"`
+}
+
+// GetNetworkManagerConnectivityConfigurationHubInput is an input type that accepts GetNetworkManagerConnectivityConfigurationHubArgs and GetNetworkManagerConnectivityConfigurationHubOutput values.
+// You can construct a concrete instance of `GetNetworkManagerConnectivityConfigurationHubInput` via:
+//
+//	GetNetworkManagerConnectivityConfigurationHubArgs{...}
+type GetNetworkManagerConnectivityConfigurationHubInput interface {
+	pulumi.Input
+
+	ToGetNetworkManagerConnectivityConfigurationHubOutput() GetNetworkManagerConnectivityConfigurationHubOutput
+	ToGetNetworkManagerConnectivityConfigurationHubOutputWithContext(context.Context) GetNetworkManagerConnectivityConfigurationHubOutput
+}
+
+type GetNetworkManagerConnectivityConfigurationHubArgs struct {
+	// The resource ID used as hub in Hub and Spoke topology.
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
+	// The resource type used as hub in Hub and Spoke topology.
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+}
+
+func (GetNetworkManagerConnectivityConfigurationHubArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkManagerConnectivityConfigurationHub)(nil)).Elem()
+}
+
+func (i GetNetworkManagerConnectivityConfigurationHubArgs) ToGetNetworkManagerConnectivityConfigurationHubOutput() GetNetworkManagerConnectivityConfigurationHubOutput {
+	return i.ToGetNetworkManagerConnectivityConfigurationHubOutputWithContext(context.Background())
+}
+
+func (i GetNetworkManagerConnectivityConfigurationHubArgs) ToGetNetworkManagerConnectivityConfigurationHubOutputWithContext(ctx context.Context) GetNetworkManagerConnectivityConfigurationHubOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkManagerConnectivityConfigurationHubOutput)
+}
+
+// GetNetworkManagerConnectivityConfigurationHubArrayInput is an input type that accepts GetNetworkManagerConnectivityConfigurationHubArray and GetNetworkManagerConnectivityConfigurationHubArrayOutput values.
+// You can construct a concrete instance of `GetNetworkManagerConnectivityConfigurationHubArrayInput` via:
+//
+//	GetNetworkManagerConnectivityConfigurationHubArray{ GetNetworkManagerConnectivityConfigurationHubArgs{...} }
+type GetNetworkManagerConnectivityConfigurationHubArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkManagerConnectivityConfigurationHubArrayOutput() GetNetworkManagerConnectivityConfigurationHubArrayOutput
+	ToGetNetworkManagerConnectivityConfigurationHubArrayOutputWithContext(context.Context) GetNetworkManagerConnectivityConfigurationHubArrayOutput
+}
+
+type GetNetworkManagerConnectivityConfigurationHubArray []GetNetworkManagerConnectivityConfigurationHubInput
+
+func (GetNetworkManagerConnectivityConfigurationHubArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkManagerConnectivityConfigurationHub)(nil)).Elem()
+}
+
+func (i GetNetworkManagerConnectivityConfigurationHubArray) ToGetNetworkManagerConnectivityConfigurationHubArrayOutput() GetNetworkManagerConnectivityConfigurationHubArrayOutput {
+	return i.ToGetNetworkManagerConnectivityConfigurationHubArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkManagerConnectivityConfigurationHubArray) ToGetNetworkManagerConnectivityConfigurationHubArrayOutputWithContext(ctx context.Context) GetNetworkManagerConnectivityConfigurationHubArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkManagerConnectivityConfigurationHubArrayOutput)
+}
+
+type GetNetworkManagerConnectivityConfigurationHubOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkManagerConnectivityConfigurationHubOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkManagerConnectivityConfigurationHub)(nil)).Elem()
+}
+
+func (o GetNetworkManagerConnectivityConfigurationHubOutput) ToGetNetworkManagerConnectivityConfigurationHubOutput() GetNetworkManagerConnectivityConfigurationHubOutput {
+	return o
+}
+
+func (o GetNetworkManagerConnectivityConfigurationHubOutput) ToGetNetworkManagerConnectivityConfigurationHubOutputWithContext(ctx context.Context) GetNetworkManagerConnectivityConfigurationHubOutput {
+	return o
+}
+
+// The resource ID used as hub in Hub and Spoke topology.
+func (o GetNetworkManagerConnectivityConfigurationHubOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkManagerConnectivityConfigurationHub) string { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+// The resource type used as hub in Hub and Spoke topology.
+func (o GetNetworkManagerConnectivityConfigurationHubOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkManagerConnectivityConfigurationHub) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+type GetNetworkManagerConnectivityConfigurationHubArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkManagerConnectivityConfigurationHubArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkManagerConnectivityConfigurationHub)(nil)).Elem()
+}
+
+func (o GetNetworkManagerConnectivityConfigurationHubArrayOutput) ToGetNetworkManagerConnectivityConfigurationHubArrayOutput() GetNetworkManagerConnectivityConfigurationHubArrayOutput {
+	return o
+}
+
+func (o GetNetworkManagerConnectivityConfigurationHubArrayOutput) ToGetNetworkManagerConnectivityConfigurationHubArrayOutputWithContext(ctx context.Context) GetNetworkManagerConnectivityConfigurationHubArrayOutput {
+	return o
+}
+
+func (o GetNetworkManagerConnectivityConfigurationHubArrayOutput) Index(i pulumi.IntInput) GetNetworkManagerConnectivityConfigurationHubOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkManagerConnectivityConfigurationHub {
+		return vs[0].([]GetNetworkManagerConnectivityConfigurationHub)[vs[1].(int)]
+	}).(GetNetworkManagerConnectivityConfigurationHubOutput)
+}
+
 type GetNetworkManagerCrossTenantScope struct {
 	// A list of management groups used as cross tenant scope for the Network Manager.
 	ManagementGroups []string `pulumi:"managementGroups"`
@@ -36531,6 +36769,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLocalNetworkGatewayBgpSettingArrayInput)(nil)).Elem(), GetLocalNetworkGatewayBgpSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkInterfaceIpConfigurationInput)(nil)).Elem(), GetNetworkInterfaceIpConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkInterfaceIpConfigurationArrayInput)(nil)).Elem(), GetNetworkInterfaceIpConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkManagerConnectivityConfigurationAppliesToGroupInput)(nil)).Elem(), GetNetworkManagerConnectivityConfigurationAppliesToGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkManagerConnectivityConfigurationAppliesToGroupArrayInput)(nil)).Elem(), GetNetworkManagerConnectivityConfigurationAppliesToGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkManagerConnectivityConfigurationHubInput)(nil)).Elem(), GetNetworkManagerConnectivityConfigurationHubArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkManagerConnectivityConfigurationHubArrayInput)(nil)).Elem(), GetNetworkManagerConnectivityConfigurationHubArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkManagerCrossTenantScopeInput)(nil)).Elem(), GetNetworkManagerCrossTenantScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkManagerCrossTenantScopeArrayInput)(nil)).Elem(), GetNetworkManagerCrossTenantScopeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkManagerScopeInput)(nil)).Elem(), GetNetworkManagerScopeArgs{})
@@ -37015,6 +37257,10 @@ func init() {
 	pulumi.RegisterOutputType(GetLocalNetworkGatewayBgpSettingArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkInterfaceIpConfigurationOutput{})
 	pulumi.RegisterOutputType(GetNetworkInterfaceIpConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworkManagerConnectivityConfigurationAppliesToGroupOutput{})
+	pulumi.RegisterOutputType(GetNetworkManagerConnectivityConfigurationAppliesToGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworkManagerConnectivityConfigurationHubOutput{})
+	pulumi.RegisterOutputType(GetNetworkManagerConnectivityConfigurationHubArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkManagerCrossTenantScopeOutput{})
 	pulumi.RegisterOutputType(GetNetworkManagerCrossTenantScopeArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkManagerScopeOutput{})

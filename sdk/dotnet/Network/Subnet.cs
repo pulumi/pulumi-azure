@@ -111,10 +111,13 @@ namespace Pulumi.Azure.Network
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Enable or Disable network policies for the private endpoint on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+        /// Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
         /// 
-        /// &gt; **NOTE:** Network policies, like network security groups (NSG), are not supported for Private Link Endpoints or Private Link Services. In order to deploy a Private Link Endpoint on a given subnet, you must set the `private_endpoint_network_policies_enabled` attribute to `false`. This setting is only applicable for the Private Link Endpoint, for all other resources in the subnet access is controlled based via the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource.
+        /// &gt; **NOTE:** Network policies, like network security groups (NSG), are not supported for Private Link Endpoints or Private Link Services. In order to deploy a Private Link Endpoint on a given subnet, you must set the `private_endpoint_network_policies` attribute to `Disabled`. This setting is only applicable for the Private Link Endpoint, for all other resources in the subnet access is controlled based via the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource.
         /// </summary>
+        [Output("privateEndpointNetworkPolicies")]
+        public Output<string> PrivateEndpointNetworkPolicies { get; private set; } = null!;
+
         [Output("privateEndpointNetworkPoliciesEnabled")]
         public Output<bool> PrivateEndpointNetworkPoliciesEnabled { get; private set; } = null!;
 
@@ -127,7 +130,7 @@ namespace Pulumi.Azure.Network
         public Output<bool> PrivateLinkServiceNetworkPoliciesEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
+        /// The name of the resource group in which to create the subnet. This must be the resource group that the virtual network resides in. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -237,10 +240,13 @@ namespace Pulumi.Azure.Network
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Enable or Disable network policies for the private endpoint on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+        /// Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
         /// 
-        /// &gt; **NOTE:** Network policies, like network security groups (NSG), are not supported for Private Link Endpoints or Private Link Services. In order to deploy a Private Link Endpoint on a given subnet, you must set the `private_endpoint_network_policies_enabled` attribute to `false`. This setting is only applicable for the Private Link Endpoint, for all other resources in the subnet access is controlled based via the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource.
+        /// &gt; **NOTE:** Network policies, like network security groups (NSG), are not supported for Private Link Endpoints or Private Link Services. In order to deploy a Private Link Endpoint on a given subnet, you must set the `private_endpoint_network_policies` attribute to `Disabled`. This setting is only applicable for the Private Link Endpoint, for all other resources in the subnet access is controlled based via the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource.
         /// </summary>
+        [Input("privateEndpointNetworkPolicies")]
+        public Input<string>? PrivateEndpointNetworkPolicies { get; set; }
+
         [Input("privateEndpointNetworkPoliciesEnabled")]
         public Input<bool>? PrivateEndpointNetworkPoliciesEnabled { get; set; }
 
@@ -253,7 +259,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? PrivateLinkServiceNetworkPoliciesEnabled { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
+        /// The name of the resource group in which to create the subnet. This must be the resource group that the virtual network resides in. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -337,10 +343,13 @@ namespace Pulumi.Azure.Network
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Enable or Disable network policies for the private endpoint on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+        /// Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
         /// 
-        /// &gt; **NOTE:** Network policies, like network security groups (NSG), are not supported for Private Link Endpoints or Private Link Services. In order to deploy a Private Link Endpoint on a given subnet, you must set the `private_endpoint_network_policies_enabled` attribute to `false`. This setting is only applicable for the Private Link Endpoint, for all other resources in the subnet access is controlled based via the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource.
+        /// &gt; **NOTE:** Network policies, like network security groups (NSG), are not supported for Private Link Endpoints or Private Link Services. In order to deploy a Private Link Endpoint on a given subnet, you must set the `private_endpoint_network_policies` attribute to `Disabled`. This setting is only applicable for the Private Link Endpoint, for all other resources in the subnet access is controlled based via the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource.
         /// </summary>
+        [Input("privateEndpointNetworkPolicies")]
+        public Input<string>? PrivateEndpointNetworkPolicies { get; set; }
+
         [Input("privateEndpointNetworkPoliciesEnabled")]
         public Input<bool>? PrivateEndpointNetworkPoliciesEnabled { get; set; }
 
@@ -353,7 +362,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? PrivateLinkServiceNetworkPoliciesEnabled { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
+        /// The name of the resource group in which to create the subnet. This must be the resource group that the virtual network resides in. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

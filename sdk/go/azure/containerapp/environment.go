@@ -72,6 +72,8 @@ import (
 type Environment struct {
 	pulumi.CustomResourceState
 
+	// The ID of the Custom Domain Verification for this Container App Environment.
+	CustomDomainVerificationId pulumi.StringOutput `pulumi:"customDomainVerificationId"`
 	// Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
 	DaprApplicationInsightsConnectionString pulumi.StringPtrOutput `pulumi:"daprApplicationInsightsConnectionString"`
 	// The default, publicly resolvable, name of this Container App Environment.
@@ -154,6 +156,8 @@ func GetEnvironment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Environment resources.
 type environmentState struct {
+	// The ID of the Custom Domain Verification for this Container App Environment.
+	CustomDomainVerificationId *string `pulumi:"customDomainVerificationId"`
 	// Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
 	DaprApplicationInsightsConnectionString *string `pulumi:"daprApplicationInsightsConnectionString"`
 	// The default, publicly resolvable, name of this Container App Environment.
@@ -197,6 +201,8 @@ type environmentState struct {
 }
 
 type EnvironmentState struct {
+	// The ID of the Custom Domain Verification for this Container App Environment.
+	CustomDomainVerificationId pulumi.StringPtrInput
 	// Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
 	DaprApplicationInsightsConnectionString pulumi.StringPtrInput
 	// The default, publicly resolvable, name of this Container App Environment.
@@ -395,6 +401,11 @@ func (o EnvironmentOutput) ToEnvironmentOutput() EnvironmentOutput {
 
 func (o EnvironmentOutput) ToEnvironmentOutputWithContext(ctx context.Context) EnvironmentOutput {
 	return o
+}
+
+// The ID of the Custom Domain Verification for this Container App Environment.
+func (o EnvironmentOutput) CustomDomainVerificationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.CustomDomainVerificationId }).(pulumi.StringOutput)
 }
 
 // Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.

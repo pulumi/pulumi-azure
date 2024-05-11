@@ -44,6 +44,29 @@ __all__ = [
     'EnvironmentDaprComponentMetadata',
     'EnvironmentDaprComponentSecret',
     'EnvironmentWorkloadProfile',
+    'JobEventTriggerConfig',
+    'JobEventTriggerConfigScale',
+    'JobEventTriggerConfigScaleRule',
+    'JobEventTriggerConfigScaleRuleAuthentication',
+    'JobIdentity',
+    'JobManualTriggerConfig',
+    'JobRegistry',
+    'JobScheduleTriggerConfig',
+    'JobSecret',
+    'JobTemplate',
+    'JobTemplateContainer',
+    'JobTemplateContainerEnv',
+    'JobTemplateContainerLivenessProbe',
+    'JobTemplateContainerLivenessProbeHeader',
+    'JobTemplateContainerReadinessProbe',
+    'JobTemplateContainerReadinessProbeHeader',
+    'JobTemplateContainerStartupProbe',
+    'JobTemplateContainerStartupProbeHeader',
+    'JobTemplateContainerVolumeMount',
+    'JobTemplateInitContainer',
+    'JobTemplateInitContainerEnv',
+    'JobTemplateInitContainerVolumeMount',
+    'JobTemplateVolume',
     'GetAppDaprResult',
     'GetAppIdentityResult',
     'GetAppIngressResult',
@@ -683,8 +706,6 @@ class AppSecret(dict):
         :param str value: The value for this secret.
                
                !> **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
-               
-               !> **Note:** Secrets cannot be removed from the service once added, attempting to do so will result in an error. Their values may be zeroed, i.e. set to `""`, but the named secret must persist. This is due to a technical limitation on the service which causes the service to become unmanageable. See [this issue](https://github.com/microsoft/azure-container-apps/issues/395) for more details.
         """
         pulumi.set(__self__, "name", name)
         if identity is not None:
@@ -729,8 +750,6 @@ class AppSecret(dict):
         The value for this secret.
 
         !> **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
-
-        !> **Note:** Secrets cannot be removed from the service once added, attempting to do so will result in an error. Their values may be zeroed, i.e. set to `""`, but the named secret must persist. This is due to a technical limitation on the service which causes the service to become unmanageable. See [this issue](https://github.com/microsoft/azure-container-apps/issues/395) for more details.
         """
         return pulumi.get(self, "value")
 
@@ -2627,6 +2646,1704 @@ class EnvironmentWorkloadProfile(dict):
         The minimum number of instances of workload profile that can be deployed in the Container App Environment.
         """
         return pulumi.get(self, "minimum_count")
+
+
+@pulumi.output_type
+class JobEventTriggerConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "replicaCompletionCount":
+            suggest = "replica_completion_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobEventTriggerConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobEventTriggerConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobEventTriggerConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 parallelism: Optional[int] = None,
+                 replica_completion_count: Optional[int] = None,
+                 scales: Optional[Sequence['outputs.JobEventTriggerConfigScale']] = None):
+        """
+        :param int parallelism: Number of parallel replicas of a job that can run at a given time.
+        :param int replica_completion_count: Minimum number of successful replica completions before overall job completion.
+        :param Sequence['JobEventTriggerConfigScaleArgs'] scales: A `scale` block as defined below.
+        """
+        if parallelism is not None:
+            pulumi.set(__self__, "parallelism", parallelism)
+        if replica_completion_count is not None:
+            pulumi.set(__self__, "replica_completion_count", replica_completion_count)
+        if scales is not None:
+            pulumi.set(__self__, "scales", scales)
+
+    @property
+    @pulumi.getter
+    def parallelism(self) -> Optional[int]:
+        """
+        Number of parallel replicas of a job that can run at a given time.
+        """
+        return pulumi.get(self, "parallelism")
+
+    @property
+    @pulumi.getter(name="replicaCompletionCount")
+    def replica_completion_count(self) -> Optional[int]:
+        """
+        Minimum number of successful replica completions before overall job completion.
+        """
+        return pulumi.get(self, "replica_completion_count")
+
+    @property
+    @pulumi.getter
+    def scales(self) -> Optional[Sequence['outputs.JobEventTriggerConfigScale']]:
+        """
+        A `scale` block as defined below.
+        """
+        return pulumi.get(self, "scales")
+
+
+@pulumi.output_type
+class JobEventTriggerConfigScale(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxExecutions":
+            suggest = "max_executions"
+        elif key == "minExecutions":
+            suggest = "min_executions"
+        elif key == "pollingIntervalInSeconds":
+            suggest = "polling_interval_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobEventTriggerConfigScale. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobEventTriggerConfigScale.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobEventTriggerConfigScale.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_executions: Optional[int] = None,
+                 min_executions: Optional[int] = None,
+                 polling_interval_in_seconds: Optional[int] = None,
+                 rules: Optional[Sequence['outputs.JobEventTriggerConfigScaleRule']] = None):
+        """
+        :param int max_executions: Maximum number of job executions that are created for a trigger.
+        :param int min_executions: Minimum number of job executions that are created for a trigger.
+        :param int polling_interval_in_seconds: Interval to check each event source in seconds.
+        :param Sequence['JobEventTriggerConfigScaleRuleArgs'] rules: A `rules` block as defined below.
+        """
+        if max_executions is not None:
+            pulumi.set(__self__, "max_executions", max_executions)
+        if min_executions is not None:
+            pulumi.set(__self__, "min_executions", min_executions)
+        if polling_interval_in_seconds is not None:
+            pulumi.set(__self__, "polling_interval_in_seconds", polling_interval_in_seconds)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter(name="maxExecutions")
+    def max_executions(self) -> Optional[int]:
+        """
+        Maximum number of job executions that are created for a trigger.
+        """
+        return pulumi.get(self, "max_executions")
+
+    @property
+    @pulumi.getter(name="minExecutions")
+    def min_executions(self) -> Optional[int]:
+        """
+        Minimum number of job executions that are created for a trigger.
+        """
+        return pulumi.get(self, "min_executions")
+
+    @property
+    @pulumi.getter(name="pollingIntervalInSeconds")
+    def polling_interval_in_seconds(self) -> Optional[int]:
+        """
+        Interval to check each event source in seconds.
+        """
+        return pulumi.get(self, "polling_interval_in_seconds")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[Sequence['outputs.JobEventTriggerConfigScaleRule']]:
+        """
+        A `rules` block as defined below.
+        """
+        return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class JobEventTriggerConfigScaleRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customRuleType":
+            suggest = "custom_rule_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobEventTriggerConfigScaleRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobEventTriggerConfigScaleRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobEventTriggerConfigScaleRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_rule_type: str,
+                 metadata: Mapping[str, str],
+                 name: str,
+                 authentications: Optional[Sequence['outputs.JobEventTriggerConfigScaleRuleAuthentication']] = None):
+        """
+        :param str custom_rule_type: Type of the scale rule.
+        :param Mapping[str, str] metadata: Metadata properties to describe the scale rule.
+        :param str name: Name of the scale rule.
+        :param Sequence['JobEventTriggerConfigScaleRuleAuthenticationArgs'] authentications: A `authentication` block as defined below.
+        """
+        pulumi.set(__self__, "custom_rule_type", custom_rule_type)
+        pulumi.set(__self__, "metadata", metadata)
+        pulumi.set(__self__, "name", name)
+        if authentications is not None:
+            pulumi.set(__self__, "authentications", authentications)
+
+    @property
+    @pulumi.getter(name="customRuleType")
+    def custom_rule_type(self) -> str:
+        """
+        Type of the scale rule.
+        """
+        return pulumi.get(self, "custom_rule_type")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Mapping[str, str]:
+        """
+        Metadata properties to describe the scale rule.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the scale rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def authentications(self) -> Optional[Sequence['outputs.JobEventTriggerConfigScaleRuleAuthentication']]:
+        """
+        A `authentication` block as defined below.
+        """
+        return pulumi.get(self, "authentications")
+
+
+@pulumi.output_type
+class JobEventTriggerConfigScaleRuleAuthentication(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretName":
+            suggest = "secret_name"
+        elif key == "triggerParameter":
+            suggest = "trigger_parameter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobEventTriggerConfigScaleRuleAuthentication. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobEventTriggerConfigScaleRuleAuthentication.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobEventTriggerConfigScaleRuleAuthentication.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_name: str,
+                 trigger_parameter: str):
+        """
+        :param str secret_name: Name of the secret from which to pull the auth params.
+        :param str trigger_parameter: Trigger Parameter that uses the secret.
+        """
+        pulumi.set(__self__, "secret_name", secret_name)
+        pulumi.set(__self__, "trigger_parameter", trigger_parameter)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        Name of the secret from which to pull the auth params.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @property
+    @pulumi.getter(name="triggerParameter")
+    def trigger_parameter(self) -> str:
+        """
+        Trigger Parameter that uses the secret.
+        """
+        return pulumi.get(self, "trigger_parameter")
+
+
+@pulumi.output_type
+class JobIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 identity_ids: Optional[Sequence[str]] = None,
+                 principal_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        :param str type: The type of identity used for the Container App Job. Possible values are `SystemAssigned` and `None`. Defaults to `None`.
+        :param Sequence[str] identity_ids: A list of Managed Identity IDs to assign to the Container App Job.
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of identity used for the Container App Job. Possible values are `SystemAssigned` and `None`. Defaults to `None`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[Sequence[str]]:
+        """
+        A list of Managed Identity IDs to assign to the Container App Job.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class JobManualTriggerConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "replicaCompletionCount":
+            suggest = "replica_completion_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobManualTriggerConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobManualTriggerConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobManualTriggerConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 parallelism: Optional[int] = None,
+                 replica_completion_count: Optional[int] = None):
+        """
+        :param int parallelism: Number of parallel replicas of a job that can run at a given time.
+        :param int replica_completion_count: Minimum number of successful replica completions before overall job completion.
+        """
+        if parallelism is not None:
+            pulumi.set(__self__, "parallelism", parallelism)
+        if replica_completion_count is not None:
+            pulumi.set(__self__, "replica_completion_count", replica_completion_count)
+
+    @property
+    @pulumi.getter
+    def parallelism(self) -> Optional[int]:
+        """
+        Number of parallel replicas of a job that can run at a given time.
+        """
+        return pulumi.get(self, "parallelism")
+
+    @property
+    @pulumi.getter(name="replicaCompletionCount")
+    def replica_completion_count(self) -> Optional[int]:
+        """
+        Minimum number of successful replica completions before overall job completion.
+        """
+        return pulumi.get(self, "replica_completion_count")
+
+
+@pulumi.output_type
+class JobRegistry(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "passwordSecretName":
+            suggest = "password_secret_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobRegistry. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobRegistry.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobRegistry.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 server: str,
+                 identity: Optional[str] = None,
+                 password_secret_name: Optional[str] = None,
+                 username: Optional[str] = None):
+        """
+        :param str server: The URL of the Azure Container Registry server.
+        :param str identity: A Managed Identity to use to authenticate with Azure Container Registry.
+        :param str password_secret_name: The name of the Secret that contains the registry login password.
+        :param str username: The username to use to authenticate with Azure Container Registry.
+        """
+        pulumi.set(__self__, "server", server)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if password_secret_name is not None:
+            pulumi.set(__self__, "password_secret_name", password_secret_name)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def server(self) -> str:
+        """
+        The URL of the Azure Container Registry server.
+        """
+        return pulumi.get(self, "server")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[str]:
+        """
+        A Managed Identity to use to authenticate with Azure Container Registry.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="passwordSecretName")
+    def password_secret_name(self) -> Optional[str]:
+        """
+        The name of the Secret that contains the registry login password.
+        """
+        return pulumi.get(self, "password_secret_name")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        """
+        The username to use to authenticate with Azure Container Registry.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class JobScheduleTriggerConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cronExpression":
+            suggest = "cron_expression"
+        elif key == "replicaCompletionCount":
+            suggest = "replica_completion_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobScheduleTriggerConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobScheduleTriggerConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobScheduleTriggerConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cron_expression: str,
+                 parallelism: Optional[int] = None,
+                 replica_completion_count: Optional[int] = None):
+        """
+        :param str cron_expression: Cron formatted repeating schedule of a Cron Job.
+        :param int parallelism: Number of parallel replicas of a job that can run at a given time.
+        :param int replica_completion_count: Minimum number of successful replica completions before overall job completion.
+        """
+        pulumi.set(__self__, "cron_expression", cron_expression)
+        if parallelism is not None:
+            pulumi.set(__self__, "parallelism", parallelism)
+        if replica_completion_count is not None:
+            pulumi.set(__self__, "replica_completion_count", replica_completion_count)
+
+    @property
+    @pulumi.getter(name="cronExpression")
+    def cron_expression(self) -> str:
+        """
+        Cron formatted repeating schedule of a Cron Job.
+        """
+        return pulumi.get(self, "cron_expression")
+
+    @property
+    @pulumi.getter
+    def parallelism(self) -> Optional[int]:
+        """
+        Number of parallel replicas of a job that can run at a given time.
+        """
+        return pulumi.get(self, "parallelism")
+
+    @property
+    @pulumi.getter(name="replicaCompletionCount")
+    def replica_completion_count(self) -> Optional[int]:
+        """
+        Minimum number of successful replica completions before overall job completion.
+        """
+        return pulumi.get(self, "replica_completion_count")
+
+
+@pulumi.output_type
+class JobSecret(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultSecretId":
+            suggest = "key_vault_secret_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobSecret. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobSecret.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobSecret.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 identity: Optional[str] = None,
+                 key_vault_secret_id: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str name: Name of the secret.
+        :param str identity: A `identity` block as defined below.
+        :param str key_vault_secret_id: The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
+        :param str value: Value of the secret.
+        """
+        pulumi.set(__self__, "name", name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if key_vault_secret_id is not None:
+            pulumi.set(__self__, "key_vault_secret_id", key_vault_secret_id)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the secret.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[str]:
+        """
+        A `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="keyVaultSecretId")
+    def key_vault_secret_id(self) -> Optional[str]:
+        """
+        The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
+        """
+        return pulumi.get(self, "key_vault_secret_id")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Value of the secret.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class JobTemplate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "initContainers":
+            suggest = "init_containers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobTemplate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobTemplate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobTemplate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 containers: Sequence['outputs.JobTemplateContainer'],
+                 init_containers: Optional[Sequence['outputs.JobTemplateInitContainer']] = None,
+                 volumes: Optional[Sequence['outputs.JobTemplateVolume']] = None):
+        """
+        :param Sequence['JobTemplateContainerArgs'] containers: A `container` block as defined below.
+        :param Sequence['JobTemplateInitContainerArgs'] init_containers: A `init_container` block as defined below.
+        :param Sequence['JobTemplateVolumeArgs'] volumes: A `volume` block as defined below.
+        """
+        pulumi.set(__self__, "containers", containers)
+        if init_containers is not None:
+            pulumi.set(__self__, "init_containers", init_containers)
+        if volumes is not None:
+            pulumi.set(__self__, "volumes", volumes)
+
+    @property
+    @pulumi.getter
+    def containers(self) -> Sequence['outputs.JobTemplateContainer']:
+        """
+        A `container` block as defined below.
+        """
+        return pulumi.get(self, "containers")
+
+    @property
+    @pulumi.getter(name="initContainers")
+    def init_containers(self) -> Optional[Sequence['outputs.JobTemplateInitContainer']]:
+        """
+        A `init_container` block as defined below.
+        """
+        return pulumi.get(self, "init_containers")
+
+    @property
+    @pulumi.getter
+    def volumes(self) -> Optional[Sequence['outputs.JobTemplateVolume']]:
+        """
+        A `volume` block as defined below.
+        """
+        return pulumi.get(self, "volumes")
+
+
+@pulumi.output_type
+class JobTemplateContainer(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ephemeralStorage":
+            suggest = "ephemeral_storage"
+        elif key == "livenessProbes":
+            suggest = "liveness_probes"
+        elif key == "readinessProbes":
+            suggest = "readiness_probes"
+        elif key == "startupProbes":
+            suggest = "startup_probes"
+        elif key == "volumeMounts":
+            suggest = "volume_mounts"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobTemplateContainer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobTemplateContainer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobTemplateContainer.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cpu: float,
+                 image: str,
+                 memory: str,
+                 name: str,
+                 args: Optional[Sequence[str]] = None,
+                 commands: Optional[Sequence[str]] = None,
+                 envs: Optional[Sequence['outputs.JobTemplateContainerEnv']] = None,
+                 ephemeral_storage: Optional[str] = None,
+                 liveness_probes: Optional[Sequence['outputs.JobTemplateContainerLivenessProbe']] = None,
+                 readiness_probes: Optional[Sequence['outputs.JobTemplateContainerReadinessProbe']] = None,
+                 startup_probes: Optional[Sequence['outputs.JobTemplateContainerStartupProbe']] = None,
+                 volume_mounts: Optional[Sequence['outputs.JobTemplateContainerVolumeMount']] = None):
+        """
+        :param float cpu: The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+               
+               > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+        :param str image: The image to use to create the container.
+        :param str memory: The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+               
+               > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+        :param str name: The name of the container.
+        :param Sequence[str] args: A list of extra arguments to pass to the container.
+        :param Sequence[str] commands: A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+        :param Sequence['JobTemplateContainerEnvArgs'] envs: One or more `env` blocks as detailed below.
+        :param str ephemeral_storage: The amount of ephemeral storage available to the Container App.
+               
+               > **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
+        :param Sequence['JobTemplateContainerLivenessProbeArgs'] liveness_probes: A `liveness_probe` block as detailed below.
+        :param Sequence['JobTemplateContainerReadinessProbeArgs'] readiness_probes: A `readiness_probe` block as detailed below.
+        :param Sequence['JobTemplateContainerStartupProbeArgs'] startup_probes: A `startup_probe` block as detailed below.
+        :param Sequence['JobTemplateContainerVolumeMountArgs'] volume_mounts: A `volume_mounts` block as detailed below.
+        """
+        pulumi.set(__self__, "cpu", cpu)
+        pulumi.set(__self__, "image", image)
+        pulumi.set(__self__, "memory", memory)
+        pulumi.set(__self__, "name", name)
+        if args is not None:
+            pulumi.set(__self__, "args", args)
+        if commands is not None:
+            pulumi.set(__self__, "commands", commands)
+        if envs is not None:
+            pulumi.set(__self__, "envs", envs)
+        if ephemeral_storage is not None:
+            pulumi.set(__self__, "ephemeral_storage", ephemeral_storage)
+        if liveness_probes is not None:
+            pulumi.set(__self__, "liveness_probes", liveness_probes)
+        if readiness_probes is not None:
+            pulumi.set(__self__, "readiness_probes", readiness_probes)
+        if startup_probes is not None:
+            pulumi.set(__self__, "startup_probes", startup_probes)
+        if volume_mounts is not None:
+            pulumi.set(__self__, "volume_mounts", volume_mounts)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> float:
+        """
+        The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+
+        > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+        """
+        return pulumi.get(self, "cpu")
+
+    @property
+    @pulumi.getter
+    def image(self) -> str:
+        """
+        The image to use to create the container.
+        """
+        return pulumi.get(self, "image")
+
+    @property
+    @pulumi.getter
+    def memory(self) -> str:
+        """
+        The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+
+        > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+        """
+        return pulumi.get(self, "memory")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the container.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def args(self) -> Optional[Sequence[str]]:
+        """
+        A list of extra arguments to pass to the container.
+        """
+        return pulumi.get(self, "args")
+
+    @property
+    @pulumi.getter
+    def commands(self) -> Optional[Sequence[str]]:
+        """
+        A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+        """
+        return pulumi.get(self, "commands")
+
+    @property
+    @pulumi.getter
+    def envs(self) -> Optional[Sequence['outputs.JobTemplateContainerEnv']]:
+        """
+        One or more `env` blocks as detailed below.
+        """
+        return pulumi.get(self, "envs")
+
+    @property
+    @pulumi.getter(name="ephemeralStorage")
+    def ephemeral_storage(self) -> Optional[str]:
+        """
+        The amount of ephemeral storage available to the Container App.
+
+        > **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
+        """
+        return pulumi.get(self, "ephemeral_storage")
+
+    @property
+    @pulumi.getter(name="livenessProbes")
+    def liveness_probes(self) -> Optional[Sequence['outputs.JobTemplateContainerLivenessProbe']]:
+        """
+        A `liveness_probe` block as detailed below.
+        """
+        return pulumi.get(self, "liveness_probes")
+
+    @property
+    @pulumi.getter(name="readinessProbes")
+    def readiness_probes(self) -> Optional[Sequence['outputs.JobTemplateContainerReadinessProbe']]:
+        """
+        A `readiness_probe` block as detailed below.
+        """
+        return pulumi.get(self, "readiness_probes")
+
+    @property
+    @pulumi.getter(name="startupProbes")
+    def startup_probes(self) -> Optional[Sequence['outputs.JobTemplateContainerStartupProbe']]:
+        """
+        A `startup_probe` block as detailed below.
+        """
+        return pulumi.get(self, "startup_probes")
+
+    @property
+    @pulumi.getter(name="volumeMounts")
+    def volume_mounts(self) -> Optional[Sequence['outputs.JobTemplateContainerVolumeMount']]:
+        """
+        A `volume_mounts` block as detailed below.
+        """
+        return pulumi.get(self, "volume_mounts")
+
+
+@pulumi.output_type
+class JobTemplateContainerEnv(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretName":
+            suggest = "secret_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobTemplateContainerEnv. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobTemplateContainerEnv.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobTemplateContainerEnv.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 secret_name: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str name: The name of the environment variable.
+        :param str secret_name: Name of the Container App secret from which to pull the environment variable value.
+        :param str value: The value of the environment variable.
+        """
+        pulumi.set(__self__, "name", name)
+        if secret_name is not None:
+            pulumi.set(__self__, "secret_name", secret_name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the environment variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> Optional[str]:
+        """
+        Name of the Container App secret from which to pull the environment variable value.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value of the environment variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class JobTemplateContainerLivenessProbe(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failureCountThreshold":
+            suggest = "failure_count_threshold"
+        elif key == "initialDelay":
+            suggest = "initial_delay"
+        elif key == "intervalSeconds":
+            suggest = "interval_seconds"
+        elif key == "terminationGracePeriodSeconds":
+            suggest = "termination_grace_period_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobTemplateContainerLivenessProbe. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobTemplateContainerLivenessProbe.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobTemplateContainerLivenessProbe.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 port: int,
+                 transport: str,
+                 failure_count_threshold: Optional[int] = None,
+                 headers: Optional[Sequence['outputs.JobTemplateContainerLivenessProbeHeader']] = None,
+                 host: Optional[str] = None,
+                 initial_delay: Optional[int] = None,
+                 interval_seconds: Optional[int] = None,
+                 path: Optional[str] = None,
+                 termination_grace_period_seconds: Optional[int] = None,
+                 timeout: Optional[int] = None):
+        """
+        :param int port: The port number on which to connect. Possible values are between `1` and `65535`.
+        :param str transport: Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
+        :param int failure_count_threshold: The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+        :param Sequence['JobTemplateContainerLivenessProbeHeaderArgs'] headers: A `header` block as detailed below.
+        :param str host: The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+        :param int initial_delay: The time in seconds to wait after the container has started before the probe is started.
+        :param int interval_seconds: How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
+        :param str path: The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
+        :param int termination_grace_period_seconds: The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+        :param int timeout: Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+        """
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "transport", transport)
+        if failure_count_threshold is not None:
+            pulumi.set(__self__, "failure_count_threshold", failure_count_threshold)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if host is not None:
+            pulumi.set(__self__, "host", host)
+        if initial_delay is not None:
+            pulumi.set(__self__, "initial_delay", initial_delay)
+        if interval_seconds is not None:
+            pulumi.set(__self__, "interval_seconds", interval_seconds)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if termination_grace_period_seconds is not None:
+            pulumi.set(__self__, "termination_grace_period_seconds", termination_grace_period_seconds)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        """
+        The port number on which to connect. Possible values are between `1` and `65535`.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def transport(self) -> str:
+        """
+        Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
+        """
+        return pulumi.get(self, "transport")
+
+    @property
+    @pulumi.getter(name="failureCountThreshold")
+    def failure_count_threshold(self) -> Optional[int]:
+        """
+        The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+        """
+        return pulumi.get(self, "failure_count_threshold")
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[Sequence['outputs.JobTemplateContainerLivenessProbeHeader']]:
+        """
+        A `header` block as detailed below.
+        """
+        return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter
+    def host(self) -> Optional[str]:
+        """
+        The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+        """
+        return pulumi.get(self, "host")
+
+    @property
+    @pulumi.getter(name="initialDelay")
+    def initial_delay(self) -> Optional[int]:
+        """
+        The time in seconds to wait after the container has started before the probe is started.
+        """
+        return pulumi.get(self, "initial_delay")
+
+    @property
+    @pulumi.getter(name="intervalSeconds")
+    def interval_seconds(self) -> Optional[int]:
+        """
+        How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
+        """
+        return pulumi.get(self, "interval_seconds")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="terminationGracePeriodSeconds")
+    def termination_grace_period_seconds(self) -> Optional[int]:
+        """
+        The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+        """
+        return pulumi.get(self, "termination_grace_period_seconds")
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[int]:
+        """
+        Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+        """
+        return pulumi.get(self, "timeout")
+
+
+@pulumi.output_type
+class JobTemplateContainerLivenessProbeHeader(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        :param str name: The HTTP Header Name.
+        :param str value: The HTTP Header value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The HTTP Header Name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The HTTP Header value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class JobTemplateContainerReadinessProbe(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failureCountThreshold":
+            suggest = "failure_count_threshold"
+        elif key == "intervalSeconds":
+            suggest = "interval_seconds"
+        elif key == "successCountThreshold":
+            suggest = "success_count_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobTemplateContainerReadinessProbe. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobTemplateContainerReadinessProbe.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobTemplateContainerReadinessProbe.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 port: int,
+                 transport: str,
+                 failure_count_threshold: Optional[int] = None,
+                 headers: Optional[Sequence['outputs.JobTemplateContainerReadinessProbeHeader']] = None,
+                 host: Optional[str] = None,
+                 interval_seconds: Optional[int] = None,
+                 path: Optional[str] = None,
+                 success_count_threshold: Optional[int] = None,
+                 timeout: Optional[int] = None):
+        """
+        :param int port: The port number on which to connect. Possible values are between `1` and `65535`.
+        :param str transport: Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
+        :param int failure_count_threshold: The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+        :param Sequence['JobTemplateContainerReadinessProbeHeaderArgs'] headers: A `header` block as detailed below.
+        :param str host: The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+        :param int interval_seconds: How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+        :param str path: The URI to use for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
+        :param int success_count_threshold: The number of consecutive successful responses required to consider this probe as successful. Possible values are between `1` and `10`. Defaults to `3`.
+        :param int timeout: Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+        """
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "transport", transport)
+        if failure_count_threshold is not None:
+            pulumi.set(__self__, "failure_count_threshold", failure_count_threshold)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if host is not None:
+            pulumi.set(__self__, "host", host)
+        if interval_seconds is not None:
+            pulumi.set(__self__, "interval_seconds", interval_seconds)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if success_count_threshold is not None:
+            pulumi.set(__self__, "success_count_threshold", success_count_threshold)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        """
+        The port number on which to connect. Possible values are between `1` and `65535`.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def transport(self) -> str:
+        """
+        Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
+        """
+        return pulumi.get(self, "transport")
+
+    @property
+    @pulumi.getter(name="failureCountThreshold")
+    def failure_count_threshold(self) -> Optional[int]:
+        """
+        The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+        """
+        return pulumi.get(self, "failure_count_threshold")
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[Sequence['outputs.JobTemplateContainerReadinessProbeHeader']]:
+        """
+        A `header` block as detailed below.
+        """
+        return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter
+    def host(self) -> Optional[str]:
+        """
+        The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+        """
+        return pulumi.get(self, "host")
+
+    @property
+    @pulumi.getter(name="intervalSeconds")
+    def interval_seconds(self) -> Optional[int]:
+        """
+        How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+        """
+        return pulumi.get(self, "interval_seconds")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        The URI to use for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="successCountThreshold")
+    def success_count_threshold(self) -> Optional[int]:
+        """
+        The number of consecutive successful responses required to consider this probe as successful. Possible values are between `1` and `10`. Defaults to `3`.
+        """
+        return pulumi.get(self, "success_count_threshold")
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[int]:
+        """
+        Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+        """
+        return pulumi.get(self, "timeout")
+
+
+@pulumi.output_type
+class JobTemplateContainerReadinessProbeHeader(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        :param str name: The HTTP Header Name.
+        :param str value: The HTTP Header value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The HTTP Header Name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The HTTP Header value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class JobTemplateContainerStartupProbe(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failureCountThreshold":
+            suggest = "failure_count_threshold"
+        elif key == "intervalSeconds":
+            suggest = "interval_seconds"
+        elif key == "terminationGracePeriodSeconds":
+            suggest = "termination_grace_period_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobTemplateContainerStartupProbe. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobTemplateContainerStartupProbe.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobTemplateContainerStartupProbe.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 port: int,
+                 transport: str,
+                 failure_count_threshold: Optional[int] = None,
+                 headers: Optional[Sequence['outputs.JobTemplateContainerStartupProbeHeader']] = None,
+                 host: Optional[str] = None,
+                 interval_seconds: Optional[int] = None,
+                 path: Optional[str] = None,
+                 termination_grace_period_seconds: Optional[int] = None,
+                 timeout: Optional[int] = None):
+        """
+        :param int port: The port number on which to connect. Possible values are between `1` and `65535`.
+        :param str transport: Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
+        :param int failure_count_threshold: The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+        :param Sequence['JobTemplateContainerStartupProbeHeaderArgs'] headers: A `header` block as detailed below.
+        :param str host: The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+        :param int interval_seconds: How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+        :param str path: The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
+        :param int termination_grace_period_seconds: The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+        :param int timeout: Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+        """
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "transport", transport)
+        if failure_count_threshold is not None:
+            pulumi.set(__self__, "failure_count_threshold", failure_count_threshold)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if host is not None:
+            pulumi.set(__self__, "host", host)
+        if interval_seconds is not None:
+            pulumi.set(__self__, "interval_seconds", interval_seconds)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if termination_grace_period_seconds is not None:
+            pulumi.set(__self__, "termination_grace_period_seconds", termination_grace_period_seconds)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        """
+        The port number on which to connect. Possible values are between `1` and `65535`.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def transport(self) -> str:
+        """
+        Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
+        """
+        return pulumi.get(self, "transport")
+
+    @property
+    @pulumi.getter(name="failureCountThreshold")
+    def failure_count_threshold(self) -> Optional[int]:
+        """
+        The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+        """
+        return pulumi.get(self, "failure_count_threshold")
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[Sequence['outputs.JobTemplateContainerStartupProbeHeader']]:
+        """
+        A `header` block as detailed below.
+        """
+        return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter
+    def host(self) -> Optional[str]:
+        """
+        The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+        """
+        return pulumi.get(self, "host")
+
+    @property
+    @pulumi.getter(name="intervalSeconds")
+    def interval_seconds(self) -> Optional[int]:
+        """
+        How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+        """
+        return pulumi.get(self, "interval_seconds")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="terminationGracePeriodSeconds")
+    def termination_grace_period_seconds(self) -> Optional[int]:
+        """
+        The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+        """
+        return pulumi.get(self, "termination_grace_period_seconds")
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[int]:
+        """
+        Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+        """
+        return pulumi.get(self, "timeout")
+
+
+@pulumi.output_type
+class JobTemplateContainerStartupProbeHeader(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        :param str name: The HTTP Header Name.
+        :param str value: The HTTP Header value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The HTTP Header Name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The HTTP Header value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class JobTemplateContainerVolumeMount(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 path: str):
+        """
+        :param str name: The name of the volume to mount. This must match the name of a volume defined in the `volume` block.
+        :param str path: The path within the container at which the volume should be mounted. Must not contain `:`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the volume to mount. This must match the name of a volume defined in the `volume` block.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        The path within the container at which the volume should be mounted. Must not contain `:`.
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class JobTemplateInitContainer(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ephemeralStorage":
+            suggest = "ephemeral_storage"
+        elif key == "volumeMounts":
+            suggest = "volume_mounts"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobTemplateInitContainer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobTemplateInitContainer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobTemplateInitContainer.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image: str,
+                 name: str,
+                 args: Optional[Sequence[str]] = None,
+                 commands: Optional[Sequence[str]] = None,
+                 cpu: Optional[float] = None,
+                 envs: Optional[Sequence['outputs.JobTemplateInitContainerEnv']] = None,
+                 ephemeral_storage: Optional[str] = None,
+                 memory: Optional[str] = None,
+                 volume_mounts: Optional[Sequence['outputs.JobTemplateInitContainerVolumeMount']] = None):
+        """
+        :param str image: The image to use to create the container.
+        :param str name: The name of the container.
+        :param Sequence[str] args: A list of extra arguments to pass to the container.
+        :param Sequence[str] commands: A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+        :param float cpu: The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+               
+               > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+        :param Sequence['JobTemplateInitContainerEnvArgs'] envs: One or more `env` blocks as detailed below.
+        :param str ephemeral_storage: The amount of ephemeral storage available to the Container App.
+               
+               > **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
+        :param str memory: The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+               
+               > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+        :param Sequence['JobTemplateInitContainerVolumeMountArgs'] volume_mounts: A `volume_mounts` block as detailed below.
+        """
+        pulumi.set(__self__, "image", image)
+        pulumi.set(__self__, "name", name)
+        if args is not None:
+            pulumi.set(__self__, "args", args)
+        if commands is not None:
+            pulumi.set(__self__, "commands", commands)
+        if cpu is not None:
+            pulumi.set(__self__, "cpu", cpu)
+        if envs is not None:
+            pulumi.set(__self__, "envs", envs)
+        if ephemeral_storage is not None:
+            pulumi.set(__self__, "ephemeral_storage", ephemeral_storage)
+        if memory is not None:
+            pulumi.set(__self__, "memory", memory)
+        if volume_mounts is not None:
+            pulumi.set(__self__, "volume_mounts", volume_mounts)
+
+    @property
+    @pulumi.getter
+    def image(self) -> str:
+        """
+        The image to use to create the container.
+        """
+        return pulumi.get(self, "image")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the container.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def args(self) -> Optional[Sequence[str]]:
+        """
+        A list of extra arguments to pass to the container.
+        """
+        return pulumi.get(self, "args")
+
+    @property
+    @pulumi.getter
+    def commands(self) -> Optional[Sequence[str]]:
+        """
+        A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+        """
+        return pulumi.get(self, "commands")
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> Optional[float]:
+        """
+        The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+
+        > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+        """
+        return pulumi.get(self, "cpu")
+
+    @property
+    @pulumi.getter
+    def envs(self) -> Optional[Sequence['outputs.JobTemplateInitContainerEnv']]:
+        """
+        One or more `env` blocks as detailed below.
+        """
+        return pulumi.get(self, "envs")
+
+    @property
+    @pulumi.getter(name="ephemeralStorage")
+    def ephemeral_storage(self) -> Optional[str]:
+        """
+        The amount of ephemeral storage available to the Container App.
+
+        > **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
+        """
+        return pulumi.get(self, "ephemeral_storage")
+
+    @property
+    @pulumi.getter
+    def memory(self) -> Optional[str]:
+        """
+        The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+
+        > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+        """
+        return pulumi.get(self, "memory")
+
+    @property
+    @pulumi.getter(name="volumeMounts")
+    def volume_mounts(self) -> Optional[Sequence['outputs.JobTemplateInitContainerVolumeMount']]:
+        """
+        A `volume_mounts` block as detailed below.
+        """
+        return pulumi.get(self, "volume_mounts")
+
+
+@pulumi.output_type
+class JobTemplateInitContainerEnv(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretName":
+            suggest = "secret_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobTemplateInitContainerEnv. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobTemplateInitContainerEnv.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobTemplateInitContainerEnv.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 secret_name: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str name: The name of the environment variable.
+        :param str secret_name: Name of the Container App secret from which to pull the environment variable value.
+        :param str value: The value of the environment variable.
+        """
+        pulumi.set(__self__, "name", name)
+        if secret_name is not None:
+            pulumi.set(__self__, "secret_name", secret_name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the environment variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> Optional[str]:
+        """
+        Name of the Container App secret from which to pull the environment variable value.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value of the environment variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class JobTemplateInitContainerVolumeMount(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 path: str):
+        """
+        :param str name: The name of the volume to mount. This must match the name of a volume defined in the `volume` block.
+        :param str path: The path within the container at which the volume should be mounted. Must not contain `:`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the volume to mount. This must match the name of a volume defined in the `volume` block.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        The path within the container at which the volume should be mounted. Must not contain `:`.
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class JobTemplateVolume(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageName":
+            suggest = "storage_name"
+        elif key == "storageType":
+            suggest = "storage_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobTemplateVolume. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobTemplateVolume.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobTemplateVolume.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 storage_name: Optional[str] = None,
+                 storage_type: Optional[str] = None):
+        """
+        :param str name: The name of the volume.
+        :param str storage_name: The name of the storage to use for the volume.
+        :param str storage_type: The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`.
+        """
+        pulumi.set(__self__, "name", name)
+        if storage_name is not None:
+            pulumi.set(__self__, "storage_name", storage_name)
+        if storage_type is not None:
+            pulumi.set(__self__, "storage_type", storage_type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the volume.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="storageName")
+    def storage_name(self) -> Optional[str]:
+        """
+        The name of the storage to use for the volume.
+        """
+        return pulumi.get(self, "storage_name")
+
+    @property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> Optional[str]:
+        """
+        The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`.
+        """
+        return pulumi.get(self, "storage_type")
 
 
 @pulumi.output_type

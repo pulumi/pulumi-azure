@@ -173,6 +173,8 @@ type WindowsVirtualMachine struct {
 	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
 	ExtensionsTimeBudget pulumi.StringPtrOutput `pulumi:"extensionsTimeBudget"`
 	// One or more `galleryApplication` blocks as defined below.
+	//
+	// > **Note** Gallery Application Assignments can be defined either directly on `compute.WindowsVirtualMachine` resource, or using the `compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `compute.GalleryApplicationAssignment` is used, it's recommended to use `ignoreChanges` for the `galleryApplication` block on the corresponding `compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
 	GalleryApplications WindowsVirtualMachineGalleryApplicationArrayOutput `pulumi:"galleryApplications"`
 	// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
 	//
@@ -374,6 +376,8 @@ type windowsVirtualMachineState struct {
 	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
 	// One or more `galleryApplication` blocks as defined below.
+	//
+	// > **Note** Gallery Application Assignments can be defined either directly on `compute.WindowsVirtualMachine` resource, or using the `compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `compute.GalleryApplicationAssignment` is used, it's recommended to use `ignoreChanges` for the `galleryApplication` block on the corresponding `compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
 	GalleryApplications []WindowsVirtualMachineGalleryApplication `pulumi:"galleryApplications"`
 	// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
 	//
@@ -517,6 +521,8 @@ type WindowsVirtualMachineState struct {
 	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
 	ExtensionsTimeBudget pulumi.StringPtrInput
 	// One or more `galleryApplication` blocks as defined below.
+	//
+	// > **Note** Gallery Application Assignments can be defined either directly on `compute.WindowsVirtualMachine` resource, or using the `compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `compute.GalleryApplicationAssignment` is used, it's recommended to use `ignoreChanges` for the `galleryApplication` block on the corresponding `compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
 	GalleryApplications WindowsVirtualMachineGalleryApplicationArrayInput
 	// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
 	//
@@ -664,6 +670,8 @@ type windowsVirtualMachineArgs struct {
 	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
 	// One or more `galleryApplication` blocks as defined below.
+	//
+	// > **Note** Gallery Application Assignments can be defined either directly on `compute.WindowsVirtualMachine` resource, or using the `compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `compute.GalleryApplicationAssignment` is used, it's recommended to use `ignoreChanges` for the `galleryApplication` block on the corresponding `compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
 	GalleryApplications []WindowsVirtualMachineGalleryApplication `pulumi:"galleryApplications"`
 	// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
 	//
@@ -798,6 +806,8 @@ type WindowsVirtualMachineArgs struct {
 	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
 	ExtensionsTimeBudget pulumi.StringPtrInput
 	// One or more `galleryApplication` blocks as defined below.
+	//
+	// > **Note** Gallery Application Assignments can be defined either directly on `compute.WindowsVirtualMachine` resource, or using the `compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `compute.GalleryApplicationAssignment` is used, it's recommended to use `ignoreChanges` for the `galleryApplication` block on the corresponding `compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
 	GalleryApplications WindowsVirtualMachineGalleryApplicationArrayInput
 	// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
 	//
@@ -1080,6 +1090,8 @@ func (o WindowsVirtualMachineOutput) ExtensionsTimeBudget() pulumi.StringPtrOutp
 }
 
 // One or more `galleryApplication` blocks as defined below.
+//
+// > **Note** Gallery Application Assignments can be defined either directly on `compute.WindowsVirtualMachine` resource, or using the `compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `compute.GalleryApplicationAssignment` is used, it's recommended to use `ignoreChanges` for the `galleryApplication` block on the corresponding `compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
 func (o WindowsVirtualMachineOutput) GalleryApplications() WindowsVirtualMachineGalleryApplicationArrayOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachine) WindowsVirtualMachineGalleryApplicationArrayOutput {
 		return v.GalleryApplications

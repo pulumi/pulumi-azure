@@ -13,6 +13,181 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type CredentialServicePrincipalServicePrincipalKey struct {
+	// The name of the Linked Service to use for the Service Principal Key.
+	LinkedServiceName string `pulumi:"linkedServiceName"`
+	// The name of the Secret in the Key Vault.
+	SecretName string `pulumi:"secretName"`
+	// The version of the Secret in the Key Vault.
+	SecretVersion *string `pulumi:"secretVersion"`
+}
+
+// CredentialServicePrincipalServicePrincipalKeyInput is an input type that accepts CredentialServicePrincipalServicePrincipalKeyArgs and CredentialServicePrincipalServicePrincipalKeyOutput values.
+// You can construct a concrete instance of `CredentialServicePrincipalServicePrincipalKeyInput` via:
+//
+//	CredentialServicePrincipalServicePrincipalKeyArgs{...}
+type CredentialServicePrincipalServicePrincipalKeyInput interface {
+	pulumi.Input
+
+	ToCredentialServicePrincipalServicePrincipalKeyOutput() CredentialServicePrincipalServicePrincipalKeyOutput
+	ToCredentialServicePrincipalServicePrincipalKeyOutputWithContext(context.Context) CredentialServicePrincipalServicePrincipalKeyOutput
+}
+
+type CredentialServicePrincipalServicePrincipalKeyArgs struct {
+	// The name of the Linked Service to use for the Service Principal Key.
+	LinkedServiceName pulumi.StringInput `pulumi:"linkedServiceName"`
+	// The name of the Secret in the Key Vault.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+	// The version of the Secret in the Key Vault.
+	SecretVersion pulumi.StringPtrInput `pulumi:"secretVersion"`
+}
+
+func (CredentialServicePrincipalServicePrincipalKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CredentialServicePrincipalServicePrincipalKey)(nil)).Elem()
+}
+
+func (i CredentialServicePrincipalServicePrincipalKeyArgs) ToCredentialServicePrincipalServicePrincipalKeyOutput() CredentialServicePrincipalServicePrincipalKeyOutput {
+	return i.ToCredentialServicePrincipalServicePrincipalKeyOutputWithContext(context.Background())
+}
+
+func (i CredentialServicePrincipalServicePrincipalKeyArgs) ToCredentialServicePrincipalServicePrincipalKeyOutputWithContext(ctx context.Context) CredentialServicePrincipalServicePrincipalKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CredentialServicePrincipalServicePrincipalKeyOutput)
+}
+
+func (i CredentialServicePrincipalServicePrincipalKeyArgs) ToCredentialServicePrincipalServicePrincipalKeyPtrOutput() CredentialServicePrincipalServicePrincipalKeyPtrOutput {
+	return i.ToCredentialServicePrincipalServicePrincipalKeyPtrOutputWithContext(context.Background())
+}
+
+func (i CredentialServicePrincipalServicePrincipalKeyArgs) ToCredentialServicePrincipalServicePrincipalKeyPtrOutputWithContext(ctx context.Context) CredentialServicePrincipalServicePrincipalKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CredentialServicePrincipalServicePrincipalKeyOutput).ToCredentialServicePrincipalServicePrincipalKeyPtrOutputWithContext(ctx)
+}
+
+// CredentialServicePrincipalServicePrincipalKeyPtrInput is an input type that accepts CredentialServicePrincipalServicePrincipalKeyArgs, CredentialServicePrincipalServicePrincipalKeyPtr and CredentialServicePrincipalServicePrincipalKeyPtrOutput values.
+// You can construct a concrete instance of `CredentialServicePrincipalServicePrincipalKeyPtrInput` via:
+//
+//	        CredentialServicePrincipalServicePrincipalKeyArgs{...}
+//
+//	or:
+//
+//	        nil
+type CredentialServicePrincipalServicePrincipalKeyPtrInput interface {
+	pulumi.Input
+
+	ToCredentialServicePrincipalServicePrincipalKeyPtrOutput() CredentialServicePrincipalServicePrincipalKeyPtrOutput
+	ToCredentialServicePrincipalServicePrincipalKeyPtrOutputWithContext(context.Context) CredentialServicePrincipalServicePrincipalKeyPtrOutput
+}
+
+type credentialServicePrincipalServicePrincipalKeyPtrType CredentialServicePrincipalServicePrincipalKeyArgs
+
+func CredentialServicePrincipalServicePrincipalKeyPtr(v *CredentialServicePrincipalServicePrincipalKeyArgs) CredentialServicePrincipalServicePrincipalKeyPtrInput {
+	return (*credentialServicePrincipalServicePrincipalKeyPtrType)(v)
+}
+
+func (*credentialServicePrincipalServicePrincipalKeyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CredentialServicePrincipalServicePrincipalKey)(nil)).Elem()
+}
+
+func (i *credentialServicePrincipalServicePrincipalKeyPtrType) ToCredentialServicePrincipalServicePrincipalKeyPtrOutput() CredentialServicePrincipalServicePrincipalKeyPtrOutput {
+	return i.ToCredentialServicePrincipalServicePrincipalKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *credentialServicePrincipalServicePrincipalKeyPtrType) ToCredentialServicePrincipalServicePrincipalKeyPtrOutputWithContext(ctx context.Context) CredentialServicePrincipalServicePrincipalKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CredentialServicePrincipalServicePrincipalKeyPtrOutput)
+}
+
+type CredentialServicePrincipalServicePrincipalKeyOutput struct{ *pulumi.OutputState }
+
+func (CredentialServicePrincipalServicePrincipalKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CredentialServicePrincipalServicePrincipalKey)(nil)).Elem()
+}
+
+func (o CredentialServicePrincipalServicePrincipalKeyOutput) ToCredentialServicePrincipalServicePrincipalKeyOutput() CredentialServicePrincipalServicePrincipalKeyOutput {
+	return o
+}
+
+func (o CredentialServicePrincipalServicePrincipalKeyOutput) ToCredentialServicePrincipalServicePrincipalKeyOutputWithContext(ctx context.Context) CredentialServicePrincipalServicePrincipalKeyOutput {
+	return o
+}
+
+func (o CredentialServicePrincipalServicePrincipalKeyOutput) ToCredentialServicePrincipalServicePrincipalKeyPtrOutput() CredentialServicePrincipalServicePrincipalKeyPtrOutput {
+	return o.ToCredentialServicePrincipalServicePrincipalKeyPtrOutputWithContext(context.Background())
+}
+
+func (o CredentialServicePrincipalServicePrincipalKeyOutput) ToCredentialServicePrincipalServicePrincipalKeyPtrOutputWithContext(ctx context.Context) CredentialServicePrincipalServicePrincipalKeyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CredentialServicePrincipalServicePrincipalKey) *CredentialServicePrincipalServicePrincipalKey {
+		return &v
+	}).(CredentialServicePrincipalServicePrincipalKeyPtrOutput)
+}
+
+// The name of the Linked Service to use for the Service Principal Key.
+func (o CredentialServicePrincipalServicePrincipalKeyOutput) LinkedServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v CredentialServicePrincipalServicePrincipalKey) string { return v.LinkedServiceName }).(pulumi.StringOutput)
+}
+
+// The name of the Secret in the Key Vault.
+func (o CredentialServicePrincipalServicePrincipalKeyOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v CredentialServicePrincipalServicePrincipalKey) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+// The version of the Secret in the Key Vault.
+func (o CredentialServicePrincipalServicePrincipalKeyOutput) SecretVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CredentialServicePrincipalServicePrincipalKey) *string { return v.SecretVersion }).(pulumi.StringPtrOutput)
+}
+
+type CredentialServicePrincipalServicePrincipalKeyPtrOutput struct{ *pulumi.OutputState }
+
+func (CredentialServicePrincipalServicePrincipalKeyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CredentialServicePrincipalServicePrincipalKey)(nil)).Elem()
+}
+
+func (o CredentialServicePrincipalServicePrincipalKeyPtrOutput) ToCredentialServicePrincipalServicePrincipalKeyPtrOutput() CredentialServicePrincipalServicePrincipalKeyPtrOutput {
+	return o
+}
+
+func (o CredentialServicePrincipalServicePrincipalKeyPtrOutput) ToCredentialServicePrincipalServicePrincipalKeyPtrOutputWithContext(ctx context.Context) CredentialServicePrincipalServicePrincipalKeyPtrOutput {
+	return o
+}
+
+func (o CredentialServicePrincipalServicePrincipalKeyPtrOutput) Elem() CredentialServicePrincipalServicePrincipalKeyOutput {
+	return o.ApplyT(func(v *CredentialServicePrincipalServicePrincipalKey) CredentialServicePrincipalServicePrincipalKey {
+		if v != nil {
+			return *v
+		}
+		var ret CredentialServicePrincipalServicePrincipalKey
+		return ret
+	}).(CredentialServicePrincipalServicePrincipalKeyOutput)
+}
+
+// The name of the Linked Service to use for the Service Principal Key.
+func (o CredentialServicePrincipalServicePrincipalKeyPtrOutput) LinkedServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CredentialServicePrincipalServicePrincipalKey) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LinkedServiceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the Secret in the Key Vault.
+func (o CredentialServicePrincipalServicePrincipalKeyPtrOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CredentialServicePrincipalServicePrincipalKey) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of the Secret in the Key Vault.
+func (o CredentialServicePrincipalServicePrincipalKeyPtrOutput) SecretVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CredentialServicePrincipalServicePrincipalKey) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretVersion
+	}).(pulumi.StringPtrOutput)
+}
+
 type CustomDatasetLinkedService struct {
 	// The name of the Data Factory Linked Service.
 	Name string `pulumi:"name"`
@@ -17059,6 +17234,8 @@ func (o GetTriggerScheduleScheduleMonthlyArrayOutput) Index(i pulumi.IntInput) G
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CredentialServicePrincipalServicePrincipalKeyInput)(nil)).Elem(), CredentialServicePrincipalServicePrincipalKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CredentialServicePrincipalServicePrincipalKeyPtrInput)(nil)).Elem(), CredentialServicePrincipalServicePrincipalKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomDatasetLinkedServiceInput)(nil)).Elem(), CustomDatasetLinkedServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomDatasetLinkedServicePtrInput)(nil)).Elem(), CustomDatasetLinkedServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowSinkInput)(nil)).Elem(), DataFlowSinkArgs{})
@@ -17271,6 +17448,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTriggerScheduleScheduleArrayInput)(nil)).Elem(), GetTriggerScheduleScheduleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTriggerScheduleScheduleMonthlyInput)(nil)).Elem(), GetTriggerScheduleScheduleMonthlyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTriggerScheduleScheduleMonthlyArrayInput)(nil)).Elem(), GetTriggerScheduleScheduleMonthlyArray{})
+	pulumi.RegisterOutputType(CredentialServicePrincipalServicePrincipalKeyOutput{})
+	pulumi.RegisterOutputType(CredentialServicePrincipalServicePrincipalKeyPtrOutput{})
 	pulumi.RegisterOutputType(CustomDatasetLinkedServiceOutput{})
 	pulumi.RegisterOutputType(CustomDatasetLinkedServicePtrOutput{})
 	pulumi.RegisterOutputType(DataFlowSinkOutput{})

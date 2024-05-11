@@ -108,6 +108,10 @@ namespace Pulumi.Azure.ContainerApp
     public sealed class GetEnvironmentResult
     {
         /// <summary>
+        /// The ID of the Custom Domain Verification for this Container App Environment.
+        /// </summary>
+        public readonly string CustomDomainVerificationId;
+        /// <summary>
         /// The default publicly resolvable name of this Container App Environment. This is generated at creation time to be globally unique.
         /// </summary>
         public readonly string DefaultDomain;
@@ -156,6 +160,8 @@ namespace Pulumi.Azure.ContainerApp
 
         [OutputConstructor]
         private GetEnvironmentResult(
+            string customDomainVerificationId,
+
             string defaultDomain,
 
             string dockerBridgeCidr,
@@ -182,6 +188,7 @@ namespace Pulumi.Azure.ContainerApp
 
             ImmutableDictionary<string, string> tags)
         {
+            CustomDomainVerificationId = customDomainVerificationId;
             DefaultDomain = defaultDomain;
             DockerBridgeCidr = dockerBridgeCidr;
             Id = id;

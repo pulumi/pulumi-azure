@@ -4065,6 +4065,10 @@
                 "current": "azure:containerapp/environmentCertificate:EnvironmentCertificate",
                 "majorVersion": 5
             },
+            "azurerm_container_app_environment_custom_domain": {
+                "current": "azure:containerapp/environmentCustomDomain:EnvironmentCustomDomain",
+                "majorVersion": 5
+            },
             "azurerm_container_app_environment_dapr_component": {
                 "current": "azure:containerapp/environmentDaprComponent:EnvironmentDaprComponent",
                 "majorVersion": 5,
@@ -4083,6 +4087,139 @@
             "azurerm_container_app_environment_storage": {
                 "current": "azure:containerapp/environmentStorage:EnvironmentStorage",
                 "majorVersion": 5
+            },
+            "azurerm_container_app_job": {
+                "current": "azure:containerapp/job:Job",
+                "majorVersion": 5,
+                "fields": {
+                    "event_trigger_config": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "scale": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "rules": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "authentication": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "identity": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "manual_trigger_config": {
+                        "maxItemsOne": true
+                    },
+                    "outbound_ip_addresses": {
+                        "maxItemsOne": false
+                    },
+                    "registries": {
+                        "maxItemsOne": false
+                    },
+                    "schedule_trigger_config": {
+                        "maxItemsOne": true
+                    },
+                    "secrets": {
+                        "maxItemsOne": false
+                    },
+                    "template": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "container": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "args": {
+                                                "maxItemsOne": false
+                                            },
+                                            "command": {
+                                                "maxItemsOne": false
+                                            },
+                                            "env": {
+                                                "maxItemsOne": false
+                                            },
+                                            "liveness_probe": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "header": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "readiness_probe": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "header": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "startup_probe": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "header": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "volume_mounts": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "init_container": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "args": {
+                                                "maxItemsOne": false
+                                            },
+                                            "command": {
+                                                "maxItemsOne": false
+                                            },
+                                            "env": {
+                                                "maxItemsOne": false
+                                            },
+                                            "volume_mounts": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "volume": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "azurerm_container_connected_registry": {
                 "current": "azure:containerservice/connectedRegistry:ConnectedRegistry",
@@ -4931,6 +5068,18 @@
                         }
                     },
                     "vsts_configuration": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
+            "azurerm_data_factory_credential_service_principal": {
+                "current": "azure:datafactory/credentialServicePrincipal:CredentialServicePrincipal",
+                "majorVersion": 5,
+                "fields": {
+                    "annotations": {
+                        "maxItemsOne": false
+                    },
+                    "service_principal_key": {
                         "maxItemsOne": true
                     }
                 }
@@ -11758,6 +11907,9 @@
                                                         "slow_request": {
                                                             "maxItemsOne": false
                                                         },
+                                                        "slow_request_with_path": {
+                                                            "maxItemsOne": false
+                                                        },
                                                         "status_code": {
                                                             "maxItemsOne": false
                                                         }
@@ -12121,6 +12273,9 @@
                                                             "maxItemsOne": true
                                                         },
                                                         "slow_request": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "slow_request_with_path": {
                                                             "maxItemsOne": false
                                                         },
                                                         "status_code": {
@@ -12832,6 +12987,41 @@
             "azurerm_maintenance_assignment_dedicated_host": {
                 "current": "azure:maintenance/assignmentDedicatedHost:AssignmentDedicatedHost",
                 "majorVersion": 5
+            },
+            "azurerm_maintenance_assignment_dynamic_scope": {
+                "current": "azure:maintenance/assignmentDynamicScope:AssignmentDynamicScope",
+                "majorVersion": 5,
+                "fields": {
+                    "filter": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "locations": {
+                                    "maxItemsOne": false
+                                },
+                                "os_types": {
+                                    "maxItemsOne": false
+                                },
+                                "resource_groups": {
+                                    "maxItemsOne": false
+                                },
+                                "resource_types": {
+                                    "maxItemsOne": false
+                                },
+                                "tags": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "values": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "azurerm_maintenance_assignment_virtual_machine": {
                 "current": "azure:maintenance/assignmentVirtualMachine:AssignmentVirtualMachine",
@@ -21053,6 +21243,10 @@
                     }
                 }
             },
+            "azurerm_virtual_machine_automanage_configuration_assignment": {
+                "current": "azure:compute/automanageConfigurationAssignment:AutomanageConfigurationAssignment",
+                "majorVersion": 5
+            },
             "azurerm_virtual_machine_data_disk_attachment": {
                 "current": "azure:compute/dataDiskAttachment:DataDiskAttachment",
                 "majorVersion": 5
@@ -21068,6 +21262,10 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "azurerm_virtual_machine_gallery_application_assignment": {
+                "current": "azure:compute/galleryApplicationAssignment:GalleryApplicationAssignment",
+                "majorVersion": 5
             },
             "azurerm_virtual_machine_packet_capture": {
                 "current": "azure:compute/packetCapture:PacketCapture",
@@ -23027,6 +23225,9 @@
                                                         "slow_request": {
                                                             "maxItemsOne": false
                                                         },
+                                                        "slow_request_with_path": {
+                                                            "maxItemsOne": false
+                                                        },
                                                         "status_code": {
                                                             "maxItemsOne": false
                                                         }
@@ -23410,6 +23611,9 @@
                                                             "maxItemsOne": true
                                                         },
                                                         "slow_request": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "slow_request_with_path": {
                                                             "maxItemsOne": false
                                                         },
                                                         "status_code": {
@@ -27270,6 +27474,9 @@
                                                         "slow_request": {
                                                             "maxItemsOne": false
                                                         },
+                                                        "slow_request_with_path": {
+                                                            "maxItemsOne": false
+                                                        },
                                                         "status_code": {
                                                             "maxItemsOne": false
                                                         }
@@ -28495,6 +28702,18 @@
                         }
                     },
                     "scope_accesses": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_network_manager_connectivity_configuration": {
+                "current": "azure:network/getNetworkManagerConnectivityConfiguration:getNetworkManagerConnectivityConfiguration",
+                "majorVersion": 5,
+                "fields": {
+                    "applies_to_group": {
+                        "maxItemsOne": false
+                    },
+                    "hub": {
                         "maxItemsOne": false
                     }
                 }
@@ -30706,6 +30925,9 @@
                                                             "maxItemsOne": false
                                                         },
                                                         "slow_request": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "slow_request_with_path": {
                                                             "maxItemsOne": false
                                                         },
                                                         "status_code": {

@@ -156,7 +156,7 @@ export class Cluster extends pulumi.CustomResource {
      *
      * > **NOTE:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trustedExternalTenants = ["MyTenantOnly"]` to `trustedExternalTenants = []`.
      */
-    public readonly trustedExternalTenants!: pulumi.Output<string[]>;
+    public readonly trustedExternalTenants!: pulumi.Output<string[] | undefined>;
     /**
      * The FQDN of the Azure Kusto Cluster.
      */

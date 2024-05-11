@@ -108,7 +108,9 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
+     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * 
+     * &gt; **Note:** `create_mode` cannot be changed once it&#39;s set since it&#39;s a parameter at creation.
      * 
      * &gt; **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
      * 
@@ -117,7 +119,9 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     private @Nullable Output<String> createMode;
 
     /**
-     * @return The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
+     * @return The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * 
+     * &gt; **Note:** `create_mode` cannot be changed once it&#39;s set since it&#39;s a parameter at creation.
      * 
      * &gt; **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
      * 
@@ -593,7 +597,9 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param createMode The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
+         * @param createMode The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
+         * 
+         * &gt; **Note:** `create_mode` cannot be changed once it&#39;s set since it&#39;s a parameter at creation.
          * 
          * &gt; **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
          * 
@@ -606,7 +612,9 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param createMode The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
+         * @param createMode The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
+         * 
+         * &gt; **Note:** `create_mode` cannot be changed once it&#39;s set since it&#39;s a parameter at creation.
          * 
          * &gt; **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
          * 

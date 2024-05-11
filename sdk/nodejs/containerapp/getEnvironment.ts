@@ -47,6 +47,10 @@ export interface GetEnvironmentArgs {
  */
 export interface GetEnvironmentResult {
     /**
+     * The ID of the Custom Domain Verification for this Container App Environment.
+     */
+    readonly customDomainVerificationId: string;
+    /**
      * The default publicly resolvable name of this Container App Environment. This is generated at creation time to be globally unique.
      */
     readonly defaultDomain: string;

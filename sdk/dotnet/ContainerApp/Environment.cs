@@ -60,6 +60,12 @@ namespace Pulumi.Azure.ContainerApp
     public partial class Environment : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The ID of the Custom Domain Verification for this Container App Environment.
+        /// </summary>
+        [Output("customDomainVerificationId")]
+        public Output<string> CustomDomainVerificationId { get; private set; } = null!;
+
+        /// <summary>
         /// Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
         /// </summary>
         [Output("daprApplicationInsightsConnectionString")]
@@ -317,6 +323,12 @@ namespace Pulumi.Azure.ContainerApp
 
     public sealed class EnvironmentState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the Custom Domain Verification for this Container App Environment.
+        /// </summary>
+        [Input("customDomainVerificationId")]
+        public Input<string>? CustomDomainVerificationId { get; set; }
+
         [Input("daprApplicationInsightsConnectionString")]
         private Input<string>? _daprApplicationInsightsConnectionString;
 

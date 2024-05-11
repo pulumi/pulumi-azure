@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.azure.appservice.outputs.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequests;
 import com.pulumi.azure.appservice.outputs.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest;
+import com.pulumi.azure.appservice.outputs.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath;
 import com.pulumi.azure.appservice.outputs.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
@@ -20,7 +21,12 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTrigger {
      */
     private @Nullable LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequests requests;
     /**
-     * @return One or more `slow_request` blocks as defined above.
+     * @return One or more `slow_request_with_path` blocks as defined above.
+     * 
+     */
+    private @Nullable List<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath> slowRequestWithPaths;
+    /**
+     * @return A `slow_request` block as defined above.
      * 
      */
     private @Nullable List<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests;
@@ -39,7 +45,14 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTrigger {
         return Optional.ofNullable(this.requests);
     }
     /**
-     * @return One or more `slow_request` blocks as defined above.
+     * @return One or more `slow_request_with_path` blocks as defined above.
+     * 
+     */
+    public List<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath> slowRequestWithPaths() {
+        return this.slowRequestWithPaths == null ? List.of() : this.slowRequestWithPaths;
+    }
+    /**
+     * @return A `slow_request` block as defined above.
      * 
      */
     public List<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests() {
@@ -63,12 +76,14 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTrigger {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequests requests;
+        private @Nullable List<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath> slowRequestWithPaths;
         private @Nullable List<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests;
         private @Nullable List<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode> statusCodes;
         public Builder() {}
         public Builder(LinuxWebAppSlotSiteConfigAutoHealSettingTrigger defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.requests = defaults.requests;
+    	      this.slowRequestWithPaths = defaults.slowRequestWithPaths;
     	      this.slowRequests = defaults.slowRequests;
     	      this.statusCodes = defaults.statusCodes;
         }
@@ -78,6 +93,15 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTrigger {
 
             this.requests = requests;
             return this;
+        }
+        @CustomType.Setter
+        public Builder slowRequestWithPaths(@Nullable List<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath> slowRequestWithPaths) {
+
+            this.slowRequestWithPaths = slowRequestWithPaths;
+            return this;
+        }
+        public Builder slowRequestWithPaths(LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath... slowRequestWithPaths) {
+            return slowRequestWithPaths(List.of(slowRequestWithPaths));
         }
         @CustomType.Setter
         public Builder slowRequests(@Nullable List<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests) {
@@ -100,6 +124,7 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTrigger {
         public LinuxWebAppSlotSiteConfigAutoHealSettingTrigger build() {
             final var _resultValue = new LinuxWebAppSlotSiteConfigAutoHealSettingTrigger();
             _resultValue.requests = requests;
+            _resultValue.slowRequestWithPaths = slowRequestWithPaths;
             _resultValue.slowRequests = slowRequests;
             _resultValue.statusCodes = statusCodes;
             return _resultValue;

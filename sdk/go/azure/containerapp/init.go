@@ -29,10 +29,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Environment{}
 	case "azure:containerapp/environmentCertificate:EnvironmentCertificate":
 		r = &EnvironmentCertificate{}
+	case "azure:containerapp/environmentCustomDomain:EnvironmentCustomDomain":
+		r = &EnvironmentCustomDomain{}
 	case "azure:containerapp/environmentDaprComponent:EnvironmentDaprComponent":
 		r = &EnvironmentDaprComponent{}
 	case "azure:containerapp/environmentStorage:EnvironmentStorage":
 		r = &EnvironmentStorage{}
+	case "azure:containerapp/job:Job":
+		r = &Job{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -68,12 +72,22 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"containerapp/environmentCustomDomain",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"containerapp/environmentDaprComponent",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
 		"containerapp/environmentStorage",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"containerapp/job",
 		&module{version},
 	)
 }

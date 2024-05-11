@@ -35,6 +35,13 @@ public final class LinuxVirtualMachineScaleSetRollingUpgradePolicy {
      */
     private Integer maxUnhealthyUpgradedInstancePercent;
     /**
+     * @return Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+     * 
+     * &gt; **NOTE:** `overprovision` must be set to `false` when `maximum_surge_instances_enabled` is specified.
+     * 
+     */
+    private @Nullable Boolean maximumSurgeInstancesEnabled;
+    /**
      * @return The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
      * 
      */
@@ -75,6 +82,15 @@ public final class LinuxVirtualMachineScaleSetRollingUpgradePolicy {
         return this.maxUnhealthyUpgradedInstancePercent;
     }
     /**
+     * @return Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+     * 
+     * &gt; **NOTE:** `overprovision` must be set to `false` when `maximum_surge_instances_enabled` is specified.
+     * 
+     */
+    public Optional<Boolean> maximumSurgeInstancesEnabled() {
+        return Optional.ofNullable(this.maximumSurgeInstancesEnabled);
+    }
+    /**
      * @return The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
      * 
      */
@@ -102,6 +118,7 @@ public final class LinuxVirtualMachineScaleSetRollingUpgradePolicy {
         private Integer maxBatchInstancePercent;
         private Integer maxUnhealthyInstancePercent;
         private Integer maxUnhealthyUpgradedInstancePercent;
+        private @Nullable Boolean maximumSurgeInstancesEnabled;
         private String pauseTimeBetweenBatches;
         private @Nullable Boolean prioritizeUnhealthyInstancesEnabled;
         public Builder() {}
@@ -111,6 +128,7 @@ public final class LinuxVirtualMachineScaleSetRollingUpgradePolicy {
     	      this.maxBatchInstancePercent = defaults.maxBatchInstancePercent;
     	      this.maxUnhealthyInstancePercent = defaults.maxUnhealthyInstancePercent;
     	      this.maxUnhealthyUpgradedInstancePercent = defaults.maxUnhealthyUpgradedInstancePercent;
+    	      this.maximumSurgeInstancesEnabled = defaults.maximumSurgeInstancesEnabled;
     	      this.pauseTimeBetweenBatches = defaults.pauseTimeBetweenBatches;
     	      this.prioritizeUnhealthyInstancesEnabled = defaults.prioritizeUnhealthyInstancesEnabled;
         }
@@ -146,6 +164,12 @@ public final class LinuxVirtualMachineScaleSetRollingUpgradePolicy {
             return this;
         }
         @CustomType.Setter
+        public Builder maximumSurgeInstancesEnabled(@Nullable Boolean maximumSurgeInstancesEnabled) {
+
+            this.maximumSurgeInstancesEnabled = maximumSurgeInstancesEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder pauseTimeBetweenBatches(String pauseTimeBetweenBatches) {
             if (pauseTimeBetweenBatches == null) {
               throw new MissingRequiredPropertyException("LinuxVirtualMachineScaleSetRollingUpgradePolicy", "pauseTimeBetweenBatches");
@@ -165,6 +189,7 @@ public final class LinuxVirtualMachineScaleSetRollingUpgradePolicy {
             _resultValue.maxBatchInstancePercent = maxBatchInstancePercent;
             _resultValue.maxUnhealthyInstancePercent = maxUnhealthyInstancePercent;
             _resultValue.maxUnhealthyUpgradedInstancePercent = maxUnhealthyUpgradedInstancePercent;
+            _resultValue.maximumSurgeInstancesEnabled = maximumSurgeInstancesEnabled;
             _resultValue.pauseTimeBetweenBatches = pauseTimeBetweenBatches;
             _resultValue.prioritizeUnhealthyInstancesEnabled = prioritizeUnhealthyInstancesEnabled;
             return _resultValue;

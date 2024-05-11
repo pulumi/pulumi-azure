@@ -74,8 +74,6 @@ public final class AppSecretArgs extends com.pulumi.resources.ResourceArgs {
      * 
      * !&gt; **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
      * 
-     * !&gt; **Note:** Secrets cannot be removed from the service once added, attempting to do so will result in an error. Their values may be zeroed, i.e. set to `&#34;&#34;`, but the named secret must persist. This is due to a technical limitation on the service which causes the service to become unmanageable. See [this issue](https://github.com/microsoft/azure-container-apps/issues/395) for more details.
-     * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
@@ -84,8 +82,6 @@ public final class AppSecretArgs extends com.pulumi.resources.ResourceArgs {
      * @return The value for this secret.
      * 
      * !&gt; **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
-     * 
-     * !&gt; **Note:** Secrets cannot be removed from the service once added, attempting to do so will result in an error. Their values may be zeroed, i.e. set to `&#34;&#34;`, but the named secret must persist. This is due to a technical limitation on the service which causes the service to become unmanageable. See [this issue](https://github.com/microsoft/azure-container-apps/issues/395) for more details.
      * 
      */
     public Optional<Output<String>> value() {
@@ -195,8 +191,6 @@ public final class AppSecretArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * !&gt; **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
          * 
-         * !&gt; **Note:** Secrets cannot be removed from the service once added, attempting to do so will result in an error. Their values may be zeroed, i.e. set to `&#34;&#34;`, but the named secret must persist. This is due to a technical limitation on the service which causes the service to become unmanageable. See [this issue](https://github.com/microsoft/azure-container-apps/issues/395) for more details.
-         * 
          * @return builder
          * 
          */
@@ -209,8 +203,6 @@ public final class AppSecretArgs extends com.pulumi.resources.ResourceArgs {
          * @param value The value for this secret.
          * 
          * !&gt; **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
-         * 
-         * !&gt; **Note:** Secrets cannot be removed from the service once added, attempting to do so will result in an error. Their values may be zeroed, i.e. set to `&#34;&#34;`, but the named secret must persist. This is due to a technical limitation on the service which causes the service to become unmanageable. See [this issue](https://github.com/microsoft/azure-container-apps/issues/395) for more details.
          * 
          * @return builder
          * 

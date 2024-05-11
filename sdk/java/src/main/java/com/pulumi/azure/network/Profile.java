@@ -181,14 +181,14 @@ public class Profile extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * A mapping of tags to assign to the resource.
+     * A mapping of tags assigned to the resource.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags to assign to the resource.
+     * @return A mapping of tags assigned to the resource.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

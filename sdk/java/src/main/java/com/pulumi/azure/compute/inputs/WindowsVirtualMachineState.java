@@ -332,12 +332,16 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     /**
      * One or more `gallery_application` blocks as defined below.
      * 
+     * &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.WindowsVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
+     * 
      */
     @Import(name="galleryApplications")
     private @Nullable Output<List<WindowsVirtualMachineGalleryApplicationArgs>> galleryApplications;
 
     /**
      * @return One or more `gallery_application` blocks as defined below.
+     * 
+     * &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.WindowsVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
      * 
      */
     public Optional<Output<List<WindowsVirtualMachineGalleryApplicationArgs>>> galleryApplications() {
@@ -1443,6 +1447,8 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         /**
          * @param galleryApplications One or more `gallery_application` blocks as defined below.
          * 
+         * &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.WindowsVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
+         * 
          * @return builder
          * 
          */
@@ -1454,6 +1460,8 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         /**
          * @param galleryApplications One or more `gallery_application` blocks as defined below.
          * 
+         * &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.WindowsVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
+         * 
          * @return builder
          * 
          */
@@ -1463,6 +1471,8 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
 
         /**
          * @param galleryApplications One or more `gallery_application` blocks as defined below.
+         * 
+         * &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.WindowsVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
          * 
          * @return builder
          * 

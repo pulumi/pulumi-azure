@@ -74,6 +74,8 @@ type LookupSubnetResult struct {
 	// The ID of the Network Security Group associated with the subnet.
 	NetworkSecurityGroupId string `pulumi:"networkSecurityGroupId"`
 	// Enable or Disable network policies for the private endpoint on the subnet.
+	PrivateEndpointNetworkPolicies string `pulumi:"privateEndpointNetworkPolicies"`
+	// Deprecated: This property has been superseded by `privateEndpointNetworkPolicies` and will be removed in v4.0 of the AzureRM Provider.
 	PrivateEndpointNetworkPoliciesEnabled bool `pulumi:"privateEndpointNetworkPoliciesEnabled"`
 	// Enable or Disable network policies for the private link service on the subnet.
 	PrivateLinkServiceNetworkPoliciesEnabled bool   `pulumi:"privateLinkServiceNetworkPoliciesEnabled"`
@@ -159,6 +161,11 @@ func (o LookupSubnetResultOutput) NetworkSecurityGroupId() pulumi.StringOutput {
 }
 
 // Enable or Disable network policies for the private endpoint on the subnet.
+func (o LookupSubnetResultOutput) PrivateEndpointNetworkPolicies() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubnetResult) string { return v.PrivateEndpointNetworkPolicies }).(pulumi.StringOutput)
+}
+
+// Deprecated: This property has been superseded by `privateEndpointNetworkPolicies` and will be removed in v4.0 of the AzureRM Provider.
 func (o LookupSubnetResultOutput) PrivateEndpointNetworkPoliciesEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupSubnetResult) bool { return v.PrivateEndpointNetworkPoliciesEnabled }).(pulumi.BoolOutput)
 }

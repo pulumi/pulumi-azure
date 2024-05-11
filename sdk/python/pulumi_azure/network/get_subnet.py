@@ -21,7 +21,7 @@ class GetSubnetResult:
     """
     A collection of values returned by getSubnet.
     """
-    def __init__(__self__, address_prefix=None, address_prefixes=None, enforce_private_link_endpoint_network_policies=None, enforce_private_link_service_network_policies=None, id=None, name=None, network_security_group_id=None, private_endpoint_network_policies_enabled=None, private_link_service_network_policies_enabled=None, resource_group_name=None, route_table_id=None, service_endpoints=None, virtual_network_name=None):
+    def __init__(__self__, address_prefix=None, address_prefixes=None, enforce_private_link_endpoint_network_policies=None, enforce_private_link_service_network_policies=None, id=None, name=None, network_security_group_id=None, private_endpoint_network_policies=None, private_endpoint_network_policies_enabled=None, private_link_service_network_policies_enabled=None, resource_group_name=None, route_table_id=None, service_endpoints=None, virtual_network_name=None):
         if address_prefix and not isinstance(address_prefix, str):
             raise TypeError("Expected argument 'address_prefix' to be a str")
         pulumi.set(__self__, "address_prefix", address_prefix)
@@ -43,6 +43,9 @@ class GetSubnetResult:
         if network_security_group_id and not isinstance(network_security_group_id, str):
             raise TypeError("Expected argument 'network_security_group_id' to be a str")
         pulumi.set(__self__, "network_security_group_id", network_security_group_id)
+        if private_endpoint_network_policies and not isinstance(private_endpoint_network_policies, str):
+            raise TypeError("Expected argument 'private_endpoint_network_policies' to be a str")
+        pulumi.set(__self__, "private_endpoint_network_policies", private_endpoint_network_policies)
         if private_endpoint_network_policies_enabled and not isinstance(private_endpoint_network_policies_enabled, bool):
             raise TypeError("Expected argument 'private_endpoint_network_policies_enabled' to be a bool")
         pulumi.set(__self__, "private_endpoint_network_policies_enabled", private_endpoint_network_policies_enabled)
@@ -107,11 +110,19 @@ class GetSubnetResult:
         return pulumi.get(self, "network_security_group_id")
 
     @property
-    @pulumi.getter(name="privateEndpointNetworkPoliciesEnabled")
-    def private_endpoint_network_policies_enabled(self) -> bool:
+    @pulumi.getter(name="privateEndpointNetworkPolicies")
+    def private_endpoint_network_policies(self) -> str:
         """
         Enable or Disable network policies for the private endpoint on the subnet.
         """
+        return pulumi.get(self, "private_endpoint_network_policies")
+
+    @property
+    @pulumi.getter(name="privateEndpointNetworkPoliciesEnabled")
+    def private_endpoint_network_policies_enabled(self) -> bool:
+        warnings.warn("""This property has been superseded by `private_endpoint_network_policies` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""private_endpoint_network_policies_enabled is deprecated: This property has been superseded by `private_endpoint_network_policies` and will be removed in v4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "private_endpoint_network_policies_enabled")
 
     @property
@@ -162,6 +173,7 @@ class AwaitableGetSubnetResult(GetSubnetResult):
             id=self.id,
             name=self.name,
             network_security_group_id=self.network_security_group_id,
+            private_endpoint_network_policies=self.private_endpoint_network_policies,
             private_endpoint_network_policies_enabled=self.private_endpoint_network_policies_enabled,
             private_link_service_network_policies_enabled=self.private_link_service_network_policies_enabled,
             resource_group_name=self.resource_group_name,
@@ -209,6 +221,7 @@ def get_subnet(name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         network_security_group_id=pulumi.get(__ret__, 'network_security_group_id'),
+        private_endpoint_network_policies=pulumi.get(__ret__, 'private_endpoint_network_policies'),
         private_endpoint_network_policies_enabled=pulumi.get(__ret__, 'private_endpoint_network_policies_enabled'),
         private_link_service_network_policies_enabled=pulumi.get(__ret__, 'private_link_service_network_policies_enabled'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),

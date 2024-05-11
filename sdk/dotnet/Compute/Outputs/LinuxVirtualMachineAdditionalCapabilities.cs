@@ -14,13 +14,21 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class LinuxVirtualMachineAdditionalCapabilities
     {
         /// <summary>
+        /// Whether to enable the hibernation capability or not. Changing this forces a new Linux Virtual Machine to be created.
+        /// </summary>
+        public readonly bool? HibernationEnabled;
+        /// <summary>
         /// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
         /// </summary>
         public readonly bool? UltraSsdEnabled;
 
         [OutputConstructor]
-        private LinuxVirtualMachineAdditionalCapabilities(bool? ultraSsdEnabled)
+        private LinuxVirtualMachineAdditionalCapabilities(
+            bool? hibernationEnabled,
+
+            bool? ultraSsdEnabled)
         {
+            HibernationEnabled = hibernationEnabled;
             UltraSsdEnabled = ultraSsdEnabled;
         }
     }
