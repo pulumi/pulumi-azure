@@ -205,7 +205,7 @@ var moduleMap = map[string]string{
 	"arc_kubernetes": azureArcKubernetes,
 	"arc_machine":    azureArcMachine,
 	"arc":            "Arc",
-	//Ignored: armMsi. Only used for the token "azurerm_federated_identity_credential".
+	// Ignored: armMsi. Only used for the token "azurerm_federated_identity_credential".
 	"attestation": azureAttestation,
 	"automation":  azureAutomation,
 	"automanage":  azureAutomanage,
@@ -446,7 +446,7 @@ func preConfigureCallback(vars resource.PropertyMap, _ tfshim.ResourceConfig) er
 		return fmt.Errorf("failed to read Azure environment \"%s\": %v", envName, err)
 	}
 
-	//check for auxiliary tenants
+	// check for auxiliary tenants
 	auxTenants := tfbridge.ConfigArrayValue(vars, "auxiliaryTenantIDs", []string{"ARM_AUXILIARY_TENANT_IDS"})
 
 	// validate the azure config
@@ -458,17 +458,21 @@ func preConfigureCallback(vars resource.PropertyMap, _ tfshim.ResourceConfig) er
 		TenantID:     tfbridge.ConfigStringValue(vars, "tenantId", []string{"ARM_TENANT_ID"}),
 		Environment:  *env,
 		ClientCertificatePath: tfbridge.ConfigStringValue(vars, "clientCertificatePath", []string{
-			"ARM_CLIENT_CERTIFICATE_PATH"}),
+			"ARM_CLIENT_CERTIFICATE_PATH",
+		}),
 		ClientCertificatePassword: tfbridge.ConfigStringValue(vars, "clientCertificatePassword", []string{
-			"ARM_CLIENT_CERTIFICATE_PASSWORD"}),
+			"ARM_CLIENT_CERTIFICATE_PASSWORD",
+		}),
 		CustomManagedIdentityEndpoint: tfbridge.ConfigStringValue(vars, "msiEndpoint", []string{"ARM_MSI_ENDPOINT"}),
 		AuxiliaryTenantIDs:            auxTenants,
 
 		// OIDC section. The ACTIONS_ variables are set by GitHub.
 		GitHubOIDCTokenRequestToken: tfbridge.ConfigStringValue(vars, "oidcRequestToken", []string{
-			"ARM_OIDC_REQUEST_TOKEN", "ACTIONS_ID_TOKEN_REQUEST_TOKEN"}),
+			"ARM_OIDC_REQUEST_TOKEN", "ACTIONS_ID_TOKEN_REQUEST_TOKEN",
+		}),
 		GitHubOIDCTokenRequestURL: tfbridge.ConfigStringValue(vars, "oidcRequestUrl", []string{
-			"ARM_OIDC_REQUEST_URL", "ACTIONS_ID_TOKEN_REQUEST_URL"}),
+			"ARM_OIDC_REQUEST_URL", "ACTIONS_ID_TOKEN_REQUEST_URL",
+		}),
 		OIDCAssertionToken: tfbridge.ConfigStringValue(vars, "oidcToken", []string{"ARM_OIDC_TOKEN"}),
 
 		// Feature Toggles
@@ -481,7 +485,6 @@ func preConfigureCallback(vars resource.PropertyMap, _ tfshim.ResourceConfig) er
 	}
 
 	_, err = auth.NewAuthorizerFromCredentials(context.Background(), authConfig, env.MicrosoftGraph)
-
 	if err != nil {
 		return fmt.Errorf("failed to load application credentials:\n"+
 			"Details: %v\n\n"+
@@ -591,7 +594,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Max length of an API Management name is 50.
 					// Source: https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#general
-					//azureName: (azureName, 50),
+					// azureName: (azureName, 50),
 					azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
 						Separator: "",
 						Maxlen:    50,
@@ -730,7 +733,8 @@ func Provider() tfbridge.ProviderInfo {
 						Type:     "string",
 						AltTypes: []tokens.Type{azureType(azureAppService, "Kind")},
 					},
-				}},
+				},
+			},
 			"azurerm_app_service_slot": {Tok: azureResource(azureAppService, "Slot")},
 			"azurerm_app_service_connection": {
 				Tok: azureResource(azureAppService, "Connection"),
@@ -759,7 +763,8 @@ func Provider() tfbridge.ProviderInfo {
 							},
 						},
 					},
-				}},
+				},
+			},
 			"azurerm_function_app_slot":                {Tok: azureResource(azureAppService, "FunctionAppSlot")},
 			"azurerm_function_app_active_slot":         {Tok: azureResource(azureAppService, "FunctionAppActiveSlot")},
 			"azurerm_function_app_function":            {Tok: azureResource(azureAppService, "FunctionAppFunction")},
@@ -864,7 +869,8 @@ func Provider() tfbridge.ProviderInfo {
 						Randlen:   8,
 						Transform: strings.ToLower,
 					}),
-				}},
+				},
+			},
 			"azurerm_kubernetes_cluster": {Tok: azureResource(azureContainerService, "KubernetesCluster")},
 			"azurerm_kubernetes_cluster_node_pool": {
 				Tok: azureResource(azureContainerService, "KubernetesClusterNodePool"),
@@ -1098,7 +1104,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_databricks_virtual_network_peering": {Tok: azureResource(azureDataBricks, "VirtualNetworkPeering")},
 
-			//Databox
+			// Databox
 			"azurerm_databox_edge_device": {Tok: azureResource(azureDataboxEdge, "Device")},
 			"azurerm_databox_edge_order":  {Tok: azureResource(azureDataboxEdge, "Order")},
 
@@ -1281,7 +1287,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_eventgrid_system_topic_event_subscription": {Tok: azureResource(azureEventGrid, "SystemTopicEventSubscription")},
 
 			// IoT Resources
-			"azurerm_iothub": {Tok: azureResource(azureIot, "IoTHub"),
+			"azurerm_iothub": {
+				Tok: azureResource(azureIot, "IoTHub"),
 				Docs: &tfbridge.DocInfo{
 					Source: "iothub.html.markdown",
 				},
@@ -1360,31 +1367,38 @@ func Provider() tfbridge.ProviderInfo {
 					}),
 				},
 			},
-			"azurerm_lb_backend_address_pool": {Tok: azureResource(azureLB, "BackendAddressPool"),
+			"azurerm_lb_backend_address_pool": {
+				Tok: azureResource(azureLB, "BackendAddressPool"),
 				Docs: &tfbridge.DocInfo{
 					Source: "loadbalancer_backend_address_pool.html.markdown",
 				},
 			},
-			"azurerm_lb_nat_rule": {Tok: azureResource(azureLB, "NatRule"),
+			"azurerm_lb_nat_rule": {
+				Tok: azureResource(azureLB, "NatRule"),
 				Docs: &tfbridge.DocInfo{
 					Source: "loadbalancer_nat_rule.html.markdown",
 				},
 			},
-			"azurerm_lb_nat_pool": {Tok: azureResource(azureLB, "NatPool"),
+			"azurerm_lb_nat_pool": {
+				Tok: azureResource(azureLB, "NatPool"),
 				Docs: &tfbridge.DocInfo{
 					Source: "loadbalancer_nat_pool.html.markdown",
-				}},
-			"azurerm_lb_outbound_rule": {Tok: azureResource(azureLB, "OutboundRule"),
+				},
+			},
+			"azurerm_lb_outbound_rule": {
+				Tok: azureResource(azureLB, "OutboundRule"),
 				Docs: &tfbridge.DocInfo{
 					Source: "loadbalancer_outbound_rule.html.markdown",
 				},
 			},
-			"azurerm_lb_probe": {Tok: azureResource(azureLB, "Probe"),
+			"azurerm_lb_probe": {
+				Tok: azureResource(azureLB, "Probe"),
 				Docs: &tfbridge.DocInfo{
 					Source: "loadbalancer_probe.html.markdown",
 				},
 			},
-			"azurerm_lb_rule": {Tok: azureResource(azureLB, "Rule"),
+			"azurerm_lb_rule": {
+				Tok: azureResource(azureLB, "Rule"),
 				Docs: &tfbridge.DocInfo{
 					Source: "loadbalancer_rule.html.markdown",
 				},
@@ -1455,10 +1469,12 @@ func Provider() tfbridge.ProviderInfo {
 			// Operational Insights
 			"azurerm_log_analytics_workspace":        {Tok: azureResource(azureOperationalInsights, "AnalyticsWorkspace")},
 			"azurerm_log_analytics_query_pack_query": {Tok: azureResource(azureOperationalInsights, "QueryPackQuery")},
-			"azurerm_log_analytics_solution": {Tok: azureResource(azureOperationalInsights, "AnalyticsSolution"),
+			"azurerm_log_analytics_solution": {
+				Tok: azureResource(azureOperationalInsights, "AnalyticsSolution"),
 				Docs: &tfbridge.DocInfo{
 					Source: "log_analytics_solution.html.markdown",
-				}},
+				},
+			},
 
 			// CosmosDB
 			"azurerm_cosmosdb_account": {
@@ -1697,7 +1713,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_sql_failover_group": {Tok: azureResource(azureSQL, "FailoverGroup")},
 			"azurerm_sql_firewall_rule":  {Tok: azureResource(azureSQL, "FirewallRule")},
 			"azurerm_sql_server":         {Tok: azureResource(azureSQL, "SqlServer")},
-			"azurerm_sql_virtual_network_rule": {Tok: azureResource(azureSQL, "VirtualNetworkRule"),
+			"azurerm_sql_virtual_network_rule": {
+				Tok: azureResource(azureSQL, "VirtualNetworkRule"),
 				Docs: &tfbridge.DocInfo{
 					Source: "sql_virtual_network_rule.html.markdown",
 				},
@@ -1868,12 +1885,14 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_express_route_circuit":                     {Tok: azureResource(azureNetwork, "ExpressRouteCircuit")},
 			"azurerm_express_route_circuit_connection":          {Tok: azureResource(azureNetwork, "ExpressRouteCircuitConnection")},
 			"azurerm_express_route_connection":                  {Tok: azureResource(azureNetwork, "ExpressRouteConnection")},
-			"azurerm_express_route_circuit_authorization": {Tok: azureResource(azureNetwork, "ExpressRouteCircuitAuthorization"),
+			"azurerm_express_route_circuit_authorization": {
+				Tok: azureResource(azureNetwork, "ExpressRouteCircuitAuthorization"),
 				Docs: &tfbridge.DocInfo{
 					Source: "express_route_circuit_authorization.html.markdown",
 				},
 			},
-			"azurerm_express_route_circuit_peering": {Tok: azureResource(azureNetwork, "ExpressRouteCircuitPeering"),
+			"azurerm_express_route_circuit_peering": {
+				Tok: azureResource(azureNetwork, "ExpressRouteCircuitPeering"),
 				Docs: &tfbridge.DocInfo{
 					Source: "express_route_circuit_authorization.html.markdown",
 				},
@@ -2002,7 +2021,8 @@ func Provider() tfbridge.ProviderInfo {
 							Kind: tfbridge.FileAsset,
 						},
 					},
-				}},
+				},
+			},
 			"azurerm_storage_container": {
 				Tok: azureResource(azureStorage, "Container"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -2014,7 +2034,8 @@ func Provider() tfbridge.ProviderInfo {
 						Randlen:   8,
 						Transform: strings.ToLower,
 					}),
-				}},
+				},
+			},
 			"azurerm_storage_share":           {Tok: azureResource(azureStorage, "Share")},
 			"azurerm_storage_share_directory": {Tok: azureResource(azureStorage, "ShareDirectory")},
 			"azurerm_storage_queue": {
@@ -2028,7 +2049,8 @@ func Provider() tfbridge.ProviderInfo {
 						Randlen:   8,
 						Transform: strings.ToLower,
 					}),
-				}},
+				},
+			},
 			"azurerm_storage_table": {
 				Tok: azureResource(azureStorage, "Table"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -2040,7 +2062,8 @@ func Provider() tfbridge.ProviderInfo {
 						Randlen:   8,
 						Transform: strings.ToLower,
 					}),
-				}},
+				},
+			},
 			"azurerm_storage_table_entity": {
 				Tok: azureResource(azureStorage, "TableEntity"),
 			},
@@ -2071,7 +2094,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_storage_mover_source_endpoint": {Tok: azureResource(azureStorage, "MoverSourceEndpoint")},
 			"azurerm_storage_mover_target_endpoint": {Tok: azureResource(azureStorage, "MoverTargetEndpoint")},
 
-			//StreamAnalytics
+			// StreamAnalytics
 			"azurerm_stream_analytics_function_javascript_udf": {
 				Tok: azureResource(azureStreamAnalytics, "FunctionJavaScriptUDF"),
 			},
@@ -2250,7 +2273,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_nginx_configuration": {Tok: azureResource(azureNginx, "Configuration"), Docs: &tfbridge.DocInfo{AllowMissing: true}},
 			"azurerm_nginx_deployment":    {Tok: azureResource(azureNginx, "Deployment")},
 
-			//AppConfiguration
+			// AppConfiguration
 			"azurerm_app_configuration":         {Tok: azureResource(azureAppConfiguration, "ConfigurationStore")},
 			"azurerm_app_configuration_key":     {Tok: azureResource(azureAppConfiguration, "ConfigurationKey")},
 			"azurerm_app_configuration_feature": {Tok: azureResource(azureAppConfiguration, "ConfigurationFeature")},
@@ -3174,12 +3197,15 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+			RespectSchemaVersion: true,
 		},
 		Python: (func() *tfbridge.PythonInfo {
 			i := &tfbridge.PythonInfo{
+				RespectSchemaVersion: true,
 				Requires: map[string]string{
 					"pulumi": ">=3.0.0,<4.0.0",
-				}}
+				},
+			}
 			i.PyProject.Enabled = true
 			return i
 		})(),
@@ -3192,8 +3218,10 @@ func Provider() tfbridge.ProviderInfo {
 				azurePkg,
 			),
 			GenerateResourceContainerTypes: true,
+			RespectSchemaVersion:           true,
 		},
 		CSharp: &tfbridge.CSharpInfo{
+			RespectSchemaVersion: true,
 			PackageReferences: map[string]string{
 				"Pulumi": "3.*",
 			},
@@ -3347,7 +3375,8 @@ func Provider() tfbridge.ProviderInfo {
 					Randlen:   8,
 					Transform: strings.ToLower,
 				}),
-			}})
+			},
+		})
 	prov.RenameDataSource("azurerm_traffic_manager_geographical_location",
 		azureDataSource(azureLegacyTrafficManager, "getGeographicalLocation"),
 		azureDataSource(azureNetwork, "getTrafficManager"), azureLegacyTrafficManager, azureNetwork, nil)
@@ -3360,7 +3389,8 @@ func Provider() tfbridge.ProviderInfo {
 				"certificate": {
 					CSharpName: "KeyVaultCertificate",
 				},
-			}})
+			},
+		})
 
 	// Fix the spelling of ContainerService Webook to Webhook
 	prov.RenameResourceWithAlias("azurerm_container_registry_webhook",
