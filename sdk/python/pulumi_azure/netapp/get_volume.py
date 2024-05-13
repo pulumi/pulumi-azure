@@ -183,7 +183,6 @@ class GetVolumeResult:
     def smb_access_based_enumeration_enabled(self) -> bool:
         """
         Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share.
-        ---
         """
         return pulumi.get(self, "smb_access_based_enumeration_enabled")
 

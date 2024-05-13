@@ -79,7 +79,6 @@ class GetReplicationRecoveryPlanResult:
     def recovery_groups(self) -> Sequence['outputs.GetReplicationRecoveryPlanRecoveryGroupResult']:
         """
         `recovery_group` block defined as below.
-        ---
         """
         return pulumi.get(self, "recovery_groups")
 

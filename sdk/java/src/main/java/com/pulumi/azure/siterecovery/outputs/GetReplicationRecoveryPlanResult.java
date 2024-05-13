@@ -27,7 +27,6 @@ public final class GetReplicationRecoveryPlanResult {
     private String name;
     /**
      * @return `recovery_group` block defined as below.
-     * ---
      * 
      */
     private List<GetReplicationRecoveryPlanRecoveryGroup> recoveryGroups;
@@ -66,7 +65,6 @@ public final class GetReplicationRecoveryPlanResult {
     }
     /**
      * @return `recovery_group` block defined as below.
-     * ---
      * 
      */
     public List<GetReplicationRecoveryPlanRecoveryGroup> recoveryGroups() {
