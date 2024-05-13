@@ -195,7 +195,6 @@ namespace Pulumi.Azure.NetApp
         public readonly string ServiceLevel;
         /// <summary>
         /// Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share.
-        /// ---
         /// </summary>
         public readonly bool SmbAccessBasedEnumerationEnabled;
         /// <summary>

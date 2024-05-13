@@ -64,7 +64,6 @@ public final class GetVolumeResult {
     private String serviceLevel;
     /**
      * @return Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share.
-     * ---
      * 
      */
     private Boolean smbAccessBasedEnumerationEnabled;
@@ -171,7 +170,6 @@ public final class GetVolumeResult {
     }
     /**
      * @return Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share.
-     * ---
      * 
      */
     public Boolean smbAccessBasedEnumerationEnabled() {

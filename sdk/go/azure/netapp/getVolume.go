@@ -91,7 +91,6 @@ type LookupVolumeResult struct {
 	// The service level of the file system.
 	ServiceLevel string `pulumi:"serviceLevel"`
 	// Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share.
-	// ---
 	SmbAccessBasedEnumerationEnabled bool `pulumi:"smbAccessBasedEnumerationEnabled"`
 	// Limits clients from browsing for an SMB share.
 	SmbNonBrowsableEnabled bool `pulumi:"smbNonBrowsableEnabled"`
@@ -216,7 +215,6 @@ func (o LookupVolumeResultOutput) ServiceLevel() pulumi.StringOutput {
 }
 
 // Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share.
-// ---
 func (o LookupVolumeResultOutput) SmbAccessBasedEnumerationEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupVolumeResult) bool { return v.SmbAccessBasedEnumerationEnabled }).(pulumi.BoolOutput)
 }

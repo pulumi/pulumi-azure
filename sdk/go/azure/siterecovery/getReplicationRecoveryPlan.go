@@ -74,7 +74,6 @@ type LookupReplicationRecoveryPlanResult struct {
 	// Name of the Action.
 	Name string `pulumi:"name"`
 	// `recoveryGroup` block defined as below.
-	// ---
 	RecoveryGroups  []GetReplicationRecoveryPlanRecoveryGroup `pulumi:"recoveryGroups"`
 	RecoveryVaultId string                                    `pulumi:"recoveryVaultId"`
 	// The ID of source fabric to be recovered from.
@@ -144,7 +143,6 @@ func (o LookupReplicationRecoveryPlanResultOutput) Name() pulumi.StringOutput {
 }
 
 // `recoveryGroup` block defined as below.
-// ---
 func (o LookupReplicationRecoveryPlanResultOutput) RecoveryGroups() GetReplicationRecoveryPlanRecoveryGroupArrayOutput {
 	return o.ApplyT(func(v LookupReplicationRecoveryPlanResult) []GetReplicationRecoveryPlanRecoveryGroup {
 		return v.RecoveryGroups

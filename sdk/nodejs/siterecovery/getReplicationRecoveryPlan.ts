@@ -64,7 +64,6 @@ export interface GetReplicationRecoveryPlanResult {
     readonly name: string;
     /**
      * `recoveryGroup` block defined as below.
-     * ---
      */
     readonly recoveryGroups: outputs.siterecovery.GetReplicationRecoveryPlanRecoveryGroup[];
     readonly recoveryVaultId: string;
