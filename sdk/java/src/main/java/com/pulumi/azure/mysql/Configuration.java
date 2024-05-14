@@ -51,12 +51,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()
  *             .name("example-mysqlserver")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  *             .sslMinimalTlsVersionEnforced("TLS1_2")
  *             .build());
  * 
- *         var exampleConfiguration = new Configuration("exampleConfiguration", ConfigurationArgs.builder()        
+ *         var exampleConfiguration = new Configuration("exampleConfiguration", ConfigurationArgs.builder()
  *             .name("interactive_timeout")
  *             .resourceGroupName(example.name())
  *             .serverName(exampleServer.name())

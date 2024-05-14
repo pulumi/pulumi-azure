@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("rg-example")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleManagedInstance = new ManagedInstance("exampleManagedInstance", ManagedInstanceArgs.builder()        
+ *         var exampleManagedInstance = new ManagedInstance("exampleManagedInstance", ManagedInstanceArgs.builder()
  *             .name("managedsqlinstance")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleManagedInstanceActiveDirectoryAdministrator = new ManagedInstanceActiveDirectoryAdministrator("exampleManagedInstanceActiveDirectoryAdministrator", ManagedInstanceActiveDirectoryAdministratorArgs.builder()        
+ *         var exampleManagedInstanceActiveDirectoryAdministrator = new ManagedInstanceActiveDirectoryAdministrator("exampleManagedInstanceActiveDirectoryAdministrator", ManagedInstanceActiveDirectoryAdministratorArgs.builder()
  *             .managedInstanceName(exampleManagedInstance.name())
  *             .resourceGroupName(example.name())
  *             .login("sqladmin")

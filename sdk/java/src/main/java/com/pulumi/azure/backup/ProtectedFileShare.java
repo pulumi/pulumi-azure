@@ -55,19 +55,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("tfex-recovery_vault")
  *             .location("West Europe")
  *             .build());
  * 
- *         var vault = new Vault("vault", VaultArgs.builder()        
+ *         var vault = new Vault("vault", VaultArgs.builder()
  *             .name("tfex-recovery-vault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("Standard")
  *             .build());
  * 
- *         var sa = new Account("sa", AccountArgs.builder()        
+ *         var sa = new Account("sa", AccountArgs.builder()
  *             .name("examplesa")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -75,19 +75,19 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleShare = new Share("exampleShare", ShareArgs.builder()        
+ *         var exampleShare = new Share("exampleShare", ShareArgs.builder()
  *             .name("example-share")
  *             .storageAccountName(sa.name())
  *             .quota(1)
  *             .build());
  * 
- *         var protection_container = new ContainerStorageAccount("protection-container", ContainerStorageAccountArgs.builder()        
+ *         var protection_container = new ContainerStorageAccount("protection-container", ContainerStorageAccountArgs.builder()
  *             .resourceGroupName(example.name())
  *             .recoveryVaultName(vault.name())
  *             .storageAccountId(sa.id())
  *             .build());
  * 
- *         var examplePolicyFileShare = new PolicyFileShare("examplePolicyFileShare", PolicyFileShareArgs.builder()        
+ *         var examplePolicyFileShare = new PolicyFileShare("examplePolicyFileShare", PolicyFileShareArgs.builder()
  *             .name("tfex-recovery-vault-policy")
  *             .resourceGroupName(example.name())
  *             .recoveryVaultName(vault.name())
@@ -100,7 +100,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var share1 = new ProtectedFileShare("share1", ProtectedFileShareArgs.builder()        
+ *         var share1 = new ProtectedFileShare("share1", ProtectedFileShareArgs.builder()
  *             .resourceGroupName(example.name())
  *             .recoveryVaultName(vault.name())
  *             .sourceStorageAccountId(protection_container.storageAccountId())

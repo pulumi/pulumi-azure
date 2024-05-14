@@ -45,24 +45,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary = new ResourceGroup("primary", ResourceGroupArgs.builder()        
+ *         var primary = new ResourceGroup("primary", ResourceGroupArgs.builder()
  *             .name("tfex-network-mapping-primary")
  *             .location("West US")
  *             .build());
  * 
- *         var secondary = new ResourceGroup("secondary", ResourceGroupArgs.builder()        
+ *         var secondary = new ResourceGroup("secondary", ResourceGroupArgs.builder()
  *             .name("tfex-network-mapping-secondary")
  *             .location("East US")
  *             .build());
  * 
- *         var vault = new Vault("vault", VaultArgs.builder()        
+ *         var vault = new Vault("vault", VaultArgs.builder()
  *             .name("example-recovery-vault")
  *             .location(secondary.location())
  *             .resourceGroupName(secondary.name())
  *             .sku("Standard")
  *             .build());
  * 
- *         var fabric = new Fabric("fabric", FabricArgs.builder()        
+ *         var fabric = new Fabric("fabric", FabricArgs.builder()
  *             .name("primary-fabric")
  *             .resourceGroupName(secondary.name())
  *             .recoveryVaultName(vault.name())

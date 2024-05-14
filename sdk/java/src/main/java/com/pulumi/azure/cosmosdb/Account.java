@@ -62,17 +62,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var rg = new ResourceGroup("rg", ResourceGroupArgs.builder()        
+ *         var rg = new ResourceGroup("rg", ResourceGroupArgs.builder()
  *             .name("sample-rg")
  *             .location("westus")
  *             .build());
  * 
- *         var ri = new RandomInteger("ri", RandomIntegerArgs.builder()        
+ *         var ri = new RandomInteger("ri", RandomIntegerArgs.builder()
  *             .min(10000)
  *             .max(99999)
  *             .build());
  * 
- *         var db = new Account("db", AccountArgs.builder()        
+ *         var db = new Account("db", AccountArgs.builder()
  *             .name(ri.result().applyValue(result -> String.format("tfex-cosmos-db-%s", result)))
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -145,13 +145,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new UserAssignedIdentity("example", UserAssignedIdentityArgs.builder()        
+ *         var example = new UserAssignedIdentity("example", UserAssignedIdentityArgs.builder()
  *             .resourceGroupName(exampleAzurermResourceGroup.name())
  *             .location(exampleAzurermResourceGroup.location())
  *             .name("example-resource")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("example-resource")
  *             .location(exampleAzurermResourceGroup.location())
  *             .resourceGroupName(exampleAzurermResourceGroup.name())

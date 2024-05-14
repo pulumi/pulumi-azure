@@ -48,18 +48,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleStaticWebApp = new StaticWebApp("exampleStaticWebApp", StaticWebAppArgs.builder()        
+ *         var exampleStaticWebApp = new StaticWebApp("exampleStaticWebApp", StaticWebAppArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleCNameRecord = new CNameRecord("exampleCNameRecord", CNameRecordArgs.builder()        
+ *         var exampleCNameRecord = new CNameRecord("exampleCNameRecord", CNameRecordArgs.builder()
  *             .name("my-domain")
  *             .zoneName("contoso.com")
  *             .resourceGroupName(example.name())
@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *             .record(exampleStaticWebApp.defaultHostName())
  *             .build());
  * 
- *         var exampleStaticWebAppCustomDomain = new StaticWebAppCustomDomain("exampleStaticWebAppCustomDomain", StaticWebAppCustomDomainArgs.builder()        
+ *         var exampleStaticWebAppCustomDomain = new StaticWebAppCustomDomain("exampleStaticWebAppCustomDomain", StaticWebAppCustomDomainArgs.builder()
  *             .staticWebAppId(exampleStaticWebApp.id())
  *             .domainName(Output.tuple(exampleCNameRecord.name(), exampleCNameRecord.zoneName()).applyValue(values -> {
  *                 var name = values.t1;
@@ -115,24 +115,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleStaticWebApp = new StaticWebApp("exampleStaticWebApp", StaticWebAppArgs.builder()        
+ *         var exampleStaticWebApp = new StaticWebApp("exampleStaticWebApp", StaticWebAppArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleStaticWebAppCustomDomain = new StaticWebAppCustomDomain("exampleStaticWebAppCustomDomain", StaticWebAppCustomDomainArgs.builder()        
+ *         var exampleStaticWebAppCustomDomain = new StaticWebAppCustomDomain("exampleStaticWebAppCustomDomain", StaticWebAppCustomDomainArgs.builder()
  *             .staticWebAppId(exampleStaticWebApp.id())
  *             .domainName("my-domain.contoso.com")
  *             .validationType("dns-txt-token")
  *             .build());
  * 
- *         var exampleTxtRecord = new TxtRecord("exampleTxtRecord", TxtRecordArgs.builder()        
+ *         var exampleTxtRecord = new TxtRecord("exampleTxtRecord", TxtRecordArgs.builder()
  *             .name("_dnsauth.my-domain")
  *             .zoneName("contoso.com")
  *             .resourceGroupName(example.name())

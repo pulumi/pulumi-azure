@@ -75,32 +75,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-Watcher-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleNetworkWatcher = new NetworkWatcher("exampleNetworkWatcher", NetworkWatcherArgs.builder()        
+ *         var exampleNetworkWatcher = new NetworkWatcher("exampleNetworkWatcher", NetworkWatcherArgs.builder()
  *             .name("example-Watcher")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("example-Vnet")
  *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("example-Subnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
- *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()        
+ *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()
  *             .name("example-Nic")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -111,7 +111,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleVirtualMachine = new VirtualMachine("exampleVirtualMachine", VirtualMachineArgs.builder()        
+ *         var exampleVirtualMachine = new VirtualMachine("exampleVirtualMachine", VirtualMachineArgs.builder()
  *             .name("example-VM")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -139,7 +139,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleExtension = new Extension("exampleExtension", ExtensionArgs.builder()        
+ *         var exampleExtension = new Extension("exampleExtension", ExtensionArgs.builder()
  *             .name("example-VMExtension")
  *             .virtualMachineId(exampleVirtualMachine.id())
  *             .publisher("Microsoft.Azure.NetworkWatcher")
@@ -148,14 +148,14 @@ import javax.annotation.Nullable;
  *             .autoUpgradeMinorVersion(true)
  *             .build());
  * 
- *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()        
+ *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()
  *             .name("example-Workspace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("PerGB2018")
  *             .build());
  * 
- *         var exampleNetworkConnectionMonitor = new NetworkConnectionMonitor("exampleNetworkConnectionMonitor", NetworkConnectionMonitorArgs.builder()        
+ *         var exampleNetworkConnectionMonitor = new NetworkConnectionMonitor("exampleNetworkConnectionMonitor", NetworkConnectionMonitorArgs.builder()
  *             .name("example-Monitor")
  *             .networkWatcherId(exampleNetworkWatcher.id())
  *             .location(exampleNetworkWatcher.location())

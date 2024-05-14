@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("examplestoracc")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
@@ -70,13 +70,13 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()        
+ *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()
  *             .name("example")
  *             .storageAccountName(exampleAccount.name())
  *             .containerAccessType("private")
  *             .build());
  * 
- *         var exampleStreamInputBlob = new StreamInputBlob("exampleStreamInputBlob", StreamInputBlobArgs.builder()        
+ *         var exampleStreamInputBlob = new StreamInputBlob("exampleStreamInputBlob", StreamInputBlobArgs.builder()
  *             .name("blob-stream-input")
  *             .streamAnalyticsJobName(example.applyValue(getJobResult -> getJobResult).applyValue(example -> example.applyValue(getJobResult -> getJobResult.name())))
  *             .resourceGroupName(example.applyValue(getJobResult -> getJobResult).applyValue(example -> example.applyValue(getJobResult -> getJobResult.resourceGroupName())))

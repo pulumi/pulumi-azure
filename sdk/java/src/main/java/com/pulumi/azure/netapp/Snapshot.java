@@ -55,19 +55,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("example-virtualnetwork")
  *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("example-subnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
@@ -83,13 +83,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("example-netappaccount")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var examplePool = new Pool("examplePool", PoolArgs.builder()        
+ *         var examplePool = new Pool("examplePool", PoolArgs.builder()
  *             .name("example-netapppool")
  *             .accountName(exampleAccount.name())
  *             .location(example.location())
@@ -98,7 +98,7 @@ import javax.annotation.Nullable;
  *             .sizeInTb("4")
  *             .build());
  * 
- *         var exampleVolume = new Volume("exampleVolume", VolumeArgs.builder()        
+ *         var exampleVolume = new Volume("exampleVolume", VolumeArgs.builder()
  *             .name("example-netappvolume")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -110,7 +110,7 @@ import javax.annotation.Nullable;
  *             .storageQuotaInGb("100")
  *             .build());
  * 
- *         var exampleSnapshot = new Snapshot("exampleSnapshot", SnapshotArgs.builder()        
+ *         var exampleSnapshot = new Snapshot("exampleSnapshot", SnapshotArgs.builder()
  *             .name("example-netappsnapshot")
  *             .accountName(exampleAccount.name())
  *             .poolName(examplePool.name())

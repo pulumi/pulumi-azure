@@ -49,12 +49,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("rg-example-virtualdesktop")
  *             .location("West Europe")
  *             .build());
  * 
- *         var pooledbreadthfirst = new HostPool("pooledbreadthfirst", HostPoolArgs.builder()        
+ *         var pooledbreadthfirst = new HostPool("pooledbreadthfirst", HostPoolArgs.builder()
  *             .name("pooledbreadthfirst")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *             .loadBalancerType("BreadthFirst")
  *             .build());
  * 
- *         var remoteapp = new ApplicationGroup("remoteapp", ApplicationGroupArgs.builder()        
+ *         var remoteapp = new ApplicationGroup("remoteapp", ApplicationGroupArgs.builder()
  *             .name("remoteapp")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -70,13 +70,13 @@ import javax.annotation.Nullable;
  *             .hostPoolId(pooledbreadthfirst.id())
  *             .build());
  * 
- *         var workspace = new Workspace("workspace", WorkspaceArgs.builder()        
+ *         var workspace = new Workspace("workspace", WorkspaceArgs.builder()
  *             .name("workspace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var workspaceremoteapp = new WorkspaceApplicationGroupAssociation("workspaceremoteapp", WorkspaceApplicationGroupAssociationArgs.builder()        
+ *         var workspaceremoteapp = new WorkspaceApplicationGroupAssociation("workspaceremoteapp", WorkspaceApplicationGroupAssociationArgs.builder()
  *             .workspaceId(workspace.id())
  *             .applicationGroupId(remoteapp.id())
  *             .build());

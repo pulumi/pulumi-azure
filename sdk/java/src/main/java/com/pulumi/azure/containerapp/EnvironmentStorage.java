@@ -52,12 +52,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()        
+ *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()
  *             .name("acctest-01")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -65,14 +65,14 @@ import javax.annotation.Nullable;
  *             .retentionInDays(30)
  *             .build());
  * 
- *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()        
+ *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()
  *             .name("myEnvironment")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .logAnalyticsWorkspaceId(exampleAnalyticsWorkspace.id())
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("azureteststorage")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -80,13 +80,13 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleShare = new Share("exampleShare", ShareArgs.builder()        
+ *         var exampleShare = new Share("exampleShare", ShareArgs.builder()
  *             .name("sharename")
  *             .storageAccountName(exampleAccount.name())
  *             .quota(5)
  *             .build());
  * 
- *         var exampleEnvironmentStorage = new EnvironmentStorage("exampleEnvironmentStorage", EnvironmentStorageArgs.builder()        
+ *         var exampleEnvironmentStorage = new EnvironmentStorage("exampleEnvironmentStorage", EnvironmentStorageArgs.builder()
  *             .name("mycontainerappstorage")
  *             .containerAppEnvironmentId(exampleEnvironment.id())
  *             .accountName(exampleAccount.name())

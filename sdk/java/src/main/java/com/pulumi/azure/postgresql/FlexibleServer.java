@@ -63,19 +63,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("example-vn")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .addressSpaces("10.0.0.0/16")
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("example-sn")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
@@ -90,19 +90,19 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()        
+ *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()
  *             .name("example.postgres.database.azure.com")
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleZoneVirtualNetworkLink = new ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink", ZoneVirtualNetworkLinkArgs.builder()        
+ *         var exampleZoneVirtualNetworkLink = new ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink", ZoneVirtualNetworkLinkArgs.builder()
  *             .name("exampleVnetZone.com")
  *             .privateDnsZoneName(exampleZone.name())
  *             .virtualNetworkId(exampleVirtualNetwork.id())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleFlexibleServer = new FlexibleServer("exampleFlexibleServer", FlexibleServerArgs.builder()        
+ *         var exampleFlexibleServer = new FlexibleServer("exampleFlexibleServer", FlexibleServerArgs.builder()
  *             .name("example-psqlflexibleserver")
  *             .resourceGroupName(example.name())
  *             .location(example.location())

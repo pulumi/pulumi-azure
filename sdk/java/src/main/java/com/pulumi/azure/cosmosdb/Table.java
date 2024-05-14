@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName("tfex-cosmosdb-account-rg")
  *             .build());
  * 
- *         var exampleTable = new Table("exampleTable", TableArgs.builder()        
+ *         var exampleTable = new Table("exampleTable", TableArgs.builder()
  *             .name("tfex-cosmos-table")
  *             .resourceGroupName(example.applyValue(getAccountResult -> getAccountResult.resourceGroupName()))
  *             .accountName(example.applyValue(getAccountResult -> getAccountResult.name()))

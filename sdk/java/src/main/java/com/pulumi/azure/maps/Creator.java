@@ -48,19 +48,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("example-maps-account")
  *             .resourceGroupName(example.name())
  *             .skuName("G2")
  *             .tags(Map.of("environment", "Test"))
  *             .build());
  * 
- *         var exampleCreator = new Creator("exampleCreator", CreatorArgs.builder()        
+ *         var exampleCreator = new Creator("exampleCreator", CreatorArgs.builder()
  *             .name("example-maps-creator")
  *             .mapsAccountId(exampleAccount.id())
  *             .location(example.location())

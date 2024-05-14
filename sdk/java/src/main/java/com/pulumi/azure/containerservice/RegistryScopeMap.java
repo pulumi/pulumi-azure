@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resource-group")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleRegistry = new Registry("exampleRegistry", RegistryArgs.builder()        
+ *         var exampleRegistry = new Registry("exampleRegistry", RegistryArgs.builder()
  *             .name("exampleregistry")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var exampleRegistryScopeMap = new RegistryScopeMap("exampleRegistryScopeMap", RegistryScopeMapArgs.builder()        
+ *         var exampleRegistryScopeMap = new RegistryScopeMap("exampleRegistryScopeMap", RegistryScopeMapArgs.builder()
  *             .name("example-scope-map")
  *             .containerRegistryName(exampleRegistry.name())
  *             .resourceGroupName(example.name())

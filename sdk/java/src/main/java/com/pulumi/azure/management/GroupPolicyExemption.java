@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+ *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
  *             .displayName("Example MgmtGroup")
  *             .build());
  * 
@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *             .displayName("Audit machines with insecure password security settings")
  *             .build());
  * 
- *         var exampleGroupPolicyAssignment = new GroupPolicyAssignment("exampleGroupPolicyAssignment", GroupPolicyAssignmentArgs.builder()        
+ *         var exampleGroupPolicyAssignment = new GroupPolicyAssignment("exampleGroupPolicyAssignment", GroupPolicyAssignmentArgs.builder()
  *             .name("assignment1")
  *             .managementGroupId(exampleGroup.id())
  *             .policyDefinitionId(example.applyValue(getPolicySetDefinitionResult -> getPolicySetDefinitionResult.id()))
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleGroupPolicyExemption = new GroupPolicyExemption("exampleGroupPolicyExemption", GroupPolicyExemptionArgs.builder()        
+ *         var exampleGroupPolicyExemption = new GroupPolicyExemption("exampleGroupPolicyExemption", GroupPolicyExemptionArgs.builder()
  *             .name("exemption1")
  *             .managementGroupId(exampleGroup.id())
  *             .policyAssignmentId(exampleGroupPolicyAssignment.id())

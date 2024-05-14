@@ -53,12 +53,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleSqlServer = new SqlServer("exampleSqlServer", SqlServerArgs.builder()        
+ *         var exampleSqlServer = new SqlServer("exampleSqlServer", SqlServerArgs.builder()
  *             .name("mysqlserver")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *             .administratorLoginPassword("4-v3ry-53cr37-p455w0rd")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("accteststorageaccount")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("GRS")
  *             .build());
  * 
- *         var exampleServerSecurityAlertPolicy = new ServerSecurityAlertPolicy("exampleServerSecurityAlertPolicy", ServerSecurityAlertPolicyArgs.builder()        
+ *         var exampleServerSecurityAlertPolicy = new ServerSecurityAlertPolicy("exampleServerSecurityAlertPolicy", ServerSecurityAlertPolicyArgs.builder()
  *             .resourceGroupName(example.name())
  *             .serverName(exampleSqlServer.name())
  *             .state("Enabled")

@@ -71,17 +71,17 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example")
  *             .location("West Europe")
  *             .build());
  * 
- *         var snap = new ResourceGroup("snap", ResourceGroupArgs.builder()        
+ *         var snap = new ResourceGroup("snap", ResourceGroupArgs.builder()
  *             .name("example-snap")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleBackupVault = new BackupVault("exampleBackupVault", BackupVaultArgs.builder()        
+ *         var exampleBackupVault = new BackupVault("exampleBackupVault", BackupVaultArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleKubernetesCluster = new KubernetesCluster("exampleKubernetesCluster", KubernetesClusterArgs.builder()        
+ *         var exampleKubernetesCluster = new KubernetesCluster("exampleKubernetesCluster", KubernetesClusterArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -108,14 +108,14 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var aksClusterTrustedAccess = new ClusterTrustedAccessRoleBinding("aksClusterTrustedAccess", ClusterTrustedAccessRoleBindingArgs.builder()        
+ *         var aksClusterTrustedAccess = new ClusterTrustedAccessRoleBinding("aksClusterTrustedAccess", ClusterTrustedAccessRoleBindingArgs.builder()
  *             .kubernetesClusterId(exampleKubernetesCluster.id())
  *             .name("example")
  *             .roles("Microsoft.DataProtection/backupVaults/backup-operator")
  *             .sourceResourceId(exampleBackupVault.id())
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -123,13 +123,13 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()        
+ *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()
  *             .name("example")
  *             .storageAccountName(exampleAccount.name())
  *             .containerAccessType("private")
  *             .build());
  * 
- *         var exampleKubernetesClusterExtension = new KubernetesClusterExtension("exampleKubernetesClusterExtension", KubernetesClusterExtensionArgs.builder()        
+ *         var exampleKubernetesClusterExtension = new KubernetesClusterExtension("exampleKubernetesClusterExtension", KubernetesClusterExtensionArgs.builder()
  *             .name("example")
  *             .clusterId(exampleKubernetesCluster.id())
  *             .extensionType("Microsoft.DataProtection.Kubernetes")
@@ -144,49 +144,49 @@ import javax.annotation.Nullable;
  *             ))
  *             .build());
  * 
- *         var extensionAndStorageAccountPermission = new Assignment("extensionAndStorageAccountPermission", AssignmentArgs.builder()        
+ *         var extensionAndStorageAccountPermission = new Assignment("extensionAndStorageAccountPermission", AssignmentArgs.builder()
  *             .scope(exampleAccount.id())
  *             .roleDefinitionName("Storage Account Contributor")
  *             .principalId(exampleKubernetesClusterExtension.aksAssignedIdentities().applyValue(aksAssignedIdentities -> aksAssignedIdentities[0].principalId()))
  *             .build());
  * 
- *         var vaultMsiReadOnCluster = new Assignment("vaultMsiReadOnCluster", AssignmentArgs.builder()        
+ *         var vaultMsiReadOnCluster = new Assignment("vaultMsiReadOnCluster", AssignmentArgs.builder()
  *             .scope(exampleKubernetesCluster.id())
  *             .roleDefinitionName("Reader")
  *             .principalId(exampleBackupVault.identity().applyValue(identity -> identity.principalId()))
  *             .build());
  * 
- *         var vaultMsiReadOnSnapRg = new Assignment("vaultMsiReadOnSnapRg", AssignmentArgs.builder()        
+ *         var vaultMsiReadOnSnapRg = new Assignment("vaultMsiReadOnSnapRg", AssignmentArgs.builder()
  *             .scope(snap.id())
  *             .roleDefinitionName("Reader")
  *             .principalId(exampleBackupVault.identity().applyValue(identity -> identity.principalId()))
  *             .build());
  * 
- *         var testVaultMsiSnapshotContributorOnSnapRg = new Assignment("testVaultMsiSnapshotContributorOnSnapRg", AssignmentArgs.builder()        
+ *         var testVaultMsiSnapshotContributorOnSnapRg = new Assignment("testVaultMsiSnapshotContributorOnSnapRg", AssignmentArgs.builder()
  *             .scope(snap.id())
  *             .roleDefinitionName("Disk Snapshot Contributor")
  *             .principalId(test.identity()[0].principalId())
  *             .build());
  * 
- *         var testVaultDataOperatorOnSnapRg = new Assignment("testVaultDataOperatorOnSnapRg", AssignmentArgs.builder()        
+ *         var testVaultDataOperatorOnSnapRg = new Assignment("testVaultDataOperatorOnSnapRg", AssignmentArgs.builder()
  *             .scope(snap.id())
  *             .roleDefinitionName("Data Operator for Managed Disks")
  *             .principalId(test.identity()[0].principalId())
  *             .build());
  * 
- *         var testVaultDataContributorOnStorage = new Assignment("testVaultDataContributorOnStorage", AssignmentArgs.builder()        
+ *         var testVaultDataContributorOnStorage = new Assignment("testVaultDataContributorOnStorage", AssignmentArgs.builder()
  *             .scope(testAzurermStorageAccount.id())
  *             .roleDefinitionName("Storage Blob Data Contributor")
  *             .principalId(test.identity()[0].principalId())
  *             .build());
  * 
- *         var clusterMsiContributorOnSnapRg = new Assignment("clusterMsiContributorOnSnapRg", AssignmentArgs.builder()        
+ *         var clusterMsiContributorOnSnapRg = new Assignment("clusterMsiContributorOnSnapRg", AssignmentArgs.builder()
  *             .scope(snap.id())
  *             .roleDefinitionName("Contributor")
  *             .principalId(exampleKubernetesCluster.identity().applyValue(identity -> identity.principalId()))
  *             .build());
  * 
- *         var exampleBackupPolicyKubernetesCluster = new BackupPolicyKubernetesCluster("exampleBackupPolicyKubernetesCluster", BackupPolicyKubernetesClusterArgs.builder()        
+ *         var exampleBackupPolicyKubernetesCluster = new BackupPolicyKubernetesCluster("exampleBackupPolicyKubernetesCluster", BackupPolicyKubernetesClusterArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .vaultName(exampleBackupVault.name())
@@ -213,7 +213,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleBackupInstanceKubernetesCluster = new BackupInstanceKubernetesCluster("exampleBackupInstanceKubernetesCluster", BackupInstanceKubernetesClusterArgs.builder()        
+ *         var exampleBackupInstanceKubernetesCluster = new BackupInstanceKubernetesCluster("exampleBackupInstanceKubernetesCluster", BackupInstanceKubernetesClusterArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .vaultId(exampleBackupVault.id())

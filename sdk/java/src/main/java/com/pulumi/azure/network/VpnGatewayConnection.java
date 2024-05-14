@@ -59,18 +59,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualWan = new VirtualWan("exampleVirtualWan", VirtualWanArgs.builder()        
+ *         var exampleVirtualWan = new VirtualWan("exampleVirtualWan", VirtualWanArgs.builder()
  *             .name("example-vwan")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleVirtualHub = new VirtualHub("exampleVirtualHub", VirtualHubArgs.builder()        
+ *         var exampleVirtualHub = new VirtualHub("exampleVirtualHub", VirtualHubArgs.builder()
  *             .name("example-hub")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -78,14 +78,14 @@ import javax.annotation.Nullable;
  *             .addressPrefix("10.0.0.0/24")
  *             .build());
  * 
- *         var exampleVpnGateway = new VpnGateway("exampleVpnGateway", VpnGatewayArgs.builder()        
+ *         var exampleVpnGateway = new VpnGateway("exampleVpnGateway", VpnGatewayArgs.builder()
  *             .name("example-vpng")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .virtualHubId(exampleVirtualHub.id())
  *             .build());
  * 
- *         var exampleVpnSite = new VpnSite("exampleVpnSite", VpnSiteArgs.builder()        
+ *         var exampleVpnSite = new VpnSite("exampleVpnSite", VpnSiteArgs.builder()
  *             .name("example-vpn-site")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -101,7 +101,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var exampleVpnGatewayConnection = new VpnGatewayConnection("exampleVpnGatewayConnection", VpnGatewayConnectionArgs.builder()        
+ *         var exampleVpnGatewayConnection = new VpnGatewayConnection("exampleVpnGatewayConnection", VpnGatewayConnectionArgs.builder()
  *             .name("example")
  *             .vpnGatewayId(exampleVpnGateway.id())
  *             .remoteVpnSiteId(exampleVpnSite.id())

@@ -49,24 +49,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-rg")
  *             .location("East US")
  *             .build());
  * 
- *         var exampleVault = new Vault("exampleVault", VaultArgs.builder()        
+ *         var exampleVault = new Vault("exampleVault", VaultArgs.builder()
  *             .name("example-recovery-vault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("Standard")
  *             .build());
  * 
- *         var exampleHyperVSite = new HyperVSite("exampleHyperVSite", HyperVSiteArgs.builder()        
+ *         var exampleHyperVSite = new HyperVSite("exampleHyperVSite", HyperVSiteArgs.builder()
  *             .recoveryVaultId(exampleVault.id())
  *             .name("example-site")
  *             .build());
  * 
- *         var exampleHyperVReplicationPolicy = new HyperVReplicationPolicy("exampleHyperVReplicationPolicy", HyperVReplicationPolicyArgs.builder()        
+ *         var exampleHyperVReplicationPolicy = new HyperVReplicationPolicy("exampleHyperVReplicationPolicy", HyperVReplicationPolicyArgs.builder()
  *             .name("policy")
  *             .recoveryVaultId(exampleVault.id())
  *             .recoveryPointRetentionInHours(2)
@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  *             .replicationIntervalInSeconds(300)
  *             .build());
  * 
- *         var exampleHyperVReplicationPolicyAssociation = new HyperVReplicationPolicyAssociation("exampleHyperVReplicationPolicyAssociation", HyperVReplicationPolicyAssociationArgs.builder()        
+ *         var exampleHyperVReplicationPolicyAssociation = new HyperVReplicationPolicyAssociation("exampleHyperVReplicationPolicyAssociation", HyperVReplicationPolicyAssociationArgs.builder()
  *             .name("example-association")
  *             .hypervSiteId(exampleHyperVSite.id())
  *             .policyId(exampleHyperVReplicationPolicy.id())

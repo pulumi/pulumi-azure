@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleSqlServer = new SqlServer("exampleSqlServer", SqlServerArgs.builder()        
+ *         var exampleSqlServer = new SqlServer("exampleSqlServer", SqlServerArgs.builder()
  *             .name("mysqlserver")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *             .administratorLoginPassword("4-v3ry-53cr37-p455w0rd")
  *             .build());
  * 
- *         var exampleFirewallRule = new FirewallRule("exampleFirewallRule", FirewallRuleArgs.builder()        
+ *         var exampleFirewallRule = new FirewallRule("exampleFirewallRule", FirewallRuleArgs.builder()
  *             .name("FirewallRule1")
  *             .resourceGroupName(example.name())
  *             .serverName(exampleSqlServer.name())

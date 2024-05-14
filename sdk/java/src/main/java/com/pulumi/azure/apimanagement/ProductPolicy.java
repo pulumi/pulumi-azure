@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName("search-service")
  *             .build());
  * 
- *         var exampleProductPolicy = new ProductPolicy("exampleProductPolicy", ProductPolicyArgs.builder()        
+ *         var exampleProductPolicy = new ProductPolicy("exampleProductPolicy", ProductPolicyArgs.builder()
  *             .productId(example.applyValue(getProductResult -> getProductResult.productId()))
  *             .apiManagementName(example.applyValue(getProductResult -> getProductResult.apiManagementName()))
  *             .resourceGroupName(example.applyValue(getProductResult -> getProductResult.resourceGroupName()))

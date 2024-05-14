@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleDdosProtectionPlan = new DdosProtectionPlan("exampleDdosProtectionPlan", DdosProtectionPlanArgs.builder()        
+ *         var exampleDdosProtectionPlan = new DdosProtectionPlan("exampleDdosProtectionPlan", DdosProtectionPlanArgs.builder()
  *             .name("example-protection-plan")
  *             .location(example.location())
  *             .resourceGroupName(example.name())

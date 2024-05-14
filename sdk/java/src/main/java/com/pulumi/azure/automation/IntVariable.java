@@ -48,19 +48,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("tfex-example-rg")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("tfex-example-account")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .skuName("Basic")
  *             .build());
  * 
- *         var exampleIntVariable = new IntVariable("exampleIntVariable", IntVariableArgs.builder()        
+ *         var exampleIntVariable = new IntVariable("exampleIntVariable", IntVariableArgs.builder()
  *             .name("tfex-example-var")
  *             .resourceGroupName(example.name())
  *             .automationAccountName(exampleAccount.name())

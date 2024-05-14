@@ -59,12 +59,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-automanage")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleConfiguration = new Configuration("exampleConfiguration", ConfigurationArgs.builder()        
+ *         var exampleConfiguration = new Configuration("exampleConfiguration", ConfigurationArgs.builder()
  *             .name("example-acmp")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
