@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-hostpool")
  *             .location("westeurope")
  *             .build());
  * 
- *         var exampleHostPool = new HostPool("exampleHostPool", HostPoolArgs.builder()        
+ *         var exampleHostPool = new HostPool("exampleHostPool", HostPoolArgs.builder()
  *             .name("example-HP")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .loadBalancerType("BreadthFirst")
  *             .build());
  * 
- *         var exampleGetHostPoolRegistrationInfo = new GetHostPoolRegistrationInfo("exampleGetHostPoolRegistrationInfo", GetHostPoolRegistrationInfoArgs.builder()        
+ *         var exampleGetHostPoolRegistrationInfo = new GetHostPoolRegistrationInfo("exampleGetHostPoolRegistrationInfo", GetHostPoolRegistrationInfoArgs.builder()
  *             .hostpoolId(exampleHostPool.id())
  *             .expirationDate("2022-01-01T23:40:52Z")
  *             .build());

@@ -48,12 +48,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("examplesa")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -61,14 +61,14 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("GRS")
  *             .build());
  * 
- *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()        
+ *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()
  *             .name("exampleworkspace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("PerGB2018")
  *             .build());
  * 
- *         var exampleLinkedStorageAccount = new LinkedStorageAccount("exampleLinkedStorageAccount", LinkedStorageAccountArgs.builder()        
+ *         var exampleLinkedStorageAccount = new LinkedStorageAccount("exampleLinkedStorageAccount", LinkedStorageAccountArgs.builder()
  *             .dataSourceType("CustomLogs")
  *             .resourceGroupName(example.name())
  *             .workspaceResourceId(exampleAnalyticsWorkspace.id())

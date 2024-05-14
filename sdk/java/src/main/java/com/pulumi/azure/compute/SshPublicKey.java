@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SshPublicKey("example", SshPublicKeyArgs.builder()        
+ *         var example = new SshPublicKey("example", SshPublicKeyArgs.builder()
  *             .name("example")
  *             .resourceGroupName("example")
  *             .location("West Europe")

@@ -56,12 +56,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleNetwork = new Network("exampleNetwork", NetworkArgs.builder()        
+ *         var exampleNetwork = new Network("exampleNetwork", NetworkArgs.builder()
  *             .name("example-mn")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -69,13 +69,13 @@ import javax.annotation.Nullable;
  *             .mobileNetworkCode("01")
  *             .build());
  * 
- *         var exampleNetworkSimGroup = new NetworkSimGroup("exampleNetworkSimGroup", NetworkSimGroupArgs.builder()        
+ *         var exampleNetworkSimGroup = new NetworkSimGroup("exampleNetworkSimGroup", NetworkSimGroupArgs.builder()
  *             .name("example-mnsg")
  *             .location(example.location())
  *             .mobileNetworkId(exampleNetwork.id())
  *             .build());
  * 
- *         var exampleNetworkSlice = new NetworkSlice("exampleNetworkSlice", NetworkSliceArgs.builder()        
+ *         var exampleNetworkSlice = new NetworkSlice("exampleNetworkSlice", NetworkSliceArgs.builder()
  *             .name("example-slice")
  *             .mobileNetworkId(exampleNetwork.id())
  *             .location(example.location())
@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleNetworkAttachedDataNetwork = new NetworkAttachedDataNetwork("exampleNetworkAttachedDataNetwork", NetworkAttachedDataNetworkArgs.builder()        
+ *         var exampleNetworkAttachedDataNetwork = new NetworkAttachedDataNetwork("exampleNetworkAttachedDataNetwork", NetworkAttachedDataNetworkArgs.builder()
  *             .mobileNetworkDataNetworkName(exampleAzurermMobileNetworkDataNetwork.name())
  *             .mobileNetworkPacketCoreDataPlaneId(exampleAzurermMobileNetworkPacketCoreDataPlane.id())
  *             .location(example.location())
@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  *             .userPlaneAccessIpv4Subnet("10.204.141.0/24")
  *             .build());
  * 
- *         var exampleNetworkSim = new NetworkSim("exampleNetworkSim", NetworkSimArgs.builder()        
+ *         var exampleNetworkSim = new NetworkSim("exampleNetworkSim", NetworkSimArgs.builder()
  *             .name("example-sim")
  *             .mobileNetworkSimGroupId(exampleNetworkSimGroup.id())
  *             .authenticationKey("00000000000000000000000000000000")

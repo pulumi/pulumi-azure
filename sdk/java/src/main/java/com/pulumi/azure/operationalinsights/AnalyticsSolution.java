@@ -51,24 +51,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("k8s-log-analytics-test")
  *             .location("West Europe")
  *             .build());
  * 
- *         var workspace = new RandomId("workspace", RandomIdArgs.builder()        
+ *         var workspace = new RandomId("workspace", RandomIdArgs.builder()
  *             .keepers(Map.of("group_name", example.name()))
  *             .byteLength(8)
  *             .build());
  * 
- *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()        
+ *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()
  *             .name(workspace.hex().applyValue(hex -> String.format("k8s-workspace-%s", hex)))
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("PerGB2018")
  *             .build());
  * 
- *         var exampleAnalyticsSolution = new AnalyticsSolution("exampleAnalyticsSolution", AnalyticsSolutionArgs.builder()        
+ *         var exampleAnalyticsSolution = new AnalyticsSolution("exampleAnalyticsSolution", AnalyticsSolutionArgs.builder()
  *             .solutionName("ContainerInsights")
  *             .location(example.location())
  *             .resourceGroupName(example.name())

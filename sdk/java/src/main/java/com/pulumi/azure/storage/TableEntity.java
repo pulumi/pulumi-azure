@@ -48,12 +48,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("azureexample")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("azureexamplestorage1")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -61,12 +61,12 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleTable = new Table("exampleTable", TableArgs.builder()        
+ *         var exampleTable = new Table("exampleTable", TableArgs.builder()
  *             .name("myexampletable")
  *             .storageAccountName(exampleAccount.name())
  *             .build());
  * 
- *         var exampleTableEntity = new TableEntity("exampleTableEntity", TableEntityArgs.builder()        
+ *         var exampleTableEntity = new TableEntity("exampleTableEntity", TableEntityArgs.builder()
  *             .storageTableId(exampleTable.id())
  *             .partitionKey("examplepartition")
  *             .rowKey("examplerow")

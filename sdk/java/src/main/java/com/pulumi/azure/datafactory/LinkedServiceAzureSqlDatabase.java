@@ -51,18 +51,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleLinkedServiceAzureSqlDatabase = new LinkedServiceAzureSqlDatabase("exampleLinkedServiceAzureSqlDatabase", LinkedServiceAzureSqlDatabaseArgs.builder()        
+ *         var exampleLinkedServiceAzureSqlDatabase = new LinkedServiceAzureSqlDatabase("exampleLinkedServiceAzureSqlDatabase", LinkedServiceAzureSqlDatabaseArgs.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .connectionString("data source=serverhostname;initial catalog=master;user id=testUser;Password=test;integrated security=False;encrypt=True;connection timeout=30")

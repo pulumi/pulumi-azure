@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SourceCodeToken("example", SourceCodeTokenArgs.builder()        
+ *         var example = new SourceCodeToken("example", SourceCodeTokenArgs.builder()
  *             .type("GitHub")
  *             .token("7e57735e77e577e57")
  *             .build());

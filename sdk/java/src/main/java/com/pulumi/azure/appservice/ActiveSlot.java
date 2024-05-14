@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleSlot = new Slot("exampleSlot");
  * 
- *         var exampleActiveSlot = new ActiveSlot("exampleActiveSlot", ActiveSlotArgs.builder()        
+ *         var exampleActiveSlot = new ActiveSlot("exampleActiveSlot", ActiveSlotArgs.builder()
  *             .resourceGroupName(example.name())
  *             .appServiceName(exampleAppService.name())
  *             .appServiceSlotName(exampleSlot.name())

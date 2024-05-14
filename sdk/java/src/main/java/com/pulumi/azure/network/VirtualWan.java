@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualWan = new VirtualWan("exampleVirtualWan", VirtualWanArgs.builder()        
+ *         var exampleVirtualWan = new VirtualWan("exampleVirtualWan", VirtualWanArgs.builder()
  *             .name("example-vwan")
  *             .resourceGroupName(example.name())
  *             .location(example.location())

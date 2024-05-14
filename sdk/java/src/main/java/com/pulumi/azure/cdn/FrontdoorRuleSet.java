@@ -45,18 +45,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-cdn-frontdoor")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFrontdoorProfile = new FrontdoorProfile("exampleFrontdoorProfile", FrontdoorProfileArgs.builder()        
+ *         var exampleFrontdoorProfile = new FrontdoorProfile("exampleFrontdoorProfile", FrontdoorProfileArgs.builder()
  *             .name("example-profile")
  *             .resourceGroupName(example.name())
  *             .skuName("Standard_AzureFrontDoor")
  *             .build());
  * 
- *         var exampleFrontdoorRuleSet = new FrontdoorRuleSet("exampleFrontdoorRuleSet", FrontdoorRuleSetArgs.builder()        
+ *         var exampleFrontdoorRuleSet = new FrontdoorRuleSet("exampleFrontdoorRuleSet", FrontdoorRuleSetArgs.builder()
  *             .name("ExampleRuleSet")
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .build());

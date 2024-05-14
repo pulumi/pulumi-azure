@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var examplePostgresqlCluster = new PostgresqlCluster("examplePostgresqlCluster", PostgresqlClusterArgs.builder()        
+ *         var examplePostgresqlCluster = new PostgresqlCluster("examplePostgresqlCluster", PostgresqlClusterArgs.builder()
  *             .name("examplecluster")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *             .nodeCount(0)
  *             .build());
  * 
- *         var examplePostgresqlRole = new PostgresqlRole("examplePostgresqlRole", PostgresqlRoleArgs.builder()        
+ *         var examplePostgresqlRole = new PostgresqlRole("examplePostgresqlRole", PostgresqlRoleArgs.builder()
  *             .name("examplerole")
  *             .clusterId(examplePostgresqlCluster.id())
  *             .password("H{@literal @}Sh1CoR3!")

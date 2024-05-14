@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AnomalyAlert("example", AnomalyAlertArgs.builder()        
+ *         var example = new AnomalyAlert("example", AnomalyAlertArgs.builder()
  *             .name("alertname")
  *             .displayName("Alert DisplayName")
  *             .subscriptionId("/subscriptions/00000000-0000-0000-0000-000000000000")

@@ -58,19 +58,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("LoadBalancerRG")
  *             .location("West Europe")
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()
  *             .name("PublicIPForLB")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .allocationMethod("Static")
  *             .build());
  * 
- *         var exampleLoadBalancer = new LoadBalancer("exampleLoadBalancer", LoadBalancerArgs.builder()        
+ *         var exampleLoadBalancer = new LoadBalancer("exampleLoadBalancer", LoadBalancerArgs.builder()
  *             .name("TestLoadBalancer")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -80,12 +80,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleBackendAddressPool = new BackendAddressPool("exampleBackendAddressPool", BackendAddressPoolArgs.builder()        
+ *         var exampleBackendAddressPool = new BackendAddressPool("exampleBackendAddressPool", BackendAddressPoolArgs.builder()
  *             .name("example")
  *             .loadbalancerId(exampleLoadBalancer.id())
  *             .build());
  * 
- *         var exampleOutboundRule = new OutboundRule("exampleOutboundRule", OutboundRuleArgs.builder()        
+ *         var exampleOutboundRule = new OutboundRule("exampleOutboundRule", OutboundRuleArgs.builder()
  *             .name("OutboundRule")
  *             .loadbalancerId(exampleLoadBalancer.id())
  *             .protocol("Tcp")

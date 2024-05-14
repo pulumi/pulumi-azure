@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
@@ -64,19 +64,19 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()
  *             .name("example")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleLinkedServiceAzureBlobStorage = new LinkedServiceAzureBlobStorage("exampleLinkedServiceAzureBlobStorage", LinkedServiceAzureBlobStorageArgs.builder()        
+ *         var exampleLinkedServiceAzureBlobStorage = new LinkedServiceAzureBlobStorage("exampleLinkedServiceAzureBlobStorage", LinkedServiceAzureBlobStorageArgs.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .connectionString(example.applyValue(getAccountResult -> getAccountResult).applyValue(example -> example.applyValue(getAccountResult -> getAccountResult.primaryConnectionString())))
  *             .build());
  * 
- *         var exampleDatasetAzureBlob = new DatasetAzureBlob("exampleDatasetAzureBlob", DatasetAzureBlobArgs.builder()        
+ *         var exampleDatasetAzureBlob = new DatasetAzureBlob("exampleDatasetAzureBlob", DatasetAzureBlobArgs.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .linkedServiceName(exampleLinkedServiceAzureBlobStorage.name())

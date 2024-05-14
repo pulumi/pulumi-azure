@@ -60,19 +60,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("example-network")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .addressSpaces("10.5.0.0/16")
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("example-subnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *             .enforcePrivateLinkServiceNetworkPolicies(true)
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()
  *             .name("example-api")
  *             .sku("Standard")
  *             .location(example.location())
@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  *             .allocationMethod("Static")
  *             .build());
  * 
- *         var exampleLoadBalancer = new LoadBalancer("exampleLoadBalancer", LoadBalancerArgs.builder()        
+ *         var exampleLoadBalancer = new LoadBalancer("exampleLoadBalancer", LoadBalancerArgs.builder()
  *             .name("example-lb")
  *             .sku("Standard")
  *             .location(example.location())
@@ -99,7 +99,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleLinkService = new LinkService("exampleLinkService", LinkServiceArgs.builder()        
+ *         var exampleLinkService = new LinkService("exampleLinkService", LinkServiceArgs.builder()
  *             .name("example-privatelink")
  *             .resourceGroupName(example.name())
  *             .location(example.location())

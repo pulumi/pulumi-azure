@@ -45,26 +45,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("eventhub-replication")
  *             .location("West Europe")
  *             .build());
  * 
- *         var primary = new EventHubNamespace("primary", EventHubNamespaceArgs.builder()        
+ *         var primary = new EventHubNamespace("primary", EventHubNamespaceArgs.builder()
  *             .name("eventhub-primary")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("Standard")
  *             .build());
  * 
- *         var secondary = new EventHubNamespace("secondary", EventHubNamespaceArgs.builder()        
+ *         var secondary = new EventHubNamespace("secondary", EventHubNamespaceArgs.builder()
  *             .name("eventhub-secondary")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("Standard")
  *             .build());
  * 
- *         var exampleEventhubNamespaceDisasterRecoveryConfig = new EventhubNamespaceDisasterRecoveryConfig("exampleEventhubNamespaceDisasterRecoveryConfig", EventhubNamespaceDisasterRecoveryConfigArgs.builder()        
+ *         var exampleEventhubNamespaceDisasterRecoveryConfig = new EventhubNamespaceDisasterRecoveryConfig("exampleEventhubNamespaceDisasterRecoveryConfig", EventhubNamespaceDisasterRecoveryConfigArgs.builder()
  *             .name("replicate-eventhub")
  *             .resourceGroupName(example.name())
  *             .namespaceName(primary.name())

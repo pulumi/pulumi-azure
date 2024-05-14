@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("resourceGroup1")
  *             .location("westus")
  *             .build());
@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *             .displayName("Allowed locations")
  *             .build());
  * 
- *         var exampleResourceGroupPolicyAssignment = new ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment", ResourceGroupPolicyAssignmentArgs.builder()        
+ *         var exampleResourceGroupPolicyAssignment = new ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment", ResourceGroupPolicyAssignmentArgs.builder()
  *             .name("exampleAssignment")
  *             .resourceGroupId(exampleResourceGroup.id())
  *             .policyDefinitionId(example.applyValue(getPolicyDefintionResult -> getPolicyDefintionResult.id()))
@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *                 ))))
  *             .build());
  * 
- *         var exampleResourceGroupPolicyExemption = new ResourceGroupPolicyExemption("exampleResourceGroupPolicyExemption", ResourceGroupPolicyExemptionArgs.builder()        
+ *         var exampleResourceGroupPolicyExemption = new ResourceGroupPolicyExemption("exampleResourceGroupPolicyExemption", ResourceGroupPolicyExemptionArgs.builder()
  *             .name("exampleExemption")
  *             .resourceGroupId(exampleResourceGroup.id())
  *             .policyAssignmentId(exampleResourceGroupPolicyAssignment.id())

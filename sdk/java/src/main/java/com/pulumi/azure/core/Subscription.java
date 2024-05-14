@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *             .enrollmentAccountName("0123456")
  *             .build());
  * 
- *         var exampleSubscription = new Subscription("exampleSubscription", SubscriptionArgs.builder()        
+ *         var exampleSubscription = new Subscription("exampleSubscription", SubscriptionArgs.builder()
  *             .subscriptionName("My Example EA Subscription")
  *             .billingScopeId(example.applyValue(getEnrollmentAccountScopeResult -> getEnrollmentAccountScopeResult.id()))
  *             .build());
@@ -94,7 +94,7 @@ import javax.annotation.Nullable;
  *             .invoiceSectionName("MTT4-OBS7-PJA-TGB")
  *             .build());
  * 
- *         var exampleSubscription = new Subscription("exampleSubscription", SubscriptionArgs.builder()        
+ *         var exampleSubscription = new Subscription("exampleSubscription", SubscriptionArgs.builder()
  *             .subscriptionName("My Example MCA Subscription")
  *             .billingScopeId(example.applyValue(getMcaAccountScopeResult -> getMcaAccountScopeResult.id()))
  *             .build());
@@ -137,7 +137,7 @@ import javax.annotation.Nullable;
  *             .customerName("2281f543-7321-4cf9-1e23-edb4Oc31a31c")
  *             .build());
  * 
- *         var exampleSubscription = new Subscription("exampleSubscription", SubscriptionArgs.builder()        
+ *         var exampleSubscription = new Subscription("exampleSubscription", SubscriptionArgs.builder()
  *             .subscriptionName("My Example MPA Subscription")
  *             .billingScopeId(example.applyValue(getMpaAccountScopeResult -> getMpaAccountScopeResult.id()))
  *             .build());
@@ -173,7 +173,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Subscription("example", SubscriptionArgs.builder()        
+ *         var example = new Subscription("example", SubscriptionArgs.builder()
  *             .alias("examplesub")
  *             .subscriptionName("My Example Subscription")
  *             .subscriptionId("12345678-12234-5678-9012-123456789012")

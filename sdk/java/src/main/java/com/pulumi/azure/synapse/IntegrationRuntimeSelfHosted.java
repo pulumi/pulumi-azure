@@ -55,12 +55,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -68,18 +68,18 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()        
+ *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()
  *             .name("content")
  *             .storageAccountName(exampleAccount.name())
  *             .containerAccessType("private")
  *             .build());
  * 
- *         var exampleDataLakeGen2Filesystem = new DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", DataLakeGen2FilesystemArgs.builder()        
+ *         var exampleDataLakeGen2Filesystem = new DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", DataLakeGen2FilesystemArgs.builder()
  *             .name("example")
  *             .storageAccountId(exampleAccount.id())
  *             .build());
  * 
- *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()        
+ *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -92,14 +92,14 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleFirewallRule = new FirewallRule("exampleFirewallRule", FirewallRuleArgs.builder()        
+ *         var exampleFirewallRule = new FirewallRule("exampleFirewallRule", FirewallRuleArgs.builder()
  *             .name("AllowAll")
  *             .synapseWorkspaceId(exampleWorkspace.id())
  *             .startIpAddress("0.0.0.0")
  *             .endIpAddress("255.255.255.255")
  *             .build());
  * 
- *         var exampleIntegrationRuntimeSelfHosted = new IntegrationRuntimeSelfHosted("exampleIntegrationRuntimeSelfHosted", IntegrationRuntimeSelfHostedArgs.builder()        
+ *         var exampleIntegrationRuntimeSelfHosted = new IntegrationRuntimeSelfHosted("exampleIntegrationRuntimeSelfHosted", IntegrationRuntimeSelfHostedArgs.builder()
  *             .name("example")
  *             .synapseWorkspaceId(exampleWorkspace.id())
  *             .build());

@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *             .displayName("Azure Spring Cloud Resource Provider")
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("keyvaultcertexample")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
@@ -100,7 +100,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()        
+ *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()
  *             .name("cert-example")
  *             .keyVaultId(exampleKeyVault.id())
  *             .certificatePolicy(CertificateCertificatePolicyArgs.builder()
@@ -138,13 +138,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()        
+ *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()
  *             .name("example-springcloud")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .build());
  * 
- *         var exampleSpringCloudCertificate = new SpringCloudCertificate("exampleSpringCloudCertificate", SpringCloudCertificateArgs.builder()        
+ *         var exampleSpringCloudCertificate = new SpringCloudCertificate("exampleSpringCloudCertificate", SpringCloudCertificateArgs.builder()
  *             .name("example-scc")
  *             .resourceGroupName(exampleSpringCloudService.resourceGroupName())
  *             .serviceName(exampleSpringCloudService.name())

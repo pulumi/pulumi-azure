@@ -54,12 +54,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("storageaccountname")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("keyvaultname")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleManagedStorageAccount = new ManagedStorageAccount("exampleManagedStorageAccount", ManagedStorageAccountArgs.builder()        
+ *         var exampleManagedStorageAccount = new ManagedStorageAccount("exampleManagedStorageAccount", ManagedStorageAccountArgs.builder()
  *             .name("examplemanagedstorage")
  *             .keyVaultId(exampleKeyVault.id())
  *             .storageAccountId(exampleAccount.id())
@@ -149,12 +149,12 @@ import javax.annotation.Nullable;
  *             .applicationId("cfa8b339-82a2-471a-a3c9-0fc0be7a4093")
  *             .build());
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("storageaccountname")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -162,7 +162,7 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("keyvaultname")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -186,13 +186,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()        
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
  *             .scope(exampleAccount.id())
  *             .roleDefinitionName("Storage Account Key Operator Service Role")
  *             .principalId(test.applyValue(getServicePrincipalResult -> getServicePrincipalResult.id()))
  *             .build());
  * 
- *         var exampleManagedStorageAccount = new ManagedStorageAccount("exampleManagedStorageAccount", ManagedStorageAccountArgs.builder()        
+ *         var exampleManagedStorageAccount = new ManagedStorageAccount("exampleManagedStorageAccount", ManagedStorageAccountArgs.builder()
  *             .name("examplemanagedstorage")
  *             .keyVaultId(exampleKeyVault.id())
  *             .storageAccountId(exampleAccount.id())

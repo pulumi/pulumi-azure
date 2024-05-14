@@ -56,27 +56,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-rg")
  *             .location("West Europe")
  *             .build());
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()        
+ *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()
  *             .name("exampleworkspace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()        
+ *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()
  *             .name("example-ehn")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("Standard")
  *             .build());
  * 
- *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()        
+ *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()
  *             .name("example-eh")
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .resourceGroupName(example.name())
@@ -84,14 +84,14 @@ import javax.annotation.Nullable;
  *             .messageRetention(1)
  *             .build());
  * 
- *         var exampleConsumerGroup = new ConsumerGroup("exampleConsumerGroup", ConsumerGroupArgs.builder()        
+ *         var exampleConsumerGroup = new ConsumerGroup("exampleConsumerGroup", ConsumerGroupArgs.builder()
  *             .name("$default")
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .eventhubName(exampleEventHub.name())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleFhirService = new FhirService("exampleFhirService", FhirServiceArgs.builder()        
+ *         var exampleFhirService = new FhirService("exampleFhirService", FhirServiceArgs.builder()
  *             .name("examplefhir")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -103,7 +103,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleMedtechService = new MedtechService("exampleMedtechService", MedtechServiceArgs.builder()        
+ *         var exampleMedtechService = new MedtechService("exampleMedtechService", MedtechServiceArgs.builder()
  *             .name("examplemt")
  *             .workspaceId(exampleWorkspace.id())
  *             .location(example.location())
@@ -118,7 +118,7 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var exampleMedtechServiceFhirDestination = new MedtechServiceFhirDestination("exampleMedtechServiceFhirDestination", MedtechServiceFhirDestinationArgs.builder()        
+ *         var exampleMedtechServiceFhirDestination = new MedtechServiceFhirDestination("exampleMedtechServiceFhirDestination", MedtechServiceFhirDestinationArgs.builder()
  *             .name("examplemtdes")
  *             .location("east us")
  *             .medtechServiceId(exampleMedtechService.id())

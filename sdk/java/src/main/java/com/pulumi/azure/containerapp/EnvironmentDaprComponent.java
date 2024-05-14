@@ -52,12 +52,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()        
+ *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()
  *             .name("acctest-01")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -65,14 +65,14 @@ import javax.annotation.Nullable;
  *             .retentionInDays(30)
  *             .build());
  * 
- *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()        
+ *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()
  *             .name("Example-Environment")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .logAnalyticsWorkspaceId(exampleAnalyticsWorkspace.id())
  *             .build());
  * 
- *         var exampleEnvironmentDaprComponent = new EnvironmentDaprComponent("exampleEnvironmentDaprComponent", EnvironmentDaprComponentArgs.builder()        
+ *         var exampleEnvironmentDaprComponent = new EnvironmentDaprComponent("exampleEnvironmentDaprComponent", EnvironmentDaprComponentArgs.builder()
  *             .name("example-component")
  *             .containerAppEnvironmentId(exampleEnvironment.id())
  *             .componentType("state.azure.blobstorage")

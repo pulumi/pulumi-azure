@@ -57,12 +57,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("examplestorageaccount")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -70,13 +70,13 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()        
+ *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()
  *             .name("example")
  *             .storageAccountName(exampleAccount.name())
  *             .containerAccessType("private")
  *             .build());
  * 
- *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()        
+ *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()
  *             .name("exampleIothub")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("purpose", "testing"))
  *             .build());
  * 
- *         var exampleEndpointStorageContainer = new EndpointStorageContainer("exampleEndpointStorageContainer", EndpointStorageContainerArgs.builder()        
+ *         var exampleEndpointStorageContainer = new EndpointStorageContainer("exampleEndpointStorageContainer", EndpointStorageContainerArgs.builder()
  *             .resourceGroupName(example.name())
  *             .iothubId(exampleIoTHub.id())
  *             .name("example")
@@ -99,7 +99,7 @@ import javax.annotation.Nullable;
  *             .fileNameFormat("{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}")
  *             .build());
  * 
- *         var exampleRoute = new Route("exampleRoute", RouteArgs.builder()        
+ *         var exampleRoute = new Route("exampleRoute", RouteArgs.builder()
  *             .resourceGroupName(example.name())
  *             .iothubName(exampleIoTHub.name())
  *             .name("example")
@@ -109,7 +109,7 @@ import javax.annotation.Nullable;
  *             .enabled(true)
  *             .build());
  * 
- *         var exampleEnrichment = new Enrichment("exampleEnrichment", EnrichmentArgs.builder()        
+ *         var exampleEnrichment = new Enrichment("exampleEnrichment", EnrichmentArgs.builder()
  *             .resourceGroupName(example.name())
  *             .iothubName(exampleIoTHub.name())
  *             .key("example")
