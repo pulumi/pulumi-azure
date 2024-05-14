@@ -351,6 +351,11 @@ jobs:
         path: sdk
         version: ${{ steps.version.outputs.version }}
         additive: false
+        # Avoid including other language SDKs & artifacts in the commit
+        files: |
+          go.*
+          go/**
+          !*.tar.gz
   test:
     name: test
     needs: build_sdk
