@@ -165,12 +165,24 @@ public class Connection extends com.pulumi.resources.CustomResource {
     /**
      * A mapping of key value pairs passed to the connection. Different `type` needs different parameters in the `values`. Builtin types have required field values as below:
      * 
+     * * `Azure`: parameters `AutomationCertificateName` and `SubscriptionID`.
+     * 
+     * * `AzureClassicCertificate`: parameters `SubscriptionName`, `SubscriptionId` and `CertificateAssetName`.
+     * 
+     * * `AzureServicePrincipal`: parameters `ApplicationId`, `CertificateThumbprint`, `SubscriptionId` and `TenantId`.
+     * 
      */
     @Export(name="values", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> values;
 
     /**
      * @return A mapping of key value pairs passed to the connection. Different `type` needs different parameters in the `values`. Builtin types have required field values as below:
+     * 
+     * * `Azure`: parameters `AutomationCertificateName` and `SubscriptionID`.
+     * 
+     * * `AzureClassicCertificate`: parameters `SubscriptionName`, `SubscriptionId` and `CertificateAssetName`.
+     * 
+     * * `AzureServicePrincipal`: parameters `ApplicationId`, `CertificateThumbprint`, `SubscriptionId` and `TenantId`.
      * 
      */
     public Output<Map<String,String>> values() {

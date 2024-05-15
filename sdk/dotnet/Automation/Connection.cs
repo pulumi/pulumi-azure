@@ -99,6 +99,12 @@ namespace Pulumi.Azure.Automation
 
         /// <summary>
         /// A mapping of key value pairs passed to the connection. Different `type` needs different parameters in the `values`. Builtin types have required field values as below:
+        /// 
+        /// * `Azure`: parameters `AutomationCertificateName` and `SubscriptionID`.
+        /// 
+        /// * `AzureClassicCertificate`: parameters `SubscriptionName`, `SubscriptionId` and `CertificateAssetName`.
+        /// 
+        /// * `AzureServicePrincipal`: parameters `ApplicationId`, `CertificateThumbprint`, `SubscriptionId` and `TenantId`.
         /// </summary>
         [Output("values")]
         public Output<ImmutableDictionary<string, string>> Values { get; private set; } = null!;
@@ -184,6 +190,12 @@ namespace Pulumi.Azure.Automation
 
         /// <summary>
         /// A mapping of key value pairs passed to the connection. Different `type` needs different parameters in the `values`. Builtin types have required field values as below:
+        /// 
+        /// * `Azure`: parameters `AutomationCertificateName` and `SubscriptionID`.
+        /// 
+        /// * `AzureClassicCertificate`: parameters `SubscriptionName`, `SubscriptionId` and `CertificateAssetName`.
+        /// 
+        /// * `AzureServicePrincipal`: parameters `ApplicationId`, `CertificateThumbprint`, `SubscriptionId` and `TenantId`.
         /// </summary>
         public InputMap<string> Values
         {
@@ -234,6 +246,12 @@ namespace Pulumi.Azure.Automation
 
         /// <summary>
         /// A mapping of key value pairs passed to the connection. Different `type` needs different parameters in the `values`. Builtin types have required field values as below:
+        /// 
+        /// * `Azure`: parameters `AutomationCertificateName` and `SubscriptionID`.
+        /// 
+        /// * `AzureClassicCertificate`: parameters `SubscriptionName`, `SubscriptionId` and `CertificateAssetName`.
+        /// 
+        /// * `AzureServicePrincipal`: parameters `ApplicationId`, `CertificateThumbprint`, `SubscriptionId` and `TenantId`.
         /// </summary>
         public InputMap<string> Values
         {
