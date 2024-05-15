@@ -45,12 +45,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new ResourceGroup("test", ResourceGroupArgs.builder()        
+ *         var test = new ResourceGroup("test", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var example = new PostgresqlCluster("example", PostgresqlClusterArgs.builder()        
+ *         var example = new PostgresqlCluster("example", PostgresqlClusterArgs.builder()
  *             .name("examplecluster")
  *             .resourceGroupName(exampleAzurermResourceGroup.name())
  *             .location(exampleAzurermResourceGroup.location())
@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *             .nodeVcores(2)
  *             .build());
  * 
- *         var examplePostgresqlCoordinatorConfiguration = new PostgresqlCoordinatorConfiguration("examplePostgresqlCoordinatorConfiguration", PostgresqlCoordinatorConfigurationArgs.builder()        
+ *         var examplePostgresqlCoordinatorConfiguration = new PostgresqlCoordinatorConfiguration("examplePostgresqlCoordinatorConfiguration", PostgresqlCoordinatorConfigurationArgs.builder()
  *             .name("array_nulls")
  *             .clusterId(example.id())
  *             .value("on")

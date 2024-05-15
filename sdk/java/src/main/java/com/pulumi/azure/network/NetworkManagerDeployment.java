@@ -61,14 +61,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
  *         final var current = CoreFunctions.getSubscription();
  * 
- *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()        
+ *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
  *             .name("example-network-manager")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -81,12 +81,12 @@ import javax.annotation.Nullable;
  *             .description("example network manager")
  *             .build());
  * 
- *         var exampleNetworkManagerNetworkGroup = new NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", NetworkManagerNetworkGroupArgs.builder()        
+ *         var exampleNetworkManagerNetworkGroup = new NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", NetworkManagerNetworkGroupArgs.builder()
  *             .name("example-group")
  *             .networkManagerId(exampleNetworkManager.id())
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("example-net")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -94,7 +94,7 @@ import javax.annotation.Nullable;
  *             .flowTimeoutInMinutes(10)
  *             .build());
  * 
- *         var exampleNetworkManagerConnectivityConfiguration = new NetworkManagerConnectivityConfiguration("exampleNetworkManagerConnectivityConfiguration", NetworkManagerConnectivityConfigurationArgs.builder()        
+ *         var exampleNetworkManagerConnectivityConfiguration = new NetworkManagerConnectivityConfiguration("exampleNetworkManagerConnectivityConfiguration", NetworkManagerConnectivityConfigurationArgs.builder()
  *             .name("example-connectivity-conf")
  *             .networkManagerId(exampleNetworkManager.id())
  *             .connectivityTopology("HubAndSpoke")
@@ -108,7 +108,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleNetworkManagerDeployment = new NetworkManagerDeployment("exampleNetworkManagerDeployment", NetworkManagerDeploymentArgs.builder()        
+ *         var exampleNetworkManagerDeployment = new NetworkManagerDeployment("exampleNetworkManagerDeployment", NetworkManagerDeploymentArgs.builder()
  *             .networkManagerId(exampleNetworkManager.id())
  *             .location("eastus")
  *             .scopeAccess("Connectivity")
@@ -165,14 +165,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
  *         final var current = CoreFunctions.getSubscription();
  * 
- *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()        
+ *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
  *             .name("example-network-manager")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -185,12 +185,12 @@ import javax.annotation.Nullable;
  *             .description("example network manager")
  *             .build());
  * 
- *         var exampleNetworkManagerNetworkGroup = new NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", NetworkManagerNetworkGroupArgs.builder()        
+ *         var exampleNetworkManagerNetworkGroup = new NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", NetworkManagerNetworkGroupArgs.builder()
  *             .name("example-group")
  *             .networkManagerId(exampleNetworkManager.id())
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("example-net")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -198,18 +198,18 @@ import javax.annotation.Nullable;
  *             .flowTimeoutInMinutes(10)
  *             .build());
  * 
- *         var exampleNetworkManagerSecurityAdminConfiguration = new NetworkManagerSecurityAdminConfiguration("exampleNetworkManagerSecurityAdminConfiguration", NetworkManagerSecurityAdminConfigurationArgs.builder()        
+ *         var exampleNetworkManagerSecurityAdminConfiguration = new NetworkManagerSecurityAdminConfiguration("exampleNetworkManagerSecurityAdminConfiguration", NetworkManagerSecurityAdminConfigurationArgs.builder()
  *             .name("example-nmsac")
  *             .networkManagerId(exampleNetworkManager.id())
  *             .build());
  * 
- *         var exampleNetworkManagerAdminRuleCollection = new NetworkManagerAdminRuleCollection("exampleNetworkManagerAdminRuleCollection", NetworkManagerAdminRuleCollectionArgs.builder()        
+ *         var exampleNetworkManagerAdminRuleCollection = new NetworkManagerAdminRuleCollection("exampleNetworkManagerAdminRuleCollection", NetworkManagerAdminRuleCollectionArgs.builder()
  *             .name("example-nmarc")
  *             .securityAdminConfigurationId(exampleNetworkManagerSecurityAdminConfiguration.id())
  *             .networkGroupIds(exampleNetworkManagerNetworkGroup.id())
  *             .build());
  * 
- *         var exampleNetworkManagerAdminRule = new NetworkManagerAdminRule("exampleNetworkManagerAdminRule", NetworkManagerAdminRuleArgs.builder()        
+ *         var exampleNetworkManagerAdminRule = new NetworkManagerAdminRule("exampleNetworkManagerAdminRule", NetworkManagerAdminRuleArgs.builder()
  *             .name("example-nmar")
  *             .adminRuleCollectionId(exampleNetworkManagerAdminRuleCollection.id())
  *             .action("Deny")
@@ -229,7 +229,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleNetworkManagerDeployment = new NetworkManagerDeployment("exampleNetworkManagerDeployment", NetworkManagerDeploymentArgs.builder()        
+ *         var exampleNetworkManagerDeployment = new NetworkManagerDeployment("exampleNetworkManagerDeployment", NetworkManagerDeploymentArgs.builder()
  *             .networkManagerId(exampleNetworkManager.id())
  *             .location("eastus")
  *             .scopeAccess("SecurityAdmin")

@@ -53,19 +53,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("example-vnet")
  *             .addressSpaces("10.7.29.0/29")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var internal = new Subnet("internal", SubnetArgs.builder()        
+ *         var internal = new Subnet("internal", SubnetArgs.builder()
  *             .name("internal")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  *             .serviceEndpoints("Microsoft.Sql")
  *             .build());
  * 
- *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()
  *             .name("postgresql-server-1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  *             .sslEnforcementEnabled(true)
  *             .build());
  * 
- *         var exampleVirtualNetworkRule = new VirtualNetworkRule("exampleVirtualNetworkRule", VirtualNetworkRuleArgs.builder()        
+ *         var exampleVirtualNetworkRule = new VirtualNetworkRule("exampleVirtualNetworkRule", VirtualNetworkRuleArgs.builder()
  *             .name("postgresql-vnet-rule")
  *             .resourceGroupName(example.name())
  *             .serverName(exampleServer.name())

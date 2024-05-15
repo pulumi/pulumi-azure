@@ -53,12 +53,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()
  *             .name("example-sqlserver")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -67,12 +67,12 @@ import javax.annotation.Nullable;
  *             .administratorLoginPassword("AdminPassword123!")
  *             .build());
  * 
- *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()        
+ *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()
  *             .name("example-db")
  *             .serverId(exampleServer.id())
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("examplesa")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleDatabaseExtendedAuditingPolicy = new DatabaseExtendedAuditingPolicy("exampleDatabaseExtendedAuditingPolicy", DatabaseExtendedAuditingPolicyArgs.builder()        
+ *         var exampleDatabaseExtendedAuditingPolicy = new DatabaseExtendedAuditingPolicy("exampleDatabaseExtendedAuditingPolicy", DatabaseExtendedAuditingPolicyArgs.builder()
  *             .databaseId(exampleDatabase.id())
  *             .storageEndpoint(exampleAccount.primaryBlobEndpoint())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())

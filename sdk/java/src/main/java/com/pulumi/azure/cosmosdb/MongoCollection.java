@@ -57,13 +57,13 @@ import javax.annotation.Nullable;
  *             .resourceGroupName("tfex-cosmosdb-account-rg")
  *             .build());
  * 
- *         var exampleMongoDatabase = new MongoDatabase("exampleMongoDatabase", MongoDatabaseArgs.builder()        
+ *         var exampleMongoDatabase = new MongoDatabase("exampleMongoDatabase", MongoDatabaseArgs.builder()
  *             .name("tfex-cosmos-mongo-db")
  *             .resourceGroupName(example.applyValue(getAccountResult -> getAccountResult.resourceGroupName()))
  *             .accountName(example.applyValue(getAccountResult -> getAccountResult.name()))
  *             .build());
  * 
- *         var exampleMongoCollection = new MongoCollection("exampleMongoCollection", MongoCollectionArgs.builder()        
+ *         var exampleMongoCollection = new MongoCollection("exampleMongoCollection", MongoCollectionArgs.builder()
  *             .name("tfex-cosmos-mongo-db")
  *             .resourceGroupName(example.applyValue(getAccountResult -> getAccountResult.resourceGroupName()))
  *             .accountName(example.applyValue(getAccountResult -> getAccountResult.name()))

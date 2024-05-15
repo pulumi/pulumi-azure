@@ -53,18 +53,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()        
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()
  *             .name("example-uai")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleResourceDeploymentScriptAzureCli = new ResourceDeploymentScriptAzureCli("exampleResourceDeploymentScriptAzureCli", ResourceDeploymentScriptAzureCliArgs.builder()        
+ *         var exampleResourceDeploymentScriptAzureCli = new ResourceDeploymentScriptAzureCli("exampleResourceDeploymentScriptAzureCli", ResourceDeploymentScriptAzureCliArgs.builder()
  *             .name("example-rdsac")
  *             .resourceGroupName(example.name())
  *             .location("West Europe")

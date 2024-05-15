@@ -51,18 +51,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleLinkedServiceCosmosDbMongoApi = new LinkedServiceCosmosDbMongoApi("exampleLinkedServiceCosmosDbMongoApi", LinkedServiceCosmosDbMongoApiArgs.builder()        
+ *         var exampleLinkedServiceCosmosDbMongoApi = new LinkedServiceCosmosDbMongoApi("exampleLinkedServiceCosmosDbMongoApi", LinkedServiceCosmosDbMongoApiArgs.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .connectionString("mongodb://testinstance:testkey{@literal @}testinstance.documents.azure.com:10255/?ssl=true")

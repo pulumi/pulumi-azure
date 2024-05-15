@@ -50,25 +50,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()
  *             .name("example-search-service")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .sku("standard")
  *             .build());
  * 
- *         var test = new LinkedServiceAzureSearch("test", LinkedServiceAzureSearchArgs.builder()        
+ *         var test = new LinkedServiceAzureSearch("test", LinkedServiceAzureSearchArgs.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .url(StdFunctions.join().applyValue(invoke -> invoke.result()))

@@ -54,12 +54,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("example-vn")
  *             .addressSpaces("10.0.0.0/16")
  *             .resourceGroupName(example.name())
@@ -67,14 +67,14 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("environment", "Production"))
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("RouteServerSubnet")
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .resourceGroupName(example.name())
  *             .addressPrefixes("10.0.1.0/24")
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()
  *             .name("example-pip")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  *             .sku("Standard")
  *             .build());
  * 
- *         var exampleRouteServer = new RouteServer("exampleRouteServer", RouteServerArgs.builder()        
+ *         var exampleRouteServer = new RouteServer("exampleRouteServer", RouteServerArgs.builder()
  *             .name("example-routerserver")
  *             .resourceGroupName(example.name())
  *             .location(example.location())

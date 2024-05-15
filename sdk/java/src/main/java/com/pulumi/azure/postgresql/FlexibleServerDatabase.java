@@ -44,12 +44,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFlexibleServer = new FlexibleServer("exampleFlexibleServer", FlexibleServerArgs.builder()        
+ *         var exampleFlexibleServer = new FlexibleServer("exampleFlexibleServer", FlexibleServerArgs.builder()
  *             .name("example-psqlflexibleserver")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .skuName("GP_Standard_D4s_v3")
  *             .build());
  * 
- *         var exampleFlexibleServerDatabase = new FlexibleServerDatabase("exampleFlexibleServerDatabase", FlexibleServerDatabaseArgs.builder()        
+ *         var exampleFlexibleServerDatabase = new FlexibleServerDatabase("exampleFlexibleServerDatabase", FlexibleServerDatabaseArgs.builder()
  *             .name("exampledb")
  *             .serverId(exampleFlexibleServer.id())
  *             .collation("en_US.utf8")

@@ -61,19 +61,19 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()        
+ *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()
  *             .name("workspace-example-ai")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .applicationType("web")
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("workspaceexamplekeyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  *             .skuName("premium")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("workspacestorageaccount")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("GRS")
  *             .build());
  * 
- *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()        
+ *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()
  *             .name("example-workspace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -101,13 +101,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()        
+ *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()
  *             .name("example-container")
  *             .storageAccountName(exampleAccount.name())
  *             .containerAccessType("private")
  *             .build());
  * 
- *         var exampleDatastoreDatalakeGen2 = new DatastoreDatalakeGen2("exampleDatastoreDatalakeGen2", DatastoreDatalakeGen2Args.builder()        
+ *         var exampleDatastoreDatalakeGen2 = new DatastoreDatalakeGen2("exampleDatastoreDatalakeGen2", DatastoreDatalakeGen2Args.builder()
  *             .name("example-datastore")
  *             .workspaceId(exampleWorkspace.id())
  *             .storageContainerId(exampleContainer.resourceManagerId())

@@ -67,26 +67,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("test")
  *             .location("West US")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("test")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .addressSpaces("10.0.0.0/16")
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("GatewaySubnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("10.0.1.0/24")
  *             .build());
  * 
- *         var onpremise = new LocalNetworkGateway("onpremise", LocalNetworkGatewayArgs.builder()        
+ *         var onpremise = new LocalNetworkGateway("onpremise", LocalNetworkGatewayArgs.builder()
  *             .name("onpremise")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -94,14 +94,14 @@ import javax.annotation.Nullable;
  *             .addressSpaces("10.1.1.0/24")
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()
  *             .name("test")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .allocationMethod("Dynamic")
  *             .build());
  * 
- *         var exampleVirtualNetworkGateway = new VirtualNetworkGateway("exampleVirtualNetworkGateway", VirtualNetworkGatewayArgs.builder()        
+ *         var exampleVirtualNetworkGateway = new VirtualNetworkGateway("exampleVirtualNetworkGateway", VirtualNetworkGatewayArgs.builder()
  *             .name("test")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -117,7 +117,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var onpremiseVirtualNetworkGatewayConnection = new VirtualNetworkGatewayConnection("onpremiseVirtualNetworkGatewayConnection", VirtualNetworkGatewayConnectionArgs.builder()        
+ *         var onpremiseVirtualNetworkGatewayConnection = new VirtualNetworkGatewayConnection("onpremiseVirtualNetworkGatewayConnection", VirtualNetworkGatewayConnectionArgs.builder()
  *             .name("onpremise")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -172,33 +172,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var us = new ResourceGroup("us", ResourceGroupArgs.builder()        
+ *         var us = new ResourceGroup("us", ResourceGroupArgs.builder()
  *             .name("us")
  *             .location("East US")
  *             .build());
  * 
- *         var usVirtualNetwork = new VirtualNetwork("usVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var usVirtualNetwork = new VirtualNetwork("usVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("us")
  *             .location(us.location())
  *             .resourceGroupName(us.name())
  *             .addressSpaces("10.0.0.0/16")
  *             .build());
  * 
- *         var usGateway = new Subnet("usGateway", SubnetArgs.builder()        
+ *         var usGateway = new Subnet("usGateway", SubnetArgs.builder()
  *             .name("GatewaySubnet")
  *             .resourceGroupName(us.name())
  *             .virtualNetworkName(usVirtualNetwork.name())
  *             .addressPrefixes("10.0.1.0/24")
  *             .build());
  * 
- *         var usPublicIp = new PublicIp("usPublicIp", PublicIpArgs.builder()        
+ *         var usPublicIp = new PublicIp("usPublicIp", PublicIpArgs.builder()
  *             .name("us")
  *             .location(us.location())
  *             .resourceGroupName(us.name())
  *             .allocationMethod("Dynamic")
  *             .build());
  * 
- *         var usVirtualNetworkGateway = new VirtualNetworkGateway("usVirtualNetworkGateway", VirtualNetworkGatewayArgs.builder()        
+ *         var usVirtualNetworkGateway = new VirtualNetworkGateway("usVirtualNetworkGateway", VirtualNetworkGatewayArgs.builder()
  *             .name("us-gateway")
  *             .location(us.location())
  *             .resourceGroupName(us.name())
@@ -212,33 +212,33 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var europe = new ResourceGroup("europe", ResourceGroupArgs.builder()        
+ *         var europe = new ResourceGroup("europe", ResourceGroupArgs.builder()
  *             .name("europe")
  *             .location("West Europe")
  *             .build());
  * 
- *         var europeVirtualNetwork = new VirtualNetwork("europeVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var europeVirtualNetwork = new VirtualNetwork("europeVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("europe")
  *             .location(europe.location())
  *             .resourceGroupName(europe.name())
  *             .addressSpaces("10.1.0.0/16")
  *             .build());
  * 
- *         var europeGateway = new Subnet("europeGateway", SubnetArgs.builder()        
+ *         var europeGateway = new Subnet("europeGateway", SubnetArgs.builder()
  *             .name("GatewaySubnet")
  *             .resourceGroupName(europe.name())
  *             .virtualNetworkName(europeVirtualNetwork.name())
  *             .addressPrefixes("10.1.1.0/24")
  *             .build());
  * 
- *         var europePublicIp = new PublicIp("europePublicIp", PublicIpArgs.builder()        
+ *         var europePublicIp = new PublicIp("europePublicIp", PublicIpArgs.builder()
  *             .name("europe")
  *             .location(europe.location())
  *             .resourceGroupName(europe.name())
  *             .allocationMethod("Dynamic")
  *             .build());
  * 
- *         var europeVirtualNetworkGateway = new VirtualNetworkGateway("europeVirtualNetworkGateway", VirtualNetworkGatewayArgs.builder()        
+ *         var europeVirtualNetworkGateway = new VirtualNetworkGateway("europeVirtualNetworkGateway", VirtualNetworkGatewayArgs.builder()
  *             .name("europe-gateway")
  *             .location(europe.location())
  *             .resourceGroupName(europe.name())
@@ -252,7 +252,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var usToEurope = new VirtualNetworkGatewayConnection("usToEurope", VirtualNetworkGatewayConnectionArgs.builder()        
+ *         var usToEurope = new VirtualNetworkGatewayConnection("usToEurope", VirtualNetworkGatewayConnectionArgs.builder()
  *             .name("us-to-europe")
  *             .location(us.location())
  *             .resourceGroupName(us.name())
@@ -262,7 +262,7 @@ import javax.annotation.Nullable;
  *             .sharedKey("4-v3ry-53cr37-1p53c-5h4r3d-k3y")
  *             .build());
  * 
- *         var europeToUs = new VirtualNetworkGatewayConnection("europeToUs", VirtualNetworkGatewayConnectionArgs.builder()        
+ *         var europeToUs = new VirtualNetworkGatewayConnection("europeToUs", VirtualNetworkGatewayConnectionArgs.builder()
  *             .name("europe-to-us")
  *             .location(europe.location())
  *             .resourceGroupName(europe.name())

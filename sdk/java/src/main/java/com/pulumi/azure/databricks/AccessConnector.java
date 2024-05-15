@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccessConnector = new AccessConnector("exampleAccessConnector", AccessConnectorArgs.builder()        
+ *         var exampleAccessConnector = new AccessConnector("exampleAccessConnector", AccessConnectorArgs.builder()
  *             .name("example-resource")
  *             .resourceGroupName(example.name())
  *             .location(example.location())

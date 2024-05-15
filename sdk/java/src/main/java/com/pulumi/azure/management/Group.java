@@ -49,12 +49,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getSubscription();
  * 
- *         var exampleParent = new Group("exampleParent", GroupArgs.builder()        
+ *         var exampleParent = new Group("exampleParent", GroupArgs.builder()
  *             .displayName("ParentGroup")
  *             .subscriptionIds(current.applyValue(getSubscriptionResult -> getSubscriptionResult.subscriptionId()))
  *             .build());
  * 
- *         var exampleChild = new Group("exampleChild", GroupArgs.builder()        
+ *         var exampleChild = new Group("exampleChild", GroupArgs.builder()
  *             .displayName("ChildGroup")
  *             .parentManagementGroupId(exampleParent.id())
  *             .subscriptionIds(current.applyValue(getSubscriptionResult -> getSubscriptionResult.subscriptionId()))

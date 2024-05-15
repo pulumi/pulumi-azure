@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *             .loadbalancerId(exampleGetLB.applyValue(getLBResult -> getLBResult.id()))
  *             .build());
  * 
- *         var exampleBackendAddressPoolAddress = new BackendAddressPoolAddress("exampleBackendAddressPoolAddress", BackendAddressPoolAddressArgs.builder()        
+ *         var exampleBackendAddressPoolAddress = new BackendAddressPoolAddress("exampleBackendAddressPoolAddress", BackendAddressPoolAddressArgs.builder()
  *             .name("example")
  *             .backendAddressPoolId(exampleGetBackendAddressPool.applyValue(getBackendAddressPoolResult -> getBackendAddressPoolResult.id()))
  *             .virtualNetworkId(example.applyValue(getVirtualNetworkResult -> getVirtualNetworkResult.id()))
@@ -78,13 +78,13 @@ import javax.annotation.Nullable;
  *             .loadbalancerId(exampleGetLB.applyValue(getLBResult -> getLBResult.id()))
  *             .build());
  * 
- *         var example_1 = new BackendAddressPoolAddress("example-1", BackendAddressPoolAddressArgs.builder()        
+ *         var example_1 = new BackendAddressPoolAddress("example-1", BackendAddressPoolAddressArgs.builder()
  *             .name("address1")
  *             .backendAddressPoolId(backend_pool_cr.id())
  *             .backendAddressIpConfigurationId(backend_lb_R1.frontendIpConfiguration()[0].id())
  *             .build());
  * 
- *         var example_2 = new BackendAddressPoolAddress("example-2", BackendAddressPoolAddressArgs.builder()        
+ *         var example_2 = new BackendAddressPoolAddress("example-2", BackendAddressPoolAddressArgs.builder()
  *             .name("address2")
  *             .backendAddressPoolId(backend_pool_cr.id())
  *             .backendAddressIpConfigurationId(backend_lb_R2.frontendIpConfiguration()[0].id())

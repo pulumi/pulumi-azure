@@ -60,12 +60,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var example = CoreFunctions.getClientConfig();
  * 
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("storageaccountname")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
@@ -103,7 +103,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("example-keyvault")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
@@ -127,7 +127,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleManagedStorageAccount = new ManagedStorageAccount("exampleManagedStorageAccount", ManagedStorageAccountArgs.builder()        
+ *         var exampleManagedStorageAccount = new ManagedStorageAccount("exampleManagedStorageAccount", ManagedStorageAccountArgs.builder()
  *             .name("examplemanagedstorage")
  *             .keyVaultId(exampleKeyVault.id())
  *             .storageAccountId(exampleAccount.id())
@@ -136,7 +136,7 @@ import javax.annotation.Nullable;
  *             .regenerationPeriod("P1D")
  *             .build());
  * 
- *         var exampleManagedStorageAccountSasTokenDefinition = new ManagedStorageAccountSasTokenDefinition("exampleManagedStorageAccountSasTokenDefinition", ManagedStorageAccountSasTokenDefinitionArgs.builder()        
+ *         var exampleManagedStorageAccountSasTokenDefinition = new ManagedStorageAccountSasTokenDefinition("exampleManagedStorageAccountSasTokenDefinition", ManagedStorageAccountSasTokenDefinitionArgs.builder()
  *             .name("examplesasdefinition")
  *             .validityPeriod("P1D")
  *             .managedStorageAccountId(exampleManagedStorageAccount.id())
