@@ -50,18 +50,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleRouteTable = new RouteTable("exampleRouteTable", RouteTableArgs.builder()        
+ *         var exampleRouteTable = new RouteTable("exampleRouteTable", RouteTableArgs.builder()
  *             .name("acceptanceTestRouteTable1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleRoute = new Route("exampleRoute", RouteArgs.builder()        
+ *         var exampleRoute = new Route("exampleRoute", RouteArgs.builder()
  *             .name("acceptanceTestRoute1")
  *             .resourceGroupName(example.name())
  *             .routeTableName(exampleRouteTable.name())

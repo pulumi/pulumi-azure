@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("rg-example")
  *             .location("West Europe")
  *             .build());
@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("examplesa")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
@@ -70,12 +70,12 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleTable = new Table("exampleTable", TableArgs.builder()        
+ *         var exampleTable = new Table("exampleTable", TableArgs.builder()
  *             .name("exampletable")
  *             .storageAccountName(exampleAccount.name())
  *             .build());
  * 
- *         var exampleOutputTable = new OutputTable("exampleOutputTable", OutputTableArgs.builder()        
+ *         var exampleOutputTable = new OutputTable("exampleOutputTable", OutputTableArgs.builder()
  *             .name("output-to-storage-table")
  *             .streamAnalyticsJobName(example.applyValue(getJobResult -> getJobResult).applyValue(example -> example.applyValue(getJobResult -> getJobResult.name())))
  *             .resourceGroupName(example.applyValue(getJobResult -> getJobResult).applyValue(example -> example.applyValue(getJobResult -> getJobResult.resourceGroupName())))

@@ -62,12 +62,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("examplestorageacc")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -77,14 +77,14 @@ import javax.annotation.Nullable;
  *             .isHnsEnabled("true")
  *             .build());
  * 
- *         var exampleDataLakeGen2Filesystem = new DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", DataLakeGen2FilesystemArgs.builder()        
+ *         var exampleDataLakeGen2Filesystem = new DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", DataLakeGen2FilesystemArgs.builder()
  *             .name("example")
  *             .storageAccountId(exampleAccount.id())
  *             .build());
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  *             .purgeProtectionEnabled(true)
  *             .build());
  * 
- *         var deployer = new AccessPolicy("deployer", AccessPolicyArgs.builder()        
+ *         var deployer = new AccessPolicy("deployer", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
  *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
  *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
@@ -105,7 +105,7 @@ import javax.annotation.Nullable;
  *                 "GetRotationPolicy")
  *             .build());
  * 
- *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
  *             .name("workspaceEncryptionKey")
  *             .keyVaultId(exampleKeyVault.id())
  *             .keyType("RSA")
@@ -115,7 +115,7 @@ import javax.annotation.Nullable;
  *                 "wrapKey")
  *             .build());
  * 
- *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()        
+ *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -132,7 +132,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("Env", "production"))
  *             .build());
  * 
- *         var workspacePolicy = new AccessPolicy("workspacePolicy", AccessPolicyArgs.builder()        
+ *         var workspacePolicy = new AccessPolicy("workspacePolicy", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
  *             .tenantId(exampleWorkspace.identity().applyValue(identity -> identity.tenantId()))
  *             .objectId(exampleWorkspace.identity().applyValue(identity -> identity.principalId()))
@@ -142,7 +142,7 @@ import javax.annotation.Nullable;
  *                 "UnwrapKey")
  *             .build());
  * 
- *         var exampleWorkspaceKey = new WorkspaceKey("exampleWorkspaceKey", WorkspaceKeyArgs.builder()        
+ *         var exampleWorkspaceKey = new WorkspaceKey("exampleWorkspaceKey", WorkspaceKeyArgs.builder()
  *             .customerManagedKeyVersionlessId(exampleKey.versionlessId())
  *             .synapseWorkspaceId(exampleWorkspace.id())
  *             .active(true)

@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAvailabilitySet = new AvailabilitySet("exampleAvailabilitySet", AvailabilitySetArgs.builder()        
+ *         var exampleAvailabilitySet = new AvailabilitySet("exampleAvailabilitySet", AvailabilitySetArgs.builder()
  *             .name("example-aset")
  *             .location(example.location())
  *             .resourceGroupName(example.name())

@@ -51,17 +51,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()        
+ *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()
  *             .name("contoso.com")
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSRVRecord = new SRVRecord("exampleSRVRecord", SRVRecordArgs.builder()        
+ *         var exampleSRVRecord = new SRVRecord("exampleSRVRecord", SRVRecordArgs.builder()
  *             .name("test")
  *             .resourceGroupName(example.name())
  *             .zoneName(exampleZone.name())

@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
@@ -61,13 +61,13 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()
  *             .name("example")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleLinkedServiceAzureFunction = new LinkedServiceAzureFunction("exampleLinkedServiceAzureFunction", LinkedServiceAzureFunctionArgs.builder()        
+ *         var exampleLinkedServiceAzureFunction = new LinkedServiceAzureFunction("exampleLinkedServiceAzureFunction", LinkedServiceAzureFunctionArgs.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .url(example.applyValue(getFunctionAppResult -> getFunctionAppResult).applyValue(example -> String.format("https://%s", example.applyValue(getFunctionAppResult -> getFunctionAppResult.defaultHostname()))))

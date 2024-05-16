@@ -52,19 +52,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()        
+ *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()
  *             .name("example-workspace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("PerGB2018")
  *             .build());
  * 
- *         var exampleAnalyticsSolution = new AnalyticsSolution("exampleAnalyticsSolution", AnalyticsSolutionArgs.builder()        
+ *         var exampleAnalyticsSolution = new AnalyticsSolution("exampleAnalyticsSolution", AnalyticsSolutionArgs.builder()
  *             .solutionName("SecurityInsights")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleAlertRuleFusion = new AlertRuleFusion("exampleAlertRuleFusion", AlertRuleFusionArgs.builder()        
+ *         var exampleAlertRuleFusion = new AlertRuleFusion("exampleAlertRuleFusion", AlertRuleFusionArgs.builder()
  *             .name("example-fusion-alert-rule")
  *             .logAnalyticsWorkspaceId(exampleAnalyticsSolution.workspaceResourceId())
  *             .alertRuleTemplateGuid("f71aba3d-28fb-450b-b192-4e76a83015c8")

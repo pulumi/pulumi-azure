@@ -57,12 +57,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var appconf = new ConfigurationStore("appconf", ConfigurationStoreArgs.builder()        
+ *         var appconf = new ConfigurationStore("appconf", ConfigurationStoreArgs.builder()
  *             .name("appConf1")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -70,13 +70,13 @@ import javax.annotation.Nullable;
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var appconfDataowner = new Assignment("appconfDataowner", AssignmentArgs.builder()        
+ *         var appconfDataowner = new Assignment("appconfDataowner", AssignmentArgs.builder()
  *             .scope(appconf.id())
  *             .roleDefinitionName("App Configuration Data Owner")
  *             .principalId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *             .build());
  * 
- *         var test = new ConfigurationFeature("test", ConfigurationFeatureArgs.builder()        
+ *         var test = new ConfigurationFeature("test", ConfigurationFeatureArgs.builder()
  *             .configurationStoreId(appconf.id())
  *             .description("test description")
  *             .name("test-ackey")

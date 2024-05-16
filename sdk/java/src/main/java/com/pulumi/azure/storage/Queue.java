@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("examplestorageacc")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleQueue = new Queue("exampleQueue", QueueArgs.builder()        
+ *         var exampleQueue = new Queue("exampleQueue", QueueArgs.builder()
  *             .name("mysamplequeue")
  *             .storageAccountName(exampleAccount.name())
  *             .build());

@@ -49,23 +49,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()        
+ *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()
  *             .name("example-workspace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("PerGB2018")
  *             .build());
  * 
- *         var exampleLogAnalyticsWorkspaceOnboarding = new LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", LogAnalyticsWorkspaceOnboardingArgs.builder()        
+ *         var exampleLogAnalyticsWorkspaceOnboarding = new LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", LogAnalyticsWorkspaceOnboardingArgs.builder()
  *             .workspaceId(exampleAnalyticsWorkspace.id())
  *             .build());
  * 
- *         var exampleAlertRuleMachineLearningBehaviorAnalytics = new AlertRuleMachineLearningBehaviorAnalytics("exampleAlertRuleMachineLearningBehaviorAnalytics", AlertRuleMachineLearningBehaviorAnalyticsArgs.builder()        
+ *         var exampleAlertRuleMachineLearningBehaviorAnalytics = new AlertRuleMachineLearningBehaviorAnalytics("exampleAlertRuleMachineLearningBehaviorAnalytics", AlertRuleMachineLearningBehaviorAnalyticsArgs.builder()
  *             .name("example-ml-alert-rule")
  *             .logAnalyticsWorkspaceId(exampleAnalyticsWorkspace.id())
  *             .alertRuleTemplateGuid("737a2ce1-70a3-4968-9e90-3e6aca836abf")

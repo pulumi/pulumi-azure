@@ -59,12 +59,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West US 2")
  *             .build());
  * 
- *         var exampleExpressRoutePort = new ExpressRoutePort("exampleExpressRoutePort", ExpressRoutePortArgs.builder()        
+ *         var exampleExpressRoutePort = new ExpressRoutePort("exampleExpressRoutePort", ExpressRoutePortArgs.builder()
  *             .name("example-erp")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  *             .encapsulation("Dot1Q")
  *             .build());
  * 
- *         var exampleExpressRouteCircuit = new ExpressRouteCircuit("exampleExpressRouteCircuit", ExpressRouteCircuitArgs.builder()        
+ *         var exampleExpressRouteCircuit = new ExpressRouteCircuit("exampleExpressRouteCircuit", ExpressRouteCircuitArgs.builder()
  *             .name("example-erc")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleExpressRouteCircuitPeering = new ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering", ExpressRouteCircuitPeeringArgs.builder()        
+ *         var exampleExpressRouteCircuitPeering = new ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering", ExpressRouteCircuitPeeringArgs.builder()
  *             .peeringType("MicrosoftPeering")
  *             .expressRouteCircuitName(exampleExpressRouteCircuit.name())
  *             .resourceGroupName(example.name())
@@ -98,13 +98,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleAzureTrafficCollector = new AzureTrafficCollector("exampleAzureTrafficCollector", AzureTrafficCollectorArgs.builder()        
+ *         var exampleAzureTrafficCollector = new AzureTrafficCollector("exampleAzureTrafficCollector", AzureTrafficCollectorArgs.builder()
  *             .name("example-nfatc")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleCollectorPolicy = new CollectorPolicy("exampleCollectorPolicy", CollectorPolicyArgs.builder()        
+ *         var exampleCollectorPolicy = new CollectorPolicy("exampleCollectorPolicy", CollectorPolicyArgs.builder()
  *             .name("example-nfcp")
  *             .trafficCollectorId(exampleAzureTrafficCollector.id())
  *             .location(example.location())

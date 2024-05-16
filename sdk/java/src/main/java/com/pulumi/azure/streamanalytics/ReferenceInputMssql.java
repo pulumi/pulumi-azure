@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()
  *             .name("example-sqlserver")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
@@ -70,12 +70,12 @@ import javax.annotation.Nullable;
  *             .administratorLoginPassword("password")
  *             .build());
  * 
- *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()        
+ *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()
  *             .name("example-db")
  *             .serverId(exampleServer.id())
  *             .build());
  * 
- *         var exampleReferenceInputMssql = new ReferenceInputMssql("exampleReferenceInputMssql", ReferenceInputMssqlArgs.builder()        
+ *         var exampleReferenceInputMssql = new ReferenceInputMssql("exampleReferenceInputMssql", ReferenceInputMssqlArgs.builder()
  *             .name("example-reference-input")
  *             .resourceGroupName(example.applyValue(getJobResult -> getJobResult).applyValue(example -> example.applyValue(getJobResult -> getJobResult.resourceGroupName())))
  *             .streamAnalyticsJobName(example.applyValue(getJobResult -> getJobResult).applyValue(example -> example.applyValue(getJobResult -> getJobResult.name())))

@@ -62,12 +62,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleKubernetesCluster = new KubernetesCluster("exampleKubernetesCluster", KubernetesClusterArgs.builder()        
+ *         var exampleKubernetesCluster = new KubernetesCluster("exampleKubernetesCluster", KubernetesClusterArgs.builder()
  *             .name("example-aks1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleKubernetesClusterNodePool = new KubernetesClusterNodePool("exampleKubernetesClusterNodePool", KubernetesClusterNodePoolArgs.builder()        
+ *         var exampleKubernetesClusterNodePool = new KubernetesClusterNodePool("exampleKubernetesClusterNodePool", KubernetesClusterNodePoolArgs.builder()
  *             .name("internal")
  *             .kubernetesClusterId(exampleKubernetesCluster.id())
  *             .vmSize("Standard_DS2_v2")

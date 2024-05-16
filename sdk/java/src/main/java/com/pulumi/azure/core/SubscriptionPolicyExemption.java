@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .displayName("Audit machines with insecure password security settings")
  *             .build());
  * 
- *         var exampleSubscriptionPolicyAssignment = new SubscriptionPolicyAssignment("exampleSubscriptionPolicyAssignment", SubscriptionPolicyAssignmentArgs.builder()        
+ *         var exampleSubscriptionPolicyAssignment = new SubscriptionPolicyAssignment("exampleSubscriptionPolicyAssignment", SubscriptionPolicyAssignmentArgs.builder()
  *             .name("exampleAssignment")
  *             .subscriptionId(example.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *             .policyDefinitionId(exampleGetPolicySetDefinition.applyValue(getPolicySetDefinitionResult -> getPolicySetDefinitionResult.id()))
@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleSubscriptionPolicyExemption = new SubscriptionPolicyExemption("exampleSubscriptionPolicyExemption", SubscriptionPolicyExemptionArgs.builder()        
+ *         var exampleSubscriptionPolicyExemption = new SubscriptionPolicyExemption("exampleSubscriptionPolicyExemption", SubscriptionPolicyExemptionArgs.builder()
  *             .name("exampleExemption")
  *             .subscriptionId(example.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *             .policyAssignmentId(exampleSubscriptionPolicyAssignment.id())

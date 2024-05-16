@@ -49,12 +49,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()
  *             .name("example-apim")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  *             .skuName("Developer_1")
  *             .build());
  * 
- *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()        
+ *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()
  *             .name("example-cert")
  *             .apiManagementName(exampleService.name())
  *             .resourceGroupName(example.name())
@@ -122,12 +122,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()
  *             .name("example-apim")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -139,7 +139,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("examplekeyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -147,7 +147,7 @@ import javax.annotation.Nullable;
  *             .skuName("standard")
  *             .build());
  * 
- *         var exampleAccessPolicy = new AccessPolicy("exampleAccessPolicy", AccessPolicyArgs.builder()        
+ *         var exampleAccessPolicy = new AccessPolicy("exampleAccessPolicy", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
  *             .tenantId(exampleService.identity().applyValue(identity -> identity.tenantId()))
  *             .objectId(exampleService.identity().applyValue(identity -> identity.principalId()))
@@ -155,7 +155,7 @@ import javax.annotation.Nullable;
  *             .certificatePermissions("Get")
  *             .build());
  * 
- *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()        
+ *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()
  *             .name("example-cert")
  *             .keyVaultId(exampleKeyVault.id())
  *             .certificate(CertificateCertificateArgs.builder()
@@ -180,7 +180,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleCertificate2 = new Certificate("exampleCertificate2", CertificateArgs.builder()        
+ *         var exampleCertificate2 = new Certificate("exampleCertificate2", CertificateArgs.builder()
  *             .name("example-cert")
  *             .apiManagementName(exampleService.name())
  *             .resourceGroupName(example.name())

@@ -58,12 +58,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()        
+ *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()
  *             .name("exampleIothub")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("purpose", "example"))
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("cosmosdb-account")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -89,13 +89,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleSqlDatabase = new SqlDatabase("exampleSqlDatabase", SqlDatabaseArgs.builder()        
+ *         var exampleSqlDatabase = new SqlDatabase("exampleSqlDatabase", SqlDatabaseArgs.builder()
  *             .name("cosmos-sql-db")
  *             .resourceGroupName(exampleAccount.resourceGroupName())
  *             .accountName(exampleAccount.name())
  *             .build());
  * 
- *         var exampleSqlContainer = new SqlContainer("exampleSqlContainer", SqlContainerArgs.builder()        
+ *         var exampleSqlContainer = new SqlContainer("exampleSqlContainer", SqlContainerArgs.builder()
  *             .name("example-container")
  *             .resourceGroupName(exampleAccount.resourceGroupName())
  *             .accountName(exampleAccount.name())
@@ -103,7 +103,7 @@ import javax.annotation.Nullable;
  *             .partitionKeyPath("/definition/id")
  *             .build());
  * 
- *         var exampleEndpointCosmosdbAccount = new EndpointCosmosdbAccount("exampleEndpointCosmosdbAccount", EndpointCosmosdbAccountArgs.builder()        
+ *         var exampleEndpointCosmosdbAccount = new EndpointCosmosdbAccount("exampleEndpointCosmosdbAccount", EndpointCosmosdbAccountArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .iothubId(exampleIoTHub.id())

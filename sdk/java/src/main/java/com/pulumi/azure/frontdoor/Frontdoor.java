@@ -70,12 +70,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("FrontDoorExampleResourceGroup")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFrontdoor = new Frontdoor("exampleFrontdoor", FrontdoorArgs.builder()        
+ *         var exampleFrontdoor = new Frontdoor("exampleFrontdoor", FrontdoorArgs.builder()
  *             .name("example-FrontDoor")
  *             .resourceGroupName(example.name())
  *             .routingRules(FrontdoorRoutingRuleArgs.builder()

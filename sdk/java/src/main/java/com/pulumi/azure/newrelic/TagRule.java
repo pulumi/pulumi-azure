@@ -54,12 +54,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("East US")
  *             .build());
  * 
- *         var exampleMonitor = new Monitor("exampleMonitor", MonitorArgs.builder()        
+ *         var exampleMonitor = new Monitor("exampleMonitor", MonitorArgs.builder()
  *             .name("example-nrm")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleTagRule = new TagRule("exampleTagRule", TagRuleArgs.builder()        
+ *         var exampleTagRule = new TagRule("exampleTagRule", TagRuleArgs.builder()
  *             .monitorId(exampleMonitor.id())
  *             .azureActiveDirectoryLogEnabled(true)
  *             .activityLogEnabled(true)

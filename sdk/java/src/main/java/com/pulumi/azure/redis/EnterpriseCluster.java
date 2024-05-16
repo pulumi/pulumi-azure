@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-redisenterprise")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleEnterpriseCluster = new EnterpriseCluster("exampleEnterpriseCluster", EnterpriseClusterArgs.builder()        
+ *         var exampleEnterpriseCluster = new EnterpriseCluster("exampleEnterpriseCluster", EnterpriseClusterArgs.builder()
  *             .name("example-redisenterprise")
  *             .resourceGroupName(example.name())
  *             .location(example.location())

@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *             .subscriptionId("00000000-0000-0000-0000-000000000000")
  *             .build());
  * 
- *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()        
+ *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
  *             .name("example-networkmanager")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  *             .scopeAccesses("SecurityAdmin")
  *             .build());
  * 
- *         var exampleNetworkManagerScopeConnection = new NetworkManagerScopeConnection("exampleNetworkManagerScopeConnection", NetworkManagerScopeConnectionArgs.builder()        
+ *         var exampleNetworkManagerScopeConnection = new NetworkManagerScopeConnection("exampleNetworkManagerScopeConnection", NetworkManagerScopeConnectionArgs.builder()
  *             .name("example-nsc")
  *             .networkManagerId(exampleNetworkManager.id())
  *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))

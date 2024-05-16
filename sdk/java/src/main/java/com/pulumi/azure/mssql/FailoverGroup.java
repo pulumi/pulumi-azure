@@ -55,12 +55,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("database-rg")
  *             .location("West Europe")
  *             .build());
  * 
- *         var primary = new Server("primary", ServerArgs.builder()        
+ *         var primary = new Server("primary", ServerArgs.builder()
  *             .name("mssqlserver-primary")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  *             .administratorLoginPassword("thisIsKat11")
  *             .build());
  * 
- *         var secondary = new Server("secondary", ServerArgs.builder()        
+ *         var secondary = new Server("secondary", ServerArgs.builder()
  *             .name("mssqlserver-secondary")
  *             .resourceGroupName(example.name())
  *             .location("North Europe")
@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  *             .administratorLoginPassword("thisIsKat12")
  *             .build());
  * 
- *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()        
+ *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()
  *             .name("exampledb")
  *             .serverId(primary.id())
  *             .skuName("S1")
@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  *             .maxSizeGb("200")
  *             .build());
  * 
- *         var exampleFailoverGroup = new FailoverGroup("exampleFailoverGroup", FailoverGroupArgs.builder()        
+ *         var exampleFailoverGroup = new FailoverGroup("exampleFailoverGroup", FailoverGroupArgs.builder()
  *             .name("example")
  *             .serverId(primary.id())
  *             .databases(exampleDatabase.id())

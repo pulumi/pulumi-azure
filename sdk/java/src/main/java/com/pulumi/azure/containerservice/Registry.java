@@ -54,12 +54,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var acr = new Registry("acr", RegistryArgs.builder()        
+ *         var acr = new Registry("acr", RegistryArgs.builder()
  *             .name("containerRegistry1")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -117,12 +117,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()        
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .name("registry-uai")
@@ -133,7 +133,7 @@ import javax.annotation.Nullable;
  *             .keyVaultId(existing.id())
  *             .build());
  * 
- *         var acr = new Registry("acr", RegistryArgs.builder()        
+ *         var acr = new Registry("acr", RegistryArgs.builder()
  *             .name("containerRegistry1")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
@@ -188,19 +188,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleRegistry = new Registry("exampleRegistry", RegistryArgs.builder()        
+ *         var exampleRegistry = new Registry("exampleRegistry", RegistryArgs.builder()
  *             .name("containerRegistry1")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .sku("Premium")
  *             .build());
  * 
- *         var exampleKubernetesCluster = new KubernetesCluster("exampleKubernetesCluster", KubernetesClusterArgs.builder()        
+ *         var exampleKubernetesCluster = new KubernetesCluster("exampleKubernetesCluster", KubernetesClusterArgs.builder()
  *             .name("example-aks1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -216,7 +216,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("Environment", "Production"))
  *             .build());
  * 
- *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()        
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
  *             .principalId(exampleKubernetesCluster.kubeletIdentity().applyValue(kubeletIdentity -> kubeletIdentity.objectId()))
  *             .roleDefinitionName("AcrPull")
  *             .scope(exampleRegistry.id())

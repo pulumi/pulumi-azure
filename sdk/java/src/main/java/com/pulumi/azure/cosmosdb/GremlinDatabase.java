@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName("tfex-cosmosdb-account-rg")
  *             .build());
  * 
- *         var exampleGremlinDatabase = new GremlinDatabase("exampleGremlinDatabase", GremlinDatabaseArgs.builder()        
+ *         var exampleGremlinDatabase = new GremlinDatabase("exampleGremlinDatabase", GremlinDatabaseArgs.builder()
  *             .name("tfex-cosmos-gremlin-db")
  *             .resourceGroupName(example.applyValue(getAccountResult -> getAccountResult.resourceGroupName()))
  *             .accountName(example.applyValue(getAccountResult -> getAccountResult.name()))
