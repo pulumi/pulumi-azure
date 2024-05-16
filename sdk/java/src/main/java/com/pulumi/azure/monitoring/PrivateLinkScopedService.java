@@ -47,24 +47,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()        
+ *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()
  *             .name("example-appinsights")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .applicationType("web")
  *             .build());
  * 
- *         var examplePrivateLinkScope = new PrivateLinkScope("examplePrivateLinkScope", PrivateLinkScopeArgs.builder()        
+ *         var examplePrivateLinkScope = new PrivateLinkScope("examplePrivateLinkScope", PrivateLinkScopeArgs.builder()
  *             .name("example-ampls")
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var examplePrivateLinkScopedService = new PrivateLinkScopedService("examplePrivateLinkScopedService", PrivateLinkScopedServiceArgs.builder()        
+ *         var examplePrivateLinkScopedService = new PrivateLinkScopedService("examplePrivateLinkScopedService", PrivateLinkScopedServiceArgs.builder()
  *             .name("example-amplsservice")
  *             .resourceGroupName(example.name())
  *             .scopeName(examplePrivateLinkScope.name())

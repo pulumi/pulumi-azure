@@ -49,12 +49,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleCertificateOrder = new CertificateOrder("exampleCertificateOrder", CertificateOrderArgs.builder()        
+ *         var exampleCertificateOrder = new CertificateOrder("exampleCertificateOrder", CertificateOrderArgs.builder()
  *             .name("example-cert-order")
  *             .resourceGroupName(example.name())
  *             .location("global")

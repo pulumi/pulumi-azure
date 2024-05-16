@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.applyValue(getResourceGroupResult -> getResourceGroupResult.name()))
  *             .build());
  * 
- *         var exampleFunctionJavascriptUda = new FunctionJavascriptUda("exampleFunctionJavascriptUda", FunctionJavascriptUdaArgs.builder()        
+ *         var exampleFunctionJavascriptUda = new FunctionJavascriptUda("exampleFunctionJavascriptUda", FunctionJavascriptUdaArgs.builder()
  *             .name("example-javascript-function")
  *             .streamAnalyticsJobId(exampleGetJob.applyValue(getJobResult -> getJobResult.id()))
  *             .script("""

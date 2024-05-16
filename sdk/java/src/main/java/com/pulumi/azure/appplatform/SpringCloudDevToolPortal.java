@@ -54,19 +54,19 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()        
+ *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .skuName("E0")
  *             .build());
  * 
- *         var exampleSpringCloudDevToolPortal = new SpringCloudDevToolPortal("exampleSpringCloudDevToolPortal", SpringCloudDevToolPortalArgs.builder()        
+ *         var exampleSpringCloudDevToolPortal = new SpringCloudDevToolPortal("exampleSpringCloudDevToolPortal", SpringCloudDevToolPortalArgs.builder()
  *             .name("default")
  *             .springCloudServiceId(exampleSpringCloudService.id())
  *             .publicNetworkAccessEnabled(true)

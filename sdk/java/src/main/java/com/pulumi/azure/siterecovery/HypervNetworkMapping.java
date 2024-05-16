@@ -47,26 +47,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var target = new ResourceGroup("target", ResourceGroupArgs.builder()        
+ *         var target = new ResourceGroup("target", ResourceGroupArgs.builder()
  *             .name("tfex-network-mapping")
  *             .location("East US")
  *             .build());
  * 
- *         var vault = new Vault("vault", VaultArgs.builder()        
+ *         var vault = new Vault("vault", VaultArgs.builder()
  *             .name("example-recovery-vault")
  *             .location(target.location())
  *             .resourceGroupName(target.name())
  *             .sku("Standard")
  *             .build());
  * 
- *         var targetVirtualNetwork = new VirtualNetwork("targetVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var targetVirtualNetwork = new VirtualNetwork("targetVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("network")
  *             .resourceGroupName(target.name())
  *             .addressSpaces("192.168.2.0/24")
  *             .location(target.location())
  *             .build());
  * 
- *         var recovery_mapping = new HypervNetworkMapping("recovery-mapping", HypervNetworkMappingArgs.builder()        
+ *         var recovery_mapping = new HypervNetworkMapping("recovery-mapping", HypervNetworkMappingArgs.builder()
  *             .name("recovery-network-mapping")
  *             .recoveryVaultId(vault.id())
  *             .sourceSystemCenterVirtualMachineManagerName("my-vmm-server")

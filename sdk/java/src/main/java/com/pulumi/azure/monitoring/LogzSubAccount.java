@@ -54,12 +54,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-logz")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleLogzMonitor = new LogzMonitor("exampleLogzMonitor", LogzMonitorArgs.builder()        
+ *         var exampleLogzMonitor = new LogzMonitor("exampleLogzMonitor", LogzMonitorArgs.builder()
  *             .name("example-monitor")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleLogzSubAccount = new LogzSubAccount("exampleLogzSubAccount", LogzSubAccountArgs.builder()        
+ *         var exampleLogzSubAccount = new LogzSubAccount("exampleLogzSubAccount", LogzSubAccountArgs.builder()
  *             .name("example-subaccount")
  *             .logzMonitorId(exampleLogzMonitor.id())
  *             .user(LogzSubAccountUserArgs.builder()

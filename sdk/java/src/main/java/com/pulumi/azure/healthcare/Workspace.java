@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Workspace("test", WorkspaceArgs.builder()        
+ *         var test = new Workspace("test", WorkspaceArgs.builder()
  *             .name("tfexworkspace")
  *             .resourceGroupName("tfex-resource_group")
  *             .location("east us")

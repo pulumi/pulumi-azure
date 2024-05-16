@@ -51,12 +51,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()
  *             .name("example-sqlserver")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *             .administratorLoginPassword("AdminPassword123!")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("examplesa")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleServerExtendedAuditingPolicy = new ServerExtendedAuditingPolicy("exampleServerExtendedAuditingPolicy", ServerExtendedAuditingPolicyArgs.builder()        
+ *         var exampleServerExtendedAuditingPolicy = new ServerExtendedAuditingPolicy("exampleServerExtendedAuditingPolicy", ServerExtendedAuditingPolicyArgs.builder()
  *             .serverId(exampleServer.id())
  *             .storageEndpoint(exampleAccount.primaryBlobEndpoint())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
@@ -137,19 +137,19 @@ import javax.annotation.Nullable;
  * 
  *         final var example = CoreFunctions.getClientConfig();
  * 
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("example")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("virtnetname-1")
  *             .addressSpaces("10.0.0.0/16")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("subnetname-1")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
@@ -160,7 +160,7 @@ import javax.annotation.Nullable;
  *             .enforcePrivateLinkEndpointNetworkPolicies(true)
  *             .build());
  * 
- *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()
  *             .name("example-sqlserver")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
@@ -173,20 +173,20 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()        
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
  *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *             .roleDefinitionName("Storage Blob Data Contributor")
  *             .principalId(exampleServer.identity().applyValue(identity -> identity.principalId()))
  *             .build());
  * 
- *         var sqlvnetrule = new VirtualNetworkRule("sqlvnetrule", VirtualNetworkRuleArgs.builder()        
+ *         var sqlvnetrule = new VirtualNetworkRule("sqlvnetrule", VirtualNetworkRuleArgs.builder()
  *             .name("sql-vnet-rule")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .serverName(exampleServer.name())
  *             .subnetId(exampleSubnet.id())
  *             .build());
  * 
- *         var exampleFirewallRule = new FirewallRule("exampleFirewallRule", FirewallRuleArgs.builder()        
+ *         var exampleFirewallRule = new FirewallRule("exampleFirewallRule", FirewallRuleArgs.builder()
  *             .name("FirewallRule1")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .serverName(exampleServer.name())
@@ -194,7 +194,7 @@ import javax.annotation.Nullable;
  *             .endIpAddress("0.0.0.0")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("examplesa")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
@@ -213,7 +213,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleServerExtendedAuditingPolicy = new ServerExtendedAuditingPolicy("exampleServerExtendedAuditingPolicy", ServerExtendedAuditingPolicyArgs.builder()        
+ *         var exampleServerExtendedAuditingPolicy = new ServerExtendedAuditingPolicy("exampleServerExtendedAuditingPolicy", ServerExtendedAuditingPolicyArgs.builder()
  *             .storageEndpoint(exampleAccount.primaryBlobEndpoint())
  *             .serverId(exampleServer.id())
  *             .retentionInDays(6)

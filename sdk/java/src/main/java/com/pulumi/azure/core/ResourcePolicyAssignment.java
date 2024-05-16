@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName("networking")
  *             .build());
  * 
- *         var exampleDefinition = new Definition("exampleDefinition", DefinitionArgs.builder()        
+ *         var exampleDefinition = new Definition("exampleDefinition", DefinitionArgs.builder()
  *             .name("only-deploy-in-westeurope")
  *             .policyType("Custom")
  *             .mode("All")
@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  *             """)
  *             .build());
  * 
- *         var exampleResourcePolicyAssignment = new ResourcePolicyAssignment("exampleResourcePolicyAssignment", ResourcePolicyAssignmentArgs.builder()        
+ *         var exampleResourcePolicyAssignment = new ResourcePolicyAssignment("exampleResourcePolicyAssignment", ResourcePolicyAssignmentArgs.builder()
  *             .name("example-policy-assignment")
  *             .resourceId(example.applyValue(getVirtualNetworkResult -> getVirtualNetworkResult.id()))
  *             .policyDefinitionId(exampleDefinition.id())

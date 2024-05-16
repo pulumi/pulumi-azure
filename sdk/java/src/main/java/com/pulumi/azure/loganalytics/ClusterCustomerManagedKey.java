@@ -52,14 +52,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()        
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
  *             .name("example-cluster")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("keyvaultkeyexample")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("environment", "Production"))
  *             .build());
  * 
- *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
  *             .name("generated-certificate")
  *             .keyVaultId(exampleKeyVault.id())
  *             .keyType("RSA")
@@ -109,7 +109,7 @@ import javax.annotation.Nullable;
  *                 "wrapKey")
  *             .build());
  * 
- *         var exampleClusterCustomerManagedKey = new ClusterCustomerManagedKey("exampleClusterCustomerManagedKey", ClusterCustomerManagedKeyArgs.builder()        
+ *         var exampleClusterCustomerManagedKey = new ClusterCustomerManagedKey("exampleClusterCustomerManagedKey", ClusterCustomerManagedKeyArgs.builder()
  *             .logAnalyticsClusterId(exampleCluster.id())
  *             .keyVaultKeyId(exampleKey.id())
  *             .build());

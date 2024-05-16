@@ -51,24 +51,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleLinkedServiceAzureSqlDatabase = new LinkedServiceAzureSqlDatabase("exampleLinkedServiceAzureSqlDatabase", LinkedServiceAzureSqlDatabaseArgs.builder()        
+ *         var exampleLinkedServiceAzureSqlDatabase = new LinkedServiceAzureSqlDatabase("exampleLinkedServiceAzureSqlDatabase", LinkedServiceAzureSqlDatabaseArgs.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .connectionString("Integrated Security=False;Data Source=test;Initial Catalog=test;Initial Catalog=test;User ID=test;Password=test")
  *             .build());
  * 
- *         var exampleDatasetAzureSqlTable = new DatasetAzureSqlTable("exampleDatasetAzureSqlTable", DatasetAzureSqlTableArgs.builder()        
+ *         var exampleDatasetAzureSqlTable = new DatasetAzureSqlTable("exampleDatasetAzureSqlTable", DatasetAzureSqlTableArgs.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .linkedServiceId(exampleLinkedServiceAzureSqlDatabase.id())

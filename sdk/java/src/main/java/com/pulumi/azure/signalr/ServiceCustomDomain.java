@@ -58,12 +58,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()
  *             .name("example-signalr")
  *             .location(testAzurermResourceGroup.location())
  *             .resourceGroupName(testAzurermResourceGroup.name())
@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("example-keyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -107,7 +107,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()        
+ *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()
  *             .name("imported-cert")
  *             .keyVaultId(exampleKeyVault.id())
  *             .certificate(CertificateCertificateArgs.builder()
@@ -118,13 +118,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var test = new ServiceCustomCertificate("test", ServiceCustomCertificateArgs.builder()        
+ *         var test = new ServiceCustomCertificate("test", ServiceCustomCertificateArgs.builder()
  *             .name("example-cert")
  *             .signalrServiceId(exampleService.id())
  *             .customCertificateId(exampleCertificate.id())
  *             .build());
  * 
- *         var testServiceCustomDomain = new ServiceCustomDomain("testServiceCustomDomain", ServiceCustomDomainArgs.builder()        
+ *         var testServiceCustomDomain = new ServiceCustomDomain("testServiceCustomDomain", ServiceCustomDomainArgs.builder()
  *             .name("example-domain")
  *             .signalrServiceId(testAzurermSignalrService.id())
  *             .domainName("tftest.com")

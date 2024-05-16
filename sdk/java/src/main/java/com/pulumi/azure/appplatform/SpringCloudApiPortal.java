@@ -55,24 +55,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()        
+ *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .skuName("E0")
  *             .build());
  * 
- *         var exampleSpringCloudGateway = new SpringCloudGateway("exampleSpringCloudGateway", SpringCloudGatewayArgs.builder()        
+ *         var exampleSpringCloudGateway = new SpringCloudGateway("exampleSpringCloudGateway", SpringCloudGatewayArgs.builder()
  *             .name("default")
  *             .springCloudServiceId(exampleSpringCloudService.id())
  *             .build());
  * 
- *         var exampleSpringCloudApiPortal = new SpringCloudApiPortal("exampleSpringCloudApiPortal", SpringCloudApiPortalArgs.builder()        
+ *         var exampleSpringCloudApiPortal = new SpringCloudApiPortal("exampleSpringCloudApiPortal", SpringCloudApiPortalArgs.builder()
  *             .name("default")
  *             .springCloudServiceId(exampleSpringCloudService.id())
  *             .gatewayIds(exampleSpringCloudGateway.id())

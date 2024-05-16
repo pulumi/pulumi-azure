@@ -66,23 +66,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-cdn-frontdoor")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()        
+ *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()
  *             .name("example.com")
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleFrontdoorProfile = new FrontdoorProfile("exampleFrontdoorProfile", FrontdoorProfileArgs.builder()        
+ *         var exampleFrontdoorProfile = new FrontdoorProfile("exampleFrontdoorProfile", FrontdoorProfileArgs.builder()
  *             .name("example-profile")
  *             .resourceGroupName(example.name())
  *             .skuName("Standard_AzureFrontDoor")
  *             .build());
  * 
- *         var exampleFrontdoorOriginGroup = new FrontdoorOriginGroup("exampleFrontdoorOriginGroup", FrontdoorOriginGroupArgs.builder()        
+ *         var exampleFrontdoorOriginGroup = new FrontdoorOriginGroup("exampleFrontdoorOriginGroup", FrontdoorOriginGroupArgs.builder()
  *             .name("example-originGroup")
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .loadBalancing(FrontdoorOriginGroupLoadBalancingArgs.builder()
@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleFrontdoorOrigin = new FrontdoorOrigin("exampleFrontdoorOrigin", FrontdoorOriginArgs.builder()        
+ *         var exampleFrontdoorOrigin = new FrontdoorOrigin("exampleFrontdoorOrigin", FrontdoorOriginArgs.builder()
  *             .name("example-origin")
  *             .cdnFrontdoorOriginGroupId(exampleFrontdoorOriginGroup.id())
  *             .enabled(true)
@@ -105,17 +105,17 @@ import javax.annotation.Nullable;
  *             .weight(1)
  *             .build());
  * 
- *         var exampleFrontdoorEndpoint = new FrontdoorEndpoint("exampleFrontdoorEndpoint", FrontdoorEndpointArgs.builder()        
+ *         var exampleFrontdoorEndpoint = new FrontdoorEndpoint("exampleFrontdoorEndpoint", FrontdoorEndpointArgs.builder()
  *             .name("example-endpoint")
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .build());
  * 
- *         var exampleFrontdoorRuleSet = new FrontdoorRuleSet("exampleFrontdoorRuleSet", FrontdoorRuleSetArgs.builder()        
+ *         var exampleFrontdoorRuleSet = new FrontdoorRuleSet("exampleFrontdoorRuleSet", FrontdoorRuleSetArgs.builder()
  *             .name("ExampleRuleSet")
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .build());
  * 
- *         var contoso = new FrontdoorCustomDomain("contoso", FrontdoorCustomDomainArgs.builder()        
+ *         var contoso = new FrontdoorCustomDomain("contoso", FrontdoorCustomDomainArgs.builder()
  *             .name("contoso-custom-domain")
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .dnsZoneId(exampleZone.id())
@@ -126,7 +126,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var fabrikam = new FrontdoorCustomDomain("fabrikam", FrontdoorCustomDomainArgs.builder()        
+ *         var fabrikam = new FrontdoorCustomDomain("fabrikam", FrontdoorCustomDomainArgs.builder()
  *             .name("fabrikam-custom-domain")
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .dnsZoneId(exampleZone.id())
@@ -137,7 +137,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleFrontdoorRoute = new FrontdoorRoute("exampleFrontdoorRoute", FrontdoorRouteArgs.builder()        
+ *         var exampleFrontdoorRoute = new FrontdoorRoute("exampleFrontdoorRoute", FrontdoorRouteArgs.builder()
  *             .name("example-route")
  *             .cdnFrontdoorEndpointId(exampleFrontdoorEndpoint.id())
  *             .cdnFrontdoorOriginGroupId(exampleFrontdoorOriginGroup.id())
@@ -167,12 +167,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var contosoFrontdoorCustomDomainAssociation = new FrontdoorCustomDomainAssociation("contosoFrontdoorCustomDomainAssociation", FrontdoorCustomDomainAssociationArgs.builder()        
+ *         var contosoFrontdoorCustomDomainAssociation = new FrontdoorCustomDomainAssociation("contosoFrontdoorCustomDomainAssociation", FrontdoorCustomDomainAssociationArgs.builder()
  *             .cdnFrontdoorCustomDomainId(contoso.id())
  *             .cdnFrontdoorRouteIds(exampleFrontdoorRoute.id())
  *             .build());
  * 
- *         var fabrikamFrontdoorCustomDomainAssociation = new FrontdoorCustomDomainAssociation("fabrikamFrontdoorCustomDomainAssociation", FrontdoorCustomDomainAssociationArgs.builder()        
+ *         var fabrikamFrontdoorCustomDomainAssociation = new FrontdoorCustomDomainAssociation("fabrikamFrontdoorCustomDomainAssociation", FrontdoorCustomDomainAssociationArgs.builder()
  *             .cdnFrontdoorCustomDomainId(fabrikam.id())
  *             .cdnFrontdoorRouteIds(exampleFrontdoorRoute.id())
  *             .build());

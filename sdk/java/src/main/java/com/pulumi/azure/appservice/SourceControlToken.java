@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SourceControlToken("example", SourceControlTokenArgs.builder()        
+ *         var example = new SourceControlToken("example", SourceControlTokenArgs.builder()
  *             .type("GitHub")
  *             .token("ghp_sometokenvaluesecretsauce")
  *             .build());

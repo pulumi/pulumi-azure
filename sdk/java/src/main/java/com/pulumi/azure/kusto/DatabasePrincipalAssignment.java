@@ -51,12 +51,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("KustoRG")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()        
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
  *             .name("kustocluster")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()        
+ *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()
  *             .name("KustoDatabase")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  *             .softDeletePeriod("P31D")
  *             .build());
  * 
- *         var exampleDatabasePrincipalAssignment = new DatabasePrincipalAssignment("exampleDatabasePrincipalAssignment", DatabasePrincipalAssignmentArgs.builder()        
+ *         var exampleDatabasePrincipalAssignment = new DatabasePrincipalAssignment("exampleDatabasePrincipalAssignment", DatabasePrincipalAssignmentArgs.builder()
  *             .name("KustoPrincipalAssignment")
  *             .resourceGroupName(example.name())
  *             .clusterName(exampleCluster.name())

@@ -49,12 +49,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFlexibleServer = new FlexibleServer("exampleFlexibleServer", FlexibleServerArgs.builder()        
+ *         var exampleFlexibleServer = new FlexibleServer("exampleFlexibleServer", FlexibleServerArgs.builder()
  *             .name("example-fs")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  *             .skuName("GP_Standard_D2ds_v4")
  *             .build());
  * 
- *         var exampleFlexibleServerConfiguration = new FlexibleServerConfiguration("exampleFlexibleServerConfiguration", FlexibleServerConfigurationArgs.builder()        
+ *         var exampleFlexibleServerConfiguration = new FlexibleServerConfiguration("exampleFlexibleServerConfiguration", FlexibleServerConfigurationArgs.builder()
  *             .name("interactive_timeout")
  *             .resourceGroupName(example.name())
  *             .serverName(exampleFlexibleServer.name())

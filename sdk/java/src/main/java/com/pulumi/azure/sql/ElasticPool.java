@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("my-resource-group")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleSqlServer = new SqlServer("exampleSqlServer", SqlServerArgs.builder()        
+ *         var exampleSqlServer = new SqlServer("exampleSqlServer", SqlServerArgs.builder()
  *             .name("my-sql-server")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *             .administratorLoginPassword("4-v3ry-53cr37-p455w0rd")
  *             .build());
  * 
- *         var exampleElasticPool = new ElasticPool("exampleElasticPool", ElasticPoolArgs.builder()        
+ *         var exampleElasticPool = new ElasticPool("exampleElasticPool", ElasticPoolArgs.builder()
  *             .name("test")
  *             .resourceGroupName(example.name())
  *             .location(example.location())

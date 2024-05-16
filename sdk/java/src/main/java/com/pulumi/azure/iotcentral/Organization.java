@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resource")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()        
+ *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()
  *             .name("example-iotcentral-app")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -62,13 +62,13 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("Foo", "Bar"))
  *             .build());
  * 
- *         var exampleParent = new Organization("exampleParent", OrganizationArgs.builder()        
+ *         var exampleParent = new Organization("exampleParent", OrganizationArgs.builder()
  *             .iotcentralApplicationId(exampleApplication.id())
  *             .organizationId("example-parent-organization-id")
  *             .displayName("Org example parent")
  *             .build());
  * 
- *         var exampleOrganization = new Organization("exampleOrganization", OrganizationArgs.builder()        
+ *         var exampleOrganization = new Organization("exampleOrganization", OrganizationArgs.builder()
  *             .iotcentralApplicationId(exampleApplication.id())
  *             .organizationId("example-child-organization-id")
  *             .displayName("Org example")

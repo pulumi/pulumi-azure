@@ -51,13 +51,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Workspace("test", WorkspaceArgs.builder()        
+ *         var test = new Workspace("test", WorkspaceArgs.builder()
  *             .name("tfexworkspace")
  *             .resourceGroupName("tfex-resource_group")
  *             .location("east us")
  *             .build());
  * 
- *         var testDicomService = new DicomService("testDicomService", DicomServiceArgs.builder()        
+ *         var testDicomService = new DicomService("testDicomService", DicomServiceArgs.builder()
  *             .name("tfexDicom")
  *             .workspaceId(test.id())
  *             .location("east us")

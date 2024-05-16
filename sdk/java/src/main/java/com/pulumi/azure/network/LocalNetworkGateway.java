@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("localNetworkGWTest")
  *             .location("West Europe")
  *             .build());
  * 
- *         var home = new LocalNetworkGateway("home", LocalNetworkGatewayArgs.builder()        
+ *         var home = new LocalNetworkGateway("home", LocalNetworkGatewayArgs.builder()
  *             .name("backHome")
  *             .resourceGroupName(example.name())
  *             .location(example.location())

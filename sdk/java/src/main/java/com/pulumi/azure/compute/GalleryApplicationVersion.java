@@ -63,25 +63,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-rg")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleSharedImageGallery = new SharedImageGallery("exampleSharedImageGallery", SharedImageGalleryArgs.builder()        
+ *         var exampleSharedImageGallery = new SharedImageGallery("exampleSharedImageGallery", SharedImageGalleryArgs.builder()
  *             .name("examplegallery")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleGalleryApplication = new GalleryApplication("exampleGalleryApplication", GalleryApplicationArgs.builder()        
+ *         var exampleGalleryApplication = new GalleryApplication("exampleGalleryApplication", GalleryApplicationArgs.builder()
  *             .name("example-app")
  *             .galleryId(exampleSharedImageGallery.id())
  *             .location(example.location())
  *             .supportedOsType("Linux")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("examplestorage")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -89,13 +89,13 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()        
+ *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()
  *             .name("example-container")
  *             .storageAccountName(exampleAccount.name())
  *             .containerAccessType("blob")
  *             .build());
  * 
- *         var exampleBlob = new Blob("exampleBlob", BlobArgs.builder()        
+ *         var exampleBlob = new Blob("exampleBlob", BlobArgs.builder()
  *             .name("scripts")
  *             .storageAccountName(exampleAccount.name())
  *             .storageContainerName(exampleContainer.name())
@@ -103,7 +103,7 @@ import javax.annotation.Nullable;
  *             .sourceContent("[scripts file content]")
  *             .build());
  * 
- *         var exampleGalleryApplicationVersion = new GalleryApplicationVersion("exampleGalleryApplicationVersion", GalleryApplicationVersionArgs.builder()        
+ *         var exampleGalleryApplicationVersion = new GalleryApplicationVersion("exampleGalleryApplicationVersion", GalleryApplicationVersionArgs.builder()
  *             .name("0.0.1")
  *             .galleryApplicationId(exampleGalleryApplication.id())
  *             .location(exampleGalleryApplication.location())

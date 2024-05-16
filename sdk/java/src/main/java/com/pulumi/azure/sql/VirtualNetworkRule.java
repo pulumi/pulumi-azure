@@ -53,19 +53,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-sql-server-vnet-rule")
  *             .location("West Europe")
  *             .build());
  * 
- *         var vnet = new VirtualNetwork("vnet", VirtualNetworkArgs.builder()        
+ *         var vnet = new VirtualNetwork("vnet", VirtualNetworkArgs.builder()
  *             .name("example-vnet")
  *             .addressSpaces("10.7.29.0/29")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var subnet = new Subnet("subnet", SubnetArgs.builder()        
+ *         var subnet = new Subnet("subnet", SubnetArgs.builder()
  *             .name("example-subnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(vnet.name())
@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  *             .serviceEndpoints("Microsoft.Sql")
  *             .build());
  * 
- *         var sqlserver = new SqlServer("sqlserver", SqlServerArgs.builder()        
+ *         var sqlserver = new SqlServer("sqlserver", SqlServerArgs.builder()
  *             .name("uniqueazuresqlserver")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  *             .administratorLoginPassword("4-v3ry-53cr37-p455w0rd")
  *             .build());
  * 
- *         var sqlvnetrule = new VirtualNetworkRule("sqlvnetrule", VirtualNetworkRuleArgs.builder()        
+ *         var sqlvnetrule = new VirtualNetworkRule("sqlvnetrule", VirtualNetworkRuleArgs.builder()
  *             .name("sql-vnet-rule")
  *             .resourceGroupName(example.name())
  *             .serverName(sqlserver.name())

@@ -55,12 +55,12 @@ import javax.annotation.Nullable;
  *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *             .build());
  * 
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFlexibleServer = new FlexibleServer("exampleFlexibleServer", FlexibleServerArgs.builder()        
+ *         var exampleFlexibleServer = new FlexibleServer("exampleFlexibleServer", FlexibleServerArgs.builder()
  *             .name("example-fs")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleFlexibleServerActiveDirectoryAdministrator = new FlexibleServerActiveDirectoryAdministrator("exampleFlexibleServerActiveDirectoryAdministrator", FlexibleServerActiveDirectoryAdministratorArgs.builder()        
+ *         var exampleFlexibleServerActiveDirectoryAdministrator = new FlexibleServerActiveDirectoryAdministrator("exampleFlexibleServerActiveDirectoryAdministrator", FlexibleServerActiveDirectoryAdministratorArgs.builder()
  *             .serverName(exampleFlexibleServer.name())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))

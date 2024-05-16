@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .subscriptionId("00000000-0000-0000-0000-000000000000")
  *             .build());
  * 
- *         var exampleGroupSubscriptionAssociation = new GroupSubscriptionAssociation("exampleGroupSubscriptionAssociation", GroupSubscriptionAssociationArgs.builder()        
+ *         var exampleGroupSubscriptionAssociation = new GroupSubscriptionAssociation("exampleGroupSubscriptionAssociation", GroupSubscriptionAssociationArgs.builder()
  *             .managementGroupId(example.id())
  *             .subscriptionId(alt.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *             .build());
@@ -69,18 +69,18 @@ import javax.annotation.Nullable;
  * 
  *         final var currentGetClientConfig = CoreFunctions.getClientConfig();
  * 
- *         var networkContributor = new Assignment("networkContributor", AssignmentArgs.builder()        
+ *         var networkContributor = new Assignment("networkContributor", AssignmentArgs.builder()
  *             .scope(example.id())
  *             .roleDefinitionName("Network Contributor")
  *             .principalId(currentGetClientConfig.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *             .build());
  * 
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()        
+ *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
  *             .name("example-networkmanager")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  *             .scopeAccesses("SecurityAdmin")
  *             .build());
  * 
- *         var exampleNetworkManagerManagementGroupConnection = new NetworkManagerManagementGroupConnection("exampleNetworkManagerManagementGroupConnection", NetworkManagerManagementGroupConnectionArgs.builder()        
+ *         var exampleNetworkManagerManagementGroupConnection = new NetworkManagerManagementGroupConnection("exampleNetworkManagerManagementGroupConnection", NetworkManagerManagementGroupConnectionArgs.builder()
  *             .name("example-nmmgc")
  *             .managementGroupId(example.id())
  *             .networkManagerId(exampleNetworkManager.id())

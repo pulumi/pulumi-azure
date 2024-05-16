@@ -47,19 +47,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("rg-example")
  *             .location("%[2]s")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("accexample")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .skuName("Basic")
  *             .build());
  * 
- *         var examplePython3Package = new Python3Package("examplePython3Package", Python3PackageArgs.builder()        
+ *         var examplePython3Package = new Python3Package("examplePython3Package", Python3PackageArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .automationAccountName(exampleAccount.name())

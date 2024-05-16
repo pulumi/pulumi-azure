@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("exprtTest")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleExpressRouteCircuit = new ExpressRouteCircuit("exampleExpressRouteCircuit", ExpressRouteCircuitArgs.builder()        
+ *         var exampleExpressRouteCircuit = new ExpressRouteCircuit("exampleExpressRouteCircuit", ExpressRouteCircuitArgs.builder()
  *             .name("expressRoute1")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("environment", "Production"))
  *             .build());
  * 
- *         var exampleExpressRouteCircuitAuthorization = new ExpressRouteCircuitAuthorization("exampleExpressRouteCircuitAuthorization", ExpressRouteCircuitAuthorizationArgs.builder()        
+ *         var exampleExpressRouteCircuitAuthorization = new ExpressRouteCircuitAuthorization("exampleExpressRouteCircuitAuthorization", ExpressRouteCircuitAuthorizationArgs.builder()
  *             .name("exampleERCAuth")
  *             .expressRouteCircuitName(exampleExpressRouteCircuit.name())
  *             .resourceGroupName(example.name())
