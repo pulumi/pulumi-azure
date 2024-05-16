@@ -45,19 +45,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()        
+ *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()
  *             .name("my-eventgrid-domain")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .tags(Map.of("environment", "Production"))
  *             .build());
  * 
- *         var exampleDomainTopic = new DomainTopic("exampleDomainTopic", DomainTopicArgs.builder()        
+ *         var exampleDomainTopic = new DomainTopic("exampleDomainTopic", DomainTopicArgs.builder()
  *             .name("my-eventgrid-domain-topic")
  *             .domainName(exampleDomain.name())
  *             .resourceGroupName(example.name())

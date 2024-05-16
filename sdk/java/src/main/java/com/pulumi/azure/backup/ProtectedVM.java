@@ -54,19 +54,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("tfex-recovery_vault")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVault = new Vault("exampleVault", VaultArgs.builder()        
+ *         var exampleVault = new Vault("exampleVault", VaultArgs.builder()
  *             .name("tfex-recovery-vault")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .sku("Standard")
  *             .build());
  * 
- *         var examplePolicyVM = new PolicyVM("examplePolicyVM", PolicyVMArgs.builder()        
+ *         var examplePolicyVM = new PolicyVM("examplePolicyVM", PolicyVMArgs.builder()
  *             .name("tfex-recovery-vault-policy")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .recoveryVaultName(exampleVault.name())
@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var vm1 = new ProtectedVM("vm1", ProtectedVMArgs.builder()        
+ *         var vm1 = new ProtectedVM("vm1", ProtectedVMArgs.builder()
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .recoveryVaultName(exampleVault.name())
  *             .sourceVmId(example.applyValue(getVirtualMachineResult -> getVirtualMachineResult).applyValue(example -> example.applyValue(getVirtualMachineResult -> getVirtualMachineResult.id())))

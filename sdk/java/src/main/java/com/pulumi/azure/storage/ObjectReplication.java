@@ -51,12 +51,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var src = new ResourceGroup("src", ResourceGroupArgs.builder()        
+ *         var src = new ResourceGroup("src", ResourceGroupArgs.builder()
  *             .name("srcResourceGroupName")
  *             .location("West Europe")
  *             .build());
  * 
- *         var srcAccount = new Account("srcAccount", AccountArgs.builder()        
+ *         var srcAccount = new Account("srcAccount", AccountArgs.builder()
  *             .name("srcstorageaccount")
  *             .resourceGroupName(src.name())
  *             .location(src.location())
@@ -68,18 +68,18 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var srcContainer = new Container("srcContainer", ContainerArgs.builder()        
+ *         var srcContainer = new Container("srcContainer", ContainerArgs.builder()
  *             .name("srcstrcontainer")
  *             .storageAccountName(srcAccount.name())
  *             .containerAccessType("private")
  *             .build());
  * 
- *         var dst = new ResourceGroup("dst", ResourceGroupArgs.builder()        
+ *         var dst = new ResourceGroup("dst", ResourceGroupArgs.builder()
  *             .name("dstResourceGroupName")
  *             .location("East US")
  *             .build());
  * 
- *         var dstAccount = new Account("dstAccount", AccountArgs.builder()        
+ *         var dstAccount = new Account("dstAccount", AccountArgs.builder()
  *             .name("dststorageaccount")
  *             .resourceGroupName(dst.name())
  *             .location(dst.location())
@@ -91,13 +91,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var dstContainer = new Container("dstContainer", ContainerArgs.builder()        
+ *         var dstContainer = new Container("dstContainer", ContainerArgs.builder()
  *             .name("dststrcontainer")
  *             .storageAccountName(dstAccount.name())
  *             .containerAccessType("private")
  *             .build());
  * 
- *         var example = new ObjectReplication("example", ObjectReplicationArgs.builder()        
+ *         var example = new ObjectReplication("example", ObjectReplicationArgs.builder()
  *             .sourceStorageAccountId(srcAccount.id())
  *             .destinationStorageAccountId(dstAccount.id())
  *             .rules(ObjectReplicationRuleArgs.builder()

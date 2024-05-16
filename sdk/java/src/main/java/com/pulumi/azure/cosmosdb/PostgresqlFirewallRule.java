@@ -45,12 +45,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var examplePostgresqlCluster = new PostgresqlCluster("examplePostgresqlCluster", PostgresqlClusterArgs.builder()        
+ *         var examplePostgresqlCluster = new PostgresqlCluster("examplePostgresqlCluster", PostgresqlClusterArgs.builder()
  *             .name("examplecluster")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .nodeCount(0)
  *             .build());
  * 
- *         var examplePostgresqlFirewallRule = new PostgresqlFirewallRule("examplePostgresqlFirewallRule", PostgresqlFirewallRuleArgs.builder()        
+ *         var examplePostgresqlFirewallRule = new PostgresqlFirewallRule("examplePostgresqlFirewallRule", PostgresqlFirewallRuleArgs.builder()
  *             .name("example-firewallrule")
  *             .clusterId(examplePostgresqlCluster.id())
  *             .startIpAddress("10.0.17.62")

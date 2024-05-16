@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SubscriptionPricing("example", SubscriptionPricingArgs.builder()        
+ *         var example = new SubscriptionPricing("example", SubscriptionPricingArgs.builder()
  *             .tier("Standard")
  *             .resourceType("VirtualMachines")
  *             .build());
@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example1 = new SubscriptionPricing("example1", SubscriptionPricingArgs.builder()        
+ *         var example1 = new SubscriptionPricing("example1", SubscriptionPricingArgs.builder()
  *             .tier("Standard")
  *             .resourceType("CloudPosture")
  *             .extensions(            

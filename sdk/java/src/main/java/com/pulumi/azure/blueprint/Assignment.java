@@ -75,31 +75,31 @@ import javax.annotation.Nullable;
  *             .version("v1.0.0")
  *             .build());
  * 
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("exampleRG-bp")
  *             .location("West Europe")
  *             .tags(Map.of("Environment", "example"))
  *             .build());
  * 
- *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()        
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .name("bp-user-example")
  *             .build());
  * 
- *         var operator = new Assignment("operator", AssignmentArgs.builder()        
+ *         var operator = new Assignment("operator", AssignmentArgs.builder()
  *             .scope(example.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *             .roleDefinitionName("Blueprint Operator")
  *             .principalId(exampleUserAssignedIdentity.principalId())
  *             .build());
  * 
- *         var owner = new Assignment("owner", AssignmentArgs.builder()        
+ *         var owner = new Assignment("owner", AssignmentArgs.builder()
  *             .scope(example.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *             .roleDefinitionName("Owner")
  *             .principalId(exampleUserAssignedIdentity.principalId())
  *             .build());
  * 
- *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()        
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
  *             .name("testAccBPAssignment")
  *             .targetSubscriptionId(example.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *             .versionId(exampleGetPublishedVersion.applyValue(getPublishedVersionResult -> getPublishedVersionResult.id()))

@@ -58,19 +58,19 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()        
+ *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()
  *             .name("workspace-example-ai")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .applicationType("web")
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("workspaceexamplekeyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  *             .skuName("premium")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("workspacestorageaccount")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("GRS")
  *             .build());
  * 
- *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()        
+ *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()
  *             .name("example-workspace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -148,19 +148,19 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()        
+ *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()
  *             .name("workspace-example-ai")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .applicationType("web")
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("workspaceexamplekeyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -169,7 +169,7 @@ import javax.annotation.Nullable;
  *             .purgeProtectionEnabled(true)
  *             .build());
  * 
- *         var exampleAccessPolicy = new AccessPolicy("exampleAccessPolicy", AccessPolicyArgs.builder()        
+ *         var exampleAccessPolicy = new AccessPolicy("exampleAccessPolicy", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
  *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
  *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
@@ -181,7 +181,7 @@ import javax.annotation.Nullable;
  *                 "GetRotationPolicy")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("workspacestorageaccount")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -189,7 +189,7 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("GRS")
  *             .build());
  * 
- *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
  *             .name("workspaceexamplekeyvaultkey")
  *             .keyVaultId(exampleKeyVault.id())
  *             .keyType("RSA")
@@ -203,7 +203,7 @@ import javax.annotation.Nullable;
  *                 "wrapKey")
  *             .build());
  * 
- *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()        
+ *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()
  *             .name("example-workspace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -275,19 +275,19 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()        
+ *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()
  *             .name("example-ai")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .applicationType("web")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("examplestorageaccount")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -295,7 +295,7 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("GRS")
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("example-keyvalut")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -304,13 +304,13 @@ import javax.annotation.Nullable;
  *             .purgeProtectionEnabled(true)
  *             .build());
  * 
- *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()        
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()
  *             .name("example-identity")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var example_identity = new AccessPolicy("example-identity", AccessPolicyArgs.builder()        
+ *         var example_identity = new AccessPolicy("example-identity", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
  *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
  *             .objectId(exampleUserAssignedIdentity.principalId())
@@ -329,7 +329,7 @@ import javax.annotation.Nullable;
  *                 "Restore")
  *             .build());
  * 
- *         var example_sp = new AccessPolicy("example-sp", AccessPolicyArgs.builder()        
+ *         var example_sp = new AccessPolicy("example-sp", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
  *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
  *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
@@ -346,7 +346,7 @@ import javax.annotation.Nullable;
  *             .displayName("Azure Cosmos DB")
  *             .build());
  * 
- *         var example_cosmosdb = new AccessPolicy("example-cosmosdb", AccessPolicyArgs.builder()        
+ *         var example_cosmosdb = new AccessPolicy("example-cosmosdb", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
  *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
  *             .objectId(test.applyValue(getServicePrincipalResult -> getServicePrincipalResult.objectId()))
@@ -357,7 +357,7 @@ import javax.annotation.Nullable;
  *                 "WrapKey")
  *             .build());
  * 
- *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
  *             .name("example-keyvaultkey")
  *             .keyVaultId(exampleKeyVault.id())
  *             .keyType("RSA")
@@ -371,31 +371,31 @@ import javax.annotation.Nullable;
  *                 "wrapKey")
  *             .build());
  * 
- *         var example_role1 = new Assignment("example-role1", AssignmentArgs.builder()        
+ *         var example_role1 = new Assignment("example-role1", AssignmentArgs.builder()
  *             .scope(exampleKeyVault.id())
  *             .roleDefinitionName("Contributor")
  *             .principalId(exampleUserAssignedIdentity.principalId())
  *             .build());
  * 
- *         var example_role2 = new Assignment("example-role2", AssignmentArgs.builder()        
+ *         var example_role2 = new Assignment("example-role2", AssignmentArgs.builder()
  *             .scope(exampleAccount.id())
  *             .roleDefinitionName("Storage Blob Data Contributor")
  *             .principalId(exampleUserAssignedIdentity.principalId())
  *             .build());
  * 
- *         var example_role3 = new Assignment("example-role3", AssignmentArgs.builder()        
+ *         var example_role3 = new Assignment("example-role3", AssignmentArgs.builder()
  *             .scope(exampleAccount.id())
  *             .roleDefinitionName("Contributor")
  *             .principalId(exampleUserAssignedIdentity.principalId())
  *             .build());
  * 
- *         var example_role4 = new Assignment("example-role4", AssignmentArgs.builder()        
+ *         var example_role4 = new Assignment("example-role4", AssignmentArgs.builder()
  *             .scope(exampleInsights.id())
  *             .roleDefinitionName("Contributor")
  *             .principalId(exampleUserAssignedIdentity.principalId())
  *             .build());
  * 
- *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()        
+ *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()
  *             .name("example-workspace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())

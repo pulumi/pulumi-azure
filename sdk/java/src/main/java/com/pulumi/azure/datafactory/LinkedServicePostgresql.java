@@ -48,18 +48,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleLinkedServicePostgresql = new LinkedServicePostgresql("exampleLinkedServicePostgresql", LinkedServicePostgresqlArgs.builder()        
+ *         var exampleLinkedServicePostgresql = new LinkedServicePostgresql("exampleLinkedServicePostgresql", LinkedServicePostgresqlArgs.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .connectionString("Host=example;Port=5432;Database=example;UID=example;EncryptionMethod=0;Password=example")

@@ -53,12 +53,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleChannelsRegistration = new ChannelsRegistration("exampleChannelsRegistration", ChannelsRegistrationArgs.builder()        
+ *         var exampleChannelsRegistration = new ChannelsRegistration("exampleChannelsRegistration", ChannelsRegistrationArgs.builder()
  *             .name("example-bcr")
  *             .location("global")
  *             .resourceGroupName(example.name())
@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *             .microsoftAppId(current.applyValue(getClientConfigResult -> getClientConfigResult.clientId()))
  *             .build());
  * 
- *         var exampleChannelFacebook = new ChannelFacebook("exampleChannelFacebook", ChannelFacebookArgs.builder()        
+ *         var exampleChannelFacebook = new ChannelFacebook("exampleChannelFacebook", ChannelFacebookArgs.builder()
  *             .botName(exampleChannelsRegistration.name())
  *             .location(exampleChannelsRegistration.location())
  *             .resourceGroupName(example.name())

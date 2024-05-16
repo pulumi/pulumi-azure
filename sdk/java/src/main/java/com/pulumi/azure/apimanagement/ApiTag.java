@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
@@ -59,19 +59,19 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleApi = new Api("exampleApi", ApiArgs.builder()        
+ *         var exampleApi = new Api("exampleApi", ApiArgs.builder()
  *             .name("example-api")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .apiManagementName(example.applyValue(getServiceResult -> getServiceResult).applyValue(example -> example.applyValue(getServiceResult -> getServiceResult.name())))
  *             .revision("1")
  *             .build());
  * 
- *         var exampleTag = new Tag("exampleTag", TagArgs.builder()        
+ *         var exampleTag = new Tag("exampleTag", TagArgs.builder()
  *             .apiManagementId(example.applyValue(getServiceResult -> getServiceResult).applyValue(example -> example.applyValue(getServiceResult -> getServiceResult.id())))
  *             .name("example-tag")
  *             .build());
  * 
- *         var exampleApiTag = new ApiTag("exampleApiTag", ApiTagArgs.builder()        
+ *         var exampleApiTag = new ApiTag("exampleApiTag", ApiTagArgs.builder()
  *             .apiId(exampleApi.id())
  *             .name(exampleTag.name())
  *             .build());

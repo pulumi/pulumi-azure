@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *             .apiManagementId(example.applyValue(getServiceResult -> getServiceResult.id()))
  *             .build());
  * 
- *         var exampleGatewayApi = new GatewayApi("exampleGatewayApi", GatewayApiArgs.builder()        
+ *         var exampleGatewayApi = new GatewayApi("exampleGatewayApi", GatewayApiArgs.builder()
  *             .gatewayId(exampleGetGateway.applyValue(getGatewayResult -> getGatewayResult.id()))
  *             .apiId(exampleGetApi.applyValue(getApiResult -> getApiResult.id()))
  *             .build());

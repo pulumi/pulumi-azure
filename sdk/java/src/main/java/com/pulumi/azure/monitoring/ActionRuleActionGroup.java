@@ -53,18 +53,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleActionGroup = new ActionGroup("exampleActionGroup", ActionGroupArgs.builder()        
+ *         var exampleActionGroup = new ActionGroup("exampleActionGroup", ActionGroupArgs.builder()
  *             .name("example-action-group")
  *             .resourceGroupName(example.name())
  *             .shortName("example")
  *             .build());
  * 
- *         var exampleActionRuleActionGroup = new ActionRuleActionGroup("exampleActionRuleActionGroup", ActionRuleActionGroupArgs.builder()        
+ *         var exampleActionRuleActionGroup = new ActionRuleActionGroup("exampleActionRuleActionGroup", ActionRuleActionGroupArgs.builder()
  *             .name("example-amar")
  *             .resourceGroupName(example.name())
  *             .actionGroupId(exampleActionGroup.id())

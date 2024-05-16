@@ -52,12 +52,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVpnServerConfiguration = new VpnServerConfiguration("exampleVpnServerConfiguration", VpnServerConfigurationArgs.builder()        
+ *         var exampleVpnServerConfiguration = new VpnServerConfiguration("exampleVpnServerConfiguration", VpnServerConfigurationArgs.builder()
  *             .name("example-VPNSC")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleVpnServerConfigurationPolicyGroup = new VpnServerConfigurationPolicyGroup("exampleVpnServerConfigurationPolicyGroup", VpnServerConfigurationPolicyGroupArgs.builder()        
+ *         var exampleVpnServerConfigurationPolicyGroup = new VpnServerConfigurationPolicyGroup("exampleVpnServerConfigurationPolicyGroup", VpnServerConfigurationPolicyGroupArgs.builder()
  *             .name("example-VPNSCPG")
  *             .vpnServerConfigurationId(exampleVpnServerConfiguration.id())
  *             .policies(VpnServerConfigurationPolicyGroupPolicyArgs.builder()

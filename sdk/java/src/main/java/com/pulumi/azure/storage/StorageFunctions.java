@@ -263,12 +263,12 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var rg = new ResourceGroup("rg", ResourceGroupArgs.builder()        
+     *         var rg = new ResourceGroup("rg", ResourceGroupArgs.builder()
      *             .name("resourceGroupName")
      *             .location("West Europe")
      *             .build());
      * 
-     *         var storage = new Account("storage", AccountArgs.builder()        
+     *         var storage = new Account("storage", AccountArgs.builder()
      *             .name("storageaccountname")
      *             .resourceGroupName(rg.name())
      *             .location(rg.location())
@@ -276,7 +276,7 @@ public final class StorageFunctions {
      *             .accountReplicationType("LRS")
      *             .build());
      * 
-     *         var container = new Container("container", ContainerArgs.builder()        
+     *         var container = new Container("container", ContainerArgs.builder()
      *             .name("mycontainer")
      *             .storageAccountName(storage.name())
      *             .containerAccessType("private")
@@ -352,12 +352,12 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var rg = new ResourceGroup("rg", ResourceGroupArgs.builder()        
+     *         var rg = new ResourceGroup("rg", ResourceGroupArgs.builder()
      *             .name("resourceGroupName")
      *             .location("West Europe")
      *             .build());
      * 
-     *         var storage = new Account("storage", AccountArgs.builder()        
+     *         var storage = new Account("storage", AccountArgs.builder()
      *             .name("storageaccountname")
      *             .resourceGroupName(rg.name())
      *             .location(rg.location())
@@ -365,7 +365,7 @@ public final class StorageFunctions {
      *             .accountReplicationType("LRS")
      *             .build());
      * 
-     *         var container = new Container("container", ContainerArgs.builder()        
+     *         var container = new Container("container", ContainerArgs.builder()
      *             .name("mycontainer")
      *             .storageAccountName(storage.name())
      *             .containerAccessType("private")
@@ -441,12 +441,12 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var rg = new ResourceGroup("rg", ResourceGroupArgs.builder()        
+     *         var rg = new ResourceGroup("rg", ResourceGroupArgs.builder()
      *             .name("resourceGroupName")
      *             .location("West Europe")
      *             .build());
      * 
-     *         var storage = new Account("storage", AccountArgs.builder()        
+     *         var storage = new Account("storage", AccountArgs.builder()
      *             .name("storageaccountname")
      *             .resourceGroupName(rg.name())
      *             .location(rg.location())
@@ -454,7 +454,7 @@ public final class StorageFunctions {
      *             .accountReplicationType("LRS")
      *             .build());
      * 
-     *         var container = new Container("container", ContainerArgs.builder()        
+     *         var container = new Container("container", ContainerArgs.builder()
      *             .name("mycontainer")
      *             .storageAccountName(storage.name())
      *             .containerAccessType("private")
@@ -530,12 +530,12 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var rg = new ResourceGroup("rg", ResourceGroupArgs.builder()        
+     *         var rg = new ResourceGroup("rg", ResourceGroupArgs.builder()
      *             .name("resourceGroupName")
      *             .location("West Europe")
      *             .build());
      * 
-     *         var storage = new Account("storage", AccountArgs.builder()        
+     *         var storage = new Account("storage", AccountArgs.builder()
      *             .name("storageaccountname")
      *             .resourceGroupName(rg.name())
      *             .location(rg.location())
@@ -543,7 +543,7 @@ public final class StorageFunctions {
      *             .accountReplicationType("LRS")
      *             .build());
      * 
-     *         var container = new Container("container", ContainerArgs.builder()        
+     *         var container = new Container("container", ContainerArgs.builder()
      *             .name("mycontainer")
      *             .storageAccountName(storage.name())
      *             .containerAccessType("private")
@@ -622,12 +622,12 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
      *             .name("resourceGroupName")
      *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+     *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
      *             .name("storageaccountname")
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .location(exampleResourceGroup.location())
@@ -718,12 +718,12 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
      *             .name("resourceGroupName")
      *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+     *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
      *             .name("storageaccountname")
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .location(exampleResourceGroup.location())
@@ -814,12 +814,12 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
      *             .name("resourceGroupName")
      *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+     *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
      *             .name("storageaccountname")
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .location(exampleResourceGroup.location())
@@ -910,12 +910,12 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
      *             .name("resourceGroupName")
      *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+     *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
      *             .name("storageaccountname")
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .location(exampleResourceGroup.location())

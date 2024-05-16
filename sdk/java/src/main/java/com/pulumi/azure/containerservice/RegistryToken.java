@@ -48,12 +48,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resource-group")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleRegistry = new Registry("exampleRegistry", RegistryArgs.builder()        
+ *         var exampleRegistry = new Registry("exampleRegistry", RegistryArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var exampleRegistryScopeMap = new RegistryScopeMap("exampleRegistryScopeMap", RegistryScopeMapArgs.builder()        
+ *         var exampleRegistryScopeMap = new RegistryScopeMap("exampleRegistryScopeMap", RegistryScopeMapArgs.builder()
  *             .name("example-scope-map")
  *             .containerRegistryName(exampleRegistry.name())
  *             .resourceGroupName(example.name())
@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  *                 "repositories/repo1/content/write")
  *             .build());
  * 
- *         var exampleRegistryToken = new RegistryToken("exampleRegistryToken", RegistryTokenArgs.builder()        
+ *         var exampleRegistryToken = new RegistryToken("exampleRegistryToken", RegistryTokenArgs.builder()
  *             .name("exampletoken")
  *             .containerRegistryName(exampleRegistry.name())
  *             .resourceGroupName(example.name())

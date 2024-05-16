@@ -55,12 +55,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("tflex-cosmosdb-account-rg")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("tfex-cosmosdb-account")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -77,14 +77,14 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleCassandraKeyspace = new CassandraKeyspace("exampleCassandraKeyspace", CassandraKeyspaceArgs.builder()        
+ *         var exampleCassandraKeyspace = new CassandraKeyspace("exampleCassandraKeyspace", CassandraKeyspaceArgs.builder()
  *             .name("tfex-cosmos-cassandra-keyspace")
  *             .resourceGroupName(exampleAccount.resourceGroupName())
  *             .accountName(exampleAccount.name())
  *             .throughput(400)
  *             .build());
  * 
- *         var exampleCassandraTable = new CassandraTable("exampleCassandraTable", CassandraTableArgs.builder()        
+ *         var exampleCassandraTable = new CassandraTable("exampleCassandraTable", CassandraTableArgs.builder()
  *             .name("testtable")
  *             .cassandraKeyspaceId(exampleCassandraKeyspace.id())
  *             .schema(CassandraTableSchemaArgs.builder()

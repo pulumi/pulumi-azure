@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()
  *             .name("example-apim")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *             .skuName("Consumption_0")
  *             .build());
  * 
- *         var exampleCache = new Cache("exampleCache", CacheArgs.builder()        
+ *         var exampleCache = new Cache("exampleCache", CacheArgs.builder()
  *             .name("example-cache")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  *             .redisConfiguration()
  *             .build());
  * 
- *         var exampleRedisCache = new RedisCache("exampleRedisCache", RedisCacheArgs.builder()        
+ *         var exampleRedisCache = new RedisCache("exampleRedisCache", RedisCacheArgs.builder()
  *             .name("example-Redis-Cache")
  *             .apiManagementId(exampleService.id())
  *             .connectionString(exampleCache.primaryConnectionString())

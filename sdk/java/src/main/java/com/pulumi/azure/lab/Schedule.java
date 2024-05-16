@@ -52,12 +52,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleLab = new Lab("exampleLab", LabArgs.builder()        
+ *         var exampleLab = new Lab("exampleLab", LabArgs.builder()
  *             .name("example-lab")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleSchedule = new Schedule("exampleSchedule", ScheduleArgs.builder()        
+ *         var exampleSchedule = new Schedule("exampleSchedule", ScheduleArgs.builder()
  *             .name("example-labschedule")
  *             .labId(exampleLab.id())
  *             .stopTime("2022-11-28T00:00:00Z")

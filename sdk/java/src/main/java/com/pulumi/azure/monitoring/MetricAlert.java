@@ -59,12 +59,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var toMonitor = new Account("toMonitor", AccountArgs.builder()        
+ *         var toMonitor = new Account("toMonitor", AccountArgs.builder()
  *             .name("examplestorageaccount")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var main = new ActionGroup("main", ActionGroupArgs.builder()        
+ *         var main = new ActionGroup("main", ActionGroupArgs.builder()
  *             .name("example-actiongroup")
  *             .resourceGroupName(example.name())
  *             .shortName("exampleact")
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleMetricAlert = new MetricAlert("exampleMetricAlert", MetricAlertArgs.builder()        
+ *         var exampleMetricAlert = new MetricAlert("exampleMetricAlert", MetricAlertArgs.builder()
  *             .name("example-metricalert")
  *             .resourceGroupName(example.name())
  *             .scopes(toMonitor.id())
