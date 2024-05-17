@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName("existing-resources")
  *             .build());
  * 
- *         var example = new SharedImageVersion("example", SharedImageVersionArgs.builder()        
+ *         var example = new SharedImageVersion("example", SharedImageVersionArgs.builder()
  *             .name("0.0.1")
  *             .galleryName(existingGetSharedImage.applyValue(getSharedImageResult -> getSharedImageResult.galleryName()))
  *             .imageName(existingGetSharedImage.applyValue(getSharedImageResult -> getSharedImageResult.name()))

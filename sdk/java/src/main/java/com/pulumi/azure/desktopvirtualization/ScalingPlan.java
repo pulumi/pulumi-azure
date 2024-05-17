@@ -68,12 +68,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleRandomUuid = new RandomUuid("exampleRandomUuid");
  * 
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleRoleDefinition = new RoleDefinition("exampleRoleDefinition", RoleDefinitionArgs.builder()        
+ *         var exampleRoleDefinition = new RoleDefinition("exampleRoleDefinition", RoleDefinitionArgs.builder()
  *             .name("AVD-AutoScale")
  *             .scope(exampleResourceGroup.id())
  *             .description("AVD AutoScale Role")
@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  *             .displayName("Windows Virtual Desktop")
  *             .build());
  * 
- *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()        
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
  *             .name(exampleRandomUuid.result())
  *             .scope(exampleResourceGroup.id())
  *             .roleDefinitionId(exampleRoleDefinition.roleDefinitionResourceId())
@@ -110,7 +110,7 @@ import javax.annotation.Nullable;
  *             .skipServicePrincipalAadCheck(true)
  *             .build());
  * 
- *         var exampleHostPool = new HostPool("exampleHostPool", HostPoolArgs.builder()        
+ *         var exampleHostPool = new HostPool("exampleHostPool", HostPoolArgs.builder()
  *             .name("example-hostpool")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
@@ -119,7 +119,7 @@ import javax.annotation.Nullable;
  *             .loadBalancerType("BreadthFirst")
  *             .build());
  * 
- *         var exampleScalingPlan = new ScalingPlan("exampleScalingPlan", ScalingPlanArgs.builder()        
+ *         var exampleScalingPlan = new ScalingPlan("exampleScalingPlan", ScalingPlanArgs.builder()
  *             .name("example-scaling-plan")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())

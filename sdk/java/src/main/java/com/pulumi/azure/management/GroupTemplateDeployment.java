@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *             .name("00000000-0000-0000-0000-000000000000")
  *             .build());
  * 
- *         var exampleGroupTemplateDeployment = new GroupTemplateDeployment("exampleGroupTemplateDeployment", GroupTemplateDeploymentArgs.builder()        
+ *         var exampleGroupTemplateDeployment = new GroupTemplateDeployment("exampleGroupTemplateDeployment", GroupTemplateDeploymentArgs.builder()
  *             .name("example")
  *             .location("West Europe")
  *             .managementGroupId(example.applyValue(getGroupResult -> getGroupResult.id()))
@@ -137,7 +137,7 @@ import javax.annotation.Nullable;
  *             .name("00000000-0000-0000-0000-000000000000")
  *             .build());
  * 
- *         var exampleGroupTemplateDeployment = new GroupTemplateDeployment("exampleGroupTemplateDeployment", GroupTemplateDeploymentArgs.builder()        
+ *         var exampleGroupTemplateDeployment = new GroupTemplateDeployment("exampleGroupTemplateDeployment", GroupTemplateDeploymentArgs.builder()
  *             .name("example")
  *             .location("West Europe")
  *             .managementGroupId(example.applyValue(getGroupResult -> getGroupResult.id()))
@@ -192,7 +192,7 @@ import javax.annotation.Nullable;
  *             .version("v1.0.9")
  *             .build());
  * 
- *         var exampleGroupTemplateDeployment = new GroupTemplateDeployment("exampleGroupTemplateDeployment", GroupTemplateDeploymentArgs.builder()        
+ *         var exampleGroupTemplateDeployment = new GroupTemplateDeployment("exampleGroupTemplateDeployment", GroupTemplateDeploymentArgs.builder()
  *             .name("example")
  *             .location("West Europe")
  *             .managementGroupId(example.applyValue(getGroupResult -> getGroupResult.id()))

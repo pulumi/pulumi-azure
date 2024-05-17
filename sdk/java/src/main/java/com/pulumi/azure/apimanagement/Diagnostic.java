@@ -61,19 +61,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()        
+ *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()
  *             .name("example-appinsights")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .applicationType("web")
  *             .build());
  * 
- *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()
  *             .name("example-apim")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  *             .skuName("Developer_1")
  *             .build());
  * 
- *         var exampleLogger = new Logger("exampleLogger", LoggerArgs.builder()        
+ *         var exampleLogger = new Logger("exampleLogger", LoggerArgs.builder()
  *             .name("example-apimlogger")
  *             .apiManagementName(exampleService.name())
  *             .resourceGroupName(example.name())
@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleDiagnostic = new Diagnostic("exampleDiagnostic", DiagnosticArgs.builder()        
+ *         var exampleDiagnostic = new Diagnostic("exampleDiagnostic", DiagnosticArgs.builder()
  *             .identifier("applicationinsights")
  *             .resourceGroupName(example.name())
  *             .apiManagementName(exampleService.name())

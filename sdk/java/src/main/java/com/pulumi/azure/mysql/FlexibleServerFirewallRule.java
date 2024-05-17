@@ -47,18 +47,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("api-rg-pro")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFlexibleServer = new FlexibleServer("exampleFlexibleServer", FlexibleServerArgs.builder()        
+ *         var exampleFlexibleServer = new FlexibleServer("exampleFlexibleServer", FlexibleServerArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleFlexibleServerFirewallRule = new FlexibleServerFirewallRule("exampleFlexibleServerFirewallRule", FlexibleServerFirewallRuleArgs.builder()        
+ *         var exampleFlexibleServerFirewallRule = new FlexibleServerFirewallRule("exampleFlexibleServerFirewallRule", FlexibleServerFirewallRuleArgs.builder()
  *             .name("office")
  *             .resourceGroupName(example.name())
  *             .serverName(exampleFlexibleServer.name())
@@ -101,18 +101,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("api-rg-pro")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFlexibleServer = new FlexibleServer("exampleFlexibleServer", FlexibleServerArgs.builder()        
+ *         var exampleFlexibleServer = new FlexibleServer("exampleFlexibleServer", FlexibleServerArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleFlexibleServerFirewallRule = new FlexibleServerFirewallRule("exampleFlexibleServerFirewallRule", FlexibleServerFirewallRuleArgs.builder()        
+ *         var exampleFlexibleServerFirewallRule = new FlexibleServerFirewallRule("exampleFlexibleServerFirewallRule", FlexibleServerFirewallRuleArgs.builder()
  *             .name("office")
  *             .resourceGroupName(example.name())
  *             .serverName(exampleFlexibleServer.name())
@@ -155,18 +155,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("api-rg-pro")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFlexibleServer = new FlexibleServer("exampleFlexibleServer", FlexibleServerArgs.builder()        
+ *         var exampleFlexibleServer = new FlexibleServer("exampleFlexibleServer", FlexibleServerArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleFlexibleServerFirewallRule = new FlexibleServerFirewallRule("exampleFlexibleServerFirewallRule", FlexibleServerFirewallRuleArgs.builder()        
+ *         var exampleFlexibleServerFirewallRule = new FlexibleServerFirewallRule("exampleFlexibleServerFirewallRule", FlexibleServerFirewallRuleArgs.builder()
  *             .name("office")
  *             .resourceGroupName(example.name())
  *             .serverName(exampleFlexibleServer.name())

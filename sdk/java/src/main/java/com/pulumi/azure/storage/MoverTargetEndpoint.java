@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("examplestr")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -64,19 +64,19 @@ import javax.annotation.Nullable;
  *             .allowNestedItemsToBePublic(true)
  *             .build());
  * 
- *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()        
+ *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()
  *             .name("example-sc")
  *             .storageAccountName(exampleAccount.name())
  *             .containerAccessType("blob")
  *             .build());
  * 
- *         var exampleMover = new Mover("exampleMover", MoverArgs.builder()        
+ *         var exampleMover = new Mover("exampleMover", MoverArgs.builder()
  *             .name("example-ssm")
  *             .resourceGroupName(example.name())
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleMoverTargetEndpoint = new MoverTargetEndpoint("exampleMoverTargetEndpoint", MoverTargetEndpointArgs.builder()        
+ *         var exampleMoverTargetEndpoint = new MoverTargetEndpoint("exampleMoverTargetEndpoint", MoverTargetEndpointArgs.builder()
  *             .name("example-se")
  *             .storageMoverId(exampleMover.id())
  *             .storageAccountId(exampleAccount.id())

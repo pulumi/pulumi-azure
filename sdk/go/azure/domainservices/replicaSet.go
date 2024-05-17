@@ -28,300 +28,302 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// primary, err := core.NewResourceGroup(ctx, "primary", &core.ResourceGroupArgs{
-// Name: pulumi.String("aadds-primary-rg"),
-// Location: pulumi.String("West Europe"),
-// })
-// if err != nil {
-// return err
-// }
-// primaryVirtualNetwork, err := network.NewVirtualNetwork(ctx, "primary", &network.VirtualNetworkArgs{
-// Name: pulumi.String("aadds-primary-vnet"),
-// Location: primary.Location,
-// ResourceGroupName: primary.Name,
-// AddressSpaces: pulumi.StringArray{
-// pulumi.String("10.0.1.0/16"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// primarySubnet, err := network.NewSubnet(ctx, "primary", &network.SubnetArgs{
-// Name: pulumi.String("aadds-primary-subnet"),
-// ResourceGroupName: primary.Name,
-// VirtualNetworkName: primaryVirtualNetwork.Name,
-// AddressPrefixes: pulumi.StringArray{
-// pulumi.String("10.0.1.0/24"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// primaryNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "primary", &network.NetworkSecurityGroupArgs{
-// Name: pulumi.String("aadds-primary-nsg"),
-// Location: primary.Location,
-// ResourceGroupName: primary.Name,
-// SecurityRules: network.NetworkSecurityGroupSecurityRuleArray{
-// &network.NetworkSecurityGroupSecurityRuleArgs{
-// Name: pulumi.String("AllowSyncWithAzureAD"),
-// Priority: pulumi.Int(101),
-// Direction: pulumi.String("Inbound"),
-// Access: pulumi.String("Allow"),
-// Protocol: pulumi.String("Tcp"),
-// SourcePortRange: pulumi.String("*"),
-// DestinationPortRange: pulumi.String("443"),
-// SourceAddressPrefix: pulumi.String("AzureActiveDirectoryDomainServices"),
-// DestinationAddressPrefix: pulumi.String("*"),
-// },
-// &network.NetworkSecurityGroupSecurityRuleArgs{
-// Name: pulumi.String("AllowRD"),
-// Priority: pulumi.Int(201),
-// Direction: pulumi.String("Inbound"),
-// Access: pulumi.String("Allow"),
-// Protocol: pulumi.String("Tcp"),
-// SourcePortRange: pulumi.String("*"),
-// DestinationPortRange: pulumi.String("3389"),
-// SourceAddressPrefix: pulumi.String("CorpNetSaw"),
-// DestinationAddressPrefix: pulumi.String("*"),
-// },
-// &network.NetworkSecurityGroupSecurityRuleArgs{
-// Name: pulumi.String("AllowPSRemoting"),
-// Priority: pulumi.Int(301),
-// Direction: pulumi.String("Inbound"),
-// Access: pulumi.String("Allow"),
-// Protocol: pulumi.String("Tcp"),
-// SourcePortRange: pulumi.String("*"),
-// DestinationPortRange: pulumi.String("5986"),
-// SourceAddressPrefix: pulumi.String("AzureActiveDirectoryDomainServices"),
-// DestinationAddressPrefix: pulumi.String("*"),
-// },
-// &network.NetworkSecurityGroupSecurityRuleArgs{
-// Name: pulumi.String("AllowLDAPS"),
-// Priority: pulumi.Int(401),
-// Direction: pulumi.String("Inbound"),
-// Access: pulumi.String("Allow"),
-// Protocol: pulumi.String("Tcp"),
-// SourcePortRange: pulumi.String("*"),
-// DestinationPortRange: pulumi.String("636"),
-// SourceAddressPrefix: pulumi.String("*"),
-// DestinationAddressPrefix: pulumi.String("*"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// _, err = network.NewSubnetNetworkSecurityGroupAssociation(ctx, "primary", &network.SubnetNetworkSecurityGroupAssociationArgs{
-// SubnetId: primarySubnet.ID(),
-// NetworkSecurityGroupId: primaryNetworkSecurityGroup.ID(),
-// })
-// if err != nil {
-// return err
-// }
-// dcAdmins, err := azuread.NewGroup(ctx, "dc_admins", &azuread.GroupArgs{
-// DisplayName: pulumi.String("aad-dc-administrators"),
-// SecurityEnabled: pulumi.Bool(true),
-// })
-// if err != nil {
-// return err
-// }
-// admin, err := azuread.NewUser(ctx, "admin", &azuread.UserArgs{
-// UserPrincipalName: pulumi.String("dc-admin@hashicorp-example.net"),
-// DisplayName: pulumi.String("DC Administrator"),
-// Password: pulumi.String("Pa55w0Rd!!1"),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = azuread.NewGroupMember(ctx, "admin", &azuread.GroupMemberArgs{
-// GroupObjectId: dcAdmins.ObjectId,
-// MemberObjectId: admin.ObjectId,
-// })
-// if err != nil {
-// return err
-// }
-// _, err = azuread.NewServicePrincipal(ctx, "example", &azuread.ServicePrincipalArgs{
-// ApplicationId: pulumi.String("2565bd9d-da50-47d4-8b85-4c97f669dc36"),
-// })
-// if err != nil {
-// return err
-// }
-// aadds, err := core.NewResourceGroup(ctx, "aadds", &core.ResourceGroupArgs{
-// Name: pulumi.String("aadds-rg"),
-// Location: pulumi.String("westeurope"),
-// })
-// if err != nil {
-// return err
-// }
-// exampleService, err := domainservices.NewService(ctx, "example", &domainservices.ServiceArgs{
-// Name: pulumi.String("example-aadds"),
-// Location: aadds.Location,
-// ResourceGroupName: aadds.Name,
-// DomainName: pulumi.String("widgetslogin.net"),
-// Sku: pulumi.String("Enterprise"),
-// FilteredSyncEnabled: pulumi.Bool(false),
-// InitialReplicaSet: &domainservices.ServiceInitialReplicaSetArgs{
-// Location: primaryVirtualNetwork.Location,
-// SubnetId: primarySubnet.ID(),
-// },
-// Notifications: &domainservices.ServiceNotificationsArgs{
-// AdditionalRecipients: pulumi.StringArray{
-// pulumi.String("notifyA@example.net"),
-// pulumi.String("notifyB@example.org"),
-// },
-// NotifyDcAdmins: pulumi.Bool(true),
-// NotifyGlobalAdmins: pulumi.Bool(true),
-// },
-// Security: &domainservices.ServiceSecurityArgs{
-// SyncKerberosPasswords: pulumi.Bool(true),
-// SyncNtlmPasswords: pulumi.Bool(true),
-// SyncOnPremPasswords: pulumi.Bool(true),
-// },
-// Tags: pulumi.StringMap{
-// "Environment": pulumi.String("prod"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// replica, err := core.NewResourceGroup(ctx, "replica", &core.ResourceGroupArgs{
-// Name: pulumi.String("aadds-replica-rg"),
-// Location: pulumi.String("North Europe"),
-// })
-// if err != nil {
-// return err
-// }
-// replicaVirtualNetwork, err := network.NewVirtualNetwork(ctx, "replica", &network.VirtualNetworkArgs{
-// Name: pulumi.String("aadds-replica-vnet"),
-// Location: replica.Location,
-// ResourceGroupName: replica.Name,
-// AddressSpaces: pulumi.StringArray{
-// pulumi.String("10.20.0.0/16"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// aaddsReplica, err := network.NewSubnet(ctx, "aadds_replica", &network.SubnetArgs{
-// Name: pulumi.String("aadds-replica-subnet"),
-// ResourceGroupName: replica.Name,
-// VirtualNetworkName: replicaVirtualNetwork.Name,
-// AddressPrefixes: pulumi.StringArray{
-// pulumi.String("10.20.0.0/24"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// aaddsReplicaNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "aadds_replica", &network.NetworkSecurityGroupArgs{
-// Name: pulumi.String("aadds-replica-nsg"),
-// Location: replica.Location,
-// ResourceGroupName: replica.Name,
-// SecurityRules: network.NetworkSecurityGroupSecurityRuleArray{
-// &network.NetworkSecurityGroupSecurityRuleArgs{
-// Name: pulumi.String("AllowSyncWithAzureAD"),
-// Priority: pulumi.Int(101),
-// Direction: pulumi.String("Inbound"),
-// Access: pulumi.String("Allow"),
-// Protocol: pulumi.String("Tcp"),
-// SourcePortRange: pulumi.String("*"),
-// DestinationPortRange: pulumi.String("443"),
-// SourceAddressPrefix: pulumi.String("AzureActiveDirectoryDomainServices"),
-// DestinationAddressPrefix: pulumi.String("*"),
-// },
-// &network.NetworkSecurityGroupSecurityRuleArgs{
-// Name: pulumi.String("AllowRD"),
-// Priority: pulumi.Int(201),
-// Direction: pulumi.String("Inbound"),
-// Access: pulumi.String("Allow"),
-// Protocol: pulumi.String("Tcp"),
-// SourcePortRange: pulumi.String("*"),
-// DestinationPortRange: pulumi.String("3389"),
-// SourceAddressPrefix: pulumi.String("CorpNetSaw"),
-// DestinationAddressPrefix: pulumi.String("*"),
-// },
-// &network.NetworkSecurityGroupSecurityRuleArgs{
-// Name: pulumi.String("AllowPSRemoting"),
-// Priority: pulumi.Int(301),
-// Direction: pulumi.String("Inbound"),
-// Access: pulumi.String("Allow"),
-// Protocol: pulumi.String("Tcp"),
-// SourcePortRange: pulumi.String("*"),
-// DestinationPortRange: pulumi.String("5986"),
-// SourceAddressPrefix: pulumi.String("AzureActiveDirectoryDomainServices"),
-// DestinationAddressPrefix: pulumi.String("*"),
-// },
-// &network.NetworkSecurityGroupSecurityRuleArgs{
-// Name: pulumi.String("AllowLDAPS"),
-// Priority: pulumi.Int(401),
-// Direction: pulumi.String("Inbound"),
-// Access: pulumi.String("Allow"),
-// Protocol: pulumi.String("Tcp"),
-// SourcePortRange: pulumi.String("*"),
-// DestinationPortRange: pulumi.String("636"),
-// SourceAddressPrefix: pulumi.String("*"),
-// DestinationAddressPrefix: pulumi.String("*"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// _, err = network.NewSubnetNetworkSecurityGroupAssociation(ctx, "replica", &network.SubnetNetworkSecurityGroupAssociationArgs{
-// SubnetId: aaddsReplica.ID(),
-// NetworkSecurityGroupId: aaddsReplicaNetworkSecurityGroup.ID(),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = network.NewVirtualNetworkPeering(ctx, "primary_replica", &network.VirtualNetworkPeeringArgs{
-// Name: pulumi.String("aadds-primary-replica"),
-// ResourceGroupName: primaryVirtualNetwork.ResourceGroupName,
-// VirtualNetworkName: primaryVirtualNetwork.Name,
-// RemoteVirtualNetworkId: replicaVirtualNetwork.ID(),
-// AllowForwardedTraffic: pulumi.Bool(true),
-// AllowGatewayTransit: pulumi.Bool(false),
-// AllowVirtualNetworkAccess: pulumi.Bool(true),
-// UseRemoteGateways: pulumi.Bool(false),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = network.NewVirtualNetworkPeering(ctx, "replica_primary", &network.VirtualNetworkPeeringArgs{
-// Name: pulumi.String("aadds-replica-primary"),
-// ResourceGroupName: replicaVirtualNetwork.ResourceGroupName,
-// VirtualNetworkName: replicaVirtualNetwork.Name,
-// RemoteVirtualNetworkId: primaryVirtualNetwork.ID(),
-// AllowForwardedTraffic: pulumi.Bool(true),
-// AllowGatewayTransit: pulumi.Bool(false),
-// AllowVirtualNetworkAccess: pulumi.Bool(true),
-// UseRemoteGateways: pulumi.Bool(false),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = network.NewVirtualNetworkDnsServers(ctx, "replica", &network.VirtualNetworkDnsServersArgs{
-// VirtualNetworkId: replicaVirtualNetwork.ID(),
-// DnsServers: exampleService.InitialReplicaSet.ApplyT(func(initialReplicaSet domainservices.ServiceInitialReplicaSet) (interface{}, error) {
-// return initialReplicaSet.DomainControllerIpAddresses, nil
-// }).(pulumi.Interface{}Output),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = domainservices.NewReplicaSet(ctx, "replica", &domainservices.ReplicaSetArgs{
-// DomainServiceId: exampleService.ID(),
-// Location: replica.Location,
-// SubnetId: aaddsReplica.ID(),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			primary, err := core.NewResourceGroup(ctx, "primary", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("aadds-primary-rg"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			primaryVirtualNetwork, err := network.NewVirtualNetwork(ctx, "primary", &network.VirtualNetworkArgs{
+//				Name:              pulumi.String("aadds-primary-vnet"),
+//				Location:          primary.Location,
+//				ResourceGroupName: primary.Name,
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.1.0/16"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			primarySubnet, err := network.NewSubnet(ctx, "primary", &network.SubnetArgs{
+//				Name:               pulumi.String("aadds-primary-subnet"),
+//				ResourceGroupName:  primary.Name,
+//				VirtualNetworkName: primaryVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.1.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			primaryNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "primary", &network.NetworkSecurityGroupArgs{
+//				Name:              pulumi.String("aadds-primary-nsg"),
+//				Location:          primary.Location,
+//				ResourceGroupName: primary.Name,
+//				SecurityRules: network.NetworkSecurityGroupSecurityRuleArray{
+//					&network.NetworkSecurityGroupSecurityRuleArgs{
+//						Name:                     pulumi.String("AllowSyncWithAzureAD"),
+//						Priority:                 pulumi.Int(101),
+//						Direction:                pulumi.String("Inbound"),
+//						Access:                   pulumi.String("Allow"),
+//						Protocol:                 pulumi.String("Tcp"),
+//						SourcePortRange:          pulumi.String("*"),
+//						DestinationPortRange:     pulumi.String("443"),
+//						SourceAddressPrefix:      pulumi.String("AzureActiveDirectoryDomainServices"),
+//						DestinationAddressPrefix: pulumi.String("*"),
+//					},
+//					&network.NetworkSecurityGroupSecurityRuleArgs{
+//						Name:                     pulumi.String("AllowRD"),
+//						Priority:                 pulumi.Int(201),
+//						Direction:                pulumi.String("Inbound"),
+//						Access:                   pulumi.String("Allow"),
+//						Protocol:                 pulumi.String("Tcp"),
+//						SourcePortRange:          pulumi.String("*"),
+//						DestinationPortRange:     pulumi.String("3389"),
+//						SourceAddressPrefix:      pulumi.String("CorpNetSaw"),
+//						DestinationAddressPrefix: pulumi.String("*"),
+//					},
+//					&network.NetworkSecurityGroupSecurityRuleArgs{
+//						Name:                     pulumi.String("AllowPSRemoting"),
+//						Priority:                 pulumi.Int(301),
+//						Direction:                pulumi.String("Inbound"),
+//						Access:                   pulumi.String("Allow"),
+//						Protocol:                 pulumi.String("Tcp"),
+//						SourcePortRange:          pulumi.String("*"),
+//						DestinationPortRange:     pulumi.String("5986"),
+//						SourceAddressPrefix:      pulumi.String("AzureActiveDirectoryDomainServices"),
+//						DestinationAddressPrefix: pulumi.String("*"),
+//					},
+//					&network.NetworkSecurityGroupSecurityRuleArgs{
+//						Name:                     pulumi.String("AllowLDAPS"),
+//						Priority:                 pulumi.Int(401),
+//						Direction:                pulumi.String("Inbound"),
+//						Access:                   pulumi.String("Allow"),
+//						Protocol:                 pulumi.String("Tcp"),
+//						SourcePortRange:          pulumi.String("*"),
+//						DestinationPortRange:     pulumi.String("636"),
+//						SourceAddressPrefix:      pulumi.String("*"),
+//						DestinationAddressPrefix: pulumi.String("*"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewSubnetNetworkSecurityGroupAssociation(ctx, "primary", &network.SubnetNetworkSecurityGroupAssociationArgs{
+//				SubnetId:               primarySubnet.ID(),
+//				NetworkSecurityGroupId: primaryNetworkSecurityGroup.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			dcAdmins, err := azuread.NewGroup(ctx, "dc_admins", &azuread.GroupArgs{
+//				DisplayName:     pulumi.String("aad-dc-administrators"),
+//				SecurityEnabled: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			admin, err := azuread.NewUser(ctx, "admin", &azuread.UserArgs{
+//				UserPrincipalName: pulumi.String("dc-admin@hashicorp-example.net"),
+//				DisplayName:       pulumi.String("DC Administrator"),
+//				Password:          pulumi.String("Pa55w0Rd!!1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuread.NewGroupMember(ctx, "admin", &azuread.GroupMemberArgs{
+//				GroupObjectId:  dcAdmins.ObjectId,
+//				MemberObjectId: admin.ObjectId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuread.NewServicePrincipal(ctx, "example", &azuread.ServicePrincipalArgs{
+//				ApplicationId: pulumi.String("2565bd9d-da50-47d4-8b85-4c97f669dc36"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			aadds, err := core.NewResourceGroup(ctx, "aadds", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("aadds-rg"),
+//				Location: pulumi.String("westeurope"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleService, err := domainservices.NewService(ctx, "example", &domainservices.ServiceArgs{
+//				Name:                pulumi.String("example-aadds"),
+//				Location:            aadds.Location,
+//				ResourceGroupName:   aadds.Name,
+//				DomainName:          pulumi.String("widgetslogin.net"),
+//				Sku:                 pulumi.String("Enterprise"),
+//				FilteredSyncEnabled: pulumi.Bool(false),
+//				InitialReplicaSet: &domainservices.ServiceInitialReplicaSetArgs{
+//					Location: primaryVirtualNetwork.Location,
+//					SubnetId: primarySubnet.ID(),
+//				},
+//				Notifications: &domainservices.ServiceNotificationsArgs{
+//					AdditionalRecipients: pulumi.StringArray{
+//						pulumi.String("notifyA@example.net"),
+//						pulumi.String("notifyB@example.org"),
+//					},
+//					NotifyDcAdmins:     pulumi.Bool(true),
+//					NotifyGlobalAdmins: pulumi.Bool(true),
+//				},
+//				Security: &domainservices.ServiceSecurityArgs{
+//					SyncKerberosPasswords: pulumi.Bool(true),
+//					SyncNtlmPasswords:     pulumi.Bool(true),
+//					SyncOnPremPasswords:   pulumi.Bool(true),
+//				},
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("prod"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			replica, err := core.NewResourceGroup(ctx, "replica", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("aadds-replica-rg"),
+//				Location: pulumi.String("North Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			replicaVirtualNetwork, err := network.NewVirtualNetwork(ctx, "replica", &network.VirtualNetworkArgs{
+//				Name:              pulumi.String("aadds-replica-vnet"),
+//				Location:          replica.Location,
+//				ResourceGroupName: replica.Name,
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.20.0.0/16"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			aaddsReplica, err := network.NewSubnet(ctx, "aadds_replica", &network.SubnetArgs{
+//				Name:               pulumi.String("aadds-replica-subnet"),
+//				ResourceGroupName:  replica.Name,
+//				VirtualNetworkName: replicaVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.20.0.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			aaddsReplicaNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "aadds_replica", &network.NetworkSecurityGroupArgs{
+//				Name:              pulumi.String("aadds-replica-nsg"),
+//				Location:          replica.Location,
+//				ResourceGroupName: replica.Name,
+//				SecurityRules: network.NetworkSecurityGroupSecurityRuleArray{
+//					&network.NetworkSecurityGroupSecurityRuleArgs{
+//						Name:                     pulumi.String("AllowSyncWithAzureAD"),
+//						Priority:                 pulumi.Int(101),
+//						Direction:                pulumi.String("Inbound"),
+//						Access:                   pulumi.String("Allow"),
+//						Protocol:                 pulumi.String("Tcp"),
+//						SourcePortRange:          pulumi.String("*"),
+//						DestinationPortRange:     pulumi.String("443"),
+//						SourceAddressPrefix:      pulumi.String("AzureActiveDirectoryDomainServices"),
+//						DestinationAddressPrefix: pulumi.String("*"),
+//					},
+//					&network.NetworkSecurityGroupSecurityRuleArgs{
+//						Name:                     pulumi.String("AllowRD"),
+//						Priority:                 pulumi.Int(201),
+//						Direction:                pulumi.String("Inbound"),
+//						Access:                   pulumi.String("Allow"),
+//						Protocol:                 pulumi.String("Tcp"),
+//						SourcePortRange:          pulumi.String("*"),
+//						DestinationPortRange:     pulumi.String("3389"),
+//						SourceAddressPrefix:      pulumi.String("CorpNetSaw"),
+//						DestinationAddressPrefix: pulumi.String("*"),
+//					},
+//					&network.NetworkSecurityGroupSecurityRuleArgs{
+//						Name:                     pulumi.String("AllowPSRemoting"),
+//						Priority:                 pulumi.Int(301),
+//						Direction:                pulumi.String("Inbound"),
+//						Access:                   pulumi.String("Allow"),
+//						Protocol:                 pulumi.String("Tcp"),
+//						SourcePortRange:          pulumi.String("*"),
+//						DestinationPortRange:     pulumi.String("5986"),
+//						SourceAddressPrefix:      pulumi.String("AzureActiveDirectoryDomainServices"),
+//						DestinationAddressPrefix: pulumi.String("*"),
+//					},
+//					&network.NetworkSecurityGroupSecurityRuleArgs{
+//						Name:                     pulumi.String("AllowLDAPS"),
+//						Priority:                 pulumi.Int(401),
+//						Direction:                pulumi.String("Inbound"),
+//						Access:                   pulumi.String("Allow"),
+//						Protocol:                 pulumi.String("Tcp"),
+//						SourcePortRange:          pulumi.String("*"),
+//						DestinationPortRange:     pulumi.String("636"),
+//						SourceAddressPrefix:      pulumi.String("*"),
+//						DestinationAddressPrefix: pulumi.String("*"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewSubnetNetworkSecurityGroupAssociation(ctx, "replica", &network.SubnetNetworkSecurityGroupAssociationArgs{
+//				SubnetId:               aaddsReplica.ID(),
+//				NetworkSecurityGroupId: aaddsReplicaNetworkSecurityGroup.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewVirtualNetworkPeering(ctx, "primary_replica", &network.VirtualNetworkPeeringArgs{
+//				Name:                      pulumi.String("aadds-primary-replica"),
+//				ResourceGroupName:         primaryVirtualNetwork.ResourceGroupName,
+//				VirtualNetworkName:        primaryVirtualNetwork.Name,
+//				RemoteVirtualNetworkId:    replicaVirtualNetwork.ID(),
+//				AllowForwardedTraffic:     pulumi.Bool(true),
+//				AllowGatewayTransit:       pulumi.Bool(false),
+//				AllowVirtualNetworkAccess: pulumi.Bool(true),
+//				UseRemoteGateways:         pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewVirtualNetworkPeering(ctx, "replica_primary", &network.VirtualNetworkPeeringArgs{
+//				Name:                      pulumi.String("aadds-replica-primary"),
+//				ResourceGroupName:         replicaVirtualNetwork.ResourceGroupName,
+//				VirtualNetworkName:        replicaVirtualNetwork.Name,
+//				RemoteVirtualNetworkId:    primaryVirtualNetwork.ID(),
+//				AllowForwardedTraffic:     pulumi.Bool(true),
+//				AllowGatewayTransit:       pulumi.Bool(false),
+//				AllowVirtualNetworkAccess: pulumi.Bool(true),
+//				UseRemoteGateways:         pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewVirtualNetworkDnsServers(ctx, "replica", &network.VirtualNetworkDnsServersArgs{
+//				VirtualNetworkId: replicaVirtualNetwork.ID(),
+//				DnsServers: exampleService.InitialReplicaSet.ApplyT(func(initialReplicaSet domainservices.ServiceInitialReplicaSet) (interface{}, error) {
+//					return initialReplicaSet.DomainControllerIpAddresses, nil
+//				}).(pulumi.InterfaceOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = domainservices.NewReplicaSet(ctx, "replica", &domainservices.ReplicaSetArgs{
+//				DomainServiceId: exampleService.ID(),
+//				Location:        replica.Location,
+//				SubnetId:        aaddsReplica.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import

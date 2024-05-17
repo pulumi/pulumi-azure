@@ -50,23 +50,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-cdn-frontdoor")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()        
+ *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()
  *             .name("sub-domain.domain.com")
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleFrontdoorProfile = new FrontdoorProfile("exampleFrontdoorProfile", FrontdoorProfileArgs.builder()        
+ *         var exampleFrontdoorProfile = new FrontdoorProfile("exampleFrontdoorProfile", FrontdoorProfileArgs.builder()
  *             .name("example-profile")
  *             .resourceGroupName(example.name())
  *             .skuName("Standard_AzureFrontDoor")
  *             .build());
  * 
- *         var exampleFrontdoorCustomDomain = new FrontdoorCustomDomain("exampleFrontdoorCustomDomain", FrontdoorCustomDomainArgs.builder()        
+ *         var exampleFrontdoorCustomDomain = new FrontdoorCustomDomain("exampleFrontdoorCustomDomain", FrontdoorCustomDomainArgs.builder()
  *             .name("example-customDomain")
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .dnsZoneId(exampleZone.id())
@@ -111,7 +111,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TxtRecord("example", TxtRecordArgs.builder()        
+ *         var example = new TxtRecord("example", TxtRecordArgs.builder()
  *             .name(StdFunctions.join(JoinArgs.builder()
  *                 .separator(".")
  *                 .input(                
@@ -159,7 +159,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CNameRecord("example", CNameRecordArgs.builder()        
+ *         var example = new CNameRecord("example", CNameRecordArgs.builder()
  *             .name("contoso")
  *             .zoneName(exampleAzurermDnsZone.name())
  *             .resourceGroupName(exampleAzurermResourceGroup.name())

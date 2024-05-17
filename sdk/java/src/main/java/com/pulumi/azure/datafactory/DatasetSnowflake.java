@@ -51,24 +51,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleLinkedServiceSnowflake = new LinkedServiceSnowflake("exampleLinkedServiceSnowflake", LinkedServiceSnowflakeArgs.builder()        
+ *         var exampleLinkedServiceSnowflake = new LinkedServiceSnowflake("exampleLinkedServiceSnowflake", LinkedServiceSnowflakeArgs.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .connectionString("jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh")
  *             .build());
  * 
- *         var exampleDatasetSnowflake = new DatasetSnowflake("exampleDatasetSnowflake", DatasetSnowflakeArgs.builder()        
+ *         var exampleDatasetSnowflake = new DatasetSnowflake("exampleDatasetSnowflake", DatasetSnowflakeArgs.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .linkedServiceName(exampleLinkedServiceSnowflake.name())

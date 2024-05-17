@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var primary = CoreFunctions.getSubscription();
  * 
- *         var example = new RoleDefinition("example", RoleDefinitionArgs.builder()        
+ *         var example = new RoleDefinition("example", RoleDefinitionArgs.builder()
  *             .name("my-custom-role")
  *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *             .description("This is a custom role created")

@@ -85,7 +85,7 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new AAAARecord("example", AAAARecordArgs.builder()        
+     *         var example = new AAAARecord("example", AAAARecordArgs.builder()
      *             .name("test")
      *             .zoneName("test-zone")
      *             .resourceGroupName("test-rg")
@@ -128,7 +128,7 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new AAAARecord("example", AAAARecordArgs.builder()        
+     *         var example = new AAAARecord("example", AAAARecordArgs.builder()
      *             .name("test")
      *             .zoneName("test-zone")
      *             .resourceGroupName("test-rg")
@@ -171,7 +171,7 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new AAAARecord("example", AAAARecordArgs.builder()        
+     *         var example = new AAAARecord("example", AAAARecordArgs.builder()
      *             .name("test")
      *             .zoneName("test-zone")
      *             .resourceGroupName("test-rg")
@@ -214,7 +214,7 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new AAAARecord("example", AAAARecordArgs.builder()        
+     *         var example = new AAAARecord("example", AAAARecordArgs.builder()
      *             .name("test")
      *             .zoneName("test-zone")
      *             .resourceGroupName("test-rg")
@@ -429,7 +429,7 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new CnameRecord("example", CnameRecordArgs.builder()        
+     *         var example = new CnameRecord("example", CnameRecordArgs.builder()
      *             .name("test")
      *             .zoneName("test-zone")
      *             .resourceGroupName("test-rg")
@@ -472,7 +472,7 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new CnameRecord("example", CnameRecordArgs.builder()        
+     *         var example = new CnameRecord("example", CnameRecordArgs.builder()
      *             .name("test")
      *             .zoneName("test-zone")
      *             .resourceGroupName("test-rg")
@@ -515,7 +515,7 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new CnameRecord("example", CnameRecordArgs.builder()        
+     *         var example = new CnameRecord("example", CnameRecordArgs.builder()
      *             .name("test")
      *             .zoneName("test-zone")
      *             .resourceGroupName("test-rg")
@@ -558,7 +558,7 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new CnameRecord("example", CnameRecordArgs.builder()        
+     *         var example = new CnameRecord("example", CnameRecordArgs.builder()
      *             .name("test")
      *             .zoneName("test-zone")
      *             .resourceGroupName("test-rg")
@@ -777,7 +777,7 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new MxRecord("example", MxRecordArgs.builder()        
+     *         var example = new MxRecord("example", MxRecordArgs.builder()
      *             .name("test")
      *             .zoneName("test-zone")
      *             .resourceGroupName("test-rg")
@@ -820,7 +820,7 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new MxRecord("example", MxRecordArgs.builder()        
+     *         var example = new MxRecord("example", MxRecordArgs.builder()
      *             .name("test")
      *             .zoneName("test-zone")
      *             .resourceGroupName("test-rg")
@@ -863,7 +863,7 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new MxRecord("example", MxRecordArgs.builder()        
+     *         var example = new MxRecord("example", MxRecordArgs.builder()
      *             .name("test")
      *             .zoneName("test-zone")
      *             .resourceGroupName("test-rg")
@@ -906,7 +906,7 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new MxRecord("example", MxRecordArgs.builder()        
+     *         var example = new MxRecord("example", MxRecordArgs.builder()
      *             .name("test")
      *             .zoneName("test-zone")
      *             .resourceGroupName("test-rg")
@@ -949,7 +949,7 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new PTRRecord("example", PTRRecordArgs.builder()        
+     *         var example = new PTRRecord("example", PTRRecordArgs.builder()
      *             .name("test")
      *             .zoneName("test-zone")
      *             .resourceGroupName("test-rg")
@@ -992,7 +992,7 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new PTRRecord("example", PTRRecordArgs.builder()        
+     *         var example = new PTRRecord("example", PTRRecordArgs.builder()
      *             .name("test")
      *             .zoneName("test-zone")
      *             .resourceGroupName("test-rg")
@@ -1035,7 +1035,7 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new PTRRecord("example", PTRRecordArgs.builder()        
+     *         var example = new PTRRecord("example", PTRRecordArgs.builder()
      *             .name("test")
      *             .zoneName("test-zone")
      *             .resourceGroupName("test-rg")
@@ -1078,7 +1078,7 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new PTRRecord("example", PTRRecordArgs.builder()        
+     *         var example = new PTRRecord("example", PTRRecordArgs.builder()
      *             .name("test")
      *             .zoneName("test-zone")
      *             .resourceGroupName("test-rg")
@@ -2153,7 +2153,7 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new PrivateDnsSoaRecord("example", PrivateDnsSoaRecordArgs.builder()        
+     *         var example = new PrivateDnsSoaRecord("example", PrivateDnsSoaRecordArgs.builder()
      *             .zoneName("test-zone")
      *             .resourceGroupName("test-rg")
      *             .build());
@@ -2195,7 +2195,7 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new PrivateDnsSoaRecord("example", PrivateDnsSoaRecordArgs.builder()        
+     *         var example = new PrivateDnsSoaRecord("example", PrivateDnsSoaRecordArgs.builder()
      *             .zoneName("test-zone")
      *             .resourceGroupName("test-rg")
      *             .build());
@@ -2237,7 +2237,7 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new PrivateDnsSoaRecord("example", PrivateDnsSoaRecordArgs.builder()        
+     *         var example = new PrivateDnsSoaRecord("example", PrivateDnsSoaRecordArgs.builder()
      *             .zoneName("test-zone")
      *             .resourceGroupName("test-rg")
      *             .build());
@@ -2279,7 +2279,7 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new PrivateDnsSoaRecord("example", PrivateDnsSoaRecordArgs.builder()        
+     *         var example = new PrivateDnsSoaRecord("example", PrivateDnsSoaRecordArgs.builder()
      *             .zoneName("test-zone")
      *             .resourceGroupName("test-rg")
      *             .build());
@@ -2321,7 +2321,7 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new SRVRecord("example", SRVRecordArgs.builder()        
+     *         var example = new SRVRecord("example", SRVRecordArgs.builder()
      *             .name("test")
      *             .zoneName("test-zone")
      *             .resourceGroupName("test-rg")
@@ -2364,7 +2364,7 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new SRVRecord("example", SRVRecordArgs.builder()        
+     *         var example = new SRVRecord("example", SRVRecordArgs.builder()
      *             .name("test")
      *             .zoneName("test-zone")
      *             .resourceGroupName("test-rg")
@@ -2407,7 +2407,7 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new SRVRecord("example", SRVRecordArgs.builder()        
+     *         var example = new SRVRecord("example", SRVRecordArgs.builder()
      *             .name("test")
      *             .zoneName("test-zone")
      *             .resourceGroupName("test-rg")
@@ -2450,7 +2450,7 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new SRVRecord("example", SRVRecordArgs.builder()        
+     *         var example = new SRVRecord("example", SRVRecordArgs.builder()
      *             .name("test")
      *             .zoneName("test-zone")
      *             .resourceGroupName("test-rg")
@@ -2493,7 +2493,7 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new TxtRecord("example", TxtRecordArgs.builder()        
+     *         var example = new TxtRecord("example", TxtRecordArgs.builder()
      *             .name("test")
      *             .zoneName("test-zone")
      *             .resourceGroupName("test-rg")
@@ -2536,7 +2536,7 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new TxtRecord("example", TxtRecordArgs.builder()        
+     *         var example = new TxtRecord("example", TxtRecordArgs.builder()
      *             .name("test")
      *             .zoneName("test-zone")
      *             .resourceGroupName("test-rg")
@@ -2579,7 +2579,7 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new TxtRecord("example", TxtRecordArgs.builder()        
+     *         var example = new TxtRecord("example", TxtRecordArgs.builder()
      *             .name("test")
      *             .zoneName("test-zone")
      *             .resourceGroupName("test-rg")
@@ -2622,7 +2622,7 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new TxtRecord("example", TxtRecordArgs.builder()        
+     *         var example = new TxtRecord("example", TxtRecordArgs.builder()
      *             .name("test")
      *             .zoneName("test-zone")
      *             .resourceGroupName("test-rg")

@@ -51,7 +51,7 @@ public final class AuthorizationFunctions {
      *     public static void stack(Context ctx) {
      *         final var primary = CoreFunctions.getSubscription();
      * 
-     *         var customRoleDefinition = new RoleDefinition("customRoleDefinition", RoleDefinitionArgs.builder()        
+     *         var customRoleDefinition = new RoleDefinition("customRoleDefinition", RoleDefinitionArgs.builder()
      *             .roleDefinitionId("00000000-0000-0000-0000-000000000000")
      *             .name("CustomRoleDef")
      *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
@@ -117,7 +117,7 @@ public final class AuthorizationFunctions {
      *     public static void stack(Context ctx) {
      *         final var primary = CoreFunctions.getSubscription();
      * 
-     *         var customRoleDefinition = new RoleDefinition("customRoleDefinition", RoleDefinitionArgs.builder()        
+     *         var customRoleDefinition = new RoleDefinition("customRoleDefinition", RoleDefinitionArgs.builder()
      *             .roleDefinitionId("00000000-0000-0000-0000-000000000000")
      *             .name("CustomRoleDef")
      *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
@@ -183,7 +183,7 @@ public final class AuthorizationFunctions {
      *     public static void stack(Context ctx) {
      *         final var primary = CoreFunctions.getSubscription();
      * 
-     *         var customRoleDefinition = new RoleDefinition("customRoleDefinition", RoleDefinitionArgs.builder()        
+     *         var customRoleDefinition = new RoleDefinition("customRoleDefinition", RoleDefinitionArgs.builder()
      *             .roleDefinitionId("00000000-0000-0000-0000-000000000000")
      *             .name("CustomRoleDef")
      *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
@@ -249,7 +249,7 @@ public final class AuthorizationFunctions {
      *     public static void stack(Context ctx) {
      *         final var primary = CoreFunctions.getSubscription();
      * 
-     *         var customRoleDefinition = new RoleDefinition("customRoleDefinition", RoleDefinitionArgs.builder()        
+     *         var customRoleDefinition = new RoleDefinition("customRoleDefinition", RoleDefinitionArgs.builder()
      *             .roleDefinitionId("00000000-0000-0000-0000-000000000000")
      *             .name("CustomRoleDef")
      *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
@@ -315,7 +315,7 @@ public final class AuthorizationFunctions {
      *     public static void stack(Context ctx) {
      *         final var primary = CoreFunctions.getSubscription();
      * 
-     *         var customRoleDefinition = new RoleDefinition("customRoleDefinition", RoleDefinitionArgs.builder()        
+     *         var customRoleDefinition = new RoleDefinition("customRoleDefinition", RoleDefinitionArgs.builder()
      *             .roleDefinitionId("00000000-0000-0000-0000-000000000000")
      *             .name("CustomRoleDef")
      *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
@@ -381,7 +381,7 @@ public final class AuthorizationFunctions {
      *     public static void stack(Context ctx) {
      *         final var primary = CoreFunctions.getSubscription();
      * 
-     *         var customRoleDefinition = new RoleDefinition("customRoleDefinition", RoleDefinitionArgs.builder()        
+     *         var customRoleDefinition = new RoleDefinition("customRoleDefinition", RoleDefinitionArgs.builder()
      *             .roleDefinitionId("00000000-0000-0000-0000-000000000000")
      *             .name("CustomRoleDef")
      *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))

@@ -281,36 +281,6 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
      * The ID of the Subscription containing the Storage Account.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.redis.Cache;
-     * import com.pulumi.azure.redis.CacheArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var example = new Cache("example", CacheArgs.builder()        
-     *             .ignoreChanges(redisConfiguration[0].rdbStorageConnectionString())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -321,36 +291,6 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
      * @return The ID of the Subscription containing the Storage Account.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.redis.Cache;
-     * import com.pulumi.azure.redis.CacheArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var example = new Cache("example", CacheArgs.builder()        
-     *             .ignoreChanges(redisConfiguration[0].rdbStorageConnectionString())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -758,36 +698,6 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
          * @param storageAccountSubscriptionId The ID of the Subscription containing the Storage Account.
          * 
          * &lt;!--Start PulumiCodeChooser --&gt;
-         * <pre>
-         * {@code
-         * package generated_program;
-         * 
-         * import com.pulumi.Context;
-         * import com.pulumi.Pulumi;
-         * import com.pulumi.core.Output;
-         * import com.pulumi.azure.redis.Cache;
-         * import com.pulumi.azure.redis.CacheArgs;
-         * import java.util.List;
-         * import java.util.ArrayList;
-         * import java.util.Map;
-         * import java.io.File;
-         * import java.nio.file.Files;
-         * import java.nio.file.Paths;
-         * 
-         * public class App {
-         *     public static void main(String[] args) {
-         *         Pulumi.run(App::stack);
-         *     }
-         * 
-         *     public static void stack(Context ctx) {
-         *         var example = new Cache("example", CacheArgs.builder()        
-         *             .ignoreChanges(redisConfiguration[0].rdbStorageConnectionString())
-         *             .build());
-         * 
-         *     }
-         * }
-         * }
-         * </pre>
          * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
@@ -802,36 +712,6 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
          * @param storageAccountSubscriptionId The ID of the Subscription containing the Storage Account.
          * 
          * &lt;!--Start PulumiCodeChooser --&gt;
-         * <pre>
-         * {@code
-         * package generated_program;
-         * 
-         * import com.pulumi.Context;
-         * import com.pulumi.Pulumi;
-         * import com.pulumi.core.Output;
-         * import com.pulumi.azure.redis.Cache;
-         * import com.pulumi.azure.redis.CacheArgs;
-         * import java.util.List;
-         * import java.util.ArrayList;
-         * import java.util.Map;
-         * import java.io.File;
-         * import java.nio.file.Files;
-         * import java.nio.file.Paths;
-         * 
-         * public class App {
-         *     public static void main(String[] args) {
-         *         Pulumi.run(App::stack);
-         *     }
-         * 
-         *     public static void stack(Context ctx) {
-         *         var example = new Cache("example", CacheArgs.builder()        
-         *             .ignoreChanges(redisConfiguration[0].rdbStorageConnectionString())
-         *             .build());
-         * 
-         *     }
-         * }
-         * }
-         * </pre>
          * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder

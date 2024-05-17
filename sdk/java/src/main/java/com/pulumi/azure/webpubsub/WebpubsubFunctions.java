@@ -49,12 +49,12 @@ public final class WebpubsubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var testResourceGroup = new ResourceGroup("testResourceGroup", ResourceGroupArgs.builder()        
+     *         var testResourceGroup = new ResourceGroup("testResourceGroup", ResourceGroupArgs.builder()
      *             .name("terraform-webpubsub")
      *             .location("east us")
      *             .build());
      * 
-     *         var testService = new Service("testService", ServiceArgs.builder()        
+     *         var testService = new Service("testService", ServiceArgs.builder()
      *             .name("tfex-webpubsub")
      *             .location(testResourceGroup.location())
      *             .resourceGroupName(testResourceGroup.name())
@@ -108,12 +108,12 @@ public final class WebpubsubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var testResourceGroup = new ResourceGroup("testResourceGroup", ResourceGroupArgs.builder()        
+     *         var testResourceGroup = new ResourceGroup("testResourceGroup", ResourceGroupArgs.builder()
      *             .name("terraform-webpubsub")
      *             .location("east us")
      *             .build());
      * 
-     *         var testService = new Service("testService", ServiceArgs.builder()        
+     *         var testService = new Service("testService", ServiceArgs.builder()
      *             .name("tfex-webpubsub")
      *             .location(testResourceGroup.location())
      *             .resourceGroupName(testResourceGroup.name())
@@ -167,12 +167,12 @@ public final class WebpubsubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var testResourceGroup = new ResourceGroup("testResourceGroup", ResourceGroupArgs.builder()        
+     *         var testResourceGroup = new ResourceGroup("testResourceGroup", ResourceGroupArgs.builder()
      *             .name("terraform-webpubsub")
      *             .location("east us")
      *             .build());
      * 
-     *         var testService = new Service("testService", ServiceArgs.builder()        
+     *         var testService = new Service("testService", ServiceArgs.builder()
      *             .name("tfex-webpubsub")
      *             .location(testResourceGroup.location())
      *             .resourceGroupName(testResourceGroup.name())
@@ -226,12 +226,12 @@ public final class WebpubsubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var testResourceGroup = new ResourceGroup("testResourceGroup", ResourceGroupArgs.builder()        
+     *         var testResourceGroup = new ResourceGroup("testResourceGroup", ResourceGroupArgs.builder()
      *             .name("terraform-webpubsub")
      *             .location("east us")
      *             .build());
      * 
-     *         var testService = new Service("testService", ServiceArgs.builder()        
+     *         var testService = new Service("testService", ServiceArgs.builder()
      *             .name("tfex-webpubsub")
      *             .location(testResourceGroup.location())
      *             .resourceGroupName(testResourceGroup.name())

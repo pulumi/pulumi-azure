@@ -56,26 +56,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .addressSpaces("10.0.0.0/16")
  *             .build());
  * 
- *         var exampleResolver = new Resolver("exampleResolver", ResolverArgs.builder()        
+ *         var exampleResolver = new Resolver("exampleResolver", ResolverArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .virtualNetworkId(exampleVirtualNetwork.id())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("inbounddns")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleResolverInboundEndpoint = new ResolverInboundEndpoint("exampleResolverInboundEndpoint", ResolverInboundEndpointArgs.builder()        
+ *         var exampleResolverInboundEndpoint = new ResolverInboundEndpoint("exampleResolverInboundEndpoint", ResolverInboundEndpointArgs.builder()
  *             .name("example-drie")
  *             .privateDnsResolverId(exampleResolver.id())
  *             .location(exampleResolver.location())

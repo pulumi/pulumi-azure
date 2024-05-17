@@ -49,19 +49,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleIntegrationAccount = new IntegrationAccount("exampleIntegrationAccount", IntegrationAccountArgs.builder()        
+ *         var exampleIntegrationAccount = new IntegrationAccount("exampleIntegrationAccount", IntegrationAccountArgs.builder()
  *             .name("example-ia")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .skuName("Standard")
  *             .build());
  * 
- *         var exampleIntegrationAccountPartner = new IntegrationAccountPartner("exampleIntegrationAccountPartner", IntegrationAccountPartnerArgs.builder()        
+ *         var exampleIntegrationAccountPartner = new IntegrationAccountPartner("exampleIntegrationAccountPartner", IntegrationAccountPartnerArgs.builder()
  *             .name("example-iap")
  *             .resourceGroupName(example.name())
  *             .integrationAccountName(exampleIntegrationAccount.name())

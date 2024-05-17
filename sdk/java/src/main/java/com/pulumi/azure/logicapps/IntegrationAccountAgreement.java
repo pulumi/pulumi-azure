@@ -54,19 +54,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var test = new IntegrationAccount("test", IntegrationAccountArgs.builder()        
+ *         var test = new IntegrationAccount("test", IntegrationAccountArgs.builder()
  *             .name("example-ia")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .skuName("Standard")
  *             .build());
  * 
- *         var host = new IntegrationAccountPartner("host", IntegrationAccountPartnerArgs.builder()        
+ *         var host = new IntegrationAccountPartner("host", IntegrationAccountPartnerArgs.builder()
  *             .name("example-hostpartner")
  *             .resourceGroupName(example.name())
  *             .integrationAccountName(test.name())
@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var guest = new IntegrationAccountPartner("guest", IntegrationAccountPartnerArgs.builder()        
+ *         var guest = new IntegrationAccountPartner("guest", IntegrationAccountPartnerArgs.builder()
  *             .name("example-guestpartner")
  *             .resourceGroupName(example.name())
  *             .integrationAccountName(test.name())
@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var testIntegrationAccountAgreement = new IntegrationAccountAgreement("testIntegrationAccountAgreement", IntegrationAccountAgreementArgs.builder()        
+ *         var testIntegrationAccountAgreement = new IntegrationAccountAgreement("testIntegrationAccountAgreement", IntegrationAccountAgreementArgs.builder()
  *             .name("example-agreement")
  *             .resourceGroupName(example.name())
  *             .integrationAccountName(test.name())

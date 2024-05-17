@@ -49,18 +49,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("test-rg")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleIPGroup = new IPGroup("exampleIPGroup", IPGroupArgs.builder()        
+ *         var exampleIPGroup = new IPGroup("exampleIPGroup", IPGroupArgs.builder()
  *             .name("test-ipgroup")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleIPGroupCIDR = new IPGroupCIDR("exampleIPGroupCIDR", IPGroupCIDRArgs.builder()        
+ *         var exampleIPGroupCIDR = new IPGroupCIDR("exampleIPGroupCIDR", IPGroupCIDRArgs.builder()
  *             .ipGroupId(exampleIPGroup.id())
  *             .cidr("10.10.10.0/24")
  *             .build());

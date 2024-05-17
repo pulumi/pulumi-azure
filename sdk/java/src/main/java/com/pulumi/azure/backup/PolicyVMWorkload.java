@@ -53,12 +53,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-bpvmw")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVault = new Vault("exampleVault", VaultArgs.builder()        
+ *         var exampleVault = new Vault("exampleVault", VaultArgs.builder()
  *             .name("example-rsv")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *             .softDeleteEnabled(false)
  *             .build());
  * 
- *         var examplePolicyVMWorkload = new PolicyVMWorkload("examplePolicyVMWorkload", PolicyVMWorkloadArgs.builder()        
+ *         var examplePolicyVMWorkload = new PolicyVMWorkload("examplePolicyVMWorkload", PolicyVMWorkloadArgs.builder()
  *             .name("example-bpvmw")
  *             .resourceGroupName(example.name())
  *             .recoveryVaultName(exampleVault.name())
