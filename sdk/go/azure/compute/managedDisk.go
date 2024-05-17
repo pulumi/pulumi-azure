@@ -126,6 +126,13 @@ type ManagedDisk struct {
 	pulumi.CustomResourceState
 
 	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
+	// * `Import` - Import a VHD file in to the managed disk (VHD specified with `sourceUri`).
+	// * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `sourceUri`).
+	// * `Empty` - Create an empty managed disk.
+	// * `Copy` - Copy an existing managed disk or snapshot (specified with `sourceResourceId`).
+	// * `FromImage` - Copy a Platform Image (specified with `imageReferenceId`)
+	// * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `sourceResourceId`).
+	// * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `uploadSizeBytes`).
 	CreateOption pulumi.StringOutput `pulumi:"createOption"`
 	// The ID of the disk access resource for using private endpoints on disks.
 	//
@@ -269,6 +276,13 @@ func GetManagedDisk(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ManagedDisk resources.
 type managedDiskState struct {
 	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
+	// * `Import` - Import a VHD file in to the managed disk (VHD specified with `sourceUri`).
+	// * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `sourceUri`).
+	// * `Empty` - Create an empty managed disk.
+	// * `Copy` - Copy an existing managed disk or snapshot (specified with `sourceResourceId`).
+	// * `FromImage` - Copy a Platform Image (specified with `imageReferenceId`)
+	// * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `sourceResourceId`).
+	// * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `uploadSizeBytes`).
 	CreateOption *string `pulumi:"createOption"`
 	// The ID of the disk access resource for using private endpoints on disks.
 	//
@@ -374,6 +388,13 @@ type managedDiskState struct {
 
 type ManagedDiskState struct {
 	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
+	// * `Import` - Import a VHD file in to the managed disk (VHD specified with `sourceUri`).
+	// * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `sourceUri`).
+	// * `Empty` - Create an empty managed disk.
+	// * `Copy` - Copy an existing managed disk or snapshot (specified with `sourceResourceId`).
+	// * `FromImage` - Copy a Platform Image (specified with `imageReferenceId`)
+	// * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `sourceResourceId`).
+	// * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `uploadSizeBytes`).
 	CreateOption pulumi.StringPtrInput
 	// The ID of the disk access resource for using private endpoints on disks.
 	//
@@ -483,6 +504,13 @@ func (ManagedDiskState) ElementType() reflect.Type {
 
 type managedDiskArgs struct {
 	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
+	// * `Import` - Import a VHD file in to the managed disk (VHD specified with `sourceUri`).
+	// * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `sourceUri`).
+	// * `Empty` - Create an empty managed disk.
+	// * `Copy` - Copy an existing managed disk or snapshot (specified with `sourceResourceId`).
+	// * `FromImage` - Copy a Platform Image (specified with `imageReferenceId`)
+	// * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `sourceResourceId`).
+	// * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `uploadSizeBytes`).
 	CreateOption string `pulumi:"createOption"`
 	// The ID of the disk access resource for using private endpoints on disks.
 	//
@@ -589,6 +617,13 @@ type managedDiskArgs struct {
 // The set of arguments for constructing a ManagedDisk resource.
 type ManagedDiskArgs struct {
 	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
+	// * `Import` - Import a VHD file in to the managed disk (VHD specified with `sourceUri`).
+	// * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `sourceUri`).
+	// * `Empty` - Create an empty managed disk.
+	// * `Copy` - Copy an existing managed disk or snapshot (specified with `sourceResourceId`).
+	// * `FromImage` - Copy a Platform Image (specified with `imageReferenceId`)
+	// * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `sourceResourceId`).
+	// * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `uploadSizeBytes`).
 	CreateOption pulumi.StringInput
 	// The ID of the disk access resource for using private endpoints on disks.
 	//
@@ -780,6 +815,13 @@ func (o ManagedDiskOutput) ToManagedDiskOutputWithContext(ctx context.Context) M
 }
 
 // The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
+// * `Import` - Import a VHD file in to the managed disk (VHD specified with `sourceUri`).
+// * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `sourceUri`).
+// * `Empty` - Create an empty managed disk.
+// * `Copy` - Copy an existing managed disk or snapshot (specified with `sourceResourceId`).
+// * `FromImage` - Copy a Platform Image (specified with `imageReferenceId`)
+// * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `sourceResourceId`).
+// * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `uploadSizeBytes`).
 func (o ManagedDiskOutput) CreateOption() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringOutput { return v.CreateOption }).(pulumi.StringOutput)
 }

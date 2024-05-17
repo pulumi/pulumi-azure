@@ -58,12 +58,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -71,13 +71,13 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()        
+ *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()
  *             .name("example")
  *             .storageAccountName(exampleAccount.name())
  *             .containerAccessType("private")
  *             .build());
  * 
- *         var exampleBlob = new Blob("exampleBlob", BlobArgs.builder()        
+ *         var exampleBlob = new Blob("exampleBlob", BlobArgs.builder()
  *             .name("example")
  *             .storageAccountName(exampleAccount.name())
  *             .storageContainerName(exampleContainer.name())
@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  *             .source(new FileAsset("example.csv"))
  *             .build());
  * 
- *         var exampleJob = new Job("exampleJob", JobArgs.builder()        
+ *         var exampleJob = new Job("exampleJob", JobArgs.builder()
  *             .name("example-job")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -104,7 +104,7 @@ import javax.annotation.Nullable;
  *             """)
  *             .build());
  * 
- *         var exampleStreamInputBlob = new StreamInputBlob("exampleStreamInputBlob", StreamInputBlobArgs.builder()        
+ *         var exampleStreamInputBlob = new StreamInputBlob("exampleStreamInputBlob", StreamInputBlobArgs.builder()
  *             .name("exampleinput")
  *             .streamAnalyticsJobName(exampleJob.name())
  *             .resourceGroupName(exampleJob.resourceGroupName())
@@ -121,7 +121,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleOutputBlob = new OutputBlob("exampleOutputBlob", OutputBlobArgs.builder()        
+ *         var exampleOutputBlob = new OutputBlob("exampleOutputBlob", OutputBlobArgs.builder()
  *             .name("exampleoutput")
  *             .streamAnalyticsJobName(exampleJob.name())
  *             .resourceGroupName(exampleJob.resourceGroupName())
@@ -136,7 +136,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleJobSchedule = new JobSchedule("exampleJobSchedule", JobScheduleArgs.builder()        
+ *         var exampleJobSchedule = new JobSchedule("exampleJobSchedule", JobScheduleArgs.builder()
  *             .streamAnalyticsJobId(exampleJob.id())
  *             .startMode("CustomTime")
  *             .startTime("2022-09-21T00:00:00Z")

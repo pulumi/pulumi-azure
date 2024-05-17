@@ -57,12 +57,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var example = CoreFunctions.getSubscription();
  * 
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("example")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
@@ -70,12 +70,12 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()        
+ *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()
  *             .name("examplecontainer")
  *             .storageAccountName(exampleAccount.name())
  *             .build());
  * 
- *         var exampleSubscriptionCostManagementExport = new SubscriptionCostManagementExport("exampleSubscriptionCostManagementExport", SubscriptionCostManagementExportArgs.builder()        
+ *         var exampleSubscriptionCostManagementExport = new SubscriptionCostManagementExport("exampleSubscriptionCostManagementExport", SubscriptionCostManagementExportArgs.builder()
  *             .name("example")
  *             .subscriptionId(example.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *             .recurrenceType("Monthly")

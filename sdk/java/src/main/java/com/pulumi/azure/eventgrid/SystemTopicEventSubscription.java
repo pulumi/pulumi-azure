@@ -63,12 +63,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-rg")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("examplestorageaccount")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -77,12 +77,12 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("environment", "staging"))
  *             .build());
  * 
- *         var exampleQueue = new Queue("exampleQueue", QueueArgs.builder()        
+ *         var exampleQueue = new Queue("exampleQueue", QueueArgs.builder()
  *             .name("examplestoragequeue")
  *             .storageAccountName(exampleAccount.name())
  *             .build());
  * 
- *         var exampleSystemTopic = new SystemTopic("exampleSystemTopic", SystemTopicArgs.builder()        
+ *         var exampleSystemTopic = new SystemTopic("exampleSystemTopic", SystemTopicArgs.builder()
  *             .name("example-system-topic")
  *             .location("Global")
  *             .resourceGroupName(example.name())
@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  *             .topicType("Microsoft.Resources.ResourceGroups")
  *             .build());
  * 
- *         var exampleSystemTopicEventSubscription = new SystemTopicEventSubscription("exampleSystemTopicEventSubscription", SystemTopicEventSubscriptionArgs.builder()        
+ *         var exampleSystemTopicEventSubscription = new SystemTopicEventSubscription("exampleSystemTopicEventSubscription", SystemTopicEventSubscriptionArgs.builder()
  *             .name("example-event-subscription")
  *             .systemTopic(exampleSystemTopic.name())
  *             .resourceGroupName(example.name())

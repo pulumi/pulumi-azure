@@ -48,19 +48,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example")
  *             .location("West Europ")
  *             .build());
  * 
- *         var exampleRegistry = new Registry("exampleRegistry", RegistryArgs.builder()        
+ *         var exampleRegistry = new Registry("exampleRegistry", RegistryArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .sku("Premium")
  *             .build());
  * 
- *         var exampleRegistryAgentPool = new RegistryAgentPool("exampleRegistryAgentPool", RegistryAgentPoolArgs.builder()        
+ *         var exampleRegistryAgentPool = new RegistryAgentPool("exampleRegistryAgentPool", RegistryAgentPoolArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())

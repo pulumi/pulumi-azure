@@ -69,12 +69,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resource-group")
  *             .location("westeurope")
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()
  *             .name("example-public-ip")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -82,13 +82,13 @@ import javax.annotation.Nullable;
  *             .sku("Standard")
  *             .build());
  * 
- *         var exampleNetworkSecurityGroup = new NetworkSecurityGroup("exampleNetworkSecurityGroup", NetworkSecurityGroupArgs.builder()        
+ *         var exampleNetworkSecurityGroup = new NetworkSecurityGroup("exampleNetworkSecurityGroup", NetworkSecurityGroupArgs.builder()
  *             .name("example-nsg")
  *             .location(test.location())
  *             .resourceGroupName(test.name())
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("example-vnet")
  *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("environment", "Production"))
  *             .build());
  * 
- *         var trust = new Subnet("trust", SubnetArgs.builder()        
+ *         var trust = new Subnet("trust", SubnetArgs.builder()
  *             .name("example-trust-subnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
@@ -110,12 +110,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var trustSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation("trustSubnetNetworkSecurityGroupAssociation", SubnetNetworkSecurityGroupAssociationArgs.builder()        
+ *         var trustSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation("trustSubnetNetworkSecurityGroupAssociation", SubnetNetworkSecurityGroupAssociationArgs.builder()
  *             .subnetId(trust.id())
  *             .networkSecurityGroupId(exampleNetworkSecurityGroup.id())
  *             .build());
  * 
- *         var untrust = new Subnet("untrust", SubnetArgs.builder()        
+ *         var untrust = new Subnet("untrust", SubnetArgs.builder()
  *             .name("example-untrust-subnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
@@ -129,18 +129,18 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var untrustSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation("untrustSubnetNetworkSecurityGroupAssociation", SubnetNetworkSecurityGroupAssociationArgs.builder()        
+ *         var untrustSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation("untrustSubnetNetworkSecurityGroupAssociation", SubnetNetworkSecurityGroupAssociationArgs.builder()
  *             .subnetId(untrust.id())
  *             .networkSecurityGroupId(exampleNetworkSecurityGroup.id())
  *             .build());
  * 
- *         var exampleLocalRulestack = new LocalRulestack("exampleLocalRulestack", LocalRulestackArgs.builder()        
+ *         var exampleLocalRulestack = new LocalRulestack("exampleLocalRulestack", LocalRulestackArgs.builder()
  *             .name("example-rulestack")
  *             .resourceGroupName(example.name())
  *             .location(example.locatio())
  *             .build());
  * 
- *         var exampleLocalRulestackRule = new LocalRulestackRule("exampleLocalRulestackRule", LocalRulestackRuleArgs.builder()        
+ *         var exampleLocalRulestackRule = new LocalRulestackRule("exampleLocalRulestackRule", LocalRulestackRuleArgs.builder()
  *             .name("example-rulestack-rule")
  *             .rulestackId(exampleLocalRulestack.id())
  *             .priority(1001)
@@ -154,7 +154,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleNextGenerationFirewallVirtualNetworkLocalRulestack = new NextGenerationFirewallVirtualNetworkLocalRulestack("exampleNextGenerationFirewallVirtualNetworkLocalRulestack", NextGenerationFirewallVirtualNetworkLocalRulestackArgs.builder()        
+ *         var exampleNextGenerationFirewallVirtualNetworkLocalRulestack = new NextGenerationFirewallVirtualNetworkLocalRulestack("exampleNextGenerationFirewallVirtualNetworkLocalRulestack", NextGenerationFirewallVirtualNetworkLocalRulestackArgs.builder()
  *             .name("example-ngfwvn")
  *             .resourceGroupName(example.name())
  *             .rulestackId(exampleLocalRulestack.id())

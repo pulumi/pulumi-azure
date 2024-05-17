@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceProviderRegistration("example", ResourceProviderRegistrationArgs.builder()        
+ *         var example = new ResourceProviderRegistration("example", ResourceProviderRegistrationArgs.builder()
  *             .name("Microsoft.PolicyInsights")
  *             .build());
  * 
@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceProviderRegistration("example", ResourceProviderRegistrationArgs.builder()        
+ *         var example = new ResourceProviderRegistration("example", ResourceProviderRegistrationArgs.builder()
  *             .name("Microsoft.ContainerService")
  *             .features(ResourceProviderRegistrationFeatureArgs.builder()
  *                 .name("AKS-DataPlaneAutoApprove")

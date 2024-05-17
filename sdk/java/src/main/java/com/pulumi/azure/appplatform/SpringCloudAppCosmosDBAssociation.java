@@ -52,24 +52,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()        
+ *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()
  *             .name("example-springcloud")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleSpringCloudApp = new SpringCloudApp("exampleSpringCloudApp", SpringCloudAppArgs.builder()        
+ *         var exampleSpringCloudApp = new SpringCloudApp("exampleSpringCloudApp", SpringCloudAppArgs.builder()
  *             .name("example-springcloudapp")
  *             .resourceGroupName(example.name())
  *             .serviceName(exampleSpringCloudService.name())
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("example-cosmosdb-account")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleSpringCloudAppCosmosDBAssociation = new SpringCloudAppCosmosDBAssociation("exampleSpringCloudAppCosmosDBAssociation", SpringCloudAppCosmosDBAssociationArgs.builder()        
+ *         var exampleSpringCloudAppCosmosDBAssociation = new SpringCloudAppCosmosDBAssociation("exampleSpringCloudAppCosmosDBAssociation", SpringCloudAppCosmosDBAssociationArgs.builder()
  *             .name("example-bind")
  *             .springCloudAppId(exampleSpringCloudApp.id())
  *             .cosmosdbAccountId(exampleAccount.id())

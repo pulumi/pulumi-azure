@@ -55,12 +55,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("examplestorageaccount")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()        
+ *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()
  *             .name("exampleappserviceplan")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleFunctionApp = new FunctionApp("exampleFunctionApp", FunctionAppArgs.builder()        
+ *         var exampleFunctionApp = new FunctionApp("exampleFunctionApp", FunctionAppArgs.builder()
  *             .name("examplefunctionapp")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  *             .version("~3")
  *             .build());
  * 
- *         var exampleJob = new Job("exampleJob", JobArgs.builder()        
+ *         var exampleJob = new Job("exampleJob", JobArgs.builder()
  *             .name("examplestreamanalyticsjob")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -103,7 +103,7 @@ import javax.annotation.Nullable;
  *             """)
  *             .build());
  * 
- *         var exampleOutputFunction = new OutputFunction("exampleOutputFunction", OutputFunctionArgs.builder()        
+ *         var exampleOutputFunction = new OutputFunction("exampleOutputFunction", OutputFunctionArgs.builder()
  *             .name("exampleoutput")
  *             .resourceGroupName(exampleJob.resourceGroupName())
  *             .streamAnalyticsJobName(exampleJob.name())

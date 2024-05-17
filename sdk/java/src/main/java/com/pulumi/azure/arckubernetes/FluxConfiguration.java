@@ -57,12 +57,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()        
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
  *             .name("example-akcc")
  *             .resourceGroupName(example.name())
  *             .location("West Europe")
@@ -75,13 +75,13 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("ENV", "Test"))
  *             .build());
  * 
- *         var exampleClusterExtension = new ClusterExtension("exampleClusterExtension", ClusterExtensionArgs.builder()        
+ *         var exampleClusterExtension = new ClusterExtension("exampleClusterExtension", ClusterExtensionArgs.builder()
  *             .name("example-ext")
  *             .clusterId(test.id())
  *             .extensionType("microsoft.flux")
  *             .build());
  * 
- *         var exampleFluxConfiguration = new FluxConfiguration("exampleFluxConfiguration", FluxConfigurationArgs.builder()        
+ *         var exampleFluxConfiguration = new FluxConfiguration("exampleFluxConfiguration", FluxConfigurationArgs.builder()
  *             .name("example-fc")
  *             .clusterId(test.id())
  *             .namespace("flux")

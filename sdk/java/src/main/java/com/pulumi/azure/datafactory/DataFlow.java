@@ -69,12 +69,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -82,13 +82,13 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleLinkedCustomService = new LinkedCustomService("exampleLinkedCustomService", LinkedCustomServiceArgs.builder()        
+ *         var exampleLinkedCustomService = new LinkedCustomService("exampleLinkedCustomService", LinkedCustomServiceArgs.builder()
  *             .name("linked_service")
  *             .dataFactoryId(exampleFactory.id())
  *             .type("AzureBlobStorage")
@@ -99,7 +99,7 @@ import javax.annotation.Nullable;
  * ", primaryConnectionString)))
  *             .build());
  * 
- *         var example1 = new DatasetJson("example1", DatasetJsonArgs.builder()        
+ *         var example1 = new DatasetJson("example1", DatasetJsonArgs.builder()
  *             .name("dataset1")
  *             .dataFactoryId(exampleFactory.id())
  *             .linkedServiceName(exampleLinkedCustomService.name())
@@ -111,7 +111,7 @@ import javax.annotation.Nullable;
  *             .encoding("UTF-8")
  *             .build());
  * 
- *         var example2 = new DatasetJson("example2", DatasetJsonArgs.builder()        
+ *         var example2 = new DatasetJson("example2", DatasetJsonArgs.builder()
  *             .name("dataset2")
  *             .dataFactoryId(exampleFactory.id())
  *             .linkedServiceName(exampleLinkedCustomService.name())
@@ -123,7 +123,7 @@ import javax.annotation.Nullable;
  *             .encoding("UTF-8")
  *             .build());
  * 
- *         var example1FlowletDataFlow = new FlowletDataFlow("example1FlowletDataFlow", FlowletDataFlowArgs.builder()        
+ *         var example1FlowletDataFlow = new FlowletDataFlow("example1FlowletDataFlow", FlowletDataFlowArgs.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .sources(FlowletDataFlowSourceArgs.builder()
@@ -153,7 +153,7 @@ import javax.annotation.Nullable;
  *             """)
  *             .build());
  * 
- *         var example2FlowletDataFlow = new FlowletDataFlow("example2FlowletDataFlow", FlowletDataFlowArgs.builder()        
+ *         var example2FlowletDataFlow = new FlowletDataFlow("example2FlowletDataFlow", FlowletDataFlowArgs.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .sources(FlowletDataFlowSourceArgs.builder()
@@ -183,7 +183,7 @@ import javax.annotation.Nullable;
  *             """)
  *             .build());
  * 
- *         var exampleDataFlow = new DataFlow("exampleDataFlow", DataFlowArgs.builder()        
+ *         var exampleDataFlow = new DataFlow("exampleDataFlow", DataFlowArgs.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .sources(DataFlowSourceArgs.builder()

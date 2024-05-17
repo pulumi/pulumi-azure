@@ -52,12 +52,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()
  *             .name("example-apim")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *             .skuName("Consumption_0")
  *             .build());
  * 
- *         var exampleGateway = new Gateway("exampleGateway", GatewayArgs.builder()        
+ *         var exampleGateway = new Gateway("exampleGateway", GatewayArgs.builder()
  *             .name("example-gateway")
  *             .apiManagementId(exampleService.id())
  *             .description("Example API Management gateway")
@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()        
+ *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()
  *             .name("example-cert")
  *             .apiManagementName(exampleService.name())
  *             .resourceGroupName(example.name())
@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  *                 .build()).result())
  *             .build());
  * 
- *         var exampleGatewayHostNameConfiguration = new GatewayHostNameConfiguration("exampleGatewayHostNameConfiguration", GatewayHostNameConfigurationArgs.builder()        
+ *         var exampleGatewayHostNameConfiguration = new GatewayHostNameConfiguration("exampleGatewayHostNameConfiguration", GatewayHostNameConfigurationArgs.builder()
  *             .name("example-host-name-configuration")
  *             .apiManagementId(exampleService.id())
  *             .gatewayName(exampleGateway.name())

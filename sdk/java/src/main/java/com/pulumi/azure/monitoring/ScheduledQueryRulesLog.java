@@ -58,12 +58,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("monitoring-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()        
+ *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()
  *             .name("loganalytics")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *             .retentionInDays(30)
  *             .build());
  * 
- *         var exampleActionGroup = new ActionGroup("exampleActionGroup", ActionGroupArgs.builder()        
+ *         var exampleActionGroup = new ActionGroup("exampleActionGroup", ActionGroupArgs.builder()
  *             .name("example-actiongroup")
  *             .resourceGroupName(example.name())
  *             .shortName("exampleact")
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Example: Creates alert using the new Scheduled Query Rules metric
- *         var exampleMetricAlert = new MetricAlert("exampleMetricAlert", MetricAlertArgs.builder()        
+ *         var exampleMetricAlert = new MetricAlert("exampleMetricAlert", MetricAlertArgs.builder()
  *             .name("example-metricalert")
  *             .resourceGroupName(example.name())
  *             .scopes(exampleAnalyticsWorkspace.id())
@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Example: LogToMetric Action for the named Computer
- *         var exampleScheduledQueryRulesLog = new ScheduledQueryRulesLog("exampleScheduledQueryRulesLog", ScheduledQueryRulesLogArgs.builder()        
+ *         var exampleScheduledQueryRulesLog = new ScheduledQueryRulesLog("exampleScheduledQueryRulesLog", ScheduledQueryRulesLogArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())

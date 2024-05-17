@@ -57,19 +57,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("west europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("example-vnet")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .addressSpaces("10.0.0.0/16")
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("outbounddns")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
@@ -83,14 +83,14 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleResolver = new Resolver("exampleResolver", ResolverArgs.builder()        
+ *         var exampleResolver = new Resolver("exampleResolver", ResolverArgs.builder()
  *             .name("example-resolver")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .virtualNetworkId(exampleVirtualNetwork.id())
  *             .build());
  * 
- *         var exampleResolverOutboundEndpoint = new ResolverOutboundEndpoint("exampleResolverOutboundEndpoint", ResolverOutboundEndpointArgs.builder()        
+ *         var exampleResolverOutboundEndpoint = new ResolverOutboundEndpoint("exampleResolverOutboundEndpoint", ResolverOutboundEndpointArgs.builder()
  *             .name("example-endpoint")
  *             .privateDnsResolverId(exampleResolver.id())
  *             .location(exampleResolver.location())
@@ -98,7 +98,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("key", "value"))
  *             .build());
  * 
- *         var exampleResolverDnsForwardingRuleset = new ResolverDnsForwardingRuleset("exampleResolverDnsForwardingRuleset", ResolverDnsForwardingRulesetArgs.builder()        
+ *         var exampleResolverDnsForwardingRuleset = new ResolverDnsForwardingRuleset("exampleResolverDnsForwardingRuleset", ResolverDnsForwardingRulesetArgs.builder()
  *             .name("example-ruleset")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -106,7 +106,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("key", "value"))
  *             .build());
  * 
- *         var exampleResolverVirtualNetworkLink = new ResolverVirtualNetworkLink("exampleResolverVirtualNetworkLink", ResolverVirtualNetworkLinkArgs.builder()        
+ *         var exampleResolverVirtualNetworkLink = new ResolverVirtualNetworkLink("exampleResolverVirtualNetworkLink", ResolverVirtualNetworkLinkArgs.builder()
  *             .name("example-link")
  *             .dnsForwardingRulesetId(exampleResolverDnsForwardingRuleset.id())
  *             .virtualNetworkId(exampleVirtualNetwork.id())

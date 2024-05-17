@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *             .displayName("Allowed resource types")
  *             .build());
  * 
- *         var exampleSubscriptionPolicyAssignment = new SubscriptionPolicyAssignment("exampleSubscriptionPolicyAssignment", SubscriptionPolicyAssignmentArgs.builder()        
+ *         var exampleSubscriptionPolicyAssignment = new SubscriptionPolicyAssignment("exampleSubscriptionPolicyAssignment", SubscriptionPolicyAssignmentArgs.builder()
  *             .name("exampleAssignment")
  *             .subscriptionId(example.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *             .policyDefinitionId(exampleGetPolicyDefintion.applyValue(getPolicyDefintionResult -> getPolicyDefintionResult.id()))
@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var exampleSubscriptionPolicyRemediation = new SubscriptionPolicyRemediation("exampleSubscriptionPolicyRemediation", SubscriptionPolicyRemediationArgs.builder()        
+ *         var exampleSubscriptionPolicyRemediation = new SubscriptionPolicyRemediation("exampleSubscriptionPolicyRemediation", SubscriptionPolicyRemediationArgs.builder()
  *             .name("example")
  *             .subscriptionId(example.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *             .policyAssignmentId(exampleSubscriptionPolicyAssignment.id())

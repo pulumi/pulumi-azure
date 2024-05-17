@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("examplestorageacc")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -62,14 +62,14 @@ import javax.annotation.Nullable;
  *             .isHnsEnabled("true")
  *             .build());
  * 
- *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()        
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
  *             .name("examplestreamanalyticscluster")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .streamingCapacity(36)
  *             .build());
  * 
- *         var exampleManagedPrivateEndpoint = new ManagedPrivateEndpoint("exampleManagedPrivateEndpoint", ManagedPrivateEndpointArgs.builder()        
+ *         var exampleManagedPrivateEndpoint = new ManagedPrivateEndpoint("exampleManagedPrivateEndpoint", ManagedPrivateEndpointArgs.builder()
  *             .name("exampleprivateendpoint")
  *             .resourceGroupName(example.name())
  *             .streamAnalyticsClusterName(exampleCluster.name())

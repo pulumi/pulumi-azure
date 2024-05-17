@@ -61,26 +61,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-gca")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("example-vnet")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .addressSpaces("10.0.0.0/16")
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("internal")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
- *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()        
+ *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()
  *             .name("example-nic")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleWindowsVirtualMachine = new WindowsVirtualMachine("exampleWindowsVirtualMachine", WindowsVirtualMachineArgs.builder()        
+ *         var exampleWindowsVirtualMachine = new WindowsVirtualMachine("exampleWindowsVirtualMachine", WindowsVirtualMachineArgs.builder()
  *             .name("examplevm")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -114,7 +114,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleExtension = new Extension("exampleExtension", ExtensionArgs.builder()        
+ *         var exampleExtension = new Extension("exampleExtension", ExtensionArgs.builder()
  *             .name("AzurePolicyforWindows")
  *             .virtualMachineId(exampleWindowsVirtualMachine.id())
  *             .publisher("Microsoft.GuestConfiguration")
@@ -123,7 +123,7 @@ import javax.annotation.Nullable;
  *             .autoUpgradeMinorVersion("true")
  *             .build());
  * 
- *         var exampleVirtualMachineConfigurationAssignment = new VirtualMachineConfigurationAssignment("exampleVirtualMachineConfigurationAssignment", VirtualMachineConfigurationAssignmentArgs.builder()        
+ *         var exampleVirtualMachineConfigurationAssignment = new VirtualMachineConfigurationAssignment("exampleVirtualMachineConfigurationAssignment", VirtualMachineConfigurationAssignmentArgs.builder()
  *             .name("AzureWindowsBaseline")
  *             .location(exampleWindowsVirtualMachine.location())
  *             .virtualMachineId(exampleWindowsVirtualMachine.id())

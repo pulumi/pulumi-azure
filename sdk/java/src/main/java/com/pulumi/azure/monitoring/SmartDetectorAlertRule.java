@@ -53,25 +53,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()        
+ *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()
  *             .name("example-appinsights")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .applicationType("web")
  *             .build());
  * 
- *         var exampleActionGroup = new ActionGroup("exampleActionGroup", ActionGroupArgs.builder()        
+ *         var exampleActionGroup = new ActionGroup("exampleActionGroup", ActionGroupArgs.builder()
  *             .name("example-action-group")
  *             .resourceGroupName(example.name())
  *             .shortName("example")
  *             .build());
  * 
- *         var exampleSmartDetectorAlertRule = new SmartDetectorAlertRule("exampleSmartDetectorAlertRule", SmartDetectorAlertRuleArgs.builder()        
+ *         var exampleSmartDetectorAlertRule = new SmartDetectorAlertRule("exampleSmartDetectorAlertRule", SmartDetectorAlertRuleArgs.builder()
  *             .name("example-smart-detector-alert-rule")
  *             .resourceGroupName(example.name())
  *             .severity("Sev0")

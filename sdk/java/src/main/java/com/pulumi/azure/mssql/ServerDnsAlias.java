@@ -45,12 +45,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()
  *             .name("example-sqlserver")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *             .administratorLoginPassword("AdminPassword123!")
  *             .build());
  * 
- *         var exampleServerDnsAlias = new ServerDnsAlias("exampleServerDnsAlias", ServerDnsAliasArgs.builder()        
+ *         var exampleServerDnsAlias = new ServerDnsAlias("exampleServerDnsAlias", ServerDnsAliasArgs.builder()
  *             .name("example-dns-alias")
  *             .mssqlServerId(exampleServer.id())
  *             .build());
