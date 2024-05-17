@@ -61,12 +61,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()        
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
  *             .name("examplekustocluster")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()        
+ *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()
  *             .name("example-kusto-database")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  *             .softDeletePeriod("P31D")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("storageaccountname")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -93,14 +93,14 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("GRS")
  *             .build());
  * 
- *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()        
+ *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()
  *             .name("eventhubnamespace-example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("Standard")
  *             .build());
  * 
- *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()        
+ *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()
  *             .name("eventhub-example")
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .resourceGroupName(example.name())
@@ -108,14 +108,14 @@ import javax.annotation.Nullable;
  *             .messageRetention(1)
  *             .build());
  * 
- *         var exampleConsumerGroup = new ConsumerGroup("exampleConsumerGroup", ConsumerGroupArgs.builder()        
+ *         var exampleConsumerGroup = new ConsumerGroup("exampleConsumerGroup", ConsumerGroupArgs.builder()
  *             .name("consumergroup-example")
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .eventhubName(exampleEventHub.name())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleEventSubscription = new EventSubscription("exampleEventSubscription", EventSubscriptionArgs.builder()        
+ *         var exampleEventSubscription = new EventSubscription("exampleEventSubscription", EventSubscriptionArgs.builder()
  *             .name("eventgrid-example")
  *             .scope(exampleAccount.id())
  *             .eventhubEndpointId(exampleEventHub.id())
@@ -129,7 +129,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleEventGridDataConnection = new EventGridDataConnection("exampleEventGridDataConnection", EventGridDataConnectionArgs.builder()        
+ *         var exampleEventGridDataConnection = new EventGridDataConnection("exampleEventGridDataConnection", EventGridDataConnectionArgs.builder()
  *             .name("my-kusto-eventgrid-data-connection")
  *             .resourceGroupName(example.name())
  *             .location(example.location())

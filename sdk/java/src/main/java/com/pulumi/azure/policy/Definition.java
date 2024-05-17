@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var policy = new Definition("policy", DefinitionArgs.builder()        
+ *         var policy = new Definition("policy", DefinitionArgs.builder()
  *             .name("accTestPolicy")
  *             .policyType("Custom")
  *             .mode("Indexed")

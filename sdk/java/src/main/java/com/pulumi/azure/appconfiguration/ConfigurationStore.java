@@ -53,12 +53,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var appconf = new ConfigurationStore("appconf", ConfigurationStoreArgs.builder()        
+ *         var appconf = new ConfigurationStore("appconf", ConfigurationStoreArgs.builder()
  *             .name("appConf1")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -109,12 +109,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()        
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()
  *             .name("example-identity")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -122,7 +122,7 @@ import javax.annotation.Nullable;
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("exampleKVt123")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -132,7 +132,7 @@ import javax.annotation.Nullable;
  *             .purgeProtectionEnabled(true)
  *             .build());
  * 
- *         var server = new AccessPolicy("server", AccessPolicyArgs.builder()        
+ *         var server = new AccessPolicy("server", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
  *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
  *             .objectId(exampleUserAssignedIdentity.principalId())
@@ -143,7 +143,7 @@ import javax.annotation.Nullable;
  *             .secretPermissions("Get")
  *             .build());
  * 
- *         var client = new AccessPolicy("client", AccessPolicyArgs.builder()        
+ *         var client = new AccessPolicy("client", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
  *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
  *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
@@ -165,7 +165,7 @@ import javax.annotation.Nullable;
  *             .secretPermissions("Get")
  *             .build());
  * 
- *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
  *             .name("exampleKVkey")
  *             .keyVaultId(exampleKeyVault.id())
  *             .keyType("RSA")
@@ -179,7 +179,7 @@ import javax.annotation.Nullable;
  *                 "wrapKey")
  *             .build());
  * 
- *         var exampleConfigurationStore = new ConfigurationStore("exampleConfigurationStore", ConfigurationStoreArgs.builder()        
+ *         var exampleConfigurationStore = new ConfigurationStore("exampleConfigurationStore", ConfigurationStoreArgs.builder()
  *             .name("appConf2")
  *             .resourceGroupName(example.name())
  *             .location(example.location())

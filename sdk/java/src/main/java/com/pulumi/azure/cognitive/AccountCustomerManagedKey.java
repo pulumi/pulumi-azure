@@ -59,18 +59,18 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West US")
  *             .build());
  * 
- *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()        
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .name("example-identity")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("example-account")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("example-vault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -150,7 +150,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
  *             .name("example-key")
  *             .keyVaultId(exampleKeyVault.id())
  *             .keyType("RSA")
@@ -164,7 +164,7 @@ import javax.annotation.Nullable;
  *                 "wrapKey")
  *             .build());
  * 
- *         var exampleAccountCustomerManagedKey = new AccountCustomerManagedKey("exampleAccountCustomerManagedKey", AccountCustomerManagedKeyArgs.builder()        
+ *         var exampleAccountCustomerManagedKey = new AccountCustomerManagedKey("exampleAccountCustomerManagedKey", AccountCustomerManagedKeyArgs.builder()
  *             .cognitiveAccountId(exampleAccount.id())
  *             .keyVaultKeyId(exampleKey.id())
  *             .identityClientId(exampleUserAssignedIdentity.clientId())

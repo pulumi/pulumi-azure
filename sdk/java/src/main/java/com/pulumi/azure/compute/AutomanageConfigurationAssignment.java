@@ -56,26 +56,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-rg")
  *             .location("westus")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("examplevnet")
  *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("internal")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
- *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()        
+ *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()
  *             .name("exampleni")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine("exampleLinuxVirtualMachine", LinuxVirtualMachineArgs.builder()        
+ *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine("exampleLinuxVirtualMachine", LinuxVirtualMachineArgs.builder()
  *             .name("examplevm")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -107,13 +107,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleConfiguration = new Configuration("exampleConfiguration", ConfigurationArgs.builder()        
+ *         var exampleConfiguration = new Configuration("exampleConfiguration", ConfigurationArgs.builder()
  *             .name("exampleconfig")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleAutomanageConfigurationAssignment = new AutomanageConfigurationAssignment("exampleAutomanageConfigurationAssignment", AutomanageConfigurationAssignmentArgs.builder()        
+ *         var exampleAutomanageConfigurationAssignment = new AutomanageConfigurationAssignment("exampleAutomanageConfigurationAssignment", AutomanageConfigurationAssignmentArgs.builder()
  *             .virtualMachineId(exampleLinuxVirtualMachine.id())
  *             .configurationId(exampleConfiguration.id())
  *             .build());

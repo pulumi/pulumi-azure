@@ -54,18 +54,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example")
  *             .location("eastus")
  *             .build());
  * 
- *         var exampleActionGroup = new ActionGroup("exampleActionGroup", ActionGroupArgs.builder()        
+ *         var exampleActionGroup = new ActionGroup("exampleActionGroup", ActionGroupArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .shortName("example")
  *             .build());
  * 
- *         var exampleBudgetResourceGroup = new BudgetResourceGroup("exampleBudgetResourceGroup", BudgetResourceGroupArgs.builder()        
+ *         var exampleBudgetResourceGroup = new BudgetResourceGroup("exampleBudgetResourceGroup", BudgetResourceGroupArgs.builder()
  *             .name("example")
  *             .resourceGroupId(example.id())
  *             .amount(1000)

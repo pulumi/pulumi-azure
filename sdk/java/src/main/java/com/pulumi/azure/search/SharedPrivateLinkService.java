@@ -48,19 +48,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new ResourceGroup("test", ResourceGroupArgs.builder()        
+ *         var test = new ResourceGroup("test", ResourceGroupArgs.builder()
  *             .name("example-resourceGroup")
  *             .location("east us")
  *             .build());
  * 
- *         var testService = new Service("testService", ServiceArgs.builder()        
+ *         var testService = new Service("testService", ServiceArgs.builder()
  *             .name("example-search")
  *             .resourceGroupName(test.name())
  *             .location(test.location())
  *             .sku("standard")
  *             .build());
  * 
- *         var testAccount = new Account("testAccount", AccountArgs.builder()        
+ *         var testAccount = new Account("testAccount", AccountArgs.builder()
  *             .name("xiaxintestsaforsearchspl")
  *             .resourceGroupName(test.name())
  *             .location(test.location())
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var testSharedPrivateLinkService = new SharedPrivateLinkService("testSharedPrivateLinkService", SharedPrivateLinkServiceArgs.builder()        
+ *         var testSharedPrivateLinkService = new SharedPrivateLinkService("testSharedPrivateLinkService", SharedPrivateLinkServiceArgs.builder()
  *             .name("example-spl")
  *             .searchServiceId(testService.id())
  *             .subresourceName("blob")

@@ -55,12 +55,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("media-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("examplestoracc")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("GRS")
  *             .build());
  * 
- *         var exampleServiceAccount = new ServiceAccount("exampleServiceAccount", ServiceAccountArgs.builder()        
+ *         var exampleServiceAccount = new ServiceAccount("exampleServiceAccount", ServiceAccountArgs.builder()
  *             .name("examplemediaacc")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -78,13 +78,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleAsset = new Asset("exampleAsset", AssetArgs.builder()        
+ *         var exampleAsset = new Asset("exampleAsset", AssetArgs.builder()
  *             .name("inputAsset")
  *             .resourceGroupName(example.name())
  *             .mediaServicesAccountName(exampleServiceAccount.name())
  *             .build());
  * 
- *         var exampleLiveEvent = new LiveEvent("exampleLiveEvent", LiveEventArgs.builder()        
+ *         var exampleLiveEvent = new LiveEvent("exampleLiveEvent", LiveEventArgs.builder()
  *             .name("exampleevent")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -101,7 +101,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleLiveEventOutput = new LiveEventOutput("exampleLiveEventOutput", LiveEventOutputArgs.builder()        
+ *         var exampleLiveEventOutput = new LiveEventOutput("exampleLiveEventOutput", LiveEventOutputArgs.builder()
  *             .name("exampleoutput")
  *             .liveEventId(exampleLiveEvent.id())
  *             .archiveWindowDuration("PT5M")

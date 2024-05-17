@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+ *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
  *             .displayName("Example Management Group")
  *             .build());
  * 
@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .displayName("Allowed locations")
  *             .build());
  * 
- *         var exampleGroupPolicyAssignment = new GroupPolicyAssignment("exampleGroupPolicyAssignment", GroupPolicyAssignmentArgs.builder()        
+ *         var exampleGroupPolicyAssignment = new GroupPolicyAssignment("exampleGroupPolicyAssignment", GroupPolicyAssignmentArgs.builder()
  *             .name("exampleAssignment")
  *             .managementGroupId(exampleGroup.id())
  *             .policyDefinitionId(example.applyValue(getPolicyDefintionResult -> getPolicyDefintionResult.id()))
@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var exampleGroupPolicyRemediation = new GroupPolicyRemediation("exampleGroupPolicyRemediation", GroupPolicyRemediationArgs.builder()        
+ *         var exampleGroupPolicyRemediation = new GroupPolicyRemediation("exampleGroupPolicyRemediation", GroupPolicyRemediationArgs.builder()
  *             .name("example")
  *             .managementGroupId(exampleGroup.id())
  *             .policyAssignmentId(exampleGroupPolicyAssignment.id())

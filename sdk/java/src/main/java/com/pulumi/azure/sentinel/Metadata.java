@@ -56,19 +56,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()        
+ *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()
  *             .name("example-workspace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("pergb2018")
  *             .build());
  * 
- *         var exampleAnalyticsSolution = new AnalyticsSolution("exampleAnalyticsSolution", AnalyticsSolutionArgs.builder()        
+ *         var exampleAnalyticsSolution = new AnalyticsSolution("exampleAnalyticsSolution", AnalyticsSolutionArgs.builder()
  *             .solutionName("SecurityInsights")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleAlertRuleNrt = new AlertRuleNrt("exampleAlertRuleNrt", AlertRuleNrtArgs.builder()        
+ *         var exampleAlertRuleNrt = new AlertRuleNrt("exampleAlertRuleNrt", AlertRuleNrtArgs.builder()
  *             .name("example")
  *             .logAnalyticsWorkspaceId(exampleAnalyticsSolution.workspaceResourceId())
  *             .displayName("example")
@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  *             """)
  *             .build());
  * 
- *         var exampleMetadata = new Metadata("exampleMetadata", MetadataArgs.builder()        
+ *         var exampleMetadata = new Metadata("exampleMetadata", MetadataArgs.builder()
  *             .name("exampl")
  *             .workspaceId(exampleAnalyticsSolution.workspaceResourceId())
  *             .contentId(exampleAlertRuleNrt.name())

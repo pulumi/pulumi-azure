@@ -60,26 +60,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("examplevn")
  *             .addressSpaces("10.0.0.0/16")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("examplesubnet")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("10.0.1.0/24")
  *             .build());
  * 
- *         var exampleCache = new Cache("exampleCache", CacheArgs.builder()        
+ *         var exampleCache = new Cache("exampleCache", CacheArgs.builder()
  *             .name("examplehpccache")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  *             .skuName("Standard_2G")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("examplestorgaccount")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()        
+ *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()
  *             .name("examplestoragecontainer")
  *             .storageAccountName(exampleAccount.name())
  *             .build());
@@ -105,19 +105,19 @@ import javax.annotation.Nullable;
  *             .displayName("HPC Cache Resource Provider")
  *             .build());
  * 
- *         var exampleStorageAccountContrib = new Assignment("exampleStorageAccountContrib", AssignmentArgs.builder()        
+ *         var exampleStorageAccountContrib = new Assignment("exampleStorageAccountContrib", AssignmentArgs.builder()
  *             .scope(exampleAccount.id())
  *             .roleDefinitionName("Storage Account Contributor")
  *             .principalId(example.applyValue(getServicePrincipalResult -> getServicePrincipalResult.objectId()))
  *             .build());
  * 
- *         var exampleStorageBlobDataContrib = new Assignment("exampleStorageBlobDataContrib", AssignmentArgs.builder()        
+ *         var exampleStorageBlobDataContrib = new Assignment("exampleStorageBlobDataContrib", AssignmentArgs.builder()
  *             .scope(exampleAccount.id())
  *             .roleDefinitionName("Storage Blob Data Contributor")
  *             .principalId(example.applyValue(getServicePrincipalResult -> getServicePrincipalResult.objectId()))
  *             .build());
  * 
- *         var exampleCacheBlobTarget = new CacheBlobTarget("exampleCacheBlobTarget", CacheBlobTargetArgs.builder()        
+ *         var exampleCacheBlobTarget = new CacheBlobTarget("exampleCacheBlobTarget", CacheBlobTargetArgs.builder()
  *             .name("examplehpccblobtarget")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .cacheName(exampleCache.name())

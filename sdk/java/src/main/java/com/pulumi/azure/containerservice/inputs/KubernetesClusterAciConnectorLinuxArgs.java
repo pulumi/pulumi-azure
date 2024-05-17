@@ -65,7 +65,7 @@ public final class KubernetesClusterAciConnectorLinuxArgs extends com.pulumi.res
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var virtual = new Subnet("virtual", SubnetArgs.builder()        
+     *         var virtual = new Subnet("virtual", SubnetArgs.builder()
      *             .delegations(SubnetDelegationArgs.builder()
      *                 .name("aciDelegation")
      *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
@@ -117,7 +117,7 @@ public final class KubernetesClusterAciConnectorLinuxArgs extends com.pulumi.res
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var virtual = new Subnet("virtual", SubnetArgs.builder()        
+     *         var virtual = new Subnet("virtual", SubnetArgs.builder()
      *             .delegations(SubnetDelegationArgs.builder()
      *                 .name("aciDelegation")
      *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
@@ -226,7 +226,7 @@ public final class KubernetesClusterAciConnectorLinuxArgs extends com.pulumi.res
          *     }
          * 
          *     public static void stack(Context ctx) {
-         *         var virtual = new Subnet("virtual", SubnetArgs.builder()        
+         *         var virtual = new Subnet("virtual", SubnetArgs.builder()
          *             .delegations(SubnetDelegationArgs.builder()
          *                 .name("aciDelegation")
          *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
@@ -282,7 +282,7 @@ public final class KubernetesClusterAciConnectorLinuxArgs extends com.pulumi.res
          *     }
          * 
          *     public static void stack(Context ctx) {
-         *         var virtual = new Subnet("virtual", SubnetArgs.builder()        
+         *         var virtual = new Subnet("virtual", SubnetArgs.builder()
          *             .delegations(SubnetDelegationArgs.builder()
          *                 .name("aciDelegation")
          *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()

@@ -86,26 +86,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("acctvn")
  *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("acctsub")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()
  *             .name("test")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -114,7 +114,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("environment", "staging"))
  *             .build());
  * 
- *         var exampleLoadBalancer = new LoadBalancer("exampleLoadBalancer", LoadBalancerArgs.builder()        
+ *         var exampleLoadBalancer = new LoadBalancer("exampleLoadBalancer", LoadBalancerArgs.builder()
  *             .name("test")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -124,12 +124,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var bpepool = new BackendAddressPool("bpepool", BackendAddressPoolArgs.builder()        
+ *         var bpepool = new BackendAddressPool("bpepool", BackendAddressPoolArgs.builder()
  *             .loadbalancerId(exampleLoadBalancer.id())
  *             .name("BackEndAddressPool")
  *             .build());
  * 
- *         var lbnatpool = new NatPool("lbnatpool", NatPoolArgs.builder()        
+ *         var lbnatpool = new NatPool("lbnatpool", NatPoolArgs.builder()
  *             .resourceGroupName(example.name())
  *             .name("ssh")
  *             .loadbalancerId(exampleLoadBalancer.id())
@@ -140,7 +140,7 @@ import javax.annotation.Nullable;
  *             .frontendIpConfigurationName("PublicIPAddress")
  *             .build());
  * 
- *         var exampleProbe = new Probe("exampleProbe", ProbeArgs.builder()        
+ *         var exampleProbe = new Probe("exampleProbe", ProbeArgs.builder()
  *             .loadbalancerId(exampleLoadBalancer.id())
  *             .name("http-probe")
  *             .protocol("Http")
@@ -148,7 +148,7 @@ import javax.annotation.Nullable;
  *             .port(8080)
  *             .build());
  * 
- *         var exampleScaleSet = new ScaleSet("exampleScaleSet", ScaleSetArgs.builder()        
+ *         var exampleScaleSet = new ScaleSet("exampleScaleSet", ScaleSetArgs.builder()
  *             .name("mytestscaleset-1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -258,26 +258,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("acctvn")
  *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("acctsub")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("accsa")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -286,13 +286,13 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("environment", "staging"))
  *             .build());
  * 
- *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()        
+ *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()
  *             .name("vhds")
  *             .storageAccountName(exampleAccount.name())
  *             .containerAccessType("private")
  *             .build());
  * 
- *         var exampleScaleSet = new ScaleSet("exampleScaleSet", ScaleSetArgs.builder()        
+ *         var exampleScaleSet = new ScaleSet("exampleScaleSet", ScaleSetArgs.builder()
  *             .name("mytestscaleset-1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -376,11 +376,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Image("example", ImageArgs.builder()        
+ *         var example = new Image("example", ImageArgs.builder()
  *             .name("test")
  *             .build());
  * 
- *         var exampleScaleSet = new ScaleSet("exampleScaleSet", ScaleSetArgs.builder()        
+ *         var exampleScaleSet = new ScaleSet("exampleScaleSet", ScaleSetArgs.builder()
  *             .name("test")
  *             .storageProfileImageReference(ScaleSetStorageProfileImageReferenceArgs.builder()
  *                 .id(example.id())

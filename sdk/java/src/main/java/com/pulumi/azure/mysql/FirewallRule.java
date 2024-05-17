@@ -49,12 +49,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("api-rg-pro")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  *             .sslEnforcementEnabled(true)
  *             .build());
  * 
- *         var exampleFirewallRule = new FirewallRule("exampleFirewallRule", FirewallRuleArgs.builder()        
+ *         var exampleFirewallRule = new FirewallRule("exampleFirewallRule", FirewallRuleArgs.builder()
  *             .name("office")
  *             .resourceGroupName(example.name())
  *             .serverName(exampleServer.name())
@@ -105,14 +105,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("api-rg-pro")
  *             .location("West Europe")
  *             .build());
  * 
  *         var exampleServer = new Server("exampleServer");
  * 
- *         var exampleFirewallRule = new FirewallRule("exampleFirewallRule", FirewallRuleArgs.builder()        
+ *         var exampleFirewallRule = new FirewallRule("exampleFirewallRule", FirewallRuleArgs.builder()
  *             .name("office")
  *             .resourceGroupName(example.name())
  *             .serverName(exampleServer.name())
@@ -154,14 +154,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("api-rg-pro")
  *             .location("West Europe")
  *             .build());
  * 
  *         var exampleServer = new Server("exampleServer");
  * 
- *         var exampleFirewallRule = new FirewallRule("exampleFirewallRule", FirewallRuleArgs.builder()        
+ *         var exampleFirewallRule = new FirewallRule("exampleFirewallRule", FirewallRuleArgs.builder()
  *             .name("office")
  *             .resourceGroupName(example.name())
  *             .serverName(exampleServer.name())

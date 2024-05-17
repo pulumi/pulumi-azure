@@ -56,12 +56,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("examplekeyvault")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  *             .skuName("premium")
  *             .build());
  * 
- *         var exampleAccessPolicy = new AccessPolicy("exampleAccessPolicy", AccessPolicyArgs.builder()        
+ *         var exampleAccessPolicy = new AccessPolicy("exampleAccessPolicy", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
  *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
  *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  *             .displayName("example-app")
  *             .build());
  * 
- *         var example_principal = new AccessPolicy("example-principal", AccessPolicyArgs.builder()        
+ *         var example_principal = new AccessPolicy("example-principal", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
  *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
  *             .objectId(example.applyValue(getServicePrincipalResult -> getServicePrincipalResult.objectId()))

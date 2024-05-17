@@ -52,12 +52,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("storageaccountname")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleBackupVault = new BackupVault("exampleBackupVault", BackupVaultArgs.builder()        
+ *         var exampleBackupVault = new BackupVault("exampleBackupVault", BackupVaultArgs.builder()
  *             .name("example-backup-vault")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -76,19 +76,19 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()        
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
  *             .scope(exampleAccount.id())
  *             .roleDefinitionName("Storage Account Backup Contributor")
  *             .principalId(exampleBackupVault.identity().applyValue(identity -> identity.principalId()))
  *             .build());
  * 
- *         var exampleBackupPolicyBlobStorage = new BackupPolicyBlobStorage("exampleBackupPolicyBlobStorage", BackupPolicyBlobStorageArgs.builder()        
+ *         var exampleBackupPolicyBlobStorage = new BackupPolicyBlobStorage("exampleBackupPolicyBlobStorage", BackupPolicyBlobStorageArgs.builder()
  *             .name("example-backup-policy")
  *             .vaultId(exampleBackupVault.id())
  *             .retentionDuration("P30D")
  *             .build());
  * 
- *         var exampleBackupInstanceBlogStorage = new BackupInstanceBlogStorage("exampleBackupInstanceBlogStorage", BackupInstanceBlogStorageArgs.builder()        
+ *         var exampleBackupInstanceBlogStorage = new BackupInstanceBlogStorage("exampleBackupInstanceBlogStorage", BackupInstanceBlogStorageArgs.builder()
  *             .name("example-backup-instance")
  *             .vaultId(exampleBackupVault.id())
  *             .location(example.location())

@@ -54,16 +54,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Group("example", GroupArgs.builder()        
+ *         var example = new Group("example", GroupArgs.builder()
  *             .displayName("example")
  *             .build());
  * 
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("example")
  *             .location("eastus")
  *             .build());
  * 
- *         var exampleBudgetManagementGroup = new BudgetManagementGroup("exampleBudgetManagementGroup", BudgetManagementGroupArgs.builder()        
+ *         var exampleBudgetManagementGroup = new BudgetManagementGroup("exampleBudgetManagementGroup", BudgetManagementGroupArgs.builder()
  *             .name("example")
  *             .managementGroupId(example.id())
  *             .amount(1000)

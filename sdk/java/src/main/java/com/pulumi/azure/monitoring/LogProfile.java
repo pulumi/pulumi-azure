@@ -55,12 +55,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("logprofiletest-rg")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("afscsdfytw")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("GRS")
  *             .build());
  * 
- *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()        
+ *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()
  *             .name("logprofileeventhub")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  *             .capacity(2)
  *             .build());
  * 
- *         var exampleLogProfile = new LogProfile("exampleLogProfile", LogProfileArgs.builder()        
+ *         var exampleLogProfile = new LogProfile("exampleLogProfile", LogProfileArgs.builder()
  *             .name("default")
  *             .categories(            
  *                 "Action",

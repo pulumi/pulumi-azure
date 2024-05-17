@@ -67,12 +67,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  *             .sslEnforcementEnabled(true)
  *             .build());
  * 
- *         var exampleFirewallRule = new FirewallRule("exampleFirewallRule", FirewallRuleArgs.builder()        
+ *         var exampleFirewallRule = new FirewallRule("exampleFirewallRule", FirewallRuleArgs.builder()
  *             .name("AllowAllWindowsAzureIps")
  *             .resourceGroupName(example.name())
  *             .serverName(exampleServer.name())
@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  *             .endIpAddress("0.0.0.0")
  *             .build());
  * 
- *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()        
+ *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .serverName(exampleServer.name())
@@ -103,7 +103,7 @@ import javax.annotation.Nullable;
  *             .collation("English_United States.1252")
  *             .build());
  * 
- *         var exampleBackupVault = new BackupVault("exampleBackupVault", BackupVaultArgs.builder()        
+ *         var exampleBackupVault = new BackupVault("exampleBackupVault", BackupVaultArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -114,7 +114,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -150,7 +150,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var exampleSecret = new Secret("exampleSecret", SecretArgs.builder()        
+ *         var exampleSecret = new Secret("exampleSecret", SecretArgs.builder()
  *             .name("example")
  *             .value(Output.tuple(exampleServer.name(), exampleDatabase.name(), exampleServer.name()).applyValue(values -> {
  *                 var exampleServerName = values.t1;
@@ -161,7 +161,7 @@ import javax.annotation.Nullable;
  *             .keyVaultId(exampleKeyVault.id())
  *             .build());
  * 
- *         var exampleBackupPolicyPostgresql = new BackupPolicyPostgresql("exampleBackupPolicyPostgresql", BackupPolicyPostgresqlArgs.builder()        
+ *         var exampleBackupPolicyPostgresql = new BackupPolicyPostgresql("exampleBackupPolicyPostgresql", BackupPolicyPostgresqlArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .vaultName(exampleBackupVault.name())
@@ -169,13 +169,13 @@ import javax.annotation.Nullable;
  *             .defaultRetentionDuration("P4M")
  *             .build());
  * 
- *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()        
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
  *             .scope(exampleServer.id())
  *             .roleDefinitionName("Reader")
  *             .principalId(exampleBackupVault.identity().applyValue(identity -> identity.principalId()))
  *             .build());
  * 
- *         var exampleBackupInstancePostgresql = new BackupInstancePostgresql("exampleBackupInstancePostgresql", BackupInstancePostgresqlArgs.builder()        
+ *         var exampleBackupInstancePostgresql = new BackupInstancePostgresql("exampleBackupInstancePostgresql", BackupInstancePostgresqlArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .vaultId(exampleBackupVault.id())

@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("East Us")
  *             .build());
  * 
- *         var exampleNetwork = new Network("exampleNetwork", NetworkArgs.builder()        
+ *         var exampleNetwork = new Network("exampleNetwork", NetworkArgs.builder()
  *             .name("example-mn")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .mobileNetworkCode("01")
  *             .build());
  * 
- *         var exampleNetworkDataNetwork = new NetworkDataNetwork("exampleNetworkDataNetwork", NetworkDataNetworkArgs.builder()        
+ *         var exampleNetworkDataNetwork = new NetworkDataNetwork("exampleNetworkDataNetwork", NetworkDataNetworkArgs.builder()
  *             .name("example-mndn")
  *             .mobileNetworkId(exampleNetwork.id())
  *             .location(example.location())

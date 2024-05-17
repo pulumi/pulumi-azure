@@ -58,12 +58,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("examplekv")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  *             .purgeProtectionEnabled(true)
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("examplestor")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var storage = new AccessPolicy("storage", AccessPolicyArgs.builder()        
+ *         var storage = new AccessPolicy("storage", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
  *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
  *             .objectId(exampleAccount.identity().applyValue(identity -> identity.principalId()))
@@ -94,7 +94,7 @@ import javax.annotation.Nullable;
  *                 "WrapKey")
  *             .build());
  * 
- *         var client = new AccessPolicy("client", AccessPolicyArgs.builder()        
+ *         var client = new AccessPolicy("client", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
  *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
  *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
@@ -117,7 +117,7 @@ import javax.annotation.Nullable;
  *                 "SetRotationPolicy")
  *             .build());
  * 
- *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
  *             .name("tfex-key")
  *             .keyVaultId(exampleKeyVault.id())
  *             .keyType("RSA")
@@ -131,7 +131,7 @@ import javax.annotation.Nullable;
  *                 "wrapKey")
  *             .build());
  * 
- *         var exampleCustomerManagedKey = new CustomerManagedKey("exampleCustomerManagedKey", CustomerManagedKeyArgs.builder()        
+ *         var exampleCustomerManagedKey = new CustomerManagedKey("exampleCustomerManagedKey", CustomerManagedKeyArgs.builder()
  *             .storageAccountId(exampleAccount.id())
  *             .keyVaultId(exampleKeyVault.id())
  *             .keyName(exampleKey.name())

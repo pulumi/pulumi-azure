@@ -45,12 +45,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()
  *             .name("example-apim")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *             .skuName("Developer_1")
  *             .build());
  * 
- *         var exampleNotificationRecipientEmail = new NotificationRecipientEmail("exampleNotificationRecipientEmail", NotificationRecipientEmailArgs.builder()        
+ *         var exampleNotificationRecipientEmail = new NotificationRecipientEmail("exampleNotificationRecipientEmail", NotificationRecipientEmailArgs.builder()
  *             .apiManagementId(exampleService.id())
  *             .notificationType("AccountClosedPublisher")
  *             .email("foo{@literal @}bar.com")
