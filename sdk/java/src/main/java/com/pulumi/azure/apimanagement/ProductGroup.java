@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.applyValue(getServiceResult -> getServiceResult.resourceGroupName()))
  *             .build());
  * 
- *         var exampleProductGroup = new ProductGroup("exampleProductGroup", ProductGroupArgs.builder()        
+ *         var exampleProductGroup = new ProductGroup("exampleProductGroup", ProductGroupArgs.builder()
  *             .productId(exampleGetProduct.applyValue(getProductResult -> getProductResult.productId()))
  *             .groupName(exampleGetGroup.applyValue(getGroupResult -> getGroupResult.name()))
  *             .apiManagementName(example.applyValue(getServiceResult -> getServiceResult.name()))

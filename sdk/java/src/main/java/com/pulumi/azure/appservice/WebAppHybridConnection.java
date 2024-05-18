@@ -55,12 +55,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-rg")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleServicePlan = new ServicePlan("exampleServicePlan", ServicePlanArgs.builder()        
+ *         var exampleServicePlan = new ServicePlan("exampleServicePlan", ServicePlanArgs.builder()
  *             .name("example-plan")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -68,20 +68,20 @@ import javax.annotation.Nullable;
  *             .skuName("S1")
  *             .build());
  * 
- *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()        
+ *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()
  *             .name("example-relay")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .skuName("Standard")
  *             .build());
  * 
- *         var exampleHybridConnection = new HybridConnection("exampleHybridConnection", HybridConnectionArgs.builder()        
+ *         var exampleHybridConnection = new HybridConnection("exampleHybridConnection", HybridConnectionArgs.builder()
  *             .name("examplerhc1")
  *             .resourceGroupName(example.name())
  *             .relayNamespaceName(exampleNamespace.name())
  *             .build());
  * 
- *         var exampleWindowsWebApp = new WindowsWebApp("exampleWindowsWebApp", WindowsWebAppArgs.builder()        
+ *         var exampleWindowsWebApp = new WindowsWebApp("exampleWindowsWebApp", WindowsWebAppArgs.builder()
  *             .name("example-web-app")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  *             .siteConfig()
  *             .build());
  * 
- *         var exampleWebAppHybridConnection = new WebAppHybridConnection("exampleWebAppHybridConnection", WebAppHybridConnectionArgs.builder()        
+ *         var exampleWebAppHybridConnection = new WebAppHybridConnection("exampleWebAppHybridConnection", WebAppHybridConnectionArgs.builder()
  *             .webAppId(exampleWindowsWebApp.id())
  *             .relayId(exampleHybridConnection.id())
  *             .hostname("myhostname.example")

@@ -60,32 +60,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-rg")
  *             .location("West US")
  *             .build());
  * 
- *         var exampleVault = new Vault("exampleVault", VaultArgs.builder()        
+ *         var exampleVault = new Vault("exampleVault", VaultArgs.builder()
  *             .name("example-recovery-vault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("Standard")
  *             .build());
  * 
- *         var exampleVMWareReplicationPolicy = new VMWareReplicationPolicy("exampleVMWareReplicationPolicy", VMWareReplicationPolicyArgs.builder()        
+ *         var exampleVMWareReplicationPolicy = new VMWareReplicationPolicy("exampleVMWareReplicationPolicy", VMWareReplicationPolicyArgs.builder()
  *             .recoveryVaultId(exampleVault.id())
  *             .name("example-policy")
  *             .recoveryPointRetentionInMinutes(1440)
  *             .applicationConsistentSnapshotFrequencyInMinutes(240)
  *             .build());
  * 
- *         var test = new VmwareReplicationPolicyAssociation("test", VmwareReplicationPolicyAssociationArgs.builder()        
+ *         var test = new VmwareReplicationPolicyAssociation("test", VmwareReplicationPolicyAssociationArgs.builder()
  *             .name("example-association")
  *             .recoveryVaultId(exampleVault.id())
  *             .policyId(exampleVMWareReplicationPolicy.id())
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("examplestorageacc")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -94,21 +94,21 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("example-net")
  *             .resourceGroupName(example.name())
  *             .addressSpaces("192.168.2.0/24")
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("example-subnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("192.168.2.0/24")
  *             .build());
  * 
- *         var exampleVmwareReplicatedVm = new VmwareReplicatedVm("exampleVmwareReplicatedVm", VmwareReplicatedVmArgs.builder()        
+ *         var exampleVmwareReplicatedVm = new VmwareReplicatedVm("exampleVmwareReplicatedVm", VmwareReplicatedVmArgs.builder()
  *             .name("example-vmware-vm")
  *             .recoveryVaultId(exampleVault.id())
  *             .sourceVmName("example-vm")

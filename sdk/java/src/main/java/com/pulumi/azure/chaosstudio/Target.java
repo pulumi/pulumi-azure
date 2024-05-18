@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var example = new KubernetesCluster("example", KubernetesClusterArgs.builder()        
+ *         var example = new KubernetesCluster("example", KubernetesClusterArgs.builder()
  *             .name("example")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleTarget = new Target("exampleTarget", TargetArgs.builder()        
+ *         var exampleTarget = new Target("exampleTarget", TargetArgs.builder()
  *             .location(exampleResourceGroup.location())
  *             .targetResourceId(example.id())
  *             .targetType("example-value")

@@ -56,12 +56,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("EastUs")
  *             .build());
  * 
- *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()
  *             .name("mssqlserver")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("environment", "production"))
  *             .build());
  * 
- *         var exampleServerTransparentDataEncryption = new ServerTransparentDataEncryption("exampleServerTransparentDataEncryption", ServerTransparentDataEncryptionArgs.builder()        
+ *         var exampleServerTransparentDataEncryption = new ServerTransparentDataEncryption("exampleServerTransparentDataEncryption", ServerTransparentDataEncryptionArgs.builder()
  *             .serverId(exampleServer.id())
  *             .build());
  * 
@@ -125,12 +125,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("EastUs")
  *             .build());
  * 
- *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()
  *             .name("mssqlserver")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -149,7 +149,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Create a key vault with policies for the deployer to create a key & SQL Server to wrap/unwrap/get key
- *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -182,7 +182,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
  *             .name("byok")
  *             .keyVaultId(exampleKeyVault.id())
  *             .keyType("RSA")
@@ -192,7 +192,7 @@ import javax.annotation.Nullable;
  *                 "wrapKey")
  *             .build());
  * 
- *         var exampleServerTransparentDataEncryption = new ServerTransparentDataEncryption("exampleServerTransparentDataEncryption", ServerTransparentDataEncryptionArgs.builder()        
+ *         var exampleServerTransparentDataEncryption = new ServerTransparentDataEncryption("exampleServerTransparentDataEncryption", ServerTransparentDataEncryptionArgs.builder()
  *             .serverId(exampleServer.id())
  *             .keyVaultKeyId(exampleKey.id())
  *             .build());

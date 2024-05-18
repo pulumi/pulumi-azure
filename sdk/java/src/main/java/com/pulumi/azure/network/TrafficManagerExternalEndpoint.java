@@ -53,12 +53,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleTrafficManagerProfile = new TrafficManagerProfile("exampleTrafficManagerProfile", TrafficManagerProfileArgs.builder()        
+ *         var exampleTrafficManagerProfile = new TrafficManagerProfile("exampleTrafficManagerProfile", TrafficManagerProfileArgs.builder()
  *             .name("example-profile")
  *             .resourceGroupName(example.name())
  *             .trafficRoutingMethod("Weighted")
@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("environment", "Production"))
  *             .build());
  * 
- *         var exampleTrafficManagerExternalEndpoint = new TrafficManagerExternalEndpoint("exampleTrafficManagerExternalEndpoint", TrafficManagerExternalEndpointArgs.builder()        
+ *         var exampleTrafficManagerExternalEndpoint = new TrafficManagerExternalEndpoint("exampleTrafficManagerExternalEndpoint", TrafficManagerExternalEndpointArgs.builder()
  *             .name("example-endpoint")
  *             .profileId(exampleTrafficManagerProfile.id())
  *             .alwaysServeEnabled(true)

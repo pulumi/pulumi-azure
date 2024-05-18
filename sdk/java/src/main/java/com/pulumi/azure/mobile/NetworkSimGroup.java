@@ -54,12 +54,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleNetwork = new Network("exampleNetwork", NetworkArgs.builder()        
+ *         var exampleNetwork = new Network("exampleNetwork", NetworkArgs.builder()
  *             .name("example-mn")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  *             .keyVaultId(exampleGetKeyVault.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
  *             .build());
  * 
- *         var exampleNetworkSimGroup = new NetworkSimGroup("exampleNetworkSimGroup", NetworkSimGroupArgs.builder()        
+ *         var exampleNetworkSimGroup = new NetworkSimGroup("exampleNetworkSimGroup", NetworkSimGroupArgs.builder()
  *             .name("example-mnsg")
  *             .location(exampleResourceGroup.location())
  *             .mobileNetworkId(exampleNetwork.id())

@@ -55,23 +55,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleSync = new Sync("exampleSync", SyncArgs.builder()        
+ *         var exampleSync = new Sync("exampleSync", SyncArgs.builder()
  *             .name("example-storage-sync")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleSyncGroup = new SyncGroup("exampleSyncGroup", SyncGroupArgs.builder()        
+ *         var exampleSyncGroup = new SyncGroup("exampleSyncGroup", SyncGroupArgs.builder()
  *             .name("example-storage-sync-group")
  *             .storageSyncId(exampleSync.id())
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("example-storage-account")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleShare = new Share("exampleShare", ShareArgs.builder()        
+ *         var exampleShare = new Share("exampleShare", ShareArgs.builder()
  *             .name("example-storage-share")
  *             .storageAccountName(exampleAccount.name())
  *             .quota(1)
@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleSyncServerEndpoint = new SyncServerEndpoint("exampleSyncServerEndpoint", SyncServerEndpointArgs.builder()        
+ *         var exampleSyncServerEndpoint = new SyncServerEndpoint("exampleSyncServerEndpoint", SyncServerEndpointArgs.builder()
  *             .name("example-storage-sync-server-endpoint")
  *             .storageSyncGroupId(exampleSyncGroup.id())
  *             .registeredServerId(exampleSync.registeredServers().applyValue(registeredServers -> registeredServers[0]))

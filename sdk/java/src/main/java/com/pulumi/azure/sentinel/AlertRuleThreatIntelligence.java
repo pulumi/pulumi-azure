@@ -52,19 +52,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()        
+ *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()
  *             .name("example-workspace")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .sku("pergb2018")
  *             .build());
  * 
- *         var exampleAnalyticsSolution = new AnalyticsSolution("exampleAnalyticsSolution", AnalyticsSolutionArgs.builder()        
+ *         var exampleAnalyticsSolution = new AnalyticsSolution("exampleAnalyticsSolution", AnalyticsSolutionArgs.builder()
  *             .solutionName("SecurityInsights")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  *             .logAnalyticsWorkspaceId(exampleAnalyticsSolution.workspaceResourceId())
  *             .build());
  * 
- *         var exampleAlertRuleThreatIntelligence = new AlertRuleThreatIntelligence("exampleAlertRuleThreatIntelligence", AlertRuleThreatIntelligenceArgs.builder()        
+ *         var exampleAlertRuleThreatIntelligence = new AlertRuleThreatIntelligence("exampleAlertRuleThreatIntelligence", AlertRuleThreatIntelligenceArgs.builder()
  *             .name("example-rule")
  *             .logAnalyticsWorkspaceId(exampleAnalyticsSolution.workspaceResourceId())
  *             .alertRuleTemplateGuid(example.applyValue(getAlertRuleTemplateResult -> getAlertRuleTemplateResult).applyValue(example -> example.applyValue(getAlertRuleTemplateResult -> getAlertRuleTemplateResult.name())))

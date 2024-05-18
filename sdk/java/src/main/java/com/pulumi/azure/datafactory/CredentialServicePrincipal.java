@@ -59,18 +59,18 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("westeurope")
  *             .build());
  * 
- *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -92,19 +92,19 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleSecret = new Secret("exampleSecret", SecretArgs.builder()        
+ *         var exampleSecret = new Secret("exampleSecret", SecretArgs.builder()
  *             .name("example")
  *             .value("example-secret")
  *             .keyVaultId(exampleKeyVault.id())
  *             .build());
  * 
- *         var exampleLinkedServiceKeyVault = new LinkedServiceKeyVault("exampleLinkedServiceKeyVault", LinkedServiceKeyVaultArgs.builder()        
+ *         var exampleLinkedServiceKeyVault = new LinkedServiceKeyVault("exampleLinkedServiceKeyVault", LinkedServiceKeyVaultArgs.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .keyVaultId(exampleKeyVault.id())
  *             .build());
  * 
- *         var exampleCredentialServicePrincipal = new CredentialServicePrincipal("exampleCredentialServicePrincipal", CredentialServicePrincipalArgs.builder()        
+ *         var exampleCredentialServicePrincipal = new CredentialServicePrincipal("exampleCredentialServicePrincipal", CredentialServicePrincipalArgs.builder()
  *             .name("example")
  *             .description("example description")
  *             .dataFactoryId(exampleFactory.id())

@@ -54,19 +54,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("exampleRG1")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("example-vnet1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .addressSpaces("10.0.0.0/22")
  *             .build());
  * 
- *         var isesubnet1 = new Subnet("isesubnet1", SubnetArgs.builder()        
+ *         var isesubnet1 = new Subnet("isesubnet1", SubnetArgs.builder()
  *             .name("isesubnet1")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
@@ -79,28 +79,28 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var isesubnet2 = new Subnet("isesubnet2", SubnetArgs.builder()        
+ *         var isesubnet2 = new Subnet("isesubnet2", SubnetArgs.builder()
  *             .name("isesubnet2")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("10.0.1.32/27")
  *             .build());
  * 
- *         var isesubnet3 = new Subnet("isesubnet3", SubnetArgs.builder()        
+ *         var isesubnet3 = new Subnet("isesubnet3", SubnetArgs.builder()
  *             .name("isesubnet3")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("10.0.1.64/27")
  *             .build());
  * 
- *         var isesubnet4 = new Subnet("isesubnet4", SubnetArgs.builder()        
+ *         var isesubnet4 = new Subnet("isesubnet4", SubnetArgs.builder()
  *             .name("isesubnet4")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("10.0.1.96/27")
  *             .build());
  * 
- *         var exampleInterationServiceEnvironment = new InterationServiceEnvironment("exampleInterationServiceEnvironment", InterationServiceEnvironmentArgs.builder()        
+ *         var exampleInterationServiceEnvironment = new InterationServiceEnvironment("exampleInterationServiceEnvironment", InterationServiceEnvironmentArgs.builder()
  *             .name("example-ise")
  *             .location(example.location())
  *             .resourceGroupName(example.name())

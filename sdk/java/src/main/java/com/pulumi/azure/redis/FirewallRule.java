@@ -48,17 +48,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var server = new RandomId("server", RandomIdArgs.builder()        
+ *         var server = new RandomId("server", RandomIdArgs.builder()
  *             .keepers(Map.of("azi_id", 1))
  *             .byteLength(8)
  *             .build());
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("redis-resourcegroup")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleCache = new Cache("exampleCache", CacheArgs.builder()        
+ *         var exampleCache = new Cache("exampleCache", CacheArgs.builder()
  *             .name(server.hex().applyValue(hex -> String.format("redis%s", hex)))
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleFirewallRule = new FirewallRule("exampleFirewallRule", FirewallRuleArgs.builder()        
+ *         var exampleFirewallRule = new FirewallRule("exampleFirewallRule", FirewallRuleArgs.builder()
  *             .name("someIPrange")
  *             .redisCacheName(exampleCache.name())
  *             .resourceGroupName(example.name())

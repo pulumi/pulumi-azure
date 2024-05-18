@@ -86,26 +86,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("example-network")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .addressSpaces("10.0.0.0/16")
  *             .build());
  * 
- *         var internal = new Subnet("internal", SubnetArgs.builder()        
+ *         var internal = new Subnet("internal", SubnetArgs.builder()
  *             .name("internal")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
- *         var exampleWindowsVirtualMachineScaleSet = new WindowsVirtualMachineScaleSet("exampleWindowsVirtualMachineScaleSet", WindowsVirtualMachineScaleSetArgs.builder()        
+ *         var exampleWindowsVirtualMachineScaleSet = new WindowsVirtualMachineScaleSet("exampleWindowsVirtualMachineScaleSet", WindowsVirtualMachineScaleSetArgs.builder()
  *             .name("example-vmss")
  *             .resourceGroupName(example.name())
  *             .location(example.location())

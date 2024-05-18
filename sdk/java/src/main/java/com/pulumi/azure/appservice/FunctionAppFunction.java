@@ -58,12 +58,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-group")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("examplesa")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleServicePlan = new ServicePlan("exampleServicePlan", ServicePlanArgs.builder()        
+ *         var exampleServicePlan = new ServicePlan("exampleServicePlan", ServicePlanArgs.builder()
  *             .name("example-service-plan")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  *             .skuName("S1")
  *             .build());
  * 
- *         var exampleLinuxFunctionApp = new LinuxFunctionApp("exampleLinuxFunctionApp", LinuxFunctionAppArgs.builder()        
+ *         var exampleLinuxFunctionApp = new LinuxFunctionApp("exampleLinuxFunctionApp", LinuxFunctionAppArgs.builder()
  *             .name("example-function-app")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleFunctionAppFunction = new FunctionAppFunction("exampleFunctionAppFunction", FunctionAppFunctionArgs.builder()        
+ *         var exampleFunctionAppFunction = new FunctionAppFunction("exampleFunctionAppFunction", FunctionAppFunctionArgs.builder()
  *             .name("example-function-app-function")
  *             .functionAppId(exampleLinuxFunctionApp.id())
  *             .language("Python")
@@ -166,12 +166,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-group")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("examplesa")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -179,7 +179,7 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleServicePlan = new ServicePlan("exampleServicePlan", ServicePlanArgs.builder()        
+ *         var exampleServicePlan = new ServicePlan("exampleServicePlan", ServicePlanArgs.builder()
  *             .name("example-service-plan")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -187,7 +187,7 @@ import javax.annotation.Nullable;
  *             .skuName("S1")
  *             .build());
  * 
- *         var exampleWindowsFunctionApp = new WindowsFunctionApp("exampleWindowsFunctionApp", WindowsFunctionAppArgs.builder()        
+ *         var exampleWindowsFunctionApp = new WindowsFunctionApp("exampleWindowsFunctionApp", WindowsFunctionAppArgs.builder()
  *             .name("example-function-app")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -201,7 +201,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleFunctionAppFunction = new FunctionAppFunction("exampleFunctionAppFunction", FunctionAppFunctionArgs.builder()        
+ *         var exampleFunctionAppFunction = new FunctionAppFunction("exampleFunctionAppFunction", FunctionAppFunctionArgs.builder()
  *             .name("example-function-app-function")
  *             .functionAppId(exampleWindowsFunctionApp.id())
  *             .language("CSharp")

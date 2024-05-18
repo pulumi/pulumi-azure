@@ -47,19 +47,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleLab = new Lab("exampleLab", LabArgs.builder()        
+ *         var exampleLab = new Lab("exampleLab", LabArgs.builder()
  *             .name("example-devtestlab")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .tags(Map.of("Sydney", "Australia"))
  *             .build());
  * 
- *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()        
+ *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()
  *             .name("LabVmCount")
  *             .policySetName("default")
  *             .labName(exampleLab.name())
