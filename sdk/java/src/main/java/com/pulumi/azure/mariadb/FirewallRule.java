@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FirewallRule("example", FirewallRuleArgs.builder()        
+ *         var example = new FirewallRule("example", FirewallRuleArgs.builder()
  *             .name("test-rule")
  *             .resourceGroupName("test-rg")
  *             .serverName("test-server")
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FirewallRule("example", FirewallRuleArgs.builder()        
+ *         var example = new FirewallRule("example", FirewallRuleArgs.builder()
  *             .name("test-rule")
  *             .resourceGroupName("test-rg")
  *             .serverName("test-server")

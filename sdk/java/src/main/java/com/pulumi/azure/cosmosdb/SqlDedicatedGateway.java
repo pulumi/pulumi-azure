@@ -48,12 +48,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resource-group")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("example-ca")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleSqlDedicatedGateway = new SqlDedicatedGateway("exampleSqlDedicatedGateway", SqlDedicatedGatewayArgs.builder()        
+ *         var exampleSqlDedicatedGateway = new SqlDedicatedGateway("exampleSqlDedicatedGateway", SqlDedicatedGatewayArgs.builder()
  *             .cosmosdbAccountId(exampleAccount.id())
  *             .instanceCount(1)
  *             .instanceSize("Cosmos.D4s")

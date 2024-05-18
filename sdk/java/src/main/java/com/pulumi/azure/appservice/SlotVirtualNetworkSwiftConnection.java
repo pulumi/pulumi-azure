@@ -56,19 +56,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("example-virtual-network")
  *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("example-subnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()        
+ *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()
  *             .name("example-service-plan")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -92,14 +92,14 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleAppService = new AppService("exampleAppService", AppServiceArgs.builder()        
+ *         var exampleAppService = new AppService("exampleAppService", AppServiceArgs.builder()
  *             .name("example-app-service")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
  *             .build());
  * 
- *         var example_staging = new Slot("example-staging", SlotArgs.builder()        
+ *         var example_staging = new Slot("example-staging", SlotArgs.builder()
  *             .name("staging")
  *             .appServiceName(exampleAppService.name())
  *             .location(example.location())
@@ -107,7 +107,7 @@ import javax.annotation.Nullable;
  *             .appServicePlanId(examplePlan.id())
  *             .build());
  * 
- *         var exampleSlotVirtualNetworkSwiftConnection = new SlotVirtualNetworkSwiftConnection("exampleSlotVirtualNetworkSwiftConnection", SlotVirtualNetworkSwiftConnectionArgs.builder()        
+ *         var exampleSlotVirtualNetworkSwiftConnection = new SlotVirtualNetworkSwiftConnection("exampleSlotVirtualNetworkSwiftConnection", SlotVirtualNetworkSwiftConnectionArgs.builder()
  *             .slotName(example_staging.name())
  *             .appServiceId(exampleAppService.id())
  *             .subnetId(exampleSubnet.id())

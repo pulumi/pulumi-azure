@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleBackupVault = new BackupVault("exampleBackupVault", BackupVaultArgs.builder()        
+ *         var exampleBackupVault = new BackupVault("exampleBackupVault", BackupVaultArgs.builder()
  *             .name("example-backup-vault")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  *             .redundancy("LocallyRedundant")
  *             .build());
  * 
- *         var exampleBackupPolicyDisk = new BackupPolicyDisk("exampleBackupPolicyDisk", BackupPolicyDiskArgs.builder()        
+ *         var exampleBackupPolicyDisk = new BackupPolicyDisk("exampleBackupPolicyDisk", BackupPolicyDiskArgs.builder()
  *             .name("example-backup-policy")
  *             .vaultId(exampleBackupVault.id())
  *             .backupRepeatingTimeIntervals("R/2021-05-19T06:33:16+00:00/PT4H")

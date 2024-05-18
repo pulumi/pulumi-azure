@@ -58,18 +58,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualWan = new VirtualWan("exampleVirtualWan", VirtualWanArgs.builder()        
+ *         var exampleVirtualWan = new VirtualWan("exampleVirtualWan", VirtualWanArgs.builder()
  *             .name("example-virtualwan")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleVirtualHub = new VirtualHub("exampleVirtualHub", VirtualHubArgs.builder()        
+ *         var exampleVirtualHub = new VirtualHub("exampleVirtualHub", VirtualHubArgs.builder()
  *             .name("example-virtualhub")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  *             .addressPrefix("10.0.0.0/23")
  *             .build());
  * 
- *         var exampleVpnServerConfiguration = new VpnServerConfiguration("exampleVpnServerConfiguration", VpnServerConfigurationArgs.builder()        
+ *         var exampleVpnServerConfiguration = new VpnServerConfiguration("exampleVpnServerConfiguration", VpnServerConfigurationArgs.builder()
  *             .name("example-config")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -109,7 +109,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var examplePointToPointVpnGateway = new PointToPointVpnGateway("examplePointToPointVpnGateway", PointToPointVpnGatewayArgs.builder()        
+ *         var examplePointToPointVpnGateway = new PointToPointVpnGateway("examplePointToPointVpnGateway", PointToPointVpnGatewayArgs.builder()
  *             .name("example-vpn-gateway")
  *             .location(example.location())
  *             .resourceGroupName(example.name())

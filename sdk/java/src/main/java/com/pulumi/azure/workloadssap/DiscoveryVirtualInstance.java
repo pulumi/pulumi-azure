@@ -49,12 +49,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-sapvis")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleDiscoveryVirtualInstance = new DiscoveryVirtualInstance("exampleDiscoveryVirtualInstance", DiscoveryVirtualInstanceArgs.builder()        
+ *         var exampleDiscoveryVirtualInstance = new DiscoveryVirtualInstance("exampleDiscoveryVirtualInstance", DiscoveryVirtualInstanceArgs.builder()
  *             .name("X01")
  *             .resourceGroupName(example.name())
  *             .location(example.location())

@@ -52,14 +52,14 @@ import javax.annotation.Nullable;
  *             .resourceGroupName("tfex-cosmosdb-account-rg")
  *             .build());
  * 
- *         var exampleSqlDatabase = new SqlDatabase("exampleSqlDatabase", SqlDatabaseArgs.builder()        
+ *         var exampleSqlDatabase = new SqlDatabase("exampleSqlDatabase", SqlDatabaseArgs.builder()
  *             .name("tfex-cosmos-db")
  *             .resourceGroupName(example.applyValue(getAccountResult -> getAccountResult.resourceGroupName()))
  *             .accountName(example.applyValue(getAccountResult -> getAccountResult.name()))
  *             .throughput(400)
  *             .build());
  * 
- *         var exampleSqlContainer = new SqlContainer("exampleSqlContainer", SqlContainerArgs.builder()        
+ *         var exampleSqlContainer = new SqlContainer("exampleSqlContainer", SqlContainerArgs.builder()
  *             .name("example-container")
  *             .resourceGroupName(example.applyValue(getAccountResult -> getAccountResult.resourceGroupName()))
  *             .accountName(example.applyValue(getAccountResult -> getAccountResult.name()))
@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *             .partitionKeyPath("/id")
  *             .build());
  * 
- *         var exampleSqlStoredProcedure = new SqlStoredProcedure("exampleSqlStoredProcedure", SqlStoredProcedureArgs.builder()        
+ *         var exampleSqlStoredProcedure = new SqlStoredProcedure("exampleSqlStoredProcedure", SqlStoredProcedureArgs.builder()
  *             .name("test-stored-proc")
  *             .resourceGroupName(example.applyValue(getAccountResult -> getAccountResult.resourceGroupName()))
  *             .accountName(example.applyValue(getAccountResult -> getAccountResult.name()))

@@ -49,12 +49,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("notificationhub-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()        
+ *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()
  *             .name("myappnamespace")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -62,14 +62,14 @@ import javax.annotation.Nullable;
  *             .skuName("Free")
  *             .build());
  * 
- *         var exampleHub = new Hub("exampleHub", HubArgs.builder()        
+ *         var exampleHub = new Hub("exampleHub", HubArgs.builder()
  *             .name("mynotificationhub")
  *             .namespaceName(exampleNamespace.name())
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleAuthorizationRule = new AuthorizationRule("exampleAuthorizationRule", AuthorizationRuleArgs.builder()        
+ *         var exampleAuthorizationRule = new AuthorizationRule("exampleAuthorizationRule", AuthorizationRuleArgs.builder()
  *             .name("management-auth-rule")
  *             .notificationHubName(exampleHub.name())
  *             .namespaceName(exampleNamespace.name())

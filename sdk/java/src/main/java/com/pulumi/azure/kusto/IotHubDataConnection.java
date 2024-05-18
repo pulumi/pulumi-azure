@@ -57,12 +57,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()        
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
  *             .name("examplekustocluster")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()        
+ *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()
  *             .name("example-kusto-database")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  *             .softDeletePeriod("P31D")
  *             .build());
  * 
- *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()        
+ *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()
  *             .name("exampleIoTHub")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -91,21 +91,21 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleSharedAccessPolicy = new SharedAccessPolicy("exampleSharedAccessPolicy", SharedAccessPolicyArgs.builder()        
+ *         var exampleSharedAccessPolicy = new SharedAccessPolicy("exampleSharedAccessPolicy", SharedAccessPolicyArgs.builder()
  *             .name("example-shared-access-policy")
  *             .resourceGroupName(example.name())
  *             .iothubName(exampleIoTHub.name())
  *             .registryRead(true)
  *             .build());
  * 
- *         var exampleConsumerGroup = new ConsumerGroup("exampleConsumerGroup", ConsumerGroupArgs.builder()        
+ *         var exampleConsumerGroup = new ConsumerGroup("exampleConsumerGroup", ConsumerGroupArgs.builder()
  *             .name("example-consumer-group")
  *             .resourceGroupName(example.name())
  *             .iothubName(exampleIoTHub.name())
  *             .eventhubEndpointName("events")
  *             .build());
  * 
- *         var exampleIotHubDataConnection = new IotHubDataConnection("exampleIotHubDataConnection", IotHubDataConnectionArgs.builder()        
+ *         var exampleIotHubDataConnection = new IotHubDataConnection("exampleIotHubDataConnection", IotHubDataConnectionArgs.builder()
  *             .name("my-kusto-iothub-data-connection")
  *             .resourceGroupName(example.name())
  *             .location(example.location())

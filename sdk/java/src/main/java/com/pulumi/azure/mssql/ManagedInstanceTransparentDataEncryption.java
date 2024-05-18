@@ -60,19 +60,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("EastUs")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("acctest-vnet1-mssql")
  *             .resourceGroupName(example.name())
  *             .addressSpaces("10.0.0.0/16")
  *             .location(test.location())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("subnet1-mssql")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleManagedInstance = new ManagedInstance("exampleManagedInstance", ManagedInstanceArgs.builder()        
+ *         var exampleManagedInstance = new ManagedInstance("exampleManagedInstance", ManagedInstanceArgs.builder()
  *             .name("mssqlinstance")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -105,7 +105,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleManagedInstanceTransparentDataEncryption = new ManagedInstanceTransparentDataEncryption("exampleManagedInstanceTransparentDataEncryption", ManagedInstanceTransparentDataEncryptionArgs.builder()        
+ *         var exampleManagedInstanceTransparentDataEncryption = new ManagedInstanceTransparentDataEncryption("exampleManagedInstanceTransparentDataEncryption", ManagedInstanceTransparentDataEncryptionArgs.builder()
  *             .managedInstanceId(exampleManagedInstance.id())
  *             .build());
  * 
@@ -159,19 +159,19 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("EastUs")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("acctest-vnet1-mssql")
  *             .resourceGroupName(example.name())
  *             .addressSpaces("10.0.0.0/16")
  *             .location(test.location())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("subnet1-mssql")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
@@ -188,7 +188,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleManagedInstance = new ManagedInstance("exampleManagedInstance", ManagedInstanceArgs.builder()        
+ *         var exampleManagedInstance = new ManagedInstance("exampleManagedInstance", ManagedInstanceArgs.builder()
  *             .name("mssqlinstance")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -205,7 +205,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Create a key vault with policies for the deployer to create a key & SQL Managed Instance to wrap/unwrap/get key
- *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -238,7 +238,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
  *             .name("byok")
  *             .keyVaultId(exampleKeyVault.id())
  *             .keyType("RSA")
@@ -248,7 +248,7 @@ import javax.annotation.Nullable;
  *                 "wrapKey")
  *             .build());
  * 
- *         var exampleManagedInstanceTransparentDataEncryption = new ManagedInstanceTransparentDataEncryption("exampleManagedInstanceTransparentDataEncryption", ManagedInstanceTransparentDataEncryptionArgs.builder()        
+ *         var exampleManagedInstanceTransparentDataEncryption = new ManagedInstanceTransparentDataEncryption("exampleManagedInstanceTransparentDataEncryption", ManagedInstanceTransparentDataEncryptionArgs.builder()
  *             .managedInstanceId(exampleManagedInstance.id())
  *             .keyVaultKeyId(exampleKey.id())
  *             .build());

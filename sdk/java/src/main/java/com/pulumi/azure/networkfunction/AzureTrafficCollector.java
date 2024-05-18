@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West US")
  *             .build());
  * 
- *         var exampleAzureTrafficCollector = new AzureTrafficCollector("exampleAzureTrafficCollector", AzureTrafficCollectorArgs.builder()        
+ *         var exampleAzureTrafficCollector = new AzureTrafficCollector("exampleAzureTrafficCollector", AzureTrafficCollectorArgs.builder()
  *             .name("example-nfatc")
  *             .resourceGroupName(example.name())
  *             .location("West US")

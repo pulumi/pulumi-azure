@@ -61,26 +61,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("sample-rg")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("sample-vnet")
  *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("sample-subnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
- *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()        
+ *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()
  *             .name("sample-nic")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine("exampleLinuxVirtualMachine", LinuxVirtualMachineArgs.builder()        
+ *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine("exampleLinuxVirtualMachine", LinuxVirtualMachineArgs.builder()
  *             .name("SampleVM")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -113,7 +113,7 @@ import javax.annotation.Nullable;
  *             .disablePasswordAuthentication(false)
  *             .build());
  * 
- *         var exampleGlobalVMShutdownSchedule = new GlobalVMShutdownSchedule("exampleGlobalVMShutdownSchedule", GlobalVMShutdownScheduleArgs.builder()        
+ *         var exampleGlobalVMShutdownSchedule = new GlobalVMShutdownSchedule("exampleGlobalVMShutdownSchedule", GlobalVMShutdownScheduleArgs.builder()
  *             .virtualMachineId(exampleLinuxVirtualMachine.id())
  *             .location(example.location())
  *             .enabled(true)

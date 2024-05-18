@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("examplestoraccount")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -64,13 +64,13 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("environment", "staging"))
  *             .build());
  * 
- *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()        
+ *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()
  *             .name("example")
  *             .storageAccountName(exampleAccount.name())
  *             .containerAccessType("private")
  *             .build());
  * 
- *         var exampleContainerImmutabilityPolicy = new ContainerImmutabilityPolicy("exampleContainerImmutabilityPolicy", ContainerImmutabilityPolicyArgs.builder()        
+ *         var exampleContainerImmutabilityPolicy = new ContainerImmutabilityPolicy("exampleContainerImmutabilityPolicy", ContainerImmutabilityPolicyArgs.builder()
  *             .storageContainerResourceManagerId(exampleContainer.resourceManagerId())
  *             .immutabilityPeriodInDays(14)
  *             .protectedAppendWritesAllEnabled(false)

@@ -71,17 +71,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var server = new RandomId("server", RandomIdArgs.builder()        
+ *         var server = new RandomId("server", RandomIdArgs.builder()
  *             .keepers(Map.of("azi_id", 1))
  *             .byteLength(8)
  *             .build());
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("some-resource-group")
  *             .location("West Europe")
  *             .build());
  * 
- *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()        
+ *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()
  *             .name("some-app-service-plan")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleAppService = new AppService("exampleAppService", AppServiceArgs.builder()        
+ *         var exampleAppService = new AppService("exampleAppService", AppServiceArgs.builder()
  *             .name(server.hex())
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -107,7 +107,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleSlot = new Slot("exampleSlot", SlotArgs.builder()        
+ *         var exampleSlot = new Slot("exampleSlot", SlotArgs.builder()
  *             .name(server.hex())
  *             .appServiceName(exampleAppService.name())
  *             .location(example.location())
@@ -166,17 +166,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var server = new RandomId("server", RandomIdArgs.builder()        
+ *         var server = new RandomId("server", RandomIdArgs.builder()
  *             .keepers(Map.of("azi_id", 1))
  *             .byteLength(8)
  *             .build());
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("some-resource-group")
  *             .location("West Europe")
  *             .build());
  * 
- *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()        
+ *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()
  *             .name("some-app-service-plan")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -186,7 +186,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleAppService = new AppService("exampleAppService", AppServiceArgs.builder()        
+ *         var exampleAppService = new AppService("exampleAppService", AppServiceArgs.builder()
  *             .name(server.hex())
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -198,7 +198,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleSlot = new Slot("exampleSlot", SlotArgs.builder()        
+ *         var exampleSlot = new Slot("exampleSlot", SlotArgs.builder()
  *             .name(server.hex())
  *             .appServiceName(exampleAppService.name())
  *             .location(example.location())

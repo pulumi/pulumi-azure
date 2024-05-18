@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
@@ -59,14 +59,14 @@ import javax.annotation.Nullable;
  *             .location(exampleResourceGroup.location())
  *             .build());
  * 
- *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()        
+ *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()
  *             .name("acctestsbn-conn-example")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .sku("Basic")
  *             .build());
  * 
- *         var exampleApiConnection = new ApiConnection("exampleApiConnection", ApiConnectionArgs.builder()        
+ *         var exampleApiConnection = new ApiConnection("exampleApiConnection", ApiConnectionArgs.builder()
  *             .name("example-connection")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .managedApiId(example.applyValue(getManagedApiResult -> getManagedApiResult).applyValue(example -> example.applyValue(getManagedApiResult -> getManagedApiResult.id())))

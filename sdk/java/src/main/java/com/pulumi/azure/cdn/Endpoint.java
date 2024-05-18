@@ -56,19 +56,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleProfile = new Profile("exampleProfile", ProfileArgs.builder()        
+ *         var exampleProfile = new Profile("exampleProfile", ProfileArgs.builder()
  *             .name("example-cdn")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("Standard_Verizon")
  *             .build());
  * 
- *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()        
+ *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()
  *             .name("example")
  *             .profileName(exampleProfile.name())
  *             .location(example.location())

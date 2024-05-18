@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getSubscription();
  * 
- *         var subscription_level = new Lock("subscription-level", LockArgs.builder()        
+ *         var subscription_level = new Lock("subscription-level", LockArgs.builder()
  *             .name("subscription-level")
  *             .scope(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *             .lockLevel("CanNotDelete")
@@ -88,12 +88,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("locked-resource-group")
  *             .location("West Europe")
  *             .build());
  * 
- *         var resource_group_level = new Lock("resource-group-level", LockArgs.builder()        
+ *         var resource_group_level = new Lock("resource-group-level", LockArgs.builder()
  *             .name("resource-group-level")
  *             .scope(example.id())
  *             .lockLevel("ReadOnly")
@@ -135,12 +135,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("locked-resource-group")
  *             .location("West Europe")
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()
  *             .name("locked-publicip")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -148,7 +148,7 @@ import javax.annotation.Nullable;
  *             .idleTimeoutInMinutes(30)
  *             .build());
  * 
- *         var public_ip = new Lock("public-ip", LockArgs.builder()        
+ *         var public_ip = new Lock("public-ip", LockArgs.builder()
  *             .name("resource-ip")
  *             .scope(examplePublicIp.id())
  *             .lockLevel("CanNotDelete")

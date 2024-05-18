@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SubscriptionCostManagementView("example", SubscriptionCostManagementViewArgs.builder()        
+ *         var example = new SubscriptionCostManagementView("example", SubscriptionCostManagementViewArgs.builder()
  *             .name("example")
  *             .displayName("Cost View per Month")
  *             .chartType("StackedColumn")

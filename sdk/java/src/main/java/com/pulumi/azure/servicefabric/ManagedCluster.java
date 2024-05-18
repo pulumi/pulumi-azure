@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ManagedCluster("example", ManagedClusterArgs.builder()        
+ *         var example = new ManagedCluster("example", ManagedClusterArgs.builder()
  *             .name("example")
  *             .resourceGroupName("example")
  *             .location("West Europe")

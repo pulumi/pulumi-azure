@@ -64,19 +64,19 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getSubscription();
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-PEASGAsso")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("examplevnet")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .addressSpaces("10.5.0.0/16")
  *             .build());
  * 
- *         var service = new Subnet("service", SubnetArgs.builder()        
+ *         var service = new Subnet("service", SubnetArgs.builder()
  *             .name("examplenetservice")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  *             .enforcePrivateLinkServiceNetworkPolicies(true)
  *             .build());
  * 
- *         var endpoint = new Subnet("endpoint", SubnetArgs.builder()        
+ *         var endpoint = new Subnet("endpoint", SubnetArgs.builder()
  *             .name("examplenetendpoint")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  *             .enforcePrivateLinkEndpointNetworkPolicies(true)
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()
  *             .name("examplepip")
  *             .sku("Standard")
  *             .location(example.location())
@@ -100,7 +100,7 @@ import javax.annotation.Nullable;
  *             .allocationMethod("Static")
  *             .build());
  * 
- *         var exampleLoadBalancer = new LoadBalancer("exampleLoadBalancer", LoadBalancerArgs.builder()        
+ *         var exampleLoadBalancer = new LoadBalancer("exampleLoadBalancer", LoadBalancerArgs.builder()
  *             .name("examplelb")
  *             .sku("Standard")
  *             .location(example.location())
@@ -111,7 +111,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleLinkService = new LinkService("exampleLinkService", LinkServiceArgs.builder()        
+ *         var exampleLinkService = new LinkService("exampleLinkService", LinkServiceArgs.builder()
  *             .name("examplePLS")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -125,7 +125,7 @@ import javax.annotation.Nullable;
  *             .loadBalancerFrontendIpConfigurationIds(exampleLoadBalancer.frontendIpConfigurations().applyValue(frontendIpConfigurations -> frontendIpConfigurations[0].id()))
  *             .build());
  * 
- *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()        
+ *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()
  *             .name("example-privatelink")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -137,13 +137,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleApplicationSecurityGroup = new ApplicationSecurityGroup("exampleApplicationSecurityGroup", ApplicationSecurityGroupArgs.builder()        
+ *         var exampleApplicationSecurityGroup = new ApplicationSecurityGroup("exampleApplicationSecurityGroup", ApplicationSecurityGroupArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleApplicationSecurityGroupAssociation = new ApplicationSecurityGroupAssociation("exampleApplicationSecurityGroupAssociation", ApplicationSecurityGroupAssociationArgs.builder()        
+ *         var exampleApplicationSecurityGroupAssociation = new ApplicationSecurityGroupAssociation("exampleApplicationSecurityGroupAssociation", ApplicationSecurityGroupAssociationArgs.builder()
  *             .privateEndpointId(exampleEndpoint.id())
  *             .applicationSecurityGroupId(exampleApplicationSecurityGroup.id())
  *             .build());

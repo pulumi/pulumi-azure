@@ -53,12 +53,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("example-cosmosdb")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleSqlRoleDefinition = new SqlRoleDefinition("exampleSqlRoleDefinition", SqlRoleDefinitionArgs.builder()        
+ *         var exampleSqlRoleDefinition = new SqlRoleDefinition("exampleSqlRoleDefinition", SqlRoleDefinitionArgs.builder()
  *             .name("examplesqlroledef")
  *             .resourceGroupName(example.name())
  *             .accountName(exampleAccount.name())
@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleSqlRoleAssignment = new SqlRoleAssignment("exampleSqlRoleAssignment", SqlRoleAssignmentArgs.builder()        
+ *         var exampleSqlRoleAssignment = new SqlRoleAssignment("exampleSqlRoleAssignment", SqlRoleAssignmentArgs.builder()
  *             .name("736180af-7fbc-4c7f-9004-22735173c1c3")
  *             .resourceGroupName(example.name())
  *             .accountName(exampleAccount.name())

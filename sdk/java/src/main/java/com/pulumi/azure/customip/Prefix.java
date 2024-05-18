@@ -48,12 +48,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var examplePrefix = new Prefix("examplePrefix", PrefixArgs.builder()        
+ *         var examplePrefix = new Prefix("examplePrefix", PrefixArgs.builder()
  *             .name("example-CustomIPPrefix")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -100,12 +100,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var global = new Prefix("global", PrefixArgs.builder()        
+ *         var global = new Prefix("global", PrefixArgs.builder()
  *             .name("example-Global-CustomIPPrefix")
  *             .location(test.location())
  *             .resourceGroupName(test.name())
@@ -114,7 +114,7 @@ import javax.annotation.Nullable;
  *             .wanValidationSignedMessage("signed message for WAN validation")
  *             .build());
  * 
- *         var regional = new Prefix("regional", PrefixArgs.builder()        
+ *         var regional = new Prefix("regional", PrefixArgs.builder()
  *             .name("example-Regional-CustomIPPrefix")
  *             .location(test.location())
  *             .resourceGroupName(test.name())

@@ -52,12 +52,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleExpressRoutePort = new ExpressRoutePort("exampleExpressRoutePort", ExpressRoutePortArgs.builder()        
+ *         var exampleExpressRoutePort = new ExpressRoutePort("exampleExpressRoutePort", ExpressRoutePortArgs.builder()
  *             .name("example-erport")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *             .encapsulation("Dot1Q")
  *             .build());
  * 
- *         var exampleExpressRouteCircuit = new ExpressRouteCircuit("exampleExpressRouteCircuit", ExpressRouteCircuitArgs.builder()        
+ *         var exampleExpressRouteCircuit = new ExpressRouteCircuit("exampleExpressRouteCircuit", ExpressRouteCircuitArgs.builder()
  *             .name("example-ercircuit")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var example2 = new ExpressRoutePort("example2", ExpressRoutePortArgs.builder()        
+ *         var example2 = new ExpressRoutePort("example2", ExpressRoutePortArgs.builder()
  *             .name("example-erport2")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  *             .encapsulation("Dot1Q")
  *             .build());
  * 
- *         var example2ExpressRouteCircuit = new ExpressRouteCircuit("example2ExpressRouteCircuit", ExpressRouteCircuitArgs.builder()        
+ *         var example2ExpressRouteCircuit = new ExpressRouteCircuit("example2ExpressRouteCircuit", ExpressRouteCircuitArgs.builder()
  *             .name("example-ercircuit2")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -99,7 +99,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleExpressRouteCircuitPeering = new ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering", ExpressRouteCircuitPeeringArgs.builder()        
+ *         var exampleExpressRouteCircuitPeering = new ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering", ExpressRouteCircuitPeeringArgs.builder()
  *             .peeringType("AzurePrivatePeering")
  *             .expressRouteCircuitName(exampleExpressRouteCircuit.name())
  *             .resourceGroupName(example.name())
@@ -110,7 +110,7 @@ import javax.annotation.Nullable;
  *             .vlanId(100)
  *             .build());
  * 
- *         var example2ExpressRouteCircuitPeering = new ExpressRouteCircuitPeering("example2ExpressRouteCircuitPeering", ExpressRouteCircuitPeeringArgs.builder()        
+ *         var example2ExpressRouteCircuitPeering = new ExpressRouteCircuitPeering("example2ExpressRouteCircuitPeering", ExpressRouteCircuitPeeringArgs.builder()
  *             .peeringType("AzurePrivatePeering")
  *             .expressRouteCircuitName(example2ExpressRouteCircuit.name())
  *             .resourceGroupName(example.name())
@@ -121,7 +121,7 @@ import javax.annotation.Nullable;
  *             .vlanId(100)
  *             .build());
  * 
- *         var exampleExpressRouteCircuitConnection = new ExpressRouteCircuitConnection("exampleExpressRouteCircuitConnection", ExpressRouteCircuitConnectionArgs.builder()        
+ *         var exampleExpressRouteCircuitConnection = new ExpressRouteCircuitConnection("exampleExpressRouteCircuitConnection", ExpressRouteCircuitConnectionArgs.builder()
  *             .name("example-ercircuitconnection")
  *             .peeringId(exampleExpressRouteCircuitPeering.id())
  *             .peerPeeringId(example2ExpressRouteCircuitPeering.id())
