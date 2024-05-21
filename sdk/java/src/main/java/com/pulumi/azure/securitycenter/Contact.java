@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Contact("example", ContactArgs.builder()        
+ *         var example = new Contact("example", ContactArgs.builder()
  *             .name("contact")
  *             .email("contact{@literal @}example.com")
  *             .phone("+1-555-555-5555")

@@ -45,12 +45,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleQueryPack = new QueryPack("exampleQueryPack", QueryPackArgs.builder()        
+ *         var exampleQueryPack = new QueryPack("exampleQueryPack", QueryPackArgs.builder()
  *             .name("example-laqp")
  *             .resourceGroupName(example.name())
  *             .location(example.location())

@@ -73,12 +73,12 @@ import javax.annotation.Nullable;
  *             .displayName("Microsoft.Azure.Cdn")
  *             .build());
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-cdn-frontdoor")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("example-keyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -108,7 +108,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()        
+ *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()
  *             .name("example-cert")
  *             .keyVaultId(exampleKeyVault.id())
  *             .certificate(CertificateCertificateArgs.builder()
@@ -118,13 +118,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleFrontdoorProfile = new FrontdoorProfile("exampleFrontdoorProfile", FrontdoorProfileArgs.builder()        
+ *         var exampleFrontdoorProfile = new FrontdoorProfile("exampleFrontdoorProfile", FrontdoorProfileArgs.builder()
  *             .name("example-cdn-profile")
  *             .resourceGroupName(example.name())
  *             .skuName("Standard_AzureFrontDoor")
  *             .build());
  * 
- *         var exampleFrontdoorSecret = new FrontdoorSecret("exampleFrontdoorSecret", FrontdoorSecretArgs.builder()        
+ *         var exampleFrontdoorSecret = new FrontdoorSecret("exampleFrontdoorSecret", FrontdoorSecretArgs.builder()
  *             .name("example-customer-managed-secret")
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .secret(FrontdoorSecretSecretArgs.builder()

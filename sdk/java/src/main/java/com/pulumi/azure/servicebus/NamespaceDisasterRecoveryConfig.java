@@ -51,12 +51,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("servicebus-replication")
  *             .location("West Europe")
  *             .build());
  * 
- *         var primary = new Namespace("primary", NamespaceArgs.builder()        
+ *         var primary = new Namespace("primary", NamespaceArgs.builder()
  *             .name("servicebus-primary")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *             .capacity("1")
  *             .build());
  * 
- *         var secondary = new Namespace("secondary", NamespaceArgs.builder()        
+ *         var secondary = new Namespace("secondary", NamespaceArgs.builder()
  *             .name("servicebus-secondary")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  *             .capacity("1")
  *             .build());
  * 
- *         var exampleNamespaceAuthorizationRule = new NamespaceAuthorizationRule("exampleNamespaceAuthorizationRule", NamespaceAuthorizationRuleArgs.builder()        
+ *         var exampleNamespaceAuthorizationRule = new NamespaceAuthorizationRule("exampleNamespaceAuthorizationRule", NamespaceAuthorizationRuleArgs.builder()
  *             .name("examplerule")
  *             .namespaceId(exampleAzurermServicebusNamespace.id())
  *             .listen(true)
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *             .manage(false)
  *             .build());
  * 
- *         var exampleNamespaceDisasterRecoveryConfig = new NamespaceDisasterRecoveryConfig("exampleNamespaceDisasterRecoveryConfig", NamespaceDisasterRecoveryConfigArgs.builder()        
+ *         var exampleNamespaceDisasterRecoveryConfig = new NamespaceDisasterRecoveryConfig("exampleNamespaceDisasterRecoveryConfig", NamespaceDisasterRecoveryConfigArgs.builder()
  *             .name("servicebus-alias-name")
  *             .primaryNamespaceId(primary.id())
  *             .partnerNamespaceId(secondary.id())

@@ -45,18 +45,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleSync = new Sync("exampleSync", SyncArgs.builder()        
+ *         var exampleSync = new Sync("exampleSync", SyncArgs.builder()
  *             .name("example-ss")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleSyncGroup = new SyncGroup("exampleSyncGroup", SyncGroupArgs.builder()        
+ *         var exampleSyncGroup = new SyncGroup("exampleSyncGroup", SyncGroupArgs.builder()
  *             .name("example-ss-group")
  *             .storageSyncId(exampleSync.id())
  *             .build());

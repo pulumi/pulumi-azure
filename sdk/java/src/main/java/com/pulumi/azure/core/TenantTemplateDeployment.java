@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *             .version("v0.1")
  *             .build());
  * 
- *         var exampleTenantTemplateDeployment = new TenantTemplateDeployment("exampleTenantTemplateDeployment", TenantTemplateDeploymentArgs.builder()        
+ *         var exampleTenantTemplateDeployment = new TenantTemplateDeployment("exampleTenantTemplateDeployment", TenantTemplateDeploymentArgs.builder()
  *             .name("example")
  *             .location("West Europe")
  *             .templateSpecVersionId(example.applyValue(getTemplateSpecVersionResult -> getTemplateSpecVersionResult.id()))

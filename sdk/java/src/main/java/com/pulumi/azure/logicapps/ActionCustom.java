@@ -45,18 +45,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("workflow-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleWorkflow = new Workflow("exampleWorkflow", WorkflowArgs.builder()        
+ *         var exampleWorkflow = new Workflow("exampleWorkflow", WorkflowArgs.builder()
  *             .name("workflow1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleActionCustom = new ActionCustom("exampleActionCustom", ActionCustomArgs.builder()        
+ *         var exampleActionCustom = new ActionCustom("exampleActionCustom", ActionCustomArgs.builder()
  *             .name("example-action")
  *             .logicAppId(exampleWorkflow.id())
  *             .body("""

@@ -85,26 +85,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("example-vnet")
  *             .addressSpaces("10.0.0.0/16")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("internal")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
- *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()        
+ *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()
  *             .name("example-nic")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
@@ -115,13 +115,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()        
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()
  *             .name("example-uai")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .build());
  * 
- *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine("exampleLinuxVirtualMachine", LinuxVirtualMachineArgs.builder()        
+ *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine("exampleLinuxVirtualMachine", LinuxVirtualMachineArgs.builder()
  *             .name("example-VM")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
@@ -146,7 +146,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("exampleaccount")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
@@ -154,19 +154,19 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()        
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
  *             .scope(exampleAccount.id())
  *             .roleDefinitionName("Storage Blob Data Contributor")
  *             .principalId(exampleUserAssignedIdentity.principalId())
  *             .build());
  * 
- *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()        
+ *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()
  *             .name("example-sc")
  *             .storageAccountName(exampleAccount.name())
  *             .containerAccessType("blob")
  *             .build());
  * 
- *         var example1 = new Blob("example1", BlobArgs.builder()        
+ *         var example1 = new Blob("example1", BlobArgs.builder()
  *             .name("script1")
  *             .storageAccountName(exampleAccount.name())
  *             .storageContainerName(exampleContainer.name())
@@ -174,14 +174,14 @@ import javax.annotation.Nullable;
  *             .sourceContent("echo 'hello world'")
  *             .build());
  * 
- *         var example2 = new Blob("example2", BlobArgs.builder()        
+ *         var example2 = new Blob("example2", BlobArgs.builder()
  *             .name("output")
  *             .storageAccountName(exampleAccount.name())
  *             .storageContainerName(exampleContainer.name())
  *             .type("Append")
  *             .build());
  * 
- *         var example3 = new Blob("example3", BlobArgs.builder()        
+ *         var example3 = new Blob("example3", BlobArgs.builder()
  *             .name("error")
  *             .storageAccountName(exampleAccount.name())
  *             .storageContainerName(exampleContainer.name())
@@ -220,7 +220,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // basic example
- *         var exampleRunCommand = new RunCommand("exampleRunCommand", RunCommandArgs.builder()        
+ *         var exampleRunCommand = new RunCommand("exampleRunCommand", RunCommandArgs.builder()
  *             .name("example-vmrc")
  *             .location(exampleResourceGroup.location())
  *             .virtualMachineId(exampleLinuxVirtualMachine.id())
@@ -230,7 +230,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // authorize to storage blob using user assigned identity
- *         var example2RunCommand = new RunCommand("example2RunCommand", RunCommandArgs.builder()        
+ *         var example2RunCommand = new RunCommand("example2RunCommand", RunCommandArgs.builder()
  *             .location(exampleResourceGroup.location())
  *             .name("example2-vmrc")
  *             .virtualMachineId(exampleLinuxVirtualMachine.id())
@@ -265,7 +265,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // authorize to storage blob using SAS token
- *         var example3RunCommand = new RunCommand("example3RunCommand", RunCommandArgs.builder()        
+ *         var example3RunCommand = new RunCommand("example3RunCommand", RunCommandArgs.builder()
  *             .location(exampleResourceGroup.location())
  *             .name("example3-vmrc")
  *             .virtualMachineId(exampleLinuxVirtualMachine.id())

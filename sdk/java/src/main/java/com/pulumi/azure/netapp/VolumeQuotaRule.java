@@ -57,19 +57,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("example-virtualnetwork")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .addressSpaces("10.0.0.0/16")
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("example-subnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
@@ -85,13 +85,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("example-netappaccount")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var examplePool = new Pool("examplePool", PoolArgs.builder()        
+ *         var examplePool = new Pool("examplePool", PoolArgs.builder()
  *             .name("example-netapppool")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -100,7 +100,7 @@ import javax.annotation.Nullable;
  *             .sizeInTb(4)
  *             .build());
  * 
- *         var exampleVolume = new Volume("exampleVolume", VolumeArgs.builder()        
+ *         var exampleVolume = new Volume("exampleVolume", VolumeArgs.builder()
  *             .name("example-netappvolume")
  *             .location(example.location())
  *             .zone("1")
@@ -117,7 +117,7 @@ import javax.annotation.Nullable;
  *             .snapshotDirectoryVisible(false)
  *             .build());
  * 
- *         var quota1 = new VolumeQuotaRule("quota1", VolumeQuotaRuleArgs.builder()        
+ *         var quota1 = new VolumeQuotaRule("quota1", VolumeQuotaRuleArgs.builder()
  *             .name("example-quota-rule-1")
  *             .location(example.location())
  *             .volumeId(exampleVolume.id())
@@ -126,7 +126,7 @@ import javax.annotation.Nullable;
  *             .quotaType("IndividualGroupQuota")
  *             .build());
  * 
- *         var quota2 = new VolumeQuotaRule("quota2", VolumeQuotaRuleArgs.builder()        
+ *         var quota2 = new VolumeQuotaRule("quota2", VolumeQuotaRuleArgs.builder()
  *             .name("example-quota-rule-2")
  *             .location(example.location())
  *             .volumeId(exampleVolume.id())
@@ -135,7 +135,7 @@ import javax.annotation.Nullable;
  *             .quotaType("IndividualUserQuota")
  *             .build());
  * 
- *         var quota3 = new VolumeQuotaRule("quota3", VolumeQuotaRuleArgs.builder()        
+ *         var quota3 = new VolumeQuotaRule("quota3", VolumeQuotaRuleArgs.builder()
  *             .name("example-quota-rule-3")
  *             .location(example.location())
  *             .volumeId(exampleVolume.id())
@@ -143,7 +143,7 @@ import javax.annotation.Nullable;
  *             .quotaType("DefaultUserQuota")
  *             .build());
  * 
- *         var quota4 = new VolumeQuotaRule("quota4", VolumeQuotaRuleArgs.builder()        
+ *         var quota4 = new VolumeQuotaRule("quota4", VolumeQuotaRuleArgs.builder()
  *             .name("example-quota-rule-4")
  *             .location(example.location())
  *             .volumeId(exampleVolume.id())

@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.applyValue(getServiceResult -> getServiceResult.resourceGroupName()))
  *             .build());
  * 
- *         var exampleSubscription = new Subscription("exampleSubscription", SubscriptionArgs.builder()        
+ *         var exampleSubscription = new Subscription("exampleSubscription", SubscriptionArgs.builder()
  *             .apiManagementName(example.applyValue(getServiceResult -> getServiceResult.name()))
  *             .resourceGroupName(example.applyValue(getServiceResult -> getServiceResult.resourceGroupName()))
  *             .userId(exampleGetUser.applyValue(getUserResult -> getUserResult.id()))

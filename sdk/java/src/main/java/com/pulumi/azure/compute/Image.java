@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName("example-resources")
  *             .build());
  * 
- *         var exampleImage = new Image("exampleImage", ImageArgs.builder()        
+ *         var exampleImage = new Image("exampleImage", ImageArgs.builder()
  *             .name("exampleimage")
  *             .location(example.applyValue(getVirtualMachineResult -> getVirtualMachineResult.location()))
  *             .resourceGroupName(example.applyValue(getVirtualMachineResult -> getVirtualMachineResult.name()))

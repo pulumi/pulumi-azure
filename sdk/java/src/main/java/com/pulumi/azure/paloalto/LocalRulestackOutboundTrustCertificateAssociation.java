@@ -47,24 +47,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("rg-example")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleLocalRulestack = new LocalRulestack("exampleLocalRulestack", LocalRulestackArgs.builder()        
+ *         var exampleLocalRulestack = new LocalRulestack("exampleLocalRulestack", LocalRulestackArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleLocalRulestackCertificate = new LocalRulestackCertificate("exampleLocalRulestackCertificate", LocalRulestackCertificateArgs.builder()        
+ *         var exampleLocalRulestackCertificate = new LocalRulestackCertificate("exampleLocalRulestackCertificate", LocalRulestackCertificateArgs.builder()
  *             .name("example")
  *             .rulestackId(exampleLocalRulestack.id())
  *             .selfSigned(true)
  *             .build());
  * 
- *         var exampleLocalRulestackOutboundTrustCertificateAssociation = new LocalRulestackOutboundTrustCertificateAssociation("exampleLocalRulestackOutboundTrustCertificateAssociation", LocalRulestackOutboundTrustCertificateAssociationArgs.builder()        
+ *         var exampleLocalRulestackOutboundTrustCertificateAssociation = new LocalRulestackOutboundTrustCertificateAssociation("exampleLocalRulestackOutboundTrustCertificateAssociation", LocalRulestackOutboundTrustCertificateAssociationArgs.builder()
  *             .certificateId(exampleLocalRulestackCertificate.id())
  *             .build());
  * 

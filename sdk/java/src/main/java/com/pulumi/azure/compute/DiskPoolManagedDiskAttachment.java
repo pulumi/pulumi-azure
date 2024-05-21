@@ -68,19 +68,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("example")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("example-network")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .addressSpaces("10.0.0.0/16")
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("example-subnet")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
@@ -94,7 +94,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleDiskPool = new DiskPool("exampleDiskPool", DiskPoolArgs.builder()        
+ *         var exampleDiskPool = new DiskPool("exampleDiskPool", DiskPoolArgs.builder()
  *             .name("example-pool")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
@@ -103,7 +103,7 @@ import javax.annotation.Nullable;
  *             .skuName("Basic_B1")
  *             .build());
  * 
- *         var exampleManagedDisk = new ManagedDisk("exampleManagedDisk", ManagedDiskArgs.builder()        
+ *         var exampleManagedDisk = new ManagedDisk("exampleManagedDisk", ManagedDiskArgs.builder()
  *             .name("example-disk")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
@@ -123,7 +123,7 @@ import javax.annotation.Nullable;
  *             "Virtual Machine Contributor";
  * 
  *         for (var i = 0; i < roles.length(); i++) {
- *             new Assignment("exampleAssignment-" + i, AssignmentArgs.builder()            
+ *             new Assignment("exampleAssignment-" + i, AssignmentArgs.builder()
  *                 .principalId(example.applyValue(getServicePrincipalResult -> getServicePrincipalResult.id()))
  *                 .roleDefinitionName(roles[range.value()])
  *                 .scope(exampleManagedDisk.id())
@@ -131,7 +131,7 @@ import javax.annotation.Nullable;
  * 
  *         
  * }
- *         var exampleDiskPoolManagedDiskAttachment = new DiskPoolManagedDiskAttachment("exampleDiskPoolManagedDiskAttachment", DiskPoolManagedDiskAttachmentArgs.builder()        
+ *         var exampleDiskPoolManagedDiskAttachment = new DiskPoolManagedDiskAttachment("exampleDiskPoolManagedDiskAttachment", DiskPoolManagedDiskAttachmentArgs.builder()
  *             .diskPoolId(exampleDiskPool.id())
  *             .managedDiskId(exampleManagedDisk.id())
  *             .build());

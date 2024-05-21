@@ -55,19 +55,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("LoadBalancerRG")
  *             .location("West Europe")
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()
  *             .name("PublicIPForLB")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .allocationMethod("Static")
  *             .build());
  * 
- *         var exampleLoadBalancer = new LoadBalancer("exampleLoadBalancer", LoadBalancerArgs.builder()        
+ *         var exampleLoadBalancer = new LoadBalancer("exampleLoadBalancer", LoadBalancerArgs.builder()
  *             .name("TestLoadBalancer")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleNatPool = new NatPool("exampleNatPool", NatPoolArgs.builder()        
+ *         var exampleNatPool = new NatPool("exampleNatPool", NatPoolArgs.builder()
  *             .resourceGroupName(example.name())
  *             .loadbalancerId(exampleLoadBalancer.id())
  *             .name("SampleApplicationPool")
