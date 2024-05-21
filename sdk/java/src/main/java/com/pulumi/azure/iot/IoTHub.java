@@ -83,12 +83,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("examplestorage")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -96,20 +96,20 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()        
+ *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()
  *             .name("examplecontainer")
  *             .storageAccountName(exampleAccount.name())
  *             .containerAccessType("private")
  *             .build());
  * 
- *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()        
+ *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()
  *             .name("example-namespace")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .sku("Basic")
  *             .build());
  * 
- *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()        
+ *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()
  *             .name("example-eventhub")
  *             .resourceGroupName(example.name())
  *             .namespaceName(exampleEventHubNamespace.name())
@@ -117,7 +117,7 @@ import javax.annotation.Nullable;
  *             .messageRetention(1)
  *             .build());
  * 
- *         var exampleAuthorizationRule = new AuthorizationRule("exampleAuthorizationRule", AuthorizationRuleArgs.builder()        
+ *         var exampleAuthorizationRule = new AuthorizationRule("exampleAuthorizationRule", AuthorizationRuleArgs.builder()
  *             .resourceGroupName(example.name())
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .eventhubName(exampleEventHub.name())
@@ -125,7 +125,7 @@ import javax.annotation.Nullable;
  *             .send(true)
  *             .build());
  * 
- *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()        
+ *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()
  *             .name("Example-IoTHub")
  *             .resourceGroupName(example.name())
  *             .location(example.location())

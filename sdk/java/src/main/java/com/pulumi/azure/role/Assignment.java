@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  * 
  *         final var example = CoreFunctions.getClientConfig();
  * 
- *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()        
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
  *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *             .roleDefinitionName("Reader")
  *             .principalId(example.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  * 
  *         final var example = CoreFunctions.getClientConfig();
  * 
- *         var exampleRoleDefinition = new RoleDefinition("exampleRoleDefinition", RoleDefinitionArgs.builder()        
+ *         var exampleRoleDefinition = new RoleDefinition("exampleRoleDefinition", RoleDefinitionArgs.builder()
  *             .roleDefinitionId("00000000-0000-0000-0000-000000000000")
  *             .name("my-custom-role-definition")
  *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
@@ -108,7 +108,7 @@ import javax.annotation.Nullable;
  *             .assignableScopes(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *             .build());
  * 
- *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()        
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
  *             .name("00000000-0000-0000-0000-000000000000")
  *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *             .roleDefinitionId(exampleRoleDefinition.roleDefinitionResourceId())
@@ -155,7 +155,7 @@ import javax.annotation.Nullable;
  * 
  *         final var example = CoreFunctions.getClientConfig();
  * 
- *         var exampleRoleDefinition = new RoleDefinition("exampleRoleDefinition", RoleDefinitionArgs.builder()        
+ *         var exampleRoleDefinition = new RoleDefinition("exampleRoleDefinition", RoleDefinitionArgs.builder()
  *             .roleDefinitionId("00000000-0000-0000-0000-000000000000")
  *             .name("my-custom-role-definition")
  *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
@@ -166,7 +166,7 @@ import javax.annotation.Nullable;
  *             .assignableScopes(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *             .build());
  * 
- *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()        
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
  *             .name("00000000-0000-0000-0000-000000000000")
  *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *             .roleDefinitionId(exampleRoleDefinition.roleDefinitionResourceId())
@@ -219,7 +219,7 @@ import javax.annotation.Nullable;
  *             .name("00000000-0000-0000-0000-000000000000")
  *             .build());
  * 
- *         var exampleRoleDefinition = new RoleDefinition("exampleRoleDefinition", RoleDefinitionArgs.builder()        
+ *         var exampleRoleDefinition = new RoleDefinition("exampleRoleDefinition", RoleDefinitionArgs.builder()
  *             .roleDefinitionId("00000000-0000-0000-0000-000000000000")
  *             .name("my-custom-role-definition")
  *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
@@ -230,7 +230,7 @@ import javax.annotation.Nullable;
  *             .assignableScopes(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *             .build());
  * 
- *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()        
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
  *             .name("00000000-0000-0000-0000-000000000000")
  *             .scope(primaryAzurermManagementGroup.id())
  *             .roleDefinitionId(exampleRoleDefinition.roleDefinitionResourceId())
@@ -280,7 +280,7 @@ import javax.annotation.Nullable;
  *             .name("Reader")
  *             .build());
  * 
- *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()        
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
  *             .roleDefinitionName("Role Based Access Control Administrator")
  *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *             .principalId(example.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))

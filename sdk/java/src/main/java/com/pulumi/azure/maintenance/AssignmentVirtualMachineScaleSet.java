@@ -74,33 +74,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("example-network")
  *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("internal")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()
  *             .name(example.name())
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .allocationMethod("Static")
  *             .build());
  * 
- *         var exampleLoadBalancer = new LoadBalancer("exampleLoadBalancer", LoadBalancerArgs.builder()        
+ *         var exampleLoadBalancer = new LoadBalancer("exampleLoadBalancer", LoadBalancerArgs.builder()
  *             .name(example.name())
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -110,19 +110,19 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleBackendAddressPool = new BackendAddressPool("exampleBackendAddressPool", BackendAddressPoolArgs.builder()        
+ *         var exampleBackendAddressPool = new BackendAddressPool("exampleBackendAddressPool", BackendAddressPoolArgs.builder()
  *             .name("example")
  *             .loadbalancerId(exampleLoadBalancer.id())
  *             .build());
  * 
- *         var exampleProbe = new Probe("exampleProbe", ProbeArgs.builder()        
+ *         var exampleProbe = new Probe("exampleProbe", ProbeArgs.builder()
  *             .name("example")
  *             .loadbalancerId(exampleLoadBalancer.id())
  *             .port(22)
  *             .protocol("Tcp")
  *             .build());
  * 
- *         var exampleRule = new Rule("exampleRule", RuleArgs.builder()        
+ *         var exampleRule = new Rule("exampleRule", RuleArgs.builder()
  *             .name("example")
  *             .loadbalancerId(exampleLoadBalancer.id())
  *             .probeId(exampleProbe.id())
@@ -132,7 +132,7 @@ import javax.annotation.Nullable;
  *             .backendPort(22)
  *             .build());
  * 
- *         var exampleConfiguration = new Configuration("exampleConfiguration", ConfigurationArgs.builder()        
+ *         var exampleConfiguration = new Configuration("exampleConfiguration", ConfigurationArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -147,7 +147,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()        
+ *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()
  *             .name("sample-nic")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -157,7 +157,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine("exampleLinuxVirtualMachine", LinuxVirtualMachineArgs.builder()        
+ *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine("exampleLinuxVirtualMachine", LinuxVirtualMachineArgs.builder()
  *             .name("example-machine")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -170,7 +170,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleLinuxVirtualMachineScaleSet = new LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", LinuxVirtualMachineScaleSetArgs.builder()        
+ *         var exampleLinuxVirtualMachineScaleSet = new LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", LinuxVirtualMachineScaleSetArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -213,7 +213,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleAssignmentVirtualMachineScaleSet = new AssignmentVirtualMachineScaleSet("exampleAssignmentVirtualMachineScaleSet", AssignmentVirtualMachineScaleSetArgs.builder()        
+ *         var exampleAssignmentVirtualMachineScaleSet = new AssignmentVirtualMachineScaleSet("exampleAssignmentVirtualMachineScaleSet", AssignmentVirtualMachineScaleSetArgs.builder()
  *             .location(example.location())
  *             .maintenanceConfigurationId(exampleConfiguration.id())
  *             .virtualMachineScaleSetId(exampleLinuxVirtualMachine.id())

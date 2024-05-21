@@ -50,30 +50,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-rg")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()        
+ *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()
  *             .name("example-workspace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("PerGB2018")
  *             .build());
  * 
- *         var exampleLogAnalyticsWorkspaceOnboarding = new LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", LogAnalyticsWorkspaceOnboardingArgs.builder()        
+ *         var exampleLogAnalyticsWorkspaceOnboarding = new LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", LogAnalyticsWorkspaceOnboardingArgs.builder()
  *             .workspaceId(exampleAnalyticsWorkspace.id())
  *             .build());
  * 
- *         var exampleWatchlist = new Watchlist("exampleWatchlist", WatchlistArgs.builder()        
+ *         var exampleWatchlist = new Watchlist("exampleWatchlist", WatchlistArgs.builder()
  *             .name("example-watchlist")
  *             .logAnalyticsWorkspaceId(exampleLogAnalyticsWorkspaceOnboarding.workspaceId())
  *             .displayName("example-wl")
  *             .itemSearchKey("Key")
  *             .build());
  * 
- *         var exampleWatchlistItem = new WatchlistItem("exampleWatchlistItem", WatchlistItemArgs.builder()        
+ *         var exampleWatchlistItem = new WatchlistItem("exampleWatchlistItem", WatchlistItemArgs.builder()
  *             .name("0aac6fa5-223e-49cf-9bfd-3554dc9d2b76")
  *             .watchlistId(exampleWatchlist.id())
  *             .properties(Map.ofEntries(

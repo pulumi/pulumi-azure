@@ -52,12 +52,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleManagedDisk = new ManagedDisk("exampleManagedDisk", ManagedDiskArgs.builder()        
+ *         var exampleManagedDisk = new ManagedDisk("exampleManagedDisk", ManagedDiskArgs.builder()
  *             .name("example-disk")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *             .diskSizeGb("1")
  *             .build());
  * 
- *         var exampleBackupVault = new BackupVault("exampleBackupVault", BackupVaultArgs.builder()        
+ *         var exampleBackupVault = new BackupVault("exampleBackupVault", BackupVaultArgs.builder()
  *             .name("example-backup-vault")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -77,26 +77,26 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var example1 = new Assignment("example1", AssignmentArgs.builder()        
+ *         var example1 = new Assignment("example1", AssignmentArgs.builder()
  *             .scope(example.id())
  *             .roleDefinitionName("Disk Snapshot Contributor")
  *             .principalId(exampleBackupVault.identity().applyValue(identity -> identity.principalId()))
  *             .build());
  * 
- *         var example2 = new Assignment("example2", AssignmentArgs.builder()        
+ *         var example2 = new Assignment("example2", AssignmentArgs.builder()
  *             .scope(exampleManagedDisk.id())
  *             .roleDefinitionName("Disk Backup Reader")
  *             .principalId(exampleBackupVault.identity().applyValue(identity -> identity.principalId()))
  *             .build());
  * 
- *         var exampleBackupPolicyDisk = new BackupPolicyDisk("exampleBackupPolicyDisk", BackupPolicyDiskArgs.builder()        
+ *         var exampleBackupPolicyDisk = new BackupPolicyDisk("exampleBackupPolicyDisk", BackupPolicyDiskArgs.builder()
  *             .name("example-backup-policy")
  *             .vaultId(exampleBackupVault.id())
  *             .backupRepeatingTimeIntervals("R/2021-05-19T06:33:16+00:00/PT4H")
  *             .defaultRetentionDuration("P7D")
  *             .build());
  * 
- *         var exampleBackupInstanceDisk = new BackupInstanceDisk("exampleBackupInstanceDisk", BackupInstanceDiskArgs.builder()        
+ *         var exampleBackupInstanceDisk = new BackupInstanceDisk("exampleBackupInstanceDisk", BackupInstanceDiskArgs.builder()
  *             .name("example-backup-instance")
  *             .location(exampleBackupVault.location())
  *             .vaultId(exampleBackupVault.id())

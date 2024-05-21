@@ -60,12 +60,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()        
+ *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()
  *             .name("example-namespace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  *             .capacity(2)
  *             .build());
  * 
- *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()        
+ *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()
  *             .name("acceptanceTestEventHub")
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .resourceGroupName(example.name())
@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  *             .messageRetention(2)
  *             .build());
  * 
- *         var exampleAuthorizationRule = new AuthorizationRule("exampleAuthorizationRule", AuthorizationRuleArgs.builder()        
+ *         var exampleAuthorizationRule = new AuthorizationRule("exampleAuthorizationRule", AuthorizationRuleArgs.builder()
  *             .name("example-rule")
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .eventhubName(exampleEventHub.name())
@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  *             .manage(false)
  *             .build());
  * 
- *         var exampleAutomation = new Automation("exampleAutomation", AutomationArgs.builder()        
+ *         var exampleAutomation = new Automation("exampleAutomation", AutomationArgs.builder()
  *             .name("example-automation")
  *             .location(example.location())
  *             .resourceGroupName(example.name())

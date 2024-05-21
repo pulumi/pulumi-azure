@@ -55,12 +55,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("rg-example")
  *             .location("West Europe")
  *             .build());
  * 
- *         var primary = new ManagedInstance("primary", ManagedInstanceArgs.builder()        
+ *         var primary = new ManagedInstance("primary", ManagedInstanceArgs.builder()
  *             .name("example-primary")
  *             .resourceGroupName(primaryAzurermResourceGroup.name())
  *             .location(primaryAzurermResourceGroup.location())
@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("environment", "prod"))
  *             .build());
  * 
- *         var secondary = new ManagedInstance("secondary", ManagedInstanceArgs.builder()        
+ *         var secondary = new ManagedInstance("secondary", ManagedInstanceArgs.builder()
  *             .name("example-secondary")
  *             .resourceGroupName(secondaryAzurermResourceGroup.name())
  *             .location(secondaryAzurermResourceGroup.location())
@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("environment", "prod"))
  *             .build());
  * 
- *         var exampleManagedInstanceFailoverGroup = new ManagedInstanceFailoverGroup("exampleManagedInstanceFailoverGroup", ManagedInstanceFailoverGroupArgs.builder()        
+ *         var exampleManagedInstanceFailoverGroup = new ManagedInstanceFailoverGroup("exampleManagedInstanceFailoverGroup", ManagedInstanceFailoverGroupArgs.builder()
  *             .name("example-failover-group")
  *             .resourceGroupName(primaryAzurermResourceGroup.name())
  *             .location(primary.location())

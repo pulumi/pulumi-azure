@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new Service("example", ServiceArgs.builder()        
+ *         var example = new Service("example", ServiceArgs.builder()
  *             .name("uniquefhirname")
  *             .resourceGroupName("sample-resource-group")
  *             .location("westus2")

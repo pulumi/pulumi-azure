@@ -51,24 +51,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleLinkedServiceSqlServer = new LinkedServiceSqlServer("exampleLinkedServiceSqlServer", LinkedServiceSqlServerArgs.builder()        
+ *         var exampleLinkedServiceSqlServer = new LinkedServiceSqlServer("exampleLinkedServiceSqlServer", LinkedServiceSqlServerArgs.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .connectionString("Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test")
  *             .build());
  * 
- *         var exampleDatasetSqlServerTable = new DatasetSqlServerTable("exampleDatasetSqlServerTable", DatasetSqlServerTableArgs.builder()        
+ *         var exampleDatasetSqlServerTable = new DatasetSqlServerTable("exampleDatasetSqlServerTable", DatasetSqlServerTableArgs.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .linkedServiceName(exampleLinkedServiceSqlServer.name())

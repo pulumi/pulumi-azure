@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualMachineGroup = new VirtualMachineGroup("exampleVirtualMachineGroup", VirtualMachineGroupArgs.builder()        
+ *         var exampleVirtualMachineGroup = new VirtualMachineGroup("exampleVirtualMachineGroup", VirtualMachineGroupArgs.builder()
  *             .name("examplegroup")
  *             .resourceGroupName(example.name())
  *             .location(example.location())

@@ -45,12 +45,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleEmailService = new EmailService("exampleEmailService", EmailServiceArgs.builder()        
+ *         var exampleEmailService = new EmailService("exampleEmailService", EmailServiceArgs.builder()
  *             .name("example-emailcommunicationservice")
  *             .resourceGroupName(example.name())
  *             .dataLocation("United States")

@@ -43,12 +43,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("tfex-mariadb-database-RG")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()
  *             .name("mariadb-svr")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *             .sslEnforcementEnabled(true)
  *             .build());
  * 
- *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()        
+ *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()
  *             .name("mariadb_database")
  *             .resourceGroupName(example.name())
  *             .serverName(exampleServer.name())

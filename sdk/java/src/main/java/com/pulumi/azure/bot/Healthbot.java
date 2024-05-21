@@ -45,12 +45,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-healthbot")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleHealthbot = new Healthbot("exampleHealthbot", HealthbotArgs.builder()        
+ *         var exampleHealthbot = new Healthbot("exampleHealthbot", HealthbotArgs.builder()
  *             .name("example-bot")
  *             .resourceGroupName(example.name())
  *             .location(example.location())

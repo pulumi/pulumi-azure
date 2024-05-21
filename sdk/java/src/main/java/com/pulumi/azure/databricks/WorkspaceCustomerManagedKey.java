@@ -56,12 +56,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()        
+ *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()
  *             .name("databricks-test")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("Environment", "Production"))
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("examplekeyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *             .softDeleteRetentionDays(7)
  *             .build());
  * 
- *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
  *             .name("example-certificate")
  *             .keyVaultId(exampleKeyVault.id())
  *             .keyType("RSA")
@@ -94,12 +94,12 @@ import javax.annotation.Nullable;
  *                 "wrapKey")
  *             .build());
  * 
- *         var exampleWorkspaceRootDbfsCustomerManagedKey = new WorkspaceRootDbfsCustomerManagedKey("exampleWorkspaceRootDbfsCustomerManagedKey", WorkspaceRootDbfsCustomerManagedKeyArgs.builder()        
+ *         var exampleWorkspaceRootDbfsCustomerManagedKey = new WorkspaceRootDbfsCustomerManagedKey("exampleWorkspaceRootDbfsCustomerManagedKey", WorkspaceRootDbfsCustomerManagedKeyArgs.builder()
  *             .workspaceId(exampleWorkspace.id())
  *             .keyVaultKeyId(exampleKey.id())
  *             .build());
  * 
- *         var terraform = new AccessPolicy("terraform", AccessPolicyArgs.builder()        
+ *         var terraform = new AccessPolicy("terraform", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
  *             .tenantId(exampleKeyVault.tenantId())
  *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
@@ -116,7 +116,7 @@ import javax.annotation.Nullable;
  *                 "GetRotationPolicy")
  *             .build());
  * 
- *         var databricks = new AccessPolicy("databricks", AccessPolicyArgs.builder()        
+ *         var databricks = new AccessPolicy("databricks", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
  *             .tenantId(exampleWorkspace.storageAccountIdentities().applyValue(storageAccountIdentities -> storageAccountIdentities[0].tenantId()))
  *             .objectId(exampleWorkspace.storageAccountIdentities().applyValue(storageAccountIdentities -> storageAccountIdentities[0].principalId()))

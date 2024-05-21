@@ -55,12 +55,12 @@ public final class MssqlFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
      *             .name("example-resources")
      *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+     *         var exampleServer = new Server("exampleServer", ServerArgs.builder()
      *             .name("example")
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .location(exampleResourceGroup.location())
@@ -117,12 +117,12 @@ public final class MssqlFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
      *             .name("example-resources")
      *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+     *         var exampleServer = new Server("exampleServer", ServerArgs.builder()
      *             .name("example")
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .location(exampleResourceGroup.location())
@@ -179,12 +179,12 @@ public final class MssqlFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
      *             .name("example-resources")
      *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+     *         var exampleServer = new Server("exampleServer", ServerArgs.builder()
      *             .name("example")
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .location(exampleResourceGroup.location())
@@ -241,12 +241,12 @@ public final class MssqlFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
      *             .name("example-resources")
      *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+     *         var exampleServer = new Server("exampleServer", ServerArgs.builder()
      *             .name("example")
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .location(exampleResourceGroup.location())

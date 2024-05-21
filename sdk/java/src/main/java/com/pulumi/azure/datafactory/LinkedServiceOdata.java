@@ -52,24 +52,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var anonymous = new LinkedServiceOdata("anonymous", LinkedServiceOdataArgs.builder()        
+ *         var anonymous = new LinkedServiceOdata("anonymous", LinkedServiceOdataArgs.builder()
  *             .name("anonymous")
  *             .dataFactoryId(exampleFactory.id())
  *             .url("https://services.odata.org/v4/TripPinServiceRW/People")
  *             .build());
  * 
- *         var basicAuth = new LinkedServiceOdata("basicAuth", LinkedServiceOdataArgs.builder()        
+ *         var basicAuth = new LinkedServiceOdata("basicAuth", LinkedServiceOdataArgs.builder()
  *             .name("basic_auth")
  *             .dataFactoryId(exampleFactory.id())
  *             .url("https://services.odata.org/v4/TripPinServiceRW/People")

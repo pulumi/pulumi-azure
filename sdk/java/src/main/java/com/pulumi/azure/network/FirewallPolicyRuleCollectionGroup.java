@@ -54,18 +54,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFirewallPolicy = new FirewallPolicy("exampleFirewallPolicy", FirewallPolicyArgs.builder()        
+ *         var exampleFirewallPolicy = new FirewallPolicy("exampleFirewallPolicy", FirewallPolicyArgs.builder()
  *             .name("example-fwpolicy")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleFirewallPolicyRuleCollectionGroup = new FirewallPolicyRuleCollectionGroup("exampleFirewallPolicyRuleCollectionGroup", FirewallPolicyRuleCollectionGroupArgs.builder()        
+ *         var exampleFirewallPolicyRuleCollectionGroup = new FirewallPolicyRuleCollectionGroup("exampleFirewallPolicyRuleCollectionGroup", FirewallPolicyRuleCollectionGroupArgs.builder()
  *             .name("example-fwpolicy-rcg")
  *             .firewallPolicyId(exampleFirewallPolicy.id())
  *             .priority(500)

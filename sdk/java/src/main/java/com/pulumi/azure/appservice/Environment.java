@@ -53,33 +53,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("exampleRG1")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("example-vnet1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .addressSpaces("10.0.0.0/16")
  *             .build());
  * 
- *         var ase = new Subnet("ase", SubnetArgs.builder()        
+ *         var ase = new Subnet("ase", SubnetArgs.builder()
  *             .name("asesubnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("10.0.1.0/24")
  *             .build());
  * 
- *         var gateway = new Subnet("gateway", SubnetArgs.builder()        
+ *         var gateway = new Subnet("gateway", SubnetArgs.builder()
  *             .name("gatewaysubnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
- *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()        
+ *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()
  *             .name("example-ase")
  *             .resourceGroupName(example.name())
  *             .subnetId(ase.id())

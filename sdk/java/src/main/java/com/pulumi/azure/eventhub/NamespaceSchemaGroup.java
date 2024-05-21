@@ -43,19 +43,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("exampleRG-ehn-schemaGroup")
  *             .location("East US")
  *             .build());
  * 
- *         var test = new EventHubNamespace("test", EventHubNamespaceArgs.builder()        
+ *         var test = new EventHubNamespace("test", EventHubNamespaceArgs.builder()
  *             .name("example-ehn-schemaGroup")
  *             .location(testAzurermResourceGroup.location())
  *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .sku("Standard")
  *             .build());
  * 
- *         var testNamespaceSchemaGroup = new NamespaceSchemaGroup("testNamespaceSchemaGroup", NamespaceSchemaGroupArgs.builder()        
+ *         var testNamespaceSchemaGroup = new NamespaceSchemaGroup("testNamespaceSchemaGroup", NamespaceSchemaGroupArgs.builder()
  *             .name("example-schemaGroup")
  *             .namespaceId(test.id())
  *             .schemaCompatibility("Forward")

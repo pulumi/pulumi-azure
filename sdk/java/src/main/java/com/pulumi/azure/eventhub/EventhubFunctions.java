@@ -1339,19 +1339,19 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
      *             .name("example-resources")
      *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()        
+     *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()
      *             .name("example-ehn")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .sku("Basic")
      *             .build());
      * 
-     *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()        
+     *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()
      *             .name("example-eh")
      *             .namespaceName(exampleEventHubNamespace.name())
      *             .resourceGroupName(exampleResourceGroup.name())
@@ -1359,7 +1359,7 @@ public final class EventhubFunctions {
      *             .messageRetention(1)
      *             .build());
      * 
-     *         var exampleAuthorizationRule = new AuthorizationRule("exampleAuthorizationRule", AuthorizationRuleArgs.builder()        
+     *         var exampleAuthorizationRule = new AuthorizationRule("exampleAuthorizationRule", AuthorizationRuleArgs.builder()
      *             .name("example-ehar")
      *             .namespaceName(exampleEventHubNamespace.name())
      *             .eventhubName(exampleEventHub.name())
@@ -1428,19 +1428,19 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
      *             .name("example-resources")
      *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()        
+     *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()
      *             .name("example-ehn")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .sku("Basic")
      *             .build());
      * 
-     *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()        
+     *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()
      *             .name("example-eh")
      *             .namespaceName(exampleEventHubNamespace.name())
      *             .resourceGroupName(exampleResourceGroup.name())
@@ -1448,7 +1448,7 @@ public final class EventhubFunctions {
      *             .messageRetention(1)
      *             .build());
      * 
-     *         var exampleAuthorizationRule = new AuthorizationRule("exampleAuthorizationRule", AuthorizationRuleArgs.builder()        
+     *         var exampleAuthorizationRule = new AuthorizationRule("exampleAuthorizationRule", AuthorizationRuleArgs.builder()
      *             .name("example-ehar")
      *             .namespaceName(exampleEventHubNamespace.name())
      *             .eventhubName(exampleEventHub.name())
@@ -1517,19 +1517,19 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
      *             .name("example-resources")
      *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()        
+     *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()
      *             .name("example-ehn")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .sku("Basic")
      *             .build());
      * 
-     *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()        
+     *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()
      *             .name("example-eh")
      *             .namespaceName(exampleEventHubNamespace.name())
      *             .resourceGroupName(exampleResourceGroup.name())
@@ -1537,7 +1537,7 @@ public final class EventhubFunctions {
      *             .messageRetention(1)
      *             .build());
      * 
-     *         var exampleAuthorizationRule = new AuthorizationRule("exampleAuthorizationRule", AuthorizationRuleArgs.builder()        
+     *         var exampleAuthorizationRule = new AuthorizationRule("exampleAuthorizationRule", AuthorizationRuleArgs.builder()
      *             .name("example-ehar")
      *             .namespaceName(exampleEventHubNamespace.name())
      *             .eventhubName(exampleEventHub.name())
@@ -1606,19 +1606,19 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
      *             .name("example-resources")
      *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()        
+     *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()
      *             .name("example-ehn")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .sku("Basic")
      *             .build());
      * 
-     *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()        
+     *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()
      *             .name("example-eh")
      *             .namespaceName(exampleEventHubNamespace.name())
      *             .resourceGroupName(exampleResourceGroup.name())
@@ -1626,7 +1626,7 @@ public final class EventhubFunctions {
      *             .messageRetention(1)
      *             .build());
      * 
-     *         var exampleAuthorizationRule = new AuthorizationRule("exampleAuthorizationRule", AuthorizationRuleArgs.builder()        
+     *         var exampleAuthorizationRule = new AuthorizationRule("exampleAuthorizationRule", AuthorizationRuleArgs.builder()
      *             .name("example-ehar")
      *             .namespaceName(exampleEventHubNamespace.name())
      *             .eventhubName(exampleEventHub.name())

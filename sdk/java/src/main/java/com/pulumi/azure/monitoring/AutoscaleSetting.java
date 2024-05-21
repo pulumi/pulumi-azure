@@ -65,26 +65,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("autoscalingTest")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("acctvn")
  *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("acctsub")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
- *         var exampleLinuxVirtualMachineScaleSet = new LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", LinuxVirtualMachineScaleSetArgs.builder()        
+ *         var exampleLinuxVirtualMachineScaleSet = new LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", LinuxVirtualMachineScaleSetArgs.builder()
  *             .name("exampleset")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -117,7 +117,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleAutoscaleSetting = new AutoscaleSetting("exampleAutoscaleSetting", AutoscaleSettingArgs.builder()        
+ *         var exampleAutoscaleSetting = new AutoscaleSetting("exampleAutoscaleSetting", AutoscaleSettingArgs.builder()
  *             .name("myAutoscaleSetting")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -234,26 +234,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("autoscalingTest")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("acctvn")
  *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("acctsub")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
- *         var exampleLinuxVirtualMachineScaleSet = new LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", LinuxVirtualMachineScaleSetArgs.builder()        
+ *         var exampleLinuxVirtualMachineScaleSet = new LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", LinuxVirtualMachineScaleSetArgs.builder()
  *             .name("exampleset")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -286,7 +286,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleAutoscaleSetting = new AutoscaleSetting("exampleAutoscaleSetting", AutoscaleSettingArgs.builder()        
+ *         var exampleAutoscaleSetting = new AutoscaleSetting("exampleAutoscaleSetting", AutoscaleSettingArgs.builder()
  *             .name("myAutoscaleSetting")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -401,26 +401,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("autoscalingTest")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("acctvn")
  *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("acctsub")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
- *         var exampleLinuxVirtualMachineScaleSet = new LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", LinuxVirtualMachineScaleSetArgs.builder()        
+ *         var exampleLinuxVirtualMachineScaleSet = new LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", LinuxVirtualMachineScaleSetArgs.builder()
  *             .name("exampleset")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -453,7 +453,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleAutoscaleSetting = new AutoscaleSetting("exampleAutoscaleSetting", AutoscaleSettingArgs.builder()        
+ *         var exampleAutoscaleSetting = new AutoscaleSetting("exampleAutoscaleSetting", AutoscaleSettingArgs.builder()
  *             .name("myAutoscaleSetting")
  *             .enabled(true)
  *             .resourceGroupName(example.name())

@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName("search-service")
  *             .build());
  * 
- *         var exampleGroupUser = new GroupUser("exampleGroupUser", GroupUserArgs.builder()        
+ *         var exampleGroupUser = new GroupUser("exampleGroupUser", GroupUserArgs.builder()
  *             .userId(example.applyValue(getUserResult -> getUserResult.id()))
  *             .groupName("example-group")
  *             .resourceGroupName(example.applyValue(getUserResult -> getUserResult.resourceGroupName()))

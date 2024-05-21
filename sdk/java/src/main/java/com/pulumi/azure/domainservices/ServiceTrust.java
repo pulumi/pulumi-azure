@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName("example-rg")
  *             .build());
  * 
- *         var exampleServiceTrust = new ServiceTrust("exampleServiceTrust", ServiceTrustArgs.builder()        
+ *         var exampleServiceTrust = new ServiceTrust("exampleServiceTrust", ServiceTrustArgs.builder()
  *             .name("example-trust")
  *             .domainServiceId(example.applyValue(getServiceResult -> getServiceResult.id()))
  *             .trustedDomainFqdn("example.com")

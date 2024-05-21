@@ -52,12 +52,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleDefinition = new Definition("exampleDefinition", DefinitionArgs.builder()        
+ *         var exampleDefinition = new Definition("exampleDefinition", DefinitionArgs.builder()
  *             .name("only-deploy-in-westeurope")
  *             .policyType("Custom")
  *             .mode("All")
@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  *             """)
  *             .build());
  * 
- *         var exampleResourceGroupPolicyAssignment = new ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment", ResourceGroupPolicyAssignmentArgs.builder()        
+ *         var exampleResourceGroupPolicyAssignment = new ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment", ResourceGroupPolicyAssignmentArgs.builder()
  *             .name("example")
  *             .resourceGroupId(example.id())
  *             .policyDefinitionId(exampleDefinition.id())
