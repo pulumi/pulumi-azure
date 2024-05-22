@@ -532,7 +532,7 @@ index 95dac2d863..22f89d3199 100644
  }
  ```
 diff --git a/website/docs/r/app_service.html.markdown b/website/docs/r/app_service.html.markdown
-index 25e53059a0..b2f7684482 100644
+index e22526a383..feff83d72e 100644
 --- a/website/docs/r/app_service.html.markdown
 +++ b/website/docs/r/app_service.html.markdown
 @@ -17,7 +17,7 @@ Manages an App Service (within an App Service Plan).
@@ -603,7 +603,7 @@ index 6cd2598464..c8510b1c99 100644
  ```hcl
  data "azuread_service_principal" "MicrosoftWebApp" {
 diff --git a/website/docs/r/app_service_slot.html.markdown b/website/docs/r/app_service_slot.html.markdown
-index 4d2a801464..90f4a28915 100644
+index cbda06e6a6..54c68c9c9c 100644
 --- a/website/docs/r/app_service_slot.html.markdown
 +++ b/website/docs/r/app_service_slot.html.markdown
 @@ -235,7 +235,7 @@ A `site_config` block supports the following:
@@ -1537,7 +1537,7 @@ index 6b06ca628f..a2e544d3ef 100644
  
  ```hcl
 diff --git a/website/docs/r/function_app.html.markdown b/website/docs/r/function_app.html.markdown
-index 4fad99cea6..ec393da25c 100644
+index 138d8e5b99..6ac7206ed5 100644
 --- a/website/docs/r/function_app.html.markdown
 +++ b/website/docs/r/function_app.html.markdown
 @@ -237,7 +237,7 @@ The following arguments are supported:
@@ -1550,7 +1550,7 @@ index 4fad99cea6..ec393da25c 100644
  ~> **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
  
 diff --git a/website/docs/r/function_app_slot.html.markdown b/website/docs/r/function_app_slot.html.markdown
-index 39b679a016..575b9a8f57 100644
+index b88cc5d709..090510bb2d 100644
 --- a/website/docs/r/function_app_slot.html.markdown
 +++ b/website/docs/r/function_app_slot.html.markdown
 @@ -80,7 +80,7 @@ The following arguments are supported:
