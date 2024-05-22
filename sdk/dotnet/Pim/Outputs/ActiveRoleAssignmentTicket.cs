@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Pim.Outputs
     public sealed class ActiveRoleAssignmentTicket
     {
         /// <summary>
-        /// The ticket number.
+        /// User-supplied ticket number to be included with the request. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? Number;
         /// <summary>
-        /// The ticket system.
+        /// User-supplied ticket system name to be included with the request. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? System;
 

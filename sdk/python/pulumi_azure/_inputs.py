@@ -323,20 +323,24 @@ class ProviderFeaturesKeyVaultArgs:
     def __init__(__self__, *,
                  purge_soft_delete_on_destroy: Optional[pulumi.Input[bool]] = None,
                  purge_soft_deleted_certificates_on_destroy: Optional[pulumi.Input[bool]] = None,
+                 purge_soft_deleted_hardware_security_module_keys_on_destroy: Optional[pulumi.Input[bool]] = None,
                  purge_soft_deleted_hardware_security_modules_on_destroy: Optional[pulumi.Input[bool]] = None,
                  purge_soft_deleted_keys_on_destroy: Optional[pulumi.Input[bool]] = None,
                  purge_soft_deleted_secrets_on_destroy: Optional[pulumi.Input[bool]] = None,
                  recover_soft_deleted_certificates: Optional[pulumi.Input[bool]] = None,
+                 recover_soft_deleted_hardware_security_module_keys: Optional[pulumi.Input[bool]] = None,
                  recover_soft_deleted_key_vaults: Optional[pulumi.Input[bool]] = None,
                  recover_soft_deleted_keys: Optional[pulumi.Input[bool]] = None,
                  recover_soft_deleted_secrets: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[bool] purge_soft_delete_on_destroy: When enabled soft-deleted `keyvault.KeyVault` resources will be permanently deleted (e.g purged), when destroyed
         :param pulumi.Input[bool] purge_soft_deleted_certificates_on_destroy: When enabled soft-deleted `keyvault.Certificate` resources will be permanently deleted (e.g purged), when destroyed
+        :param pulumi.Input[bool] purge_soft_deleted_hardware_security_module_keys_on_destroy: When enabled soft-deleted `keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g purged), when destroyed
         :param pulumi.Input[bool] purge_soft_deleted_hardware_security_modules_on_destroy: When enabled soft-deleted `keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g purged), when destroyed
         :param pulumi.Input[bool] purge_soft_deleted_keys_on_destroy: When enabled soft-deleted `keyvault.Key` resources will be permanently deleted (e.g purged), when destroyed
         :param pulumi.Input[bool] purge_soft_deleted_secrets_on_destroy: When enabled soft-deleted `keyvault.Secret` resources will be permanently deleted (e.g purged), when destroyed
         :param pulumi.Input[bool] recover_soft_deleted_certificates: When enabled soft-deleted `keyvault.Certificate` resources will be restored, instead of creating new ones
+        :param pulumi.Input[bool] recover_soft_deleted_hardware_security_module_keys: When enabled soft-deleted `keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones
         :param pulumi.Input[bool] recover_soft_deleted_key_vaults: When enabled soft-deleted `keyvault.KeyVault` resources will be restored, instead of creating new ones
         :param pulumi.Input[bool] recover_soft_deleted_keys: When enabled soft-deleted `keyvault.Key` resources will be restored, instead of creating new ones
         :param pulumi.Input[bool] recover_soft_deleted_secrets: When enabled soft-deleted `keyvault.Secret` resources will be restored, instead of creating new ones
@@ -345,6 +349,8 @@ class ProviderFeaturesKeyVaultArgs:
             pulumi.set(__self__, "purge_soft_delete_on_destroy", purge_soft_delete_on_destroy)
         if purge_soft_deleted_certificates_on_destroy is not None:
             pulumi.set(__self__, "purge_soft_deleted_certificates_on_destroy", purge_soft_deleted_certificates_on_destroy)
+        if purge_soft_deleted_hardware_security_module_keys_on_destroy is not None:
+            pulumi.set(__self__, "purge_soft_deleted_hardware_security_module_keys_on_destroy", purge_soft_deleted_hardware_security_module_keys_on_destroy)
         if purge_soft_deleted_hardware_security_modules_on_destroy is not None:
             pulumi.set(__self__, "purge_soft_deleted_hardware_security_modules_on_destroy", purge_soft_deleted_hardware_security_modules_on_destroy)
         if purge_soft_deleted_keys_on_destroy is not None:
@@ -353,6 +359,8 @@ class ProviderFeaturesKeyVaultArgs:
             pulumi.set(__self__, "purge_soft_deleted_secrets_on_destroy", purge_soft_deleted_secrets_on_destroy)
         if recover_soft_deleted_certificates is not None:
             pulumi.set(__self__, "recover_soft_deleted_certificates", recover_soft_deleted_certificates)
+        if recover_soft_deleted_hardware_security_module_keys is not None:
+            pulumi.set(__self__, "recover_soft_deleted_hardware_security_module_keys", recover_soft_deleted_hardware_security_module_keys)
         if recover_soft_deleted_key_vaults is not None:
             pulumi.set(__self__, "recover_soft_deleted_key_vaults", recover_soft_deleted_key_vaults)
         if recover_soft_deleted_keys is not None:
@@ -383,6 +391,18 @@ class ProviderFeaturesKeyVaultArgs:
     @purge_soft_deleted_certificates_on_destroy.setter
     def purge_soft_deleted_certificates_on_destroy(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "purge_soft_deleted_certificates_on_destroy", value)
+
+    @property
+    @pulumi.getter(name="purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy")
+    def purge_soft_deleted_hardware_security_module_keys_on_destroy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When enabled soft-deleted `keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g purged), when destroyed
+        """
+        return pulumi.get(self, "purge_soft_deleted_hardware_security_module_keys_on_destroy")
+
+    @purge_soft_deleted_hardware_security_module_keys_on_destroy.setter
+    def purge_soft_deleted_hardware_security_module_keys_on_destroy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "purge_soft_deleted_hardware_security_module_keys_on_destroy", value)
 
     @property
     @pulumi.getter(name="purgeSoftDeletedHardwareSecurityModulesOnDestroy")
@@ -431,6 +451,18 @@ class ProviderFeaturesKeyVaultArgs:
     @recover_soft_deleted_certificates.setter
     def recover_soft_deleted_certificates(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "recover_soft_deleted_certificates", value)
+
+    @property
+    @pulumi.getter(name="recoverSoftDeletedHardwareSecurityModuleKeys")
+    def recover_soft_deleted_hardware_security_module_keys(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When enabled soft-deleted `keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones
+        """
+        return pulumi.get(self, "recover_soft_deleted_hardware_security_module_keys")
+
+    @recover_soft_deleted_hardware_security_module_keys.setter
+    def recover_soft_deleted_hardware_security_module_keys(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "recover_soft_deleted_hardware_security_module_keys", value)
 
     @property
     @pulumi.getter(name="recoverSoftDeletedKeyVaults")

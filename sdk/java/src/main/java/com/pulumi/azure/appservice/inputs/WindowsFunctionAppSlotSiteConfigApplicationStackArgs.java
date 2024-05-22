@@ -62,14 +62,14 @@ public final class WindowsFunctionAppSlotSiteConfigApplicationStackArgs extends 
     }
 
     /**
-     * The PowerShell Core version to use. Possible values are `7`, and `7.2`.
+     * The PowerShell Core version to use. Possible values are `7`, `7.2`, and `7.4`.
      * 
      */
     @Import(name="powershellCoreVersion")
     private @Nullable Output<String> powershellCoreVersion;
 
     /**
-     * @return The PowerShell Core version to use. Possible values are `7`, and `7.2`.
+     * @return The PowerShell Core version to use. Possible values are `7`, `7.2`, and `7.4`.
      * 
      */
     public Optional<Output<String>> powershellCoreVersion() {
@@ -199,7 +199,7 @@ public final class WindowsFunctionAppSlotSiteConfigApplicationStackArgs extends 
         }
 
         /**
-         * @param powershellCoreVersion The PowerShell Core version to use. Possible values are `7`, and `7.2`.
+         * @param powershellCoreVersion The PowerShell Core version to use. Possible values are `7`, `7.2`, and `7.4`.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class WindowsFunctionAppSlotSiteConfigApplicationStackArgs extends 
         }
 
         /**
-         * @param powershellCoreVersion The PowerShell Core version to use. Possible values are `7`, and `7.2`.
+         * @param powershellCoreVersion The PowerShell Core version to use. Possible values are `7`, `7.2`, and `7.4`.
          * 
          * @return builder
          * 

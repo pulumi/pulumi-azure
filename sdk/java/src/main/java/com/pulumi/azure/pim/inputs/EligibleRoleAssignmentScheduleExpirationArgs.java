@@ -17,14 +17,14 @@ public final class EligibleRoleAssignmentScheduleExpirationArgs extends com.pulu
     public static final EligibleRoleAssignmentScheduleExpirationArgs Empty = new EligibleRoleAssignmentScheduleExpirationArgs();
 
     /**
-     * The duration of the role assignment in days. Conflicts with `schedule[0].expiration[0].duration_hours`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
+     * The duration of the role assignment in days. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="durationDays")
     private @Nullable Output<Integer> durationDays;
 
     /**
-     * @return The duration of the role assignment in days. Conflicts with `schedule[0].expiration[0].duration_hours`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
+     * @return The duration of the role assignment in days. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Integer>> durationDays() {
@@ -32,14 +32,14 @@ public final class EligibleRoleAssignmentScheduleExpirationArgs extends com.pulu
     }
 
     /**
-     * The duration of the role assignment in hours. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
+     * The duration of the role assignment in hours. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="durationHours")
     private @Nullable Output<Integer> durationHours;
 
     /**
-     * @return The duration of the role assignment in hours. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
+     * @return The duration of the role assignment in hours. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Integer>> durationHours() {
@@ -47,14 +47,18 @@ public final class EligibleRoleAssignmentScheduleExpirationArgs extends com.pulu
     }
 
     /**
-     * The end date time of the role assignment. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].duration_hours` Changing this forces a new Pim Eligible Role Assignment to be created.
+     * The end date/time of the role assignment. Changing this forces a new resource to be created.
+     * 
+     * &gt; Note: Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
      * 
      */
     @Import(name="endDateTime")
     private @Nullable Output<String> endDateTime;
 
     /**
-     * @return The end date time of the role assignment. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].duration_hours` Changing this forces a new Pim Eligible Role Assignment to be created.
+     * @return The end date/time of the role assignment. Changing this forces a new resource to be created.
+     * 
+     * &gt; Note: Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
      * 
      */
     public Optional<Output<String>> endDateTime() {
@@ -88,7 +92,7 @@ public final class EligibleRoleAssignmentScheduleExpirationArgs extends com.pulu
         }
 
         /**
-         * @param durationDays The duration of the role assignment in days. Conflicts with `schedule[0].expiration[0].duration_hours`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
+         * @param durationDays The duration of the role assignment in days. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -99,7 +103,7 @@ public final class EligibleRoleAssignmentScheduleExpirationArgs extends com.pulu
         }
 
         /**
-         * @param durationDays The duration of the role assignment in days. Conflicts with `schedule[0].expiration[0].duration_hours`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
+         * @param durationDays The duration of the role assignment in days. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -109,7 +113,7 @@ public final class EligibleRoleAssignmentScheduleExpirationArgs extends com.pulu
         }
 
         /**
-         * @param durationHours The duration of the role assignment in hours. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
+         * @param durationHours The duration of the role assignment in hours. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -120,7 +124,7 @@ public final class EligibleRoleAssignmentScheduleExpirationArgs extends com.pulu
         }
 
         /**
-         * @param durationHours The duration of the role assignment in hours. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
+         * @param durationHours The duration of the role assignment in hours. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -130,7 +134,9 @@ public final class EligibleRoleAssignmentScheduleExpirationArgs extends com.pulu
         }
 
         /**
-         * @param endDateTime The end date time of the role assignment. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].duration_hours` Changing this forces a new Pim Eligible Role Assignment to be created.
+         * @param endDateTime The end date/time of the role assignment. Changing this forces a new resource to be created.
+         * 
+         * &gt; Note: Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
          * 
          * @return builder
          * 
@@ -141,7 +147,9 @@ public final class EligibleRoleAssignmentScheduleExpirationArgs extends com.pulu
         }
 
         /**
-         * @param endDateTime The end date time of the role assignment. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].duration_hours` Changing this forces a new Pim Eligible Role Assignment to be created.
+         * @param endDateTime The end date/time of the role assignment. Changing this forces a new resource to be created.
+         * 
+         * &gt; Note: Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
          * 
          * @return builder
          * 

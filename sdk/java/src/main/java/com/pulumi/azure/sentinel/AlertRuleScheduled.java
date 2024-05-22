@@ -132,14 +132,14 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.alertRuleTemplateGuid);
     }
     /**
-     * The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+     * The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule.
      * 
      */
     @Export(name="alertRuleTemplateVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> alertRuleTemplateVersion;
 
     /**
-     * @return The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+     * @return The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule.
      * 
      */
     public Output<Optional<String>> alertRuleTemplateVersion() {

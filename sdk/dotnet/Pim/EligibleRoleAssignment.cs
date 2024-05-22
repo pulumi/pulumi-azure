@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Pim
 {
     /// <summary>
-    /// Manages a Pim Eligible Role Assignment.
+    /// Manages a PIM Eligible Role Assignment.
     /// 
     /// ## Example Usage
     /// 
@@ -116,7 +116,7 @@ namespace Pulumi.Azure.Pim
     /// 
     /// ## Import
     /// 
-    /// Pim Eligible Role Assignments can be imported using the `resource id`, e.g.
+    /// PIM Eligible Role Assignments can be imported using the following composite resource ID, e.g.
     /// 
     /// ```sh
     /// $ pulumi import azure:pim/eligibleRoleAssignment:EligibleRoleAssignment example /subscriptions/00000000-0000-0000-0000-000000000000|/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000
@@ -126,43 +126,43 @@ namespace Pulumi.Azure.Pim
     public partial class EligibleRoleAssignment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The justification of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created.
+        /// The justification of the role assignment. Changing this forces a new resource to be created.
         /// </summary>
         [Output("justification")]
-        public Output<string?> Justification { get; private set; } = null!;
+        public Output<string> Justification { get; private set; } = null!;
 
         /// <summary>
-        /// The principal id. Changing this forces a new Pim Eligible Role Assignment to be created.
+        /// Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created.
         /// </summary>
         [Output("principalId")]
         public Output<string> PrincipalId { get; private set; } = null!;
 
         /// <summary>
-        /// The type of principal.
+        /// Type of principal to which the role will be assigned.
         /// </summary>
         [Output("principalType")]
         public Output<string> PrincipalType { get; private set; } = null!;
 
         /// <summary>
-        /// The role definition id. Changing this forces a new Pim Eligible Role Assignment to be created.
+        /// The role definition ID for this eligible role assignment. Changing this forces a new resource to be created.
         /// </summary>
         [Output("roleDefinitionId")]
         public Output<string> RoleDefinitionId { get; private set; } = null!;
 
         /// <summary>
-        /// A `schedule` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
+        /// A `schedule` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("schedule")]
-        public Output<Outputs.EligibleRoleAssignmentSchedule?> Schedule { get; private set; } = null!;
+        public Output<Outputs.EligibleRoleAssignmentSchedule> Schedule { get; private set; } = null!;
 
         /// <summary>
-        /// The scope. Changing this forces a new Pim Eligible Role Assignment to be created.
+        /// The scope for this eligible role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
         /// </summary>
         [Output("scope")]
         public Output<string> Scope { get; private set; } = null!;
 
         /// <summary>
-        /// A `ticket` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
+        /// A `ticket` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("ticket")]
         public Output<Outputs.EligibleRoleAssignmentTicket?> Ticket { get; private set; } = null!;
@@ -214,37 +214,37 @@ namespace Pulumi.Azure.Pim
     public sealed class EligibleRoleAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The justification of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created.
+        /// The justification of the role assignment. Changing this forces a new resource to be created.
         /// </summary>
         [Input("justification")]
         public Input<string>? Justification { get; set; }
 
         /// <summary>
-        /// The principal id. Changing this forces a new Pim Eligible Role Assignment to be created.
+        /// Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created.
         /// </summary>
         [Input("principalId", required: true)]
         public Input<string> PrincipalId { get; set; } = null!;
 
         /// <summary>
-        /// The role definition id. Changing this forces a new Pim Eligible Role Assignment to be created.
+        /// The role definition ID for this eligible role assignment. Changing this forces a new resource to be created.
         /// </summary>
         [Input("roleDefinitionId", required: true)]
         public Input<string> RoleDefinitionId { get; set; } = null!;
 
         /// <summary>
-        /// A `schedule` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
+        /// A `schedule` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("schedule")]
         public Input<Inputs.EligibleRoleAssignmentScheduleArgs>? Schedule { get; set; }
 
         /// <summary>
-        /// The scope. Changing this forces a new Pim Eligible Role Assignment to be created.
+        /// The scope for this eligible role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
 
         /// <summary>
-        /// A `ticket` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
+        /// A `ticket` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("ticket")]
         public Input<Inputs.EligibleRoleAssignmentTicketArgs>? Ticket { get; set; }
@@ -258,43 +258,43 @@ namespace Pulumi.Azure.Pim
     public sealed class EligibleRoleAssignmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The justification of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created.
+        /// The justification of the role assignment. Changing this forces a new resource to be created.
         /// </summary>
         [Input("justification")]
         public Input<string>? Justification { get; set; }
 
         /// <summary>
-        /// The principal id. Changing this forces a new Pim Eligible Role Assignment to be created.
+        /// Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created.
         /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
-        /// The type of principal.
+        /// Type of principal to which the role will be assigned.
         /// </summary>
         [Input("principalType")]
         public Input<string>? PrincipalType { get; set; }
 
         /// <summary>
-        /// The role definition id. Changing this forces a new Pim Eligible Role Assignment to be created.
+        /// The role definition ID for this eligible role assignment. Changing this forces a new resource to be created.
         /// </summary>
         [Input("roleDefinitionId")]
         public Input<string>? RoleDefinitionId { get; set; }
 
         /// <summary>
-        /// A `schedule` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
+        /// A `schedule` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("schedule")]
         public Input<Inputs.EligibleRoleAssignmentScheduleGetArgs>? Schedule { get; set; }
 
         /// <summary>
-        /// The scope. Changing this forces a new Pim Eligible Role Assignment to be created.
+        /// The scope for this eligible role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
         /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
 
         /// <summary>
-        /// A `ticket` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
+        /// A `ticket` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("ticket")]
         public Input<Inputs.EligibleRoleAssignmentTicketGetArgs>? Ticket { get; set; }

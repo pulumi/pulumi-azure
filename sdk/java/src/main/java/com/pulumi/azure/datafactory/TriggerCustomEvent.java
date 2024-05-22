@@ -261,16 +261,12 @@ public class TriggerCustomEvent extends com.pulumi.resources.CustomResource {
     /**
      * The pattern that event subject ends with for trigger to fire.
      * 
-     * &gt; **Note:** At least one of `subject_begins_with` and `subject_ends_with` must be set.
-     * 
      */
     @Export(name="subjectEndsWith", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subjectEndsWith;
 
     /**
      * @return The pattern that event subject ends with for trigger to fire.
-     * 
-     * &gt; **Note:** At least one of `subject_begins_with` and `subject_ends_with` must be set.
      * 
      */
     public Output<Optional<String>> subjectEndsWith() {

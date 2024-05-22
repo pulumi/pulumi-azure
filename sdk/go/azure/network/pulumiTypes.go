@@ -1916,6 +1916,8 @@ func (o ApplicationGatewayHttpListenerCustomErrorConfigurationArrayOutput) Index
 type ApplicationGatewayIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Application Gateway.
 	IdentityIds []string `pulumi:"identityIds"`
+	PrincipalId *string  `pulumi:"principalId"`
+	TenantId    *string  `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this Application Gateway. Only possible value is `UserAssigned`.
 	Type string `pulumi:"type"`
 }
@@ -1934,6 +1936,8 @@ type ApplicationGatewayIdentityInput interface {
 type ApplicationGatewayIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Application Gateway.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
+	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this Application Gateway. Only possible value is `UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -2020,6 +2024,14 @@ func (o ApplicationGatewayIdentityOutput) IdentityIds() pulumi.StringArrayOutput
 	return o.ApplyT(func(v ApplicationGatewayIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
+func (o ApplicationGatewayIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationGatewayIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
 // Specifies the type of Managed Service Identity that should be configured on this Application Gateway. Only possible value is `UserAssigned`.
 func (o ApplicationGatewayIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationGatewayIdentity) string { return v.Type }).(pulumi.StringOutput)
@@ -2057,6 +2069,24 @@ func (o ApplicationGatewayIdentityPtrOutput) IdentityIds() pulumi.StringArrayOut
 		}
 		return v.IdentityIds
 	}).(pulumi.StringArrayOutput)
+}
+
+func (o ApplicationGatewayIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationGatewayIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the type of Managed Service Identity that should be configured on this Application Gateway. Only possible value is `UserAssigned`.
@@ -28137,6 +28167,8 @@ func (o GetApplicationGatewayHttpListenerCustomErrorConfigurationArrayOutput) In
 type GetApplicationGatewayIdentity struct {
 	// The list of User Assigned Managed Identity IDs assigned to this Application Gateway.
 	IdentityIds []string `pulumi:"identityIds"`
+	PrincipalId string   `pulumi:"principalId"`
+	TenantId    string   `pulumi:"tenantId"`
 	// The type of Managed Service Identity that is configured on this Application Gateway.
 	Type string `pulumi:"type"`
 }
@@ -28155,6 +28187,8 @@ type GetApplicationGatewayIdentityInput interface {
 type GetApplicationGatewayIdentityArgs struct {
 	// The list of User Assigned Managed Identity IDs assigned to this Application Gateway.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	PrincipalId pulumi.StringInput      `pulumi:"principalId"`
+	TenantId    pulumi.StringInput      `pulumi:"tenantId"`
 	// The type of Managed Service Identity that is configured on this Application Gateway.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -28213,6 +28247,14 @@ func (o GetApplicationGatewayIdentityOutput) ToGetApplicationGatewayIdentityOutp
 // The list of User Assigned Managed Identity IDs assigned to this Application Gateway.
 func (o GetApplicationGatewayIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetApplicationGatewayIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+func (o GetApplicationGatewayIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+func (o GetApplicationGatewayIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayIdentity) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
 // The type of Managed Service Identity that is configured on this Application Gateway.

@@ -16,14 +16,14 @@ public final class EligibleRoleAssignmentTicketArgs extends com.pulumi.resources
     public static final EligibleRoleAssignmentTicketArgs Empty = new EligibleRoleAssignmentTicketArgs();
 
     /**
-     * The ticket number.
+     * User-supplied ticket number to be included with the request. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="number")
     private @Nullable Output<String> number;
 
     /**
-     * @return The ticket number.
+     * @return User-supplied ticket number to be included with the request. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> number() {
@@ -31,14 +31,14 @@ public final class EligibleRoleAssignmentTicketArgs extends com.pulumi.resources
     }
 
     /**
-     * The ticket system.
+     * User-supplied ticket system name to be included with the request. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="system")
     private @Nullable Output<String> system;
 
     /**
-     * @return The ticket system.
+     * @return User-supplied ticket system name to be included with the request. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> system() {
@@ -71,7 +71,7 @@ public final class EligibleRoleAssignmentTicketArgs extends com.pulumi.resources
         }
 
         /**
-         * @param number The ticket number.
+         * @param number User-supplied ticket number to be included with the request. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class EligibleRoleAssignmentTicketArgs extends com.pulumi.resources
         }
 
         /**
-         * @param number The ticket number.
+         * @param number User-supplied ticket number to be included with the request. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class EligibleRoleAssignmentTicketArgs extends com.pulumi.resources
         }
 
         /**
-         * @param system The ticket system.
+         * @param system User-supplied ticket system name to be included with the request. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class EligibleRoleAssignmentTicketArgs extends com.pulumi.resources
         }
 
         /**
-         * @param system The ticket system.
+         * @param system User-supplied ticket system name to be included with the request. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

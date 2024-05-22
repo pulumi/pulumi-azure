@@ -13,13 +13,13 @@ namespace Pulumi.Azure.Pim.Inputs
     public sealed class ActiveRoleAssignmentTicketArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ticket number.
+        /// User-supplied ticket number to be included with the request. Changing this forces a new resource to be created.
         /// </summary>
         [Input("number")]
         public Input<string>? Number { get; set; }
 
         /// <summary>
-        /// The ticket system.
+        /// User-supplied ticket system name to be included with the request. Changing this forces a new resource to be created.
         /// </summary>
         [Input("system")]
         public Input<string>? System { get; set; }

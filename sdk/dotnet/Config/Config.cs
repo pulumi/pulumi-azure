@@ -364,6 +364,10 @@ namespace Pulumi.Azure
             /// </summary>
                 public bool? PurgeSoftDeletedCertificatesOnDestroy { get; set; }
             /// <summary>
+            /// When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g purged), when destroyed
+            /// </summary>
+                public bool? PurgeSoftDeletedHardwareSecurityModuleKeysOnDestroy { get; set; }
+            /// <summary>
             /// When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g purged), when destroyed
             /// </summary>
                 public bool? PurgeSoftDeletedHardwareSecurityModulesOnDestroy { get; set; }
@@ -379,6 +383,10 @@ namespace Pulumi.Azure
             /// When enabled soft-deleted `azure.keyvault.Certificate` resources will be restored, instead of creating new ones
             /// </summary>
                 public bool? RecoverSoftDeletedCertificates { get; set; }
+            /// <summary>
+            /// When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones
+            /// </summary>
+                public bool? RecoverSoftDeletedHardwareSecurityModuleKeys { get; set; }
             /// <summary>
             /// When enabled soft-deleted `azure.keyvault.KeyVault` resources will be restored, instead of creating new ones
             /// </summary>

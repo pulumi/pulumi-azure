@@ -17,7 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a Pim Active Role Assignment.
+ * Manages a PIM Active Role Assignment.
  * 
  * ## Example Usage
  * 
@@ -158,7 +158,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Pim Active Role Assignments can be imported using the `resource id`, e.g.
+ * PIM Active Role Assignments can be imported using the following composite resource ID, e.g.
  * 
  * ```sh
  * $ pulumi import azure:pim/activeRoleAssignment:ActiveRoleAssignment example /subscriptions/00000000-0000-0000-0000-000000000000|/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000
@@ -168,98 +168,98 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:pim/activeRoleAssignment:ActiveRoleAssignment")
 public class ActiveRoleAssignment extends com.pulumi.resources.CustomResource {
     /**
-     * The justification of the role assignment. Changing this forces a new Pim Active Role Assignment to be created.
+     * The justification for the role assignment. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="justification", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> justification;
+    private Output<String> justification;
 
     /**
-     * @return The justification of the role assignment. Changing this forces a new Pim Active Role Assignment to be created.
+     * @return The justification for the role assignment. Changing this forces a new resource to be created.
      * 
      */
-    public Output<Optional<String>> justification() {
-        return Codegen.optional(this.justification);
+    public Output<String> justification() {
+        return this.justification;
     }
     /**
-     * The principal id. Changing this forces a new Pim Active Role Assignment to be created.
+     * Object ID of the principal for this role assignment. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="principalId", refs={String.class}, tree="[0]")
     private Output<String> principalId;
 
     /**
-     * @return The principal id. Changing this forces a new Pim Active Role Assignment to be created.
+     * @return Object ID of the principal for this role assignment. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> principalId() {
         return this.principalId;
     }
     /**
-     * The type of principal.
+     * Type of principal to which the role will be assigned.
      * 
      */
     @Export(name="principalType", refs={String.class}, tree="[0]")
     private Output<String> principalType;
 
     /**
-     * @return The type of principal.
+     * @return Type of principal to which the role will be assigned.
      * 
      */
     public Output<String> principalType() {
         return this.principalType;
     }
     /**
-     * The role definition id. Changing this forces a new Pim Active Role Assignment to be created.
+     * The role definition ID for this role assignment. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="roleDefinitionId", refs={String.class}, tree="[0]")
     private Output<String> roleDefinitionId;
 
     /**
-     * @return The role definition id. Changing this forces a new Pim Active Role Assignment to be created.
+     * @return The role definition ID for this role assignment. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> roleDefinitionId() {
         return this.roleDefinitionId;
     }
     /**
-     * A `schedule` block as defined below. Changing this forces a new Pim Active Role Assignment to be created.
+     * A `schedule` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="schedule", refs={ActiveRoleAssignmentSchedule.class}, tree="[0]")
-    private Output</* @Nullable */ ActiveRoleAssignmentSchedule> schedule;
+    private Output<ActiveRoleAssignmentSchedule> schedule;
 
     /**
-     * @return A `schedule` block as defined below. Changing this forces a new Pim Active Role Assignment to be created.
+     * @return A `schedule` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    public Output<Optional<ActiveRoleAssignmentSchedule>> schedule() {
-        return Codegen.optional(this.schedule);
+    public Output<ActiveRoleAssignmentSchedule> schedule() {
+        return this.schedule;
     }
     /**
-     * The scope. Changing this forces a new Pim Active Role Assignment to be created.
+     * The scope for this role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="scope", refs={String.class}, tree="[0]")
     private Output<String> scope;
 
     /**
-     * @return The scope. Changing this forces a new Pim Active Role Assignment to be created.
+     * @return The scope for this role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> scope() {
         return this.scope;
     }
     /**
-     * A `ticket` block as defined below. Changing this forces a new Pim Active Role Assignment to be created.
+     * A `ticket` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="ticket", refs={ActiveRoleAssignmentTicket.class}, tree="[0]")
     private Output</* @Nullable */ ActiveRoleAssignmentTicket> ticket;
 
     /**
-     * @return A `ticket` block as defined below. Changing this forces a new Pim Active Role Assignment to be created.
+     * @return A `ticket` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<ActiveRoleAssignmentTicket>> ticket() {

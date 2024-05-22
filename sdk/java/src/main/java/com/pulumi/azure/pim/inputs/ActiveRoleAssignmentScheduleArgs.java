@@ -17,14 +17,14 @@ public final class ActiveRoleAssignmentScheduleArgs extends com.pulumi.resources
     public static final ActiveRoleAssignmentScheduleArgs Empty = new ActiveRoleAssignmentScheduleArgs();
 
     /**
-     * A `expiration` block as defined above.
+     * An `expiration` block as defined above.
      * 
      */
     @Import(name="expiration")
     private @Nullable Output<ActiveRoleAssignmentScheduleExpirationArgs> expiration;
 
     /**
-     * @return A `expiration` block as defined above.
+     * @return An `expiration` block as defined above.
      * 
      */
     public Optional<Output<ActiveRoleAssignmentScheduleExpirationArgs>> expiration() {
@@ -32,14 +32,14 @@ public final class ActiveRoleAssignmentScheduleArgs extends com.pulumi.resources
     }
 
     /**
-     * The start date time of the role assignment. Changing this forces a new Pim Active Role Assignment to be created.
+     * The start date/time of the role assignment. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="startDateTime")
     private @Nullable Output<String> startDateTime;
 
     /**
-     * @return The start date time of the role assignment. Changing this forces a new Pim Active Role Assignment to be created.
+     * @return The start date/time of the role assignment. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> startDateTime() {
@@ -72,7 +72,7 @@ public final class ActiveRoleAssignmentScheduleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param expiration A `expiration` block as defined above.
+         * @param expiration An `expiration` block as defined above.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ActiveRoleAssignmentScheduleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param expiration A `expiration` block as defined above.
+         * @param expiration An `expiration` block as defined above.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ActiveRoleAssignmentScheduleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param startDateTime The start date time of the role assignment. Changing this forces a new Pim Active Role Assignment to be created.
+         * @param startDateTime The start date/time of the role assignment. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ActiveRoleAssignmentScheduleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param startDateTime The start date time of the role assignment. Changing this forces a new Pim Active Role Assignment to be created.
+         * @param startDateTime The start date/time of the role assignment. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

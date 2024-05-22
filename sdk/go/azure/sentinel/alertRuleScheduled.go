@@ -82,7 +82,7 @@ type AlertRuleScheduled struct {
 	AlertDetailsOverrides AlertRuleScheduledAlertDetailsOverrideArrayOutput `pulumi:"alertDetailsOverrides"`
 	// The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
 	AlertRuleTemplateGuid pulumi.StringPtrOutput `pulumi:"alertRuleTemplateGuid"`
-	// The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+	// The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule.
 	AlertRuleTemplateVersion pulumi.StringPtrOutput `pulumi:"alertRuleTemplateVersion"`
 	// A map of string key-value pairs of columns to be attached to this Sentinel Scheduled Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts.
 	CustomDetails pulumi.StringMapOutput `pulumi:"customDetails"`
@@ -178,7 +178,7 @@ type alertRuleScheduledState struct {
 	AlertDetailsOverrides []AlertRuleScheduledAlertDetailsOverride `pulumi:"alertDetailsOverrides"`
 	// The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
 	AlertRuleTemplateGuid *string `pulumi:"alertRuleTemplateGuid"`
-	// The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+	// The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule.
 	AlertRuleTemplateVersion *string `pulumi:"alertRuleTemplateVersion"`
 	// A map of string key-value pairs of columns to be attached to this Sentinel Scheduled Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts.
 	CustomDetails map[string]string `pulumi:"customDetails"`
@@ -233,7 +233,7 @@ type AlertRuleScheduledState struct {
 	AlertDetailsOverrides AlertRuleScheduledAlertDetailsOverrideArrayInput
 	// The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
 	AlertRuleTemplateGuid pulumi.StringPtrInput
-	// The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+	// The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule.
 	AlertRuleTemplateVersion pulumi.StringPtrInput
 	// A map of string key-value pairs of columns to be attached to this Sentinel Scheduled Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts.
 	CustomDetails pulumi.StringMapInput
@@ -292,7 +292,7 @@ type alertRuleScheduledArgs struct {
 	AlertDetailsOverrides []AlertRuleScheduledAlertDetailsOverride `pulumi:"alertDetailsOverrides"`
 	// The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
 	AlertRuleTemplateGuid *string `pulumi:"alertRuleTemplateGuid"`
-	// The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+	// The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule.
 	AlertRuleTemplateVersion *string `pulumi:"alertRuleTemplateVersion"`
 	// A map of string key-value pairs of columns to be attached to this Sentinel Scheduled Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts.
 	CustomDetails map[string]string `pulumi:"customDetails"`
@@ -348,7 +348,7 @@ type AlertRuleScheduledArgs struct {
 	AlertDetailsOverrides AlertRuleScheduledAlertDetailsOverrideArrayInput
 	// The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
 	AlertRuleTemplateGuid pulumi.StringPtrInput
-	// The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+	// The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule.
 	AlertRuleTemplateVersion pulumi.StringPtrInput
 	// A map of string key-value pairs of columns to be attached to this Sentinel Scheduled Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts.
 	CustomDetails pulumi.StringMapInput
@@ -497,7 +497,7 @@ func (o AlertRuleScheduledOutput) AlertRuleTemplateGuid() pulumi.StringPtrOutput
 	return o.ApplyT(func(v *AlertRuleScheduled) pulumi.StringPtrOutput { return v.AlertRuleTemplateGuid }).(pulumi.StringPtrOutput)
 }
 
-// The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+// The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule.
 func (o AlertRuleScheduledOutput) AlertRuleTemplateVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertRuleScheduled) pulumi.StringPtrOutput { return v.AlertRuleTemplateVersion }).(pulumi.StringPtrOutput)
 }

@@ -101,7 +101,7 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly serviceName!: pulumi.Output<string>;
     /**
-     * The platform type of the migration source. Currently only support: `SQL`(on-premises SQL Server). Changing this forces a new resource to be created.
+     * The platform type of the migration source. Possible values are `SQL`, `PostgreSQL`, `MySQL` and `MongoDb`. Changing this forces a new resource to be created.
      */
     public readonly sourcePlatform!: pulumi.Output<string>;
     /**
@@ -109,7 +109,7 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The platform type of the migration target. Currently only support: `SQLDB`(Azure SQL Database). Changing this forces a new resource to be created.
+     * The platform type of the migration target. Possible values are `SQLDB`, `AzureDbForPostgreSql`, `AzureDbForMySql` and `MongoDb`. Changing this forces a new resource to be created.
      */
     public readonly targetPlatform!: pulumi.Output<string>;
 
@@ -181,7 +181,7 @@ export interface ProjectState {
      */
     serviceName?: pulumi.Input<string>;
     /**
-     * The platform type of the migration source. Currently only support: `SQL`(on-premises SQL Server). Changing this forces a new resource to be created.
+     * The platform type of the migration source. Possible values are `SQL`, `PostgreSQL`, `MySQL` and `MongoDb`. Changing this forces a new resource to be created.
      */
     sourcePlatform?: pulumi.Input<string>;
     /**
@@ -189,7 +189,7 @@ export interface ProjectState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The platform type of the migration target. Currently only support: `SQLDB`(Azure SQL Database). Changing this forces a new resource to be created.
+     * The platform type of the migration target. Possible values are `SQLDB`, `AzureDbForPostgreSql`, `AzureDbForMySql` and `MongoDb`. Changing this forces a new resource to be created.
      */
     targetPlatform?: pulumi.Input<string>;
 }
@@ -215,7 +215,7 @@ export interface ProjectArgs {
      */
     serviceName: pulumi.Input<string>;
     /**
-     * The platform type of the migration source. Currently only support: `SQL`(on-premises SQL Server). Changing this forces a new resource to be created.
+     * The platform type of the migration source. Possible values are `SQL`, `PostgreSQL`, `MySQL` and `MongoDb`. Changing this forces a new resource to be created.
      */
     sourcePlatform: pulumi.Input<string>;
     /**
@@ -223,7 +223,7 @@ export interface ProjectArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The platform type of the migration target. Currently only support: `SQLDB`(Azure SQL Database). Changing this forces a new resource to be created.
+     * The platform type of the migration target. Possible values are `SQLDB`, `AzureDbForPostgreSql`, `AzureDbForMySql` and `MongoDb`. Changing this forces a new resource to be created.
      */
     targetPlatform: pulumi.Input<string>;
 }

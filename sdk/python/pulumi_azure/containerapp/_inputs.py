@@ -2889,7 +2889,7 @@ class JobIdentityArgs:
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: The type of identity used for the Container App Job. Possible values are `SystemAssigned` and `None`. Defaults to `None`.
+        :param pulumi.Input[str] type: The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`. Defaults to `None`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of Managed Identity IDs to assign to the Container App Job.
         """
         pulumi.set(__self__, "type", type)
@@ -2904,7 +2904,7 @@ class JobIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of identity used for the Container App Job. Possible values are `SystemAssigned` and `None`. Defaults to `None`.
+        The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`. Defaults to `None`.
         """
         return pulumi.get(self, "type")
 

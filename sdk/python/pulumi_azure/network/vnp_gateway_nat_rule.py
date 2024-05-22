@@ -28,21 +28,17 @@ class VnpGatewayNatRuleArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a VnpGatewayNatRule resource.
-        :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which this VPN Gateway NAT Rule should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vpn_gateway_id: The ID of the VPN Gateway that this VPN Gateway NAT Rule belongs to. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_address_space_mappings: (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
-               
-               > **NOTE:** `external_address_space_mappings` is deprecated and will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
-        :param pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArgs']]] external_mappings: One or more `external_mapping` blocks as documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] internal_address_space_mappings: (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
-               
-               > **NOTE:** `internal_address_space_mappings` is deprecated and will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
-        :param pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArgs']]] internal_mappings: One or more `internal_mapping` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArgs']]] external_mappings: One of more `external_mapping` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArgs']]] internal_mappings: One of more `internal_mapping` blocks as defined below.
         :param pulumi.Input[str] ip_configuration_id: The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
         :param pulumi.Input[str] mode: The source NAT direction of the VPN NAT. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this VPN Gateway NAT Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
         """
+        if resource_group_name is not None:
+            warnings.warn("""The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""resource_group_name is deprecated: The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider""")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vpn_gateway_id", vpn_gateway_id)
         if external_address_space_mappings is not None:
@@ -71,9 +67,9 @@ class VnpGatewayNatRuleArgs:
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
-        """
-        The Name of the Resource Group in which this VPN Gateway NAT Rule should be created. Changing this forces a new resource to be created.
-        """
+        warnings.warn("""The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider""", DeprecationWarning)
+        pulumi.log.warn("""resource_group_name is deprecated: The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider""")
+
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
@@ -95,11 +91,6 @@ class VnpGatewayNatRuleArgs:
     @property
     @pulumi.getter(name="externalAddressSpaceMappings")
     def external_address_space_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
-
-        > **NOTE:** `external_address_space_mappings` is deprecated and will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
-        """
         warnings.warn("""`external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
         pulumi.log.warn("""external_address_space_mappings is deprecated: `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.""")
 
@@ -113,7 +104,7 @@ class VnpGatewayNatRuleArgs:
     @pulumi.getter(name="externalMappings")
     def external_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArgs']]]]:
         """
-        One or more `external_mapping` blocks as documented below.
+        One of more `external_mapping` blocks as defined below.
         """
         return pulumi.get(self, "external_mappings")
 
@@ -124,11 +115,6 @@ class VnpGatewayNatRuleArgs:
     @property
     @pulumi.getter(name="internalAddressSpaceMappings")
     def internal_address_space_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
-
-        > **NOTE:** `internal_address_space_mappings` is deprecated and will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
-        """
         warnings.warn("""`internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
         pulumi.log.warn("""internal_address_space_mappings is deprecated: `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.""")
 
@@ -142,7 +128,7 @@ class VnpGatewayNatRuleArgs:
     @pulumi.getter(name="internalMappings")
     def internal_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArgs']]]]:
         """
-        One or more `internal_mapping` blocks as documented below.
+        One of more `internal_mapping` blocks as defined below.
         """
         return pulumi.get(self, "internal_mappings")
 
@@ -214,18 +200,11 @@ class _VnpGatewayNatRuleState:
                  vpn_gateway_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering VnpGatewayNatRule resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_address_space_mappings: (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
-               
-               > **NOTE:** `external_address_space_mappings` is deprecated and will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
-        :param pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArgs']]] external_mappings: One or more `external_mapping` blocks as documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] internal_address_space_mappings: (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
-               
-               > **NOTE:** `internal_address_space_mappings` is deprecated and will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
-        :param pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArgs']]] internal_mappings: One or more `internal_mapping` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArgs']]] external_mappings: One of more `external_mapping` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArgs']]] internal_mappings: One of more `internal_mapping` blocks as defined below.
         :param pulumi.Input[str] ip_configuration_id: The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
         :param pulumi.Input[str] mode: The source NAT direction of the VPN NAT. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this VPN Gateway NAT Rule. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which this VPN Gateway NAT Rule should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vpn_gateway_id: The ID of the VPN Gateway that this VPN Gateway NAT Rule belongs to. Changing this forces a new resource to be created.
         """
@@ -250,6 +229,9 @@ class _VnpGatewayNatRuleState:
         if name is not None:
             pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
+            warnings.warn("""The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""resource_group_name is deprecated: The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider""")
+        if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -259,11 +241,6 @@ class _VnpGatewayNatRuleState:
     @property
     @pulumi.getter(name="externalAddressSpaceMappings")
     def external_address_space_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
-
-        > **NOTE:** `external_address_space_mappings` is deprecated and will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
-        """
         warnings.warn("""`external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
         pulumi.log.warn("""external_address_space_mappings is deprecated: `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.""")
 
@@ -277,7 +254,7 @@ class _VnpGatewayNatRuleState:
     @pulumi.getter(name="externalMappings")
     def external_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArgs']]]]:
         """
-        One or more `external_mapping` blocks as documented below.
+        One of more `external_mapping` blocks as defined below.
         """
         return pulumi.get(self, "external_mappings")
 
@@ -288,11 +265,6 @@ class _VnpGatewayNatRuleState:
     @property
     @pulumi.getter(name="internalAddressSpaceMappings")
     def internal_address_space_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
-
-        > **NOTE:** `internal_address_space_mappings` is deprecated and will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
-        """
         warnings.warn("""`internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
         pulumi.log.warn("""internal_address_space_mappings is deprecated: `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.""")
 
@@ -306,7 +278,7 @@ class _VnpGatewayNatRuleState:
     @pulumi.getter(name="internalMappings")
     def internal_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArgs']]]]:
         """
-        One or more `internal_mapping` blocks as documented below.
+        One of more `internal_mapping` blocks as defined below.
         """
         return pulumi.get(self, "internal_mappings")
 
@@ -353,9 +325,9 @@ class _VnpGatewayNatRuleState:
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Name of the Resource Group in which this VPN Gateway NAT Rule should be created. Changing this forces a new resource to be created.
-        """
+        warnings.warn("""The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider""", DeprecationWarning)
+        pulumi.log.warn("""resource_group_name is deprecated: The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider""")
+
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
@@ -432,7 +404,6 @@ class VnpGatewayNatRule(pulumi.CustomResource):
             virtual_hub_id=example_virtual_hub.id)
         example_vnp_gateway_nat_rule = azure.network.VnpGatewayNatRule("example",
             name="example-vpngatewaynatrule",
-            resource_group_name=example.name,
             vpn_gateway_id=example_vpn_gateway.id,
             external_mappings=[azure.network.VnpGatewayNatRuleExternalMappingArgs(
                 address_space="192.168.21.0/26",
@@ -452,18 +423,11 @@ class VnpGatewayNatRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_address_space_mappings: (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
-               
-               > **NOTE:** `external_address_space_mappings` is deprecated and will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VnpGatewayNatRuleExternalMappingArgs']]]] external_mappings: One or more `external_mapping` blocks as documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] internal_address_space_mappings: (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
-               
-               > **NOTE:** `internal_address_space_mappings` is deprecated and will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VnpGatewayNatRuleInternalMappingArgs']]]] internal_mappings: One or more `internal_mapping` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VnpGatewayNatRuleExternalMappingArgs']]]] external_mappings: One of more `external_mapping` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VnpGatewayNatRuleInternalMappingArgs']]]] internal_mappings: One of more `internal_mapping` blocks as defined below.
         :param pulumi.Input[str] ip_configuration_id: The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
         :param pulumi.Input[str] mode: The source NAT direction of the VPN NAT. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this VPN Gateway NAT Rule. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which this VPN Gateway NAT Rule should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vpn_gateway_id: The ID of the VPN Gateway that this VPN Gateway NAT Rule belongs to. Changing this forces a new resource to be created.
         """
@@ -502,7 +466,6 @@ class VnpGatewayNatRule(pulumi.CustomResource):
             virtual_hub_id=example_virtual_hub.id)
         example_vnp_gateway_nat_rule = azure.network.VnpGatewayNatRule("example",
             name="example-vpngatewaynatrule",
-            resource_group_name=example.name,
             vpn_gateway_id=example_vpn_gateway.id,
             external_mappings=[azure.network.VnpGatewayNatRuleExternalMappingArgs(
                 address_space="192.168.21.0/26",
@@ -595,18 +558,11 @@ class VnpGatewayNatRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_address_space_mappings: (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
-               
-               > **NOTE:** `external_address_space_mappings` is deprecated and will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VnpGatewayNatRuleExternalMappingArgs']]]] external_mappings: One or more `external_mapping` blocks as documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] internal_address_space_mappings: (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
-               
-               > **NOTE:** `internal_address_space_mappings` is deprecated and will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VnpGatewayNatRuleInternalMappingArgs']]]] internal_mappings: One or more `internal_mapping` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VnpGatewayNatRuleExternalMappingArgs']]]] external_mappings: One of more `external_mapping` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VnpGatewayNatRuleInternalMappingArgs']]]] internal_mappings: One of more `internal_mapping` blocks as defined below.
         :param pulumi.Input[str] ip_configuration_id: The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
         :param pulumi.Input[str] mode: The source NAT direction of the VPN NAT. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this VPN Gateway NAT Rule. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which this VPN Gateway NAT Rule should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vpn_gateway_id: The ID of the VPN Gateway that this VPN Gateway NAT Rule belongs to. Changing this forces a new resource to be created.
         """
@@ -629,11 +585,6 @@ class VnpGatewayNatRule(pulumi.CustomResource):
     @property
     @pulumi.getter(name="externalAddressSpaceMappings")
     def external_address_space_mappings(self) -> pulumi.Output[Sequence[str]]:
-        """
-        (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
-
-        > **NOTE:** `external_address_space_mappings` is deprecated and will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
-        """
         warnings.warn("""`external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
         pulumi.log.warn("""external_address_space_mappings is deprecated: `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.""")
 
@@ -643,18 +594,13 @@ class VnpGatewayNatRule(pulumi.CustomResource):
     @pulumi.getter(name="externalMappings")
     def external_mappings(self) -> pulumi.Output[Sequence['outputs.VnpGatewayNatRuleExternalMapping']]:
         """
-        One or more `external_mapping` blocks as documented below.
+        One of more `external_mapping` blocks as defined below.
         """
         return pulumi.get(self, "external_mappings")
 
     @property
     @pulumi.getter(name="internalAddressSpaceMappings")
     def internal_address_space_mappings(self) -> pulumi.Output[Sequence[str]]:
-        """
-        (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
-
-        > **NOTE:** `internal_address_space_mappings` is deprecated and will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
-        """
         warnings.warn("""`internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
         pulumi.log.warn("""internal_address_space_mappings is deprecated: `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.""")
 
@@ -664,7 +610,7 @@ class VnpGatewayNatRule(pulumi.CustomResource):
     @pulumi.getter(name="internalMappings")
     def internal_mappings(self) -> pulumi.Output[Sequence['outputs.VnpGatewayNatRuleInternalMapping']]:
         """
-        One or more `internal_mapping` blocks as documented below.
+        One of more `internal_mapping` blocks as defined below.
         """
         return pulumi.get(self, "internal_mappings")
 
@@ -695,9 +641,9 @@ class VnpGatewayNatRule(pulumi.CustomResource):
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
-        """
-        The Name of the Resource Group in which this VPN Gateway NAT Rule should be created. Changing this forces a new resource to be created.
-        """
+        warnings.warn("""The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider""", DeprecationWarning)
+        pulumi.log.warn("""resource_group_name is deprecated: The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider""")
+
         return pulumi.get(self, "resource_group_name")
 
     @property

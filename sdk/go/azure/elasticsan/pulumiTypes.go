@@ -846,6 +846,112 @@ func (o VolumeGroupNetworkRuleArrayOutput) Index(i pulumi.IntInput) VolumeGroupN
 	}).(VolumeGroupNetworkRuleOutput)
 }
 
+type GetSkus struct {
+	// The name of this Elastic SAN.
+	Name string `pulumi:"name"`
+	// The SKU tier.
+	Tier string `pulumi:"tier"`
+}
+
+// GetSkusInput is an input type that accepts GetSkusArgs and GetSkusOutput values.
+// You can construct a concrete instance of `GetSkusInput` via:
+//
+//	GetSkusArgs{...}
+type GetSkusInput interface {
+	pulumi.Input
+
+	ToGetSkusOutput() GetSkusOutput
+	ToGetSkusOutputWithContext(context.Context) GetSkusOutput
+}
+
+type GetSkusArgs struct {
+	// The name of this Elastic SAN.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The SKU tier.
+	Tier pulumi.StringInput `pulumi:"tier"`
+}
+
+func (GetSkusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSkus)(nil)).Elem()
+}
+
+func (i GetSkusArgs) ToGetSkusOutput() GetSkusOutput {
+	return i.ToGetSkusOutputWithContext(context.Background())
+}
+
+func (i GetSkusArgs) ToGetSkusOutputWithContext(ctx context.Context) GetSkusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSkusOutput)
+}
+
+// GetSkusArrayInput is an input type that accepts GetSkusArray and GetSkusArrayOutput values.
+// You can construct a concrete instance of `GetSkusArrayInput` via:
+//
+//	GetSkusArray{ GetSkusArgs{...} }
+type GetSkusArrayInput interface {
+	pulumi.Input
+
+	ToGetSkusArrayOutput() GetSkusArrayOutput
+	ToGetSkusArrayOutputWithContext(context.Context) GetSkusArrayOutput
+}
+
+type GetSkusArray []GetSkusInput
+
+func (GetSkusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSkus)(nil)).Elem()
+}
+
+func (i GetSkusArray) ToGetSkusArrayOutput() GetSkusArrayOutput {
+	return i.ToGetSkusArrayOutputWithContext(context.Background())
+}
+
+func (i GetSkusArray) ToGetSkusArrayOutputWithContext(ctx context.Context) GetSkusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSkusArrayOutput)
+}
+
+type GetSkusOutput struct{ *pulumi.OutputState }
+
+func (GetSkusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSkus)(nil)).Elem()
+}
+
+func (o GetSkusOutput) ToGetSkusOutput() GetSkusOutput {
+	return o
+}
+
+func (o GetSkusOutput) ToGetSkusOutputWithContext(ctx context.Context) GetSkusOutput {
+	return o
+}
+
+// The name of this Elastic SAN.
+func (o GetSkusOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSkus) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The SKU tier.
+func (o GetSkusOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSkus) string { return v.Tier }).(pulumi.StringOutput)
+}
+
+type GetSkusArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSkusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSkus)(nil)).Elem()
+}
+
+func (o GetSkusArrayOutput) ToGetSkusArrayOutput() GetSkusArrayOutput {
+	return o
+}
+
+func (o GetSkusArrayOutput) ToGetSkusArrayOutputWithContext(ctx context.Context) GetSkusArrayOutput {
+	return o
+}
+
+func (o GetSkusArrayOutput) Index(i pulumi.IntInput) GetSkusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSkus {
+		return vs[0].([]GetSkus)[vs[1].(int)]
+	}).(GetSkusOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ElasticSanSkuInput)(nil)).Elem(), ElasticSanSkuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ElasticSanSkuPtrInput)(nil)).Elem(), ElasticSanSkuArgs{})
@@ -857,6 +963,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupIdentityPtrInput)(nil)).Elem(), VolumeGroupIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupNetworkRuleInput)(nil)).Elem(), VolumeGroupNetworkRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupNetworkRuleArrayInput)(nil)).Elem(), VolumeGroupNetworkRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSkusInput)(nil)).Elem(), GetSkusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSkusArrayInput)(nil)).Elem(), GetSkusArray{})
 	pulumi.RegisterOutputType(ElasticSanSkuOutput{})
 	pulumi.RegisterOutputType(ElasticSanSkuPtrOutput{})
 	pulumi.RegisterOutputType(VolumeCreateSourceOutput{})
@@ -867,4 +975,6 @@ func init() {
 	pulumi.RegisterOutputType(VolumeGroupIdentityPtrOutput{})
 	pulumi.RegisterOutputType(VolumeGroupNetworkRuleOutput{})
 	pulumi.RegisterOutputType(VolumeGroupNetworkRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetSkusOutput{})
+	pulumi.RegisterOutputType(GetSkusArrayOutput{})
 }

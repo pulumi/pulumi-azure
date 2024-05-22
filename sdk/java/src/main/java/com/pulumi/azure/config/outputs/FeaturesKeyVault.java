@@ -22,6 +22,11 @@ public final class FeaturesKeyVault {
      */
     private @Nullable Boolean purgeSoftDeletedCertificatesOnDestroy;
     /**
+     * @return When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g purged), when destroyed
+     * 
+     */
+    private @Nullable Boolean purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy;
+    /**
      * @return When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g purged), when destroyed
      * 
      */
@@ -41,6 +46,11 @@ public final class FeaturesKeyVault {
      * 
      */
     private @Nullable Boolean recoverSoftDeletedCertificates;
+    /**
+     * @return When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones
+     * 
+     */
+    private @Nullable Boolean recoverSoftDeletedHardwareSecurityModuleKeys;
     /**
      * @return When enabled soft-deleted `azure.keyvault.KeyVault` resources will be restored, instead of creating new ones
      * 
@@ -73,6 +83,13 @@ public final class FeaturesKeyVault {
         return Optional.ofNullable(this.purgeSoftDeletedCertificatesOnDestroy);
     }
     /**
+     * @return When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g purged), when destroyed
+     * 
+     */
+    public Optional<Boolean> purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy() {
+        return Optional.ofNullable(this.purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy);
+    }
+    /**
      * @return When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g purged), when destroyed
      * 
      */
@@ -99,6 +116,13 @@ public final class FeaturesKeyVault {
      */
     public Optional<Boolean> recoverSoftDeletedCertificates() {
         return Optional.ofNullable(this.recoverSoftDeletedCertificates);
+    }
+    /**
+     * @return When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones
+     * 
+     */
+    public Optional<Boolean> recoverSoftDeletedHardwareSecurityModuleKeys() {
+        return Optional.ofNullable(this.recoverSoftDeletedHardwareSecurityModuleKeys);
     }
     /**
      * @return When enabled soft-deleted `azure.keyvault.KeyVault` resources will be restored, instead of creating new ones
@@ -133,10 +157,12 @@ public final class FeaturesKeyVault {
     public static final class Builder {
         private @Nullable Boolean purgeSoftDeleteOnDestroy;
         private @Nullable Boolean purgeSoftDeletedCertificatesOnDestroy;
+        private @Nullable Boolean purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy;
         private @Nullable Boolean purgeSoftDeletedHardwareSecurityModulesOnDestroy;
         private @Nullable Boolean purgeSoftDeletedKeysOnDestroy;
         private @Nullable Boolean purgeSoftDeletedSecretsOnDestroy;
         private @Nullable Boolean recoverSoftDeletedCertificates;
+        private @Nullable Boolean recoverSoftDeletedHardwareSecurityModuleKeys;
         private @Nullable Boolean recoverSoftDeletedKeyVaults;
         private @Nullable Boolean recoverSoftDeletedKeys;
         private @Nullable Boolean recoverSoftDeletedSecrets;
@@ -145,10 +171,12 @@ public final class FeaturesKeyVault {
     	      Objects.requireNonNull(defaults);
     	      this.purgeSoftDeleteOnDestroy = defaults.purgeSoftDeleteOnDestroy;
     	      this.purgeSoftDeletedCertificatesOnDestroy = defaults.purgeSoftDeletedCertificatesOnDestroy;
+    	      this.purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy = defaults.purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy;
     	      this.purgeSoftDeletedHardwareSecurityModulesOnDestroy = defaults.purgeSoftDeletedHardwareSecurityModulesOnDestroy;
     	      this.purgeSoftDeletedKeysOnDestroy = defaults.purgeSoftDeletedKeysOnDestroy;
     	      this.purgeSoftDeletedSecretsOnDestroy = defaults.purgeSoftDeletedSecretsOnDestroy;
     	      this.recoverSoftDeletedCertificates = defaults.recoverSoftDeletedCertificates;
+    	      this.recoverSoftDeletedHardwareSecurityModuleKeys = defaults.recoverSoftDeletedHardwareSecurityModuleKeys;
     	      this.recoverSoftDeletedKeyVaults = defaults.recoverSoftDeletedKeyVaults;
     	      this.recoverSoftDeletedKeys = defaults.recoverSoftDeletedKeys;
     	      this.recoverSoftDeletedSecrets = defaults.recoverSoftDeletedSecrets;
@@ -164,6 +192,12 @@ public final class FeaturesKeyVault {
         public Builder purgeSoftDeletedCertificatesOnDestroy(@Nullable Boolean purgeSoftDeletedCertificatesOnDestroy) {
 
             this.purgeSoftDeletedCertificatesOnDestroy = purgeSoftDeletedCertificatesOnDestroy;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy(@Nullable Boolean purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy) {
+
+            this.purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy = purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy;
             return this;
         }
         @CustomType.Setter
@@ -191,6 +225,12 @@ public final class FeaturesKeyVault {
             return this;
         }
         @CustomType.Setter
+        public Builder recoverSoftDeletedHardwareSecurityModuleKeys(@Nullable Boolean recoverSoftDeletedHardwareSecurityModuleKeys) {
+
+            this.recoverSoftDeletedHardwareSecurityModuleKeys = recoverSoftDeletedHardwareSecurityModuleKeys;
+            return this;
+        }
+        @CustomType.Setter
         public Builder recoverSoftDeletedKeyVaults(@Nullable Boolean recoverSoftDeletedKeyVaults) {
 
             this.recoverSoftDeletedKeyVaults = recoverSoftDeletedKeyVaults;
@@ -212,10 +252,12 @@ public final class FeaturesKeyVault {
             final var _resultValue = new FeaturesKeyVault();
             _resultValue.purgeSoftDeleteOnDestroy = purgeSoftDeleteOnDestroy;
             _resultValue.purgeSoftDeletedCertificatesOnDestroy = purgeSoftDeletedCertificatesOnDestroy;
+            _resultValue.purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy = purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy;
             _resultValue.purgeSoftDeletedHardwareSecurityModulesOnDestroy = purgeSoftDeletedHardwareSecurityModulesOnDestroy;
             _resultValue.purgeSoftDeletedKeysOnDestroy = purgeSoftDeletedKeysOnDestroy;
             _resultValue.purgeSoftDeletedSecretsOnDestroy = purgeSoftDeletedSecretsOnDestroy;
             _resultValue.recoverSoftDeletedCertificates = recoverSoftDeletedCertificates;
+            _resultValue.recoverSoftDeletedHardwareSecurityModuleKeys = recoverSoftDeletedHardwareSecurityModuleKeys;
             _resultValue.recoverSoftDeletedKeyVaults = recoverSoftDeletedKeyVaults;
             _resultValue.recoverSoftDeletedKeys = recoverSoftDeletedKeys;
             _resultValue.recoverSoftDeletedSecrets = recoverSoftDeletedSecrets;

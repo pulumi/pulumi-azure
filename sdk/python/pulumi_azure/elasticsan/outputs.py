@@ -15,6 +15,7 @@ __all__ = [
     'VolumeGroupEncryption',
     'VolumeGroupIdentity',
     'VolumeGroupNetworkRule',
+    'GetSkusResult',
 ]
 
 @pulumi.output_type
@@ -310,5 +311,34 @@ class VolumeGroupNetworkRule(dict):
         The action to take when the Subnet attempts to access this Elastic SAN Volume Group. The only possible value is `Allow`. Defaults to `Allow`.
         """
         return pulumi.get(self, "action")
+
+
+@pulumi.output_type
+class GetSkusResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 tier: str):
+        """
+        :param str name: The name of this Elastic SAN.
+        :param str tier: The SKU tier.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of this Elastic SAN.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> str:
+        """
+        The SKU tier.
+        """
+        return pulumi.get(self, "tier")
 
 

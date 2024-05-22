@@ -31,7 +31,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// The type of identity used for the Container App Job. Possible values are `SystemAssigned` and `None`. Defaults to `None`.
+        /// The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`. Defaults to `None`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

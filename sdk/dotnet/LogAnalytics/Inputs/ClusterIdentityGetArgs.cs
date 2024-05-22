@@ -12,6 +12,20 @@ namespace Pulumi.Azure.LogAnalytics.Inputs
 
     public sealed class ClusterIdentityGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("identityIds")]
+        private InputList<string>? _identityIds;
+
+        /// <summary>
+        /// A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot.
+        /// 
+        /// &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
+        /// </summary>
+        public InputList<string> IdentityIds
+        {
+            get => _identityIds ?? (_identityIds = new InputList<string>());
+            set => _identityIds = value;
+        }
+
         /// <summary>
         /// The Principal ID associated with this Managed Service Identity.
         /// </summary>
@@ -25,7 +39,7 @@ namespace Pulumi.Azure.LogAnalytics.Inputs
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
+        /// Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and  `UserAssigned`. Changing this forces a new resource to be created.
         /// 
         /// &gt; **NOTE:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
         /// </summary>

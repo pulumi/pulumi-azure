@@ -18,14 +18,14 @@ public final class EligibleRoleAssignmentState extends com.pulumi.resources.Reso
     public static final EligibleRoleAssignmentState Empty = new EligibleRoleAssignmentState();
 
     /**
-     * The justification of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created.
+     * The justification of the role assignment. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="justification")
     private @Nullable Output<String> justification;
 
     /**
-     * @return The justification of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created.
+     * @return The justification of the role assignment. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> justification() {
@@ -33,14 +33,14 @@ public final class EligibleRoleAssignmentState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The principal id. Changing this forces a new Pim Eligible Role Assignment to be created.
+     * Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="principalId")
     private @Nullable Output<String> principalId;
 
     /**
-     * @return The principal id. Changing this forces a new Pim Eligible Role Assignment to be created.
+     * @return Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> principalId() {
@@ -48,14 +48,14 @@ public final class EligibleRoleAssignmentState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The type of principal.
+     * Type of principal to which the role will be assigned.
      * 
      */
     @Import(name="principalType")
     private @Nullable Output<String> principalType;
 
     /**
-     * @return The type of principal.
+     * @return Type of principal to which the role will be assigned.
      * 
      */
     public Optional<Output<String>> principalType() {
@@ -63,14 +63,14 @@ public final class EligibleRoleAssignmentState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The role definition id. Changing this forces a new Pim Eligible Role Assignment to be created.
+     * The role definition ID for this eligible role assignment. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="roleDefinitionId")
     private @Nullable Output<String> roleDefinitionId;
 
     /**
-     * @return The role definition id. Changing this forces a new Pim Eligible Role Assignment to be created.
+     * @return The role definition ID for this eligible role assignment. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> roleDefinitionId() {
@@ -78,14 +78,14 @@ public final class EligibleRoleAssignmentState extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `schedule` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
+     * A `schedule` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="schedule")
     private @Nullable Output<EligibleRoleAssignmentScheduleArgs> schedule;
 
     /**
-     * @return A `schedule` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
+     * @return A `schedule` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<EligibleRoleAssignmentScheduleArgs>> schedule() {
@@ -93,14 +93,14 @@ public final class EligibleRoleAssignmentState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The scope. Changing this forces a new Pim Eligible Role Assignment to be created.
+     * The scope for this eligible role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="scope")
     private @Nullable Output<String> scope;
 
     /**
-     * @return The scope. Changing this forces a new Pim Eligible Role Assignment to be created.
+     * @return The scope for this eligible role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> scope() {
@@ -108,14 +108,14 @@ public final class EligibleRoleAssignmentState extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `ticket` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
+     * A `ticket` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="ticket")
     private @Nullable Output<EligibleRoleAssignmentTicketArgs> ticket;
 
     /**
-     * @return A `ticket` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
+     * @return A `ticket` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<EligibleRoleAssignmentTicketArgs>> ticket() {
@@ -153,7 +153,7 @@ public final class EligibleRoleAssignmentState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param justification The justification of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created.
+         * @param justification The justification of the role assignment. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class EligibleRoleAssignmentState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param justification The justification of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created.
+         * @param justification The justification of the role assignment. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class EligibleRoleAssignmentState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param principalId The principal id. Changing this forces a new Pim Eligible Role Assignment to be created.
+         * @param principalId Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class EligibleRoleAssignmentState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param principalId The principal id. Changing this forces a new Pim Eligible Role Assignment to be created.
+         * @param principalId Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class EligibleRoleAssignmentState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param principalType The type of principal.
+         * @param principalType Type of principal to which the role will be assigned.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class EligibleRoleAssignmentState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param principalType The type of principal.
+         * @param principalType Type of principal to which the role will be assigned.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class EligibleRoleAssignmentState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param roleDefinitionId The role definition id. Changing this forces a new Pim Eligible Role Assignment to be created.
+         * @param roleDefinitionId The role definition ID for this eligible role assignment. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class EligibleRoleAssignmentState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param roleDefinitionId The role definition id. Changing this forces a new Pim Eligible Role Assignment to be created.
+         * @param roleDefinitionId The role definition ID for this eligible role assignment. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class EligibleRoleAssignmentState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param schedule A `schedule` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
+         * @param schedule A `schedule` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class EligibleRoleAssignmentState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param schedule A `schedule` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
+         * @param schedule A `schedule` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class EligibleRoleAssignmentState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param scope The scope. Changing this forces a new Pim Eligible Role Assignment to be created.
+         * @param scope The scope for this eligible role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class EligibleRoleAssignmentState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param scope The scope. Changing this forces a new Pim Eligible Role Assignment to be created.
+         * @param scope The scope for this eligible role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class EligibleRoleAssignmentState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param ticket A `ticket` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
+         * @param ticket A `ticket` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class EligibleRoleAssignmentState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param ticket A `ticket` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
+         * @param ticket A `ticket` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

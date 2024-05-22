@@ -14,6 +14,12 @@ namespace Pulumi.Azure.LogAnalytics.Outputs
     public sealed class ClusterIdentity
     {
         /// <summary>
+        /// A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot.
+        /// 
+        /// &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
+        /// </summary>
+        public readonly ImmutableArray<string> IdentityIds;
+        /// <summary>
         /// The Principal ID associated with this Managed Service Identity.
         /// </summary>
         public readonly string? PrincipalId;
@@ -22,7 +28,7 @@ namespace Pulumi.Azure.LogAnalytics.Outputs
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
+        /// Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and  `UserAssigned`. Changing this forces a new resource to be created.
         /// 
         /// &gt; **NOTE:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
         /// </summary>
@@ -30,12 +36,15 @@ namespace Pulumi.Azure.LogAnalytics.Outputs
 
         [OutputConstructor]
         private ClusterIdentity(
+            ImmutableArray<string> identityIds,
+
             string? principalId,
 
             string? tenantId,
 
             string type)
         {
+            IdentityIds = identityIds;
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;

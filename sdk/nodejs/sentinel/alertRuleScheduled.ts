@@ -84,7 +84,7 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
      */
     public readonly alertRuleTemplateGuid!: pulumi.Output<string | undefined>;
     /**
-     * The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+     * The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule.
      */
     public readonly alertRuleTemplateVersion!: pulumi.Output<string | undefined>;
     /**
@@ -266,7 +266,7 @@ export interface AlertRuleScheduledState {
      */
     alertRuleTemplateGuid?: pulumi.Input<string>;
     /**
-     * The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+     * The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule.
      */
     alertRuleTemplateVersion?: pulumi.Input<string>;
     /**
@@ -370,7 +370,7 @@ export interface AlertRuleScheduledArgs {
      */
     alertRuleTemplateGuid?: pulumi.Input<string>;
     /**
-     * The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+     * The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule.
      */
     alertRuleTemplateVersion?: pulumi.Input<string>;
     /**

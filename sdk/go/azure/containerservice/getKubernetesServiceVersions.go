@@ -62,6 +62,8 @@ type GetKubernetesServiceVersionsArgs struct {
 
 // A collection of values returned by getKubernetesServiceVersions.
 type GetKubernetesServiceVersionsResult struct {
+	// The N-1 minor non-preview version and latest patch.
+	DefaultVersion string `pulumi:"defaultVersion"`
 	// The provider-assigned unique ID for this managed resource.
 	Id             string `pulumi:"id"`
 	IncludePreview *bool  `pulumi:"includePreview"`
@@ -113,6 +115,11 @@ func (o GetKubernetesServiceVersionsResultOutput) ToGetKubernetesServiceVersions
 
 func (o GetKubernetesServiceVersionsResultOutput) ToGetKubernetesServiceVersionsResultOutputWithContext(ctx context.Context) GetKubernetesServiceVersionsResultOutput {
 	return o
+}
+
+// The N-1 minor non-preview version and latest patch.
+func (o GetKubernetesServiceVersionsResultOutput) DefaultVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesServiceVersionsResult) string { return v.DefaultVersion }).(pulumi.StringOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

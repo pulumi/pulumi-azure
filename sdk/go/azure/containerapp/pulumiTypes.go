@@ -5329,7 +5329,7 @@ type JobIdentity struct {
 	IdentityIds []string `pulumi:"identityIds"`
 	PrincipalId *string  `pulumi:"principalId"`
 	TenantId    *string  `pulumi:"tenantId"`
-	// The type of identity used for the Container App Job. Possible values are `SystemAssigned` and `None`. Defaults to `None`.
+	// The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`. Defaults to `None`.
 	Type string `pulumi:"type"`
 }
 
@@ -5349,7 +5349,7 @@ type JobIdentityArgs struct {
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
 	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
-	// The type of identity used for the Container App Job. Possible values are `SystemAssigned` and `None`. Defaults to `None`.
+	// The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`. Defaults to `None`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -5443,7 +5443,7 @@ func (o JobIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the Container App Job. Possible values are `SystemAssigned` and `None`. Defaults to `None`.
+// The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`. Defaults to `None`.
 func (o JobIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v JobIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5500,7 +5500,7 @@ func (o JobIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the Container App Job. Possible values are `SystemAssigned` and `None`. Defaults to `None`.
+// The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`. Defaults to `None`.
 func (o JobIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobIdentity) *string {
 		if v == nil {

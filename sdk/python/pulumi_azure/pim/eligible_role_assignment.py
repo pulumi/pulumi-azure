@@ -24,12 +24,12 @@ class EligibleRoleAssignmentArgs:
                  ticket: Optional[pulumi.Input['EligibleRoleAssignmentTicketArgs']] = None):
         """
         The set of arguments for constructing a EligibleRoleAssignment resource.
-        :param pulumi.Input[str] principal_id: The principal id. Changing this forces a new Pim Eligible Role Assignment to be created.
-        :param pulumi.Input[str] role_definition_id: The role definition id. Changing this forces a new Pim Eligible Role Assignment to be created.
-        :param pulumi.Input[str] scope: The scope. Changing this forces a new Pim Eligible Role Assignment to be created.
-        :param pulumi.Input[str] justification: The justification of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created.
-        :param pulumi.Input['EligibleRoleAssignmentScheduleArgs'] schedule: A `schedule` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
-        :param pulumi.Input['EligibleRoleAssignmentTicketArgs'] ticket: A `ticket` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
+        :param pulumi.Input[str] principal_id: Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] role_definition_id: The role definition ID for this eligible role assignment. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] scope: The scope for this eligible role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] justification: The justification of the role assignment. Changing this forces a new resource to be created.
+        :param pulumi.Input['EligibleRoleAssignmentScheduleArgs'] schedule: A `schedule` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['EligibleRoleAssignmentTicketArgs'] ticket: A `ticket` block as defined below. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "role_definition_id", role_definition_id)
@@ -45,7 +45,7 @@ class EligibleRoleAssignmentArgs:
     @pulumi.getter(name="principalId")
     def principal_id(self) -> pulumi.Input[str]:
         """
-        The principal id. Changing this forces a new Pim Eligible Role Assignment to be created.
+        Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "principal_id")
 
@@ -57,7 +57,7 @@ class EligibleRoleAssignmentArgs:
     @pulumi.getter(name="roleDefinitionId")
     def role_definition_id(self) -> pulumi.Input[str]:
         """
-        The role definition id. Changing this forces a new Pim Eligible Role Assignment to be created.
+        The role definition ID for this eligible role assignment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "role_definition_id")
 
@@ -69,7 +69,7 @@ class EligibleRoleAssignmentArgs:
     @pulumi.getter
     def scope(self) -> pulumi.Input[str]:
         """
-        The scope. Changing this forces a new Pim Eligible Role Assignment to be created.
+        The scope for this eligible role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "scope")
 
@@ -81,7 +81,7 @@ class EligibleRoleAssignmentArgs:
     @pulumi.getter
     def justification(self) -> Optional[pulumi.Input[str]]:
         """
-        The justification of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created.
+        The justification of the role assignment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "justification")
 
@@ -93,7 +93,7 @@ class EligibleRoleAssignmentArgs:
     @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input['EligibleRoleAssignmentScheduleArgs']]:
         """
-        A `schedule` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
+        A `schedule` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "schedule")
 
@@ -105,7 +105,7 @@ class EligibleRoleAssignmentArgs:
     @pulumi.getter
     def ticket(self) -> Optional[pulumi.Input['EligibleRoleAssignmentTicketArgs']]:
         """
-        A `ticket` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
+        A `ticket` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ticket")
 
@@ -126,13 +126,13 @@ class _EligibleRoleAssignmentState:
                  ticket: Optional[pulumi.Input['EligibleRoleAssignmentTicketArgs']] = None):
         """
         Input properties used for looking up and filtering EligibleRoleAssignment resources.
-        :param pulumi.Input[str] justification: The justification of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created.
-        :param pulumi.Input[str] principal_id: The principal id. Changing this forces a new Pim Eligible Role Assignment to be created.
-        :param pulumi.Input[str] principal_type: The type of principal.
-        :param pulumi.Input[str] role_definition_id: The role definition id. Changing this forces a new Pim Eligible Role Assignment to be created.
-        :param pulumi.Input['EligibleRoleAssignmentScheduleArgs'] schedule: A `schedule` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
-        :param pulumi.Input[str] scope: The scope. Changing this forces a new Pim Eligible Role Assignment to be created.
-        :param pulumi.Input['EligibleRoleAssignmentTicketArgs'] ticket: A `ticket` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
+        :param pulumi.Input[str] justification: The justification of the role assignment. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] principal_id: Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] principal_type: Type of principal to which the role will be assigned.
+        :param pulumi.Input[str] role_definition_id: The role definition ID for this eligible role assignment. Changing this forces a new resource to be created.
+        :param pulumi.Input['EligibleRoleAssignmentScheduleArgs'] schedule: A `schedule` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] scope: The scope for this eligible role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
+        :param pulumi.Input['EligibleRoleAssignmentTicketArgs'] ticket: A `ticket` block as defined below. Changing this forces a new resource to be created.
         """
         if justification is not None:
             pulumi.set(__self__, "justification", justification)
@@ -153,7 +153,7 @@ class _EligibleRoleAssignmentState:
     @pulumi.getter
     def justification(self) -> Optional[pulumi.Input[str]]:
         """
-        The justification of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created.
+        The justification of the role assignment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "justification")
 
@@ -165,7 +165,7 @@ class _EligibleRoleAssignmentState:
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The principal id. Changing this forces a new Pim Eligible Role Assignment to be created.
+        Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "principal_id")
 
@@ -177,7 +177,7 @@ class _EligibleRoleAssignmentState:
     @pulumi.getter(name="principalType")
     def principal_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of principal.
+        Type of principal to which the role will be assigned.
         """
         return pulumi.get(self, "principal_type")
 
@@ -189,7 +189,7 @@ class _EligibleRoleAssignmentState:
     @pulumi.getter(name="roleDefinitionId")
     def role_definition_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The role definition id. Changing this forces a new Pim Eligible Role Assignment to be created.
+        The role definition ID for this eligible role assignment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "role_definition_id")
 
@@ -201,7 +201,7 @@ class _EligibleRoleAssignmentState:
     @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input['EligibleRoleAssignmentScheduleArgs']]:
         """
-        A `schedule` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
+        A `schedule` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "schedule")
 
@@ -213,7 +213,7 @@ class _EligibleRoleAssignmentState:
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[str]]:
         """
-        The scope. Changing this forces a new Pim Eligible Role Assignment to be created.
+        The scope for this eligible role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "scope")
 
@@ -225,7 +225,7 @@ class _EligibleRoleAssignmentState:
     @pulumi.getter
     def ticket(self) -> Optional[pulumi.Input['EligibleRoleAssignmentTicketArgs']]:
         """
-        A `ticket` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
+        A `ticket` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ticket")
 
@@ -247,7 +247,7 @@ class EligibleRoleAssignment(pulumi.CustomResource):
                  ticket: Optional[pulumi.Input[pulumi.InputType['EligibleRoleAssignmentTicketArgs']]] = None,
                  __props__=None):
         """
-        Manages a Pim Eligible Role Assignment.
+        Manages a PIM Eligible Role Assignment.
 
         ## Example Usage
 
@@ -309,7 +309,7 @@ class EligibleRoleAssignment(pulumi.CustomResource):
 
         ## Import
 
-        Pim Eligible Role Assignments can be imported using the `resource id`, e.g.
+        PIM Eligible Role Assignments can be imported using the following composite resource ID, e.g.
 
         ```sh
         $ pulumi import azure:pim/eligibleRoleAssignment:EligibleRoleAssignment example /subscriptions/00000000-0000-0000-0000-000000000000|/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000
@@ -317,12 +317,12 @@ class EligibleRoleAssignment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] justification: The justification of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created.
-        :param pulumi.Input[str] principal_id: The principal id. Changing this forces a new Pim Eligible Role Assignment to be created.
-        :param pulumi.Input[str] role_definition_id: The role definition id. Changing this forces a new Pim Eligible Role Assignment to be created.
-        :param pulumi.Input[pulumi.InputType['EligibleRoleAssignmentScheduleArgs']] schedule: A `schedule` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
-        :param pulumi.Input[str] scope: The scope. Changing this forces a new Pim Eligible Role Assignment to be created.
-        :param pulumi.Input[pulumi.InputType['EligibleRoleAssignmentTicketArgs']] ticket: A `ticket` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
+        :param pulumi.Input[str] justification: The justification of the role assignment. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] principal_id: Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] role_definition_id: The role definition ID for this eligible role assignment. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['EligibleRoleAssignmentScheduleArgs']] schedule: A `schedule` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] scope: The scope for this eligible role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['EligibleRoleAssignmentTicketArgs']] ticket: A `ticket` block as defined below. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -331,7 +331,7 @@ class EligibleRoleAssignment(pulumi.CustomResource):
                  args: EligibleRoleAssignmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Pim Eligible Role Assignment.
+        Manages a PIM Eligible Role Assignment.
 
         ## Example Usage
 
@@ -393,7 +393,7 @@ class EligibleRoleAssignment(pulumi.CustomResource):
 
         ## Import
 
-        Pim Eligible Role Assignments can be imported using the `resource id`, e.g.
+        PIM Eligible Role Assignments can be imported using the following composite resource ID, e.g.
 
         ```sh
         $ pulumi import azure:pim/eligibleRoleAssignment:EligibleRoleAssignment example /subscriptions/00000000-0000-0000-0000-000000000000|/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000
@@ -466,13 +466,13 @@ class EligibleRoleAssignment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] justification: The justification of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created.
-        :param pulumi.Input[str] principal_id: The principal id. Changing this forces a new Pim Eligible Role Assignment to be created.
-        :param pulumi.Input[str] principal_type: The type of principal.
-        :param pulumi.Input[str] role_definition_id: The role definition id. Changing this forces a new Pim Eligible Role Assignment to be created.
-        :param pulumi.Input[pulumi.InputType['EligibleRoleAssignmentScheduleArgs']] schedule: A `schedule` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
-        :param pulumi.Input[str] scope: The scope. Changing this forces a new Pim Eligible Role Assignment to be created.
-        :param pulumi.Input[pulumi.InputType['EligibleRoleAssignmentTicketArgs']] ticket: A `ticket` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
+        :param pulumi.Input[str] justification: The justification of the role assignment. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] principal_id: Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] principal_type: Type of principal to which the role will be assigned.
+        :param pulumi.Input[str] role_definition_id: The role definition ID for this eligible role assignment. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['EligibleRoleAssignmentScheduleArgs']] schedule: A `schedule` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] scope: The scope for this eligible role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['EligibleRoleAssignmentTicketArgs']] ticket: A `ticket` block as defined below. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -489,9 +489,9 @@ class EligibleRoleAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def justification(self) -> pulumi.Output[Optional[str]]:
+    def justification(self) -> pulumi.Output[str]:
         """
-        The justification of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created.
+        The justification of the role assignment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "justification")
 
@@ -499,7 +499,7 @@ class EligibleRoleAssignment(pulumi.CustomResource):
     @pulumi.getter(name="principalId")
     def principal_id(self) -> pulumi.Output[str]:
         """
-        The principal id. Changing this forces a new Pim Eligible Role Assignment to be created.
+        Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "principal_id")
 
@@ -507,7 +507,7 @@ class EligibleRoleAssignment(pulumi.CustomResource):
     @pulumi.getter(name="principalType")
     def principal_type(self) -> pulumi.Output[str]:
         """
-        The type of principal.
+        Type of principal to which the role will be assigned.
         """
         return pulumi.get(self, "principal_type")
 
@@ -515,15 +515,15 @@ class EligibleRoleAssignment(pulumi.CustomResource):
     @pulumi.getter(name="roleDefinitionId")
     def role_definition_id(self) -> pulumi.Output[str]:
         """
-        The role definition id. Changing this forces a new Pim Eligible Role Assignment to be created.
+        The role definition ID for this eligible role assignment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "role_definition_id")
 
     @property
     @pulumi.getter
-    def schedule(self) -> pulumi.Output[Optional['outputs.EligibleRoleAssignmentSchedule']]:
+    def schedule(self) -> pulumi.Output['outputs.EligibleRoleAssignmentSchedule']:
         """
-        A `schedule` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
+        A `schedule` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "schedule")
 
@@ -531,7 +531,7 @@ class EligibleRoleAssignment(pulumi.CustomResource):
     @pulumi.getter
     def scope(self) -> pulumi.Output[str]:
         """
-        The scope. Changing this forces a new Pim Eligible Role Assignment to be created.
+        The scope for this eligible role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "scope")
 
@@ -539,7 +539,7 @@ class EligibleRoleAssignment(pulumi.CustomResource):
     @pulumi.getter
     def ticket(self) -> pulumi.Output[Optional['outputs.EligibleRoleAssignmentTicket']]:
         """
-        A `ticket` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
+        A `ticket` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ticket")
 

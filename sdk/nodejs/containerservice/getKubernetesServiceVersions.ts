@@ -53,6 +53,10 @@ export interface GetKubernetesServiceVersionsArgs {
  */
 export interface GetKubernetesServiceVersionsResult {
     /**
+     * The N-1 minor non-preview version and latest patch.
+     */
+    readonly defaultVersion: string;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

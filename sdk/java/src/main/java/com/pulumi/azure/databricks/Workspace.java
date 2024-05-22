@@ -33,6 +33,24 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:databricks/workspace:Workspace")
 public class Workspace extends com.pulumi.resources.CustomResource {
     /**
+     * Access Connector ID to use when default storage account firewall is enabled.
+     * 
+     * &gt; **Note:** The `access_connector_id` field is only required if `default_storage_firewall_enabled` is set to `true`.
+     * 
+     */
+    @Export(name="accessConnectorId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> accessConnectorId;
+
+    /**
+     * @return Access Connector ID to use when default storage account firewall is enabled.
+     * 
+     * &gt; **Note:** The `access_connector_id` field is only required if `default_storage_firewall_enabled` is set to `true`.
+     * 
+     */
+    public Output<Optional<String>> accessConnectorId() {
+        return Codegen.optional(this.accessConnectorId);
+    }
+    /**
      * A `custom_parameters` block as documented below.
      * 
      */
@@ -59,6 +77,20 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> customerManagedKeyEnabled() {
         return Codegen.optional(this.customerManagedKeyEnabled);
+    }
+    /**
+     * Disallow public access to default storage account. Defaults to `false`.
+     * 
+     */
+    @Export(name="defaultStorageFirewallEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> defaultStorageFirewallEnabled;
+
+    /**
+     * @return Disallow public access to default storage account. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> defaultStorageFirewallEnabled() {
+        return Codegen.optional(this.defaultStorageFirewallEnabled);
     }
     /**
      * The ID of Managed Disk Encryption Set created by the Databricks Workspace.

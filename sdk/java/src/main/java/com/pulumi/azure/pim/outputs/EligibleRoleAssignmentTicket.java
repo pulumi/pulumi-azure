@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EligibleRoleAssignmentTicket {
     /**
-     * @return The ticket number.
+     * @return User-supplied ticket number to be included with the request. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String number;
     /**
-     * @return The ticket system.
+     * @return User-supplied ticket system name to be included with the request. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String system;
 
     private EligibleRoleAssignmentTicket() {}
     /**
-     * @return The ticket number.
+     * @return User-supplied ticket number to be included with the request. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> number() {
         return Optional.ofNullable(this.number);
     }
     /**
-     * @return The ticket system.
+     * @return User-supplied ticket system name to be included with the request. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> system() {

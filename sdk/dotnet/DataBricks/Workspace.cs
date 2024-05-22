@@ -22,6 +22,14 @@ namespace Pulumi.Azure.DataBricks
     public partial class Workspace : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Access Connector ID to use when default storage account firewall is enabled. 
+        /// 
+        /// &gt; **Note:** The `access_connector_id` field is only required if `default_storage_firewall_enabled` is set to `true`.
+        /// </summary>
+        [Output("accessConnectorId")]
+        public Output<string?> AccessConnectorId { get; private set; } = null!;
+
+        /// <summary>
         /// A `custom_parameters` block as documented below.
         /// </summary>
         [Output("customParameters")]
@@ -32,6 +40,12 @@ namespace Pulumi.Azure.DataBricks
         /// </summary>
         [Output("customerManagedKeyEnabled")]
         public Output<bool?> CustomerManagedKeyEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Disallow public access to default storage account. Defaults to `false`.
+        /// </summary>
+        [Output("defaultStorageFirewallEnabled")]
+        public Output<bool?> DefaultStorageFirewallEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The ID of Managed Disk Encryption Set created by the Databricks Workspace.
@@ -204,6 +218,14 @@ namespace Pulumi.Azure.DataBricks
     public sealed class WorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Access Connector ID to use when default storage account firewall is enabled. 
+        /// 
+        /// &gt; **Note:** The `access_connector_id` field is only required if `default_storage_firewall_enabled` is set to `true`.
+        /// </summary>
+        [Input("accessConnectorId")]
+        public Input<string>? AccessConnectorId { get; set; }
+
+        /// <summary>
         /// A `custom_parameters` block as documented below.
         /// </summary>
         [Input("customParameters")]
@@ -214,6 +236,12 @@ namespace Pulumi.Azure.DataBricks
         /// </summary>
         [Input("customerManagedKeyEnabled")]
         public Input<bool>? CustomerManagedKeyEnabled { get; set; }
+
+        /// <summary>
+        /// Disallow public access to default storage account. Defaults to `false`.
+        /// </summary>
+        [Input("defaultStorageFirewallEnabled")]
+        public Input<bool>? DefaultStorageFirewallEnabled { get; set; }
 
         /// <summary>
         /// Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
@@ -318,6 +346,14 @@ namespace Pulumi.Azure.DataBricks
     public sealed class WorkspaceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Access Connector ID to use when default storage account firewall is enabled. 
+        /// 
+        /// &gt; **Note:** The `access_connector_id` field is only required if `default_storage_firewall_enabled` is set to `true`.
+        /// </summary>
+        [Input("accessConnectorId")]
+        public Input<string>? AccessConnectorId { get; set; }
+
+        /// <summary>
         /// A `custom_parameters` block as documented below.
         /// </summary>
         [Input("customParameters")]
@@ -328,6 +364,12 @@ namespace Pulumi.Azure.DataBricks
         /// </summary>
         [Input("customerManagedKeyEnabled")]
         public Input<bool>? CustomerManagedKeyEnabled { get; set; }
+
+        /// <summary>
+        /// Disallow public access to default storage account. Defaults to `false`.
+        /// </summary>
+        [Input("defaultStorageFirewallEnabled")]
+        public Input<bool>? DefaultStorageFirewallEnabled { get; set; }
 
         /// <summary>
         /// The ID of Managed Disk Encryption Set created by the Databricks Workspace.

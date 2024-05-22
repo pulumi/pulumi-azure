@@ -20,6 +20,25 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     public static final WorkspaceArgs Empty = new WorkspaceArgs();
 
     /**
+     * Access Connector ID to use when default storage account firewall is enabled.
+     * 
+     * &gt; **Note:** The `access_connector_id` field is only required if `default_storage_firewall_enabled` is set to `true`.
+     * 
+     */
+    @Import(name="accessConnectorId")
+    private @Nullable Output<String> accessConnectorId;
+
+    /**
+     * @return Access Connector ID to use when default storage account firewall is enabled.
+     * 
+     * &gt; **Note:** The `access_connector_id` field is only required if `default_storage_firewall_enabled` is set to `true`.
+     * 
+     */
+    public Optional<Output<String>> accessConnectorId() {
+        return Optional.ofNullable(this.accessConnectorId);
+    }
+
+    /**
      * A `custom_parameters` block as documented below.
      * 
      */
@@ -47,6 +66,21 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> customerManagedKeyEnabled() {
         return Optional.ofNullable(this.customerManagedKeyEnabled);
+    }
+
+    /**
+     * Disallow public access to default storage account. Defaults to `false`.
+     * 
+     */
+    @Import(name="defaultStorageFirewallEnabled")
+    private @Nullable Output<Boolean> defaultStorageFirewallEnabled;
+
+    /**
+     * @return Disallow public access to default storage account. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> defaultStorageFirewallEnabled() {
+        return Optional.ofNullable(this.defaultStorageFirewallEnabled);
     }
 
     /**
@@ -269,8 +303,10 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     private WorkspaceArgs() {}
 
     private WorkspaceArgs(WorkspaceArgs $) {
+        this.accessConnectorId = $.accessConnectorId;
         this.customParameters = $.customParameters;
         this.customerManagedKeyEnabled = $.customerManagedKeyEnabled;
+        this.defaultStorageFirewallEnabled = $.defaultStorageFirewallEnabled;
         this.infrastructureEncryptionEnabled = $.infrastructureEncryptionEnabled;
         this.loadBalancerBackendAddressPoolId = $.loadBalancerBackendAddressPoolId;
         this.location = $.location;
@@ -304,6 +340,31 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(WorkspaceArgs defaults) {
             $ = new WorkspaceArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param accessConnectorId Access Connector ID to use when default storage account firewall is enabled.
+         * 
+         * &gt; **Note:** The `access_connector_id` field is only required if `default_storage_firewall_enabled` is set to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessConnectorId(@Nullable Output<String> accessConnectorId) {
+            $.accessConnectorId = accessConnectorId;
+            return this;
+        }
+
+        /**
+         * @param accessConnectorId Access Connector ID to use when default storage account firewall is enabled.
+         * 
+         * &gt; **Note:** The `access_connector_id` field is only required if `default_storage_firewall_enabled` is set to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessConnectorId(String accessConnectorId) {
+            return accessConnectorId(Output.of(accessConnectorId));
         }
 
         /**
@@ -346,6 +407,27 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder customerManagedKeyEnabled(Boolean customerManagedKeyEnabled) {
             return customerManagedKeyEnabled(Output.of(customerManagedKeyEnabled));
+        }
+
+        /**
+         * @param defaultStorageFirewallEnabled Disallow public access to default storage account. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultStorageFirewallEnabled(@Nullable Output<Boolean> defaultStorageFirewallEnabled) {
+            $.defaultStorageFirewallEnabled = defaultStorageFirewallEnabled;
+            return this;
+        }
+
+        /**
+         * @param defaultStorageFirewallEnabled Disallow public access to default storage account. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultStorageFirewallEnabled(Boolean defaultStorageFirewallEnabled) {
+            return defaultStorageFirewallEnabled(Output.of(defaultStorageFirewallEnabled));
         }
 
         /**

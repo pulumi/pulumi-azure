@@ -22,10 +22,16 @@ import (
 type Workspace struct {
 	pulumi.CustomResourceState
 
+	// Access Connector ID to use when default storage account firewall is enabled.
+	//
+	// > **Note:** The `accessConnectorId` field is only required if `defaultStorageFirewallEnabled` is set to `true`.
+	AccessConnectorId pulumi.StringPtrOutput `pulumi:"accessConnectorId"`
 	// A `customParameters` block as documented below.
 	CustomParameters WorkspaceCustomParametersOutput `pulumi:"customParameters"`
 	// Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
 	CustomerManagedKeyEnabled pulumi.BoolPtrOutput `pulumi:"customerManagedKeyEnabled"`
+	// Disallow public access to default storage account. Defaults to `false`.
+	DefaultStorageFirewallEnabled pulumi.BoolPtrOutput `pulumi:"defaultStorageFirewallEnabled"`
 	// The ID of Managed Disk Encryption Set created by the Databricks Workspace.
 	DiskEncryptionSetId pulumi.StringOutput `pulumi:"diskEncryptionSetId"`
 	// Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
@@ -108,10 +114,16 @@ func GetWorkspace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workspace resources.
 type workspaceState struct {
+	// Access Connector ID to use when default storage account firewall is enabled.
+	//
+	// > **Note:** The `accessConnectorId` field is only required if `defaultStorageFirewallEnabled` is set to `true`.
+	AccessConnectorId *string `pulumi:"accessConnectorId"`
 	// A `customParameters` block as documented below.
 	CustomParameters *WorkspaceCustomParameters `pulumi:"customParameters"`
 	// Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
 	CustomerManagedKeyEnabled *bool `pulumi:"customerManagedKeyEnabled"`
+	// Disallow public access to default storage account. Defaults to `false`.
+	DefaultStorageFirewallEnabled *bool `pulumi:"defaultStorageFirewallEnabled"`
 	// The ID of Managed Disk Encryption Set created by the Databricks Workspace.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
@@ -159,10 +171,16 @@ type workspaceState struct {
 }
 
 type WorkspaceState struct {
+	// Access Connector ID to use when default storage account firewall is enabled.
+	//
+	// > **Note:** The `accessConnectorId` field is only required if `defaultStorageFirewallEnabled` is set to `true`.
+	AccessConnectorId pulumi.StringPtrInput
 	// A `customParameters` block as documented below.
 	CustomParameters WorkspaceCustomParametersPtrInput
 	// Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
 	CustomerManagedKeyEnabled pulumi.BoolPtrInput
+	// Disallow public access to default storage account. Defaults to `false`.
+	DefaultStorageFirewallEnabled pulumi.BoolPtrInput
 	// The ID of Managed Disk Encryption Set created by the Databricks Workspace.
 	DiskEncryptionSetId pulumi.StringPtrInput
 	// Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
@@ -214,10 +232,16 @@ func (WorkspaceState) ElementType() reflect.Type {
 }
 
 type workspaceArgs struct {
+	// Access Connector ID to use when default storage account firewall is enabled.
+	//
+	// > **Note:** The `accessConnectorId` field is only required if `defaultStorageFirewallEnabled` is set to `true`.
+	AccessConnectorId *string `pulumi:"accessConnectorId"`
 	// A `customParameters` block as documented below.
 	CustomParameters *WorkspaceCustomParameters `pulumi:"customParameters"`
 	// Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
 	CustomerManagedKeyEnabled *bool `pulumi:"customerManagedKeyEnabled"`
+	// Disallow public access to default storage account. Defaults to `false`.
+	DefaultStorageFirewallEnabled *bool `pulumi:"defaultStorageFirewallEnabled"`
 	// Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled *bool `pulumi:"infrastructureEncryptionEnabled"`
 	// Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
@@ -254,10 +278,16 @@ type workspaceArgs struct {
 
 // The set of arguments for constructing a Workspace resource.
 type WorkspaceArgs struct {
+	// Access Connector ID to use when default storage account firewall is enabled.
+	//
+	// > **Note:** The `accessConnectorId` field is only required if `defaultStorageFirewallEnabled` is set to `true`.
+	AccessConnectorId pulumi.StringPtrInput
 	// A `customParameters` block as documented below.
 	CustomParameters WorkspaceCustomParametersPtrInput
 	// Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
 	CustomerManagedKeyEnabled pulumi.BoolPtrInput
+	// Disallow public access to default storage account. Defaults to `false`.
+	DefaultStorageFirewallEnabled pulumi.BoolPtrInput
 	// Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled pulumi.BoolPtrInput
 	// Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
@@ -379,6 +409,13 @@ func (o WorkspaceOutput) ToWorkspaceOutputWithContext(ctx context.Context) Works
 	return o
 }
 
+// Access Connector ID to use when default storage account firewall is enabled.
+//
+// > **Note:** The `accessConnectorId` field is only required if `defaultStorageFirewallEnabled` is set to `true`.
+func (o WorkspaceOutput) AccessConnectorId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.AccessConnectorId }).(pulumi.StringPtrOutput)
+}
+
 // A `customParameters` block as documented below.
 func (o WorkspaceOutput) CustomParameters() WorkspaceCustomParametersOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceCustomParametersOutput { return v.CustomParameters }).(WorkspaceCustomParametersOutput)
@@ -387,6 +424,11 @@ func (o WorkspaceOutput) CustomParameters() WorkspaceCustomParametersOutput {
 // Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
 func (o WorkspaceOutput) CustomerManagedKeyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.BoolPtrOutput { return v.CustomerManagedKeyEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Disallow public access to default storage account. Defaults to `false`.
+func (o WorkspaceOutput) DefaultStorageFirewallEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.BoolPtrOutput { return v.DefaultStorageFirewallEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The ID of Managed Disk Encryption Set created by the Databricks Workspace.

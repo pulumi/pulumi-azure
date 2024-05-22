@@ -13,13 +13,13 @@ namespace Pulumi.Azure.Pim.Inputs
     public sealed class EligibleRoleAssignmentScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `expiration` block as defined above.
+        /// An `expiration` block as defined above.
         /// </summary>
         [Input("expiration")]
         public Input<Inputs.EligibleRoleAssignmentScheduleExpirationArgs>? Expiration { get; set; }
 
         /// <summary>
-        /// The start date time of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created.
+        /// The start date/time of the role assignment. Changing this forces a new resource to be created.
         /// </summary>
         [Input("startDateTime")]
         public Input<string>? StartDateTime { get; set; }

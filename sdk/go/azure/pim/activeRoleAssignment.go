@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Pim Active Role Assignment.
+// Manages a PIM Active Role Assignment.
 //
 // ## Example Usage
 //
@@ -143,7 +143,7 @@ import (
 //
 // ## Import
 //
-// Pim Active Role Assignments can be imported using the `resource id`, e.g.
+// PIM Active Role Assignments can be imported using the following composite resource ID, e.g.
 //
 // ```sh
 // $ pulumi import azure:pim/activeRoleAssignment:ActiveRoleAssignment example /subscriptions/00000000-0000-0000-0000-000000000000|/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000
@@ -151,19 +151,19 @@ import (
 type ActiveRoleAssignment struct {
 	pulumi.CustomResourceState
 
-	// The justification of the role assignment. Changing this forces a new Pim Active Role Assignment to be created.
-	Justification pulumi.StringPtrOutput `pulumi:"justification"`
-	// The principal id. Changing this forces a new Pim Active Role Assignment to be created.
+	// The justification for the role assignment. Changing this forces a new resource to be created.
+	Justification pulumi.StringOutput `pulumi:"justification"`
+	// Object ID of the principal for this role assignment. Changing this forces a new resource to be created.
 	PrincipalId pulumi.StringOutput `pulumi:"principalId"`
-	// The type of principal.
+	// Type of principal to which the role will be assigned.
 	PrincipalType pulumi.StringOutput `pulumi:"principalType"`
-	// The role definition id. Changing this forces a new Pim Active Role Assignment to be created.
+	// The role definition ID for this role assignment. Changing this forces a new resource to be created.
 	RoleDefinitionId pulumi.StringOutput `pulumi:"roleDefinitionId"`
-	// A `schedule` block as defined below. Changing this forces a new Pim Active Role Assignment to be created.
-	Schedule ActiveRoleAssignmentSchedulePtrOutput `pulumi:"schedule"`
-	// The scope. Changing this forces a new Pim Active Role Assignment to be created.
+	// A `schedule` block as defined below. Changing this forces a new resource to be created.
+	Schedule ActiveRoleAssignmentScheduleOutput `pulumi:"schedule"`
+	// The scope for this role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
 	Scope pulumi.StringOutput `pulumi:"scope"`
-	// A `ticket` block as defined below. Changing this forces a new Pim Active Role Assignment to be created.
+	// A `ticket` block as defined below. Changing this forces a new resource to be created.
 	Ticket ActiveRoleAssignmentTicketPtrOutput `pulumi:"ticket"`
 }
 
@@ -206,36 +206,36 @@ func GetActiveRoleAssignment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ActiveRoleAssignment resources.
 type activeRoleAssignmentState struct {
-	// The justification of the role assignment. Changing this forces a new Pim Active Role Assignment to be created.
+	// The justification for the role assignment. Changing this forces a new resource to be created.
 	Justification *string `pulumi:"justification"`
-	// The principal id. Changing this forces a new Pim Active Role Assignment to be created.
+	// Object ID of the principal for this role assignment. Changing this forces a new resource to be created.
 	PrincipalId *string `pulumi:"principalId"`
-	// The type of principal.
+	// Type of principal to which the role will be assigned.
 	PrincipalType *string `pulumi:"principalType"`
-	// The role definition id. Changing this forces a new Pim Active Role Assignment to be created.
+	// The role definition ID for this role assignment. Changing this forces a new resource to be created.
 	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
-	// A `schedule` block as defined below. Changing this forces a new Pim Active Role Assignment to be created.
+	// A `schedule` block as defined below. Changing this forces a new resource to be created.
 	Schedule *ActiveRoleAssignmentSchedule `pulumi:"schedule"`
-	// The scope. Changing this forces a new Pim Active Role Assignment to be created.
+	// The scope for this role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
 	Scope *string `pulumi:"scope"`
-	// A `ticket` block as defined below. Changing this forces a new Pim Active Role Assignment to be created.
+	// A `ticket` block as defined below. Changing this forces a new resource to be created.
 	Ticket *ActiveRoleAssignmentTicket `pulumi:"ticket"`
 }
 
 type ActiveRoleAssignmentState struct {
-	// The justification of the role assignment. Changing this forces a new Pim Active Role Assignment to be created.
+	// The justification for the role assignment. Changing this forces a new resource to be created.
 	Justification pulumi.StringPtrInput
-	// The principal id. Changing this forces a new Pim Active Role Assignment to be created.
+	// Object ID of the principal for this role assignment. Changing this forces a new resource to be created.
 	PrincipalId pulumi.StringPtrInput
-	// The type of principal.
+	// Type of principal to which the role will be assigned.
 	PrincipalType pulumi.StringPtrInput
-	// The role definition id. Changing this forces a new Pim Active Role Assignment to be created.
+	// The role definition ID for this role assignment. Changing this forces a new resource to be created.
 	RoleDefinitionId pulumi.StringPtrInput
-	// A `schedule` block as defined below. Changing this forces a new Pim Active Role Assignment to be created.
+	// A `schedule` block as defined below. Changing this forces a new resource to be created.
 	Schedule ActiveRoleAssignmentSchedulePtrInput
-	// The scope. Changing this forces a new Pim Active Role Assignment to be created.
+	// The scope for this role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
 	Scope pulumi.StringPtrInput
-	// A `ticket` block as defined below. Changing this forces a new Pim Active Role Assignment to be created.
+	// A `ticket` block as defined below. Changing this forces a new resource to be created.
 	Ticket ActiveRoleAssignmentTicketPtrInput
 }
 
@@ -244,33 +244,33 @@ func (ActiveRoleAssignmentState) ElementType() reflect.Type {
 }
 
 type activeRoleAssignmentArgs struct {
-	// The justification of the role assignment. Changing this forces a new Pim Active Role Assignment to be created.
+	// The justification for the role assignment. Changing this forces a new resource to be created.
 	Justification *string `pulumi:"justification"`
-	// The principal id. Changing this forces a new Pim Active Role Assignment to be created.
+	// Object ID of the principal for this role assignment. Changing this forces a new resource to be created.
 	PrincipalId string `pulumi:"principalId"`
-	// The role definition id. Changing this forces a new Pim Active Role Assignment to be created.
+	// The role definition ID for this role assignment. Changing this forces a new resource to be created.
 	RoleDefinitionId string `pulumi:"roleDefinitionId"`
-	// A `schedule` block as defined below. Changing this forces a new Pim Active Role Assignment to be created.
+	// A `schedule` block as defined below. Changing this forces a new resource to be created.
 	Schedule *ActiveRoleAssignmentSchedule `pulumi:"schedule"`
-	// The scope. Changing this forces a new Pim Active Role Assignment to be created.
+	// The scope for this role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
 	Scope string `pulumi:"scope"`
-	// A `ticket` block as defined below. Changing this forces a new Pim Active Role Assignment to be created.
+	// A `ticket` block as defined below. Changing this forces a new resource to be created.
 	Ticket *ActiveRoleAssignmentTicket `pulumi:"ticket"`
 }
 
 // The set of arguments for constructing a ActiveRoleAssignment resource.
 type ActiveRoleAssignmentArgs struct {
-	// The justification of the role assignment. Changing this forces a new Pim Active Role Assignment to be created.
+	// The justification for the role assignment. Changing this forces a new resource to be created.
 	Justification pulumi.StringPtrInput
-	// The principal id. Changing this forces a new Pim Active Role Assignment to be created.
+	// Object ID of the principal for this role assignment. Changing this forces a new resource to be created.
 	PrincipalId pulumi.StringInput
-	// The role definition id. Changing this forces a new Pim Active Role Assignment to be created.
+	// The role definition ID for this role assignment. Changing this forces a new resource to be created.
 	RoleDefinitionId pulumi.StringInput
-	// A `schedule` block as defined below. Changing this forces a new Pim Active Role Assignment to be created.
+	// A `schedule` block as defined below. Changing this forces a new resource to be created.
 	Schedule ActiveRoleAssignmentSchedulePtrInput
-	// The scope. Changing this forces a new Pim Active Role Assignment to be created.
+	// The scope for this role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
 	Scope pulumi.StringInput
-	// A `ticket` block as defined below. Changing this forces a new Pim Active Role Assignment to be created.
+	// A `ticket` block as defined below. Changing this forces a new resource to be created.
 	Ticket ActiveRoleAssignmentTicketPtrInput
 }
 
@@ -361,37 +361,37 @@ func (o ActiveRoleAssignmentOutput) ToActiveRoleAssignmentOutputWithContext(ctx 
 	return o
 }
 
-// The justification of the role assignment. Changing this forces a new Pim Active Role Assignment to be created.
-func (o ActiveRoleAssignmentOutput) Justification() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ActiveRoleAssignment) pulumi.StringPtrOutput { return v.Justification }).(pulumi.StringPtrOutput)
+// The justification for the role assignment. Changing this forces a new resource to be created.
+func (o ActiveRoleAssignmentOutput) Justification() pulumi.StringOutput {
+	return o.ApplyT(func(v *ActiveRoleAssignment) pulumi.StringOutput { return v.Justification }).(pulumi.StringOutput)
 }
 
-// The principal id. Changing this forces a new Pim Active Role Assignment to be created.
+// Object ID of the principal for this role assignment. Changing this forces a new resource to be created.
 func (o ActiveRoleAssignmentOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActiveRoleAssignment) pulumi.StringOutput { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The type of principal.
+// Type of principal to which the role will be assigned.
 func (o ActiveRoleAssignmentOutput) PrincipalType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActiveRoleAssignment) pulumi.StringOutput { return v.PrincipalType }).(pulumi.StringOutput)
 }
 
-// The role definition id. Changing this forces a new Pim Active Role Assignment to be created.
+// The role definition ID for this role assignment. Changing this forces a new resource to be created.
 func (o ActiveRoleAssignmentOutput) RoleDefinitionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActiveRoleAssignment) pulumi.StringOutput { return v.RoleDefinitionId }).(pulumi.StringOutput)
 }
 
-// A `schedule` block as defined below. Changing this forces a new Pim Active Role Assignment to be created.
-func (o ActiveRoleAssignmentOutput) Schedule() ActiveRoleAssignmentSchedulePtrOutput {
-	return o.ApplyT(func(v *ActiveRoleAssignment) ActiveRoleAssignmentSchedulePtrOutput { return v.Schedule }).(ActiveRoleAssignmentSchedulePtrOutput)
+// A `schedule` block as defined below. Changing this forces a new resource to be created.
+func (o ActiveRoleAssignmentOutput) Schedule() ActiveRoleAssignmentScheduleOutput {
+	return o.ApplyT(func(v *ActiveRoleAssignment) ActiveRoleAssignmentScheduleOutput { return v.Schedule }).(ActiveRoleAssignmentScheduleOutput)
 }
 
-// The scope. Changing this forces a new Pim Active Role Assignment to be created.
+// The scope for this role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
 func (o ActiveRoleAssignmentOutput) Scope() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActiveRoleAssignment) pulumi.StringOutput { return v.Scope }).(pulumi.StringOutput)
 }
 
-// A `ticket` block as defined below. Changing this forces a new Pim Active Role Assignment to be created.
+// A `ticket` block as defined below. Changing this forces a new resource to be created.
 func (o ActiveRoleAssignmentOutput) Ticket() ActiveRoleAssignmentTicketPtrOutput {
 	return o.ApplyT(func(v *ActiveRoleAssignment) ActiveRoleAssignmentTicketPtrOutput { return v.Ticket }).(ActiveRoleAssignmentTicketPtrOutput)
 }

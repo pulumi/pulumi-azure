@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Pim.Outputs
     public sealed class ActiveRoleAssignmentSchedule
     {
         /// <summary>
-        /// A `expiration` block as defined above.
+        /// An `expiration` block as defined above.
         /// </summary>
         public readonly Outputs.ActiveRoleAssignmentScheduleExpiration? Expiration;
         /// <summary>
-        /// The start date time of the role assignment. Changing this forces a new Pim Active Role Assignment to be created.
+        /// The start date/time of the role assignment. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? StartDateTime;
 

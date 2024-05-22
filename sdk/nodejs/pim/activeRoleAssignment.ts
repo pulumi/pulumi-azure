@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Pim Active Role Assignment.
+ * Manages a PIM Active Role Assignment.
  *
  * ## Example Usage
  *
@@ -75,7 +75,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Pim Active Role Assignments can be imported using the `resource id`, e.g.
+ * PIM Active Role Assignments can be imported using the following composite resource ID, e.g.
  *
  * ```sh
  * $ pulumi import azure:pim/activeRoleAssignment:ActiveRoleAssignment example /subscriptions/00000000-0000-0000-0000-000000000000|/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000
@@ -110,31 +110,31 @@ export class ActiveRoleAssignment extends pulumi.CustomResource {
     }
 
     /**
-     * The justification of the role assignment. Changing this forces a new Pim Active Role Assignment to be created.
+     * The justification for the role assignment. Changing this forces a new resource to be created.
      */
-    public readonly justification!: pulumi.Output<string | undefined>;
+    public readonly justification!: pulumi.Output<string>;
     /**
-     * The principal id. Changing this forces a new Pim Active Role Assignment to be created.
+     * Object ID of the principal for this role assignment. Changing this forces a new resource to be created.
      */
     public readonly principalId!: pulumi.Output<string>;
     /**
-     * The type of principal.
+     * Type of principal to which the role will be assigned.
      */
     public /*out*/ readonly principalType!: pulumi.Output<string>;
     /**
-     * The role definition id. Changing this forces a new Pim Active Role Assignment to be created.
+     * The role definition ID for this role assignment. Changing this forces a new resource to be created.
      */
     public readonly roleDefinitionId!: pulumi.Output<string>;
     /**
-     * A `schedule` block as defined below. Changing this forces a new Pim Active Role Assignment to be created.
+     * A `schedule` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly schedule!: pulumi.Output<outputs.pim.ActiveRoleAssignmentSchedule | undefined>;
+    public readonly schedule!: pulumi.Output<outputs.pim.ActiveRoleAssignmentSchedule>;
     /**
-     * The scope. Changing this forces a new Pim Active Role Assignment to be created.
+     * The scope for this role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
      */
     public readonly scope!: pulumi.Output<string>;
     /**
-     * A `ticket` block as defined below. Changing this forces a new Pim Active Role Assignment to be created.
+     * A `ticket` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly ticket!: pulumi.Output<outputs.pim.ActiveRoleAssignmentTicket | undefined>;
 
@@ -187,31 +187,31 @@ export class ActiveRoleAssignment extends pulumi.CustomResource {
  */
 export interface ActiveRoleAssignmentState {
     /**
-     * The justification of the role assignment. Changing this forces a new Pim Active Role Assignment to be created.
+     * The justification for the role assignment. Changing this forces a new resource to be created.
      */
     justification?: pulumi.Input<string>;
     /**
-     * The principal id. Changing this forces a new Pim Active Role Assignment to be created.
+     * Object ID of the principal for this role assignment. Changing this forces a new resource to be created.
      */
     principalId?: pulumi.Input<string>;
     /**
-     * The type of principal.
+     * Type of principal to which the role will be assigned.
      */
     principalType?: pulumi.Input<string>;
     /**
-     * The role definition id. Changing this forces a new Pim Active Role Assignment to be created.
+     * The role definition ID for this role assignment. Changing this forces a new resource to be created.
      */
     roleDefinitionId?: pulumi.Input<string>;
     /**
-     * A `schedule` block as defined below. Changing this forces a new Pim Active Role Assignment to be created.
+     * A `schedule` block as defined below. Changing this forces a new resource to be created.
      */
     schedule?: pulumi.Input<inputs.pim.ActiveRoleAssignmentSchedule>;
     /**
-     * The scope. Changing this forces a new Pim Active Role Assignment to be created.
+     * The scope for this role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
      */
     scope?: pulumi.Input<string>;
     /**
-     * A `ticket` block as defined below. Changing this forces a new Pim Active Role Assignment to be created.
+     * A `ticket` block as defined below. Changing this forces a new resource to be created.
      */
     ticket?: pulumi.Input<inputs.pim.ActiveRoleAssignmentTicket>;
 }
@@ -221,27 +221,27 @@ export interface ActiveRoleAssignmentState {
  */
 export interface ActiveRoleAssignmentArgs {
     /**
-     * The justification of the role assignment. Changing this forces a new Pim Active Role Assignment to be created.
+     * The justification for the role assignment. Changing this forces a new resource to be created.
      */
     justification?: pulumi.Input<string>;
     /**
-     * The principal id. Changing this forces a new Pim Active Role Assignment to be created.
+     * Object ID of the principal for this role assignment. Changing this forces a new resource to be created.
      */
     principalId: pulumi.Input<string>;
     /**
-     * The role definition id. Changing this forces a new Pim Active Role Assignment to be created.
+     * The role definition ID for this role assignment. Changing this forces a new resource to be created.
      */
     roleDefinitionId: pulumi.Input<string>;
     /**
-     * A `schedule` block as defined below. Changing this forces a new Pim Active Role Assignment to be created.
+     * A `schedule` block as defined below. Changing this forces a new resource to be created.
      */
     schedule?: pulumi.Input<inputs.pim.ActiveRoleAssignmentSchedule>;
     /**
-     * The scope. Changing this forces a new Pim Active Role Assignment to be created.
+     * The scope for this role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
      */
     scope: pulumi.Input<string>;
     /**
-     * A `ticket` block as defined below. Changing this forces a new Pim Active Role Assignment to be created.
+     * A `ticket` block as defined below. Changing this forces a new resource to be created.
      */
     ticket?: pulumi.Input<inputs.pim.ActiveRoleAssignmentTicket>;
 }
