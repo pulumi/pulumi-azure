@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Ramon Quitales <ramon@pulumi.com>
 Date: Wed, 9 Aug 2023 13:05:13 -1000
-Subject: [PATCH] remove defaults backup retention policies
+Subject: [PATCH] Remove defaults backup retention policies
 
 Fixes #1318
 

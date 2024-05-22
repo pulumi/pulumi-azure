@@ -1,9 +1,36 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
-From: Anton Tayanovskyy <anton@pulumi.com>
-Date: Wed, 7 Feb 2024 13:53:37 -0500
-Subject: [PATCH] Modify resources
+From: aq17 <aqiu@pulumi.com>
+Date: Thu, 25 May 2023 10:33:38 -0700
+Subject: [PATCH] Shared-features
 
 
+diff --git a/internal/features/four_point_oh.go b/internal/features/four_point_oh.go
+index d3723a3480..4953bff3b7 100644
+--- a/internal/features/four_point_oh.go
++++ b/internal/features/four_point_oh.go
+@@ -40,3 +40,9 @@ func FourPointOh() bool {
+ func FourPointOhBeta() bool {
+ 	return FourPointOh() || false
+ }
++
++// FORK: Small function to help us not make a breaking change in the Pulumi
++// provider where all Enums have been changed to case sensitive
++func CaseInsensitive() bool {
++	return true
++}
+diff --git a/internal/provider/features.go b/internal/provider/features.go
+index ac7f6da7d6..e41f13d5a6 100644
+--- a/internal/provider/features.go
++++ b/internal/provider/features.go
+@@ -369,7 +369,7 @@ func schemaFeatures(supportLegacyTestSuite bool) *pluginsdk.Schema {
+ 
+ 	return &pluginsdk.Schema{
+ 		Type:     pluginsdk.TypeList,
+-		Required: true,
++		Optional: true,
+ 		MaxItems: 1,
+ 		MinItems: 1,
+ 		Elem: &pluginsdk.Resource{
 diff --git a/internal/services/advisor/advisor_recommendations_data_source.go b/internal/services/advisor/advisor_recommendations_data_source.go
 index 39c0506972..c4965dfbdb 100644
 --- a/internal/services/advisor/advisor_recommendations_data_source.go
@@ -2792,3 +2819,17 @@ index baaf28b822..ec0522f4b1 100644
  		},
  	}
  
+diff --git a/internal/tf/suppress/deprecated_soon.go b/internal/tf/suppress/deprecated_soon.go
+index 926f57f880..815f6e3006 100644
+--- a/internal/tf/suppress/deprecated_soon.go
++++ b/internal/tf/suppress/deprecated_soon.go
+@@ -17,3 +17,9 @@ func CaseDifference(_, old, new string, _ *schema.ResourceData) bool {
+ 	// fields should be case-sensitive, normalize the Azure Resource ID in the Read if required
+ 	return strings.EqualFold(old, new)
+ }
++
++// CaseDifferenceV2Only only suppress case difference for v2.0.
++func CaseDifferenceV2Only(_, old, new string, _ *schema.ResourceData) bool {
++	// FORK: Force attributes to maintain case-insensitivity to avoid breaking changes in Pulumi programs.
++	return strings.EqualFold(old, new)
++}
