@@ -1225,95 +1225,96 @@ index a7553589e1..99c6655b1f 100644
  		},
  
 diff --git a/internal/services/network/application_gateway_resource.go b/internal/services/network/application_gateway_resource.go
-index f5b8bb0e57..4768418a78 100644
+index bbdc096311..3b36382f4b 100644
 --- a/internal/services/network/application_gateway_resource.go
 +++ b/internal/services/network/application_gateway_resource.go
-@@ -7,6 +7,8 @@ import (
- 	"bytes"
- 	"context"
- 	"fmt"
-+	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
-+	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/suppress"
- 	"log"
+@@ -11,6 +11,9 @@ import (
  	"strings"
  	"time"
-@@ -213,7 +215,7 @@ func resourceApplicationGateway() *pluginsdk.Resource {
+ 
++	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
++	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/suppress"
++
+ 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+ 	"github.com/hashicorp/go-azure-helpers/lang/response"
+ 	"github.com/hashicorp/go-azure-helpers/resourcemanager/commonids"
+@@ -204,7 +207,7 @@ func resourceApplicationGateway() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
- 								string(network.ProtocolHTTP),
- 								string(network.ProtocolHTTPS),
+ 								string(applicationgateways.ApplicationGatewayProtocolHTTP),
+ 								string(applicationgateways.ApplicationGatewayProtocolHTTPS),
 -							}, false),
 +							}, features.CaseInsensitive()),
  						},
  
  						"cookie_based_affinity": {
-@@ -222,7 +224,7 @@ func resourceApplicationGateway() *pluginsdk.Resource {
+@@ -213,7 +216,7 @@ func resourceApplicationGateway() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
- 								string(network.ApplicationGatewayCookieBasedAffinityEnabled),
- 								string(network.ApplicationGatewayCookieBasedAffinityDisabled),
+ 								string(applicationgateways.ApplicationGatewayCookieBasedAffinityEnabled),
+ 								string(applicationgateways.ApplicationGatewayCookieBasedAffinityDisabled),
 -							}, false),
 +							}, features.CaseInsensitive()),
  						},
  
  						"affinity_cookie_name": {
-@@ -349,7 +351,7 @@ func resourceApplicationGateway() *pluginsdk.Resource {
+@@ -340,7 +343,7 @@ func resourceApplicationGateway() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
- 								string(network.IPAllocationMethodDynamic),
- 								string(network.IPAllocationMethodStatic),
+ 								string(applicationgateways.IPAllocationMethodDynamic),
+ 								string(applicationgateways.IPAllocationMethodStatic),
 -							}, false),
 +							}, features.CaseInsensitive()),
  						},
  
  						"private_link_configuration_name": {
-@@ -464,7 +466,7 @@ func resourceApplicationGateway() *pluginsdk.Resource {
+@@ -455,7 +458,7 @@ func resourceApplicationGateway() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
- 								string(network.ProtocolHTTP),
- 								string(network.ProtocolHTTPS),
+ 								string(applicationgateways.ApplicationGatewayProtocolHTTP),
+ 								string(applicationgateways.ApplicationGatewayProtocolHTTPS),
 -							}, false),
 +							}, features.CaseInsensitive()),
  						},
  
  						"host_name": {
-@@ -619,7 +621,8 @@ func resourceApplicationGateway() *pluginsdk.Resource {
+@@ -610,7 +613,8 @@ func resourceApplicationGateway() *pluginsdk.Resource {
  										ValidateFunc: validation.StringInSlice([]string{
- 											string(network.IPAllocationMethodDynamic),
- 											string(network.IPAllocationMethodStatic),
+ 											string(applicationgateways.IPAllocationMethodDynamic),
+ 											string(applicationgateways.IPAllocationMethodStatic),
 -										}, false),
 +										}, features.CaseInsensitive()),
 +										DiffSuppressFunc: suppress.CaseDifferenceV2Only,
  									},
  
  									"primary": {
-@@ -827,7 +830,7 @@ func resourceApplicationGateway() *pluginsdk.Resource {
- 								string(network.ApplicationGatewaySkuNameWAFLarge),
- 								string(network.ApplicationGatewaySkuNameWAFMedium),
- 								string(network.ApplicationGatewaySkuNameWAFV2),
+@@ -818,7 +822,7 @@ func resourceApplicationGateway() *pluginsdk.Resource {
+ 								string(applicationgateways.ApplicationGatewaySkuNameWAFLarge),
+ 								string(applicationgateways.ApplicationGatewaySkuNameWAFMedium),
+ 								string(applicationgateways.ApplicationGatewaySkuNameWAFVTwo),
 -							}, false),
 +							}, features.CaseInsensitive()),
  						},
  
  						"tier": {
-@@ -838,7 +841,7 @@ func resourceApplicationGateway() *pluginsdk.Resource {
- 								string(network.ApplicationGatewayTierStandardV2),
- 								string(network.ApplicationGatewayTierWAF),
- 								string(network.ApplicationGatewayTierWAFV2),
+@@ -829,7 +833,7 @@ func resourceApplicationGateway() *pluginsdk.Resource {
+ 								string(applicationgateways.ApplicationGatewayTierStandardVTwo),
+ 								string(applicationgateways.ApplicationGatewayTierWAF),
+ 								string(applicationgateways.ApplicationGatewayTierWAFVTwo),
 -							}, false),
 +							}, features.CaseInsensitive()),
  						},
  
  						"capacity": {
-@@ -939,7 +942,7 @@ func resourceApplicationGateway() *pluginsdk.Resource {
+@@ -930,7 +934,7 @@ func resourceApplicationGateway() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
- 								string(network.ProtocolHTTP),
- 								string(network.ProtocolHTTPS),
+ 								string(applicationgateways.ApplicationGatewayProtocolHTTP),
+ 								string(applicationgateways.ApplicationGatewayProtocolHTTPS),
 -							}, false),
 +							}, features.CaseInsensitive()),
  						},
  
  						"path": {
-@@ -1416,7 +1419,7 @@ func resourceApplicationGateway() *pluginsdk.Resource {
+@@ -1407,7 +1411,7 @@ func resourceApplicationGateway() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
- 								string(network.ApplicationGatewayFirewallModeDetection),
- 								string(network.ApplicationGatewayFirewallModePrevention),
+ 								string(applicationgateways.ApplicationGatewayFirewallModeDetection),
+ 								string(applicationgateways.ApplicationGatewayFirewallModePrevention),
 -							}, false),
 +							}, features.CaseInsensitive()),
  						},
@@ -1352,7 +1353,7 @@ index b500b50239..4896bd84aa 100644
  					},
  				},
 diff --git a/internal/services/network/network_security_group_resource.go b/internal/services/network/network_security_group_resource.go
-index 668ca0a8d1..aa6a9a9936 100644
+index c8b19f6ed7..ab8bea4cd0 100644
 --- a/internal/services/network/network_security_group_resource.go
 +++ b/internal/services/network/network_security_group_resource.go
 @@ -8,6 +8,9 @@ import (
@@ -1362,13 +1363,13 @@ index 668ca0a8d1..aa6a9a9936 100644
 +	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
 +	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/suppress"
 +
+ 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+ 	"github.com/hashicorp/go-azure-helpers/lang/response"
  	"github.com/hashicorp/go-azure-helpers/resourcemanager/commonschema"
- 	multierror "github.com/hashicorp/go-multierror"
- 	"github.com/hashicorp/terraform-provider-azurerm/helpers/azure"
 @@ -84,7 +87,8 @@ func resourceNetworkSecurityGroup() *pluginsdk.Resource {
- 								string(network.SecurityRuleProtocolIcmp),
- 								string(network.SecurityRuleProtocolAh),
- 								string(network.SecurityRuleProtocolEsp),
+ 								string(networksecuritygroups.SecurityRuleProtocolIcmp),
+ 								string(networksecuritygroups.SecurityRuleProtocolAh),
+ 								string(networksecuritygroups.SecurityRuleProtocolEsp),
 -							}, false),
 +							}, features.CaseInsensitive()),
 +							DiffSuppressFunc: suppress.CaseDifferenceV2Only,
@@ -1377,8 +1378,8 @@ index 668ca0a8d1..aa6a9a9936 100644
  						"source_port_range": {
 @@ -155,7 +159,8 @@ func resourceNetworkSecurityGroup() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
- 								string(network.SecurityRuleAccessAllow),
- 								string(network.SecurityRuleAccessDeny),
+ 								string(networksecuritygroups.SecurityRuleAccessAllow),
+ 								string(networksecuritygroups.SecurityRuleAccessDeny),
 -							}, false),
 +							}, features.CaseInsensitive()),
 +							DiffSuppressFunc: suppress.CaseDifferenceV2Only,
@@ -1387,8 +1388,8 @@ index 668ca0a8d1..aa6a9a9936 100644
  						"priority": {
 @@ -170,7 +175,8 @@ func resourceNetworkSecurityGroup() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
- 								string(network.SecurityRuleDirectionInbound),
- 								string(network.SecurityRuleDirectionOutbound),
+ 								string(networksecuritygroups.SecurityRuleDirectionInbound),
+ 								string(networksecuritygroups.SecurityRuleDirectionOutbound),
 -							}, false),
 +							}, features.CaseInsensitive()),
 +							DiffSuppressFunc: suppress.CaseDifferenceV2Only,
@@ -1440,7 +1441,7 @@ index d1af54365a..800adca50c 100644
  		},
  	}
 diff --git a/internal/services/network/public_ip_prefix_resource.go b/internal/services/network/public_ip_prefix_resource.go
-index f0f001ff61..7f14b48178 100644
+index 13f71f8cd4..b465e823cc 100644
 --- a/internal/services/network/public_ip_prefix_resource.go
 +++ b/internal/services/network/public_ip_prefix_resource.go
 @@ -8,6 +8,9 @@ import (
@@ -1450,13 +1451,13 @@ index f0f001ff61..7f14b48178 100644
 +	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
 +	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/suppress"
 +
+ 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+ 	"github.com/hashicorp/go-azure-helpers/lang/response"
  	"github.com/hashicorp/go-azure-helpers/resourcemanager/commonschema"
- 	"github.com/hashicorp/go-azure-helpers/resourcemanager/location"
- 	"github.com/hashicorp/go-azure-helpers/resourcemanager/zones"
-@@ -80,7 +83,8 @@ func resourcePublicIpPrefix() *pluginsdk.Resource {
+@@ -79,7 +82,8 @@ func resourcePublicIpPrefix() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
- 					string(network.IPVersionIPv4),
- 					string(network.IPVersionIPv6),
+ 					string(publicipprefixes.IPVersionIPvFour),
+ 					string(publicipprefixes.IPVersionIPvSix),
 -				}, false),
 +				}, features.CaseInsensitive()),
 +				DiffSuppressFunc: suppress.CaseDifferenceV2Only,
@@ -1464,32 +1465,31 @@ index f0f001ff61..7f14b48178 100644
  
  			"zones": commonschema.ZonesMultipleOptionalForceNew(),
 diff --git a/internal/services/network/public_ip_resource.go b/internal/services/network/public_ip_resource.go
-index 783d4697cc..0b6021265d 100644
+index 12768c7af0..f8323cac8b 100644
 --- a/internal/services/network/public_ip_resource.go
 +++ b/internal/services/network/public_ip_resource.go
-@@ -9,6 +9,8 @@ import (
- 	"strings"
- 	"time"
- 
+@@ -24,6 +24,7 @@ import (
+ 	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
+ 	"github.com/hashicorp/terraform-provider-azurerm/internal/services/network/validate"
+ 	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/pluginsdk"
 +	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/suppress"
-+
- 	"github.com/hashicorp/go-azure-helpers/resourcemanager/commonschema"
- 	"github.com/hashicorp/go-azure-helpers/resourcemanager/location"
- 	"github.com/hashicorp/go-azure-helpers/resourcemanager/zones"
-@@ -96,7 +98,8 @@ func resourcePublicIp() *pluginsdk.Resource {
+ 	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/validation"
+ 	"github.com/hashicorp/terraform-provider-azurerm/internal/timeouts"
+ )
+@@ -96,7 +97,8 @@ func resourcePublicIp() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
- 					string(network.IPVersionIPv4),
- 					string(network.IPVersionIPv6),
+ 					string(publicipaddresses.IPVersionIPvFour),
+ 					string(publicipaddresses.IPVersionIPvSix),
 -				}, false),
 +				}, features.CaseInsensitive()),
 +				DiffSuppressFunc: suppress.CaseDifferenceV2Only,
  			},
  
  			"sku": {
-@@ -113,7 +116,7 @@ func resourcePublicIp() *pluginsdk.Resource {
+@@ -113,7 +115,7 @@ func resourcePublicIp() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
- 					string(network.PublicIPAddressSkuNameBasic),
- 					string(network.PublicIPAddressSkuNameStandard),
+ 					string(publicipaddresses.PublicIPAddressSkuNameBasic),
+ 					string(publicipaddresses.PublicIPAddressSkuNameStandard),
 -				}, false),
 +				}, features.CaseInsensitive()),
  			},
