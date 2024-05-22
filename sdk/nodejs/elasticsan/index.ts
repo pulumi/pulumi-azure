@@ -10,6 +10,11 @@ export type ElasticSan = import("./elasticSan").ElasticSan;
 export const ElasticSan: typeof import("./elasticSan").ElasticSan = null as any;
 utilities.lazyLoad(exports, ["ElasticSan"], () => require("./elasticSan"));
 
+export { GetArgs, GetResult, GetOutputArgs } from "./get";
+export const get: typeof import("./get").get = null as any;
+export const getOutput: typeof import("./get").getOutput = null as any;
+utilities.lazyLoad(exports, ["get","getOutput"], () => require("./get"));
+
 export { VolumeArgs, VolumeState } from "./volume";
 export type Volume = import("./volume").Volume;
 export const Volume: typeof import("./volume").Volume = null as any;

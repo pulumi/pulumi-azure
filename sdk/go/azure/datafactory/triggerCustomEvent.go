@@ -129,8 +129,6 @@ type TriggerCustomEvent struct {
 	// The pattern that event subject starts with for trigger to fire.
 	SubjectBeginsWith pulumi.StringPtrOutput `pulumi:"subjectBeginsWith"`
 	// The pattern that event subject ends with for trigger to fire.
-	//
-	// > **Note:** At least one of `subjectBeginsWith` and `subjectEndsWith` must be set.
 	SubjectEndsWith pulumi.StringPtrOutput `pulumi:"subjectEndsWith"`
 }
 
@@ -197,8 +195,6 @@ type triggerCustomEventState struct {
 	// The pattern that event subject starts with for trigger to fire.
 	SubjectBeginsWith *string `pulumi:"subjectBeginsWith"`
 	// The pattern that event subject ends with for trigger to fire.
-	//
-	// > **Note:** At least one of `subjectBeginsWith` and `subjectEndsWith` must be set.
 	SubjectEndsWith *string `pulumi:"subjectEndsWith"`
 }
 
@@ -224,8 +220,6 @@ type TriggerCustomEventState struct {
 	// The pattern that event subject starts with for trigger to fire.
 	SubjectBeginsWith pulumi.StringPtrInput
 	// The pattern that event subject ends with for trigger to fire.
-	//
-	// > **Note:** At least one of `subjectBeginsWith` and `subjectEndsWith` must be set.
 	SubjectEndsWith pulumi.StringPtrInput
 }
 
@@ -255,8 +249,6 @@ type triggerCustomEventArgs struct {
 	// The pattern that event subject starts with for trigger to fire.
 	SubjectBeginsWith *string `pulumi:"subjectBeginsWith"`
 	// The pattern that event subject ends with for trigger to fire.
-	//
-	// > **Note:** At least one of `subjectBeginsWith` and `subjectEndsWith` must be set.
 	SubjectEndsWith *string `pulumi:"subjectEndsWith"`
 }
 
@@ -283,8 +275,6 @@ type TriggerCustomEventArgs struct {
 	// The pattern that event subject starts with for trigger to fire.
 	SubjectBeginsWith pulumi.StringPtrInput
 	// The pattern that event subject ends with for trigger to fire.
-	//
-	// > **Note:** At least one of `subjectBeginsWith` and `subjectEndsWith` must be set.
 	SubjectEndsWith pulumi.StringPtrInput
 }
 
@@ -426,8 +416,6 @@ func (o TriggerCustomEventOutput) SubjectBeginsWith() pulumi.StringPtrOutput {
 }
 
 // The pattern that event subject ends with for trigger to fire.
-//
-// > **Note:** At least one of `subjectBeginsWith` and `subjectEndsWith` must be set.
 func (o TriggerCustomEventOutput) SubjectEndsWith() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TriggerCustomEvent) pulumi.StringPtrOutput { return v.SubjectEndsWith }).(pulumi.StringPtrOutput)
 }

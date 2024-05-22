@@ -47,7 +47,7 @@ class AlertRuleScheduledArgs:
         :param pulumi.Input[str] severity: The alert severity of this Sentinel Scheduled Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideArgs']]] alert_details_overrides: An `alert_details_override` block as defined below.
         :param pulumi.Input[str] alert_rule_template_guid: The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
-        :param pulumi.Input[str] alert_rule_template_version: The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+        :param pulumi.Input[str] alert_rule_template_version: The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_details: A map of string key-value pairs of columns to be attached to this Sentinel Scheduled Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts.
         :param pulumi.Input[str] description: The description of this Sentinel Scheduled Alert Rule.
         :param pulumi.Input[bool] enabled: Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
@@ -190,7 +190,7 @@ class AlertRuleScheduledArgs:
     @pulumi.getter(name="alertRuleTemplateVersion")
     def alert_rule_template_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+        The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule.
         """
         return pulumi.get(self, "alert_rule_template_version")
 
@@ -427,7 +427,7 @@ class _AlertRuleScheduledState:
         Input properties used for looking up and filtering AlertRuleScheduled resources.
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideArgs']]] alert_details_overrides: An `alert_details_override` block as defined below.
         :param pulumi.Input[str] alert_rule_template_guid: The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
-        :param pulumi.Input[str] alert_rule_template_version: The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+        :param pulumi.Input[str] alert_rule_template_version: The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_details: A map of string key-value pairs of columns to be attached to this Sentinel Scheduled Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts.
         :param pulumi.Input[str] description: The description of this Sentinel Scheduled Alert Rule.
         :param pulumi.Input[str] display_name: The friendly name of this Sentinel Scheduled Alert Rule.
@@ -530,7 +530,7 @@ class _AlertRuleScheduledState:
     @pulumi.getter(name="alertRuleTemplateVersion")
     def alert_rule_template_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+        The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule.
         """
         return pulumi.get(self, "alert_rule_template_version")
 
@@ -856,7 +856,7 @@ class AlertRuleScheduled(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleScheduledAlertDetailsOverrideArgs']]]] alert_details_overrides: An `alert_details_override` block as defined below.
         :param pulumi.Input[str] alert_rule_template_guid: The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
-        :param pulumi.Input[str] alert_rule_template_version: The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+        :param pulumi.Input[str] alert_rule_template_version: The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_details: A map of string key-value pairs of columns to be attached to this Sentinel Scheduled Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts.
         :param pulumi.Input[str] description: The description of this Sentinel Scheduled Alert Rule.
         :param pulumi.Input[str] display_name: The friendly name of this Sentinel Scheduled Alert Rule.
@@ -1048,7 +1048,7 @@ class AlertRuleScheduled(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleScheduledAlertDetailsOverrideArgs']]]] alert_details_overrides: An `alert_details_override` block as defined below.
         :param pulumi.Input[str] alert_rule_template_guid: The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
-        :param pulumi.Input[str] alert_rule_template_version: The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+        :param pulumi.Input[str] alert_rule_template_version: The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_details: A map of string key-value pairs of columns to be attached to this Sentinel Scheduled Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts.
         :param pulumi.Input[str] description: The description of this Sentinel Scheduled Alert Rule.
         :param pulumi.Input[str] display_name: The friendly name of this Sentinel Scheduled Alert Rule.
@@ -1125,7 +1125,7 @@ class AlertRuleScheduled(pulumi.CustomResource):
     @pulumi.getter(name="alertRuleTemplateVersion")
     def alert_rule_template_version(self) -> pulumi.Output[Optional[str]]:
         """
-        The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+        The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule.
         """
         return pulumi.get(self, "alert_rule_template_version")
 

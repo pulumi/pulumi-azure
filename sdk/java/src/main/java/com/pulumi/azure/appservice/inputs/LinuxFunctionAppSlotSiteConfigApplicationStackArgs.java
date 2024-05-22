@@ -79,14 +79,14 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStackArgs extends co
     }
 
     /**
-     * The version of PowerShell Core to use. Possibles values are `7` , and `7.2`.
+     * The version of PowerShell Core to use. Possibles values are `7` , `7.2`, and `7.4`.
      * 
      */
     @Import(name="powershellCoreVersion")
     private @Nullable Output<String> powershellCoreVersion;
 
     /**
-     * @return The version of PowerShell Core to use. Possibles values are `7` , and `7.2`.
+     * @return The version of PowerShell Core to use. Possibles values are `7` , `7.2`, and `7.4`.
      * 
      */
     public Optional<Output<String>> powershellCoreVersion() {
@@ -264,7 +264,7 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStackArgs extends co
         }
 
         /**
-         * @param powershellCoreVersion The version of PowerShell Core to use. Possibles values are `7` , and `7.2`.
+         * @param powershellCoreVersion The version of PowerShell Core to use. Possibles values are `7` , `7.2`, and `7.4`.
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStackArgs extends co
         }
 
         /**
-         * @param powershellCoreVersion The version of PowerShell Core to use. Possibles values are `7` , and `7.2`.
+         * @param powershellCoreVersion The version of PowerShell Core to use. Possibles values are `7` , `7.2`, and `7.4`.
          * 
          * @return builder
          * 

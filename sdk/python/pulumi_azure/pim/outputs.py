@@ -42,8 +42,8 @@ class ActiveRoleAssignmentSchedule(dict):
                  expiration: Optional['outputs.ActiveRoleAssignmentScheduleExpiration'] = None,
                  start_date_time: Optional[str] = None):
         """
-        :param 'ActiveRoleAssignmentScheduleExpirationArgs' expiration: A `expiration` block as defined above.
-        :param str start_date_time: The start date time of the role assignment. Changing this forces a new Pim Active Role Assignment to be created.
+        :param 'ActiveRoleAssignmentScheduleExpirationArgs' expiration: An `expiration` block as defined above.
+        :param str start_date_time: The start date/time of the role assignment. Changing this forces a new resource to be created.
         """
         if expiration is not None:
             pulumi.set(__self__, "expiration", expiration)
@@ -54,7 +54,7 @@ class ActiveRoleAssignmentSchedule(dict):
     @pulumi.getter
     def expiration(self) -> Optional['outputs.ActiveRoleAssignmentScheduleExpiration']:
         """
-        A `expiration` block as defined above.
+        An `expiration` block as defined above.
         """
         return pulumi.get(self, "expiration")
 
@@ -62,7 +62,7 @@ class ActiveRoleAssignmentSchedule(dict):
     @pulumi.getter(name="startDateTime")
     def start_date_time(self) -> Optional[str]:
         """
-        The start date time of the role assignment. Changing this forces a new Pim Active Role Assignment to be created.
+        The start date/time of the role assignment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "start_date_time")
 
@@ -95,9 +95,11 @@ class ActiveRoleAssignmentScheduleExpiration(dict):
                  duration_hours: Optional[int] = None,
                  end_date_time: Optional[str] = None):
         """
-        :param int duration_days: The duration of the role assignment in days. Conflicts with `schedule[0].expiration[0].duration_hours`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
-        :param int duration_hours: The duration of the role assignment in hours. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
-        :param str end_date_time: The end date time of the role assignment. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].duration_hours` Changing this forces a new Pim Active Role Assignment to be created.
+        :param int duration_days: The duration of the role assignment in days. Changing this forces a new resource to be created.
+        :param int duration_hours: The duration of the role assignment in hours. Changing this forces a new resource to be created.
+        :param str end_date_time: The end date/time of the role assignment. Changing this forces a new resource to be created.
+               
+               > Note: Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
         """
         if duration_days is not None:
             pulumi.set(__self__, "duration_days", duration_days)
@@ -110,7 +112,7 @@ class ActiveRoleAssignmentScheduleExpiration(dict):
     @pulumi.getter(name="durationDays")
     def duration_days(self) -> Optional[int]:
         """
-        The duration of the role assignment in days. Conflicts with `schedule[0].expiration[0].duration_hours`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
+        The duration of the role assignment in days. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "duration_days")
 
@@ -118,7 +120,7 @@ class ActiveRoleAssignmentScheduleExpiration(dict):
     @pulumi.getter(name="durationHours")
     def duration_hours(self) -> Optional[int]:
         """
-        The duration of the role assignment in hours. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
+        The duration of the role assignment in hours. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "duration_hours")
 
@@ -126,7 +128,9 @@ class ActiveRoleAssignmentScheduleExpiration(dict):
     @pulumi.getter(name="endDateTime")
     def end_date_time(self) -> Optional[str]:
         """
-        The end date time of the role assignment. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].duration_hours` Changing this forces a new Pim Active Role Assignment to be created.
+        The end date/time of the role assignment. Changing this forces a new resource to be created.
+
+        > Note: Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
         """
         return pulumi.get(self, "end_date_time")
 
@@ -137,8 +141,8 @@ class ActiveRoleAssignmentTicket(dict):
                  number: Optional[str] = None,
                  system: Optional[str] = None):
         """
-        :param str number: The ticket number.
-        :param str system: The ticket system.
+        :param str number: User-supplied ticket number to be included with the request. Changing this forces a new resource to be created.
+        :param str system: User-supplied ticket system name to be included with the request. Changing this forces a new resource to be created.
         """
         if number is not None:
             pulumi.set(__self__, "number", number)
@@ -149,7 +153,7 @@ class ActiveRoleAssignmentTicket(dict):
     @pulumi.getter
     def number(self) -> Optional[str]:
         """
-        The ticket number.
+        User-supplied ticket number to be included with the request. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "number")
 
@@ -157,7 +161,7 @@ class ActiveRoleAssignmentTicket(dict):
     @pulumi.getter
     def system(self) -> Optional[str]:
         """
-        The ticket system.
+        User-supplied ticket system name to be included with the request. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "system")
 
@@ -185,8 +189,8 @@ class EligibleRoleAssignmentSchedule(dict):
                  expiration: Optional['outputs.EligibleRoleAssignmentScheduleExpiration'] = None,
                  start_date_time: Optional[str] = None):
         """
-        :param 'EligibleRoleAssignmentScheduleExpirationArgs' expiration: A `expiration` block as defined above.
-        :param str start_date_time: The start date time of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created.
+        :param 'EligibleRoleAssignmentScheduleExpirationArgs' expiration: An `expiration` block as defined above.
+        :param str start_date_time: The start date/time of the role assignment. Changing this forces a new resource to be created.
         """
         if expiration is not None:
             pulumi.set(__self__, "expiration", expiration)
@@ -197,7 +201,7 @@ class EligibleRoleAssignmentSchedule(dict):
     @pulumi.getter
     def expiration(self) -> Optional['outputs.EligibleRoleAssignmentScheduleExpiration']:
         """
-        A `expiration` block as defined above.
+        An `expiration` block as defined above.
         """
         return pulumi.get(self, "expiration")
 
@@ -205,7 +209,7 @@ class EligibleRoleAssignmentSchedule(dict):
     @pulumi.getter(name="startDateTime")
     def start_date_time(self) -> Optional[str]:
         """
-        The start date time of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created.
+        The start date/time of the role assignment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "start_date_time")
 
@@ -238,9 +242,11 @@ class EligibleRoleAssignmentScheduleExpiration(dict):
                  duration_hours: Optional[int] = None,
                  end_date_time: Optional[str] = None):
         """
-        :param int duration_days: The duration of the role assignment in days. Conflicts with `schedule[0].expiration[0].duration_hours`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
-        :param int duration_hours: The duration of the role assignment in hours. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
-        :param str end_date_time: The end date time of the role assignment. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].duration_hours` Changing this forces a new Pim Eligible Role Assignment to be created.
+        :param int duration_days: The duration of the role assignment in days. Changing this forces a new resource to be created.
+        :param int duration_hours: The duration of the role assignment in hours. Changing this forces a new resource to be created.
+        :param str end_date_time: The end date/time of the role assignment. Changing this forces a new resource to be created.
+               
+               > Note: Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
         """
         if duration_days is not None:
             pulumi.set(__self__, "duration_days", duration_days)
@@ -253,7 +259,7 @@ class EligibleRoleAssignmentScheduleExpiration(dict):
     @pulumi.getter(name="durationDays")
     def duration_days(self) -> Optional[int]:
         """
-        The duration of the role assignment in days. Conflicts with `schedule[0].expiration[0].duration_hours`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
+        The duration of the role assignment in days. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "duration_days")
 
@@ -261,7 +267,7 @@ class EligibleRoleAssignmentScheduleExpiration(dict):
     @pulumi.getter(name="durationHours")
     def duration_hours(self) -> Optional[int]:
         """
-        The duration of the role assignment in hours. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
+        The duration of the role assignment in hours. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "duration_hours")
 
@@ -269,7 +275,9 @@ class EligibleRoleAssignmentScheduleExpiration(dict):
     @pulumi.getter(name="endDateTime")
     def end_date_time(self) -> Optional[str]:
         """
-        The end date time of the role assignment. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].duration_hours` Changing this forces a new Pim Eligible Role Assignment to be created.
+        The end date/time of the role assignment. Changing this forces a new resource to be created.
+
+        > Note: Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
         """
         return pulumi.get(self, "end_date_time")
 
@@ -280,8 +288,8 @@ class EligibleRoleAssignmentTicket(dict):
                  number: Optional[str] = None,
                  system: Optional[str] = None):
         """
-        :param str number: The ticket number.
-        :param str system: The ticket system.
+        :param str number: User-supplied ticket number to be included with the request. Changing this forces a new resource to be created.
+        :param str system: User-supplied ticket system name to be included with the request. Changing this forces a new resource to be created.
         """
         if number is not None:
             pulumi.set(__self__, "number", number)
@@ -292,7 +300,7 @@ class EligibleRoleAssignmentTicket(dict):
     @pulumi.getter
     def number(self) -> Optional[str]:
         """
-        The ticket number.
+        User-supplied ticket number to be included with the request. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "number")
 
@@ -300,7 +308,7 @@ class EligibleRoleAssignmentTicket(dict):
     @pulumi.getter
     def system(self) -> Optional[str]:
         """
-        The ticket system.
+        User-supplied ticket system name to be included with the request. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "system")
 

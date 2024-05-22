@@ -17,6 +17,8 @@ namespace Pulumi.Azure.Network.Outputs
         /// The list of User Assigned Managed Identity IDs assigned to this Application Gateway.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
+        public readonly string PrincipalId;
+        public readonly string TenantId;
         /// <summary>
         /// The type of Managed Service Identity that is configured on this Application Gateway.
         /// </summary>
@@ -26,9 +28,15 @@ namespace Pulumi.Azure.Network.Outputs
         private GetApplicationGatewayIdentityResult(
             ImmutableArray<string> identityIds,
 
+            string principalId,
+
+            string tenantId,
+
             string type)
         {
             IdentityIds = identityIds;
+            PrincipalId = principalId;
+            TenantId = tenantId;
             Type = type;
         }
     }

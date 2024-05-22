@@ -35,7 +35,7 @@ public final class LinuxFunctionAppSiteConfigApplicationStack {
      */
     private @Nullable String nodeVersion;
     /**
-     * @return The version of PowerShell Core to run. Possible values are `7`, and `7.2`.
+     * @return The version of PowerShell Core to run. Possible values are `7`, `7.2`, and `7.4`.
      * 
      */
     private @Nullable String powershellCoreVersion;
@@ -85,7 +85,7 @@ public final class LinuxFunctionAppSiteConfigApplicationStack {
         return Optional.ofNullable(this.nodeVersion);
     }
     /**
-     * @return The version of PowerShell Core to run. Possible values are `7`, and `7.2`.
+     * @return The version of PowerShell Core to run. Possible values are `7`, `7.2`, and `7.4`.
      * 
      */
     public Optional<String> powershellCoreVersion() {

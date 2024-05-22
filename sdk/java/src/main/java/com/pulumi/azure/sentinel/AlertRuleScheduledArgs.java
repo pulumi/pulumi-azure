@@ -56,14 +56,14 @@ public final class AlertRuleScheduledArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+     * The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule.
      * 
      */
     @Import(name="alertRuleTemplateVersion")
     private @Nullable Output<String> alertRuleTemplateVersion;
 
     /**
-     * @return The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+     * @return The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule.
      * 
      */
     public Optional<Output<String>> alertRuleTemplateVersion() {
@@ -481,7 +481,7 @@ public final class AlertRuleScheduledArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param alertRuleTemplateVersion The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+         * @param alertRuleTemplateVersion The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule.
          * 
          * @return builder
          * 
@@ -492,7 +492,7 @@ public final class AlertRuleScheduledArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param alertRuleTemplateVersion The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+         * @param alertRuleTemplateVersion The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule.
          * 
          * @return builder
          * 

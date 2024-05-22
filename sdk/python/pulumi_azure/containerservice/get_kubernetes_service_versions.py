@@ -21,7 +21,10 @@ class GetKubernetesServiceVersionsResult:
     """
     A collection of values returned by getKubernetesServiceVersions.
     """
-    def __init__(__self__, id=None, include_preview=None, latest_version=None, location=None, version_prefix=None, versions=None):
+    def __init__(__self__, default_version=None, id=None, include_preview=None, latest_version=None, location=None, version_prefix=None, versions=None):
+        if default_version and not isinstance(default_version, str):
+            raise TypeError("Expected argument 'default_version' to be a str")
+        pulumi.set(__self__, "default_version", default_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -40,6 +43,14 @@ class GetKubernetesServiceVersionsResult:
         if versions and not isinstance(versions, list):
             raise TypeError("Expected argument 'versions' to be a list")
         pulumi.set(__self__, "versions", versions)
+
+    @property
+    @pulumi.getter(name="defaultVersion")
+    def default_version(self) -> str:
+        """
+        The N-1 minor non-preview version and latest patch.
+        """
+        return pulumi.get(self, "default_version")
 
     @property
     @pulumi.getter
@@ -87,6 +98,7 @@ class AwaitableGetKubernetesServiceVersionsResult(GetKubernetesServiceVersionsRe
         if False:
             yield self
         return GetKubernetesServiceVersionsResult(
+            default_version=self.default_version,
             id=self.id,
             include_preview=self.include_preview,
             latest_version=self.latest_version,
@@ -126,6 +138,7 @@ def get_kubernetes_service_versions(include_preview: Optional[bool] = None,
     __ret__ = pulumi.runtime.invoke('azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions', __args__, opts=opts, typ=GetKubernetesServiceVersionsResult).value
 
     return AwaitableGetKubernetesServiceVersionsResult(
+        default_version=pulumi.get(__ret__, 'default_version'),
         id=pulumi.get(__ret__, 'id'),
         include_preview=pulumi.get(__ret__, 'include_preview'),
         latest_version=pulumi.get(__ret__, 'latest_version'),

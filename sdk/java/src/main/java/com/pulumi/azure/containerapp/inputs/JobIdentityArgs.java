@@ -47,14 +47,14 @@ public final class JobIdentityArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of identity used for the Container App Job. Possible values are `SystemAssigned` and `None`. Defaults to `None`.
+     * The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`. Defaults to `None`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of identity used for the Container App Job. Possible values are `SystemAssigned` and `None`. Defaults to `None`.
+     * @return The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`. Defaults to `None`.
      * 
      */
     public Output<String> type() {
@@ -138,7 +138,7 @@ public final class JobIdentityArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of identity used for the Container App Job. Possible values are `SystemAssigned` and `None`. Defaults to `None`.
+         * @param type The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`. Defaults to `None`.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class JobIdentityArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of identity used for the Container App Job. Possible values are `SystemAssigned` and `None`. Defaults to `None`.
+         * @param type The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`. Defaults to `None`.
          * 
          * @return builder
          * 

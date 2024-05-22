@@ -31,7 +31,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? NodeVersion { get; set; }
 
         /// <summary>
-        /// The version of PowerShell Core to run. Possible values are `7`, and `7.2`.
+        /// The version of PowerShell Core to run. Possible values are `7`, `7.2`, and `7.4`.
         /// 
         /// &gt; **NOTE:** A value of `7` will provide the latest stable version. `7.2` is in preview at the time of writing.
         /// </summary>

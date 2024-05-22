@@ -127,10 +127,10 @@ public class KeyVault extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** This field can only be set when `public_network_access_enabled` is set to `true`. To manage the `contact` with `public_network_access_enabled` set to `false`, please use the `azure.keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `azure.keyvault.KeyVault`, this means you&#39;ll need to import the `azure.keyvault.CertificateContacts` manually.
      * 
      * @deprecated
-     * As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, `contact` will be removed in favour of the `azure.keyvault.CertificateContacts` resource in version 4.0 of the AzureRM Provider.
+     * As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.
      * 
      */
-    @Deprecated /* As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, `contact` will be removed in favour of the `azure.keyvault.CertificateContacts` resource in version 4.0 of the AzureRM Provider. */
+    @Deprecated /* As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. */
     @Export(name="contacts", refs={List.class,KeyVaultContact.class}, tree="[0,1]")
     private Output<List<KeyVaultContact>> contacts;
 

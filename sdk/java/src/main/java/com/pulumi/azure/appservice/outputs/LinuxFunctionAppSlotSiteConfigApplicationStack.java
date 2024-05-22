@@ -35,7 +35,7 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStack {
      */
     private @Nullable String nodeVersion;
     /**
-     * @return The version of PowerShell Core to use. Possibles values are `7` , and `7.2`.
+     * @return The version of PowerShell Core to use. Possibles values are `7` , `7.2`, and `7.4`.
      * 
      */
     private @Nullable String powershellCoreVersion;
@@ -85,7 +85,7 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStack {
         return Optional.ofNullable(this.nodeVersion);
     }
     /**
-     * @return The version of PowerShell Core to use. Possibles values are `7` , and `7.2`.
+     * @return The version of PowerShell Core to use. Possibles values are `7` , `7.2`, and `7.4`.
      * 
      */
     public Optional<String> powershellCoreVersion() {

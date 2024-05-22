@@ -15,6 +15,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetKubernetesServiceVersionsResult {
     /**
+     * @return The N-1 minor non-preview version and latest patch.
+     * 
+     */
+    private String defaultVersion;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -34,6 +39,13 @@ public final class GetKubernetesServiceVersionsResult {
     private List<String> versions;
 
     private GetKubernetesServiceVersionsResult() {}
+    /**
+     * @return The N-1 minor non-preview version and latest patch.
+     * 
+     */
+    public String defaultVersion() {
+        return this.defaultVersion;
+    }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -74,6 +86,7 @@ public final class GetKubernetesServiceVersionsResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String defaultVersion;
         private String id;
         private @Nullable Boolean includePreview;
         private String latestVersion;
@@ -83,6 +96,7 @@ public final class GetKubernetesServiceVersionsResult {
         public Builder() {}
         public Builder(GetKubernetesServiceVersionsResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.defaultVersion = defaults.defaultVersion;
     	      this.id = defaults.id;
     	      this.includePreview = defaults.includePreview;
     	      this.latestVersion = defaults.latestVersion;
@@ -91,6 +105,14 @@ public final class GetKubernetesServiceVersionsResult {
     	      this.versions = defaults.versions;
         }
 
+        @CustomType.Setter
+        public Builder defaultVersion(String defaultVersion) {
+            if (defaultVersion == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesServiceVersionsResult", "defaultVersion");
+            }
+            this.defaultVersion = defaultVersion;
+            return this;
+        }
         @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
@@ -140,6 +162,7 @@ public final class GetKubernetesServiceVersionsResult {
         }
         public GetKubernetesServiceVersionsResult build() {
             final var _resultValue = new GetKubernetesServiceVersionsResult();
+            _resultValue.defaultVersion = defaultVersion;
             _resultValue.id = id;
             _resultValue.includePreview = includePreview;
             _resultValue.latestVersion = latestVersion;

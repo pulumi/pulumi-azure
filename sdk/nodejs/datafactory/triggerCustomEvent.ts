@@ -140,8 +140,6 @@ export class TriggerCustomEvent extends pulumi.CustomResource {
     public readonly subjectBeginsWith!: pulumi.Output<string | undefined>;
     /**
      * The pattern that event subject ends with for trigger to fire.
-     *
-     * > **Note:** At least one of `subjectBeginsWith` and `subjectEndsWith` must be set.
      */
     public readonly subjectEndsWith!: pulumi.Output<string | undefined>;
 
@@ -246,8 +244,6 @@ export interface TriggerCustomEventState {
     subjectBeginsWith?: pulumi.Input<string>;
     /**
      * The pattern that event subject ends with for trigger to fire.
-     *
-     * > **Note:** At least one of `subjectBeginsWith` and `subjectEndsWith` must be set.
      */
     subjectEndsWith?: pulumi.Input<string>;
 }
@@ -298,8 +294,6 @@ export interface TriggerCustomEventArgs {
     subjectBeginsWith?: pulumi.Input<string>;
     /**
      * The pattern that event subject ends with for trigger to fire.
-     *
-     * > **Note:** At least one of `subjectBeginsWith` and `subjectEndsWith` must be set.
      */
     subjectEndsWith?: pulumi.Input<string>;
 }

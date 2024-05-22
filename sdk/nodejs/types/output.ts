@@ -10644,7 +10644,7 @@ export namespace appservice {
          */
         nodeVersion?: string;
         /**
-         * The version of PowerShell Core to run. Possible values are `7`, and `7.2`.
+         * The version of PowerShell Core to run. Possible values are `7`, `7.2`, and `7.4`.
          */
         powershellCoreVersion?: string;
         /**
@@ -11648,7 +11648,7 @@ export namespace appservice {
          */
         nodeVersion?: string;
         /**
-         * The version of PowerShell Core to use. Possibles values are `7` , and `7.2`.
+         * The version of PowerShell Core to use. Possibles values are `7` , `7.2`, and `7.4`.
          */
         powershellCoreVersion?: string;
         /**
@@ -15808,7 +15808,7 @@ export namespace appservice {
          */
         nodeVersion?: string;
         /**
-         * The version of PowerShell Core to run. Possible values are `7`, and `7.2`.
+         * The version of PowerShell Core to run. Possible values are `7`, `7.2`, and `7.4`.
          *
          * > **NOTE:** A value of `7` will provide the latest stable version. `7.2` is in preview at the time of writing.
          */
@@ -16771,7 +16771,7 @@ export namespace appservice {
          */
         nodeVersion?: string;
         /**
-         * The PowerShell Core version to use. Possible values are `7`, and `7.2`.
+         * The PowerShell Core version to use. Possible values are `7`, `7.2`, and `7.4`.
          */
         powershellCoreVersion?: string;
         /**
@@ -28361,6 +28361,10 @@ export namespace config {
          */
         purgeSoftDeletedCertificatesOnDestroy?: boolean;
         /**
+         * When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g purged), when destroyed
+         */
+        purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy?: boolean;
+        /**
          * When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g purged), when destroyed
          */
         purgeSoftDeletedHardwareSecurityModulesOnDestroy?: boolean;
@@ -28376,6 +28380,10 @@ export namespace config {
          * When enabled soft-deleted `azure.keyvault.Certificate` resources will be restored, instead of creating new ones
          */
         recoverSoftDeletedCertificates?: boolean;
+        /**
+         * When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones
+         */
+        recoverSoftDeletedHardwareSecurityModuleKeys?: boolean;
         /**
          * When enabled soft-deleted `azure.keyvault.KeyVault` resources will be restored, instead of creating new ones
          */
@@ -30441,7 +30449,7 @@ export namespace containerapp {
         principalId: string;
         tenantId: string;
         /**
-         * The type of identity used for the Container App Job. Possible values are `SystemAssigned` and `None`. Defaults to `None`.
+         * The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`. Defaults to `None`.
          */
         type: string;
     }
@@ -38611,6 +38619,17 @@ export namespace elasticsan {
         tier?: string;
     }
 
+    export interface GetSkus {
+        /**
+         * The name of this Elastic SAN.
+         */
+        name: string;
+        /**
+         * The SKU tier.
+         */
+        tier: string;
+    }
+
     export interface VolumeCreateSource {
         /**
          * Specifies the ID of the source to create the Elastic SAN Volume from. Changing this forces a new resource to be created.
@@ -46120,6 +46139,12 @@ export namespace loadtest {
 export namespace loganalytics {
     export interface ClusterIdentity {
         /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot.
+         *
+         * > **NOTE:** This is required when `type` is set to `UserAssigned`.
+         */
+        identityIds?: string[];
+        /**
          * The Principal ID associated with this Managed Service Identity.
          */
         principalId: string;
@@ -46128,7 +46153,7 @@ export namespace loganalytics {
          */
         tenantId: string;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
+         * Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and  `UserAssigned`. Changing this forces a new resource to be created.
          *
          * > **NOTE:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
          */
@@ -54944,7 +54969,9 @@ export namespace network {
         /**
          * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Application Gateway.
          */
-        identityIds: string[];
+        identityIds?: string[];
+        principalId: string;
+        tenantId: string;
         /**
          * Specifies the type of Managed Service Identity that should be configured on this Application Gateway. Only possible value is `UserAssigned`.
          */
@@ -56570,6 +56597,8 @@ export namespace network {
          * The list of User Assigned Managed Identity IDs assigned to this Application Gateway.
          */
         identityIds: string[];
+        principalId: string;
+        tenantId: string;
         /**
          * The type of Managed Service Identity that is configured on this Application Gateway.
          */
@@ -60507,74 +60536,78 @@ export namespace paloalto {
 export namespace pim {
     export interface ActiveRoleAssignmentSchedule {
         /**
-         * A `expiration` block as defined above.
+         * An `expiration` block as defined above.
          */
         expiration?: outputs.pim.ActiveRoleAssignmentScheduleExpiration;
         /**
-         * The start date time of the role assignment. Changing this forces a new Pim Active Role Assignment to be created.
+         * The start date/time of the role assignment. Changing this forces a new resource to be created.
          */
         startDateTime: string;
     }
 
     export interface ActiveRoleAssignmentScheduleExpiration {
         /**
-         * The duration of the role assignment in days. Conflicts with `schedule[0].expiration[0].duration_hours`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
+         * The duration of the role assignment in days. Changing this forces a new resource to be created.
          */
         durationDays: number;
         /**
-         * The duration of the role assignment in hours. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
+         * The duration of the role assignment in hours. Changing this forces a new resource to be created.
          */
         durationHours: number;
         /**
-         * The end date time of the role assignment. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].duration_hours` Changing this forces a new Pim Active Role Assignment to be created.
+         * The end date/time of the role assignment. Changing this forces a new resource to be created.
+         *
+         * > Note: Only one of `durationDays`, `durationHours` or `endDateTime` should be specified.
          */
         endDateTime: string;
     }
 
     export interface ActiveRoleAssignmentTicket {
         /**
-         * The ticket number.
+         * User-supplied ticket number to be included with the request. Changing this forces a new resource to be created.
          */
         number?: string;
         /**
-         * The ticket system.
+         * User-supplied ticket system name to be included with the request. Changing this forces a new resource to be created.
          */
         system?: string;
     }
 
     export interface EligibleRoleAssignmentSchedule {
         /**
-         * A `expiration` block as defined above.
+         * An `expiration` block as defined above.
          */
         expiration?: outputs.pim.EligibleRoleAssignmentScheduleExpiration;
         /**
-         * The start date time of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created.
+         * The start date/time of the role assignment. Changing this forces a new resource to be created.
          */
         startDateTime: string;
     }
 
     export interface EligibleRoleAssignmentScheduleExpiration {
         /**
-         * The duration of the role assignment in days. Conflicts with `schedule[0].expiration[0].duration_hours`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
+         * The duration of the role assignment in days. Changing this forces a new resource to be created.
          */
         durationDays: number;
         /**
-         * The duration of the role assignment in hours. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
+         * The duration of the role assignment in hours. Changing this forces a new resource to be created.
          */
         durationHours: number;
         /**
-         * The end date time of the role assignment. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].duration_hours` Changing this forces a new Pim Eligible Role Assignment to be created.
+         * The end date/time of the role assignment. Changing this forces a new resource to be created.
+         *
+         * > Note: Only one of `durationDays`, `durationHours` or `endDateTime` should be specified.
          */
         endDateTime: string;
     }
 
     export interface EligibleRoleAssignmentTicket {
         /**
-         * The ticket number.
+         * User-supplied ticket number to be included with the request. Changing this forces a new resource to be created.
          */
         number?: string;
         /**
-         * The ticket system.
+         * User-supplied ticket system name to be included with the request. Changing this forces a new resource to be created.
          */
         system?: string;
     }

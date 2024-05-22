@@ -81,7 +81,7 @@ namespace Pulumi.Azure.Sentinel
         public Output<string?> AlertRuleTemplateGuid { get; private set; } = null!;
 
         /// <summary>
-        /// The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+        /// The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule.
         /// </summary>
         [Output("alertRuleTemplateVersion")]
         public Output<string?> AlertRuleTemplateVersion { get; private set; } = null!;
@@ -277,7 +277,7 @@ namespace Pulumi.Azure.Sentinel
         public Input<string>? AlertRuleTemplateGuid { get; set; }
 
         /// <summary>
-        /// The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+        /// The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule.
         /// </summary>
         [Input("alertRuleTemplateVersion")]
         public Input<string>? AlertRuleTemplateVersion { get; set; }
@@ -465,7 +465,7 @@ namespace Pulumi.Azure.Sentinel
         public Input<string>? AlertRuleTemplateGuid { get; set; }
 
         /// <summary>
-        /// The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+        /// The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule.
         /// </summary>
         [Input("alertRuleTemplateVersion")]
         public Input<string>? AlertRuleTemplateVersion { get; set; }

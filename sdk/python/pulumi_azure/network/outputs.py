@@ -1356,6 +1356,10 @@ class ApplicationGatewayIdentity(dict):
         suggest = None
         if key == "identityIds":
             suggest = "identity_ids"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayIdentity. Access the value via the '{suggest}' property getter instead.")
@@ -1369,22 +1373,21 @@ class ApplicationGatewayIdentity(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 identity_ids: Sequence[str],
-                 type: str):
+                 type: str,
+                 identity_ids: Optional[Sequence[str]] = None,
+                 principal_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
         """
-        :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Application Gateway.
         :param str type: Specifies the type of Managed Service Identity that should be configured on this Application Gateway. Only possible value is `UserAssigned`.
+        :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Application Gateway.
         """
-        pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Sequence[str]:
-        """
-        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Application Gateway.
-        """
-        return pulumi.get(self, "identity_ids")
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -1393,6 +1396,24 @@ class ApplicationGatewayIdentity(dict):
         Specifies the type of Managed Service Identity that should be configured on this Application Gateway. Only possible value is `UserAssigned`.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Application Gateway.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        return pulumi.get(self, "tenant_id")
 
 
 @pulumi.output_type
@@ -13531,12 +13552,16 @@ class GetApplicationGatewayHttpListenerCustomErrorConfigurationResult(dict):
 class GetApplicationGatewayIdentityResult(dict):
     def __init__(__self__, *,
                  identity_ids: Sequence[str],
+                 principal_id: str,
+                 tenant_id: str,
                  type: str):
         """
         :param Sequence[str] identity_ids: The list of User Assigned Managed Identity IDs assigned to this Application Gateway.
         :param str type: The type of Managed Service Identity that is configured on this Application Gateway.
         """
         pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
         pulumi.set(__self__, "type", type)
 
     @property
@@ -13546,6 +13571,16 @@ class GetApplicationGatewayIdentityResult(dict):
         The list of User Assigned Managed Identity IDs assigned to this Application Gateway.
         """
         return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        return pulumi.get(self, "tenant_id")
 
     @property
     @pulumi.getter

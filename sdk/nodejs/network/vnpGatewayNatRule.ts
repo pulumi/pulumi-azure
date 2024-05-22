@@ -39,7 +39,6 @@ import * as utilities from "../utilities";
  * });
  * const exampleVnpGatewayNatRule = new azure.network.VnpGatewayNatRule("example", {
  *     name: "example-vpngatewaynatrule",
- *     resourceGroupName: example.name,
  *     vpnGatewayId: exampleVpnGateway.id,
  *     externalMappings: [{
  *         addressSpace: "192.168.21.0/26",
@@ -87,27 +86,19 @@ export class VnpGatewayNatRule extends pulumi.CustomResource {
     }
 
     /**
-     * (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
-     *
-     * > **NOTE:** `externalAddressSpaceMappings` is deprecated and will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
-     *
      * @deprecated `externalAddressSpaceMappings` will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
      */
     public readonly externalAddressSpaceMappings!: pulumi.Output<string[]>;
     /**
-     * One or more `externalMapping` blocks as documented below.
+     * One of more `externalMapping` blocks as defined below.
      */
     public readonly externalMappings!: pulumi.Output<outputs.network.VnpGatewayNatRuleExternalMapping[]>;
     /**
-     * (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
-     *
-     * > **NOTE:** `internalAddressSpaceMappings` is deprecated and will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
-     *
      * @deprecated `internalAddressSpaceMappings` will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
      */
     public readonly internalAddressSpaceMappings!: pulumi.Output<string[]>;
     /**
-     * One or more `internalMapping` blocks as documented below.
+     * One of more `internalMapping` blocks as defined below.
      */
     public readonly internalMappings!: pulumi.Output<outputs.network.VnpGatewayNatRuleInternalMapping[]>;
     /**
@@ -123,7 +114,7 @@ export class VnpGatewayNatRule extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The Name of the Resource Group in which this VPN Gateway NAT Rule should be created. Changing this forces a new resource to be created.
+     * @deprecated The property `resourceGroupName` has been superseded by `vpnGatewayId` and will be removed in v4.0 of the AzureRM provider
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -187,27 +178,19 @@ export class VnpGatewayNatRule extends pulumi.CustomResource {
  */
 export interface VnpGatewayNatRuleState {
     /**
-     * (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
-     *
-     * > **NOTE:** `externalAddressSpaceMappings` is deprecated and will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
-     *
      * @deprecated `externalAddressSpaceMappings` will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
      */
     externalAddressSpaceMappings?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * One or more `externalMapping` blocks as documented below.
+     * One of more `externalMapping` blocks as defined below.
      */
     externalMappings?: pulumi.Input<pulumi.Input<inputs.network.VnpGatewayNatRuleExternalMapping>[]>;
     /**
-     * (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
-     *
-     * > **NOTE:** `internalAddressSpaceMappings` is deprecated and will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
-     *
      * @deprecated `internalAddressSpaceMappings` will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
      */
     internalAddressSpaceMappings?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * One or more `internalMapping` blocks as documented below.
+     * One of more `internalMapping` blocks as defined below.
      */
     internalMappings?: pulumi.Input<pulumi.Input<inputs.network.VnpGatewayNatRuleInternalMapping>[]>;
     /**
@@ -223,7 +206,7 @@ export interface VnpGatewayNatRuleState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The Name of the Resource Group in which this VPN Gateway NAT Rule should be created. Changing this forces a new resource to be created.
+     * @deprecated The property `resourceGroupName` has been superseded by `vpnGatewayId` and will be removed in v4.0 of the AzureRM provider
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -241,27 +224,19 @@ export interface VnpGatewayNatRuleState {
  */
 export interface VnpGatewayNatRuleArgs {
     /**
-     * (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
-     *
-     * > **NOTE:** `externalAddressSpaceMappings` is deprecated and will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
-     *
      * @deprecated `externalAddressSpaceMappings` will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
      */
     externalAddressSpaceMappings?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * One or more `externalMapping` blocks as documented below.
+     * One of more `externalMapping` blocks as defined below.
      */
     externalMappings?: pulumi.Input<pulumi.Input<inputs.network.VnpGatewayNatRuleExternalMapping>[]>;
     /**
-     * (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
-     *
-     * > **NOTE:** `internalAddressSpaceMappings` is deprecated and will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
-     *
      * @deprecated `internalAddressSpaceMappings` will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
      */
     internalAddressSpaceMappings?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * One or more `internalMapping` blocks as documented below.
+     * One of more `internalMapping` blocks as defined below.
      */
     internalMappings?: pulumi.Input<pulumi.Input<inputs.network.VnpGatewayNatRuleInternalMapping>[]>;
     /**
@@ -277,7 +252,7 @@ export interface VnpGatewayNatRuleArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The Name of the Resource Group in which this VPN Gateway NAT Rule should be created. Changing this forces a new resource to be created.
+     * @deprecated The property `resourceGroupName` has been superseded by `vpnGatewayId` and will be removed in v4.0 of the AzureRM provider
      */
     resourceGroupName: pulumi.Input<string>;
     /**

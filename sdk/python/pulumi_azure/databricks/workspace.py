@@ -18,8 +18,10 @@ class WorkspaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input[str],
+                 access_connector_id: Optional[pulumi.Input[str]] = None,
                  custom_parameters: Optional[pulumi.Input['WorkspaceCustomParametersArgs']] = None,
                  customer_managed_key_enabled: Optional[pulumi.Input[bool]] = None,
+                 default_storage_firewall_enabled: Optional[pulumi.Input[bool]] = None,
                  infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  load_balancer_backend_address_pool_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -39,8 +41,12 @@ class WorkspaceArgs:
         :param pulumi.Input[str] sku: The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`.
                
                > **Note:** Downgrading to a `trial sku` from a `standard` or `premium sku` will force a new resource to be created.
+        :param pulumi.Input[str] access_connector_id: Access Connector ID to use when default storage account firewall is enabled. 
+               
+               > **Note:** The `access_connector_id` field is only required if `default_storage_firewall_enabled` is set to `true`.
         :param pulumi.Input['WorkspaceCustomParametersArgs'] custom_parameters: A `custom_parameters` block as documented below.
         :param pulumi.Input[bool] customer_managed_key_enabled: Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
+        :param pulumi.Input[bool] default_storage_firewall_enabled: Disallow public access to default storage account. Defaults to `false`.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] load_balancer_backend_address_pool_id: Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
@@ -57,10 +63,14 @@ class WorkspaceArgs:
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
+        if access_connector_id is not None:
+            pulumi.set(__self__, "access_connector_id", access_connector_id)
         if custom_parameters is not None:
             pulumi.set(__self__, "custom_parameters", custom_parameters)
         if customer_managed_key_enabled is not None:
             pulumi.set(__self__, "customer_managed_key_enabled", customer_managed_key_enabled)
+        if default_storage_firewall_enabled is not None:
+            pulumi.set(__self__, "default_storage_firewall_enabled", default_storage_firewall_enabled)
         if infrastructure_encryption_enabled is not None:
             pulumi.set(__self__, "infrastructure_encryption_enabled", infrastructure_encryption_enabled)
         if load_balancer_backend_address_pool_id is not None:
@@ -115,6 +125,20 @@ class WorkspaceArgs:
         pulumi.set(self, "sku", value)
 
     @property
+    @pulumi.getter(name="accessConnectorId")
+    def access_connector_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Access Connector ID to use when default storage account firewall is enabled. 
+
+        > **Note:** The `access_connector_id` field is only required if `default_storage_firewall_enabled` is set to `true`.
+        """
+        return pulumi.get(self, "access_connector_id")
+
+    @access_connector_id.setter
+    def access_connector_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_connector_id", value)
+
+    @property
     @pulumi.getter(name="customParameters")
     def custom_parameters(self) -> Optional[pulumi.Input['WorkspaceCustomParametersArgs']]:
         """
@@ -137,6 +161,18 @@ class WorkspaceArgs:
     @customer_managed_key_enabled.setter
     def customer_managed_key_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "customer_managed_key_enabled", value)
+
+    @property
+    @pulumi.getter(name="defaultStorageFirewallEnabled")
+    def default_storage_firewall_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Disallow public access to default storage account. Defaults to `false`.
+        """
+        return pulumi.get(self, "default_storage_firewall_enabled")
+
+    @default_storage_firewall_enabled.setter
+    def default_storage_firewall_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "default_storage_firewall_enabled", value)
 
     @property
     @pulumi.getter(name="infrastructureEncryptionEnabled")
@@ -294,8 +330,10 @@ class WorkspaceArgs:
 @pulumi.input_type
 class _WorkspaceState:
     def __init__(__self__, *,
+                 access_connector_id: Optional[pulumi.Input[str]] = None,
                  custom_parameters: Optional[pulumi.Input['WorkspaceCustomParametersArgs']] = None,
                  customer_managed_key_enabled: Optional[pulumi.Input[bool]] = None,
+                 default_storage_firewall_enabled: Optional[pulumi.Input[bool]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  load_balancer_backend_address_pool_id: Optional[pulumi.Input[str]] = None,
@@ -319,8 +357,12 @@ class _WorkspaceState:
                  workspace_url: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Workspace resources.
+        :param pulumi.Input[str] access_connector_id: Access Connector ID to use when default storage account firewall is enabled. 
+               
+               > **Note:** The `access_connector_id` field is only required if `default_storage_firewall_enabled` is set to `true`.
         :param pulumi.Input['WorkspaceCustomParametersArgs'] custom_parameters: A `custom_parameters` block as documented below.
         :param pulumi.Input[bool] customer_managed_key_enabled: Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
+        :param pulumi.Input[bool] default_storage_firewall_enabled: Disallow public access to default storage account. Defaults to `false`.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of Managed Disk Encryption Set created by the Databricks Workspace.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] load_balancer_backend_address_pool_id: Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
@@ -345,10 +387,14 @@ class _WorkspaceState:
         :param pulumi.Input[str] workspace_id: The unique identifier of the databricks workspace in Databricks control plane.
         :param pulumi.Input[str] workspace_url: The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
         """
+        if access_connector_id is not None:
+            pulumi.set(__self__, "access_connector_id", access_connector_id)
         if custom_parameters is not None:
             pulumi.set(__self__, "custom_parameters", custom_parameters)
         if customer_managed_key_enabled is not None:
             pulumi.set(__self__, "customer_managed_key_enabled", customer_managed_key_enabled)
+        if default_storage_firewall_enabled is not None:
+            pulumi.set(__self__, "default_storage_firewall_enabled", default_storage_firewall_enabled)
         if disk_encryption_set_id is not None:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
         if infrastructure_encryption_enabled is not None:
@@ -393,6 +439,20 @@ class _WorkspaceState:
             pulumi.set(__self__, "workspace_url", workspace_url)
 
     @property
+    @pulumi.getter(name="accessConnectorId")
+    def access_connector_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Access Connector ID to use when default storage account firewall is enabled. 
+
+        > **Note:** The `access_connector_id` field is only required if `default_storage_firewall_enabled` is set to `true`.
+        """
+        return pulumi.get(self, "access_connector_id")
+
+    @access_connector_id.setter
+    def access_connector_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_connector_id", value)
+
+    @property
     @pulumi.getter(name="customParameters")
     def custom_parameters(self) -> Optional[pulumi.Input['WorkspaceCustomParametersArgs']]:
         """
@@ -415,6 +475,18 @@ class _WorkspaceState:
     @customer_managed_key_enabled.setter
     def customer_managed_key_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "customer_managed_key_enabled", value)
+
+    @property
+    @pulumi.getter(name="defaultStorageFirewallEnabled")
+    def default_storage_firewall_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Disallow public access to default storage account. Defaults to `false`.
+        """
+        return pulumi.get(self, "default_storage_firewall_enabled")
+
+    @default_storage_firewall_enabled.setter
+    def default_storage_firewall_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "default_storage_firewall_enabled", value)
 
     @property
     @pulumi.getter(name="diskEncryptionSetId")
@@ -672,8 +744,10 @@ class Workspace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 access_connector_id: Optional[pulumi.Input[str]] = None,
                  custom_parameters: Optional[pulumi.Input[pulumi.InputType['WorkspaceCustomParametersArgs']]] = None,
                  customer_managed_key_enabled: Optional[pulumi.Input[bool]] = None,
+                 default_storage_firewall_enabled: Optional[pulumi.Input[bool]] = None,
                  infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  load_balancer_backend_address_pool_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -701,8 +775,12 @@ class Workspace(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] access_connector_id: Access Connector ID to use when default storage account firewall is enabled. 
+               
+               > **Note:** The `access_connector_id` field is only required if `default_storage_firewall_enabled` is set to `true`.
         :param pulumi.Input[pulumi.InputType['WorkspaceCustomParametersArgs']] custom_parameters: A `custom_parameters` block as documented below.
         :param pulumi.Input[bool] customer_managed_key_enabled: Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
+        :param pulumi.Input[bool] default_storage_firewall_enabled: Disallow public access to default storage account. Defaults to `false`.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] load_balancer_backend_address_pool_id: Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
@@ -751,8 +829,10 @@ class Workspace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 access_connector_id: Optional[pulumi.Input[str]] = None,
                  custom_parameters: Optional[pulumi.Input[pulumi.InputType['WorkspaceCustomParametersArgs']]] = None,
                  customer_managed_key_enabled: Optional[pulumi.Input[bool]] = None,
+                 default_storage_firewall_enabled: Optional[pulumi.Input[bool]] = None,
                  infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  load_balancer_backend_address_pool_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -777,8 +857,10 @@ class Workspace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
+            __props__.__dict__["access_connector_id"] = access_connector_id
             __props__.__dict__["custom_parameters"] = custom_parameters
             __props__.__dict__["customer_managed_key_enabled"] = customer_managed_key_enabled
+            __props__.__dict__["default_storage_firewall_enabled"] = default_storage_firewall_enabled
             __props__.__dict__["infrastructure_encryption_enabled"] = infrastructure_encryption_enabled
             __props__.__dict__["load_balancer_backend_address_pool_id"] = load_balancer_backend_address_pool_id
             __props__.__dict__["location"] = location
@@ -814,8 +896,10 @@ class Workspace(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            access_connector_id: Optional[pulumi.Input[str]] = None,
             custom_parameters: Optional[pulumi.Input[pulumi.InputType['WorkspaceCustomParametersArgs']]] = None,
             customer_managed_key_enabled: Optional[pulumi.Input[bool]] = None,
+            default_storage_firewall_enabled: Optional[pulumi.Input[bool]] = None,
             disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
             infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
             load_balancer_backend_address_pool_id: Optional[pulumi.Input[str]] = None,
@@ -844,8 +928,12 @@ class Workspace(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] access_connector_id: Access Connector ID to use when default storage account firewall is enabled. 
+               
+               > **Note:** The `access_connector_id` field is only required if `default_storage_firewall_enabled` is set to `true`.
         :param pulumi.Input[pulumi.InputType['WorkspaceCustomParametersArgs']] custom_parameters: A `custom_parameters` block as documented below.
         :param pulumi.Input[bool] customer_managed_key_enabled: Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
+        :param pulumi.Input[bool] default_storage_firewall_enabled: Disallow public access to default storage account. Defaults to `false`.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of Managed Disk Encryption Set created by the Databricks Workspace.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] load_balancer_backend_address_pool_id: Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
@@ -874,8 +962,10 @@ class Workspace(pulumi.CustomResource):
 
         __props__ = _WorkspaceState.__new__(_WorkspaceState)
 
+        __props__.__dict__["access_connector_id"] = access_connector_id
         __props__.__dict__["custom_parameters"] = custom_parameters
         __props__.__dict__["customer_managed_key_enabled"] = customer_managed_key_enabled
+        __props__.__dict__["default_storage_firewall_enabled"] = default_storage_firewall_enabled
         __props__.__dict__["disk_encryption_set_id"] = disk_encryption_set_id
         __props__.__dict__["infrastructure_encryption_enabled"] = infrastructure_encryption_enabled
         __props__.__dict__["load_balancer_backend_address_pool_id"] = load_balancer_backend_address_pool_id
@@ -900,6 +990,16 @@ class Workspace(pulumi.CustomResource):
         return Workspace(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="accessConnectorId")
+    def access_connector_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Access Connector ID to use when default storage account firewall is enabled. 
+
+        > **Note:** The `access_connector_id` field is only required if `default_storage_firewall_enabled` is set to `true`.
+        """
+        return pulumi.get(self, "access_connector_id")
+
+    @property
     @pulumi.getter(name="customParameters")
     def custom_parameters(self) -> pulumi.Output['outputs.WorkspaceCustomParameters']:
         """
@@ -914,6 +1014,14 @@ class Workspace(pulumi.CustomResource):
         Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
         """
         return pulumi.get(self, "customer_managed_key_enabled")
+
+    @property
+    @pulumi.getter(name="defaultStorageFirewallEnabled")
+    def default_storage_firewall_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Disallow public access to default storage account. Defaults to `false`.
+        """
+        return pulumi.get(self, "default_storage_firewall_enabled")
 
     @property
     @pulumi.getter(name="diskEncryptionSetId")

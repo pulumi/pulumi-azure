@@ -44,6 +44,12 @@ export class Workspace extends pulumi.CustomResource {
     }
 
     /**
+     * Access Connector ID to use when default storage account firewall is enabled. 
+     *
+     * > **Note:** The `accessConnectorId` field is only required if `defaultStorageFirewallEnabled` is set to `true`.
+     */
+    public readonly accessConnectorId!: pulumi.Output<string | undefined>;
+    /**
      * A `customParameters` block as documented below.
      */
     public readonly customParameters!: pulumi.Output<outputs.databricks.WorkspaceCustomParameters>;
@@ -51,6 +57,10 @@ export class Workspace extends pulumi.CustomResource {
      * Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
      */
     public readonly customerManagedKeyEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Disallow public access to default storage account. Defaults to `false`.
+     */
+    public readonly defaultStorageFirewallEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The ID of Managed Disk Encryption Set created by the Databricks Workspace.
      */
@@ -147,8 +157,10 @@ export class Workspace extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceState | undefined;
+            resourceInputs["accessConnectorId"] = state ? state.accessConnectorId : undefined;
             resourceInputs["customParameters"] = state ? state.customParameters : undefined;
             resourceInputs["customerManagedKeyEnabled"] = state ? state.customerManagedKeyEnabled : undefined;
+            resourceInputs["defaultStorageFirewallEnabled"] = state ? state.defaultStorageFirewallEnabled : undefined;
             resourceInputs["diskEncryptionSetId"] = state ? state.diskEncryptionSetId : undefined;
             resourceInputs["infrastructureEncryptionEnabled"] = state ? state.infrastructureEncryptionEnabled : undefined;
             resourceInputs["loadBalancerBackendAddressPoolId"] = state ? state.loadBalancerBackendAddressPoolId : undefined;
@@ -178,8 +190,10 @@ export class Workspace extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
+            resourceInputs["accessConnectorId"] = args ? args.accessConnectorId : undefined;
             resourceInputs["customParameters"] = args ? args.customParameters : undefined;
             resourceInputs["customerManagedKeyEnabled"] = args ? args.customerManagedKeyEnabled : undefined;
+            resourceInputs["defaultStorageFirewallEnabled"] = args ? args.defaultStorageFirewallEnabled : undefined;
             resourceInputs["infrastructureEncryptionEnabled"] = args ? args.infrastructureEncryptionEnabled : undefined;
             resourceInputs["loadBalancerBackendAddressPoolId"] = args ? args.loadBalancerBackendAddressPoolId : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -212,6 +226,12 @@ export class Workspace extends pulumi.CustomResource {
  */
 export interface WorkspaceState {
     /**
+     * Access Connector ID to use when default storage account firewall is enabled. 
+     *
+     * > **Note:** The `accessConnectorId` field is only required if `defaultStorageFirewallEnabled` is set to `true`.
+     */
+    accessConnectorId?: pulumi.Input<string>;
+    /**
      * A `customParameters` block as documented below.
      */
     customParameters?: pulumi.Input<inputs.databricks.WorkspaceCustomParameters>;
@@ -219,6 +239,10 @@ export interface WorkspaceState {
      * Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
      */
     customerManagedKeyEnabled?: pulumi.Input<boolean>;
+    /**
+     * Disallow public access to default storage account. Defaults to `false`.
+     */
+    defaultStorageFirewallEnabled?: pulumi.Input<boolean>;
     /**
      * The ID of Managed Disk Encryption Set created by the Databricks Workspace.
      */
@@ -308,6 +332,12 @@ export interface WorkspaceState {
  */
 export interface WorkspaceArgs {
     /**
+     * Access Connector ID to use when default storage account firewall is enabled. 
+     *
+     * > **Note:** The `accessConnectorId` field is only required if `defaultStorageFirewallEnabled` is set to `true`.
+     */
+    accessConnectorId?: pulumi.Input<string>;
+    /**
      * A `customParameters` block as documented below.
      */
     customParameters?: pulumi.Input<inputs.databricks.WorkspaceCustomParameters>;
@@ -315,6 +345,10 @@ export interface WorkspaceArgs {
      * Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
      */
     customerManagedKeyEnabled?: pulumi.Input<boolean>;
+    /**
+     * Disallow public access to default storage account. Defaults to `false`.
+     */
+    defaultStorageFirewallEnabled?: pulumi.Input<boolean>;
     /**
      * Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
      */

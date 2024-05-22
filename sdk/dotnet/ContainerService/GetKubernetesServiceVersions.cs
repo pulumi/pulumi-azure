@@ -128,6 +128,10 @@ namespace Pulumi.Azure.ContainerService
     public sealed class GetKubernetesServiceVersionsResult
     {
         /// <summary>
+        /// The N-1 minor non-preview version and latest patch.
+        /// </summary>
+        public readonly string DefaultVersion;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -145,6 +149,8 @@ namespace Pulumi.Azure.ContainerService
 
         [OutputConstructor]
         private GetKubernetesServiceVersionsResult(
+            string defaultVersion,
+
             string id,
 
             bool? includePreview,
@@ -157,6 +163,7 @@ namespace Pulumi.Azure.ContainerService
 
             ImmutableArray<string> versions)
         {
+            DefaultVersion = defaultVersion;
             Id = id;
             IncludePreview = includePreview;
             LatestVersion = latestVersion;

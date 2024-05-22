@@ -9,6 +9,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ApplicationGatewayIdentityArgs extends com.pulumi.resources.ResourceArgs {
@@ -19,15 +21,29 @@ public final class ApplicationGatewayIdentityArgs extends com.pulumi.resources.R
      * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Application Gateway.
      * 
      */
-    @Import(name="identityIds", required=true)
-    private Output<List<String>> identityIds;
+    @Import(name="identityIds")
+    private @Nullable Output<List<String>> identityIds;
 
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Application Gateway.
      * 
      */
-    public Output<List<String>> identityIds() {
-        return this.identityIds;
+    public Optional<Output<List<String>>> identityIds() {
+        return Optional.ofNullable(this.identityIds);
+    }
+
+    @Import(name="principalId")
+    private @Nullable Output<String> principalId;
+
+    public Optional<Output<String>> principalId() {
+        return Optional.ofNullable(this.principalId);
+    }
+
+    @Import(name="tenantId")
+    private @Nullable Output<String> tenantId;
+
+    public Optional<Output<String>> tenantId() {
+        return Optional.ofNullable(this.tenantId);
     }
 
     /**
@@ -49,6 +65,8 @@ public final class ApplicationGatewayIdentityArgs extends com.pulumi.resources.R
 
     private ApplicationGatewayIdentityArgs(ApplicationGatewayIdentityArgs $) {
         this.identityIds = $.identityIds;
+        this.principalId = $.principalId;
+        this.tenantId = $.tenantId;
         this.type = $.type;
     }
 
@@ -76,7 +94,7 @@ public final class ApplicationGatewayIdentityArgs extends com.pulumi.resources.R
          * @return builder
          * 
          */
-        public Builder identityIds(Output<List<String>> identityIds) {
+        public Builder identityIds(@Nullable Output<List<String>> identityIds) {
             $.identityIds = identityIds;
             return this;
         }
@@ -101,6 +119,24 @@ public final class ApplicationGatewayIdentityArgs extends com.pulumi.resources.R
             return identityIds(List.of(identityIds));
         }
 
+        public Builder principalId(@Nullable Output<String> principalId) {
+            $.principalId = principalId;
+            return this;
+        }
+
+        public Builder principalId(String principalId) {
+            return principalId(Output.of(principalId));
+        }
+
+        public Builder tenantId(@Nullable Output<String> tenantId) {
+            $.tenantId = tenantId;
+            return this;
+        }
+
+        public Builder tenantId(String tenantId) {
+            return tenantId(Output.of(tenantId));
+        }
+
         /**
          * @param type Specifies the type of Managed Service Identity that should be configured on this Application Gateway. Only possible value is `UserAssigned`.
          * 
@@ -123,9 +159,6 @@ public final class ApplicationGatewayIdentityArgs extends com.pulumi.resources.R
         }
 
         public ApplicationGatewayIdentityArgs build() {
-            if ($.identityIds == null) {
-                throw new MissingRequiredPropertyException("ApplicationGatewayIdentityArgs", "identityIds");
-            }
             if ($.type == null) {
                 throw new MissingRequiredPropertyException("ApplicationGatewayIdentityArgs", "type");
             }

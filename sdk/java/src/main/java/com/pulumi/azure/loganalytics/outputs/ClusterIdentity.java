@@ -6,12 +6,20 @@ package com.pulumi.azure.loganalytics.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterIdentity {
+    /**
+     * @return A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot.
+     * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
+     * 
+     */
+    private @Nullable List<String> identityIds;
     /**
      * @return The Principal ID associated with this Managed Service Identity.
      * 
@@ -23,7 +31,7 @@ public final class ClusterIdentity {
      */
     private @Nullable String tenantId;
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
+     * @return Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and  `UserAssigned`. Changing this forces a new resource to be created.
      * 
      * &gt; **NOTE:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
      * 
@@ -31,6 +39,15 @@ public final class ClusterIdentity {
     private String type;
 
     private ClusterIdentity() {}
+    /**
+     * @return A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot.
+     * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
+     * 
+     */
+    public List<String> identityIds() {
+        return this.identityIds == null ? List.of() : this.identityIds;
+    }
     /**
      * @return The Principal ID associated with this Managed Service Identity.
      * 
@@ -46,7 +63,7 @@ public final class ClusterIdentity {
         return Optional.ofNullable(this.tenantId);
     }
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
+     * @return Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and  `UserAssigned`. Changing this forces a new resource to be created.
      * 
      * &gt; **NOTE:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
      * 
@@ -64,17 +81,28 @@ public final class ClusterIdentity {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<String> identityIds;
         private @Nullable String principalId;
         private @Nullable String tenantId;
         private String type;
         public Builder() {}
         public Builder(ClusterIdentity defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.identityIds = defaults.identityIds;
     	      this.principalId = defaults.principalId;
     	      this.tenantId = defaults.tenantId;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
+        public Builder identityIds(@Nullable List<String> identityIds) {
+
+            this.identityIds = identityIds;
+            return this;
+        }
+        public Builder identityIds(String... identityIds) {
+            return identityIds(List.of(identityIds));
+        }
         @CustomType.Setter
         public Builder principalId(@Nullable String principalId) {
 
@@ -97,6 +125,7 @@ public final class ClusterIdentity {
         }
         public ClusterIdentity build() {
             final var _resultValue = new ClusterIdentity();
+            _resultValue.identityIds = identityIds;
             _resultValue.principalId = principalId;
             _resultValue.tenantId = tenantId;
             _resultValue.type = type;

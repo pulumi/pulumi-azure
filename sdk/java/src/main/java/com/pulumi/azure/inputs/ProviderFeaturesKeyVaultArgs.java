@@ -46,6 +46,21 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
     }
 
     /**
+     * When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g purged), when destroyed
+     * 
+     */
+    @Import(name="purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy")
+    private @Nullable Output<Boolean> purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy;
+
+    /**
+     * @return When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g purged), when destroyed
+     * 
+     */
+    public Optional<Output<Boolean>> purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy() {
+        return Optional.ofNullable(this.purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy);
+    }
+
+    /**
      * When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g purged), when destroyed
      * 
      */
@@ -106,6 +121,21 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
     }
 
     /**
+     * When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones
+     * 
+     */
+    @Import(name="recoverSoftDeletedHardwareSecurityModuleKeys")
+    private @Nullable Output<Boolean> recoverSoftDeletedHardwareSecurityModuleKeys;
+
+    /**
+     * @return When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones
+     * 
+     */
+    public Optional<Output<Boolean>> recoverSoftDeletedHardwareSecurityModuleKeys() {
+        return Optional.ofNullable(this.recoverSoftDeletedHardwareSecurityModuleKeys);
+    }
+
+    /**
      * When enabled soft-deleted `azure.keyvault.KeyVault` resources will be restored, instead of creating new ones
      * 
      */
@@ -155,10 +185,12 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
     private ProviderFeaturesKeyVaultArgs(ProviderFeaturesKeyVaultArgs $) {
         this.purgeSoftDeleteOnDestroy = $.purgeSoftDeleteOnDestroy;
         this.purgeSoftDeletedCertificatesOnDestroy = $.purgeSoftDeletedCertificatesOnDestroy;
+        this.purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy = $.purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy;
         this.purgeSoftDeletedHardwareSecurityModulesOnDestroy = $.purgeSoftDeletedHardwareSecurityModulesOnDestroy;
         this.purgeSoftDeletedKeysOnDestroy = $.purgeSoftDeletedKeysOnDestroy;
         this.purgeSoftDeletedSecretsOnDestroy = $.purgeSoftDeletedSecretsOnDestroy;
         this.recoverSoftDeletedCertificates = $.recoverSoftDeletedCertificates;
+        this.recoverSoftDeletedHardwareSecurityModuleKeys = $.recoverSoftDeletedHardwareSecurityModuleKeys;
         this.recoverSoftDeletedKeyVaults = $.recoverSoftDeletedKeyVaults;
         this.recoverSoftDeletedKeys = $.recoverSoftDeletedKeys;
         this.recoverSoftDeletedSecrets = $.recoverSoftDeletedSecrets;
@@ -222,6 +254,27 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
          */
         public Builder purgeSoftDeletedCertificatesOnDestroy(Boolean purgeSoftDeletedCertificatesOnDestroy) {
             return purgeSoftDeletedCertificatesOnDestroy(Output.of(purgeSoftDeletedCertificatesOnDestroy));
+        }
+
+        /**
+         * @param purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g purged), when destroyed
+         * 
+         * @return builder
+         * 
+         */
+        public Builder purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy(@Nullable Output<Boolean> purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy) {
+            $.purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy = purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy;
+            return this;
+        }
+
+        /**
+         * @param purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g purged), when destroyed
+         * 
+         * @return builder
+         * 
+         */
+        public Builder purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy(Boolean purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy) {
+            return purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy(Output.of(purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy));
         }
 
         /**
@@ -306,6 +359,27 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
          */
         public Builder recoverSoftDeletedCertificates(Boolean recoverSoftDeletedCertificates) {
             return recoverSoftDeletedCertificates(Output.of(recoverSoftDeletedCertificates));
+        }
+
+        /**
+         * @param recoverSoftDeletedHardwareSecurityModuleKeys When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones
+         * 
+         * @return builder
+         * 
+         */
+        public Builder recoverSoftDeletedHardwareSecurityModuleKeys(@Nullable Output<Boolean> recoverSoftDeletedHardwareSecurityModuleKeys) {
+            $.recoverSoftDeletedHardwareSecurityModuleKeys = recoverSoftDeletedHardwareSecurityModuleKeys;
+            return this;
+        }
+
+        /**
+         * @param recoverSoftDeletedHardwareSecurityModuleKeys When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones
+         * 
+         * @return builder
+         * 
+         */
+        public Builder recoverSoftDeletedHardwareSecurityModuleKeys(Boolean recoverSoftDeletedHardwareSecurityModuleKeys) {
+            return recoverSoftDeletedHardwareSecurityModuleKeys(Output.of(recoverSoftDeletedHardwareSecurityModuleKeys));
         }
 
         /**

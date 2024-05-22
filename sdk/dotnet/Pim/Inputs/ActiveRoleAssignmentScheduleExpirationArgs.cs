@@ -13,19 +13,21 @@ namespace Pulumi.Azure.Pim.Inputs
     public sealed class ActiveRoleAssignmentScheduleExpirationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The duration of the role assignment in days. Conflicts with `schedule[0].expiration[0].duration_hours`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
+        /// The duration of the role assignment in days. Changing this forces a new resource to be created.
         /// </summary>
         [Input("durationDays")]
         public Input<int>? DurationDays { get; set; }
 
         /// <summary>
-        /// The duration of the role assignment in hours. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
+        /// The duration of the role assignment in hours. Changing this forces a new resource to be created.
         /// </summary>
         [Input("durationHours")]
         public Input<int>? DurationHours { get; set; }
 
         /// <summary>
-        /// The end date time of the role assignment. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].duration_hours` Changing this forces a new Pim Active Role Assignment to be created.
+        /// The end date/time of the role assignment. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; Note: Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
         /// </summary>
         [Input("endDateTime")]
         public Input<string>? EndDateTime { get; set; }

@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Pim Eligible Role Assignment.
+// Manages a PIM Eligible Role Assignment.
 //
 // ## Example Usage
 //
@@ -143,7 +143,7 @@ import (
 //
 // ## Import
 //
-// Pim Eligible Role Assignments can be imported using the `resource id`, e.g.
+// PIM Eligible Role Assignments can be imported using the following composite resource ID, e.g.
 //
 // ```sh
 // $ pulumi import azure:pim/eligibleRoleAssignment:EligibleRoleAssignment example /subscriptions/00000000-0000-0000-0000-000000000000|/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000
@@ -151,19 +151,19 @@ import (
 type EligibleRoleAssignment struct {
 	pulumi.CustomResourceState
 
-	// The justification of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created.
-	Justification pulumi.StringPtrOutput `pulumi:"justification"`
-	// The principal id. Changing this forces a new Pim Eligible Role Assignment to be created.
+	// The justification of the role assignment. Changing this forces a new resource to be created.
+	Justification pulumi.StringOutput `pulumi:"justification"`
+	// Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created.
 	PrincipalId pulumi.StringOutput `pulumi:"principalId"`
-	// The type of principal.
+	// Type of principal to which the role will be assigned.
 	PrincipalType pulumi.StringOutput `pulumi:"principalType"`
-	// The role definition id. Changing this forces a new Pim Eligible Role Assignment to be created.
+	// The role definition ID for this eligible role assignment. Changing this forces a new resource to be created.
 	RoleDefinitionId pulumi.StringOutput `pulumi:"roleDefinitionId"`
-	// A `schedule` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
-	Schedule EligibleRoleAssignmentSchedulePtrOutput `pulumi:"schedule"`
-	// The scope. Changing this forces a new Pim Eligible Role Assignment to be created.
+	// A `schedule` block as defined below. Changing this forces a new resource to be created.
+	Schedule EligibleRoleAssignmentScheduleOutput `pulumi:"schedule"`
+	// The scope for this eligible role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
 	Scope pulumi.StringOutput `pulumi:"scope"`
-	// A `ticket` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
+	// A `ticket` block as defined below. Changing this forces a new resource to be created.
 	Ticket EligibleRoleAssignmentTicketPtrOutput `pulumi:"ticket"`
 }
 
@@ -206,36 +206,36 @@ func GetEligibleRoleAssignment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EligibleRoleAssignment resources.
 type eligibleRoleAssignmentState struct {
-	// The justification of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created.
+	// The justification of the role assignment. Changing this forces a new resource to be created.
 	Justification *string `pulumi:"justification"`
-	// The principal id. Changing this forces a new Pim Eligible Role Assignment to be created.
+	// Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created.
 	PrincipalId *string `pulumi:"principalId"`
-	// The type of principal.
+	// Type of principal to which the role will be assigned.
 	PrincipalType *string `pulumi:"principalType"`
-	// The role definition id. Changing this forces a new Pim Eligible Role Assignment to be created.
+	// The role definition ID for this eligible role assignment. Changing this forces a new resource to be created.
 	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
-	// A `schedule` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
+	// A `schedule` block as defined below. Changing this forces a new resource to be created.
 	Schedule *EligibleRoleAssignmentSchedule `pulumi:"schedule"`
-	// The scope. Changing this forces a new Pim Eligible Role Assignment to be created.
+	// The scope for this eligible role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
 	Scope *string `pulumi:"scope"`
-	// A `ticket` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
+	// A `ticket` block as defined below. Changing this forces a new resource to be created.
 	Ticket *EligibleRoleAssignmentTicket `pulumi:"ticket"`
 }
 
 type EligibleRoleAssignmentState struct {
-	// The justification of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created.
+	// The justification of the role assignment. Changing this forces a new resource to be created.
 	Justification pulumi.StringPtrInput
-	// The principal id. Changing this forces a new Pim Eligible Role Assignment to be created.
+	// Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created.
 	PrincipalId pulumi.StringPtrInput
-	// The type of principal.
+	// Type of principal to which the role will be assigned.
 	PrincipalType pulumi.StringPtrInput
-	// The role definition id. Changing this forces a new Pim Eligible Role Assignment to be created.
+	// The role definition ID for this eligible role assignment. Changing this forces a new resource to be created.
 	RoleDefinitionId pulumi.StringPtrInput
-	// A `schedule` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
+	// A `schedule` block as defined below. Changing this forces a new resource to be created.
 	Schedule EligibleRoleAssignmentSchedulePtrInput
-	// The scope. Changing this forces a new Pim Eligible Role Assignment to be created.
+	// The scope for this eligible role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
 	Scope pulumi.StringPtrInput
-	// A `ticket` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
+	// A `ticket` block as defined below. Changing this forces a new resource to be created.
 	Ticket EligibleRoleAssignmentTicketPtrInput
 }
 
@@ -244,33 +244,33 @@ func (EligibleRoleAssignmentState) ElementType() reflect.Type {
 }
 
 type eligibleRoleAssignmentArgs struct {
-	// The justification of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created.
+	// The justification of the role assignment. Changing this forces a new resource to be created.
 	Justification *string `pulumi:"justification"`
-	// The principal id. Changing this forces a new Pim Eligible Role Assignment to be created.
+	// Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created.
 	PrincipalId string `pulumi:"principalId"`
-	// The role definition id. Changing this forces a new Pim Eligible Role Assignment to be created.
+	// The role definition ID for this eligible role assignment. Changing this forces a new resource to be created.
 	RoleDefinitionId string `pulumi:"roleDefinitionId"`
-	// A `schedule` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
+	// A `schedule` block as defined below. Changing this forces a new resource to be created.
 	Schedule *EligibleRoleAssignmentSchedule `pulumi:"schedule"`
-	// The scope. Changing this forces a new Pim Eligible Role Assignment to be created.
+	// The scope for this eligible role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
 	Scope string `pulumi:"scope"`
-	// A `ticket` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
+	// A `ticket` block as defined below. Changing this forces a new resource to be created.
 	Ticket *EligibleRoleAssignmentTicket `pulumi:"ticket"`
 }
 
 // The set of arguments for constructing a EligibleRoleAssignment resource.
 type EligibleRoleAssignmentArgs struct {
-	// The justification of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created.
+	// The justification of the role assignment. Changing this forces a new resource to be created.
 	Justification pulumi.StringPtrInput
-	// The principal id. Changing this forces a new Pim Eligible Role Assignment to be created.
+	// Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created.
 	PrincipalId pulumi.StringInput
-	// The role definition id. Changing this forces a new Pim Eligible Role Assignment to be created.
+	// The role definition ID for this eligible role assignment. Changing this forces a new resource to be created.
 	RoleDefinitionId pulumi.StringInput
-	// A `schedule` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
+	// A `schedule` block as defined below. Changing this forces a new resource to be created.
 	Schedule EligibleRoleAssignmentSchedulePtrInput
-	// The scope. Changing this forces a new Pim Eligible Role Assignment to be created.
+	// The scope for this eligible role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
 	Scope pulumi.StringInput
-	// A `ticket` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
+	// A `ticket` block as defined below. Changing this forces a new resource to be created.
 	Ticket EligibleRoleAssignmentTicketPtrInput
 }
 
@@ -361,37 +361,37 @@ func (o EligibleRoleAssignmentOutput) ToEligibleRoleAssignmentOutputWithContext(
 	return o
 }
 
-// The justification of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created.
-func (o EligibleRoleAssignmentOutput) Justification() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EligibleRoleAssignment) pulumi.StringPtrOutput { return v.Justification }).(pulumi.StringPtrOutput)
+// The justification of the role assignment. Changing this forces a new resource to be created.
+func (o EligibleRoleAssignmentOutput) Justification() pulumi.StringOutput {
+	return o.ApplyT(func(v *EligibleRoleAssignment) pulumi.StringOutput { return v.Justification }).(pulumi.StringOutput)
 }
 
-// The principal id. Changing this forces a new Pim Eligible Role Assignment to be created.
+// Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created.
 func (o EligibleRoleAssignmentOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EligibleRoleAssignment) pulumi.StringOutput { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The type of principal.
+// Type of principal to which the role will be assigned.
 func (o EligibleRoleAssignmentOutput) PrincipalType() pulumi.StringOutput {
 	return o.ApplyT(func(v *EligibleRoleAssignment) pulumi.StringOutput { return v.PrincipalType }).(pulumi.StringOutput)
 }
 
-// The role definition id. Changing this forces a new Pim Eligible Role Assignment to be created.
+// The role definition ID for this eligible role assignment. Changing this forces a new resource to be created.
 func (o EligibleRoleAssignmentOutput) RoleDefinitionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EligibleRoleAssignment) pulumi.StringOutput { return v.RoleDefinitionId }).(pulumi.StringOutput)
 }
 
-// A `schedule` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
-func (o EligibleRoleAssignmentOutput) Schedule() EligibleRoleAssignmentSchedulePtrOutput {
-	return o.ApplyT(func(v *EligibleRoleAssignment) EligibleRoleAssignmentSchedulePtrOutput { return v.Schedule }).(EligibleRoleAssignmentSchedulePtrOutput)
+// A `schedule` block as defined below. Changing this forces a new resource to be created.
+func (o EligibleRoleAssignmentOutput) Schedule() EligibleRoleAssignmentScheduleOutput {
+	return o.ApplyT(func(v *EligibleRoleAssignment) EligibleRoleAssignmentScheduleOutput { return v.Schedule }).(EligibleRoleAssignmentScheduleOutput)
 }
 
-// The scope. Changing this forces a new Pim Eligible Role Assignment to be created.
+// The scope for this eligible role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
 func (o EligibleRoleAssignmentOutput) Scope() pulumi.StringOutput {
 	return o.ApplyT(func(v *EligibleRoleAssignment) pulumi.StringOutput { return v.Scope }).(pulumi.StringOutput)
 }
 
-// A `ticket` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
+// A `ticket` block as defined below. Changing this forces a new resource to be created.
 func (o EligibleRoleAssignmentOutput) Ticket() EligibleRoleAssignmentTicketPtrOutput {
 	return o.ApplyT(func(v *EligibleRoleAssignment) EligibleRoleAssignmentTicketPtrOutput { return v.Ticket }).(EligibleRoleAssignmentTicketPtrOutput)
 }

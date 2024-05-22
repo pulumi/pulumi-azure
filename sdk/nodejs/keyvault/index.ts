@@ -105,6 +105,11 @@ export type ManagedHardwareSecurityModule = import("./managedHardwareSecurityMod
 export const ManagedHardwareSecurityModule: typeof import("./managedHardwareSecurityModule").ManagedHardwareSecurityModule = null as any;
 utilities.lazyLoad(exports, ["ManagedHardwareSecurityModule"], () => require("./managedHardwareSecurityModule"));
 
+export { ManagedHardwareSecurityModuleKeyArgs, ManagedHardwareSecurityModuleKeyState } from "./managedHardwareSecurityModuleKey";
+export type ManagedHardwareSecurityModuleKey = import("./managedHardwareSecurityModuleKey").ManagedHardwareSecurityModuleKey;
+export const ManagedHardwareSecurityModuleKey: typeof import("./managedHardwareSecurityModuleKey").ManagedHardwareSecurityModuleKey = null as any;
+utilities.lazyLoad(exports, ["ManagedHardwareSecurityModuleKey"], () => require("./managedHardwareSecurityModuleKey"));
+
 export { ManagedHardwareSecurityModuleRoleAssignmentArgs, ManagedHardwareSecurityModuleRoleAssignmentState } from "./managedHardwareSecurityModuleRoleAssignment";
 export type ManagedHardwareSecurityModuleRoleAssignment = import("./managedHardwareSecurityModuleRoleAssignment").ManagedHardwareSecurityModuleRoleAssignment;
 export const ManagedHardwareSecurityModuleRoleAssignment: typeof import("./managedHardwareSecurityModuleRoleAssignment").ManagedHardwareSecurityModuleRoleAssignment = null as any;
@@ -151,6 +156,8 @@ const _module = {
                 return new KeyVault(name, <any>undefined, { urn })
             case "azure:keyvault/managedHardwareSecurityModule:ManagedHardwareSecurityModule":
                 return new ManagedHardwareSecurityModule(name, <any>undefined, { urn })
+            case "azure:keyvault/managedHardwareSecurityModuleKey:ManagedHardwareSecurityModuleKey":
+                return new ManagedHardwareSecurityModuleKey(name, <any>undefined, { urn })
             case "azure:keyvault/managedHardwareSecurityModuleRoleAssignment:ManagedHardwareSecurityModuleRoleAssignment":
                 return new ManagedHardwareSecurityModuleRoleAssignment(name, <any>undefined, { urn })
             case "azure:keyvault/managedHardwareSecurityModuleRoleDefinition:ManagedHardwareSecurityModuleRoleDefinition":
@@ -174,6 +181,7 @@ pulumi.runtime.registerResourceModule("azure", "keyvault/certificateIssuer", _mo
 pulumi.runtime.registerResourceModule("azure", "keyvault/key", _module)
 pulumi.runtime.registerResourceModule("azure", "keyvault/keyVault", _module)
 pulumi.runtime.registerResourceModule("azure", "keyvault/managedHardwareSecurityModule", _module)
+pulumi.runtime.registerResourceModule("azure", "keyvault/managedHardwareSecurityModuleKey", _module)
 pulumi.runtime.registerResourceModule("azure", "keyvault/managedHardwareSecurityModuleRoleAssignment", _module)
 pulumi.runtime.registerResourceModule("azure", "keyvault/managedHardwareSecurityModuleRoleDefinition", _module)
 pulumi.runtime.registerResourceModule("azure", "keyvault/managedStorageAccount", _module)

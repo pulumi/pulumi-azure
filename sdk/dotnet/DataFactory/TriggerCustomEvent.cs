@@ -161,8 +161,6 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// The pattern that event subject ends with for trigger to fire.
-        /// 
-        /// &gt; **Note:** At least one of `subject_begins_with` and `subject_ends_with` must be set.
         /// </summary>
         [Output("subjectEndsWith")]
         public Output<string?> SubjectEndsWith { get; private set; } = null!;
@@ -299,8 +297,6 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// The pattern that event subject ends with for trigger to fire.
-        /// 
-        /// &gt; **Note:** At least one of `subject_begins_with` and `subject_ends_with` must be set.
         /// </summary>
         [Input("subjectEndsWith")]
         public Input<string>? SubjectEndsWith { get; set; }
@@ -399,8 +395,6 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// The pattern that event subject ends with for trigger to fire.
-        /// 
-        /// &gt; **Note:** At least one of `subject_begins_with` and `subject_ends_with` must be set.
         /// </summary>
         [Input("subjectEndsWith")]
         public Input<string>? SubjectEndsWith { get; set; }

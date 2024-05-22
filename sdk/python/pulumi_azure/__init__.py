@@ -4915,6 +4915,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "keyvault/managedHardwareSecurityModuleKey",
+  "fqn": "pulumi_azure.keyvault",
+  "classes": {
+   "azure:keyvault/managedHardwareSecurityModuleKey:ManagedHardwareSecurityModuleKey": "ManagedHardwareSecurityModuleKey"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "keyvault/managedHardwareSecurityModuleRoleAssignment",
   "fqn": "pulumi_azure.keyvault",
   "classes": {

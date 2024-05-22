@@ -69,8 +69,8 @@ class KeyVaultArgs:
         if access_policies is not None:
             pulumi.set(__self__, "access_policies", access_policies)
         if contacts is not None:
-            warnings.warn("""As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, `contact` will be removed in favour of the `keyvault.CertificateContacts` resource in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""contacts is deprecated: As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, `contact` will be removed in favour of the `keyvault.CertificateContacts` resource in version 4.0 of the AzureRM Provider.""")
+            warnings.warn("""As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.""", DeprecationWarning)
+            pulumi.log.warn("""contacts is deprecated: As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.""")
         if contacts is not None:
             pulumi.set(__self__, "contacts", contacts)
         if enable_rbac_authorization is not None:
@@ -156,8 +156,8 @@ class KeyVaultArgs:
 
         > **Note:** This field can only be set when `public_network_access_enabled` is set to `true`. To manage the `contact` with `public_network_access_enabled` set to `false`, please use the `keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `keyvault.KeyVault`, this means you'll need to import the `keyvault.CertificateContacts` manually.
         """
-        warnings.warn("""As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, `contact` will be removed in favour of the `keyvault.CertificateContacts` resource in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""contacts is deprecated: As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, `contact` will be removed in favour of the `keyvault.CertificateContacts` resource in version 4.0 of the AzureRM Provider.""")
+        warnings.warn("""As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.""", DeprecationWarning)
+        pulumi.log.warn("""contacts is deprecated: As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.""")
 
         return pulumi.get(self, "contacts")
 
@@ -359,8 +359,8 @@ class _KeyVaultState:
         if access_policies is not None:
             pulumi.set(__self__, "access_policies", access_policies)
         if contacts is not None:
-            warnings.warn("""As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, `contact` will be removed in favour of the `keyvault.CertificateContacts` resource in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""contacts is deprecated: As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, `contact` will be removed in favour of the `keyvault.CertificateContacts` resource in version 4.0 of the AzureRM Provider.""")
+            warnings.warn("""As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.""", DeprecationWarning)
+            pulumi.log.warn("""contacts is deprecated: As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.""")
         if contacts is not None:
             pulumi.set(__self__, "contacts", contacts)
         if enable_rbac_authorization is not None:
@@ -418,8 +418,8 @@ class _KeyVaultState:
 
         > **Note:** This field can only be set when `public_network_access_enabled` is set to `true`. To manage the `contact` with `public_network_access_enabled` set to `false`, please use the `keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `keyvault.KeyVault`, this means you'll need to import the `keyvault.CertificateContacts` manually.
         """
-        warnings.warn("""As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, `contact` will be removed in favour of the `keyvault.CertificateContacts` resource in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""contacts is deprecated: As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, `contact` will be removed in favour of the `keyvault.CertificateContacts` resource in version 4.0 of the AzureRM Provider.""")
+        warnings.warn("""As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.""", DeprecationWarning)
+        pulumi.log.warn("""contacts is deprecated: As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.""")
 
         return pulumi.get(self, "contacts")
 
@@ -933,8 +933,8 @@ class KeyVault(pulumi.CustomResource):
 
         > **Note:** This field can only be set when `public_network_access_enabled` is set to `true`. To manage the `contact` with `public_network_access_enabled` set to `false`, please use the `keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `keyvault.KeyVault`, this means you'll need to import the `keyvault.CertificateContacts` manually.
         """
-        warnings.warn("""As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, `contact` will be removed in favour of the `keyvault.CertificateContacts` resource in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""contacts is deprecated: As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, `contact` will be removed in favour of the `keyvault.CertificateContacts` resource in version 4.0 of the AzureRM Provider.""")
+        warnings.warn("""As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.""", DeprecationWarning)
+        pulumi.log.warn("""contacts is deprecated: As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.""")
 
         return pulumi.get(self, "contacts")
 

@@ -9974,6 +9974,15 @@
                     }
                 }
             },
+            "azurerm_key_vault_managed_hardware_security_module_key": {
+                "current": "azure:keyvault/managedHardwareSecurityModuleKey:ManagedHardwareSecurityModuleKey",
+                "majorVersion": 5,
+                "fields": {
+                    "key_opts": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_key_vault_managed_hardware_security_module_role_assignment": {
                 "current": "azure:keyvault/managedHardwareSecurityModuleRoleAssignment:ManagedHardwareSecurityModuleRoleAssignment",
                 "majorVersion": 5
@@ -12406,7 +12415,14 @@
                 "majorVersion": 5,
                 "fields": {
                     "identity": {
-                        "maxItemsOne": true
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -25875,6 +25891,18 @@
                                 }
                             }
                         }
+                    }
+                }
+            },
+            "azurerm_elastic_san": {
+                "current": "azure:elasticsan/get:get",
+                "majorVersion": 5,
+                "fields": {
+                    "sku": {
+                        "maxItemsOne": false
+                    },
+                    "zones": {
+                        "maxItemsOne": false
                     }
                 }
             },

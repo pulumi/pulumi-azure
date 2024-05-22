@@ -83,7 +83,6 @@ import javax.annotation.Nullable;
  * 
  *         var exampleVnpGatewayNatRule = new VnpGatewayNatRule("exampleVnpGatewayNatRule", VnpGatewayNatRuleArgs.builder()        
  *             .name("example-vpngatewaynatrule")
- *             .resourceGroupName(example.name())
  *             .vpnGatewayId(exampleVpnGateway.id())
  *             .externalMappings(VnpGatewayNatRuleExternalMappingArgs.builder()
  *                 .addressSpace("192.168.21.0/26")
@@ -111,10 +110,6 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:network/vnpGatewayNatRule:VnpGatewayNatRule")
 public class VnpGatewayNatRule extends com.pulumi.resources.CustomResource {
     /**
-     * (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
-     * 
-     * &gt; **NOTE:** `external_address_space_mappings` is deprecated and will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
-     * 
      * @deprecated
      * `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
      * 
@@ -123,34 +118,24 @@ public class VnpGatewayNatRule extends com.pulumi.resources.CustomResource {
     @Export(name="externalAddressSpaceMappings", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> externalAddressSpaceMappings;
 
-    /**
-     * @return (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
-     * 
-     * &gt; **NOTE:** `external_address_space_mappings` is deprecated and will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
-     * 
-     */
     public Output<List<String>> externalAddressSpaceMappings() {
         return this.externalAddressSpaceMappings;
     }
     /**
-     * One or more `external_mapping` blocks as documented below.
+     * One of more `external_mapping` blocks as defined below.
      * 
      */
     @Export(name="externalMappings", refs={List.class,VnpGatewayNatRuleExternalMapping.class}, tree="[0,1]")
     private Output<List<VnpGatewayNatRuleExternalMapping>> externalMappings;
 
     /**
-     * @return One or more `external_mapping` blocks as documented below.
+     * @return One of more `external_mapping` blocks as defined below.
      * 
      */
     public Output<List<VnpGatewayNatRuleExternalMapping>> externalMappings() {
         return this.externalMappings;
     }
     /**
-     * (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
-     * 
-     * &gt; **NOTE:** `internal_address_space_mappings` is deprecated and will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
-     * 
      * @deprecated
      * `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
      * 
@@ -159,24 +144,18 @@ public class VnpGatewayNatRule extends com.pulumi.resources.CustomResource {
     @Export(name="internalAddressSpaceMappings", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> internalAddressSpaceMappings;
 
-    /**
-     * @return (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
-     * 
-     * &gt; **NOTE:** `internal_address_space_mappings` is deprecated and will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
-     * 
-     */
     public Output<List<String>> internalAddressSpaceMappings() {
         return this.internalAddressSpaceMappings;
     }
     /**
-     * One or more `internal_mapping` blocks as documented below.
+     * One of more `internal_mapping` blocks as defined below.
      * 
      */
     @Export(name="internalMappings", refs={List.class,VnpGatewayNatRuleInternalMapping.class}, tree="[0,1]")
     private Output<List<VnpGatewayNatRuleInternalMapping>> internalMappings;
 
     /**
-     * @return One or more `internal_mapping` blocks as documented below.
+     * @return One of more `internal_mapping` blocks as defined below.
      * 
      */
     public Output<List<VnpGatewayNatRuleInternalMapping>> internalMappings() {
@@ -225,16 +204,14 @@ public class VnpGatewayNatRule extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The Name of the Resource Group in which this VPN Gateway NAT Rule should be created. Changing this forces a new resource to be created.
+     * @deprecated
+     * The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider
      * 
      */
+    @Deprecated /* The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider */
     @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
-    /**
-     * @return The Name of the Resource Group in which this VPN Gateway NAT Rule should be created. Changing this forces a new resource to be created.
-     * 
-     */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }

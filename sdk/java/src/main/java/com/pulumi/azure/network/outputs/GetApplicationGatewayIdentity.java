@@ -16,6 +16,8 @@ public final class GetApplicationGatewayIdentity {
      * 
      */
     private List<String> identityIds;
+    private String principalId;
+    private String tenantId;
     /**
      * @return The type of Managed Service Identity that is configured on this Application Gateway.
      * 
@@ -29,6 +31,12 @@ public final class GetApplicationGatewayIdentity {
      */
     public List<String> identityIds() {
         return this.identityIds;
+    }
+    public String principalId() {
+        return this.principalId;
+    }
+    public String tenantId() {
+        return this.tenantId;
     }
     /**
      * @return The type of Managed Service Identity that is configured on this Application Gateway.
@@ -48,11 +56,15 @@ public final class GetApplicationGatewayIdentity {
     @CustomType.Builder
     public static final class Builder {
         private List<String> identityIds;
+        private String principalId;
+        private String tenantId;
         private String type;
         public Builder() {}
         public Builder(GetApplicationGatewayIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.identityIds = defaults.identityIds;
+    	      this.principalId = defaults.principalId;
+    	      this.tenantId = defaults.tenantId;
     	      this.type = defaults.type;
         }
 
@@ -68,6 +80,22 @@ public final class GetApplicationGatewayIdentity {
             return identityIds(List.of(identityIds));
         }
         @CustomType.Setter
+        public Builder principalId(String principalId) {
+            if (principalId == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayIdentity", "principalId");
+            }
+            this.principalId = principalId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder tenantId(String tenantId) {
+            if (tenantId == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayIdentity", "tenantId");
+            }
+            this.tenantId = tenantId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder type(String type) {
             if (type == null) {
               throw new MissingRequiredPropertyException("GetApplicationGatewayIdentity", "type");
@@ -78,6 +106,8 @@ public final class GetApplicationGatewayIdentity {
         public GetApplicationGatewayIdentity build() {
             final var _resultValue = new GetApplicationGatewayIdentity();
             _resultValue.identityIds = identityIds;
+            _resultValue.principalId = principalId;
+            _resultValue.tenantId = tenantId;
             _resultValue.type = type;
             return _resultValue;
         }

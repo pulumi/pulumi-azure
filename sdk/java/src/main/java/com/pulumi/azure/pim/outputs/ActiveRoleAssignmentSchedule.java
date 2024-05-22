@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ActiveRoleAssignmentSchedule {
     /**
-     * @return A `expiration` block as defined above.
+     * @return An `expiration` block as defined above.
      * 
      */
     private @Nullable ActiveRoleAssignmentScheduleExpiration expiration;
     /**
-     * @return The start date time of the role assignment. Changing this forces a new Pim Active Role Assignment to be created.
+     * @return The start date/time of the role assignment. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String startDateTime;
 
     private ActiveRoleAssignmentSchedule() {}
     /**
-     * @return A `expiration` block as defined above.
+     * @return An `expiration` block as defined above.
      * 
      */
     public Optional<ActiveRoleAssignmentScheduleExpiration> expiration() {
         return Optional.ofNullable(this.expiration);
     }
     /**
-     * @return The start date time of the role assignment. Changing this forces a new Pim Active Role Assignment to be created.
+     * @return The start date/time of the role assignment. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> startDateTime() {

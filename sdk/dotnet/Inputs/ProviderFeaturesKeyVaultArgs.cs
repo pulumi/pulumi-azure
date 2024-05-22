@@ -25,6 +25,12 @@ namespace Pulumi.Azure.Inputs
         public Input<bool>? PurgeSoftDeletedCertificatesOnDestroy { get; set; }
 
         /// <summary>
+        /// When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g purged), when destroyed
+        /// </summary>
+        [Input("purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy")]
+        public Input<bool>? PurgeSoftDeletedHardwareSecurityModuleKeysOnDestroy { get; set; }
+
+        /// <summary>
         /// When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g purged), when destroyed
         /// </summary>
         [Input("purgeSoftDeletedHardwareSecurityModulesOnDestroy")]
@@ -47,6 +53,12 @@ namespace Pulumi.Azure.Inputs
         /// </summary>
         [Input("recoverSoftDeletedCertificates")]
         public Input<bool>? RecoverSoftDeletedCertificates { get; set; }
+
+        /// <summary>
+        /// When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones
+        /// </summary>
+        [Input("recoverSoftDeletedHardwareSecurityModuleKeys")]
+        public Input<bool>? RecoverSoftDeletedHardwareSecurityModuleKeys { get; set; }
 
         /// <summary>
         /// When enabled soft-deleted `azure.keyvault.KeyVault` resources will be restored, instead of creating new ones
