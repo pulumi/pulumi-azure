@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var examplePrivateCloud = new PrivateCloud("examplePrivateCloud", PrivateCloudArgs.builder()        
+ *         var examplePrivateCloud = new PrivateCloud("examplePrivateCloud", PrivateCloudArgs.builder()
  *             .name("example-vmware-private-cloud")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *             .vcenterPassword("WsxEdc23$Rfv")
  *             .build());
  * 
- *         var exampleExpressRouteAuthorization = new ExpressRouteAuthorization("exampleExpressRouteAuthorization", ExpressRouteAuthorizationArgs.builder()        
+ *         var exampleExpressRouteAuthorization = new ExpressRouteAuthorization("exampleExpressRouteAuthorization", ExpressRouteAuthorizationArgs.builder()
  *             .name("example-authorization")
  *             .privateCloudId(examplePrivateCloud.id())
  *             .build());

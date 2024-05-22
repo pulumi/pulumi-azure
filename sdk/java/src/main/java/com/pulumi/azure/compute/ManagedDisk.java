@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleManagedDisk = new ManagedDisk("exampleManagedDisk", ManagedDiskArgs.builder()        
+ *         var exampleManagedDisk = new ManagedDisk("exampleManagedDisk", ManagedDiskArgs.builder()
  *             .name("acctestmd")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -98,12 +98,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var source = new ManagedDisk("source", ManagedDiskArgs.builder()        
+ *         var source = new ManagedDisk("source", ManagedDiskArgs.builder()
  *             .name("acctestmd1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -113,7 +113,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("environment", "staging"))
  *             .build());
  * 
- *         var copy = new ManagedDisk("copy", ManagedDiskArgs.builder()        
+ *         var copy = new ManagedDisk("copy", ManagedDiskArgs.builder()
  *             .name("acctestmd2")
  *             .location(example.location())
  *             .resourceGroupName(example.name())

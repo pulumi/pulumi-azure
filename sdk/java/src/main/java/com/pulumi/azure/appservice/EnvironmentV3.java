@@ -61,19 +61,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("exampleRG1")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("example-vnet")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .addressSpaces("10.0.0.0/16")
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("example-subnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleEnvironmentV3 = new EnvironmentV3("exampleEnvironmentV3", EnvironmentV3Args.builder()        
+ *         var exampleEnvironmentV3 = new EnvironmentV3("exampleEnvironmentV3", EnvironmentV3Args.builder()
  *             .name("example-asev3")
  *             .resourceGroupName(example.name())
  *             .subnetId(exampleSubnet.id())
@@ -111,7 +111,7 @@ import javax.annotation.Nullable;
  *             ))
  *             .build());
  * 
- *         var exampleServicePlan = new ServicePlan("exampleServicePlan", ServicePlanArgs.builder()        
+ *         var exampleServicePlan = new ServicePlan("exampleServicePlan", ServicePlanArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())

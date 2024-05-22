@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SubscriptionTemplateDeployment("example", SubscriptionTemplateDeploymentArgs.builder()        
+ *         var example = new SubscriptionTemplateDeployment("example", SubscriptionTemplateDeploymentArgs.builder()
  *             .name("example-deployment")
  *             .location("West Europe")
  *             .templateContent("""

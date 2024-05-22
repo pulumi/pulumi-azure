@@ -54,12 +54,12 @@ import javax.annotation.Nullable;
  *         final var videoLink = config.get("videoLink").orElse("https://www.youtube.com/watch?v=......");
  *         final var current = CoreFunctions.getSubscription();
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("mygroup")
  *             .location("West Europe")
  *             .build());
  * 
- *         var my_board = new Dashboard("my-board", DashboardArgs.builder()        
+ *         var my_board = new Dashboard("my-board", DashboardArgs.builder()
  *             .name("my-cool-dashboard")
  *             .resourceGroupName(example.name())
  *             .location(example.location())

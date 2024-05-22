@@ -56,18 +56,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("resource-group-01")
  *             .location("East US")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("netappaccount-01")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSnapshotPolicy = new SnapshotPolicy("exampleSnapshotPolicy", SnapshotPolicyArgs.builder()        
+ *         var exampleSnapshotPolicy = new SnapshotPolicy("exampleSnapshotPolicy", SnapshotPolicyArgs.builder()
  *             .name("snapshotpolicy-01")
  *             .location(example.location())
  *             .resourceGroupName(example.name())

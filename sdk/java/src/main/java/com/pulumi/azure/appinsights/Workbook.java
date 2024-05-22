@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleWorkbook = new Workbook("exampleWorkbook", WorkbookArgs.builder()        
+ *         var exampleWorkbook = new Workbook("exampleWorkbook", WorkbookArgs.builder()
  *             .name("85b3e8bb-fc93-40be-83f2-98f6bec18ba0")
  *             .resourceGroupName(example.name())
  *             .location(example.location())

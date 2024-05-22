@@ -61,12 +61,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("example-cosmosdb-account")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -83,14 +83,14 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleSqlDatabase = new SqlDatabase("exampleSqlDatabase", SqlDatabaseArgs.builder()        
+ *         var exampleSqlDatabase = new SqlDatabase("exampleSqlDatabase", SqlDatabaseArgs.builder()
  *             .name("cosmos-sql-db")
  *             .resourceGroupName(exampleAccount.resourceGroupName())
  *             .accountName(exampleAccount.name())
  *             .throughput(400)
  *             .build());
  * 
- *         var exampleSqlContainer = new SqlContainer("exampleSqlContainer", SqlContainerArgs.builder()        
+ *         var exampleSqlContainer = new SqlContainer("exampleSqlContainer", SqlContainerArgs.builder()
  *             .name("example-container")
  *             .resourceGroupName(exampleAccount.resourceGroupName())
  *             .accountName(exampleAccount.name())
@@ -98,7 +98,7 @@ import javax.annotation.Nullable;
  *             .partitionKeyPath("/definition")
  *             .build());
  * 
- *         var exampleAccount2 = new Account("exampleAccount2", AccountArgs.builder()        
+ *         var exampleAccount2 = new Account("exampleAccount2", AccountArgs.builder()
  *             .name("examplestorageaccount")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -106,7 +106,7 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleServicePlan = new ServicePlan("exampleServicePlan", ServicePlanArgs.builder()        
+ *         var exampleServicePlan = new ServicePlan("exampleServicePlan", ServicePlanArgs.builder()
  *             .location(example.location())
  *             .name("example-serviceplan")
  *             .resourceGroupName(example.name())
@@ -114,7 +114,7 @@ import javax.annotation.Nullable;
  *             .osType("Linux")
  *             .build());
  * 
- *         var test = new FunctionApp("test", FunctionAppArgs.builder()        
+ *         var test = new FunctionApp("test", FunctionAppArgs.builder()
  *             .name("example-function-app")
  *             .location(testAzurermResourceGroup.location())
  *             .resourceGroupName(testAzurermResourceGroup.name())
@@ -123,7 +123,7 @@ import javax.annotation.Nullable;
  *             .storageAccountAccessKey(testAzurermStorageAccount.primaryAccessKey())
  *             .build());
  * 
- *         var exampleAppConnection = new AppConnection("exampleAppConnection", AppConnectionArgs.builder()        
+ *         var exampleAppConnection = new AppConnection("exampleAppConnection", AppConnectionArgs.builder()
  *             .name("example-serviceconnector")
  *             .functionAppId(exampleAzurermFunctionApp.id())
  *             .targetResourceId(testAzurermCosmosdbAccount.id())

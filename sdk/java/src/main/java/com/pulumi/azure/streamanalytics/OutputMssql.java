@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("rg-example")
  *             .location("West Europe")
  *             .build());
@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleSqlServer = new SqlServer("exampleSqlServer", SqlServerArgs.builder()        
+ *         var exampleSqlServer = new SqlServer("exampleSqlServer", SqlServerArgs.builder()
  *             .name("example-server")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *             .administratorLoginPassword("example-password")
  *             .build());
  * 
- *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()        
+ *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()
  *             .name("exampledb")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  *             .createMode("Default")
  *             .build());
  * 
- *         var exampleOutputMssql = new OutputMssql("exampleOutputMssql", OutputMssqlArgs.builder()        
+ *         var exampleOutputMssql = new OutputMssql("exampleOutputMssql", OutputMssqlArgs.builder()
  *             .name("example-output-sql")
  *             .streamAnalyticsJobName(example.applyValue(getJobResult -> getJobResult).applyValue(example -> example.applyValue(getJobResult -> getJobResult.name())))
  *             .resourceGroupName(example.applyValue(getJobResult -> getJobResult).applyValue(example -> example.applyValue(getJobResult -> getJobResult.resourceGroupName())))

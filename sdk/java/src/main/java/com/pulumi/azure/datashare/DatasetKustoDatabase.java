@@ -55,12 +55,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("example-dsa")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -69,13 +69,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleShare = new Share("exampleShare", ShareArgs.builder()        
+ *         var exampleShare = new Share("exampleShare", ShareArgs.builder()
  *             .name("example_ds")
  *             .accountId(exampleAccount.id())
  *             .kind("InPlace")
  *             .build());
  * 
- *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()        
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
  *             .name("examplekc")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -85,20 +85,20 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()        
+ *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()
  *             .name("examplekd")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .clusterName(exampleCluster.name())
  *             .build());
  * 
- *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()        
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
  *             .scope(exampleCluster.id())
  *             .roleDefinitionName("Contributor")
  *             .principalId(exampleAccount.identity().applyValue(identity -> identity.principalId()))
  *             .build());
  * 
- *         var exampleDatasetKustoDatabase = new DatasetKustoDatabase("exampleDatasetKustoDatabase", DatasetKustoDatabaseArgs.builder()        
+ *         var exampleDatasetKustoDatabase = new DatasetKustoDatabase("exampleDatasetKustoDatabase", DatasetKustoDatabaseArgs.builder()
  *             .name("example-dskd")
  *             .shareId(exampleShare.id())
  *             .kustoDatabaseId(exampleDatabase.id())

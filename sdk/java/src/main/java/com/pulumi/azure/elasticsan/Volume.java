@@ -51,12 +51,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-rg")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleElasticSan = new ElasticSan("exampleElasticSan", ElasticSanArgs.builder()        
+ *         var exampleElasticSan = new ElasticSan("exampleElasticSan", ElasticSanArgs.builder()
  *             .name("example-es")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -66,12 +66,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleVolumeGroup = new VolumeGroup("exampleVolumeGroup", VolumeGroupArgs.builder()        
+ *         var exampleVolumeGroup = new VolumeGroup("exampleVolumeGroup", VolumeGroupArgs.builder()
  *             .name("example-esvg")
  *             .elasticSanId(exampleElasticSan.id())
  *             .build());
  * 
- *         var exampleVolume = new Volume("exampleVolume", VolumeArgs.builder()        
+ *         var exampleVolume = new Volume("exampleVolume", VolumeArgs.builder()
  *             .name("example-esv")
  *             .volumeGroupId(exampleVolumeGroup.id())
  *             .sizeInGib(1)
@@ -121,12 +121,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-rg")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleElasticSan = new ElasticSan("exampleElasticSan", ElasticSanArgs.builder()        
+ *         var exampleElasticSan = new ElasticSan("exampleElasticSan", ElasticSanArgs.builder()
  *             .name("example-es")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -136,12 +136,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleVolumeGroup = new VolumeGroup("exampleVolumeGroup", VolumeGroupArgs.builder()        
+ *         var exampleVolumeGroup = new VolumeGroup("exampleVolumeGroup", VolumeGroupArgs.builder()
  *             .name("example-esvg")
  *             .elasticSanId(exampleElasticSan.id())
  *             .build());
  * 
- *         var exampleManagedDisk = new ManagedDisk("exampleManagedDisk", ManagedDiskArgs.builder()        
+ *         var exampleManagedDisk = new ManagedDisk("exampleManagedDisk", ManagedDiskArgs.builder()
  *             .name("example-disk")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -150,7 +150,7 @@ import javax.annotation.Nullable;
  *             .diskSizeGb(2)
  *             .build());
  * 
- *         var exampleSnapshot = new Snapshot("exampleSnapshot", SnapshotArgs.builder()        
+ *         var exampleSnapshot = new Snapshot("exampleSnapshot", SnapshotArgs.builder()
  *             .name("example-ss")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -158,7 +158,7 @@ import javax.annotation.Nullable;
  *             .sourceUri(exampleManagedDisk.id())
  *             .build());
  * 
- *         var example2 = new Volume("example2", VolumeArgs.builder()        
+ *         var example2 = new Volume("example2", VolumeArgs.builder()
  *             .name("example-esv2")
  *             .volumeGroupId(exampleVolumeGroup.id())
  *             .sizeInGib(2)

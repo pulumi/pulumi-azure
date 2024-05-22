@@ -52,18 +52,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleNetworkSecurityGroup = new NetworkSecurityGroup("exampleNetworkSecurityGroup", NetworkSecurityGroupArgs.builder()        
+ *         var exampleNetworkSecurityGroup = new NetworkSecurityGroup("exampleNetworkSecurityGroup", NetworkSecurityGroupArgs.builder()
  *             .name("acceptanceTestSecurityGroup1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleNetworkSecurityRule = new NetworkSecurityRule("exampleNetworkSecurityRule", NetworkSecurityRuleArgs.builder()        
+ *         var exampleNetworkSecurityRule = new NetworkSecurityRule("exampleNetworkSecurityRule", NetworkSecurityRuleArgs.builder()
  *             .name("test123")
  *             .priority(100)
  *             .direction("Outbound")

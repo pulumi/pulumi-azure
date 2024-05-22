@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName("example-resources")
  *             .build());
  * 
- *         var exampleVirtualMachine = new VirtualMachine("exampleVirtualMachine", VirtualMachineArgs.builder()        
+ *         var exampleVirtualMachine = new VirtualMachine("exampleVirtualMachine", VirtualMachineArgs.builder()
  *             .virtualMachineId(example.applyValue(getVirtualMachineResult -> getVirtualMachineResult.id()))
  *             .sqlLicenseType("PAYG")
  *             .rServicesEnabled(true)

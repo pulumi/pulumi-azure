@@ -59,19 +59,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("accexample-rg")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("example-vnet")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .addressSpaces("10.0.0.0/16")
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("example-subnet")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
@@ -82,13 +82,13 @@ import javax.annotation.Nullable;
  *             .displayName("Azure Cosmos DB")
  *             .build());
  * 
- *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()        
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
  *             .scope(exampleVirtualNetwork.id())
  *             .roleDefinitionName("Network Contributor")
  *             .principalId(example.applyValue(getServicePrincipalResult -> getServicePrincipalResult.objectId()))
  *             .build());
  * 
- *         var exampleCassandraCluster = new CassandraCluster("exampleCassandraCluster", CassandraClusterArgs.builder()        
+ *         var exampleCassandraCluster = new CassandraCluster("exampleCassandraCluster", CassandraClusterArgs.builder()
  *             .name("example-cluster")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  *             .defaultAdminPassword("Password1234")
  *             .build());
  * 
- *         var exampleCassandraDatacenter = new CassandraDatacenter("exampleCassandraDatacenter", CassandraDatacenterArgs.builder()        
+ *         var exampleCassandraDatacenter = new CassandraDatacenter("exampleCassandraDatacenter", CassandraDatacenterArgs.builder()
  *             .name("example-datacenter")
  *             .location(exampleCassandraCluster.location())
  *             .cassandraClusterId(exampleCassandraCluster.id())

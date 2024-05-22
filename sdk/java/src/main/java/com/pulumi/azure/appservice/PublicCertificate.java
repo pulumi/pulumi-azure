@@ -48,12 +48,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()        
+ *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()
  *             .name("example-app-service-plan")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -63,14 +63,14 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleAppService = new AppService("exampleAppService", AppServiceArgs.builder()        
+ *         var exampleAppService = new AppService("exampleAppService", AppServiceArgs.builder()
  *             .name("example-app-service")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
  *             .build());
  * 
- *         var examplePublicCertificate = new PublicCertificate("examplePublicCertificate", PublicCertificateArgs.builder()        
+ *         var examplePublicCertificate = new PublicCertificate("examplePublicCertificate", PublicCertificateArgs.builder()
  *             .resourceGroupName(example.name())
  *             .appServiceName(exampleAppService.name())
  *             .certificateName("example-public-certificate")

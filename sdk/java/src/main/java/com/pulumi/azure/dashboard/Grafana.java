@@ -51,12 +51,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleGrafana = new Grafana("exampleGrafana", GrafanaArgs.builder()        
+ *         var exampleGrafana = new Grafana("exampleGrafana", GrafanaArgs.builder()
  *             .name("example-dg")
  *             .resourceGroupName(example.name())
  *             .location("West Europe")

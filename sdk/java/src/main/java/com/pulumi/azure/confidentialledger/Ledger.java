@@ -52,12 +52,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var ledger = new Ledger("ledger", LedgerArgs.builder()        
+ *         var ledger = new Ledger("ledger", LedgerArgs.builder()
  *             .name("example-ledger")
  *             .resourceGroupName(example.name())
  *             .location(example.location())

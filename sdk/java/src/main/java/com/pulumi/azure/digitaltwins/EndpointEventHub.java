@@ -53,25 +53,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example_resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()        
+ *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()
  *             .name("example-DT")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()        
+ *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()
  *             .name("example-eh-ns")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("Standard")
  *             .build());
  * 
- *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()        
+ *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()
  *             .name("example-eh")
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .resourceGroupName(example.name())
@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  *             .messageRetention(1)
  *             .build());
  * 
- *         var exampleAuthorizationRule = new AuthorizationRule("exampleAuthorizationRule", AuthorizationRuleArgs.builder()        
+ *         var exampleAuthorizationRule = new AuthorizationRule("exampleAuthorizationRule", AuthorizationRuleArgs.builder()
  *             .name("example-ar")
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .eventhubName(exampleEventHub.name())
@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  *             .manage(false)
  *             .build());
  * 
- *         var exampleEndpointEventHub = new EndpointEventHub("exampleEndpointEventHub", EndpointEventHubArgs.builder()        
+ *         var exampleEndpointEventHub = new EndpointEventHub("exampleEndpointEventHub", EndpointEventHubArgs.builder()
  *             .name("example-EH")
  *             .digitalTwinsId(exampleInstance.id())
  *             .eventhubPrimaryConnectionString(exampleAuthorizationRule.primaryConnectionString())

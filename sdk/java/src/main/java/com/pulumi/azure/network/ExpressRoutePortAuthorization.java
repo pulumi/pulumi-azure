@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("exprtTest")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleExpressRoutePort = new ExpressRoutePort("exampleExpressRoutePort", ExpressRoutePortArgs.builder()        
+ *         var exampleExpressRoutePort = new ExpressRoutePort("exampleExpressRoutePort", ExpressRoutePortArgs.builder()
  *             .name("port1")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .encapsulation("Dot1Q")
  *             .build());
  * 
- *         var exampleExpressRoutePortAuthorization = new ExpressRoutePortAuthorization("exampleExpressRoutePortAuthorization", ExpressRoutePortAuthorizationArgs.builder()        
+ *         var exampleExpressRoutePortAuthorization = new ExpressRoutePortAuthorization("exampleExpressRoutePortAuthorization", ExpressRoutePortAuthorizationArgs.builder()
  *             .name("exampleERCAuth")
  *             .expressRoutePortName(exampleExpressRoutePort.name())
  *             .resourceGroupName(example.name())

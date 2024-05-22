@@ -67,18 +67,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("database-rg")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleNetworkSecurityGroup = new NetworkSecurityGroup("exampleNetworkSecurityGroup", NetworkSecurityGroupArgs.builder()        
+ *         var exampleNetworkSecurityGroup = new NetworkSecurityGroup("exampleNetworkSecurityGroup", NetworkSecurityGroupArgs.builder()
  *             .name("mi-security-group")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var allowManagementInbound = new NetworkSecurityRule("allowManagementInbound", NetworkSecurityRuleArgs.builder()        
+ *         var allowManagementInbound = new NetworkSecurityRule("allowManagementInbound", NetworkSecurityRuleArgs.builder()
  *             .name("allow_management_inbound")
  *             .priority(106)
  *             .direction("Inbound")
@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  *             .networkSecurityGroupName(exampleNetworkSecurityGroup.name())
  *             .build());
  * 
- *         var allowMisubnetInbound = new NetworkSecurityRule("allowMisubnetInbound", NetworkSecurityRuleArgs.builder()        
+ *         var allowMisubnetInbound = new NetworkSecurityRule("allowMisubnetInbound", NetworkSecurityRuleArgs.builder()
  *             .name("allow_misubnet_inbound")
  *             .priority(200)
  *             .direction("Inbound")
@@ -111,7 +111,7 @@ import javax.annotation.Nullable;
  *             .networkSecurityGroupName(exampleNetworkSecurityGroup.name())
  *             .build());
  * 
- *         var allowHealthProbeInbound = new NetworkSecurityRule("allowHealthProbeInbound", NetworkSecurityRuleArgs.builder()        
+ *         var allowHealthProbeInbound = new NetworkSecurityRule("allowHealthProbeInbound", NetworkSecurityRuleArgs.builder()
  *             .name("allow_health_probe_inbound")
  *             .priority(300)
  *             .direction("Inbound")
@@ -125,7 +125,7 @@ import javax.annotation.Nullable;
  *             .networkSecurityGroupName(exampleNetworkSecurityGroup.name())
  *             .build());
  * 
- *         var allowTdsInbound = new NetworkSecurityRule("allowTdsInbound", NetworkSecurityRuleArgs.builder()        
+ *         var allowTdsInbound = new NetworkSecurityRule("allowTdsInbound", NetworkSecurityRuleArgs.builder()
  *             .name("allow_tds_inbound")
  *             .priority(1000)
  *             .direction("Inbound")
@@ -139,7 +139,7 @@ import javax.annotation.Nullable;
  *             .networkSecurityGroupName(exampleNetworkSecurityGroup.name())
  *             .build());
  * 
- *         var denyAllInbound = new NetworkSecurityRule("denyAllInbound", NetworkSecurityRuleArgs.builder()        
+ *         var denyAllInbound = new NetworkSecurityRule("denyAllInbound", NetworkSecurityRuleArgs.builder()
  *             .name("deny_all_inbound")
  *             .priority(4096)
  *             .direction("Inbound")
@@ -153,7 +153,7 @@ import javax.annotation.Nullable;
  *             .networkSecurityGroupName(exampleNetworkSecurityGroup.name())
  *             .build());
  * 
- *         var allowManagementOutbound = new NetworkSecurityRule("allowManagementOutbound", NetworkSecurityRuleArgs.builder()        
+ *         var allowManagementOutbound = new NetworkSecurityRule("allowManagementOutbound", NetworkSecurityRuleArgs.builder()
  *             .name("allow_management_outbound")
  *             .priority(102)
  *             .direction("Outbound")
@@ -170,7 +170,7 @@ import javax.annotation.Nullable;
  *             .networkSecurityGroupName(exampleNetworkSecurityGroup.name())
  *             .build());
  * 
- *         var allowMisubnetOutbound = new NetworkSecurityRule("allowMisubnetOutbound", NetworkSecurityRuleArgs.builder()        
+ *         var allowMisubnetOutbound = new NetworkSecurityRule("allowMisubnetOutbound", NetworkSecurityRuleArgs.builder()
  *             .name("allow_misubnet_outbound")
  *             .priority(200)
  *             .direction("Outbound")
@@ -184,7 +184,7 @@ import javax.annotation.Nullable;
  *             .networkSecurityGroupName(exampleNetworkSecurityGroup.name())
  *             .build());
  * 
- *         var denyAllOutbound = new NetworkSecurityRule("denyAllOutbound", NetworkSecurityRuleArgs.builder()        
+ *         var denyAllOutbound = new NetworkSecurityRule("denyAllOutbound", NetworkSecurityRuleArgs.builder()
  *             .name("deny_all_outbound")
  *             .priority(4096)
  *             .direction("Outbound")
@@ -198,14 +198,14 @@ import javax.annotation.Nullable;
  *             .networkSecurityGroupName(exampleNetworkSecurityGroup.name())
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("vnet-mi")
  *             .resourceGroupName(example.name())
  *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("subnet-mi")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
@@ -222,24 +222,24 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation("exampleSubnetNetworkSecurityGroupAssociation", SubnetNetworkSecurityGroupAssociationArgs.builder()        
+ *         var exampleSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation("exampleSubnetNetworkSecurityGroupAssociation", SubnetNetworkSecurityGroupAssociationArgs.builder()
  *             .subnetId(exampleSubnet.id())
  *             .networkSecurityGroupId(exampleNetworkSecurityGroup.id())
  *             .build());
  * 
- *         var exampleRouteTable = new RouteTable("exampleRouteTable", RouteTableArgs.builder()        
+ *         var exampleRouteTable = new RouteTable("exampleRouteTable", RouteTableArgs.builder()
  *             .name("routetable-mi")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .disableBgpRoutePropagation(false)
  *             .build());
  * 
- *         var exampleSubnetRouteTableAssociation = new SubnetRouteTableAssociation("exampleSubnetRouteTableAssociation", SubnetRouteTableAssociationArgs.builder()        
+ *         var exampleSubnetRouteTableAssociation = new SubnetRouteTableAssociation("exampleSubnetRouteTableAssociation", SubnetRouteTableAssociationArgs.builder()
  *             .subnetId(exampleSubnet.id())
  *             .routeTableId(exampleRouteTable.id())
  *             .build());
  * 
- *         var exampleManagedInstance = new ManagedInstance("exampleManagedInstance", ManagedInstanceArgs.builder()        
+ *         var exampleManagedInstance = new ManagedInstance("exampleManagedInstance", ManagedInstanceArgs.builder()
  *             .name("managedsqlinstance")
  *             .resourceGroupName(example.name())
  *             .location(example.location())

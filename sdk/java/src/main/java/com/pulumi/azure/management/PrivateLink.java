@@ -43,12 +43,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var examplePrivateLink = new PrivateLink("examplePrivateLink", PrivateLinkArgs.builder()        
+ *         var examplePrivateLink = new PrivateLink("examplePrivateLink", PrivateLinkArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
