@@ -1833,6 +1833,8 @@ func Provider() tfbridge.ProviderInfo {
 						Randlen:   8,
 						Transform: strings.ToLower,
 					}),
+					"source_application_security_group_ids":      {MaxItemsOne: ref(true)},
+					"destination_application_security_group_ids": {MaxItemsOne: ref(true)},
 				},
 			},
 			"azurerm_network_watcher":                              {Tok: azureResource(azureNetwork, "NetworkWatcher")},
