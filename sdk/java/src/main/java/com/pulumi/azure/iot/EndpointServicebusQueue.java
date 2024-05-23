@@ -56,25 +56,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()        
+ *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()
  *             .name("exampleNamespace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("Standard")
  *             .build());
  * 
- *         var exampleQueue = new Queue("exampleQueue", QueueArgs.builder()        
+ *         var exampleQueue = new Queue("exampleQueue", QueueArgs.builder()
  *             .name("exampleQueue")
  *             .namespaceId(exampleNamespace.id())
  *             .enablePartitioning(true)
  *             .build());
  * 
- *         var exampleQueueAuthorizationRule = new QueueAuthorizationRule("exampleQueueAuthorizationRule", QueueAuthorizationRuleArgs.builder()        
+ *         var exampleQueueAuthorizationRule = new QueueAuthorizationRule("exampleQueueAuthorizationRule", QueueAuthorizationRuleArgs.builder()
  *             .name("exampleRule")
  *             .queueId(exampleQueue.id())
  *             .listen(false)
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  *             .manage(false)
  *             .build());
  * 
- *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()        
+ *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()
  *             .name("exampleIothub")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("purpose", "example"))
  *             .build());
  * 
- *         var exampleEndpointServicebusQueue = new EndpointServicebusQueue("exampleEndpointServicebusQueue", EndpointServicebusQueueArgs.builder()        
+ *         var exampleEndpointServicebusQueue = new EndpointServicebusQueue("exampleEndpointServicebusQueue", EndpointServicebusQueueArgs.builder()
  *             .resourceGroupName(example.name())
  *             .iothubId(exampleIoTHub.id())
  *             .name("example")

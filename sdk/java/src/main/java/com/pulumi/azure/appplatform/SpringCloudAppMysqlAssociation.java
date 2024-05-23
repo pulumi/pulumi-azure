@@ -52,24 +52,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()        
+ *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()
  *             .name("example-springcloud")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleSpringCloudApp = new SpringCloudApp("exampleSpringCloudApp", SpringCloudAppArgs.builder()        
+ *         var exampleSpringCloudApp = new SpringCloudApp("exampleSpringCloudApp", SpringCloudAppArgs.builder()
  *             .name("example-springcloudapp")
  *             .resourceGroupName(example.name())
  *             .serviceName(exampleSpringCloudService.name())
  *             .build());
  * 
- *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()
  *             .name("example-mysqlserver")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  *             .sslMinimalTlsVersionEnforced("TLS1_2")
  *             .build());
  * 
- *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()        
+ *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()
  *             .name("exampledb")
  *             .resourceGroupName(example.name())
  *             .serverName(exampleServer.name())
@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  *             .collation("utf8_unicode_ci")
  *             .build());
  * 
- *         var exampleSpringCloudAppMysqlAssociation = new SpringCloudAppMysqlAssociation("exampleSpringCloudAppMysqlAssociation", SpringCloudAppMysqlAssociationArgs.builder()        
+ *         var exampleSpringCloudAppMysqlAssociation = new SpringCloudAppMysqlAssociation("exampleSpringCloudAppMysqlAssociation", SpringCloudAppMysqlAssociationArgs.builder()
  *             .name("example-bind")
  *             .springCloudAppId(exampleSpringCloudApp.id())
  *             .mysqlServerId(exampleServer.id())

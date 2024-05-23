@@ -50,18 +50,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-rg")
  *             .location("east us")
  *             .build());
  * 
- *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()        
+ *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()
  *             .name("examplewkspace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleMedtechService = new MedtechService("exampleMedtechService", MedtechServiceArgs.builder()        
+ *         var exampleMedtechService = new MedtechService("exampleMedtechService", MedtechServiceArgs.builder()
  *             .name("examplemed")
  *             .workspaceId(exampleWorkspace.id())
  *             .location("east us")

@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resource")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()        
+ *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()
  *             .name("example-iotcentral-app")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("Foo", "Bar"))
  *             .build());
  * 
- *         var exampleApplicationNetworkRuleSet = new ApplicationNetworkRuleSet("exampleApplicationNetworkRuleSet", ApplicationNetworkRuleSetArgs.builder()        
+ *         var exampleApplicationNetworkRuleSet = new ApplicationNetworkRuleSet("exampleApplicationNetworkRuleSet", ApplicationNetworkRuleSetArgs.builder()
  *             .iotcentralApplicationId(exampleApplication.id())
  *             .ipRules(            
  *                 ApplicationNetworkRuleSetIpRuleArgs.builder()

@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("azuretest")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("azureteststorage")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -60,13 +60,13 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleShare = new Share("exampleShare", ShareArgs.builder()        
+ *         var exampleShare = new Share("exampleShare", ShareArgs.builder()
  *             .name("sharename")
  *             .storageAccountName(exampleAccount.name())
  *             .quota(50)
  *             .build());
  * 
- *         var exampleShareDirectory = new ShareDirectory("exampleShareDirectory", ShareDirectoryArgs.builder()        
+ *         var exampleShareDirectory = new ShareDirectory("exampleShareDirectory", ShareDirectoryArgs.builder()
  *             .name("example")
  *             .storageShareId(exampleShare.id())
  *             .build());

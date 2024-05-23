@@ -52,25 +52,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()        
+ *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .skuName("E0")
  *             .build());
  * 
- *         var exampleSpringCloudApp = new SpringCloudApp("exampleSpringCloudApp", SpringCloudAppArgs.builder()        
+ *         var exampleSpringCloudApp = new SpringCloudApp("exampleSpringCloudApp", SpringCloudAppArgs.builder()
  *             .name("example")
  *             .resourceGroupName(exampleSpringCloudService.resourceGroupName())
  *             .serviceName(exampleSpringCloudService.name())
  *             .build());
  * 
- *         var exampleSpringCloudContainerDeployment = new SpringCloudContainerDeployment("exampleSpringCloudContainerDeployment", SpringCloudContainerDeploymentArgs.builder()        
+ *         var exampleSpringCloudContainerDeployment = new SpringCloudContainerDeployment("exampleSpringCloudContainerDeployment", SpringCloudContainerDeploymentArgs.builder()
  *             .name("example")
  *             .springCloudAppId(exampleSpringCloudApp.id())
  *             .instanceCount(2)

@@ -61,12 +61,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("des-example-keyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  *             .purgeProtectionEnabled(true)
  *             .build());
  * 
- *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
  *             .name("des-example-key")
  *             .keyVaultId(exampleKeyVault.id())
  *             .keyType("RSA")
@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  *                 "wrapKey")
  *             .build());
  * 
- *         var exampleDiskEncryptionSet = new DiskEncryptionSet("exampleDiskEncryptionSet", DiskEncryptionSetArgs.builder()        
+ *         var exampleDiskEncryptionSet = new DiskEncryptionSet("exampleDiskEncryptionSet", DiskEncryptionSetArgs.builder()
  *             .name("des")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -100,7 +100,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var example_disk = new AccessPolicy("example-disk", AccessPolicyArgs.builder()        
+ *         var example_disk = new AccessPolicy("example-disk", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
  *             .tenantId(exampleDiskEncryptionSet.identity().applyValue(identity -> identity.tenantId()))
  *             .objectId(exampleDiskEncryptionSet.identity().applyValue(identity -> identity.principalId()))
@@ -116,7 +116,7 @@ import javax.annotation.Nullable;
  *                 "Sign")
  *             .build());
  * 
- *         var example_user = new AccessPolicy("example-user", AccessPolicyArgs.builder()        
+ *         var example_user = new AccessPolicy("example-user", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
  *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
  *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
@@ -133,7 +133,7 @@ import javax.annotation.Nullable;
  *                 "GetRotationPolicy")
  *             .build());
  * 
- *         var example_diskAssignment = new Assignment("example-diskAssignment", AssignmentArgs.builder()        
+ *         var example_diskAssignment = new Assignment("example-diskAssignment", AssignmentArgs.builder()
  *             .scope(exampleKeyVault.id())
  *             .roleDefinitionName("Key Vault Crypto Service Encryption User")
  *             .principalId(exampleDiskEncryptionSet.identity().applyValue(identity -> identity.principalId()))
@@ -184,12 +184,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("des-example-keyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -199,7 +199,7 @@ import javax.annotation.Nullable;
  *             .purgeProtectionEnabled(true)
  *             .build());
  * 
- *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
  *             .name("des-example-key")
  *             .keyVaultId(exampleKeyVault.id())
  *             .keyType("RSA")
@@ -213,7 +213,7 @@ import javax.annotation.Nullable;
  *                 "wrapKey")
  *             .build());
  * 
- *         var exampleDiskEncryptionSet = new DiskEncryptionSet("exampleDiskEncryptionSet", DiskEncryptionSetArgs.builder()        
+ *         var exampleDiskEncryptionSet = new DiskEncryptionSet("exampleDiskEncryptionSet", DiskEncryptionSetArgs.builder()
  *             .name("des")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -224,7 +224,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var example_disk = new AccessPolicy("example-disk", AccessPolicyArgs.builder()        
+ *         var example_disk = new AccessPolicy("example-disk", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
  *             .tenantId(exampleDiskEncryptionSet.identity().applyValue(identity -> identity.tenantId()))
  *             .objectId(exampleDiskEncryptionSet.identity().applyValue(identity -> identity.principalId()))
@@ -240,7 +240,7 @@ import javax.annotation.Nullable;
  *                 "Sign")
  *             .build());
  * 
- *         var example_user = new AccessPolicy("example-user", AccessPolicyArgs.builder()        
+ *         var example_user = new AccessPolicy("example-user", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
  *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
  *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
@@ -257,7 +257,7 @@ import javax.annotation.Nullable;
  *                 "GetRotationPolicy")
  *             .build());
  * 
- *         var example_diskAssignment = new Assignment("example-diskAssignment", AssignmentArgs.builder()        
+ *         var example_diskAssignment = new Assignment("example-diskAssignment", AssignmentArgs.builder()
  *             .scope(exampleKeyVault.id())
  *             .roleDefinitionName("Key Vault Crypto Service Encryption User")
  *             .principalId(exampleDiskEncryptionSet.identity().applyValue(identity -> identity.principalId()))

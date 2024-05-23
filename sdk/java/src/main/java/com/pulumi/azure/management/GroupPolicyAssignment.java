@@ -52,11 +52,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Group("example", GroupArgs.builder()        
+ *         var example = new Group("example", GroupArgs.builder()
  *             .displayName("Some Management Group")
  *             .build());
  * 
- *         var exampleDefinition = new Definition("exampleDefinition", DefinitionArgs.builder()        
+ *         var exampleDefinition = new Definition("exampleDefinition", DefinitionArgs.builder()
  *             .name("only-deploy-in-westeurope")
  *             .policyType("Custom")
  *             .mode("All")
@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  *             """)
  *             .build());
  * 
- *         var exampleGroupPolicyAssignment = new GroupPolicyAssignment("exampleGroupPolicyAssignment", GroupPolicyAssignmentArgs.builder()        
+ *         var exampleGroupPolicyAssignment = new GroupPolicyAssignment("exampleGroupPolicyAssignment", GroupPolicyAssignmentArgs.builder()
  *             .name("example-policy")
  *             .policyDefinitionId(exampleDefinition.id())
  *             .managementGroupId(example.id())

@@ -70,26 +70,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary = new ResourceGroup("primary", ResourceGroupArgs.builder()        
+ *         var primary = new ResourceGroup("primary", ResourceGroupArgs.builder()
  *             .name("aadds-primary-rg")
  *             .location("West Europe")
  *             .build());
  * 
- *         var primaryVirtualNetwork = new VirtualNetwork("primaryVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var primaryVirtualNetwork = new VirtualNetwork("primaryVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("aadds-primary-vnet")
  *             .location(primary.location())
  *             .resourceGroupName(primary.name())
  *             .addressSpaces("10.0.1.0/16")
  *             .build());
  * 
- *         var primarySubnet = new Subnet("primarySubnet", SubnetArgs.builder()        
+ *         var primarySubnet = new Subnet("primarySubnet", SubnetArgs.builder()
  *             .name("aadds-primary-subnet")
  *             .resourceGroupName(primary.name())
  *             .virtualNetworkName(primaryVirtualNetwork.name())
  *             .addressPrefixes("10.0.1.0/24")
  *             .build());
  * 
- *         var primaryNetworkSecurityGroup = new NetworkSecurityGroup("primaryNetworkSecurityGroup", NetworkSecurityGroupArgs.builder()        
+ *         var primaryNetworkSecurityGroup = new NetworkSecurityGroup("primaryNetworkSecurityGroup", NetworkSecurityGroupArgs.builder()
  *             .name("aadds-primary-nsg")
  *             .location(primary.location())
  *             .resourceGroupName(primary.name())
@@ -140,37 +140,37 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var primarySubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation("primarySubnetNetworkSecurityGroupAssociation", SubnetNetworkSecurityGroupAssociationArgs.builder()        
+ *         var primarySubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation("primarySubnetNetworkSecurityGroupAssociation", SubnetNetworkSecurityGroupAssociationArgs.builder()
  *             .subnetId(primarySubnet.id())
  *             .networkSecurityGroupId(primaryNetworkSecurityGroup.id())
  *             .build());
  * 
- *         var dcAdmins = new Group("dcAdmins", GroupArgs.builder()        
+ *         var dcAdmins = new Group("dcAdmins", GroupArgs.builder()
  *             .displayName("aad-dc-administrators")
  *             .securityEnabled(true)
  *             .build());
  * 
- *         var admin = new User("admin", UserArgs.builder()        
+ *         var admin = new User("admin", UserArgs.builder()
  *             .userPrincipalName("dc-admin{@literal @}hashicorp-example.net")
  *             .displayName("DC Administrator")
  *             .password("Pa55w0Rd!!1")
  *             .build());
  * 
- *         var adminGroupMember = new GroupMember("adminGroupMember", GroupMemberArgs.builder()        
+ *         var adminGroupMember = new GroupMember("adminGroupMember", GroupMemberArgs.builder()
  *             .groupObjectId(dcAdmins.objectId())
  *             .memberObjectId(admin.objectId())
  *             .build());
  * 
- *         var example = new ServicePrincipal("example", ServicePrincipalArgs.builder()        
+ *         var example = new ServicePrincipal("example", ServicePrincipalArgs.builder()
  *             .applicationId("2565bd9d-da50-47d4-8b85-4c97f669dc36")
  *             .build());
  * 
- *         var aadds = new ResourceGroup("aadds", ResourceGroupArgs.builder()        
+ *         var aadds = new ResourceGroup("aadds", ResourceGroupArgs.builder()
  *             .name("aadds-rg")
  *             .location("westeurope")
  *             .build());
  * 
- *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()
  *             .name("example-aadds")
  *             .location(aadds.location())
  *             .resourceGroupName(aadds.name())
@@ -196,26 +196,26 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("Environment", "prod"))
  *             .build());
  * 
- *         var replica = new ResourceGroup("replica", ResourceGroupArgs.builder()        
+ *         var replica = new ResourceGroup("replica", ResourceGroupArgs.builder()
  *             .name("aadds-replica-rg")
  *             .location("North Europe")
  *             .build());
  * 
- *         var replicaVirtualNetwork = new VirtualNetwork("replicaVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var replicaVirtualNetwork = new VirtualNetwork("replicaVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("aadds-replica-vnet")
  *             .location(replica.location())
  *             .resourceGroupName(replica.name())
  *             .addressSpaces("10.20.0.0/16")
  *             .build());
  * 
- *         var aaddsReplica = new Subnet("aaddsReplica", SubnetArgs.builder()        
+ *         var aaddsReplica = new Subnet("aaddsReplica", SubnetArgs.builder()
  *             .name("aadds-replica-subnet")
  *             .resourceGroupName(replica.name())
  *             .virtualNetworkName(replicaVirtualNetwork.name())
  *             .addressPrefixes("10.20.0.0/24")
  *             .build());
  * 
- *         var aaddsReplicaNetworkSecurityGroup = new NetworkSecurityGroup("aaddsReplicaNetworkSecurityGroup", NetworkSecurityGroupArgs.builder()        
+ *         var aaddsReplicaNetworkSecurityGroup = new NetworkSecurityGroup("aaddsReplicaNetworkSecurityGroup", NetworkSecurityGroupArgs.builder()
  *             .name("aadds-replica-nsg")
  *             .location(replica.location())
  *             .resourceGroupName(replica.name())
@@ -266,12 +266,12 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var replicaSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation("replicaSubnetNetworkSecurityGroupAssociation", SubnetNetworkSecurityGroupAssociationArgs.builder()        
+ *         var replicaSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation("replicaSubnetNetworkSecurityGroupAssociation", SubnetNetworkSecurityGroupAssociationArgs.builder()
  *             .subnetId(aaddsReplica.id())
  *             .networkSecurityGroupId(aaddsReplicaNetworkSecurityGroup.id())
  *             .build());
  * 
- *         var primaryReplica = new VirtualNetworkPeering("primaryReplica", VirtualNetworkPeeringArgs.builder()        
+ *         var primaryReplica = new VirtualNetworkPeering("primaryReplica", VirtualNetworkPeeringArgs.builder()
  *             .name("aadds-primary-replica")
  *             .resourceGroupName(primaryVirtualNetwork.resourceGroupName())
  *             .virtualNetworkName(primaryVirtualNetwork.name())
@@ -282,7 +282,7 @@ import javax.annotation.Nullable;
  *             .useRemoteGateways(false)
  *             .build());
  * 
- *         var replicaPrimary = new VirtualNetworkPeering("replicaPrimary", VirtualNetworkPeeringArgs.builder()        
+ *         var replicaPrimary = new VirtualNetworkPeering("replicaPrimary", VirtualNetworkPeeringArgs.builder()
  *             .name("aadds-replica-primary")
  *             .resourceGroupName(replicaVirtualNetwork.resourceGroupName())
  *             .virtualNetworkName(replicaVirtualNetwork.name())
@@ -293,12 +293,12 @@ import javax.annotation.Nullable;
  *             .useRemoteGateways(false)
  *             .build());
  * 
- *         var replicaVirtualNetworkDnsServers = new VirtualNetworkDnsServers("replicaVirtualNetworkDnsServers", VirtualNetworkDnsServersArgs.builder()        
+ *         var replicaVirtualNetworkDnsServers = new VirtualNetworkDnsServers("replicaVirtualNetworkDnsServers", VirtualNetworkDnsServersArgs.builder()
  *             .virtualNetworkId(replicaVirtualNetwork.id())
  *             .dnsServers(exampleService.initialReplicaSet().applyValue(initialReplicaSet -> initialReplicaSet.domainControllerIpAddresses()))
  *             .build());
  * 
- *         var replicaReplicaSet = new ReplicaSet("replicaReplicaSet", ReplicaSetArgs.builder()        
+ *         var replicaReplicaSet = new ReplicaSet("replicaReplicaSet", ReplicaSetArgs.builder()
  *             .domainServiceId(exampleService.id())
  *             .location(replica.location())
  *             .subnetId(aaddsReplica.id())

@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FrontdoorRouteDisableLinkToDefaultDomain("example", FrontdoorRouteDisableLinkToDefaultDomainArgs.builder()        
+ *         var example = new FrontdoorRouteDisableLinkToDefaultDomain("example", FrontdoorRouteDisableLinkToDefaultDomainArgs.builder()
  *             .cdnFrontdoorRouteId(exampleAzurermCdnFrontdoorRoute.id())
  *             .cdnFrontdoorCustomDomainIds(            
  *                 contoso.id(),

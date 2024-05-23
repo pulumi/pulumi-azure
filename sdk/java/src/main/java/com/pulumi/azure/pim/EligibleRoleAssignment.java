@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleStatic = new Static("exampleStatic");
  * 
- *         var exampleEligibleRoleAssignment = new EligibleRoleAssignment("exampleEligibleRoleAssignment", EligibleRoleAssignmentArgs.builder()        
+ *         var exampleEligibleRoleAssignment = new EligibleRoleAssignment("exampleEligibleRoleAssignment", EligibleRoleAssignmentArgs.builder()
  *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *             .roleDefinitionId(String.format("%s%s", primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()),exampleGetRoleDefinition.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id())))
  *             .principalId(example.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
@@ -127,13 +127,13 @@ import javax.annotation.Nullable;
  *             .name("Reader")
  *             .build());
  * 
- *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+ *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
  *             .name("Example-Management-Group")
  *             .build());
  * 
  *         var exampleStatic = new Static("exampleStatic");
  * 
- *         var exampleEligibleRoleAssignment = new EligibleRoleAssignment("exampleEligibleRoleAssignment", EligibleRoleAssignmentArgs.builder()        
+ *         var exampleEligibleRoleAssignment = new EligibleRoleAssignment("exampleEligibleRoleAssignment", EligibleRoleAssignmentArgs.builder()
  *             .scope(exampleGroup.id())
  *             .roleDefinitionId(exampleGetRoleDefinition.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id()))
  *             .principalId(example.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))

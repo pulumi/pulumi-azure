@@ -59,12 +59,12 @@ import javax.annotation.Nullable;
  *             .name("Contributor")
  *             .build());
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleDefinition = new Definition("exampleDefinition", DefinitionArgs.builder()        
+ *         var exampleDefinition = new Definition("exampleDefinition", DefinitionArgs.builder()
  *             .name("examplemanagedapplicationdefinition")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()        
+ *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()
  *             .name("example-managedapplication")
  *             .location(example.location())
  *             .resourceGroupName(example.name())

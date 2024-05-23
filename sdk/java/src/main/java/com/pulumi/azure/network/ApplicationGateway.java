@@ -84,26 +84,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("example-network")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .addressSpaces("10.254.0.0/16")
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("10.254.0.0/24")
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()
  *             .name("example-pip")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -124,7 +124,7 @@ import javax.annotation.Nullable;
  * 
  *         final var redirectConfigurationName = exampleVirtualNetwork.name().applyValue(name -> String.format("%s-rdrcfg", name));
  * 
- *         var network = new ApplicationGateway("network", ApplicationGatewayArgs.builder()        
+ *         var network = new ApplicationGateway("network", ApplicationGatewayArgs.builder()
  *             .name("example-appgateway")
  *             .resourceGroupName(example.name())
  *             .location(example.location())

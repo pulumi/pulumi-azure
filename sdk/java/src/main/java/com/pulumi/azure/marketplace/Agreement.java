@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var barracuda = new Agreement("barracuda", AgreementArgs.builder()        
+ *         var barracuda = new Agreement("barracuda", AgreementArgs.builder()
  *             .publisher("barracudanetworks")
  *             .offer("waf")
  *             .plan("hourly")
