@@ -56,25 +56,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleLinkedServiceWeb = new LinkedServiceWeb("exampleLinkedServiceWeb", LinkedServiceWebArgs.builder()        
+ *         var exampleLinkedServiceWeb = new LinkedServiceWeb("exampleLinkedServiceWeb", LinkedServiceWebArgs.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .authenticationType("Anonymous")
  *             .url("https://www.bing.com")
  *             .build());
  * 
- *         var exampleDatasetDelimitedText = new DatasetDelimitedText("exampleDatasetDelimitedText", DatasetDelimitedTextArgs.builder()        
+ *         var exampleDatasetDelimitedText = new DatasetDelimitedText("exampleDatasetDelimitedText", DatasetDelimitedTextArgs.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .linkedServiceName(exampleLinkedServiceWeb.name())

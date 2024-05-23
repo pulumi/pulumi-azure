@@ -53,12 +53,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new ResourceGroup("test", ResourceGroupArgs.builder()        
+ *         var test = new ResourceGroup("test", ResourceGroupArgs.builder()
  *             .name("testrg")
  *             .location("West Europe")
  *             .build());
  * 
- *         var testManagedDisk = new ManagedDisk("testManagedDisk", ManagedDiskArgs.builder()        
+ *         var testManagedDisk = new ManagedDisk("testManagedDisk", ManagedDiskArgs.builder()
  *             .name("tst-disk-export")
  *             .location(test.location())
  *             .resourceGroupName(test.name())
@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *             .diskSizeGb("1")
  *             .build());
  * 
- *         var testManagedDiskSasToken = new ManagedDiskSasToken("testManagedDiskSasToken", ManagedDiskSasTokenArgs.builder()        
+ *         var testManagedDiskSasToken = new ManagedDiskSasToken("testManagedDiskSasToken", ManagedDiskSasTokenArgs.builder()
  *             .managedDiskId(testManagedDisk.id())
  *             .durationInSeconds(300)
  *             .accessLevel("Read")

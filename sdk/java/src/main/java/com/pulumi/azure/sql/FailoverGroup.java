@@ -57,12 +57,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var primary = new SqlServer("primary", SqlServerArgs.builder()        
+ *         var primary = new SqlServer("primary", SqlServerArgs.builder()
  *             .name("sql-primary")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *             .administratorLoginPassword("pa$$w0rd")
  *             .build());
  * 
- *         var secondary = new SqlServer("secondary", SqlServerArgs.builder()        
+ *         var secondary = new SqlServer("secondary", SqlServerArgs.builder()
  *             .name("sql-secondary")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -80,14 +80,14 @@ import javax.annotation.Nullable;
  *             .administratorLoginPassword("pa$$w0rd")
  *             .build());
  * 
- *         var db1 = new Database("db1", DatabaseArgs.builder()        
+ *         var db1 = new Database("db1", DatabaseArgs.builder()
  *             .name("db1")
  *             .resourceGroupName(primary.resourceGroupName())
  *             .location(primary.location())
  *             .serverName(primary.name())
  *             .build());
  * 
- *         var exampleFailoverGroup = new FailoverGroup("exampleFailoverGroup", FailoverGroupArgs.builder()        
+ *         var exampleFailoverGroup = new FailoverGroup("exampleFailoverGroup", FailoverGroupArgs.builder()
  *             .name("example-failover-group")
  *             .resourceGroupName(primary.resourceGroupName())
  *             .serverName(primary.name())

@@ -2113,14 +2113,14 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
      *             .name("example-resources")
      *             .location("West Europe")
      *             .build());
      * 
      *         final var current = CoreFunctions.getSubscription();
      * 
-     *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()        
+     *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
      *             .name("example-network-manager")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
@@ -2183,14 +2183,14 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
      *             .name("example-resources")
      *             .location("West Europe")
      *             .build());
      * 
      *         final var current = CoreFunctions.getSubscription();
      * 
-     *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()        
+     *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
      *             .name("example-network-manager")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
@@ -2253,14 +2253,14 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
      *             .name("example-resources")
      *             .location("West Europe")
      *             .build());
      * 
      *         final var current = CoreFunctions.getSubscription();
      * 
-     *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()        
+     *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
      *             .name("example-network-manager")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
@@ -2323,14 +2323,14 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
      *             .name("example-resources")
      *             .location("West Europe")
      *             .build());
      * 
      *         final var current = CoreFunctions.getSubscription();
      * 
-     *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()        
+     *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
      *             .name("example-network-manager")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
@@ -2571,14 +2571,14 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
      *             .name("example-resources")
      *             .location("West Europe")
      *             .build());
      * 
      *         final var current = CoreFunctions.getSubscription();
      * 
-     *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()        
+     *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
      *             .name("example-network-manager")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
@@ -2591,7 +2591,7 @@ public final class NetworkFunctions {
      *             .description("example network manager")
      *             .build());
      * 
-     *         var exampleNetworkManagerNetworkGroup = new NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", NetworkManagerNetworkGroupArgs.builder()        
+     *         var exampleNetworkManagerNetworkGroup = new NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", NetworkManagerNetworkGroupArgs.builder()
      *             .name("example-group")
      *             .networkManagerId(exampleNetworkManager.id())
      *             .build());
@@ -2648,14 +2648,14 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
      *             .name("example-resources")
      *             .location("West Europe")
      *             .build());
      * 
      *         final var current = CoreFunctions.getSubscription();
      * 
-     *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()        
+     *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
      *             .name("example-network-manager")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
@@ -2668,7 +2668,7 @@ public final class NetworkFunctions {
      *             .description("example network manager")
      *             .build());
      * 
-     *         var exampleNetworkManagerNetworkGroup = new NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", NetworkManagerNetworkGroupArgs.builder()        
+     *         var exampleNetworkManagerNetworkGroup = new NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", NetworkManagerNetworkGroupArgs.builder()
      *             .name("example-group")
      *             .networkManagerId(exampleNetworkManager.id())
      *             .build());
@@ -2725,14 +2725,14 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
      *             .name("example-resources")
      *             .location("West Europe")
      *             .build());
      * 
      *         final var current = CoreFunctions.getSubscription();
      * 
-     *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()        
+     *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
      *             .name("example-network-manager")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
@@ -2745,7 +2745,7 @@ public final class NetworkFunctions {
      *             .description("example network manager")
      *             .build());
      * 
-     *         var exampleNetworkManagerNetworkGroup = new NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", NetworkManagerNetworkGroupArgs.builder()        
+     *         var exampleNetworkManagerNetworkGroup = new NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", NetworkManagerNetworkGroupArgs.builder()
      *             .name("example-group")
      *             .networkManagerId(exampleNetworkManager.id())
      *             .build());
@@ -2802,14 +2802,14 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
      *             .name("example-resources")
      *             .location("West Europe")
      *             .build());
      * 
      *         final var current = CoreFunctions.getSubscription();
      * 
-     *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()        
+     *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
      *             .name("example-network-manager")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
@@ -2822,7 +2822,7 @@ public final class NetworkFunctions {
      *             .description("example network manager")
      *             .build());
      * 
-     *         var exampleNetworkManagerNetworkGroup = new NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", NetworkManagerNetworkGroupArgs.builder()        
+     *         var exampleNetworkManagerNetworkGroup = new NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", NetworkManagerNetworkGroupArgs.builder()
      *             .name("example-group")
      *             .networkManagerId(exampleNetworkManager.id())
      *             .build());
@@ -3275,26 +3275,26 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
      *             .name("test-resources")
      *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+     *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
      *             .name("test-network")
      *             .addressSpaces("10.0.0.0/16")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
      * 
-     *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+     *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
      *             .name("acctsub")
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .virtualNetworkName(exampleVirtualNetwork.name())
      *             .addressPrefixes("10.0.2.0/24")
      *             .build());
      * 
-     *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+     *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()
      *             .name("test-pip")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
@@ -3303,7 +3303,7 @@ public final class NetworkFunctions {
      *             .tags(Map.of("environment", "test"))
      *             .build());
      * 
-     *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()        
+     *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()
      *             .name("test-nic")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
@@ -3316,7 +3316,7 @@ public final class NetworkFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var exampleVirtualMachine = new VirtualMachine("exampleVirtualMachine", VirtualMachineArgs.builder()        
+     *         var exampleVirtualMachine = new VirtualMachine("exampleVirtualMachine", VirtualMachineArgs.builder()
      *             .name("test-vm")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
@@ -3420,26 +3420,26 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
      *             .name("test-resources")
      *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+     *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
      *             .name("test-network")
      *             .addressSpaces("10.0.0.0/16")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
      * 
-     *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+     *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
      *             .name("acctsub")
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .virtualNetworkName(exampleVirtualNetwork.name())
      *             .addressPrefixes("10.0.2.0/24")
      *             .build());
      * 
-     *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+     *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()
      *             .name("test-pip")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
@@ -3448,7 +3448,7 @@ public final class NetworkFunctions {
      *             .tags(Map.of("environment", "test"))
      *             .build());
      * 
-     *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()        
+     *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()
      *             .name("test-nic")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
@@ -3461,7 +3461,7 @@ public final class NetworkFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var exampleVirtualMachine = new VirtualMachine("exampleVirtualMachine", VirtualMachineArgs.builder()        
+     *         var exampleVirtualMachine = new VirtualMachine("exampleVirtualMachine", VirtualMachineArgs.builder()
      *             .name("test-vm")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
@@ -3565,26 +3565,26 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
      *             .name("test-resources")
      *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+     *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
      *             .name("test-network")
      *             .addressSpaces("10.0.0.0/16")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
      * 
-     *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+     *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
      *             .name("acctsub")
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .virtualNetworkName(exampleVirtualNetwork.name())
      *             .addressPrefixes("10.0.2.0/24")
      *             .build());
      * 
-     *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+     *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()
      *             .name("test-pip")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
@@ -3593,7 +3593,7 @@ public final class NetworkFunctions {
      *             .tags(Map.of("environment", "test"))
      *             .build());
      * 
-     *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()        
+     *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()
      *             .name("test-nic")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
@@ -3606,7 +3606,7 @@ public final class NetworkFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var exampleVirtualMachine = new VirtualMachine("exampleVirtualMachine", VirtualMachineArgs.builder()        
+     *         var exampleVirtualMachine = new VirtualMachine("exampleVirtualMachine", VirtualMachineArgs.builder()
      *             .name("test-vm")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
@@ -3710,26 +3710,26 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
      *             .name("test-resources")
      *             .location("West Europe")
      *             .build());
      * 
-     *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+     *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
      *             .name("test-network")
      *             .addressSpaces("10.0.0.0/16")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
      * 
-     *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+     *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
      *             .name("acctsub")
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .virtualNetworkName(exampleVirtualNetwork.name())
      *             .addressPrefixes("10.0.2.0/24")
      *             .build());
      * 
-     *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+     *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()
      *             .name("test-pip")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
@@ -3738,7 +3738,7 @@ public final class NetworkFunctions {
      *             .tags(Map.of("environment", "test"))
      *             .build());
      * 
-     *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()        
+     *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()
      *             .name("test-nic")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
@@ -3751,7 +3751,7 @@ public final class NetworkFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var exampleVirtualMachine = new VirtualMachine("exampleVirtualMachine", VirtualMachineArgs.builder()        
+     *         var exampleVirtualMachine = new VirtualMachine("exampleVirtualMachine", VirtualMachineArgs.builder()
      *             .name("test-vm")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())

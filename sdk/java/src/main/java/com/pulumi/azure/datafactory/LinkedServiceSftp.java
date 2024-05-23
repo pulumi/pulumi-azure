@@ -50,18 +50,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleLinkedServiceSftp = new LinkedServiceSftp("exampleLinkedServiceSftp", LinkedServiceSftpArgs.builder()        
+ *         var exampleLinkedServiceSftp = new LinkedServiceSftp("exampleLinkedServiceSftp", LinkedServiceSftpArgs.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .authenticationType("Basic")

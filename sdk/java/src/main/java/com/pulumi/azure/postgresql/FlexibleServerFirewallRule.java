@@ -45,12 +45,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFlexibleServer = new FlexibleServer("exampleFlexibleServer", FlexibleServerArgs.builder()        
+ *         var exampleFlexibleServer = new FlexibleServer("exampleFlexibleServer", FlexibleServerArgs.builder()
  *             .name("example-psqlflexibleserver")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *             .skuName("GP_Standard_D4s_v3")
  *             .build());
  * 
- *         var exampleFlexibleServerFirewallRule = new FlexibleServerFirewallRule("exampleFlexibleServerFirewallRule", FlexibleServerFirewallRuleArgs.builder()        
+ *         var exampleFlexibleServerFirewallRule = new FlexibleServerFirewallRule("exampleFlexibleServerFirewallRule", FlexibleServerFirewallRuleArgs.builder()
  *             .name("example-fw")
  *             .serverId(exampleFlexibleServer.id())
  *             .startIpAddress("122.122.0.0")

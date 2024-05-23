@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resource")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()        
+ *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()
  *             .name("example-iotcentral-app")
  *             .resourceGroupName(example.name())
  *             .location(example.location())

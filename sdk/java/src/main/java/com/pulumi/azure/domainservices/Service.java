@@ -69,26 +69,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var deploy = new ResourceGroup("deploy", ResourceGroupArgs.builder()        
+ *         var deploy = new ResourceGroup("deploy", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var deployVirtualNetwork = new VirtualNetwork("deployVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var deployVirtualNetwork = new VirtualNetwork("deployVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("deploy-vnet")
  *             .location(deploy.location())
  *             .resourceGroupName(deploy.name())
  *             .addressSpaces("10.0.1.0/16")
  *             .build());
  * 
- *         var deploySubnet = new Subnet("deploySubnet", SubnetArgs.builder()        
+ *         var deploySubnet = new Subnet("deploySubnet", SubnetArgs.builder()
  *             .name("deploy-subnet")
  *             .resourceGroupName(deploy.name())
  *             .virtualNetworkName(deployVirtualNetwork.name())
  *             .addressPrefixes("10.0.1.0/24")
  *             .build());
  * 
- *         var deployNetworkSecurityGroup = new NetworkSecurityGroup("deployNetworkSecurityGroup", NetworkSecurityGroupArgs.builder()        
+ *         var deployNetworkSecurityGroup = new NetworkSecurityGroup("deployNetworkSecurityGroup", NetworkSecurityGroupArgs.builder()
  *             .name("deploy-nsg")
  *             .location(deploy.location())
  *             .resourceGroupName(deploy.name())
@@ -139,37 +139,37 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var deploySubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation("deploySubnetNetworkSecurityGroupAssociation", SubnetNetworkSecurityGroupAssociationArgs.builder()        
+ *         var deploySubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation("deploySubnetNetworkSecurityGroupAssociation", SubnetNetworkSecurityGroupAssociationArgs.builder()
  *             .subnetId(deploySubnet.id())
  *             .networkSecurityGroupId(deployNetworkSecurityGroup.id())
  *             .build());
  * 
- *         var dcAdmins = new Group("dcAdmins", GroupArgs.builder()        
+ *         var dcAdmins = new Group("dcAdmins", GroupArgs.builder()
  *             .displayName("AAD DC Administrators")
  *             .securityEnabled(true)
  *             .build());
  * 
- *         var admin = new User("admin", UserArgs.builder()        
+ *         var admin = new User("admin", UserArgs.builder()
  *             .userPrincipalName("dc-admin{@literal @}hashicorp-example.com")
  *             .displayName("DC Administrator")
  *             .password("Pa55w0Rd!!1")
  *             .build());
  * 
- *         var adminGroupMember = new GroupMember("adminGroupMember", GroupMemberArgs.builder()        
+ *         var adminGroupMember = new GroupMember("adminGroupMember", GroupMemberArgs.builder()
  *             .groupObjectId(dcAdmins.objectId())
  *             .memberObjectId(admin.objectId())
  *             .build());
  * 
- *         var example = new ServicePrincipal("example", ServicePrincipalArgs.builder()        
+ *         var example = new ServicePrincipal("example", ServicePrincipalArgs.builder()
  *             .applicationId("2565bd9d-da50-47d4-8b85-4c97f669dc36")
  *             .build());
  * 
- *         var aadds = new ResourceGroup("aadds", ResourceGroupArgs.builder()        
+ *         var aadds = new ResourceGroup("aadds", ResourceGroupArgs.builder()
  *             .name("aadds-rg")
  *             .location("westeurope")
  *             .build());
  * 
- *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()
  *             .name("example-aadds")
  *             .location(aadds.location())
  *             .resourceGroupName(aadds.name())

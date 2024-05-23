@@ -107,6 +107,13 @@ export class ManagedDisk extends pulumi.CustomResource {
 
     /**
      * The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
+     * * `Import` - Import a VHD file in to the managed disk (VHD specified with `sourceUri`).
+     * * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `sourceUri`).
+     * * `Empty` - Create an empty managed disk.
+     * * `Copy` - Copy an existing managed disk or snapshot (specified with `sourceResourceId`).
+     * * `FromImage` - Copy a Platform Image (specified with `imageReferenceId`)
+     * * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `sourceResourceId`).
+     * * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `uploadSizeBytes`).
      */
     public readonly createOption!: pulumi.Output<string>;
     /**
@@ -381,6 +388,13 @@ export class ManagedDisk extends pulumi.CustomResource {
 export interface ManagedDiskState {
     /**
      * The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
+     * * `Import` - Import a VHD file in to the managed disk (VHD specified with `sourceUri`).
+     * * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `sourceUri`).
+     * * `Empty` - Create an empty managed disk.
+     * * `Copy` - Copy an existing managed disk or snapshot (specified with `sourceResourceId`).
+     * * `FromImage` - Copy a Platform Image (specified with `imageReferenceId`)
+     * * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `sourceResourceId`).
+     * * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `uploadSizeBytes`).
      */
     createOption?: pulumi.Input<string>;
     /**
@@ -556,6 +570,13 @@ export interface ManagedDiskState {
 export interface ManagedDiskArgs {
     /**
      * The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
+     * * `Import` - Import a VHD file in to the managed disk (VHD specified with `sourceUri`).
+     * * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `sourceUri`).
+     * * `Empty` - Create an empty managed disk.
+     * * `Copy` - Copy an existing managed disk or snapshot (specified with `sourceResourceId`).
+     * * `FromImage` - Copy a Platform Image (specified with `imageReferenceId`)
+     * * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `sourceResourceId`).
+     * * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `uploadSizeBytes`).
      */
     createOption: pulumi.Input<string>;
     /**

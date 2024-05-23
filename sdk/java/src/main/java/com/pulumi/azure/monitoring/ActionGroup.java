@@ -72,20 +72,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("monitoring-resources")
  *             .location("West Europe")
  *             .build());
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()        
+ *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()
  *             .name("workspace-01")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleActionGroup = new ActionGroup("exampleActionGroup", ActionGroupArgs.builder()        
+ *         var exampleActionGroup = new ActionGroup("exampleActionGroup", ActionGroupArgs.builder()
  *             .name("CriticalAlertsAction")
  *             .resourceGroupName(example.name())
  *             .shortName("p0action")

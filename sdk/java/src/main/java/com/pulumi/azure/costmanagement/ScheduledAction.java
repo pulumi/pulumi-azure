@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ScheduledAction("example", ScheduledActionArgs.builder()        
+ *         var example = new ScheduledAction("example", ScheduledActionArgs.builder()
  *             .name("examplescheduledaction")
  *             .displayName("Report Last 6 Months")
  *             .viewId("/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.CostManagement/views/ms:CostByService")

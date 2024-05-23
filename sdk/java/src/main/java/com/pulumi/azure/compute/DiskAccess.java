@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DiskAccess("example", DiskAccessArgs.builder()        
+ *         var example = new DiskAccess("example", DiskAccessArgs.builder()
  *             .name("example")
  *             .resourceGroupName("example")
  *             .location("West Europe")

@@ -58,25 +58,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleMover = new Mover("exampleMover", MoverArgs.builder()        
+ *         var exampleMover = new Mover("exampleMover", MoverArgs.builder()
  *             .name("example-ssm")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleMoverAgent = new MoverAgent("exampleMoverAgent", MoverAgentArgs.builder()        
+ *         var exampleMoverAgent = new MoverAgent("exampleMoverAgent", MoverAgentArgs.builder()
  *             .name("example-agent")
  *             .storageMoverId(exampleMover.id())
  *             .arcVirtualMachineId(example.id().applyValue(id -> String.format("%s/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName", id)))
  *             .arcVirtualMachineUuid("3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("examplesa")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -85,31 +85,31 @@ import javax.annotation.Nullable;
  *             .allowNestedItemsToBePublic(true)
  *             .build());
  * 
- *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()        
+ *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()
  *             .name("acccontainer")
  *             .storageAccountName(exampleAccount.name())
  *             .containerAccessType("blob")
  *             .build());
  * 
- *         var exampleMoverTargetEndpoint = new MoverTargetEndpoint("exampleMoverTargetEndpoint", MoverTargetEndpointArgs.builder()        
+ *         var exampleMoverTargetEndpoint = new MoverTargetEndpoint("exampleMoverTargetEndpoint", MoverTargetEndpointArgs.builder()
  *             .name("example-smte")
  *             .storageMoverId(exampleMover.id())
  *             .storageAccountId(exampleAccount.id())
  *             .storageContainerName(exampleContainer.name())
  *             .build());
  * 
- *         var exampleMoverSourceEndpoint = new MoverSourceEndpoint("exampleMoverSourceEndpoint", MoverSourceEndpointArgs.builder()        
+ *         var exampleMoverSourceEndpoint = new MoverSourceEndpoint("exampleMoverSourceEndpoint", MoverSourceEndpointArgs.builder()
  *             .name("example-smse")
  *             .storageMoverId(exampleMover.id())
  *             .host("192.168.0.1")
  *             .build());
  * 
- *         var exampleMoverProject = new MoverProject("exampleMoverProject", MoverProjectArgs.builder()        
+ *         var exampleMoverProject = new MoverProject("exampleMoverProject", MoverProjectArgs.builder()
  *             .name("example-sp")
  *             .storageMoverId(exampleMover.id())
  *             .build());
  * 
- *         var exampleMoverJobDefinition = new MoverJobDefinition("exampleMoverJobDefinition", MoverJobDefinitionArgs.builder()        
+ *         var exampleMoverJobDefinition = new MoverJobDefinition("exampleMoverJobDefinition", MoverJobDefinitionArgs.builder()
  *             .name("example-sjd")
  *             .storageMoverProjectId(exampleMoverProject.id())
  *             .agentName(exampleMoverAgent.name())

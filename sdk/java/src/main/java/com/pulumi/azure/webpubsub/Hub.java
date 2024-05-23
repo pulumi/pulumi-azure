@@ -55,18 +55,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("terraform-webpubsub")
  *             .location("east us")
  *             .build());
  * 
- *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()        
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()
  *             .name("tfex-uai")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()
  *             .name("tfex-webpubsub")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  *             .capacity(1)
  *             .build());
  * 
- *         var exampleHub = new Hub("exampleHub", HubArgs.builder()        
+ *         var exampleHub = new Hub("exampleHub", HubArgs.builder()
  *             .name("tfex_wpsh")
  *             .webPubsubId(exampleService.id())
  *             .eventHandlers(            

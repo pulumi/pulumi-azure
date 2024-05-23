@@ -57,12 +57,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("video-analyzer-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("examplestoracc")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -70,25 +70,25 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("GRS")
  *             .build());
  * 
- *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()        
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()
  *             .name("exampleidentity")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var contributor = new Assignment("contributor", AssignmentArgs.builder()        
+ *         var contributor = new Assignment("contributor", AssignmentArgs.builder()
  *             .scope(exampleAccount.id())
  *             .roleDefinitionName("Storage Blob Data Contributor")
  *             .principalId(exampleUserAssignedIdentity.principalId())
  *             .build());
  * 
- *         var reader = new Assignment("reader", AssignmentArgs.builder()        
+ *         var reader = new Assignment("reader", AssignmentArgs.builder()
  *             .scope(exampleAccount.id())
  *             .roleDefinitionName("Reader")
  *             .principalId(exampleUserAssignedIdentity.principalId())
  *             .build());
  * 
- *         var exampleAnalyzer = new Analyzer("exampleAnalyzer", AnalyzerArgs.builder()        
+ *         var exampleAnalyzer = new Analyzer("exampleAnalyzer", AnalyzerArgs.builder()
  *             .name("exampleanalyzer")
  *             .location(example.location())
  *             .resourceGroupName(example.name())

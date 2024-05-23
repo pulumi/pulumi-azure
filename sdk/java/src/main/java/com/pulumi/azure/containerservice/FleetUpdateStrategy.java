@@ -48,18 +48,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-rg")
  *             .location("westeurope")
  *             .build());
  * 
- *         var exampleKubernetesFleetManager = new KubernetesFleetManager("exampleKubernetesFleetManager", KubernetesFleetManagerArgs.builder()        
+ *         var exampleKubernetesFleetManager = new KubernetesFleetManager("exampleKubernetesFleetManager", KubernetesFleetManagerArgs.builder()
  *             .location(example.location())
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleFleetUpdateStrategy = new FleetUpdateStrategy("exampleFleetUpdateStrategy", FleetUpdateStrategyArgs.builder()        
+ *         var exampleFleetUpdateStrategy = new FleetUpdateStrategy("exampleFleetUpdateStrategy", FleetUpdateStrategyArgs.builder()
  *             .name("example")
  *             .kubernetesFleetManagerId(exampleKubernetesFleetManager.id())
  *             .stages(FleetUpdateStrategyStageArgs.builder()

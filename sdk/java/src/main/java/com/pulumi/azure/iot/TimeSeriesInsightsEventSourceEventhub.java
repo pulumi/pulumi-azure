@@ -59,19 +59,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()        
+ *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("Standard")
  *             .build());
  * 
- *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()        
+ *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()
  *             .name("example")
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .resourceGroupName(example.name())
@@ -79,14 +79,14 @@ import javax.annotation.Nullable;
  *             .messageRetention(7)
  *             .build());
  * 
- *         var exampleConsumerGroup = new ConsumerGroup("exampleConsumerGroup", ConsumerGroupArgs.builder()        
+ *         var exampleConsumerGroup = new ConsumerGroup("exampleConsumerGroup", ConsumerGroupArgs.builder()
  *             .name("example")
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .eventhubName(exampleEventHub.name())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleAuthorizationRule = new AuthorizationRule("exampleAuthorizationRule", AuthorizationRuleArgs.builder()        
+ *         var exampleAuthorizationRule = new AuthorizationRule("exampleAuthorizationRule", AuthorizationRuleArgs.builder()
  *             .name("example")
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .eventhubName(exampleEventHub.name())
@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  *             .manage(false)
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -104,7 +104,7 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleTimeSeriesInsightsGen2Environment = new TimeSeriesInsightsGen2Environment("exampleTimeSeriesInsightsGen2Environment", TimeSeriesInsightsGen2EnvironmentArgs.builder()        
+ *         var exampleTimeSeriesInsightsGen2Environment = new TimeSeriesInsightsGen2Environment("exampleTimeSeriesInsightsGen2Environment", TimeSeriesInsightsGen2EnvironmentArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -116,7 +116,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleTimeSeriesInsightsEventSourceEventhub = new TimeSeriesInsightsEventSourceEventhub("exampleTimeSeriesInsightsEventSourceEventhub", TimeSeriesInsightsEventSourceEventhubArgs.builder()        
+ *         var exampleTimeSeriesInsightsEventSourceEventhub = new TimeSeriesInsightsEventSourceEventhub("exampleTimeSeriesInsightsEventSourceEventhub", TimeSeriesInsightsEventSourceEventhubArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .environmentId(exampleTimeSeriesInsightsGen2Environment.id())

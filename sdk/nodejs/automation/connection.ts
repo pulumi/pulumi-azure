@@ -96,6 +96,12 @@ export class Connection extends pulumi.CustomResource {
     public readonly type!: pulumi.Output<string>;
     /**
      * A mapping of key value pairs passed to the connection. Different `type` needs different parameters in the `values`. Builtin types have required field values as below:
+     *
+     * * `Azure`: parameters `AutomationCertificateName` and `SubscriptionID`.
+     *
+     * * `AzureClassicCertificate`: parameters `SubscriptionName`, `SubscriptionId` and `CertificateAssetName`.
+     *
+     * * `AzureServicePrincipal`: parameters `ApplicationId`, `CertificateThumbprint`, `SubscriptionId` and `TenantId`.
      */
     public readonly values!: pulumi.Output<{[key: string]: string}>;
 
@@ -170,6 +176,12 @@ export interface ConnectionState {
     type?: pulumi.Input<string>;
     /**
      * A mapping of key value pairs passed to the connection. Different `type` needs different parameters in the `values`. Builtin types have required field values as below:
+     *
+     * * `Azure`: parameters `AutomationCertificateName` and `SubscriptionID`.
+     *
+     * * `AzureClassicCertificate`: parameters `SubscriptionName`, `SubscriptionId` and `CertificateAssetName`.
+     *
+     * * `AzureServicePrincipal`: parameters `ApplicationId`, `CertificateThumbprint`, `SubscriptionId` and `TenantId`.
      */
     values?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -200,6 +212,12 @@ export interface ConnectionArgs {
     type: pulumi.Input<string>;
     /**
      * A mapping of key value pairs passed to the connection. Different `type` needs different parameters in the `values`. Builtin types have required field values as below:
+     *
+     * * `Azure`: parameters `AutomationCertificateName` and `SubscriptionID`.
+     *
+     * * `AzureClassicCertificate`: parameters `SubscriptionName`, `SubscriptionId` and `CertificateAssetName`.
+     *
+     * * `AzureServicePrincipal`: parameters `ApplicationId`, `CertificateThumbprint`, `SubscriptionId` and `TenantId`.
      */
     values: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

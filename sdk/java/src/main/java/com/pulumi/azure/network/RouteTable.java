@@ -52,12 +52,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleRouteTable = new RouteTable("exampleRouteTable", RouteTableArgs.builder()        
+ *         var exampleRouteTable = new RouteTable("exampleRouteTable", RouteTableArgs.builder()
  *             .name("example-route-table")
  *             .location(example.location())
  *             .resourceGroupName(example.name())

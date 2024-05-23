@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("rg-example")
  *             .location("West Europe")
  *             .build());
@@ -64,20 +64,20 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()        
+ *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()
  *             .name("example-namespace")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .sku("Standard")
  *             .build());
  * 
- *         var exampleTopic = new Topic("exampleTopic", TopicArgs.builder()        
+ *         var exampleTopic = new Topic("exampleTopic", TopicArgs.builder()
  *             .name("example-topic")
  *             .namespaceId(exampleNamespace.id())
  *             .enablePartitioning(true)
  *             .build());
  * 
- *         var exampleOutputServicebusTopic = new OutputServicebusTopic("exampleOutputServicebusTopic", OutputServicebusTopicArgs.builder()        
+ *         var exampleOutputServicebusTopic = new OutputServicebusTopic("exampleOutputServicebusTopic", OutputServicebusTopicArgs.builder()
  *             .name("service-bus-topic-output")
  *             .streamAnalyticsJobName(example.applyValue(getJobResult -> getJobResult).applyValue(example -> example.applyValue(getJobResult -> getJobResult.name())))
  *             .resourceGroupName(example.applyValue(getJobResult -> getJobResult).applyValue(example -> example.applyValue(getJobResult -> getJobResult.resourceGroupName())))

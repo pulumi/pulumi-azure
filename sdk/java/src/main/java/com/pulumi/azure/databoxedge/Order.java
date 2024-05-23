@@ -56,19 +56,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-databoxedge")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleDevice = new Device("exampleDevice", DeviceArgs.builder()        
+ *         var exampleDevice = new Device("exampleDevice", DeviceArgs.builder()
  *             .name("example-device")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .skuName("EdgeP_Base-Standard")
  *             .build());
  * 
- *         var exampleOrder = new Order("exampleOrder", OrderArgs.builder()        
+ *         var exampleOrder = new Order("exampleOrder", OrderArgs.builder()
  *             .resourceGroupName(example.name())
  *             .deviceName(exampleDevice.name())
  *             .contact(OrderContactArgs.builder()

@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *             .revision("2")
  *             .build());
  * 
- *         var exampleApiOperation = new ApiOperation("exampleApiOperation", ApiOperationArgs.builder()        
+ *         var exampleApiOperation = new ApiOperation("exampleApiOperation", ApiOperationArgs.builder()
  *             .operationId("user-delete")
  *             .apiName(example.applyValue(getApiResult -> getApiResult.name()))
  *             .apiManagementName(example.applyValue(getApiResult -> getApiResult.apiManagementName()))

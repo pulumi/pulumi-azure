@@ -48,12 +48,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("resourcegroup-01")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("automation-01")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("environment", "development"))
  *             .build());
  * 
- *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()        
+ *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()
  *             .name("workspace-01")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  *             .retentionInDays(30)
  *             .build());
  * 
- *         var exampleLinkedService = new LinkedService("exampleLinkedService", LinkedServiceArgs.builder()        
+ *         var exampleLinkedService = new LinkedService("exampleLinkedService", LinkedServiceArgs.builder()
  *             .resourceGroupName(example.name())
  *             .workspaceId(exampleAnalyticsWorkspace.id())
  *             .readAccessId(exampleAccount.id())

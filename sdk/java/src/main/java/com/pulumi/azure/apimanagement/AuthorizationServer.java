@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName("search-service")
  *             .build());
  * 
- *         var exampleAuthorizationServer = new AuthorizationServer("exampleAuthorizationServer", AuthorizationServerArgs.builder()        
+ *         var exampleAuthorizationServer = new AuthorizationServer("exampleAuthorizationServer", AuthorizationServerArgs.builder()
  *             .name("test-server")
  *             .apiManagementName(example.applyValue(getServiceResult -> getServiceResult.name()))
  *             .resourceGroupName(example.applyValue(getServiceResult -> getServiceResult.resourceGroupName()))

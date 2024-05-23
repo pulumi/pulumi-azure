@@ -57,30 +57,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()        
+ *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .skuName("E0")
  *             .build());
  * 
- *         var exampleSpringCloudApp = new SpringCloudApp("exampleSpringCloudApp", SpringCloudAppArgs.builder()        
+ *         var exampleSpringCloudApp = new SpringCloudApp("exampleSpringCloudApp", SpringCloudAppArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .serviceName(exampleSpringCloudService.name())
  *             .build());
  * 
- *         var exampleSpringCloudGateway = new SpringCloudGateway("exampleSpringCloudGateway", SpringCloudGatewayArgs.builder()        
+ *         var exampleSpringCloudGateway = new SpringCloudGateway("exampleSpringCloudGateway", SpringCloudGatewayArgs.builder()
  *             .name("default")
  *             .springCloudServiceId(exampleSpringCloudService.id())
  *             .build());
  * 
- *         var exampleSpringCloudGatewayRouteConfig = new SpringCloudGatewayRouteConfig("exampleSpringCloudGatewayRouteConfig", SpringCloudGatewayRouteConfigArgs.builder()        
+ *         var exampleSpringCloudGatewayRouteConfig = new SpringCloudGatewayRouteConfig("exampleSpringCloudGatewayRouteConfig", SpringCloudGatewayRouteConfigArgs.builder()
  *             .name("example")
  *             .springCloudGatewayId(exampleSpringCloudGateway.id())
  *             .springCloudAppId(exampleSpringCloudApp.id())

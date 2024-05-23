@@ -55,12 +55,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()
  *             .name("example-publicip")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *             .domainNameLabel("example-pip")
  *             .build());
  * 
- *         var parent = new TrafficManagerProfile("parent", TrafficManagerProfileArgs.builder()        
+ *         var parent = new TrafficManagerProfile("parent", TrafficManagerProfileArgs.builder()
  *             .name("parent-profile")
  *             .resourceGroupName(example.name())
  *             .trafficRoutingMethod("Weighted")
@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("environment", "Production"))
  *             .build());
  * 
- *         var nested = new TrafficManagerProfile("nested", TrafficManagerProfileArgs.builder()        
+ *         var nested = new TrafficManagerProfile("nested", TrafficManagerProfileArgs.builder()
  *             .name("nested-profile")
  *             .resourceGroupName(example.name())
  *             .trafficRoutingMethod("Priority")
@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleTrafficManagerNestedEndpoint = new TrafficManagerNestedEndpoint("exampleTrafficManagerNestedEndpoint", TrafficManagerNestedEndpointArgs.builder()        
+ *         var exampleTrafficManagerNestedEndpoint = new TrafficManagerNestedEndpoint("exampleTrafficManagerNestedEndpoint", TrafficManagerNestedEndpointArgs.builder()
  *             .name("example-endpoint")
  *             .targetResourceId(nested.id())
  *             .priority(1)

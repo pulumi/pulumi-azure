@@ -54,6 +54,13 @@ class ManagedDiskArgs:
         """
         The set of arguments for constructing a ManagedDisk resource.
         :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
+               * `Import` - Import a VHD file in to the managed disk (VHD specified with `source_uri`).
+               * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `source_uri`).
+               * `Empty` - Create an empty managed disk.
+               * `Copy` - Copy an existing managed disk or snapshot (specified with `source_resource_id`).
+               * `FromImage` - Copy a Platform Image (specified with `image_reference_id`)
+               * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `source_resource_id`).
+               * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `upload_size_bytes`).
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_type: The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
                
@@ -195,6 +202,13 @@ class ManagedDiskArgs:
     def create_option(self) -> pulumi.Input[str]:
         """
         The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
+        * `Import` - Import a VHD file in to the managed disk (VHD specified with `source_uri`).
+        * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `source_uri`).
+        * `Empty` - Create an empty managed disk.
+        * `Copy` - Copy an existing managed disk or snapshot (specified with `source_resource_id`).
+        * `FromImage` - Copy a Platform Image (specified with `image_reference_id`)
+        * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `source_resource_id`).
+        * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `upload_size_bytes`).
         """
         return pulumi.get(self, "create_option")
 
@@ -681,6 +695,13 @@ class _ManagedDiskState:
         """
         Input properties used for looking up and filtering ManagedDisk resources.
         :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
+               * `Import` - Import a VHD file in to the managed disk (VHD specified with `source_uri`).
+               * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `source_uri`).
+               * `Empty` - Create an empty managed disk.
+               * `Copy` - Copy an existing managed disk or snapshot (specified with `source_resource_id`).
+               * `FromImage` - Copy a Platform Image (specified with `image_reference_id`)
+               * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `source_resource_id`).
+               * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `upload_size_bytes`).
         :param pulumi.Input[str] disk_access_id: The ID of the disk access resource for using private endpoints on disks.
                
                > **Note:** `disk_access_id` is only supported when `network_access_policy` is set to `AllowPrivate`.
@@ -825,6 +846,13 @@ class _ManagedDiskState:
     def create_option(self) -> Optional[pulumi.Input[str]]:
         """
         The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
+        * `Import` - Import a VHD file in to the managed disk (VHD specified with `source_uri`).
+        * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `source_uri`).
+        * `Empty` - Create an empty managed disk.
+        * `Copy` - Copy an existing managed disk or snapshot (specified with `source_resource_id`).
+        * `FromImage` - Copy a Platform Image (specified with `image_reference_id`)
+        * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `source_resource_id`).
+        * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `upload_size_bytes`).
         """
         return pulumi.get(self, "create_option")
 
@@ -1380,6 +1408,13 @@ class ManagedDisk(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
+               * `Import` - Import a VHD file in to the managed disk (VHD specified with `source_uri`).
+               * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `source_uri`).
+               * `Empty` - Create an empty managed disk.
+               * `Copy` - Copy an existing managed disk or snapshot (specified with `source_resource_id`).
+               * `FromImage` - Copy a Platform Image (specified with `image_reference_id`)
+               * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `source_resource_id`).
+               * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `upload_size_bytes`).
         :param pulumi.Input[str] disk_access_id: The ID of the disk access resource for using private endpoints on disks.
                
                > **Note:** `disk_access_id` is only supported when `network_access_policy` is set to `AllowPrivate`.
@@ -1673,6 +1708,13 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
+               * `Import` - Import a VHD file in to the managed disk (VHD specified with `source_uri`).
+               * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `source_uri`).
+               * `Empty` - Create an empty managed disk.
+               * `Copy` - Copy an existing managed disk or snapshot (specified with `source_resource_id`).
+               * `FromImage` - Copy a Platform Image (specified with `image_reference_id`)
+               * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `source_resource_id`).
+               * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `upload_size_bytes`).
         :param pulumi.Input[str] disk_access_id: The ID of the disk access resource for using private endpoints on disks.
                
                > **Note:** `disk_access_id` is only supported when `network_access_policy` is set to `AllowPrivate`.
@@ -1787,6 +1829,13 @@ class ManagedDisk(pulumi.CustomResource):
     def create_option(self) -> pulumi.Output[str]:
         """
         The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
+        * `Import` - Import a VHD file in to the managed disk (VHD specified with `source_uri`).
+        * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `source_uri`).
+        * `Empty` - Create an empty managed disk.
+        * `Copy` - Copy an existing managed disk or snapshot (specified with `source_resource_id`).
+        * `FromImage` - Copy a Platform Image (specified with `image_reference_id`)
+        * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `source_resource_id`).
+        * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `upload_size_bytes`).
         """
         return pulumi.get(self, "create_option")
 

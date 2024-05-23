@@ -56,12 +56,12 @@ import javax.annotation.Nullable;
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleHciCluster = new HciCluster("exampleHciCluster", HciClusterArgs.builder()        
+ *         var exampleHciCluster = new HciCluster("exampleHciCluster", HciClusterArgs.builder()
  *             .name("example-cluster")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())

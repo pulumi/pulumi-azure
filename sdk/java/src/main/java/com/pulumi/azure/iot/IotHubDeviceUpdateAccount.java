@@ -48,12 +48,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("East US")
  *             .build());
  * 
- *         var exampleIotHubDeviceUpdateAccount = new IotHubDeviceUpdateAccount("exampleIotHubDeviceUpdateAccount", IotHubDeviceUpdateAccountArgs.builder()        
+ *         var exampleIotHubDeviceUpdateAccount = new IotHubDeviceUpdateAccount("exampleIotHubDeviceUpdateAccount", IotHubDeviceUpdateAccountArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())

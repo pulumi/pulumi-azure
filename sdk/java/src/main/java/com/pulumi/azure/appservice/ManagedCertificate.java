@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()        
+ *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()
  *             .name("example-plan")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
@@ -86,14 +86,14 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleAppService = new AppService("exampleAppService", AppServiceArgs.builder()        
+ *         var exampleAppService = new AppService("exampleAppService", AppServiceArgs.builder()
  *             .name("example-app")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .appServicePlanId(examplePlan.id())
  *             .build());
  * 
- *         var exampleTxtRecord = new TxtRecord("exampleTxtRecord", TxtRecordArgs.builder()        
+ *         var exampleTxtRecord = new TxtRecord("exampleTxtRecord", TxtRecordArgs.builder()
  *             .name("asuid.mycustomhost.contoso.com")
  *             .zoneName(example.applyValue(getZoneResult -> getZoneResult).applyValue(example -> example.applyValue(getZoneResult -> getZoneResult.name())))
  *             .resourceGroupName(example.applyValue(getZoneResult -> getZoneResult).applyValue(example -> example.applyValue(getZoneResult -> getZoneResult.resourceGroupName())))
@@ -103,7 +103,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleCNameRecord = new CNameRecord("exampleCNameRecord", CNameRecordArgs.builder()        
+ *         var exampleCNameRecord = new CNameRecord("exampleCNameRecord", CNameRecordArgs.builder()
  *             .name("example-adcr")
  *             .zoneName(example.applyValue(getZoneResult -> getZoneResult).applyValue(example -> example.applyValue(getZoneResult -> getZoneResult.name())))
  *             .resourceGroupName(example.applyValue(getZoneResult -> getZoneResult).applyValue(example -> example.applyValue(getZoneResult -> getZoneResult.resourceGroupName())))
@@ -111,17 +111,17 @@ import javax.annotation.Nullable;
  *             .record(exampleAppService.defaultSiteHostname())
  *             .build());
  * 
- *         var exampleCustomHostnameBinding = new CustomHostnameBinding("exampleCustomHostnameBinding", CustomHostnameBindingArgs.builder()        
+ *         var exampleCustomHostnameBinding = new CustomHostnameBinding("exampleCustomHostnameBinding", CustomHostnameBindingArgs.builder()
  *             .hostname(StdFunctions.join().applyValue(invoke -> invoke.result()))
  *             .appServiceName(exampleAppService.name())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleManagedCertificate = new ManagedCertificate("exampleManagedCertificate", ManagedCertificateArgs.builder()        
+ *         var exampleManagedCertificate = new ManagedCertificate("exampleManagedCertificate", ManagedCertificateArgs.builder()
  *             .customHostnameBindingId(exampleCustomHostnameBinding.id())
  *             .build());
  * 
- *         var exampleCertificateBinding = new CertificateBinding("exampleCertificateBinding", CertificateBindingArgs.builder()        
+ *         var exampleCertificateBinding = new CertificateBinding("exampleCertificateBinding", CertificateBindingArgs.builder()
  *             .hostnameBindingId(exampleCustomHostnameBinding.id())
  *             .certificateId(exampleManagedCertificate.id())
  *             .sslState("SniEnabled")

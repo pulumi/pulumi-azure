@@ -51,12 +51,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()
  *             .name("example-apim")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -65,16 +65,16 @@ import javax.annotation.Nullable;
  *             .skuName("Developer_1")
  *             .build());
  * 
- *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()        
+ *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()
  *             .displayName("acctestam-example")
  *             .build());
  * 
- *         var exampleApplicationPassword = new ApplicationPassword("exampleApplicationPassword", ApplicationPasswordArgs.builder()        
+ *         var exampleApplicationPassword = new ApplicationPassword("exampleApplicationPassword", ApplicationPasswordArgs.builder()
  *             .applicationObjectId(exampleApplication.objectId())
  *             .endDateRelative("36h")
  *             .build());
  * 
- *         var exampleIdentityProviderAadb2c = new IdentityProviderAadb2c("exampleIdentityProviderAadb2c", IdentityProviderAadb2cArgs.builder()        
+ *         var exampleIdentityProviderAadb2c = new IdentityProviderAadb2c("exampleIdentityProviderAadb2c", IdentityProviderAadb2cArgs.builder()
  *             .resourceGroupName(example.name())
  *             .apiManagementName(exampleService.name())
  *             .clientId(exampleApplication.applicationId())

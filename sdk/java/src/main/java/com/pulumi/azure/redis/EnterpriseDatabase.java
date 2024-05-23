@@ -49,26 +49,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-redisenterprise")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleEnterpriseCluster = new EnterpriseCluster("exampleEnterpriseCluster", EnterpriseClusterArgs.builder()        
+ *         var exampleEnterpriseCluster = new EnterpriseCluster("exampleEnterpriseCluster", EnterpriseClusterArgs.builder()
  *             .name("example-redisenterprise")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .skuName("Enterprise_E20-4")
  *             .build());
  * 
- *         var example1 = new EnterpriseCluster("example1", EnterpriseClusterArgs.builder()        
+ *         var example1 = new EnterpriseCluster("example1", EnterpriseClusterArgs.builder()
  *             .name("example-redisenterprise1")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .skuName("Enterprise_E20-4")
  *             .build());
  * 
- *         var exampleEnterpriseDatabase = new EnterpriseDatabase("exampleEnterpriseDatabase", EnterpriseDatabaseArgs.builder()        
+ *         var exampleEnterpriseDatabase = new EnterpriseDatabase("exampleEnterpriseDatabase", EnterpriseDatabaseArgs.builder()
  *             .name("default")
  *             .resourceGroupName(example.name())
  *             .clusterId(exampleEnterpriseCluster.id())

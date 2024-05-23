@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Directory("example", DirectoryArgs.builder()        
+ *         var example = new Directory("example", DirectoryArgs.builder()
  *             .countryCode("US")
  *             .dataResidencyLocation("United States")
  *             .displayName("example-b2c-tenant")

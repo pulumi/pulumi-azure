@@ -48,21 +48,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("resourceGroup-example")
  *             .location("West Europe")
  *             .build());
  * 
  *         final var example = CoreFunctions.getClientConfig();
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("account-example")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .skuName("Basic")
  *             .build());
  * 
- *         var exampleConnection = new Connection("exampleConnection", ConnectionArgs.builder()        
+ *         var exampleConnection = new Connection("exampleConnection", ConnectionArgs.builder()
  *             .name("connection-example")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .automationAccountName(exampleAccount.name())
@@ -165,12 +165,24 @@ public class Connection extends com.pulumi.resources.CustomResource {
     /**
      * A mapping of key value pairs passed to the connection. Different `type` needs different parameters in the `values`. Builtin types have required field values as below:
      * 
+     * * `Azure`: parameters `AutomationCertificateName` and `SubscriptionID`.
+     * 
+     * * `AzureClassicCertificate`: parameters `SubscriptionName`, `SubscriptionId` and `CertificateAssetName`.
+     * 
+     * * `AzureServicePrincipal`: parameters `ApplicationId`, `CertificateThumbprint`, `SubscriptionId` and `TenantId`.
+     * 
      */
     @Export(name="values", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> values;
 
     /**
      * @return A mapping of key value pairs passed to the connection. Different `type` needs different parameters in the `values`. Builtin types have required field values as below:
+     * 
+     * * `Azure`: parameters `AutomationCertificateName` and `SubscriptionID`.
+     * 
+     * * `AzureClassicCertificate`: parameters `SubscriptionName`, `SubscriptionId` and `CertificateAssetName`.
+     * 
+     * * `AzureServicePrincipal`: parameters `ApplicationId`, `CertificateThumbprint`, `SubscriptionId` and `TenantId`.
      * 
      */
     public Output<Map<String,String>> values() {

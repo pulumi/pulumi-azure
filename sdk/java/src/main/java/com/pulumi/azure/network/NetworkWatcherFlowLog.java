@@ -61,24 +61,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var test = new NetworkSecurityGroup("test", NetworkSecurityGroupArgs.builder()        
+ *         var test = new NetworkSecurityGroup("test", NetworkSecurityGroupArgs.builder()
  *             .name("acctestnsg")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var testNetworkWatcher = new NetworkWatcher("testNetworkWatcher", NetworkWatcherArgs.builder()        
+ *         var testNetworkWatcher = new NetworkWatcher("testNetworkWatcher", NetworkWatcherArgs.builder()
  *             .name("acctestnw")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var testAccount = new Account("testAccount", AccountArgs.builder()        
+ *         var testAccount = new Account("testAccount", AccountArgs.builder()
  *             .name("acctestsa")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -88,14 +88,14 @@ import javax.annotation.Nullable;
  *             .enableHttpsTrafficOnly(true)
  *             .build());
  * 
- *         var testAnalyticsWorkspace = new AnalyticsWorkspace("testAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()        
+ *         var testAnalyticsWorkspace = new AnalyticsWorkspace("testAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()
  *             .name("acctestlaw")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("PerGB2018")
  *             .build());
  * 
- *         var testNetworkWatcherFlowLog = new NetworkWatcherFlowLog("testNetworkWatcherFlowLog", NetworkWatcherFlowLogArgs.builder()        
+ *         var testNetworkWatcherFlowLog = new NetworkWatcherFlowLog("testNetworkWatcherFlowLog", NetworkWatcherFlowLogArgs.builder()
  *             .networkWatcherName(testNetworkWatcher.name())
  *             .resourceGroupName(example.name())
  *             .name("example-log")
