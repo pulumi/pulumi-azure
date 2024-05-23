@@ -57,20 +57,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()        
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()
  *             .name("anf-user-assigned-identity")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("anfcmkakv")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -103,7 +103,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
  *             .name("anfencryptionkey")
  *             .keyVaultId(exampleKeyVault.id())
  *             .keyType("RSA")
@@ -117,7 +117,7 @@ import javax.annotation.Nullable;
  *                 "wrapKey")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("netappaccount")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -127,7 +127,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleAccountEncryption = new AccountEncryption("exampleAccountEncryption", AccountEncryptionArgs.builder()        
+ *         var exampleAccountEncryption = new AccountEncryption("exampleAccountEncryption", AccountEncryptionArgs.builder()
  *             .netappAccountId(exampleAccount.id())
  *             .userAssignedIdentityId(exampleUserAssignedIdentity.id())
  *             .encryptionKey(exampleKey.versionlessId())

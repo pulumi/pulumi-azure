@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getSubscription();
  * 
- *         var example = new Definition("example", DefinitionArgs.builder()        
+ *         var example = new Definition("example", DefinitionArgs.builder()
  *             .name("only-deploy-in-westeurope")
  *             .policyType("Custom")
  *             .mode("All")
@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  *             """)
  *             .build());
  * 
- *         var exampleSubscriptionPolicyAssignment = new SubscriptionPolicyAssignment("exampleSubscriptionPolicyAssignment", SubscriptionPolicyAssignmentArgs.builder()        
+ *         var exampleSubscriptionPolicyAssignment = new SubscriptionPolicyAssignment("exampleSubscriptionPolicyAssignment", SubscriptionPolicyAssignmentArgs.builder()
  *             .name("example")
  *             .policyDefinitionId(example.id())
  *             .subscriptionId(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))

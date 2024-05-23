@@ -49,17 +49,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var test = new Zone("test", ZoneArgs.builder()        
+ *         var test = new Zone("test", ZoneArgs.builder()
  *             .name("mydomain.com")
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var testAAAARecord = new AAAARecord("testAAAARecord", AAAARecordArgs.builder()        
+ *         var testAAAARecord = new AAAARecord("testAAAARecord", AAAARecordArgs.builder()
  *             .name("test")
  *             .zoneName(test.name())
  *             .resourceGroupName(example.name())

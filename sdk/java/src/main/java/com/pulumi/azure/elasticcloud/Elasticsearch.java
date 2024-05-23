@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new ResourceGroup("test", ResourceGroupArgs.builder()        
+ *         var test = new ResourceGroup("test", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var testElasticsearch = new Elasticsearch("testElasticsearch", ElasticsearchArgs.builder()        
+ *         var testElasticsearch = new Elasticsearch("testElasticsearch", ElasticsearchArgs.builder()
  *             .name("example-elasticsearch")
  *             .resourceGroupName(test.name())
  *             .location(test.location())

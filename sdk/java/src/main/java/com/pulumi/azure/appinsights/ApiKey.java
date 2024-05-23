@@ -47,19 +47,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("tf-test")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()        
+ *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()
  *             .name("tf-test-appinsights")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .applicationType("web")
  *             .build());
  * 
- *         var readTelemetry = new ApiKey("readTelemetry", ApiKeyArgs.builder()        
+ *         var readTelemetry = new ApiKey("readTelemetry", ApiKeyArgs.builder()
  *             .name("tf-test-appinsights-read-telemetry-api-key")
  *             .applicationInsightsId(exampleInsights.id())
  *             .readPermissions(            
@@ -70,19 +70,19 @@ import javax.annotation.Nullable;
  *                 "search")
  *             .build());
  * 
- *         var writeAnnotations = new ApiKey("writeAnnotations", ApiKeyArgs.builder()        
+ *         var writeAnnotations = new ApiKey("writeAnnotations", ApiKeyArgs.builder()
  *             .name("tf-test-appinsights-write-annotations-api-key")
  *             .applicationInsightsId(exampleInsights.id())
  *             .writePermissions("annotations")
  *             .build());
  * 
- *         var authenticateSdkControlChannel = new ApiKey("authenticateSdkControlChannel", ApiKeyArgs.builder()        
+ *         var authenticateSdkControlChannel = new ApiKey("authenticateSdkControlChannel", ApiKeyArgs.builder()
  *             .name("tf-test-appinsights-authenticate-sdk-control-channel-api-key")
  *             .applicationInsightsId(exampleInsights.id())
  *             .readPermissions("agentconfig")
  *             .build());
  * 
- *         var fullPermissions = new ApiKey("fullPermissions", ApiKeyArgs.builder()        
+ *         var fullPermissions = new ApiKey("fullPermissions", ApiKeyArgs.builder()
  *             .name("tf-test-appinsights-full-permissions-api-key")
  *             .applicationInsightsId(exampleInsights.id())
  *             .readPermissions(            

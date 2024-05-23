@@ -81,26 +81,26 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
  *         final var prefix = config.get("prefix").orElse("tfvmex");
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name(String.format("%s-resources", prefix))
  *             .location("West Europe")
  *             .build());
  * 
- *         var main = new VirtualNetwork("main", VirtualNetworkArgs.builder()        
+ *         var main = new VirtualNetwork("main", VirtualNetworkArgs.builder()
  *             .name(String.format("%s-network", prefix))
  *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var internal = new Subnet("internal", SubnetArgs.builder()        
+ *         var internal = new Subnet("internal", SubnetArgs.builder()
  *             .name("internal")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(main.name())
  *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
- *         var mainNetworkInterface = new NetworkInterface("mainNetworkInterface", NetworkInterfaceArgs.builder()        
+ *         var mainNetworkInterface = new NetworkInterface("mainNetworkInterface", NetworkInterfaceArgs.builder()
  *             .name(String.format("%s-nic", prefix))
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -111,7 +111,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var mainVirtualMachine = new VirtualMachine("mainVirtualMachine", VirtualMachineArgs.builder()        
+ *         var mainVirtualMachine = new VirtualMachine("mainVirtualMachine", VirtualMachineArgs.builder()
  *             .name(String.format("%s-vm", prefix))
  *             .location(example.location())
  *             .resourceGroupName(example.name())

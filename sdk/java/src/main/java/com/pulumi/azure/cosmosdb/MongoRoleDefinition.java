@@ -53,12 +53,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("example-ca")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -80,13 +80,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleMongoDatabase = new MongoDatabase("exampleMongoDatabase", MongoDatabaseArgs.builder()        
+ *         var exampleMongoDatabase = new MongoDatabase("exampleMongoDatabase", MongoDatabaseArgs.builder()
  *             .name("example-mongodb")
  *             .resourceGroupName(exampleAccount.resourceGroupName())
  *             .accountName(exampleAccount.name())
  *             .build());
  * 
- *         var exampleMongoRoleDefinition = new MongoRoleDefinition("exampleMongoRoleDefinition", MongoRoleDefinitionArgs.builder()        
+ *         var exampleMongoRoleDefinition = new MongoRoleDefinition("exampleMongoRoleDefinition", MongoRoleDefinitionArgs.builder()
  *             .cosmosMongoDatabaseId(exampleMongoDatabase.id())
  *             .roleName("example-roledefinition")
  *             .build());

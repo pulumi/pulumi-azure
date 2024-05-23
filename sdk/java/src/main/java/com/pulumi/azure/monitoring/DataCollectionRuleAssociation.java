@@ -62,26 +62,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("virtualnetwork")
  *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("subnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
- *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()        
+ *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()
  *             .name("nic")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine("exampleLinuxVirtualMachine", LinuxVirtualMachineArgs.builder()        
+ *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine("exampleLinuxVirtualMachine", LinuxVirtualMachineArgs.builder()
  *             .name("machine")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -113,7 +113,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleDataCollectionRule = new DataCollectionRule("exampleDataCollectionRule", DataCollectionRuleArgs.builder()        
+ *         var exampleDataCollectionRule = new DataCollectionRule("exampleDataCollectionRule", DataCollectionRuleArgs.builder()
  *             .name("example-dcr")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -128,14 +128,14 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleDataCollectionEndpoint = new DataCollectionEndpoint("exampleDataCollectionEndpoint", DataCollectionEndpointArgs.builder()        
+ *         var exampleDataCollectionEndpoint = new DataCollectionEndpoint("exampleDataCollectionEndpoint", DataCollectionEndpointArgs.builder()
  *             .name("example-dce")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
  *         // associate to a Data Collection Rule
- *         var example1 = new DataCollectionRuleAssociation("example1", DataCollectionRuleAssociationArgs.builder()        
+ *         var example1 = new DataCollectionRuleAssociation("example1", DataCollectionRuleAssociationArgs.builder()
  *             .name("example1-dcra")
  *             .targetResourceId(exampleLinuxVirtualMachine.id())
  *             .dataCollectionRuleId(exampleDataCollectionRule.id())
@@ -143,7 +143,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // associate to a Data Collection Endpoint
- *         var example2 = new DataCollectionRuleAssociation("example2", DataCollectionRuleAssociationArgs.builder()        
+ *         var example2 = new DataCollectionRuleAssociation("example2", DataCollectionRuleAssociationArgs.builder()
  *             .targetResourceId(exampleLinuxVirtualMachine.id())
  *             .dataCollectionEndpointId(exampleDataCollectionEndpoint.id())
  *             .description("example")

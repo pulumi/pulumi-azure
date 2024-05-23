@@ -49,33 +49,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("peeredvnets-rg")
  *             .location("West Europe")
  *             .build());
  * 
- *         var example_1 = new VirtualNetwork("example-1", VirtualNetworkArgs.builder()        
+ *         var example_1 = new VirtualNetwork("example-1", VirtualNetworkArgs.builder()
  *             .name("peternetwork1")
  *             .resourceGroupName(example.name())
  *             .addressSpaces("10.0.1.0/24")
  *             .location(example.location())
  *             .build());
  * 
- *         var example_2 = new VirtualNetwork("example-2", VirtualNetworkArgs.builder()        
+ *         var example_2 = new VirtualNetwork("example-2", VirtualNetworkArgs.builder()
  *             .name("peternetwork2")
  *             .resourceGroupName(example.name())
  *             .addressSpaces("10.0.2.0/24")
  *             .location(example.location())
  *             .build());
  * 
- *         var example_1VirtualNetworkPeering = new VirtualNetworkPeering("example-1VirtualNetworkPeering", VirtualNetworkPeeringArgs.builder()        
+ *         var example_1VirtualNetworkPeering = new VirtualNetworkPeering("example-1VirtualNetworkPeering", VirtualNetworkPeeringArgs.builder()
  *             .name("peer1to2")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(example_1.name())
  *             .remoteVirtualNetworkId(example_2.id())
  *             .build());
  * 
- *         var example_2VirtualNetworkPeering = new VirtualNetworkPeering("example-2VirtualNetworkPeering", VirtualNetworkPeeringArgs.builder()        
+ *         var example_2VirtualNetworkPeering = new VirtualNetworkPeering("example-2VirtualNetworkPeering", VirtualNetworkPeeringArgs.builder()
  *             .name("peer2to1")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(example_2.name())
@@ -117,26 +117,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("peeredvnets-rg")
  *             .location("West Europe")
  *             .build());
  * 
- *         var example_1 = new VirtualNetwork("example-1", VirtualNetworkArgs.builder()        
+ *         var example_1 = new VirtualNetwork("example-1", VirtualNetworkArgs.builder()
  *             .name("peternetwork1")
  *             .resourceGroupName(example.name())
  *             .addressSpaces("10.0.1.0/24")
  *             .location(example.location())
  *             .build());
  * 
- *         var example_2 = new VirtualNetwork("example-2", VirtualNetworkArgs.builder()        
+ *         var example_2 = new VirtualNetwork("example-2", VirtualNetworkArgs.builder()
  *             .name("peternetwork2")
  *             .resourceGroupName(example.name())
  *             .addressSpaces("10.0.2.0/24")
  *             .location(example.location())
  *             .build());
  * 
- *         var example_1VirtualNetworkPeering = new VirtualNetworkPeering("example-1VirtualNetworkPeering", VirtualNetworkPeeringArgs.builder()        
+ *         var example_1VirtualNetworkPeering = new VirtualNetworkPeering("example-1VirtualNetworkPeering", VirtualNetworkPeeringArgs.builder()
  *             .name("peer1to2")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(example_1.name())
@@ -144,7 +144,7 @@ import javax.annotation.Nullable;
  *             .triggers(Map.of("remote_address_space", StdFunctions.join().applyValue(invoke -> invoke.result())))
  *             .build());
  * 
- *         var example_2VirtualNetworkPeering = new VirtualNetworkPeering("example-2VirtualNetworkPeering", VirtualNetworkPeeringArgs.builder()        
+ *         var example_2VirtualNetworkPeering = new VirtualNetworkPeering("example-2VirtualNetworkPeering", VirtualNetworkPeeringArgs.builder()
  *             .name("peer2to1")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(example_2.name())

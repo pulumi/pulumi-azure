@@ -49,12 +49,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("analysis-services-server-test")
  *             .location("West Europe")
  *             .build());
  * 
- *         var server = new Server("server", ServerArgs.builder()        
+ *         var server = new Server("server", ServerArgs.builder()
  *             .name("analysisservicesserver")
  *             .location(example.location())
  *             .resourceGroupName(example.name())

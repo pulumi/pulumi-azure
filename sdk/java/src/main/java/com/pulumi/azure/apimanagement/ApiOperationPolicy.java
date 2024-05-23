@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()
  *             .name("example-apim")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -64,14 +64,14 @@ import javax.annotation.Nullable;
  *             .skuName("Developer_1")
  *             .build());
  * 
- *         var exampleApi = new Api("exampleApi", ApiArgs.builder()        
+ *         var exampleApi = new Api("exampleApi", ApiArgs.builder()
  *             .name("example-api")
  *             .resourceGroupName(example.name())
  *             .apiManagementName(exampleService.name())
  *             .revision("1")
  *             .build());
  * 
- *         var exampleApiOperation = new ApiOperation("exampleApiOperation", ApiOperationArgs.builder()        
+ *         var exampleApiOperation = new ApiOperation("exampleApiOperation", ApiOperationArgs.builder()
  *             .operationId("acctest-operation")
  *             .apiName(exampleApi.name())
  *             .apiManagementName(exampleService.name())
@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  *             .urlTemplate("/resource")
  *             .build());
  * 
- *         var exampleApiOperationPolicy = new ApiOperationPolicy("exampleApiOperationPolicy", ApiOperationPolicyArgs.builder()        
+ *         var exampleApiOperationPolicy = new ApiOperationPolicy("exampleApiOperationPolicy", ApiOperationPolicyArgs.builder()
  *             .apiName(exampleApiOperation.apiName())
  *             .apiManagementName(exampleApiOperation.apiManagementName())
  *             .resourceGroupName(exampleApiOperation.resourceGroupName())

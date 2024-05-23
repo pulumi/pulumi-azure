@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AssessmentPolicy("example", AssessmentPolicyArgs.builder()        
+ *         var example = new AssessmentPolicy("example", AssessmentPolicyArgs.builder()
  *             .displayName("Test Display Name")
  *             .severity("Medium")
  *             .description("Test Description")

@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new JobSchedule("example", JobScheduleArgs.builder()        
+ *         var example = new JobSchedule("example", JobScheduleArgs.builder()
  *             .resourceGroupName("tf-rgr-automation")
  *             .automationAccountName("tf-automation-account")
  *             .scheduleName("hour")

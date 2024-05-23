@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("exampleRG")
  *             .location("West Europe")
  *             .build());
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *             .roleDefinitionId("fbdf93bf-df7d-467e-a4d2-9458aa1360c8")
  *             .build());
  * 
- *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()        
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
  *             .name("examplekc")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
@@ -93,13 +93,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()        
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
  *             .scope(exampleResourceGroup.id())
  *             .roleDefinitionName(builtin.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.name()))
  *             .principalId(exampleCluster.identity().applyValue(identity -> identity.principalId()))
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("example-ca")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
@@ -116,13 +116,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleSqlDatabase = new SqlDatabase("exampleSqlDatabase", SqlDatabaseArgs.builder()        
+ *         var exampleSqlDatabase = new SqlDatabase("exampleSqlDatabase", SqlDatabaseArgs.builder()
  *             .name("examplecosmosdbsqldb")
  *             .resourceGroupName(exampleAccount.resourceGroupName())
  *             .accountName(exampleAccount.name())
  *             .build());
  * 
- *         var exampleSqlContainer = new SqlContainer("exampleSqlContainer", SqlContainerArgs.builder()        
+ *         var exampleSqlContainer = new SqlContainer("exampleSqlContainer", SqlContainerArgs.builder()
  *             .name("examplecosmosdbsqlcon")
  *             .resourceGroupName(exampleAccount.resourceGroupName())
  *             .accountName(exampleAccount.name())
@@ -137,7 +137,7 @@ import javax.annotation.Nullable;
  *             .accountName(exampleAccount.name())
  *             .build());
  * 
- *         var exampleSqlRoleAssignment = new SqlRoleAssignment("exampleSqlRoleAssignment", SqlRoleAssignmentArgs.builder()        
+ *         var exampleSqlRoleAssignment = new SqlRoleAssignment("exampleSqlRoleAssignment", SqlRoleAssignmentArgs.builder()
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .accountName(exampleAccount.name())
  *             .roleDefinitionId(example.applyValue(getSqlRoleDefinitionResult -> getSqlRoleDefinitionResult).applyValue(example -> example.applyValue(getSqlRoleDefinitionResult -> getSqlRoleDefinitionResult.id())))
@@ -145,14 +145,14 @@ import javax.annotation.Nullable;
  *             .scope(exampleAccount.id())
  *             .build());
  * 
- *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()        
+ *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()
  *             .name("examplekd")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .clusterName(exampleCluster.name())
  *             .build());
  * 
- *         var exampleScript = new Script("exampleScript", ScriptArgs.builder()        
+ *         var exampleScript = new Script("exampleScript", ScriptArgs.builder()
  *             .name("create-table-script")
  *             .databaseId(exampleDatabase.id())
  *             .scriptContent("""
@@ -168,7 +168,7 @@ import javax.annotation.Nullable;
  *             """)
  *             .build());
  * 
- *         var exampleCosmosdbDataConnection = new CosmosdbDataConnection("exampleCosmosdbDataConnection", CosmosdbDataConnectionArgs.builder()        
+ *         var exampleCosmosdbDataConnection = new CosmosdbDataConnection("exampleCosmosdbDataConnection", CosmosdbDataConnectionArgs.builder()
  *             .name("examplekcdcd")
  *             .location(exampleResourceGroup.location())
  *             .cosmosdbContainerId(exampleSqlContainer.id())

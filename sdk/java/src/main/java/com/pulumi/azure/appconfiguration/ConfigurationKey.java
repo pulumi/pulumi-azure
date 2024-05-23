@@ -55,12 +55,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var appconf = new ConfigurationStore("appconf", ConfigurationStoreArgs.builder()        
+ *         var appconf = new ConfigurationStore("appconf", ConfigurationStoreArgs.builder()
  *             .name("appConf1")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -68,13 +68,13 @@ import javax.annotation.Nullable;
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var appconfDataowner = new Assignment("appconfDataowner", AssignmentArgs.builder()        
+ *         var appconfDataowner = new Assignment("appconfDataowner", AssignmentArgs.builder()
  *             .scope(appconf.id())
  *             .roleDefinitionName("App Configuration Data Owner")
  *             .principalId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *             .build());
  * 
- *         var test = new ConfigurationKey("test", ConfigurationKeyArgs.builder()        
+ *         var test = new ConfigurationKey("test", ConfigurationKeyArgs.builder()
  *             .configurationStoreId(appconf.id())
  *             .key("appConfKey1")
  *             .label("somelabel")
@@ -124,12 +124,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var appconf = new ConfigurationStore("appconf", ConfigurationStoreArgs.builder()        
+ *         var appconf = new ConfigurationStore("appconf", ConfigurationStoreArgs.builder()
  *             .name("appConf1")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -137,7 +137,7 @@ import javax.annotation.Nullable;
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var kv = new KeyVault("kv", KeyVaultArgs.builder()        
+ *         var kv = new KeyVault("kv", KeyVaultArgs.builder()
  *             .name("kv")
  *             .location(testAzurermResourceGroup.location())
  *             .resourceGroupName(testAzurermResourceGroup.name())
@@ -159,19 +159,19 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var kvs = new Secret("kvs", SecretArgs.builder()        
+ *         var kvs = new Secret("kvs", SecretArgs.builder()
  *             .name("kvs")
  *             .value("szechuan")
  *             .keyVaultId(kv.id())
  *             .build());
  * 
- *         var appconfDataowner = new Assignment("appconfDataowner", AssignmentArgs.builder()        
+ *         var appconfDataowner = new Assignment("appconfDataowner", AssignmentArgs.builder()
  *             .scope(appconf.id())
  *             .roleDefinitionName("App Configuration Data Owner")
  *             .principalId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
  *             .build());
  * 
- *         var test = new ConfigurationKey("test", ConfigurationKeyArgs.builder()        
+ *         var test = new ConfigurationKey("test", ConfigurationKeyArgs.builder()
  *             .configurationStoreId(testAzurermAppConfiguration.id())
  *             .key("key1")
  *             .type("vault")

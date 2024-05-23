@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.applyValue(getResourceGroupResult -> getResourceGroupResult.name()))
  *             .build());
  * 
- *         var exampleFunctionJavaScriptUDF = new FunctionJavaScriptUDF("exampleFunctionJavaScriptUDF", FunctionJavaScriptUDFArgs.builder()        
+ *         var exampleFunctionJavaScriptUDF = new FunctionJavaScriptUDF("exampleFunctionJavaScriptUDF", FunctionJavaScriptUDFArgs.builder()
  *             .name("example-javascript-function")
  *             .streamAnalyticsJobName(exampleGetJob.applyValue(getJobResult -> getJobResult.name()))
  *             .resourceGroupName(exampleGetJob.applyValue(getJobResult -> getJobResult.resourceGroupName()))

@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PrivateLinkHub("example", PrivateLinkHubArgs.builder()        
+ *         var example = new PrivateLinkHub("example", PrivateLinkHubArgs.builder()
  *             .name("example")
  *             .resourceGroupName("example-rg")
  *             .location("West Europe")
