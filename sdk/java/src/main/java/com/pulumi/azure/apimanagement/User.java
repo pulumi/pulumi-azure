@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()
  *             .name("example-apim")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *             .skuName("Developer_1")
  *             .build());
  * 
- *         var exampleUser = new User("exampleUser", UserArgs.builder()        
+ *         var exampleUser = new User("exampleUser", UserArgs.builder()
  *             .userId("5931a75ae4bbd512288c680b")
  *             .apiManagementName(exampleService.name())
  *             .resourceGroupName(example.name())

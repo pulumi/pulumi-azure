@@ -91,6 +91,12 @@ type Connection struct {
 	// The type of the Connection - can be either builtin type such as `Azure`, `AzureClassicCertificate`, and `AzureServicePrincipal`, or a user defined types. Changing this forces a new resource to be created.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// A mapping of key value pairs passed to the connection. Different `type` needs different parameters in the `values`. Builtin types have required field values as below:
+	//
+	// * `Azure`: parameters `AutomationCertificateName` and `SubscriptionID`.
+	//
+	// * `AzureClassicCertificate`: parameters `SubscriptionName`, `SubscriptionId` and `CertificateAssetName`.
+	//
+	// * `AzureServicePrincipal`: parameters `ApplicationId`, `CertificateThumbprint`, `SubscriptionId` and `TenantId`.
 	Values pulumi.StringMapOutput `pulumi:"values"`
 }
 
@@ -147,6 +153,12 @@ type connectionState struct {
 	// The type of the Connection - can be either builtin type such as `Azure`, `AzureClassicCertificate`, and `AzureServicePrincipal`, or a user defined types. Changing this forces a new resource to be created.
 	Type *string `pulumi:"type"`
 	// A mapping of key value pairs passed to the connection. Different `type` needs different parameters in the `values`. Builtin types have required field values as below:
+	//
+	// * `Azure`: parameters `AutomationCertificateName` and `SubscriptionID`.
+	//
+	// * `AzureClassicCertificate`: parameters `SubscriptionName`, `SubscriptionId` and `CertificateAssetName`.
+	//
+	// * `AzureServicePrincipal`: parameters `ApplicationId`, `CertificateThumbprint`, `SubscriptionId` and `TenantId`.
 	Values map[string]string `pulumi:"values"`
 }
 
@@ -162,6 +174,12 @@ type ConnectionState struct {
 	// The type of the Connection - can be either builtin type such as `Azure`, `AzureClassicCertificate`, and `AzureServicePrincipal`, or a user defined types. Changing this forces a new resource to be created.
 	Type pulumi.StringPtrInput
 	// A mapping of key value pairs passed to the connection. Different `type` needs different parameters in the `values`. Builtin types have required field values as below:
+	//
+	// * `Azure`: parameters `AutomationCertificateName` and `SubscriptionID`.
+	//
+	// * `AzureClassicCertificate`: parameters `SubscriptionName`, `SubscriptionId` and `CertificateAssetName`.
+	//
+	// * `AzureServicePrincipal`: parameters `ApplicationId`, `CertificateThumbprint`, `SubscriptionId` and `TenantId`.
 	Values pulumi.StringMapInput
 }
 
@@ -181,6 +199,12 @@ type connectionArgs struct {
 	// The type of the Connection - can be either builtin type such as `Azure`, `AzureClassicCertificate`, and `AzureServicePrincipal`, or a user defined types. Changing this forces a new resource to be created.
 	Type string `pulumi:"type"`
 	// A mapping of key value pairs passed to the connection. Different `type` needs different parameters in the `values`. Builtin types have required field values as below:
+	//
+	// * `Azure`: parameters `AutomationCertificateName` and `SubscriptionID`.
+	//
+	// * `AzureClassicCertificate`: parameters `SubscriptionName`, `SubscriptionId` and `CertificateAssetName`.
+	//
+	// * `AzureServicePrincipal`: parameters `ApplicationId`, `CertificateThumbprint`, `SubscriptionId` and `TenantId`.
 	Values map[string]string `pulumi:"values"`
 }
 
@@ -197,6 +221,12 @@ type ConnectionArgs struct {
 	// The type of the Connection - can be either builtin type such as `Azure`, `AzureClassicCertificate`, and `AzureServicePrincipal`, or a user defined types. Changing this forces a new resource to be created.
 	Type pulumi.StringInput
 	// A mapping of key value pairs passed to the connection. Different `type` needs different parameters in the `values`. Builtin types have required field values as below:
+	//
+	// * `Azure`: parameters `AutomationCertificateName` and `SubscriptionID`.
+	//
+	// * `AzureClassicCertificate`: parameters `SubscriptionName`, `SubscriptionId` and `CertificateAssetName`.
+	//
+	// * `AzureServicePrincipal`: parameters `ApplicationId`, `CertificateThumbprint`, `SubscriptionId` and `TenantId`.
 	Values pulumi.StringMapInput
 }
 
@@ -313,6 +343,12 @@ func (o ConnectionOutput) Type() pulumi.StringOutput {
 }
 
 // A mapping of key value pairs passed to the connection. Different `type` needs different parameters in the `values`. Builtin types have required field values as below:
+//
+// * `Azure`: parameters `AutomationCertificateName` and `SubscriptionID`.
+//
+// * `AzureClassicCertificate`: parameters `SubscriptionName`, `SubscriptionId` and `CertificateAssetName`.
+//
+// * `AzureServicePrincipal`: parameters `ApplicationId`, `CertificateThumbprint`, `SubscriptionId` and `TenantId`.
 func (o ConnectionOutput) Values() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringMapOutput { return v.Values }).(pulumi.StringMapOutput)
 }

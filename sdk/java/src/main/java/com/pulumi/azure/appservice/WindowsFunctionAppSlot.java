@@ -64,12 +64,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("windowsfunctionappsa")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleServicePlan = new ServicePlan("exampleServicePlan", ServicePlanArgs.builder()        
+ *         var exampleServicePlan = new ServicePlan("exampleServicePlan", ServicePlanArgs.builder()
  *             .name("example-app-service-plan")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  *             .skuName("Y1")
  *             .build());
  * 
- *         var exampleWindowsFunctionApp = new WindowsFunctionApp("exampleWindowsFunctionApp", WindowsFunctionAppArgs.builder()        
+ *         var exampleWindowsFunctionApp = new WindowsFunctionApp("exampleWindowsFunctionApp", WindowsFunctionAppArgs.builder()
  *             .name("example-windows-function-app")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -94,7 +94,7 @@ import javax.annotation.Nullable;
  *             .siteConfig()
  *             .build());
  * 
- *         var exampleWindowsFunctionAppSlot = new WindowsFunctionAppSlot("exampleWindowsFunctionAppSlot", WindowsFunctionAppSlotArgs.builder()        
+ *         var exampleWindowsFunctionAppSlot = new WindowsFunctionAppSlot("exampleWindowsFunctionAppSlot", WindowsFunctionAppSlotArgs.builder()
  *             .name("example-slot")
  *             .functionAppId(exampleWindowsFunctionApp.id())
  *             .storageAccountName(exampleAccount.name())

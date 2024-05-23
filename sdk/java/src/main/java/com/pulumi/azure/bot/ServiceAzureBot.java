@@ -52,19 +52,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()        
+ *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()
  *             .name("example-appinsights")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .applicationType("web")
  *             .build());
  * 
- *         var exampleApiKey = new ApiKey("exampleApiKey", ApiKeyArgs.builder()        
+ *         var exampleApiKey = new ApiKey("exampleApiKey", ApiKeyArgs.builder()
  *             .name("example-appinsightsapikey")
  *             .applicationInsightsId(exampleInsights.id())
  *             .readPermissions(            
@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleServiceAzureBot = new ServiceAzureBot("exampleServiceAzureBot", ServiceAzureBotArgs.builder()        
+ *         var exampleServiceAzureBot = new ServiceAzureBot("exampleServiceAzureBot", ServiceAzureBotArgs.builder()
  *             .name("exampleazurebot")
  *             .resourceGroupName(example.name())
  *             .location("global")

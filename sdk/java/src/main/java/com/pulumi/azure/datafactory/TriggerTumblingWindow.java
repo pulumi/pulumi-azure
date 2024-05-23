@@ -58,23 +58,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var examplePipeline = new Pipeline("examplePipeline", PipelineArgs.builder()        
+ *         var examplePipeline = new Pipeline("examplePipeline", PipelineArgs.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .build());
  * 
- *         var exampleTriggerTumblingWindow = new TriggerTumblingWindow("exampleTriggerTumblingWindow", TriggerTumblingWindowArgs.builder()        
+ *         var exampleTriggerTumblingWindow = new TriggerTumblingWindow("exampleTriggerTumblingWindow", TriggerTumblingWindowArgs.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .startTime("2022-09-21T00:00:00Z")

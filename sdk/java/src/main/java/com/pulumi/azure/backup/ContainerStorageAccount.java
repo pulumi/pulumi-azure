@@ -47,19 +47,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("tfex-network-mapping-primary")
  *             .location("West Europe")
  *             .build());
  * 
- *         var vault = new Vault("vault", VaultArgs.builder()        
+ *         var vault = new Vault("vault", VaultArgs.builder()
  *             .name("example-recovery-vault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("Standard")
  *             .build());
  * 
- *         var sa = new Account("sa", AccountArgs.builder()        
+ *         var sa = new Account("sa", AccountArgs.builder()
  *             .name("examplesa")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var container = new ContainerStorageAccount("container", ContainerStorageAccountArgs.builder()        
+ *         var container = new ContainerStorageAccount("container", ContainerStorageAccountArgs.builder()
  *             .resourceGroupName(example.name())
  *             .recoveryVaultName(vault.name())
  *             .storageAccountId(sa.id())

@@ -26,6 +26,12 @@ class ConnectionArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Connection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: The type of the Connection - can be either builtin type such as `Azure`, `AzureClassicCertificate`, and `AzureServicePrincipal`, or a user defined types. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] values: A mapping of key value pairs passed to the connection. Different `type` needs different parameters in the `values`. Builtin types have required field values as below:
+               
+               * `Azure`: parameters `AutomationCertificateName` and `SubscriptionID`.
+               
+               * `AzureClassicCertificate`: parameters `SubscriptionName`, `SubscriptionId` and `CertificateAssetName`.
+               
+               * `AzureServicePrincipal`: parameters `ApplicationId`, `CertificateThumbprint`, `SubscriptionId` and `TenantId`.
         :param pulumi.Input[str] description: A description for this Connection.
         :param pulumi.Input[str] name: Specifies the name of the Connection. Changing this forces a new resource to be created.
         """
@@ -79,6 +85,12 @@ class ConnectionArgs:
     def values(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
         """
         A mapping of key value pairs passed to the connection. Different `type` needs different parameters in the `values`. Builtin types have required field values as below:
+
+        * `Azure`: parameters `AutomationCertificateName` and `SubscriptionID`.
+
+        * `AzureClassicCertificate`: parameters `SubscriptionName`, `SubscriptionId` and `CertificateAssetName`.
+
+        * `AzureServicePrincipal`: parameters `ApplicationId`, `CertificateThumbprint`, `SubscriptionId` and `TenantId`.
         """
         return pulumi.get(self, "values")
 
@@ -128,6 +140,12 @@ class _ConnectionState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Connection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: The type of the Connection - can be either builtin type such as `Azure`, `AzureClassicCertificate`, and `AzureServicePrincipal`, or a user defined types. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] values: A mapping of key value pairs passed to the connection. Different `type` needs different parameters in the `values`. Builtin types have required field values as below:
+               
+               * `Azure`: parameters `AutomationCertificateName` and `SubscriptionID`.
+               
+               * `AzureClassicCertificate`: parameters `SubscriptionName`, `SubscriptionId` and `CertificateAssetName`.
+               
+               * `AzureServicePrincipal`: parameters `ApplicationId`, `CertificateThumbprint`, `SubscriptionId` and `TenantId`.
         """
         if automation_account_name is not None:
             pulumi.set(__self__, "automation_account_name", automation_account_name)
@@ -207,6 +225,12 @@ class _ConnectionState:
     def values(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A mapping of key value pairs passed to the connection. Different `type` needs different parameters in the `values`. Builtin types have required field values as below:
+
+        * `Azure`: parameters `AutomationCertificateName` and `SubscriptionID`.
+
+        * `AzureClassicCertificate`: parameters `SubscriptionName`, `SubscriptionId` and `CertificateAssetName`.
+
+        * `AzureServicePrincipal`: parameters `ApplicationId`, `CertificateThumbprint`, `SubscriptionId` and `TenantId`.
         """
         return pulumi.get(self, "values")
 
@@ -274,6 +298,12 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Connection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: The type of the Connection - can be either builtin type such as `Azure`, `AzureClassicCertificate`, and `AzureServicePrincipal`, or a user defined types. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] values: A mapping of key value pairs passed to the connection. Different `type` needs different parameters in the `values`. Builtin types have required field values as below:
+               
+               * `Azure`: parameters `AutomationCertificateName` and `SubscriptionID`.
+               
+               * `AzureClassicCertificate`: parameters `SubscriptionName`, `SubscriptionId` and `CertificateAssetName`.
+               
+               * `AzureServicePrincipal`: parameters `ApplicationId`, `CertificateThumbprint`, `SubscriptionId` and `TenantId`.
         """
         ...
     @overload
@@ -393,6 +423,12 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Connection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: The type of the Connection - can be either builtin type such as `Azure`, `AzureClassicCertificate`, and `AzureServicePrincipal`, or a user defined types. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] values: A mapping of key value pairs passed to the connection. Different `type` needs different parameters in the `values`. Builtin types have required field values as below:
+               
+               * `Azure`: parameters `AutomationCertificateName` and `SubscriptionID`.
+               
+               * `AzureClassicCertificate`: parameters `SubscriptionName`, `SubscriptionId` and `CertificateAssetName`.
+               
+               * `AzureServicePrincipal`: parameters `ApplicationId`, `CertificateThumbprint`, `SubscriptionId` and `TenantId`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -451,6 +487,12 @@ class Connection(pulumi.CustomResource):
     def values(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A mapping of key value pairs passed to the connection. Different `type` needs different parameters in the `values`. Builtin types have required field values as below:
+
+        * `Azure`: parameters `AutomationCertificateName` and `SubscriptionID`.
+
+        * `AzureClassicCertificate`: parameters `SubscriptionName`, `SubscriptionId` and `CertificateAssetName`.
+
+        * `AzureServicePrincipal`: parameters `ApplicationId`, `CertificateThumbprint`, `SubscriptionId` and `TenantId`.
         """
         return pulumi.get(self, "values")
 

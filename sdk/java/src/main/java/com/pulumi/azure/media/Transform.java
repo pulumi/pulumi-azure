@@ -53,12 +53,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("media-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("examplestoracc")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("GRS")
  *             .build());
  * 
- *         var exampleServiceAccount = new ServiceAccount("exampleServiceAccount", ServiceAccountArgs.builder()        
+ *         var exampleServiceAccount = new ServiceAccount("exampleServiceAccount", ServiceAccountArgs.builder()
  *             .name("examplemediaacc")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleTransform = new Transform("exampleTransform", TransformArgs.builder()        
+ *         var exampleTransform = new Transform("exampleTransform", TransformArgs.builder()
  *             .name("transform1")
  *             .resourceGroupName(example.name())
  *             .mediaServicesAccountName(exampleServiceAccount.name())
@@ -140,12 +140,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("media-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("examplestoracc")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -153,7 +153,7 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("GRS")
  *             .build());
  * 
- *         var exampleServiceAccount = new ServiceAccount("exampleServiceAccount", ServiceAccountArgs.builder()        
+ *         var exampleServiceAccount = new ServiceAccount("exampleServiceAccount", ServiceAccountArgs.builder()
  *             .name("examplemediaacc")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -163,7 +163,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleTransform = new Transform("exampleTransform", TransformArgs.builder()        
+ *         var exampleTransform = new Transform("exampleTransform", TransformArgs.builder()
  *             .name("transform1")
  *             .resourceGroupName(example.name())
  *             .mediaServicesAccountName(exampleServiceAccount.name())

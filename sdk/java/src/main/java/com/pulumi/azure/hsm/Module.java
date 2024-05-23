@@ -65,26 +65,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("example-vnet")
  *             .addressSpaces("10.2.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("example-compute")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("10.2.0.0/24")
  *             .build());
  * 
- *         var example2 = new Subnet("example2", SubnetArgs.builder()        
+ *         var example2 = new Subnet("example2", SubnetArgs.builder()
  *             .name("example-hsmsubnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
@@ -100,21 +100,21 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var example3 = new Subnet("example3", SubnetArgs.builder()        
+ *         var example3 = new Subnet("example3", SubnetArgs.builder()
  *             .name("gatewaysubnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("10.2.255.0/26")
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()
  *             .name("example-pip")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .allocationMethod("Dynamic")
  *             .build());
  * 
- *         var exampleVirtualNetworkGateway = new VirtualNetworkGateway("exampleVirtualNetworkGateway", VirtualNetworkGatewayArgs.builder()        
+ *         var exampleVirtualNetworkGateway = new VirtualNetworkGateway("exampleVirtualNetworkGateway", VirtualNetworkGatewayArgs.builder()
  *             .name("example-vnetgateway")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -128,7 +128,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleModule = new Module("exampleModule", ModuleArgs.builder()        
+ *         var exampleModule = new Module("exampleModule", ModuleArgs.builder()
  *             .name("example-hsm")
  *             .location(example.location())
  *             .resourceGroupName(example.name())

@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-rg")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleIPGroup = new IPGroup("exampleIPGroup", IPGroupArgs.builder()        
+ *         var exampleIPGroup = new IPGroup("exampleIPGroup", IPGroupArgs.builder()
  *             .name("example1-ipgroup")
  *             .location(example.location())
  *             .resourceGroupName(example.name())

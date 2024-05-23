@@ -55,17 +55,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var server = new RandomId("server", RandomIdArgs.builder()        
+ *         var server = new RandomId("server", RandomIdArgs.builder()
  *             .keepers(Map.of("azi_id", 1))
  *             .byteLength(8)
  *             .build());
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("trafficmanagerProfile")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleTrafficManagerProfile = new TrafficManagerProfile("exampleTrafficManagerProfile", TrafficManagerProfileArgs.builder()        
+ *         var exampleTrafficManagerProfile = new TrafficManagerProfile("exampleTrafficManagerProfile", TrafficManagerProfileArgs.builder()
  *             .name(server.hex())
  *             .resourceGroupName(example.name())
  *             .trafficRoutingMethod("Weighted")
@@ -219,6 +219,12 @@ public class TrafficManagerProfile extends com.pulumi.resources.CustomResource {
     }
     /**
      * Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
+     * * `Geographic` - Traffic is routed based on Geographic regions specified in the Endpoint.
+     * * `MultiValue` - All healthy Endpoints are returned.  MultiValue routing method works only if all the endpoints of type `External` and are specified as IPv4 or IPv6 addresses.
+     * * `Performance` - Traffic is routed via the User&#39;s closest Endpoint
+     * * `Priority` - Traffic is routed to the Endpoint with the lowest `priority` value.
+     * * `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
+     * * `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
      * 
      */
     @Export(name="trafficRoutingMethod", refs={String.class}, tree="[0]")
@@ -226,6 +232,12 @@ public class TrafficManagerProfile extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
+     * * `Geographic` - Traffic is routed based on Geographic regions specified in the Endpoint.
+     * * `MultiValue` - All healthy Endpoints are returned.  MultiValue routing method works only if all the endpoints of type `External` and are specified as IPv4 or IPv6 addresses.
+     * * `Performance` - Traffic is routed via the User&#39;s closest Endpoint
+     * * `Priority` - Traffic is routed to the Endpoint with the lowest `priority` value.
+     * * `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
+     * * `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
      * 
      */
     public Output<String> trafficRoutingMethod() {

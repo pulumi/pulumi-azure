@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PolicySetDefinition("example", PolicySetDefinitionArgs.builder()        
+ *         var example = new PolicySetDefinition("example", PolicySetDefinitionArgs.builder()
  *             .name("testPolicySet")
  *             .policyType("Custom")
  *             .displayName("Test Policy Set")

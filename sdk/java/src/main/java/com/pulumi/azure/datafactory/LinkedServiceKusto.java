@@ -57,12 +57,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()        
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
  *             .name("kustocluster")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -81,14 +81,14 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()        
+ *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()
  *             .name("my-kusto-database")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .clusterName(exampleCluster.name())
  *             .build());
  * 
- *         var exampleLinkedServiceKusto = new LinkedServiceKusto("exampleLinkedServiceKusto", LinkedServiceKustoArgs.builder()        
+ *         var exampleLinkedServiceKusto = new LinkedServiceKusto("exampleLinkedServiceKusto", LinkedServiceKustoArgs.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .kustoEndpoint(exampleCluster.uri())
@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  *             .useManagedIdentity(true)
  *             .build());
  * 
- *         var exampleDatabasePrincipalAssignment = new DatabasePrincipalAssignment("exampleDatabasePrincipalAssignment", DatabasePrincipalAssignmentArgs.builder()        
+ *         var exampleDatabasePrincipalAssignment = new DatabasePrincipalAssignment("exampleDatabasePrincipalAssignment", DatabasePrincipalAssignmentArgs.builder()
  *             .name("KustoPrincipalAssignment")
  *             .resourceGroupName(example.name())
  *             .clusterName(exampleCluster.name())

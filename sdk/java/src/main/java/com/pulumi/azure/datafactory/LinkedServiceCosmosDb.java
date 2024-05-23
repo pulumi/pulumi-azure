@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
@@ -60,13 +60,13 @@ import javax.annotation.Nullable;
  *             .resourceGroupName("tfex-cosmosdb-account-rg")
  *             .build());
  * 
- *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()
  *             .name("example")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleLinkedServiceCosmosDb = new LinkedServiceCosmosDb("exampleLinkedServiceCosmosDb", LinkedServiceCosmosDbArgs.builder()        
+ *         var exampleLinkedServiceCosmosDb = new LinkedServiceCosmosDb("exampleLinkedServiceCosmosDb", LinkedServiceCosmosDbArgs.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .accountEndpoint(example.applyValue(getAccountResult -> getAccountResult.endpoint()))

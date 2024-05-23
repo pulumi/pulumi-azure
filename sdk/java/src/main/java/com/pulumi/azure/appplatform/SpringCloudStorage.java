@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -60,13 +60,13 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("GRS")
  *             .build());
  * 
- *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()        
+ *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSpringCloudStorage = new SpringCloudStorage("exampleSpringCloudStorage", SpringCloudStorageArgs.builder()        
+ *         var exampleSpringCloudStorage = new SpringCloudStorage("exampleSpringCloudStorage", SpringCloudStorageArgs.builder()
  *             .name("example")
  *             .springCloudServiceId(exampleSpringCloudService.id())
  *             .storageAccountName(exampleAccount.name())

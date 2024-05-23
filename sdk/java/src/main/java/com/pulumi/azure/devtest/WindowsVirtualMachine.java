@@ -55,19 +55,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleLab = new Lab("exampleLab", LabArgs.builder()        
+ *         var exampleLab = new Lab("exampleLab", LabArgs.builder()
  *             .name("example-devtestlab")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .tags(Map.of("Sydney", "Australia"))
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("example-network")
  *             .labName(exampleLab.name())
  *             .resourceGroupName(example.name())
@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleWindowsVirtualMachine = new WindowsVirtualMachine("exampleWindowsVirtualMachine", WindowsVirtualMachineArgs.builder()        
+ *         var exampleWindowsVirtualMachine = new WindowsVirtualMachine("exampleWindowsVirtualMachine", WindowsVirtualMachineArgs.builder()
  *             .name("example-vm03")
  *             .labName(exampleLab.name())
  *             .resourceGroupName(example.name())

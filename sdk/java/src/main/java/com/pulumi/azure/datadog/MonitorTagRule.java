@@ -55,12 +55,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-datadog")
  *             .location("West US 2")
  *             .build());
  * 
- *         var exampleMonitor = new Monitor("exampleMonitor", MonitorArgs.builder()        
+ *         var exampleMonitor = new Monitor("exampleMonitor", MonitorArgs.builder()
  *             .name("example-monitor")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleMonitorTagRule = new MonitorTagRule("exampleMonitorTagRule", MonitorTagRuleArgs.builder()        
+ *         var exampleMonitorTagRule = new MonitorTagRule("exampleMonitorTagRule", MonitorTagRuleArgs.builder()
  *             .datadogMonitorId(exampleMonitor.id())
  *             .logs(MonitorTagRuleLogArgs.builder()
  *                 .subscriptionLogEnabled(true)

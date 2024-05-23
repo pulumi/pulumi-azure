@@ -63,37 +63,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()        
+ *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()
  *             .name("example-ai")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .applicationType("web")
  *             .build());
  * 
- *         var exampleActionGroup = new ActionGroup("exampleActionGroup", ActionGroupArgs.builder()        
+ *         var exampleActionGroup = new ActionGroup("exampleActionGroup", ActionGroupArgs.builder()
  *             .name("example-mag")
  *             .resourceGroupName(example.name())
  *             .shortName("test mag")
  *             .build());
  * 
- *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()        
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()
  *             .name("example-uai")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()        
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
  *             .scope(exampleInsights.id())
  *             .roleDefinitionName("Reader")
  *             .principalId(exampleUserAssignedIdentity.principalId())
  *             .build());
  * 
- *         var exampleScheduledQueryRulesAlertV2 = new ScheduledQueryRulesAlertV2("exampleScheduledQueryRulesAlertV2", ScheduledQueryRulesAlertV2Args.builder()        
+ *         var exampleScheduledQueryRulesAlertV2 = new ScheduledQueryRulesAlertV2("exampleScheduledQueryRulesAlertV2", ScheduledQueryRulesAlertV2Args.builder()
  *             .name("example-msqrv2")
  *             .resourceGroupName(example.name())
  *             .location(example.location())

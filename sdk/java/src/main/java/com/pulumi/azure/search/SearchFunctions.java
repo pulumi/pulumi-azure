@@ -44,7 +44,7 @@ public final class SearchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
      *             .name("example-resources")
      *             .location("West Europe")
      *             .build());
@@ -94,7 +94,7 @@ public final class SearchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
      *             .name("example-resources")
      *             .location("West Europe")
      *             .build());
@@ -144,7 +144,7 @@ public final class SearchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
      *             .name("example-resources")
      *             .location("West Europe")
      *             .build());
@@ -194,7 +194,7 @@ public final class SearchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
      *             .name("example-resources")
      *             .location("West Europe")
      *             .build());

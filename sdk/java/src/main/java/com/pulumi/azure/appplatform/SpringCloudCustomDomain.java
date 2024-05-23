@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("rg-example")
  *             .location("West Europe")
  *             .build());
@@ -62,19 +62,19 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()        
+ *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()
  *             .name("example-springcloud")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .build());
  * 
- *         var exampleSpringCloudApp = new SpringCloudApp("exampleSpringCloudApp", SpringCloudAppArgs.builder()        
+ *         var exampleSpringCloudApp = new SpringCloudApp("exampleSpringCloudApp", SpringCloudAppArgs.builder()
  *             .name("example-springcloudapp")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .serviceName(exampleSpringCloudService.name())
  *             .build());
  * 
- *         var exampleCNameRecord = new CNameRecord("exampleCNameRecord", CNameRecordArgs.builder()        
+ *         var exampleCNameRecord = new CNameRecord("exampleCNameRecord", CNameRecordArgs.builder()
  *             .name("record1")
  *             .zoneName(example.applyValue(getZoneResult -> getZoneResult).applyValue(example -> example.applyValue(getZoneResult -> getZoneResult.name())))
  *             .resourceGroupName(example.applyValue(getZoneResult -> getZoneResult).applyValue(example -> example.applyValue(getZoneResult -> getZoneResult.resourceGroupName())))
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  *             .record(exampleSpringCloudApp.fqdn())
  *             .build());
  * 
- *         var exampleSpringCloudCustomDomain = new SpringCloudCustomDomain("exampleSpringCloudCustomDomain", SpringCloudCustomDomainArgs.builder()        
+ *         var exampleSpringCloudCustomDomain = new SpringCloudCustomDomain("exampleSpringCloudCustomDomain", SpringCloudCustomDomainArgs.builder()
  *             .name(StdFunctions.join().applyValue(invoke -> invoke.result()))
  *             .springCloudAppId(exampleSpringCloudApp.id())
  *             .build());

@@ -49,12 +49,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var acr = new Registry("acr", RegistryArgs.builder()        
+ *         var acr = new Registry("acr", RegistryArgs.builder()
  *             .name("containerRegistry1")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *             .adminEnabled(false)
  *             .build());
  * 
- *         var webhook = new RegistryWebhook("webhook", RegistryWebhookArgs.builder()        
+ *         var webhook = new RegistryWebhook("webhook", RegistryWebhookArgs.builder()
  *             .name("mywebhook")
  *             .resourceGroupName(example.name())
  *             .registryName(acr.name())

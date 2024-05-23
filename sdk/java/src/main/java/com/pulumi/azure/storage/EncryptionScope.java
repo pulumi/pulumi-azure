@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("examplesa")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleEncryptionScope = new EncryptionScope("exampleEncryptionScope", EncryptionScopeArgs.builder()        
+ *         var exampleEncryptionScope = new EncryptionScope("exampleEncryptionScope", EncryptionScopeArgs.builder()
  *             .name("microsoftmanaged")
  *             .storageAccountId(exampleAccount.id())
  *             .source("Microsoft.Storage")

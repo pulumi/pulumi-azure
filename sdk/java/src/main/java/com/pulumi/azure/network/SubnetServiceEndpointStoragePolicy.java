@@ -49,12 +49,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-rg")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleSubnetServiceEndpointStoragePolicy = new SubnetServiceEndpointStoragePolicy("exampleSubnetServiceEndpointStoragePolicy", SubnetServiceEndpointStoragePolicyArgs.builder()        
+ *         var exampleSubnetServiceEndpointStoragePolicy = new SubnetServiceEndpointStoragePolicy("exampleSubnetServiceEndpointStoragePolicy", SubnetServiceEndpointStoragePolicyArgs.builder()
  *             .name("example-policy")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("examplestorageacct")
  *             .resourceGroupName(example.name())
  *             .location(example.location())

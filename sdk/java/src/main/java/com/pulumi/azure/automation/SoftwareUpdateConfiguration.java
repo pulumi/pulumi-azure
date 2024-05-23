@@ -57,19 +57,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-rg")
  *             .location("East US")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .skuName("Basic")
  *             .build());
  * 
- *         var exampleRunBook = new RunBook("exampleRunBook", RunBookArgs.builder()        
+ *         var exampleRunBook = new RunBook("exampleRunBook", RunBookArgs.builder()
  *             .name("Get-AzureVMTutorial")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("ENV", "runbook_test"))
  *             .build());
  * 
- *         var exampleSoftwareUpdateConfiguration = new SoftwareUpdateConfiguration("exampleSoftwareUpdateConfiguration", SoftwareUpdateConfigurationArgs.builder()        
+ *         var exampleSoftwareUpdateConfiguration = new SoftwareUpdateConfiguration("exampleSoftwareUpdateConfiguration", SoftwareUpdateConfigurationArgs.builder()
  *             .name("example")
  *             .automationAccountId(exampleAccount.id())
  *             .operatingSystem("Linux")

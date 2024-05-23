@@ -51,12 +51,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("examplekeyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
  *             .build());
  * 
- *         var exampleCertificateIssuer = new CertificateIssuer("exampleCertificateIssuer", CertificateIssuerArgs.builder()        
+ *         var exampleCertificateIssuer = new CertificateIssuer("exampleCertificateIssuer", CertificateIssuerArgs.builder()
  *             .name("example-issuer")
  *             .orgId("ExampleOrgName")
  *             .keyVaultId(exampleKeyVault.id())

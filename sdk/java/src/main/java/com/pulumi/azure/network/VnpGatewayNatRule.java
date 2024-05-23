@@ -55,18 +55,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualWan = new VirtualWan("exampleVirtualWan", VirtualWanArgs.builder()        
+ *         var exampleVirtualWan = new VirtualWan("exampleVirtualWan", VirtualWanArgs.builder()
  *             .name("example-vwan")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleVirtualHub = new VirtualHub("exampleVirtualHub", VirtualHubArgs.builder()        
+ *         var exampleVirtualHub = new VirtualHub("exampleVirtualHub", VirtualHubArgs.builder()
  *             .name("example-vhub")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -74,14 +74,14 @@ import javax.annotation.Nullable;
  *             .virtualWanId(exampleVirtualWan.id())
  *             .build());
  * 
- *         var exampleVpnGateway = new VpnGateway("exampleVpnGateway", VpnGatewayArgs.builder()        
+ *         var exampleVpnGateway = new VpnGateway("exampleVpnGateway", VpnGatewayArgs.builder()
  *             .name("example-vpngateway")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .virtualHubId(exampleVirtualHub.id())
  *             .build());
  * 
- *         var exampleVnpGatewayNatRule = new VnpGatewayNatRule("exampleVnpGatewayNatRule", VnpGatewayNatRuleArgs.builder()        
+ *         var exampleVnpGatewayNatRule = new VnpGatewayNatRule("exampleVnpGatewayNatRule", VnpGatewayNatRuleArgs.builder()
  *             .name("example-vpngatewaynatrule")
  *             .vpnGatewayId(exampleVpnGateway.id())
  *             .externalMappings(VnpGatewayNatRuleExternalMappingArgs.builder()

@@ -64,19 +64,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()        
+ *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()
  *             .name("example-appinsights")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .applicationType("web")
  *             .build());
  * 
- *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()
  *             .name("example-apim")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  *             .skuName("Developer_1")
  *             .build());
  * 
- *         var exampleApi = new Api("exampleApi", ApiArgs.builder()        
+ *         var exampleApi = new Api("exampleApi", ApiArgs.builder()
  *             .name("example-api")
  *             .resourceGroupName(example.name())
  *             .apiManagementName(exampleService.name())
@@ -99,7 +99,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleLogger = new Logger("exampleLogger", LoggerArgs.builder()        
+ *         var exampleLogger = new Logger("exampleLogger", LoggerArgs.builder()
  *             .name("example-apimlogger")
  *             .apiManagementName(exampleService.name())
  *             .resourceGroupName(example.name())
@@ -108,7 +108,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleApiDiagnostic = new ApiDiagnostic("exampleApiDiagnostic", ApiDiagnosticArgs.builder()        
+ *         var exampleApiDiagnostic = new ApiDiagnostic("exampleApiDiagnostic", ApiDiagnosticArgs.builder()
  *             .identifier("applicationinsights")
  *             .resourceGroupName(example.name())
  *             .apiManagementName(exampleService.name())
