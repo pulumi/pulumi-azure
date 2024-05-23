@@ -58,12 +58,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-rg")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFrontdoor = new Frontdoor("exampleFrontdoor", FrontdoorArgs.builder()        
+ *         var exampleFrontdoor = new Frontdoor("exampleFrontdoor", FrontdoorArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .backendPools(FrontdoorBackendPoolArgs.builder()
@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleRulesEngine = new RulesEngine("exampleRulesEngine", RulesEngineArgs.builder()        
+ *         var exampleRulesEngine = new RulesEngine("exampleRulesEngine", RulesEngineArgs.builder()
  *             .name("exampleRulesEngineConfig1")
  *             .frontdoorName(exampleFrontdoor.name())
  *             .resourceGroupName(exampleFrontdoor.resourceGroupName())

@@ -22,55 +22,6 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.keyvault.ManagedHardwareSecurityModule;
- * import com.pulumi.azure.keyvault.ManagedHardwareSecurityModuleArgs;
- * import com.pulumi.azure.keyvault.ManagedHardwareSecurityModuleRoleDefinition;
- * import com.pulumi.azure.keyvault.ManagedHardwareSecurityModuleRoleDefinitionArgs;
- * import com.pulumi.azure.keyvault.inputs.ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ManagedHardwareSecurityModule("example", ManagedHardwareSecurityModuleArgs.builder()        
- *             .name("example")
- *             .resourceGroupName(exampleAzurermResourceGroup.name())
- *             .location(exampleAzurermResourceGroup.location())
- *             .skuName("Standard_B1")
- *             .tenantId(current.tenantId())
- *             .adminObjectIds(current.objectId())
- *             .purgeProtectionEnabled(false)
- *             .activeConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *             .build());
- * 
- *         var exampleManagedHardwareSecurityModuleRoleDefinition = new ManagedHardwareSecurityModuleRoleDefinition("exampleManagedHardwareSecurityModuleRoleDefinition", ManagedHardwareSecurityModuleRoleDefinitionArgs.builder()        
- *             .name("7d206142-bf01-11ed-80bc-00155d61ee9e")
- *             .vaultBaseUrl(example.hsmUri())
- *             .description("desc foo")
- *             .permissions(ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs.builder()
- *                 .dataActions("Microsoft.KeyVault/managedHsm/keys/read/action")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

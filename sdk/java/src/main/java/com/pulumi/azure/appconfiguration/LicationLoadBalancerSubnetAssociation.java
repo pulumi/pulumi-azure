@@ -53,25 +53,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-rg")
  *             .location("westeurope")
  *             .build());
  * 
- *         var exampleLicationLoadBalancer = new LicationLoadBalancer("exampleLicationLoadBalancer", LicationLoadBalancerArgs.builder()        
+ *         var exampleLicationLoadBalancer = new LicationLoadBalancer("exampleLicationLoadBalancer", LicationLoadBalancerArgs.builder()
  *             .name("example-alb")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("example-vnet")
  *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("example-subnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleLicationLoadBalancerSubnetAssociation = new LicationLoadBalancerSubnetAssociation("exampleLicationLoadBalancerSubnetAssociation", LicationLoadBalancerSubnetAssociationArgs.builder()        
+ *         var exampleLicationLoadBalancerSubnetAssociation = new LicationLoadBalancerSubnetAssociation("exampleLicationLoadBalancerSubnetAssociation", LicationLoadBalancerSubnetAssociationArgs.builder()
  *             .name("example")
  *             .applicationLoadBalancerId(exampleLicationLoadBalancer.id())
  *             .subnetId(exampleSubnet.id())

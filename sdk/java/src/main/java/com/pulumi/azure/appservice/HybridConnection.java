@@ -59,12 +59,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("exampleResourceGroup1")
  *             .location("West Europe")
  *             .build());
  * 
- *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()        
+ *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()
  *             .name("exampleAppServicePlan1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -74,28 +74,28 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleAppService = new AppService("exampleAppService", AppServiceArgs.builder()        
+ *         var exampleAppService = new AppService("exampleAppService", AppServiceArgs.builder()
  *             .name("exampleAppService1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
  *             .build());
  * 
- *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()        
+ *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()
  *             .name("exampleRN1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .skuName("Standard")
  *             .build());
  * 
- *         var exampleHybridConnection = new HybridConnection("exampleHybridConnection", HybridConnectionArgs.builder()        
+ *         var exampleHybridConnection = new HybridConnection("exampleHybridConnection", HybridConnectionArgs.builder()
  *             .name("exampleRHC1")
  *             .resourceGroupName(example.name())
  *             .relayNamespaceName(exampleNamespace.name())
  *             .userMetadata("examplemetadata")
  *             .build());
  * 
- *         var exampleHybridConnection2 = new HybridConnection("exampleHybridConnection2", HybridConnectionArgs.builder()        
+ *         var exampleHybridConnection2 = new HybridConnection("exampleHybridConnection2", HybridConnectionArgs.builder()
  *             .appServiceName(exampleAppService.name())
  *             .resourceGroupName(example.name())
  *             .relayId(exampleHybridConnection.id())

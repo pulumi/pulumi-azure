@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("some-resource-group")
  *             .location("West Europe")
  *             .build());
  * 
- *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()        
+ *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()
  *             .name("some-app-service-plan")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -65,14 +65,14 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleAppService = new AppService("exampleAppService", AppServiceArgs.builder()        
+ *         var exampleAppService = new AppService("exampleAppService", AppServiceArgs.builder()
  *             .name("some-app-service")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
  *             .build());
  * 
- *         var exampleSlot = new Slot("exampleSlot", SlotArgs.builder()        
+ *         var exampleSlot = new Slot("exampleSlot", SlotArgs.builder()
  *             .name("staging")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *             .appServicePlanId(examplePlan.id())
  *             .build());
  * 
- *         var exampleSlotCustomHostnameBinding = new SlotCustomHostnameBinding("exampleSlotCustomHostnameBinding", SlotCustomHostnameBindingArgs.builder()        
+ *         var exampleSlotCustomHostnameBinding = new SlotCustomHostnameBinding("exampleSlotCustomHostnameBinding", SlotCustomHostnameBindingArgs.builder()
  *             .appServiceSlotId(exampleSlot.id())
  *             .hostname("www.mywebsite.com")
  *             .build());

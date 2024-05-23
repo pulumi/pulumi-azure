@@ -59,12 +59,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleNetwork = new Network("exampleNetwork", NetworkArgs.builder()        
+ *         var exampleNetwork = new Network("exampleNetwork", NetworkArgs.builder()
  *             .name("example-mn")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -72,20 +72,20 @@ import javax.annotation.Nullable;
  *             .mobileNetworkCode("01")
  *             .build());
  * 
- *         var exampleNetworkSite = new NetworkSite("exampleNetworkSite", NetworkSiteArgs.builder()        
+ *         var exampleNetworkSite = new NetworkSite("exampleNetworkSite", NetworkSiteArgs.builder()
  *             .name("example-mns")
  *             .mobileNetworkId(test.id())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleDevice = new Device("exampleDevice", DeviceArgs.builder()        
+ *         var exampleDevice = new Device("exampleDevice", DeviceArgs.builder()
  *             .name("example-device")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .skuName("EdgeP_Base-Standard")
  *             .build());
  * 
- *         var exampleNetworkPacketCoreControlPlane = new NetworkPacketCoreControlPlane("exampleNetworkPacketCoreControlPlane", NetworkPacketCoreControlPlaneArgs.builder()        
+ *         var exampleNetworkPacketCoreControlPlane = new NetworkPacketCoreControlPlane("exampleNetworkPacketCoreControlPlane", NetworkPacketCoreControlPlaneArgs.builder()
  *             .name("example-mnpccp")
  *             .resourceGroupName(example.name())
  *             .location(example.location())

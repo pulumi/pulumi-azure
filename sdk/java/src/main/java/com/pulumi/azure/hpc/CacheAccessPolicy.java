@@ -52,26 +52,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("examplevn")
  *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("examplesubnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("10.0.1.0/24")
  *             .build());
  * 
- *         var exampleCache = new Cache("exampleCache", CacheArgs.builder()        
+ *         var exampleCache = new Cache("exampleCache", CacheArgs.builder()
  *             .name("examplehpccache")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *             .skuName("Standard_2G")
  *             .build());
  * 
- *         var exampleCacheAccessPolicy = new CacheAccessPolicy("exampleCacheAccessPolicy", CacheAccessPolicyArgs.builder()        
+ *         var exampleCacheAccessPolicy = new CacheAccessPolicy("exampleCacheAccessPolicy", CacheAccessPolicyArgs.builder()
  *             .name("example")
  *             .hpcCacheId(exampleCache.id())
  *             .accessRules(CacheAccessPolicyAccessRuleArgs.builder()

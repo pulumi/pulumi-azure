@@ -57,12 +57,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("storageaccountname")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("examplekeyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  *             .skuName("standard")
  *             .build());
  * 
- *         var exampleDiagnosticSetting = new DiagnosticSetting("exampleDiagnosticSetting", DiagnosticSettingArgs.builder()        
+ *         var exampleDiagnosticSetting = new DiagnosticSetting("exampleDiagnosticSetting", DiagnosticSettingArgs.builder()
  *             .name("example")
  *             .targetResourceId(exampleKeyVault.id())
  *             .storageAccountId(exampleAccount.id())

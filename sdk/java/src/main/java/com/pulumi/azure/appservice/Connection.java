@@ -60,12 +60,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("example-cosmosdb-account")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -82,14 +82,14 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleSqlDatabase = new SqlDatabase("exampleSqlDatabase", SqlDatabaseArgs.builder()        
+ *         var exampleSqlDatabase = new SqlDatabase("exampleSqlDatabase", SqlDatabaseArgs.builder()
  *             .name("cosmos-sql-db")
  *             .resourceGroupName(exampleAccount.resourceGroupName())
  *             .accountName(exampleAccount.name())
  *             .throughput(400)
  *             .build());
  * 
- *         var exampleSqlContainer = new SqlContainer("exampleSqlContainer", SqlContainerArgs.builder()        
+ *         var exampleSqlContainer = new SqlContainer("exampleSqlContainer", SqlContainerArgs.builder()
  *             .name("example-container")
  *             .resourceGroupName(exampleAccount.resourceGroupName())
  *             .accountName(exampleAccount.name())
@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  *             .partitionKeyPath("/definition")
  *             .build());
  * 
- *         var exampleServicePlan = new ServicePlan("exampleServicePlan", ServicePlanArgs.builder()        
+ *         var exampleServicePlan = new ServicePlan("exampleServicePlan", ServicePlanArgs.builder()
  *             .location(example.location())
  *             .name("example-serviceplan")
  *             .resourceGroupName(example.name())
@@ -105,7 +105,7 @@ import javax.annotation.Nullable;
  *             .osType("Linux")
  *             .build());
  * 
- *         var exampleLinuxWebApp = new LinuxWebApp("exampleLinuxWebApp", LinuxWebAppArgs.builder()        
+ *         var exampleLinuxWebApp = new LinuxWebApp("exampleLinuxWebApp", LinuxWebAppArgs.builder()
  *             .location(example.location())
  *             .name("example-linuxwebapp")
  *             .resourceGroupName(example.name())
@@ -113,7 +113,7 @@ import javax.annotation.Nullable;
  *             .siteConfig()
  *             .build());
  * 
- *         var exampleConnection = new Connection("exampleConnection", ConnectionArgs.builder()        
+ *         var exampleConnection = new Connection("exampleConnection", ConnectionArgs.builder()
  *             .name("example-serviceconnector")
  *             .appServiceId(exampleLinuxWebApp.id())
  *             .targetResourceId(exampleSqlDatabase.id())

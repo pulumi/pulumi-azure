@@ -49,12 +49,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("KustoRG")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()        
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
  *             .name("kustocluster")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleClusterPrincipalAssignment = new ClusterPrincipalAssignment("exampleClusterPrincipalAssignment", ClusterPrincipalAssignmentArgs.builder()        
+ *         var exampleClusterPrincipalAssignment = new ClusterPrincipalAssignment("exampleClusterPrincipalAssignment", ClusterPrincipalAssignmentArgs.builder()
  *             .name("KustoPrincipalAssignment")
  *             .resourceGroupName(example.name())
  *             .clusterName(exampleCluster.name())

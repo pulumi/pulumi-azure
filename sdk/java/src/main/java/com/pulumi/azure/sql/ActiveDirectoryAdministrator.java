@@ -51,12 +51,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleSqlServer = new SqlServer("exampleSqlServer", SqlServerArgs.builder()        
+ *         var exampleSqlServer = new SqlServer("exampleSqlServer", SqlServerArgs.builder()
  *             .name("mysqlserver")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *             .administratorLoginPassword("4-v3ry-53cr37-p455w0rd")
  *             .build());
  * 
- *         var exampleActiveDirectoryAdministrator = new ActiveDirectoryAdministrator("exampleActiveDirectoryAdministrator", ActiveDirectoryAdministratorArgs.builder()        
+ *         var exampleActiveDirectoryAdministrator = new ActiveDirectoryAdministrator("exampleActiveDirectoryAdministrator", ActiveDirectoryAdministratorArgs.builder()
  *             .serverName(exampleSqlServer.name())
  *             .resourceGroupName(example.name())
  *             .login("sqladmin")

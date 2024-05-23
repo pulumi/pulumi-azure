@@ -56,26 +56,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("resourcegroup1")
  *             .location("West US")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("vnet1")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .addressSpaces("10.0.0.0/16")
  *             .build());
  * 
- *         var exampleDefinition = new Definition("exampleDefinition", DefinitionArgs.builder()        
+ *         var exampleDefinition = new Definition("exampleDefinition", DefinitionArgs.builder()
  *             .name("only-deploy-in-westeurope")
  *             .policyType("Custom")
  *             .mode("All")
  *             .displayName("my-policy-definition")
  *             .build());
  * 
- *         var exampleResourcePolicyAssignment = new ResourcePolicyAssignment("exampleResourcePolicyAssignment", ResourcePolicyAssignmentArgs.builder()        
+ *         var exampleResourcePolicyAssignment = new ResourcePolicyAssignment("exampleResourcePolicyAssignment", ResourcePolicyAssignmentArgs.builder()
  *             .name("assignment1")
  *             .resourceId(exampleVirtualNetwork.id())
  *             .policyDefinitionId(exampleDefinition.id())
@@ -90,13 +90,13 @@ import javax.annotation.Nullable;
  *                 ))))
  *             .build());
  * 
- *         var exampleResourceGroupPolicyAssignment = new ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment", ResourceGroupPolicyAssignmentArgs.builder()        
+ *         var exampleResourceGroupPolicyAssignment = new ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment", ResourceGroupPolicyAssignmentArgs.builder()
  *             .name("example")
  *             .resourceGroupId(example.id())
  *             .policyDefinitionId(exampleDefinition.id())
  *             .build());
  * 
- *         var exampleResourcePolicyRemediation = new ResourcePolicyRemediation("exampleResourcePolicyRemediation", ResourcePolicyRemediationArgs.builder()        
+ *         var exampleResourcePolicyRemediation = new ResourcePolicyRemediation("exampleResourcePolicyRemediation", ResourcePolicyRemediationArgs.builder()
  *             .name("remediation1")
  *             .resourceId(exampleVirtualNetwork.id())
  *             .policyAssignmentId(exampleResourceGroupPolicyAssignment.id())

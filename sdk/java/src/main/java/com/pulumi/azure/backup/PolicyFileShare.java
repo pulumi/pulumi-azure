@@ -56,19 +56,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("tfex-recovery_vault")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVault = new Vault("exampleVault", VaultArgs.builder()        
+ *         var exampleVault = new Vault("exampleVault", VaultArgs.builder()
  *             .name("tfex-recovery-vault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("Standard")
  *             .build());
  * 
- *         var policy = new PolicyFileShare("policy", PolicyFileShareArgs.builder()        
+ *         var policy = new PolicyFileShare("policy", PolicyFileShareArgs.builder()
  *             .name("tfex-recovery-vault-policy")
  *             .resourceGroupName(example.name())
  *             .recoveryVaultName(exampleVault.name())

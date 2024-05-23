@@ -72,12 +72,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var test = new PublicIp("test", PublicIpArgs.builder()        
+ *         var test = new PublicIp("test", PublicIpArgs.builder()
  *             .name("example-public-ip")
  *             .location(testAzurermResourceGroup.location())
  *             .resourceGroupName(testAzurermResourceGroup.name())
@@ -85,14 +85,14 @@ import javax.annotation.Nullable;
  *             .sku("Standard")
  *             .build());
  * 
- *         var testVirtualNetwork = new VirtualNetwork("testVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var testVirtualNetwork = new VirtualNetwork("testVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("example-VirtualNetwork")
  *             .location(testAzurermResourceGroup.location())
  *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .addressSpaces("10.6.0.0/16")
  *             .build());
  * 
- *         var netappSubnet = new Subnet("netappSubnet", SubnetArgs.builder()        
+ *         var netappSubnet = new Subnet("netappSubnet", SubnetArgs.builder()
  *             .name("example-Subnet")
  *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .virtualNetworkName(testVirtualNetwork.name())
@@ -108,14 +108,14 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var gatewaySubnet = new Subnet("gatewaySubnet", SubnetArgs.builder()        
+ *         var gatewaySubnet = new Subnet("gatewaySubnet", SubnetArgs.builder()
  *             .name("GatewaySubnet")
  *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .virtualNetworkName(testVirtualNetwork.name())
  *             .addressPrefixes("10.6.1.0/24")
  *             .build());
  * 
- *         var testVirtualNetworkGateway = new VirtualNetworkGateway("testVirtualNetworkGateway", VirtualNetworkGatewayArgs.builder()        
+ *         var testVirtualNetworkGateway = new VirtualNetworkGateway("testVirtualNetworkGateway", VirtualNetworkGatewayArgs.builder()
  *             .name("example-vnet-gateway")
  *             .location(testAzurermResourceGroup.location())
  *             .resourceGroupName(testAzurermResourceGroup.name())
@@ -128,13 +128,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var testAccount = new Account("testAccount", AccountArgs.builder()        
+ *         var testAccount = new Account("testAccount", AccountArgs.builder()
  *             .name("example-NetAppAccount")
  *             .location(testAzurermResourceGroup.location())
  *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .build());
  * 
- *         var testPool = new Pool("testPool", PoolArgs.builder()        
+ *         var testPool = new Pool("testPool", PoolArgs.builder()
  *             .name("example-NetAppPool")
  *             .location(testAzurermResourceGroup.location())
  *             .resourceGroupName(testAzurermResourceGroup.name())
@@ -143,7 +143,7 @@ import javax.annotation.Nullable;
  *             .sizeInTb(4)
  *             .build());
  * 
- *         var testVolume = new Volume("testVolume", VolumeArgs.builder()        
+ *         var testVolume = new Volume("testVolume", VolumeArgs.builder()
  *             .name("example-NetAppVolume")
  *             .location(testAzurermResourceGroup.location())
  *             .resourceGroupName(testAzurermResourceGroup.name())
@@ -165,7 +165,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var testPrivateCloud = new PrivateCloud("testPrivateCloud", PrivateCloudArgs.builder()        
+ *         var testPrivateCloud = new PrivateCloud("testPrivateCloud", PrivateCloudArgs.builder()
  *             .name("example-PC")
  *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .location(testAzurermResourceGroup.location())
@@ -176,19 +176,19 @@ import javax.annotation.Nullable;
  *             .networkSubnetCidr("192.168.48.0/22")
  *             .build());
  * 
- *         var testCluster = new Cluster("testCluster", ClusterArgs.builder()        
+ *         var testCluster = new Cluster("testCluster", ClusterArgs.builder()
  *             .name("example-vm-cluster")
  *             .vmwareCloudId(testPrivateCloud.id())
  *             .clusterNodeCount(3)
  *             .skuName("av36")
  *             .build());
  * 
- *         var testExpressRouteAuthorization = new ExpressRouteAuthorization("testExpressRouteAuthorization", ExpressRouteAuthorizationArgs.builder()        
+ *         var testExpressRouteAuthorization = new ExpressRouteAuthorization("testExpressRouteAuthorization", ExpressRouteAuthorizationArgs.builder()
  *             .name("example-VmwareAuthorization")
  *             .privateCloudId(testPrivateCloud.id())
  *             .build());
  * 
- *         var testVirtualNetworkGatewayConnection = new VirtualNetworkGatewayConnection("testVirtualNetworkGatewayConnection", VirtualNetworkGatewayConnectionArgs.builder()        
+ *         var testVirtualNetworkGatewayConnection = new VirtualNetworkGatewayConnection("testVirtualNetworkGatewayConnection", VirtualNetworkGatewayConnectionArgs.builder()
  *             .name("example-vnetgwconn")
  *             .location(testAzurermResourceGroup.location())
  *             .resourceGroupName(testAzurermResourceGroup.name())
@@ -198,7 +198,7 @@ import javax.annotation.Nullable;
  *             .authorizationKey(testExpressRouteAuthorization.expressRouteAuthorizationKey())
  *             .build());
  * 
- *         var testNetappVolumeAttachment = new NetappVolumeAttachment("testNetappVolumeAttachment", NetappVolumeAttachmentArgs.builder()        
+ *         var testNetappVolumeAttachment = new NetappVolumeAttachment("testNetappVolumeAttachment", NetappVolumeAttachmentArgs.builder()
  *             .name("example-vmwareattachment")
  *             .netappVolumeId(testVolume.id())
  *             .vmwareClusterId(testCluster.id())

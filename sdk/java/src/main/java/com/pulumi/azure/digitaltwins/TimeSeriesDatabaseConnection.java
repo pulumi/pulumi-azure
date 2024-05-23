@@ -62,12 +62,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()        
+ *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()
  *             .name("example-DT")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -76,14 +76,14 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()        
+ *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()
  *             .name("exampleEventHubNamespace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("Standard")
  *             .build());
  * 
- *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()        
+ *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()
  *             .name("exampleEventHub")
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .resourceGroupName(example.name())
@@ -91,14 +91,14 @@ import javax.annotation.Nullable;
  *             .messageRetention(7)
  *             .build());
  * 
- *         var exampleConsumerGroup = new ConsumerGroup("exampleConsumerGroup", ConsumerGroupArgs.builder()        
+ *         var exampleConsumerGroup = new ConsumerGroup("exampleConsumerGroup", ConsumerGroupArgs.builder()
  *             .name("example-consumergroup")
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .eventhubName(exampleEventHub.name())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()        
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
  *             .name("examplekc")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -108,26 +108,26 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()        
+ *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()
  *             .name("example-kusto-database")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .clusterName(exampleCluster.name())
  *             .build());
  * 
- *         var databaseContributor = new Assignment("databaseContributor", AssignmentArgs.builder()        
+ *         var databaseContributor = new Assignment("databaseContributor", AssignmentArgs.builder()
  *             .scope(exampleDatabase.id())
  *             .principalId(exampleInstance.identity().applyValue(identity -> identity.principalId()))
  *             .roleDefinitionName("Contributor")
  *             .build());
  * 
- *         var eventhubDataOwner = new Assignment("eventhubDataOwner", AssignmentArgs.builder()        
+ *         var eventhubDataOwner = new Assignment("eventhubDataOwner", AssignmentArgs.builder()
  *             .scope(exampleEventHub.id())
  *             .principalId(exampleInstance.identity().applyValue(identity -> identity.principalId()))
  *             .roleDefinitionName("Azure Event Hubs Data Owner")
  *             .build());
  * 
- *         var exampleDatabasePrincipalAssignment = new DatabasePrincipalAssignment("exampleDatabasePrincipalAssignment", DatabasePrincipalAssignmentArgs.builder()        
+ *         var exampleDatabasePrincipalAssignment = new DatabasePrincipalAssignment("exampleDatabasePrincipalAssignment", DatabasePrincipalAssignmentArgs.builder()
  *             .name("dataadmin")
  *             .resourceGroupName(example.name())
  *             .clusterName(exampleCluster.name())
@@ -138,7 +138,7 @@ import javax.annotation.Nullable;
  *             .role("Admin")
  *             .build());
  * 
- *         var exampleTimeSeriesDatabaseConnection = new TimeSeriesDatabaseConnection("exampleTimeSeriesDatabaseConnection", TimeSeriesDatabaseConnectionArgs.builder()        
+ *         var exampleTimeSeriesDatabaseConnection = new TimeSeriesDatabaseConnection("exampleTimeSeriesDatabaseConnection", TimeSeriesDatabaseConnectionArgs.builder()
  *             .name("example-connection")
  *             .digitalTwinsId(exampleInstance.id())
  *             .eventhubName(exampleEventHub.name())

@@ -49,18 +49,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleLinkedServiceSnowflake = new LinkedServiceSnowflake("exampleLinkedServiceSnowflake", LinkedServiceSnowflakeArgs.builder()        
+ *         var exampleLinkedServiceSnowflake = new LinkedServiceSnowflake("exampleLinkedServiceSnowflake", LinkedServiceSnowflakeArgs.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .connectionString("jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh")
@@ -109,12 +109,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -122,19 +122,19 @@ import javax.annotation.Nullable;
  *             .skuName("standard")
  *             .build());
  * 
- *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleLinkedServiceKeyVault = new LinkedServiceKeyVault("exampleLinkedServiceKeyVault", LinkedServiceKeyVaultArgs.builder()        
+ *         var exampleLinkedServiceKeyVault = new LinkedServiceKeyVault("exampleLinkedServiceKeyVault", LinkedServiceKeyVaultArgs.builder()
  *             .name("kvlink")
  *             .dataFactoryId(exampleFactory.id())
  *             .keyVaultId(exampleKeyVault.id())
  *             .build());
  * 
- *         var exampleLinkedServiceSnowflake = new LinkedServiceSnowflake("exampleLinkedServiceSnowflake", LinkedServiceSnowflakeArgs.builder()        
+ *         var exampleLinkedServiceSnowflake = new LinkedServiceSnowflake("exampleLinkedServiceSnowflake", LinkedServiceSnowflakeArgs.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .connectionString("jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh")

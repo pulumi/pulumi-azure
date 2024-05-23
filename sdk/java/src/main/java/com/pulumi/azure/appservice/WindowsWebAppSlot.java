@@ -62,12 +62,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleServicePlan = new ServicePlan("exampleServicePlan", ServicePlanArgs.builder()        
+ *         var exampleServicePlan = new ServicePlan("exampleServicePlan", ServicePlanArgs.builder()
  *             .name("example-plan")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  *             .skuName("P1v2")
  *             .build());
  * 
- *         var exampleWindowsWebApp = new WindowsWebApp("exampleWindowsWebApp", WindowsWebAppArgs.builder()        
+ *         var exampleWindowsWebApp = new WindowsWebApp("exampleWindowsWebApp", WindowsWebAppArgs.builder()
  *             .name("example-windows-web-app")
  *             .resourceGroupName(example.name())
  *             .location(exampleServicePlan.location())
@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  *             .siteConfig()
  *             .build());
  * 
- *         var exampleWindowsWebAppSlot = new WindowsWebAppSlot("exampleWindowsWebAppSlot", WindowsWebAppSlotArgs.builder()        
+ *         var exampleWindowsWebAppSlot = new WindowsWebAppSlot("exampleWindowsWebAppSlot", WindowsWebAppSlotArgs.builder()
  *             .name("example-slot")
  *             .appServiceId(exampleWindowsWebApp.id())
  *             .siteConfig()

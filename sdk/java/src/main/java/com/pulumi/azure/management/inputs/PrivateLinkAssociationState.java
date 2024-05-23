@@ -61,7 +61,7 @@ public final class PrivateLinkAssociationState extends com.pulumi.resources.Reso
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new PrivateLinkAssociation("example", PrivateLinkAssociationArgs.builder()        
+     *         var example = new PrivateLinkAssociation("example", PrivateLinkAssociationArgs.builder()
      *             .managementGroupId(exampleAzurermManagementGroup.id())
      *             .resourceManagementPrivateLinkId(exampleAzurermResourceManagementPrivateLink.id())
      *             .publicNetworkAccessEnabled(true)
@@ -103,7 +103,7 @@ public final class PrivateLinkAssociationState extends com.pulumi.resources.Reso
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new PrivateLinkAssociation("example", PrivateLinkAssociationArgs.builder()        
+     *         var example = new PrivateLinkAssociation("example", PrivateLinkAssociationArgs.builder()
      *             .managementGroupId(exampleAzurermManagementGroup.id())
      *             .resourceManagementPrivateLinkId(exampleAzurermResourceManagementPrivateLink.id())
      *             .publicNetworkAccessEnabled(true)
@@ -244,7 +244,7 @@ public final class PrivateLinkAssociationState extends com.pulumi.resources.Reso
          *     }
          * 
          *     public static void stack(Context ctx) {
-         *         var example = new PrivateLinkAssociation("example", PrivateLinkAssociationArgs.builder()        
+         *         var example = new PrivateLinkAssociation("example", PrivateLinkAssociationArgs.builder()
          *             .managementGroupId(exampleAzurermManagementGroup.id())
          *             .resourceManagementPrivateLinkId(exampleAzurermResourceManagementPrivateLink.id())
          *             .publicNetworkAccessEnabled(true)
@@ -290,7 +290,7 @@ public final class PrivateLinkAssociationState extends com.pulumi.resources.Reso
          *     }
          * 
          *     public static void stack(Context ctx) {
-         *         var example = new PrivateLinkAssociation("example", PrivateLinkAssociationArgs.builder()        
+         *         var example = new PrivateLinkAssociation("example", PrivateLinkAssociationArgs.builder()
          *             .managementGroupId(exampleAzurermManagementGroup.id())
          *             .resourceManagementPrivateLinkId(exampleAzurermResourceManagementPrivateLink.id())
          *             .publicNetworkAccessEnabled(true)

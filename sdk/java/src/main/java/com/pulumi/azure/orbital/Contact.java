@@ -55,12 +55,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("rg-example")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleSpacecraft = new Spacecraft("exampleSpacecraft", SpacecraftArgs.builder()        
+ *         var exampleSpacecraft = new Spacecraft("exampleSpacecraft", SpacecraftArgs.builder()
  *             .name("example-spacecraft")
  *             .resourceGroupName(example.name())
  *             .location("westeurope")
@@ -79,14 +79,14 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("aks-managed-cluster-name", "9a57225d-a405-4d40-aa46-f13d2342abef"))
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("example-vnet")
  *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("example-subnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
@@ -104,7 +104,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleContactProfile = new ContactProfile("exampleContactProfile", ContactProfileArgs.builder()        
+ *         var exampleContactProfile = new ContactProfile("exampleContactProfile", ContactProfileArgs.builder()
  *             .name("example-contactprofile")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -129,7 +129,7 @@ import javax.annotation.Nullable;
  *             .networkConfigurationSubnetId(exampleSubnet.id())
  *             .build());
  * 
- *         var exampleContact = new Contact("exampleContact", ContactArgs.builder()        
+ *         var exampleContact = new Contact("exampleContact", ContactArgs.builder()
  *             .name("example-contact")
  *             .spacecraftId(exampleSpacecraft.id())
  *             .reservationStartTime("2020-07-16T20:35:00.00Z")

@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example")
  *             .location("northeurope")
  *             .build());
  * 
- *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()
  *             .name("example-server")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -64,20 +64,20 @@ import javax.annotation.Nullable;
  *             .administratorLoginPassword("4-v3ry-53cr37-p455w0rd")
  *             .build());
  * 
- *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()        
+ *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()
  *             .name("example-db")
  *             .serverId(exampleServer.id())
  *             .collation("SQL_Latin1_General_CP1_CI_AS")
  *             .skuName("S1")
  *             .build());
  * 
- *         var exampleJobAgent = new JobAgent("exampleJobAgent", JobAgentArgs.builder()        
+ *         var exampleJobAgent = new JobAgent("exampleJobAgent", JobAgentArgs.builder()
  *             .name("example-job-agent")
  *             .location(example.location())
  *             .databaseId(exampleDatabase.id())
  *             .build());
  * 
- *         var exampleJobCredential = new JobCredential("exampleJobCredential", JobCredentialArgs.builder()        
+ *         var exampleJobCredential = new JobCredential("exampleJobCredential", JobCredentialArgs.builder()
  *             .name("example-credential")
  *             .jobAgentId(exampleJobAgent.id())
  *             .username("my-username")

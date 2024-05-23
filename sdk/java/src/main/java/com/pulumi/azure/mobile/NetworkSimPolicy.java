@@ -61,12 +61,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleNetwork = new Network("exampleNetwork", NetworkArgs.builder()        
+ *         var exampleNetwork = new Network("exampleNetwork", NetworkArgs.builder()
  *             .name("example-mn")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -74,13 +74,13 @@ import javax.annotation.Nullable;
  *             .mobileNetworkCode("01")
  *             .build());
  * 
- *         var exampleNetworkDataNetwork = new NetworkDataNetwork("exampleNetworkDataNetwork", NetworkDataNetworkArgs.builder()        
+ *         var exampleNetworkDataNetwork = new NetworkDataNetwork("exampleNetworkDataNetwork", NetworkDataNetworkArgs.builder()
  *             .name("example-mndn")
  *             .mobileNetworkId(exampleNetwork.id())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleNetworkService = new NetworkService("exampleNetworkService", NetworkServiceArgs.builder()        
+ *         var exampleNetworkService = new NetworkService("exampleNetworkService", NetworkServiceArgs.builder()
  *             .name("example-mns")
  *             .mobileNetworkId(exampleNetwork.id())
  *             .location(example.location())
@@ -99,7 +99,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleNetworkSlice = new NetworkSlice("exampleNetworkSlice", NetworkSliceArgs.builder()        
+ *         var exampleNetworkSlice = new NetworkSlice("exampleNetworkSlice", NetworkSliceArgs.builder()
  *             .name("example-mns")
  *             .mobileNetworkId(exampleNetwork.id())
  *             .location(example.location())
@@ -108,7 +108,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleNetworkSimPolicy = new NetworkSimPolicy("exampleNetworkSimPolicy", NetworkSimPolicyArgs.builder()        
+ *         var exampleNetworkSimPolicy = new NetworkSimPolicy("exampleNetworkSimPolicy", NetworkSimPolicyArgs.builder()
  *             .name("example-mnsp")
  *             .mobileNetworkId(exampleNetwork.id())
  *             .location(example.location())
