@@ -67,20 +67,20 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-rg")
  *             .location("west europe")
  *             .tags(Map.of("stage", "example"))
  *             .build());
  * 
- *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()        
+ *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()
  *             .name("example-ai")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .applicationType("web")
  *             .build());
  * 
- *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()        
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("example-kv")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  *             .purgeProtectionEnabled(true)
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("examplesa")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()        
+ *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()
  *             .name("example-mlw")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -109,12 +109,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleDataLakeGen2Filesystem = new DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", DataLakeGen2FilesystemArgs.builder()        
+ *         var exampleDataLakeGen2Filesystem = new DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", DataLakeGen2FilesystemArgs.builder()
  *             .name("example")
  *             .storageAccountId(exampleAccount.id())
  *             .build());
  * 
- *         var exampleWorkspace2 = new Workspace("exampleWorkspace2", WorkspaceArgs.builder()        
+ *         var exampleWorkspace2 = new Workspace("exampleWorkspace2", WorkspaceArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -126,7 +126,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleSparkPool = new SparkPool("exampleSparkPool", SparkPoolArgs.builder()        
+ *         var exampleSparkPool = new SparkPool("exampleSparkPool", SparkPoolArgs.builder()
  *             .name("example")
  *             .synapseWorkspaceId(exampleWorkspace2.id())
  *             .nodeSizeFamily("MemoryOptimized")
@@ -134,7 +134,7 @@ import javax.annotation.Nullable;
  *             .nodeCount(3)
  *             .build());
  * 
- *         var exampleSynapseSpark = new SynapseSpark("exampleSynapseSpark", SynapseSparkArgs.builder()        
+ *         var exampleSynapseSpark = new SynapseSpark("exampleSynapseSpark", SynapseSparkArgs.builder()
  *             .name("example")
  *             .machineLearningWorkspaceId(exampleWorkspace.id())
  *             .location(example.location())

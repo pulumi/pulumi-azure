@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("FrontDoorExampleResourceGroup")
  *             .location("West Europe")
  *             .build());
@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName("example-vault-rg")
  *             .build());
  * 
- *         var exampleFrontdoor = new Frontdoor("exampleFrontdoor", FrontdoorArgs.builder()        
+ *         var exampleFrontdoor = new Frontdoor("exampleFrontdoor", FrontdoorArgs.builder()
  *             .name("example-FrontDoor")
  *             .resourceGroupName(example.name())
  *             .routingRules(FrontdoorRoutingRuleArgs.builder()
@@ -118,12 +118,12 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var exampleCustomHttps0 = new CustomHttpsConfiguration("exampleCustomHttps0", CustomHttpsConfigurationArgs.builder()        
+ *         var exampleCustomHttps0 = new CustomHttpsConfiguration("exampleCustomHttps0", CustomHttpsConfigurationArgs.builder()
  *             .frontendEndpointId(exampleFrontdoor.frontendEndpointsMap().applyValue(frontendEndpointsMap -> frontendEndpointsMap.exampleFrontendEndpoint1()))
  *             .customHttpsProvisioningEnabled(false)
  *             .build());
  * 
- *         var exampleCustomHttps1 = new CustomHttpsConfiguration("exampleCustomHttps1", CustomHttpsConfigurationArgs.builder()        
+ *         var exampleCustomHttps1 = new CustomHttpsConfiguration("exampleCustomHttps1", CustomHttpsConfigurationArgs.builder()
  *             .frontendEndpointId(exampleFrontdoor.frontendEndpointsMap().applyValue(frontendEndpointsMap -> frontendEndpointsMap.exampleFrontendEndpoint2()))
  *             .customHttpsProvisioningEnabled(true)
  *             .customHttpsConfiguration(CustomHttpsConfigurationCustomHttpsConfigurationArgs.builder()

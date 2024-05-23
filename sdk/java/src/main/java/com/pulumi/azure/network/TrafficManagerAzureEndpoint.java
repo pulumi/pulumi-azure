@@ -55,12 +55,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()
  *             .name("example-public-ip")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *             .domainNameLabel("example-public-ip")
  *             .build());
  * 
- *         var exampleTrafficManagerProfile = new TrafficManagerProfile("exampleTrafficManagerProfile", TrafficManagerProfileArgs.builder()        
+ *         var exampleTrafficManagerProfile = new TrafficManagerProfile("exampleTrafficManagerProfile", TrafficManagerProfileArgs.builder()
  *             .name("example-profile")
  *             .resourceGroupName(example.name())
  *             .trafficRoutingMethod("Weighted")
@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("environment", "Production"))
  *             .build());
  * 
- *         var exampleTrafficManagerAzureEndpoint = new TrafficManagerAzureEndpoint("exampleTrafficManagerAzureEndpoint", TrafficManagerAzureEndpointArgs.builder()        
+ *         var exampleTrafficManagerAzureEndpoint = new TrafficManagerAzureEndpoint("exampleTrafficManagerAzureEndpoint", TrafficManagerAzureEndpointArgs.builder()
  *             .name("example-endpoint")
  *             .profileId(exampleTrafficManagerProfile.id())
  *             .alwaysServeEnabled(true)

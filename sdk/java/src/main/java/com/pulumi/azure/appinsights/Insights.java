@@ -49,12 +49,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("tf-test")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()        
+ *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()
  *             .name("tf-test-appinsights")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -98,12 +98,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("tf-test")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()        
+ *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()
  *             .name("workspace-test")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -111,7 +111,7 @@ import javax.annotation.Nullable;
  *             .retentionInDays(30)
  *             .build());
  * 
- *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()        
+ *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()
  *             .name("tf-test-appinsights")
  *             .location(example.location())
  *             .resourceGroupName(example.name())

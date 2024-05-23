@@ -46,7 +46,7 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new ScaleSet("example", ScaleSetArgs.builder()        
+     *         var example = new ScaleSet("example", ScaleSetArgs.builder()
      *             .name("vm-scaleset")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .location(exampleAzurermResourceGroup.location())
@@ -107,7 +107,7 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new ScaleSet("example", ScaleSetArgs.builder()        
+     *         var example = new ScaleSet("example", ScaleSetArgs.builder()
      *             .name("vm-scaleset")
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .location(exampleAzurermResourceGroup.location())
@@ -225,7 +225,7 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
          *     }
          * 
          *     public static void stack(Context ctx) {
-         *         var example = new ScaleSet("example", ScaleSetArgs.builder()        
+         *         var example = new ScaleSet("example", ScaleSetArgs.builder()
          *             .name("vm-scaleset")
          *             .resourceGroupName(exampleAzurermResourceGroup.name())
          *             .location(exampleAzurermResourceGroup.location())
@@ -290,7 +290,7 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
          *     }
          * 
          *     public static void stack(Context ctx) {
-         *         var example = new ScaleSet("example", ScaleSetArgs.builder()        
+         *         var example = new ScaleSet("example", ScaleSetArgs.builder()
          *             .name("vm-scaleset")
          *             .resourceGroupName(exampleAzurermResourceGroup.name())
          *             .location(exampleAzurermResourceGroup.location())
@@ -354,7 +354,7 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
          *     }
          * 
          *     public static void stack(Context ctx) {
-         *         var example = new ScaleSet("example", ScaleSetArgs.builder()        
+         *         var example = new ScaleSet("example", ScaleSetArgs.builder()
          *             .name("vm-scaleset")
          *             .resourceGroupName(exampleAzurermResourceGroup.name())
          *             .location(exampleAzurermResourceGroup.location())

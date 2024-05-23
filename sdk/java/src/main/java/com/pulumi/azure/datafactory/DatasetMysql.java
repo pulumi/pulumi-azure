@@ -51,24 +51,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleLinkedServiceMysql = new LinkedServiceMysql("exampleLinkedServiceMysql", LinkedServiceMysqlArgs.builder()        
+ *         var exampleLinkedServiceMysql = new LinkedServiceMysql("exampleLinkedServiceMysql", LinkedServiceMysqlArgs.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .connectionString("Server=test;Port=3306;Database=test;User=test;SSLMode=1;UseSystemTrustStore=0;Password=test")
  *             .build());
  * 
- *         var exampleDatasetMysql = new DatasetMysql("exampleDatasetMysql", DatasetMysqlArgs.builder()        
+ *         var exampleDatasetMysql = new DatasetMysql("exampleDatasetMysql", DatasetMysqlArgs.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .linkedServiceName(exampleLinkedServiceMysql.name())

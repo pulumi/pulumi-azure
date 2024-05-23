@@ -54,19 +54,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualHub = new VirtualHub("exampleVirtualHub", VirtualHubArgs.builder()        
+ *         var exampleVirtualHub = new VirtualHub("exampleVirtualHub", VirtualHubArgs.builder()
  *             .name("example-vhub")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .sku("Standard")
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()
  *             .name("example-pip")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -74,21 +74,21 @@ import javax.annotation.Nullable;
  *             .sku("Standard")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("example-vnet")
  *             .addressSpaces("10.5.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("RouteServerSubnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("10.5.1.0/24")
  *             .build());
  * 
- *         var exampleVirtualHubIp = new VirtualHubIp("exampleVirtualHubIp", VirtualHubIpArgs.builder()        
+ *         var exampleVirtualHubIp = new VirtualHubIp("exampleVirtualHubIp", VirtualHubIpArgs.builder()
  *             .name("example-vhubipconfig")
  *             .virtualHubId(exampleVirtualHub.id())
  *             .privateIpAddress("10.5.1.18")

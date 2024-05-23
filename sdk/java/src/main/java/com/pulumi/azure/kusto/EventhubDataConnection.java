@@ -56,12 +56,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("my-kusto-rg")
  *             .location("West Europe")
  *             .build());
  * 
- *         var cluster = new Cluster("cluster", ClusterArgs.builder()        
+ *         var cluster = new Cluster("cluster", ClusterArgs.builder()
  *             .name("kustocluster")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var database = new Database("database", DatabaseArgs.builder()        
+ *         var database = new Database("database", DatabaseArgs.builder()
  *             .name("my-kusto-database")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -80,14 +80,14 @@ import javax.annotation.Nullable;
  *             .softDeletePeriod("P31D")
  *             .build());
  * 
- *         var eventhubNs = new EventHubNamespace("eventhubNs", EventHubNamespaceArgs.builder()        
+ *         var eventhubNs = new EventHubNamespace("eventhubNs", EventHubNamespaceArgs.builder()
  *             .name("my-eventhub-ns")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("Standard")
  *             .build());
  * 
- *         var eventhub = new EventHub("eventhub", EventHubArgs.builder()        
+ *         var eventhub = new EventHub("eventhub", EventHubArgs.builder()
  *             .name("my-eventhub")
  *             .namespaceName(eventhubNs.name())
  *             .resourceGroupName(example.name())
@@ -95,14 +95,14 @@ import javax.annotation.Nullable;
  *             .messageRetention(1)
  *             .build());
  * 
- *         var consumerGroup = new ConsumerGroup("consumerGroup", ConsumerGroupArgs.builder()        
+ *         var consumerGroup = new ConsumerGroup("consumerGroup", ConsumerGroupArgs.builder()
  *             .name("my-eventhub-consumergroup")
  *             .namespaceName(eventhubNs.name())
  *             .eventhubName(eventhub.name())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var eventhubConnection = new EventhubDataConnection("eventhubConnection", EventhubDataConnectionArgs.builder()        
+ *         var eventhubConnection = new EventhubDataConnection("eventhubConnection", EventhubDataConnectionArgs.builder()
  *             .name("my-kusto-eventhub-data-connection")
  *             .resourceGroupName(example.name())
  *             .location(example.location())

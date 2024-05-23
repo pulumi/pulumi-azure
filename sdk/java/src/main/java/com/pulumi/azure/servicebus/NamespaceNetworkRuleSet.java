@@ -58,12 +58,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()        
+ *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()
  *             .name("example-sb-namespace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *             .capacity(1)
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("example-vnet")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  *                 "10.0.0.5")
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("default")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  *             .serviceEndpoints("Microsoft.ServiceBus")
  *             .build());
  * 
- *         var exampleNamespaceNetworkRuleSet = new NamespaceNetworkRuleSet("exampleNamespaceNetworkRuleSet", NamespaceNetworkRuleSetArgs.builder()        
+ *         var exampleNamespaceNetworkRuleSet = new NamespaceNetworkRuleSet("exampleNamespaceNetworkRuleSet", NamespaceNetworkRuleSetArgs.builder()
  *             .namespaceId(exampleNamespace.id())
  *             .defaultAction("Deny")
  *             .publicNetworkAccessEnabled(true)

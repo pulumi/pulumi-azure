@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("example")
  *             .location("West Europe")
  *             .build());
@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleExtension = new Extension("exampleExtension", ExtensionArgs.builder()        
+ *         var exampleExtension = new Extension("exampleExtension", ExtensionArgs.builder()
  *             .name("example")
  *             .location("West Europe")
  *             .arcMachineId(example.applyValue(getResult -> getResult).applyValue(example -> example.applyValue(getResult -> getResult.id())))

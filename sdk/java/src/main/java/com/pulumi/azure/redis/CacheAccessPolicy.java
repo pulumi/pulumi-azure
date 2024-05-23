@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("East US")
  *             .build());
  * 
- *         var exampleCache = new Cache("exampleCache", CacheArgs.builder()        
+ *         var exampleCache = new Cache("exampleCache", CacheArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleCacheAccessPolicy = new CacheAccessPolicy("exampleCacheAccessPolicy", CacheAccessPolicyArgs.builder()        
+ *         var exampleCacheAccessPolicy = new CacheAccessPolicy("exampleCacheAccessPolicy", CacheAccessPolicyArgs.builder()
  *             .name("example")
  *             .redisCacheId(exampleCache.id())
  *             .permissions("+{@literal @}read +{@literal @}connection +cluster|info")

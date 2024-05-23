@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()        
+ *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()
  *             .name("exampleworkspace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  *             .retentionInDays(30)
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("examplestoracc")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleDataExportRule = new DataExportRule("exampleDataExportRule", DataExportRuleArgs.builder()        
+ *         var exampleDataExportRule = new DataExportRule("exampleDataExportRule", DataExportRuleArgs.builder()
  *             .name("dataExport1")
  *             .resourceGroupName(example.name())
  *             .workspaceResourceId(exampleAnalyticsWorkspace.id())

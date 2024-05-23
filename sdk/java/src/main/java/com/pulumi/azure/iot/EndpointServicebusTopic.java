@@ -56,24 +56,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()        
+ *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()
  *             .name("exampleNamespace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("Standard")
  *             .build());
  * 
- *         var exampleTopic = new Topic("exampleTopic", TopicArgs.builder()        
+ *         var exampleTopic = new Topic("exampleTopic", TopicArgs.builder()
  *             .name("exampleTopic")
  *             .namespaceId(exampleNamespace.id())
  *             .build());
  * 
- *         var exampleTopicAuthorizationRule = new TopicAuthorizationRule("exampleTopicAuthorizationRule", TopicAuthorizationRuleArgs.builder()        
+ *         var exampleTopicAuthorizationRule = new TopicAuthorizationRule("exampleTopicAuthorizationRule", TopicAuthorizationRuleArgs.builder()
  *             .name("exampleRule")
  *             .topicId(exampleTopic.id())
  *             .listen(false)
@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  *             .manage(false)
  *             .build());
  * 
- *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()        
+ *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()
  *             .name("exampleIothub")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("purpose", "example"))
  *             .build());
  * 
- *         var exampleEndpointServicebusTopic = new EndpointServicebusTopic("exampleEndpointServicebusTopic", EndpointServicebusTopicArgs.builder()        
+ *         var exampleEndpointServicebusTopic = new EndpointServicebusTopic("exampleEndpointServicebusTopic", EndpointServicebusTopicArgs.builder()
  *             .resourceGroupName(example.name())
  *             .iothubId(exampleIoTHub.id())
  *             .name("example")

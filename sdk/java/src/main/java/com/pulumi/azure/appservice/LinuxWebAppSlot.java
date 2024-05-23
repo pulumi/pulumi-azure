@@ -62,12 +62,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleServicePlan = new ServicePlan("exampleServicePlan", ServicePlanArgs.builder()        
+ *         var exampleServicePlan = new ServicePlan("exampleServicePlan", ServicePlanArgs.builder()
  *             .name("example-plan")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  *             .skuName("P1v2")
  *             .build());
  * 
- *         var exampleLinuxWebApp = new LinuxWebApp("exampleLinuxWebApp", LinuxWebAppArgs.builder()        
+ *         var exampleLinuxWebApp = new LinuxWebApp("exampleLinuxWebApp", LinuxWebAppArgs.builder()
  *             .name("example-linux-web-app")
  *             .resourceGroupName(example.name())
  *             .location(exampleServicePlan.location())
@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  *             .siteConfig()
  *             .build());
  * 
- *         var exampleLinuxWebAppSlot = new LinuxWebAppSlot("exampleLinuxWebAppSlot", LinuxWebAppSlotArgs.builder()        
+ *         var exampleLinuxWebAppSlot = new LinuxWebAppSlot("exampleLinuxWebAppSlot", LinuxWebAppSlotArgs.builder()
  *             .name("example-slot")
  *             .appServiceId(exampleLinuxWebApp.id())
  *             .siteConfig()

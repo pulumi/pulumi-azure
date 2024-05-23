@@ -57,13 +57,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example")
  *             .location("East US")
  *             .build());
  * 
  *         //Create a Linked Service using managed identity and new cluster config
- *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()
  *             .name("TestDtaFactory92783401247")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -73,14 +73,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         //Create a databricks instance
- *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()        
+ *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()
  *             .name("databricks-test")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .sku("standard")
  *             .build());
  * 
- *         var msiLinked = new LinkedServiceAzureDatabricks("msiLinked", LinkedServiceAzureDatabricksArgs.builder()        
+ *         var msiLinked = new LinkedServiceAzureDatabricks("msiLinked", LinkedServiceAzureDatabricksArgs.builder()
  *             .name("ADBLinkedServiceViaMSI")
  *             .dataFactoryId(exampleFactory.id())
  *             .description("ADB Linked Service via MSI")
@@ -148,27 +148,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example")
  *             .location("East US")
  *             .build());
  * 
  *         //Link to an existing cluster via access token
- *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()
  *             .name("TestDtaFactory92783401247")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         //Create a databricks instance
- *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()        
+ *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()
  *             .name("databricks-test")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .sku("standard")
  *             .build());
  * 
- *         var atLinked = new LinkedServiceAzureDatabricks("atLinked", LinkedServiceAzureDatabricksArgs.builder()        
+ *         var atLinked = new LinkedServiceAzureDatabricks("atLinked", LinkedServiceAzureDatabricksArgs.builder()
  *             .name("ADBLinkedServiceViaAccessToken")
  *             .dataFactoryId(exampleFactory.id())
  *             .description("ADB Linked Service via Access Token")

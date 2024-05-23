@@ -52,12 +52,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("my-kusto-rg")
  *             .location("West Europe")
  *             .build());
  * 
- *         var followerCluster = new Cluster("followerCluster", ClusterArgs.builder()        
+ *         var followerCluster = new Cluster("followerCluster", ClusterArgs.builder()
  *             .name("cluster1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var followedCluster = new Cluster("followedCluster", ClusterArgs.builder()        
+ *         var followedCluster = new Cluster("followedCluster", ClusterArgs.builder()
  *             .name("cluster2")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -77,21 +77,21 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var followedDatabase = new Database("followedDatabase", DatabaseArgs.builder()        
+ *         var followedDatabase = new Database("followedDatabase", DatabaseArgs.builder()
  *             .name("my-followed-database")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .clusterName(followerCluster.name())
  *             .build());
  * 
- *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()        
+ *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .clusterName(followerCluster.name())
  *             .build());
  * 
- *         var exampleAttachedDatabaseConfiguration = new AttachedDatabaseConfiguration("exampleAttachedDatabaseConfiguration", AttachedDatabaseConfigurationArgs.builder()        
+ *         var exampleAttachedDatabaseConfiguration = new AttachedDatabaseConfiguration("exampleAttachedDatabaseConfiguration", AttachedDatabaseConfigurationArgs.builder()
  *             .name("configuration1")
  *             .resourceGroupName(example.name())
  *             .location(example.location())

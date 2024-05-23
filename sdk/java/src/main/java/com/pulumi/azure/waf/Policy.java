@@ -52,12 +52,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-rg")
  *             .location("West Europe")
  *             .build());
  * 
- *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()        
+ *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()
  *             .name("example-wafpolicy")
  *             .resourceGroupName(example.name())
  *             .location(example.location())

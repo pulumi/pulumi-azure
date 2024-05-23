@@ -56,19 +56,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()        
+ *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()
  *             .name("exampleEventHubNamespace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("Basic")
  *             .build());
  * 
- *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()        
+ *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()
  *             .name("exampleEventHub")
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .resourceGroupName(example.name())
@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  *             .messageRetention(1)
  *             .build());
  * 
- *         var exampleAuthorizationRule = new AuthorizationRule("exampleAuthorizationRule", AuthorizationRuleArgs.builder()        
+ *         var exampleAuthorizationRule = new AuthorizationRule("exampleAuthorizationRule", AuthorizationRuleArgs.builder()
  *             .name("exampleRule")
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .eventhubName(exampleEventHub.name())
@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  *             .manage(false)
  *             .build());
  * 
- *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()        
+ *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()
  *             .name("exampleIothub")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("purpose", "example"))
  *             .build());
  * 
- *         var exampleEndpointEventhub = new EndpointEventhub("exampleEndpointEventhub", EndpointEventhubArgs.builder()        
+ *         var exampleEndpointEventhub = new EndpointEventhub("exampleEndpointEventhub", EndpointEventhubArgs.builder()
  *             .resourceGroupName(example.name())
  *             .iothubId(exampleIoTHub.id())
  *             .name("example")

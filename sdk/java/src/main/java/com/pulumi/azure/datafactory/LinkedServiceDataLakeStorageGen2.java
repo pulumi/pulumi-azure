@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleLinkedServiceDataLakeStorageGen2 = new LinkedServiceDataLakeStorageGen2("exampleLinkedServiceDataLakeStorageGen2", LinkedServiceDataLakeStorageGen2Args.builder()        
+ *         var exampleLinkedServiceDataLakeStorageGen2 = new LinkedServiceDataLakeStorageGen2("exampleLinkedServiceDataLakeStorageGen2", LinkedServiceDataLakeStorageGen2Args.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .servicePrincipalId(current.applyValue(getClientConfigResult -> getClientConfigResult.clientId()))
