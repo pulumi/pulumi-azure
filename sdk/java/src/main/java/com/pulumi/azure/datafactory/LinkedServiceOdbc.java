@@ -52,24 +52,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()        
+ *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var anonymous = new LinkedServiceOdbc("anonymous", LinkedServiceOdbcArgs.builder()        
+ *         var anonymous = new LinkedServiceOdbc("anonymous", LinkedServiceOdbcArgs.builder()
  *             .name("anonymous")
  *             .dataFactoryId(exampleFactory.id())
  *             .connectionString("Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;")
  *             .build());
  * 
- *         var basicAuth = new LinkedServiceOdbc("basicAuth", LinkedServiceOdbcArgs.builder()        
+ *         var basicAuth = new LinkedServiceOdbc("basicAuth", LinkedServiceOdbcArgs.builder()
  *             .name("basic_auth")
  *             .dataFactoryId(exampleFactory.id())
  *             .connectionString("Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;")

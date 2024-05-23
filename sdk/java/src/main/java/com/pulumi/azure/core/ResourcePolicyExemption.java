@@ -52,12 +52,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("group1")
  *             .location("westus")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("network1")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *             .displayName("Audit machines with insecure password security settings")
  *             .build());
  * 
- *         var exampleResourcePolicyAssignment = new ResourcePolicyAssignment("exampleResourcePolicyAssignment", ResourcePolicyAssignmentArgs.builder()        
+ *         var exampleResourcePolicyAssignment = new ResourcePolicyAssignment("exampleResourcePolicyAssignment", ResourcePolicyAssignmentArgs.builder()
  *             .name("assignment1")
  *             .resourceId(exampleVirtualNetwork.id())
  *             .policyDefinitionId(example.applyValue(getPolicySetDefinitionResult -> getPolicySetDefinitionResult.id()))
@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleResourcePolicyExemption = new ResourcePolicyExemption("exampleResourcePolicyExemption", ResourcePolicyExemptionArgs.builder()        
+ *         var exampleResourcePolicyExemption = new ResourcePolicyExemption("exampleResourcePolicyExemption", ResourcePolicyExemptionArgs.builder()
  *             .name("exemption1")
  *             .resourceId(exampleResourcePolicyAssignment.resourceId())
  *             .policyAssignmentId(exampleResourcePolicyAssignment.id())

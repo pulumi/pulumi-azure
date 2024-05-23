@@ -54,12 +54,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()        
+ *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()
  *             .name("example-IoTHub")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleSecuritySolution = new SecuritySolution("exampleSecuritySolution", SecuritySolutionArgs.builder()        
+ *         var exampleSecuritySolution = new SecuritySolution("exampleSecuritySolution", SecuritySolutionArgs.builder()
  *             .name("example-Iot-Security-Solution")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  *             .iothubIds(exampleIoTHub.id())
  *             .build());
  * 
- *         var exampleSecurityDeviceGroup = new SecurityDeviceGroup("exampleSecurityDeviceGroup", SecurityDeviceGroupArgs.builder()        
+ *         var exampleSecurityDeviceGroup = new SecurityDeviceGroup("exampleSecurityDeviceGroup", SecurityDeviceGroupArgs.builder()
  *             .name("example-device-security-group")
  *             .iothubId(exampleIoTHub.id())
  *             .allowRule(SecurityDeviceGroupAllowRuleArgs.builder()

@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RouteFilter("example", RouteFilterArgs.builder()        
+ *         var example = new RouteFilter("example", RouteFilterArgs.builder()
  *             .name("example")
  *             .resourceGroupName("example")
  *             .location("East US")

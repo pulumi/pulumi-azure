@@ -47,17 +47,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Central US")
  *             .build());
  * 
- *         var exampleServicesCommunicationsGateway = new ServicesCommunicationsGateway("exampleServicesCommunicationsGateway", ServicesCommunicationsGatewayArgs.builder()        
+ *         var exampleServicesCommunicationsGateway = new ServicesCommunicationsGateway("exampleServicesCommunicationsGateway", ServicesCommunicationsGatewayArgs.builder()
  *             .name("example-vcg")
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleServicesCommunicationsGatewayTestLine = new ServicesCommunicationsGatewayTestLine("exampleServicesCommunicationsGatewayTestLine", ServicesCommunicationsGatewayTestLineArgs.builder()        
+ *         var exampleServicesCommunicationsGatewayTestLine = new ServicesCommunicationsGatewayTestLine("exampleServicesCommunicationsGatewayTestLine", ServicesCommunicationsGatewayTestLineArgs.builder()
  *             .name("example-vtl")
  *             .location("West Central US")
  *             .voiceServicesCommunicationsGatewayId(exampleServicesCommunicationsGateway.id())

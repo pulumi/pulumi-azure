@@ -53,18 +53,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleLab = new Lab("exampleLab", LabArgs.builder()        
+ *         var exampleLab = new Lab("exampleLab", LabArgs.builder()
  *             .name("YourDevTestLab")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSchedule = new Schedule("exampleSchedule", ScheduleArgs.builder()        
+ *         var exampleSchedule = new Schedule("exampleSchedule", ScheduleArgs.builder()
  *             .name("LabVmAutoStart")
  *             .location(example.location())
  *             .resourceGroupName(example.name())

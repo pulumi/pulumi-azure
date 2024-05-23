@@ -49,19 +49,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-rg")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleRegistry = new Registry("exampleRegistry", RegistryArgs.builder()        
+ *         var exampleRegistry = new Registry("exampleRegistry", RegistryArgs.builder()
  *             .name("example-acr")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .sku("Basic")
  *             .build());
  * 
- *         var exampleRegistryTask = new RegistryTask("exampleRegistryTask", RegistryTaskArgs.builder()        
+ *         var exampleRegistryTask = new RegistryTask("exampleRegistryTask", RegistryTaskArgs.builder()
  *             .name("example-task")
  *             .containerRegistryId(exampleRegistry.id())
  *             .platform(RegistryTaskPlatformArgs.builder()
@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleRegistryTaskScheduleRunNow = new RegistryTaskScheduleRunNow("exampleRegistryTaskScheduleRunNow", RegistryTaskScheduleRunNowArgs.builder()        
+ *         var exampleRegistryTaskScheduleRunNow = new RegistryTaskScheduleRunNow("exampleRegistryTaskScheduleRunNow", RegistryTaskScheduleRunNowArgs.builder()
  *             .containerRegistryTaskId(exampleRegistryTask.id())
  *             .build());
  * 

@@ -60,33 +60,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("example-vnet")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .addressSpaces("10.0.0.0/16")
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("GatewaySubnet")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("10.0.1.0/24")
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()
  *             .name("example-pip")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .allocationMethod("Dynamic")
  *             .build());
  * 
- *         var exampleVirtualNetworkGateway = new VirtualNetworkGateway("exampleVirtualNetworkGateway", VirtualNetworkGatewayArgs.builder()        
+ *         var exampleVirtualNetworkGateway = new VirtualNetworkGateway("exampleVirtualNetworkGateway", VirtualNetworkGatewayArgs.builder()
  *             .name("example-vnetgw")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
@@ -105,7 +105,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(exampleVirtualNetworkGateway.resourceGroupName())
  *             .build());
  * 
- *         var exampleVirtualNetworkGatewayNatRule = new VirtualNetworkGatewayNatRule("exampleVirtualNetworkGatewayNatRule", VirtualNetworkGatewayNatRuleArgs.builder()        
+ *         var exampleVirtualNetworkGatewayNatRule = new VirtualNetworkGatewayNatRule("exampleVirtualNetworkGatewayNatRule", VirtualNetworkGatewayNatRuleArgs.builder()
  *             .name("example-vnetgwnatrule")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .virtualNetworkGatewayId(example.applyValue(getVirtualNetworkGatewayResult -> getVirtualNetworkGatewayResult).applyValue(example -> example.applyValue(getVirtualNetworkGatewayResult -> getVirtualNetworkGatewayResult.id())))

@@ -48,12 +48,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("azureteststorage")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -61,13 +61,13 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleShare = new Share("exampleShare", ShareArgs.builder()        
+ *         var exampleShare = new Share("exampleShare", ShareArgs.builder()
  *             .name("sharename")
  *             .storageAccountName(exampleAccount.name())
  *             .quota(50)
  *             .build());
  * 
- *         var exampleShareFile = new ShareFile("exampleShareFile", ShareFileArgs.builder()        
+ *         var exampleShareFile = new ShareFile("exampleShareFile", ShareFileArgs.builder()
  *             .name("my-awesome-content.zip")
  *             .storageShareId(exampleShare.id())
  *             .source("some-local-file.zip")

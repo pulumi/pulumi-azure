@@ -46,19 +46,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-rg")
  *             .location("East US")
  *             .build());
  * 
- *         var vault = new Vault("vault", VaultArgs.builder()        
+ *         var vault = new Vault("vault", VaultArgs.builder()
  *             .name("example-recovery-vault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("Standard")
  *             .build());
  * 
- *         var policy = new HyperVReplicationPolicy("policy", HyperVReplicationPolicyArgs.builder()        
+ *         var policy = new HyperVReplicationPolicy("policy", HyperVReplicationPolicyArgs.builder()
  *             .name("policy")
  *             .recoveryVaultId(vault.id())
  *             .recoveryPointRetentionInHours(2)

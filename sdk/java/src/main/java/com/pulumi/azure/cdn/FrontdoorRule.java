@@ -65,24 +65,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-cdn-frontdoor")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleFrontdoorProfile = new FrontdoorProfile("exampleFrontdoorProfile", FrontdoorProfileArgs.builder()        
+ *         var exampleFrontdoorProfile = new FrontdoorProfile("exampleFrontdoorProfile", FrontdoorProfileArgs.builder()
  *             .name("example-profile")
  *             .resourceGroupName(example.name())
  *             .skuName("Premium_AzureFrontDoor")
  *             .build());
  * 
- *         var exampleFrontdoorEndpoint = new FrontdoorEndpoint("exampleFrontdoorEndpoint", FrontdoorEndpointArgs.builder()        
+ *         var exampleFrontdoorEndpoint = new FrontdoorEndpoint("exampleFrontdoorEndpoint", FrontdoorEndpointArgs.builder()
  *             .name("example-endpoint")
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .tags(Map.of("endpoint", "contoso.com"))
  *             .build());
  * 
- *         var exampleFrontdoorOriginGroup = new FrontdoorOriginGroup("exampleFrontdoorOriginGroup", FrontdoorOriginGroupArgs.builder()        
+ *         var exampleFrontdoorOriginGroup = new FrontdoorOriginGroup("exampleFrontdoorOriginGroup", FrontdoorOriginGroupArgs.builder()
  *             .name("example-originGroup")
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .sessionAffinityEnabled(true)
@@ -100,7 +100,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleFrontdoorOrigin = new FrontdoorOrigin("exampleFrontdoorOrigin", FrontdoorOriginArgs.builder()        
+ *         var exampleFrontdoorOrigin = new FrontdoorOrigin("exampleFrontdoorOrigin", FrontdoorOriginArgs.builder()
  *             .name("example-origin")
  *             .cdnFrontdoorOriginGroupId(exampleFrontdoorOriginGroup.id())
  *             .enabled(true)
@@ -113,12 +113,12 @@ import javax.annotation.Nullable;
  *             .weight(500)
  *             .build());
  * 
- *         var exampleFrontdoorRuleSet = new FrontdoorRuleSet("exampleFrontdoorRuleSet", FrontdoorRuleSetArgs.builder()        
+ *         var exampleFrontdoorRuleSet = new FrontdoorRuleSet("exampleFrontdoorRuleSet", FrontdoorRuleSetArgs.builder()
  *             .name("exampleruleset")
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .build());
  * 
- *         var exampleFrontdoorRule = new FrontdoorRule("exampleFrontdoorRule", FrontdoorRuleArgs.builder()        
+ *         var exampleFrontdoorRule = new FrontdoorRule("exampleFrontdoorRule", FrontdoorRuleArgs.builder()
  *             .name("examplerule")
  *             .cdnFrontdoorRuleSetId(exampleFrontdoorRuleSet.id())
  *             .order(1)

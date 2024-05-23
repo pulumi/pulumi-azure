@@ -58,18 +58,18 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getSubscription();
  * 
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example")
  *             .location("eastus")
  *             .build());
  * 
- *         var exampleActionGroup = new ActionGroup("exampleActionGroup", ActionGroupArgs.builder()        
+ *         var exampleActionGroup = new ActionGroup("exampleActionGroup", ActionGroupArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .shortName("example")
  *             .build());
  * 
- *         var exampleBudgetSubscription = new BudgetSubscription("exampleBudgetSubscription", BudgetSubscriptionArgs.builder()        
+ *         var exampleBudgetSubscription = new BudgetSubscription("exampleBudgetSubscription", BudgetSubscriptionArgs.builder()
  *             .name("example")
  *             .subscriptionId(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *             .amount(1000)

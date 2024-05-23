@@ -94,12 +94,24 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
     /**
      * A mapping of key value pairs passed to the connection. Different `type` needs different parameters in the `values`. Builtin types have required field values as below:
      * 
+     * * `Azure`: parameters `AutomationCertificateName` and `SubscriptionID`.
+     * 
+     * * `AzureClassicCertificate`: parameters `SubscriptionName`, `SubscriptionId` and `CertificateAssetName`.
+     * 
+     * * `AzureServicePrincipal`: parameters `ApplicationId`, `CertificateThumbprint`, `SubscriptionId` and `TenantId`.
+     * 
      */
     @Import(name="values")
     private @Nullable Output<Map<String,String>> values;
 
     /**
      * @return A mapping of key value pairs passed to the connection. Different `type` needs different parameters in the `values`. Builtin types have required field values as below:
+     * 
+     * * `Azure`: parameters `AutomationCertificateName` and `SubscriptionID`.
+     * 
+     * * `AzureClassicCertificate`: parameters `SubscriptionName`, `SubscriptionId` and `CertificateAssetName`.
+     * 
+     * * `AzureServicePrincipal`: parameters `ApplicationId`, `CertificateThumbprint`, `SubscriptionId` and `TenantId`.
      * 
      */
     public Optional<Output<Map<String,String>>> values() {
@@ -243,6 +255,12 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param values A mapping of key value pairs passed to the connection. Different `type` needs different parameters in the `values`. Builtin types have required field values as below:
          * 
+         * * `Azure`: parameters `AutomationCertificateName` and `SubscriptionID`.
+         * 
+         * * `AzureClassicCertificate`: parameters `SubscriptionName`, `SubscriptionId` and `CertificateAssetName`.
+         * 
+         * * `AzureServicePrincipal`: parameters `ApplicationId`, `CertificateThumbprint`, `SubscriptionId` and `TenantId`.
+         * 
          * @return builder
          * 
          */
@@ -253,6 +271,12 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param values A mapping of key value pairs passed to the connection. Different `type` needs different parameters in the `values`. Builtin types have required field values as below:
+         * 
+         * * `Azure`: parameters `AutomationCertificateName` and `SubscriptionID`.
+         * 
+         * * `AzureClassicCertificate`: parameters `SubscriptionName`, `SubscriptionId` and `CertificateAssetName`.
+         * 
+         * * `AzureServicePrincipal`: parameters `ApplicationId`, `CertificateThumbprint`, `SubscriptionId` and `TenantId`.
          * 
          * @return builder
          * 

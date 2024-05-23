@@ -1011,7 +1011,7 @@ public final class MobileFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         var exampleNetworkService = new NetworkService("exampleNetworkService", NetworkServiceArgs.builder()        
+     *         var exampleNetworkService = new NetworkService("exampleNetworkService", NetworkServiceArgs.builder()
      *             .name("example-mns")
      *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
      *             .build());
@@ -1061,7 +1061,7 @@ public final class MobileFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         var exampleNetworkService = new NetworkService("exampleNetworkService", NetworkServiceArgs.builder()        
+     *         var exampleNetworkService = new NetworkService("exampleNetworkService", NetworkServiceArgs.builder()
      *             .name("example-mns")
      *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
      *             .build());
@@ -1111,7 +1111,7 @@ public final class MobileFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         var exampleNetworkService = new NetworkService("exampleNetworkService", NetworkServiceArgs.builder()        
+     *         var exampleNetworkService = new NetworkService("exampleNetworkService", NetworkServiceArgs.builder()
      *             .name("example-mns")
      *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
      *             .build());
@@ -1161,7 +1161,7 @@ public final class MobileFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         var exampleNetworkService = new NetworkService("exampleNetworkService", NetworkServiceArgs.builder()        
+     *         var exampleNetworkService = new NetworkService("exampleNetworkService", NetworkServiceArgs.builder()
      *             .name("example-mns")
      *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
      *             .build());
