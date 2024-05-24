@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *             .roleDefinitionId("b24988ac-6180-42a0-ab88-20f7382dd24c")
  *             .build());
  * 
- *         var example = new Definition("example", DefinitionArgs.builder()        
+ *         var example = new Definition("example", DefinitionArgs.builder()
  *             .name("Sample definition")
  *             .description("This is a lighthouse definition created IaC")
  *             .managingTenantId("00000000-0000-0000-0000-000000000000")

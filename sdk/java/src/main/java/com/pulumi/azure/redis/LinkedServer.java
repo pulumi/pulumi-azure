@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example_primary = new ResourceGroup("example-primary", ResourceGroupArgs.builder()        
+ *         var example_primary = new ResourceGroup("example-primary", ResourceGroupArgs.builder()
  *             .name("example-resources-primary")
  *             .location("East US")
  *             .build());
  * 
- *         var example_primaryCache = new Cache("example-primaryCache", CacheArgs.builder()        
+ *         var example_primaryCache = new Cache("example-primaryCache", CacheArgs.builder()
  *             .name("example-cache1")
  *             .location(example_primary.location())
  *             .resourceGroupName(example_primary.name())
@@ -66,12 +66,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var example_secondary = new ResourceGroup("example-secondary", ResourceGroupArgs.builder()        
+ *         var example_secondary = new ResourceGroup("example-secondary", ResourceGroupArgs.builder()
  *             .name("example-resources-secondary")
  *             .location("West US")
  *             .build());
  * 
- *         var example_secondaryCache = new Cache("example-secondaryCache", CacheArgs.builder()        
+ *         var example_secondaryCache = new Cache("example-secondaryCache", CacheArgs.builder()
  *             .name("example-cache2")
  *             .location(example_secondary.location())
  *             .resourceGroupName(example_secondary.name())
@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var example_link = new LinkedServer("example-link", LinkedServerArgs.builder()        
+ *         var example_link = new LinkedServer("example-link", LinkedServerArgs.builder()
  *             .targetRedisCacheName(example_primaryCache.name())
  *             .resourceGroupName(example_primaryCache.resourceGroupName())
  *             .linkedRedisCacheId(example_secondaryCache.id())

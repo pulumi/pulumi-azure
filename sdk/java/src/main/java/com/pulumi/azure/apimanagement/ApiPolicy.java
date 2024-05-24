@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *             .revision("2")
  *             .build());
  * 
- *         var exampleApiPolicy = new ApiPolicy("exampleApiPolicy", ApiPolicyArgs.builder()        
+ *         var exampleApiPolicy = new ApiPolicy("exampleApiPolicy", ApiPolicyArgs.builder()
  *             .apiName(example.applyValue(getApiResult -> getApiResult.name()))
  *             .apiManagementName(example.applyValue(getApiResult -> getApiResult.apiManagementName()))
  *             .resourceGroupName(example.applyValue(getApiResult -> getApiResult.resourceGroupName()))

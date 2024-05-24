@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName("some-resource-group")
  *             .build());
  * 
- *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()
  *             .name("example-apim")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  *             .skuName("Developer_1")
  *             .build());
  * 
- *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()        
+ *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()
  *             .name("example-certificate")
  *             .keyVaultId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
  *             .certificatePolicy(CertificateCertificatePolicyArgs.builder()
@@ -130,7 +130,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleCustomDomain = new CustomDomain("exampleCustomDomain", CustomDomainArgs.builder()        
+ *         var exampleCustomDomain = new CustomDomain("exampleCustomDomain", CustomDomainArgs.builder()
  *             .apiManagementId(exampleService.id())
  *             .gateways(CustomDomainGatewayArgs.builder()
  *                 .hostName("api.example.com")

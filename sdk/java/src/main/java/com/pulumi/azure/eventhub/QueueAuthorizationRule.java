@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("my-servicebus")
  *             .location("West US")
  *             .build());
  * 
- *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()        
+ *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()
  *             .name("tfex-servicebus-namespace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -63,13 +63,13 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("source", "example"))
  *             .build());
  * 
- *         var exampleQueue = new Queue("exampleQueue", QueueArgs.builder()        
+ *         var exampleQueue = new Queue("exampleQueue", QueueArgs.builder()
  *             .name("tfex_servicebus_queue")
  *             .namespaceId(exampleNamespace.id())
  *             .enablePartitioning(true)
  *             .build());
  * 
- *         var exampleQueueAuthorizationRule = new QueueAuthorizationRule("exampleQueueAuthorizationRule", QueueAuthorizationRuleArgs.builder()        
+ *         var exampleQueueAuthorizationRule = new QueueAuthorizationRule("exampleQueueAuthorizationRule", QueueAuthorizationRuleArgs.builder()
  *             .name("examplerule")
  *             .queueId(exampleQueue.id())
  *             .listen(true)

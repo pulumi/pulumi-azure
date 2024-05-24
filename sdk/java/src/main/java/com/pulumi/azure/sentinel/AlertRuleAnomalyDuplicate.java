@@ -58,19 +58,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()        
+ *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()
  *             .name("example-law")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .sku("PerGB2018")
  *             .build());
  * 
- *         var exampleLogAnalyticsWorkspaceOnboarding = new LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", LogAnalyticsWorkspaceOnboardingArgs.builder()        
+ *         var exampleLogAnalyticsWorkspaceOnboarding = new LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", LogAnalyticsWorkspaceOnboardingArgs.builder()
  *             .workspaceId(exampleAnalyticsWorkspace.id())
  *             .customerManagedKeyEnabled(false)
  *             .build());
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *             .displayName("UEBA Anomalous Sign In")
  *             .build());
  * 
- *         var exampleAlertRuleAnomalyDuplicate = new AlertRuleAnomalyDuplicate("exampleAlertRuleAnomalyDuplicate", AlertRuleAnomalyDuplicateArgs.builder()        
+ *         var exampleAlertRuleAnomalyDuplicate = new AlertRuleAnomalyDuplicate("exampleAlertRuleAnomalyDuplicate", AlertRuleAnomalyDuplicateArgs.builder()
  *             .displayName("example duplicated UEBA Anomalous Sign In")
  *             .logAnalyticsWorkspaceId(exampleAnalyticsWorkspace.id())
  *             .builtInRuleId(example.applyValue(getAlertRuleAnomalyResult -> getAlertRuleAnomalyResult).applyValue(example -> example.applyValue(getAlertRuleAnomalyResult -> getAlertRuleAnomalyResult.id())))

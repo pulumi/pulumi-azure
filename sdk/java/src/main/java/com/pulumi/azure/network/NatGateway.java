@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("nat-gateway-example-rg")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleNatGateway = new NatGateway("exampleNatGateway", NatGatewayArgs.builder()        
+ *         var exampleNatGateway = new NatGateway("exampleNatGateway", NatGatewayArgs.builder()
  *             .name("nat-Gateway")
  *             .location(example.location())
  *             .resourceGroupName(example.name())

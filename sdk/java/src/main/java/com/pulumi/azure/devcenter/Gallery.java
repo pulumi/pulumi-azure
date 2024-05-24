@@ -50,18 +50,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var testUserAssignedIdentity = new UserAssignedIdentity("testUserAssignedIdentity", UserAssignedIdentityArgs.builder()        
+ *         var testUserAssignedIdentity = new UserAssignedIdentity("testUserAssignedIdentity", UserAssignedIdentityArgs.builder()
  *             .name("example-uai")
  *             .location(testAzurermResourceGroup.location())
  *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .build());
  * 
- *         var test = new DevCenter("test", DevCenterArgs.builder()        
+ *         var test = new DevCenter("test", DevCenterArgs.builder()
  *             .name("example-devcenter")
  *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .location(testAzurermResourceGroup.location())
@@ -71,13 +71,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleSharedImageGallery = new SharedImageGallery("exampleSharedImageGallery", SharedImageGalleryArgs.builder()        
+ *         var exampleSharedImageGallery = new SharedImageGallery("exampleSharedImageGallery", SharedImageGalleryArgs.builder()
  *             .name("example-image-gallery")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleGallery = new Gallery("exampleGallery", GalleryArgs.builder()        
+ *         var exampleGallery = new Gallery("exampleGallery", GalleryArgs.builder()
  *             .devCenterId(exampleAzurermDevCenter.id())
  *             .sharedGalleryId(exampleSharedImageGallery.id())
  *             .name("example")

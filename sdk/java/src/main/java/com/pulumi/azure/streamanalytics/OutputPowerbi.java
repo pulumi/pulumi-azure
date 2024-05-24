@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.applyValue(getResourceGroupResult -> getResourceGroupResult.name()))
  *             .build());
  * 
- *         var exampleOutputPowerbi = new OutputPowerbi("exampleOutputPowerbi", OutputPowerbiArgs.builder()        
+ *         var exampleOutputPowerbi = new OutputPowerbi("exampleOutputPowerbi", OutputPowerbiArgs.builder()
  *             .name("output-to-powerbi")
  *             .streamAnalyticsJobId(exampleGetJob.applyValue(getJobResult -> getJobResult.id()))
  *             .dataset("example-dataset")

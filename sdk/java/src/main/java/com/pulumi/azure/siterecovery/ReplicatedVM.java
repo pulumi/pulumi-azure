@@ -79,31 +79,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary = new ResourceGroup("primary", ResourceGroupArgs.builder()        
+ *         var primary = new ResourceGroup("primary", ResourceGroupArgs.builder()
  *             .name("tfex-replicated-vm-primary")
  *             .location("West US")
  *             .build());
  * 
- *         var secondary = new ResourceGroup("secondary", ResourceGroupArgs.builder()        
+ *         var secondary = new ResourceGroup("secondary", ResourceGroupArgs.builder()
  *             .name("tfex-replicated-vm-secondary")
  *             .location("East US")
  *             .build());
  * 
- *         var primaryVirtualNetwork = new VirtualNetwork("primaryVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var primaryVirtualNetwork = new VirtualNetwork("primaryVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("network1")
  *             .resourceGroupName(primary.name())
  *             .addressSpaces("192.168.1.0/24")
  *             .location(primary.location())
  *             .build());
  * 
- *         var primarySubnet = new Subnet("primarySubnet", SubnetArgs.builder()        
+ *         var primarySubnet = new Subnet("primarySubnet", SubnetArgs.builder()
  *             .name("network1-subnet")
  *             .resourceGroupName(primary.name())
  *             .virtualNetworkName(primaryVirtualNetwork.name())
  *             .addressPrefixes("192.168.1.0/24")
  *             .build());
  * 
- *         var primaryPublicIp = new PublicIp("primaryPublicIp", PublicIpArgs.builder()        
+ *         var primaryPublicIp = new PublicIp("primaryPublicIp", PublicIpArgs.builder()
  *             .name("vm-public-ip-primary")
  *             .allocationMethod("Static")
  *             .location(primary.location())
@@ -111,7 +111,7 @@ import javax.annotation.Nullable;
  *             .sku("Basic")
  *             .build());
  * 
- *         var vmNetworkInterface = new NetworkInterface("vmNetworkInterface", NetworkInterfaceArgs.builder()        
+ *         var vmNetworkInterface = new NetworkInterface("vmNetworkInterface", NetworkInterfaceArgs.builder()
  *             .name("vm-nic")
  *             .location(primary.location())
  *             .resourceGroupName(primary.name())
@@ -123,7 +123,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var vm = new VirtualMachine("vm", VirtualMachineArgs.builder()        
+ *         var vm = new VirtualMachine("vm", VirtualMachineArgs.builder()
  *             .name("vm")
  *             .location(primary.location())
  *             .resourceGroupName(primary.name())
@@ -152,42 +152,42 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var vault = new Vault("vault", VaultArgs.builder()        
+ *         var vault = new Vault("vault", VaultArgs.builder()
  *             .name("example-recovery-vault")
  *             .location(secondary.location())
  *             .resourceGroupName(secondary.name())
  *             .sku("Standard")
  *             .build());
  * 
- *         var primaryFabric = new Fabric("primaryFabric", FabricArgs.builder()        
+ *         var primaryFabric = new Fabric("primaryFabric", FabricArgs.builder()
  *             .name("primary-fabric")
  *             .resourceGroupName(secondary.name())
  *             .recoveryVaultName(vault.name())
  *             .location(primary.location())
  *             .build());
  * 
- *         var secondaryFabric = new Fabric("secondaryFabric", FabricArgs.builder()        
+ *         var secondaryFabric = new Fabric("secondaryFabric", FabricArgs.builder()
  *             .name("secondary-fabric")
  *             .resourceGroupName(secondary.name())
  *             .recoveryVaultName(vault.name())
  *             .location(secondary.location())
  *             .build());
  * 
- *         var primaryProtectionContainer = new ProtectionContainer("primaryProtectionContainer", ProtectionContainerArgs.builder()        
+ *         var primaryProtectionContainer = new ProtectionContainer("primaryProtectionContainer", ProtectionContainerArgs.builder()
  *             .name("primary-protection-container")
  *             .resourceGroupName(secondary.name())
  *             .recoveryVaultName(vault.name())
  *             .recoveryFabricName(primaryFabric.name())
  *             .build());
  * 
- *         var secondaryProtectionContainer = new ProtectionContainer("secondaryProtectionContainer", ProtectionContainerArgs.builder()        
+ *         var secondaryProtectionContainer = new ProtectionContainer("secondaryProtectionContainer", ProtectionContainerArgs.builder()
  *             .name("secondary-protection-container")
  *             .resourceGroupName(secondary.name())
  *             .recoveryVaultName(vault.name())
  *             .recoveryFabricName(secondaryFabric.name())
  *             .build());
  * 
- *         var policy = new ReplicationPolicy("policy", ReplicationPolicyArgs.builder()        
+ *         var policy = new ReplicationPolicy("policy", ReplicationPolicyArgs.builder()
  *             .name("policy")
  *             .resourceGroupName(secondary.name())
  *             .recoveryVaultName(vault.name())
@@ -195,7 +195,7 @@ import javax.annotation.Nullable;
  *             .applicationConsistentSnapshotFrequencyInMinutes(4 * 60)
  *             .build());
  * 
- *         var container_mapping = new ProtectionContainerMapping("container-mapping", ProtectionContainerMappingArgs.builder()        
+ *         var container_mapping = new ProtectionContainerMapping("container-mapping", ProtectionContainerMappingArgs.builder()
  *             .name("container-mapping")
  *             .resourceGroupName(secondary.name())
  *             .recoveryVaultName(vault.name())
@@ -205,14 +205,14 @@ import javax.annotation.Nullable;
  *             .recoveryReplicationPolicyId(policy.id())
  *             .build());
  * 
- *         var secondaryVirtualNetwork = new VirtualNetwork("secondaryVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var secondaryVirtualNetwork = new VirtualNetwork("secondaryVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("network2")
  *             .resourceGroupName(secondary.name())
  *             .addressSpaces("192.168.2.0/24")
  *             .location(secondary.location())
  *             .build());
  * 
- *         var network_mapping = new NetworkMapping("network-mapping", NetworkMappingArgs.builder()        
+ *         var network_mapping = new NetworkMapping("network-mapping", NetworkMappingArgs.builder()
  *             .name("network-mapping")
  *             .resourceGroupName(secondary.name())
  *             .recoveryVaultName(vault.name())
@@ -222,7 +222,7 @@ import javax.annotation.Nullable;
  *             .targetNetworkId(secondaryVirtualNetwork.id())
  *             .build());
  * 
- *         var primaryAccount = new Account("primaryAccount", AccountArgs.builder()        
+ *         var primaryAccount = new Account("primaryAccount", AccountArgs.builder()
  *             .name("primaryrecoverycache")
  *             .location(primary.location())
  *             .resourceGroupName(primary.name())
@@ -230,14 +230,14 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var secondarySubnet = new Subnet("secondarySubnet", SubnetArgs.builder()        
+ *         var secondarySubnet = new Subnet("secondarySubnet", SubnetArgs.builder()
  *             .name("network2-subnet")
  *             .resourceGroupName(secondary.name())
  *             .virtualNetworkName(secondaryVirtualNetwork.name())
  *             .addressPrefixes("192.168.2.0/24")
  *             .build());
  * 
- *         var secondaryPublicIp = new PublicIp("secondaryPublicIp", PublicIpArgs.builder()        
+ *         var secondaryPublicIp = new PublicIp("secondaryPublicIp", PublicIpArgs.builder()
  *             .name("vm-public-ip-secondary")
  *             .allocationMethod("Static")
  *             .location(secondary.location())
@@ -245,7 +245,7 @@ import javax.annotation.Nullable;
  *             .sku("Basic")
  *             .build());
  * 
- *         var vm_replication = new ReplicatedVM("vm-replication", ReplicatedVMArgs.builder()        
+ *         var vm_replication = new ReplicatedVM("vm-replication", ReplicatedVMArgs.builder()
  *             .name("vm-replication")
  *             .resourceGroupName(secondary.name())
  *             .recoveryVaultName(vault.name())

@@ -51,24 +51,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("west europe")
  *             .build());
  * 
- *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()        
+ *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .skuName("E0")
  *             .build());
  * 
- *         var exampleSpringCloudAccelerator = new SpringCloudAccelerator("exampleSpringCloudAccelerator", SpringCloudAcceleratorArgs.builder()        
+ *         var exampleSpringCloudAccelerator = new SpringCloudAccelerator("exampleSpringCloudAccelerator", SpringCloudAcceleratorArgs.builder()
  *             .name("default")
  *             .springCloudServiceId(exampleSpringCloudService.id())
  *             .build());
  * 
- *         var exampleSpringCloudCustomizedAccelerator = new SpringCloudCustomizedAccelerator("exampleSpringCloudCustomizedAccelerator", SpringCloudCustomizedAcceleratorArgs.builder()        
+ *         var exampleSpringCloudCustomizedAccelerator = new SpringCloudCustomizedAccelerator("exampleSpringCloudCustomizedAccelerator", SpringCloudCustomizedAcceleratorArgs.builder()
  *             .name("example")
  *             .springCloudAcceleratorId(exampleSpringCloudAccelerator.id())
  *             .gitRepository(SpringCloudCustomizedAcceleratorGitRepositoryArgs.builder()

@@ -67,19 +67,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("example-network")
  *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var service = new Subnet("service", SubnetArgs.builder()        
+ *         var service = new Subnet("service", SubnetArgs.builder()
  *             .name("service")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  *             .enforcePrivateLinkServiceNetworkPolicies(true)
  *             .build());
  * 
- *         var endpoint = new Subnet("endpoint", SubnetArgs.builder()        
+ *         var endpoint = new Subnet("endpoint", SubnetArgs.builder()
  *             .name("endpoint")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  *             .enforcePrivateLinkEndpointNetworkPolicies(true)
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()        
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()
  *             .name("example-pip")
  *             .sku("Standard")
  *             .location(example.location())
@@ -103,7 +103,7 @@ import javax.annotation.Nullable;
  *             .allocationMethod("Static")
  *             .build());
  * 
- *         var exampleLoadBalancer = new LoadBalancer("exampleLoadBalancer", LoadBalancerArgs.builder()        
+ *         var exampleLoadBalancer = new LoadBalancer("exampleLoadBalancer", LoadBalancerArgs.builder()
  *             .name("example-lb")
  *             .sku("Standard")
  *             .location(example.location())
@@ -114,7 +114,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleLinkService = new LinkService("exampleLinkService", LinkServiceArgs.builder()        
+ *         var exampleLinkService = new LinkService("exampleLinkService", LinkServiceArgs.builder()
  *             .name("example-privatelink")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -126,7 +126,7 @@ import javax.annotation.Nullable;
  *             .loadBalancerFrontendIpConfigurationIds(exampleLoadBalancer.frontendIpConfigurations().applyValue(frontendIpConfigurations -> frontendIpConfigurations[0].id()))
  *             .build());
  * 
- *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()        
+ *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()
  *             .name("example-endpoint")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -190,7 +190,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.applyValue(getResourceGroupResult -> getResourceGroupResult.name()))
  *             .build());
  * 
- *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()        
+ *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()
  *             .name("example-endpoint")
  *             .location(example.applyValue(getResourceGroupResult -> getResourceGroupResult.location()))
  *             .resourceGroupName(example.applyValue(getResourceGroupResult -> getResourceGroupResult.name()))
@@ -248,12 +248,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-rg")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("exampleaccount")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -261,26 +261,26 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("virtnetname")
  *             .addressSpaces("10.0.0.0/16")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("subnetname")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
- *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()        
+ *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()
  *             .name("privatelink.blob.core.windows.net")
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()        
+ *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()
  *             .name("example-endpoint")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -297,7 +297,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleZoneVirtualNetworkLink = new ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink", ZoneVirtualNetworkLinkArgs.builder()        
+ *         var exampleZoneVirtualNetworkLink = new ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink", ZoneVirtualNetworkLinkArgs.builder()
  *             .name("example-link")
  *             .resourceGroupName(example.name())
  *             .privateDnsZoneName(exampleZone.name())

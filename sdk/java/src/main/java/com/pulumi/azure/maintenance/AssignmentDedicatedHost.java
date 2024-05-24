@@ -49,19 +49,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleDedicatedHostGroup = new DedicatedHostGroup("exampleDedicatedHostGroup", DedicatedHostGroupArgs.builder()        
+ *         var exampleDedicatedHostGroup = new DedicatedHostGroup("exampleDedicatedHostGroup", DedicatedHostGroupArgs.builder()
  *             .name("example-host-group")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .platformFaultDomainCount(2)
  *             .build());
  * 
- *         var exampleDedicatedHost = new DedicatedHost("exampleDedicatedHost", DedicatedHostArgs.builder()        
+ *         var exampleDedicatedHost = new DedicatedHost("exampleDedicatedHost", DedicatedHostArgs.builder()
  *             .name("example-host")
  *             .location(example.location())
  *             .dedicatedHostGroupId(exampleDedicatedHostGroup.id())
@@ -69,14 +69,14 @@ import javax.annotation.Nullable;
  *             .platformFaultDomain(1)
  *             .build());
  * 
- *         var exampleConfiguration = new Configuration("exampleConfiguration", ConfigurationArgs.builder()        
+ *         var exampleConfiguration = new Configuration("exampleConfiguration", ConfigurationArgs.builder()
  *             .name("example-mc")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .scope("Host")
  *             .build());
  * 
- *         var exampleAssignmentDedicatedHost = new AssignmentDedicatedHost("exampleAssignmentDedicatedHost", AssignmentDedicatedHostArgs.builder()        
+ *         var exampleAssignmentDedicatedHost = new AssignmentDedicatedHost("exampleAssignmentDedicatedHost", AssignmentDedicatedHostArgs.builder()
  *             .location(example.location())
  *             .maintenanceConfigurationId(exampleConfiguration.id())
  *             .dedicatedHostId(exampleDedicatedHost.id())

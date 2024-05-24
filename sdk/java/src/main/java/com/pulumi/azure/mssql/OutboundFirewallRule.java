@@ -45,12 +45,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()
  *             .name("mysqlserver")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .outboundNetworkRestrictionEnabled(true)
  *             .build());
  * 
- *         var exampleOutboundFirewallRule = new OutboundFirewallRule("exampleOutboundFirewallRule", OutboundFirewallRuleArgs.builder()        
+ *         var exampleOutboundFirewallRule = new OutboundFirewallRule("exampleOutboundFirewallRule", OutboundFirewallRuleArgs.builder()
  *             .name("sqlexamplefdqn.database.windows.net")
  *             .serverId(exampleServer.id())
  *             .build());

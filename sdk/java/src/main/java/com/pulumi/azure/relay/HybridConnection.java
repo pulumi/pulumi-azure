@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()        
+ *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()
  *             .name("example-relay")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("source", "managed"))
  *             .build());
  * 
- *         var exampleHybridConnection = new HybridConnection("exampleHybridConnection", HybridConnectionArgs.builder()        
+ *         var exampleHybridConnection = new HybridConnection("exampleHybridConnection", HybridConnectionArgs.builder()
  *             .name("acctestrnhc-%d")
  *             .resourceGroupName(example.name())
  *             .relayNamespaceName(exampleNamespace.name())

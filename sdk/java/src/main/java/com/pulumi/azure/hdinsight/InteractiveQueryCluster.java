@@ -71,12 +71,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("hdinsightstor")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -84,13 +84,13 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()        
+ *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()
  *             .name("hdinsight")
  *             .storageAccountName(exampleAccount.name())
  *             .containerAccessType("private")
  *             .build());
  * 
- *         var exampleInteractiveQueryCluster = new InteractiveQueryCluster("exampleInteractiveQueryCluster", InteractiveQueryClusterArgs.builder()        
+ *         var exampleInteractiveQueryCluster = new InteractiveQueryCluster("exampleInteractiveQueryCluster", InteractiveQueryClusterArgs.builder()
  *             .name("example-hdicluster")
  *             .resourceGroupName(example.name())
  *             .location(example.location())

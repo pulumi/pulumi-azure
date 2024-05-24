@@ -77,12 +77,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("testaccbatch")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("testaccsa")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleAccount2 = new Account("exampleAccount2", AccountArgs.builder()        
+ *         var exampleAccount2 = new Account("exampleAccount2", AccountArgs.builder()
  *             .name("testaccbatch")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -100,7 +100,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("env", "test"))
  *             .build());
  * 
- *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()        
+ *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()
  *             .resourceGroupName(example.name())
  *             .accountName(exampleAccount2.name())
  *             .certificate(StdFunctions.filebase64(Filebase64Args.builder()
@@ -111,7 +111,7 @@ import javax.annotation.Nullable;
  *             .thumbprintAlgorithm("SHA1")
  *             .build());
  * 
- *         var examplePool = new Pool("examplePool", PoolArgs.builder()        
+ *         var examplePool = new Pool("examplePool", PoolArgs.builder()
  *             .name("testaccpool")
  *             .resourceGroupName(example.name())
  *             .accountName(exampleAccount2.name())

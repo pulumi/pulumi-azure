@@ -59,28 +59,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("rg-example")
  *             .location("West Europe")
  *             .build());
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .addressSpaces("10.0.0.0/16")
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
- *         var exampleManagedInstance = new ManagedInstance("exampleManagedInstance", ManagedInstanceArgs.builder()        
+ *         var exampleManagedInstance = new ManagedInstance("exampleManagedInstance", ManagedInstanceArgs.builder()
  *             .name("managedsqlinstance")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -96,23 +96,23 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var reader = new DirectoryRole("reader", DirectoryRoleArgs.builder()        
+ *         var reader = new DirectoryRole("reader", DirectoryRoleArgs.builder()
  *             .displayName("Directory Readers")
  *             .build());
  * 
- *         var exampleDirectoryRoleMember = new DirectoryRoleMember("exampleDirectoryRoleMember", DirectoryRoleMemberArgs.builder()        
+ *         var exampleDirectoryRoleMember = new DirectoryRoleMember("exampleDirectoryRoleMember", DirectoryRoleMemberArgs.builder()
  *             .roleObjectId(reader.objectId())
  *             .memberObjectId(exampleManagedInstance.identity().applyValue(identity -> identity.principalId()))
  *             .build());
  * 
- *         var admin = new User("admin", UserArgs.builder()        
+ *         var admin = new User("admin", UserArgs.builder()
  *             .userPrincipalName("ms.admin{@literal @}example.com")
  *             .displayName("Ms Admin")
  *             .mailNickname("ms.admin")
  *             .password("SecretP{@literal @}sswd99!")
  *             .build());
  * 
- *         var exampleManagedInstanceActiveDirectoryAdministrator = new ManagedInstanceActiveDirectoryAdministrator("exampleManagedInstanceActiveDirectoryAdministrator", ManagedInstanceActiveDirectoryAdministratorArgs.builder()        
+ *         var exampleManagedInstanceActiveDirectoryAdministrator = new ManagedInstanceActiveDirectoryAdministrator("exampleManagedInstanceActiveDirectoryAdministrator", ManagedInstanceActiveDirectoryAdministratorArgs.builder()
  *             .managedInstanceId(exampleManagedInstance.id())
  *             .loginUsername("msadmin")
  *             .objectId(admin.objectId())

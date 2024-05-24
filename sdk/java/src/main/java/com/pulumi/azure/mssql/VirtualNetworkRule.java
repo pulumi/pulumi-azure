@@ -51,19 +51,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-sql-server-vnet-rule")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()        
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("example-vnet")
  *             .addressSpaces("10.7.29.0/29")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name("example-subnet")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *             .serviceEndpoints("Microsoft.Sql")
  *             .build());
  * 
- *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()
  *             .name("uniqueazuresqlserver")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *             .administratorLoginPassword("4-v3ry-53cr37-p455w0rd")
  *             .build());
  * 
- *         var exampleVirtualNetworkRule = new VirtualNetworkRule("exampleVirtualNetworkRule", VirtualNetworkRuleArgs.builder()        
+ *         var exampleVirtualNetworkRule = new VirtualNetworkRule("exampleVirtualNetworkRule", VirtualNetworkRuleArgs.builder()
  *             .name("sql-vnet-rule")
  *             .serverId(exampleServer.id())
  *             .subnetId(exampleSubnet.id())

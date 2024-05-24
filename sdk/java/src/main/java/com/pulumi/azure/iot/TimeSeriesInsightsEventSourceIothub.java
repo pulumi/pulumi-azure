@@ -56,12 +56,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()        
+ *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -71,14 +71,14 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleConsumerGroup = new ConsumerGroup("exampleConsumerGroup", ConsumerGroupArgs.builder()        
+ *         var exampleConsumerGroup = new ConsumerGroup("exampleConsumerGroup", ConsumerGroupArgs.builder()
  *             .name("example")
  *             .iothubName(exampleIoTHub.name())
  *             .eventhubEndpointName("events")
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         var storage = new Account("storage", AccountArgs.builder()        
+ *         var storage = new Account("storage", AccountArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleTimeSeriesInsightsGen2Environment = new TimeSeriesInsightsGen2Environment("exampleTimeSeriesInsightsGen2Environment", TimeSeriesInsightsGen2EnvironmentArgs.builder()        
+ *         var exampleTimeSeriesInsightsGen2Environment = new TimeSeriesInsightsGen2Environment("exampleTimeSeriesInsightsGen2Environment", TimeSeriesInsightsGen2EnvironmentArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -98,7 +98,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleTimeSeriesInsightsEventSourceIothub = new TimeSeriesInsightsEventSourceIothub("exampleTimeSeriesInsightsEventSourceIothub", TimeSeriesInsightsEventSourceIothubArgs.builder()        
+ *         var exampleTimeSeriesInsightsEventSourceIothub = new TimeSeriesInsightsEventSourceIothub("exampleTimeSeriesInsightsEventSourceIothub", TimeSeriesInsightsEventSourceIothubArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .environmentId(exampleTimeSeriesInsightsGen2Environment.id())

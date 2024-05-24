@@ -58,12 +58,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("azure-functions-test-rg")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("functionsapptestsa")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()        
+ *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()
  *             .name("azure-functions-test-service-plan")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleStandard = new Standard("exampleStandard", StandardArgs.builder()        
+ *         var exampleStandard = new Standard("exampleStandard", StandardArgs.builder()
  *             .name("test-azure-functions")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -136,12 +136,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("azure-functions-test-rg")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("functionsapptestsa")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -149,7 +149,7 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()        
+ *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()
  *             .name("azure-functions-test-service-plan")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -161,7 +161,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleStandard = new Standard("exampleStandard", StandardArgs.builder()        
+ *         var exampleStandard = new Standard("exampleStandard", StandardArgs.builder()
  *             .name("test-azure-functions")
  *             .location(example.location())
  *             .resourceGroupName(example.name())

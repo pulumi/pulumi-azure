@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("snapshot-rg")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleManagedDisk = new ManagedDisk("exampleManagedDisk", ManagedDiskArgs.builder()        
+ *         var exampleManagedDisk = new ManagedDisk("exampleManagedDisk", ManagedDiskArgs.builder()
  *             .name("managed-disk")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *             .diskSizeGb("10")
  *             .build());
  * 
- *         var exampleSnapshot = new Snapshot("exampleSnapshot", SnapshotArgs.builder()        
+ *         var exampleSnapshot = new Snapshot("exampleSnapshot", SnapshotArgs.builder()
  *             .name("snapshot")
  *             .location(example.location())
  *             .resourceGroupName(example.name())

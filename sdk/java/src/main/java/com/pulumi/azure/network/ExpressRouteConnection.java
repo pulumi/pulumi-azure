@@ -62,18 +62,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleVirtualWan = new VirtualWan("exampleVirtualWan", VirtualWanArgs.builder()        
+ *         var exampleVirtualWan = new VirtualWan("exampleVirtualWan", VirtualWanArgs.builder()
  *             .name("example-vwan")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 
- *         var exampleVirtualHub = new VirtualHub("exampleVirtualHub", VirtualHubArgs.builder()        
+ *         var exampleVirtualHub = new VirtualHub("exampleVirtualHub", VirtualHubArgs.builder()
  *             .name("example-vhub")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  *             .addressPrefix("10.0.1.0/24")
  *             .build());
  * 
- *         var exampleExpressRouteGateway = new ExpressRouteGateway("exampleExpressRouteGateway", ExpressRouteGatewayArgs.builder()        
+ *         var exampleExpressRouteGateway = new ExpressRouteGateway("exampleExpressRouteGateway", ExpressRouteGatewayArgs.builder()
  *             .name("example-expressroutegateway")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  *             .scaleUnits(1)
  *             .build());
  * 
- *         var exampleExpressRoutePort = new ExpressRoutePort("exampleExpressRoutePort", ExpressRoutePortArgs.builder()        
+ *         var exampleExpressRoutePort = new ExpressRoutePort("exampleExpressRoutePort", ExpressRoutePortArgs.builder()
  *             .name("example-erp")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -98,7 +98,7 @@ import javax.annotation.Nullable;
  *             .encapsulation("Dot1Q")
  *             .build());
  * 
- *         var exampleExpressRouteCircuit = new ExpressRouteCircuit("exampleExpressRouteCircuit", ExpressRouteCircuitArgs.builder()        
+ *         var exampleExpressRouteCircuit = new ExpressRouteCircuit("exampleExpressRouteCircuit", ExpressRouteCircuitArgs.builder()
  *             .name("example-erc")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -110,7 +110,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleExpressRouteCircuitPeering = new ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering", ExpressRouteCircuitPeeringArgs.builder()        
+ *         var exampleExpressRouteCircuitPeering = new ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering", ExpressRouteCircuitPeeringArgs.builder()
  *             .peeringType("AzurePrivatePeering")
  *             .expressRouteCircuitName(exampleExpressRouteCircuit.name())
  *             .resourceGroupName(example.name())
@@ -121,7 +121,7 @@ import javax.annotation.Nullable;
  *             .vlanId(100)
  *             .build());
  * 
- *         var exampleExpressRouteConnection = new ExpressRouteConnection("exampleExpressRouteConnection", ExpressRouteConnectionArgs.builder()        
+ *         var exampleExpressRouteConnection = new ExpressRouteConnection("exampleExpressRouteConnection", ExpressRouteConnectionArgs.builder()
  *             .name("example-expressrouteconn")
  *             .expressRouteGatewayId(exampleExpressRouteGateway.id())
  *             .expressRouteCircuitPeeringId(exampleExpressRouteCircuitPeering.id())

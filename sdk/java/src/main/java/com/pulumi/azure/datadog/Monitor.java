@@ -54,12 +54,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-datadog")
  *             .location("West US 2")
  *             .build());
  * 
- *         var exampleMonitor = new Monitor("exampleMonitor", MonitorArgs.builder()        
+ *         var exampleMonitor = new Monitor("exampleMonitor", MonitorArgs.builder()
  *             .name("example-monitor")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -122,7 +122,7 @@ import javax.annotation.Nullable;
  *             .name("Monitoring Reader")
  *             .build());
  * 
- *         var example = new Assignment("example", AssignmentArgs.builder()        
+ *         var example = new Assignment("example", AssignmentArgs.builder()
  *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
  *             .roleDefinitionId(monitoringReader.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.roleDefinitionId()))
  *             .principalId(exampleAzurermDatadogMonitor.identity()[0].principalId())

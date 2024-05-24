@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("rg-example-virtualdesktop")
  *             .location("West Europe")
  *             .build());
  * 
- *         var pooledbreadthfirst = new HostPool("pooledbreadthfirst", HostPoolArgs.builder()        
+ *         var pooledbreadthfirst = new HostPool("pooledbreadthfirst", HostPoolArgs.builder()
  *             .name("pooledbreadthfirst")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  *             .loadBalancerType("BreadthFirst")
  *             .build());
  * 
- *         var personalautomatic = new HostPool("personalautomatic", HostPoolArgs.builder()        
+ *         var personalautomatic = new HostPool("personalautomatic", HostPoolArgs.builder()
  *             .name("personalautomatic")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  *             .loadBalancerType("BreadthFirst")
  *             .build());
  * 
- *         var remoteapp = new ApplicationGroup("remoteapp", ApplicationGroupArgs.builder()        
+ *         var remoteapp = new ApplicationGroup("remoteapp", ApplicationGroupArgs.builder()
  *             .name("acctag")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  *             .description("Acceptance Test: An application group")
  *             .build());
  * 
- *         var chrome = new Application("chrome", ApplicationArgs.builder()        
+ *         var chrome = new Application("chrome", ApplicationArgs.builder()
  *             .name("googlechrome")
  *             .applicationGroupId(remoteapp.id())
  *             .friendlyName("Google Chrome")
