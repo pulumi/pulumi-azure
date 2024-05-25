@@ -165,7 +165,7 @@ namespace Pulumi.Azure.Pim
         /// A `ticket` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("ticket")]
-        public Output<Outputs.EligibleRoleAssignmentTicket?> Ticket { get; private set; } = null!;
+        public Output<Outputs.EligibleRoleAssignmentTicket> Ticket { get; private set; } = null!;
 
 
         /// <summary>

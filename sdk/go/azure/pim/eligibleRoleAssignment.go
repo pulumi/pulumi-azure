@@ -164,7 +164,7 @@ type EligibleRoleAssignment struct {
 	// The scope for this eligible role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
 	Scope pulumi.StringOutput `pulumi:"scope"`
 	// A `ticket` block as defined below. Changing this forces a new resource to be created.
-	Ticket EligibleRoleAssignmentTicketPtrOutput `pulumi:"ticket"`
+	Ticket EligibleRoleAssignmentTicketOutput `pulumi:"ticket"`
 }
 
 // NewEligibleRoleAssignment registers a new resource with the given unique name, arguments, and options.
@@ -392,8 +392,8 @@ func (o EligibleRoleAssignmentOutput) Scope() pulumi.StringOutput {
 }
 
 // A `ticket` block as defined below. Changing this forces a new resource to be created.
-func (o EligibleRoleAssignmentOutput) Ticket() EligibleRoleAssignmentTicketPtrOutput {
-	return o.ApplyT(func(v *EligibleRoleAssignment) EligibleRoleAssignmentTicketPtrOutput { return v.Ticket }).(EligibleRoleAssignmentTicketPtrOutput)
+func (o EligibleRoleAssignmentOutput) Ticket() EligibleRoleAssignmentTicketOutput {
+	return o.ApplyT(func(v *EligibleRoleAssignment) EligibleRoleAssignmentTicketOutput { return v.Ticket }).(EligibleRoleAssignmentTicketOutput)
 }
 
 type EligibleRoleAssignmentArrayOutput struct{ *pulumi.OutputState }

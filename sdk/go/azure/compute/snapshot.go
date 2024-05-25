@@ -77,6 +77,8 @@ type Snapshot struct {
 	//
 	// > **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
 	CreateOption pulumi.StringOutput `pulumi:"createOption"`
+	// Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `networkAccessPolicy` to `AllowPrivate`.
+	DiskAccessId pulumi.StringPtrOutput `pulumi:"diskAccessId"`
 	// The size of the Snapshotted Disk in GB.
 	DiskSizeGb pulumi.IntOutput `pulumi:"diskSizeGb"`
 	// A `encryptionSettings` block as defined below.
@@ -147,6 +149,8 @@ type snapshotState struct {
 	//
 	// > **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
 	CreateOption *string `pulumi:"createOption"`
+	// Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `networkAccessPolicy` to `AllowPrivate`.
+	DiskAccessId *string `pulumi:"diskAccessId"`
 	// The size of the Snapshotted Disk in GB.
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
 	// A `encryptionSettings` block as defined below.
@@ -182,6 +186,8 @@ type SnapshotState struct {
 	//
 	// > **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
 	CreateOption pulumi.StringPtrInput
+	// Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `networkAccessPolicy` to `AllowPrivate`.
+	DiskAccessId pulumi.StringPtrInput
 	// The size of the Snapshotted Disk in GB.
 	DiskSizeGb pulumi.IntPtrInput
 	// A `encryptionSettings` block as defined below.
@@ -221,6 +227,8 @@ type snapshotArgs struct {
 	//
 	// > **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
 	CreateOption string `pulumi:"createOption"`
+	// Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `networkAccessPolicy` to `AllowPrivate`.
+	DiskAccessId *string `pulumi:"diskAccessId"`
 	// The size of the Snapshotted Disk in GB.
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
 	// A `encryptionSettings` block as defined below.
@@ -255,6 +263,8 @@ type SnapshotArgs struct {
 	//
 	// > **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
 	CreateOption pulumi.StringInput
+	// Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `networkAccessPolicy` to `AllowPrivate`.
+	DiskAccessId pulumi.StringPtrInput
 	// The size of the Snapshotted Disk in GB.
 	DiskSizeGb pulumi.IntPtrInput
 	// A `encryptionSettings` block as defined below.
@@ -375,6 +385,11 @@ func (o SnapshotOutput) ToSnapshotOutputWithContext(ctx context.Context) Snapsho
 // > **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
 func (o SnapshotOutput) CreateOption() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.CreateOption }).(pulumi.StringOutput)
+}
+
+// Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `networkAccessPolicy` to `AllowPrivate`.
+func (o SnapshotOutput) DiskAccessId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.DiskAccessId }).(pulumi.StringPtrOutput)
 }
 
 // The size of the Snapshotted Disk in GB.

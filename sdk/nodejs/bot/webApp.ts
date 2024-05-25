@@ -66,15 +66,15 @@ export class WebApp extends pulumi.CustomResource {
     /**
      * The Application Insights API Key to associate with the Web App Bot.
      */
-    public readonly developerAppInsightsApiKey!: pulumi.Output<string>;
+    public readonly developerAppInsightsApiKey!: pulumi.Output<string | undefined>;
     /**
      * The Application Insights Application ID to associate with the Web App Bot.
      */
-    public readonly developerAppInsightsApplicationId!: pulumi.Output<string>;
+    public readonly developerAppInsightsApplicationId!: pulumi.Output<string | undefined>;
     /**
      * The Application Insights Key to associate with the Web App Bot.
      */
-    public readonly developerAppInsightsKey!: pulumi.Output<string>;
+    public readonly developerAppInsightsKey!: pulumi.Output<string | undefined>;
     /**
      * The name of the Web App Bot will be displayed as. This defaults to `name` if not specified.
      */

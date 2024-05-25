@@ -40,6 +40,21 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `network_access_policy` to `AllowPrivate`.
+     * 
+     */
+    @Import(name="diskAccessId")
+    private @Nullable Output<String> diskAccessId;
+
+    /**
+     * @return Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `network_access_policy` to `AllowPrivate`.
+     * 
+     */
+    public Optional<Output<String>> diskAccessId() {
+        return Optional.ofNullable(this.diskAccessId);
+    }
+
+    /**
      * The size of the Snapshotted Disk in GB.
      * 
      */
@@ -227,6 +242,7 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
 
     private SnapshotArgs(SnapshotArgs $) {
         this.createOption = $.createOption;
+        this.diskAccessId = $.diskAccessId;
         this.diskSizeGb = $.diskSizeGb;
         this.encryptionSettings = $.encryptionSettings;
         this.incrementalEnabled = $.incrementalEnabled;
@@ -282,6 +298,27 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder createOption(String createOption) {
             return createOption(Output.of(createOption));
+        }
+
+        /**
+         * @param diskAccessId Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `network_access_policy` to `AllowPrivate`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder diskAccessId(@Nullable Output<String> diskAccessId) {
+            $.diskAccessId = diskAccessId;
+            return this;
+        }
+
+        /**
+         * @param diskAccessId Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `network_access_policy` to `AllowPrivate`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder diskAccessId(String diskAccessId) {
+            return diskAccessId(Output.of(diskAccessId));
         }
 
         /**

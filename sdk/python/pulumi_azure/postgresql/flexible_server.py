@@ -33,6 +33,7 @@ class FlexibleServerArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  point_in_time_restore_time_in_utc: Optional[pulumi.Input[str]] = None,
                  private_dns_zone_id: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  replication_role: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  source_server_id: Optional[pulumi.Input[str]] = None,
@@ -72,6 +73,9 @@ class FlexibleServerArgs:
         :param pulumi.Input[str] private_dns_zone_id: The ID of the private DNS zone to create the PostgreSQL Flexible Server.
                
                > **Note:** There will be a breaking change from upstream service at 15th July 2021, the `private_dns_zone_id` will be required when setting a `delegated_subnet_id`. For existing flexible servers who don't want to be recreated, you need to provide the `private_dns_zone_id` to the service team to manually migrate to the specified private DNS zone. The `privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
+        :param pulumi.Input[bool] public_network_access_enabled: Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
+               
+               > **Note:** `public_network_access_enabled` must be set to `false` when `delegated_subnet_id` and `private_dns_zone_id` have a value.
         :param pulumi.Input[str] replication_role: The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
                
                > **Note:** The `replication_role` cannot be set while creating and only can be updated to `None` for replica server.
@@ -123,6 +127,8 @@ class FlexibleServerArgs:
             pulumi.set(__self__, "point_in_time_restore_time_in_utc", point_in_time_restore_time_in_utc)
         if private_dns_zone_id is not None:
             pulumi.set(__self__, "private_dns_zone_id", private_dns_zone_id)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if replication_role is not None:
             pulumi.set(__self__, "replication_role", replication_role)
         if sku_name is not None:
@@ -357,6 +363,20 @@ class FlexibleServerArgs:
         pulumi.set(self, "private_dns_zone_id", value)
 
     @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
+
+        > **Note:** `public_network_access_enabled` must be set to `false` when `delegated_subnet_id` and `private_dns_zone_id` have a value.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
     @pulumi.getter(name="replicationRole")
     def replication_role(self) -> Optional[pulumi.Input[str]]:
         """
@@ -521,7 +541,9 @@ class _FlexibleServerState:
         :param pulumi.Input[str] private_dns_zone_id: The ID of the private DNS zone to create the PostgreSQL Flexible Server.
                
                > **Note:** There will be a breaking change from upstream service at 15th July 2021, the `private_dns_zone_id` will be required when setting a `delegated_subnet_id`. For existing flexible servers who don't want to be recreated, you need to provide the `private_dns_zone_id` to the service team to manually migrate to the specified private DNS zone. The `privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
-        :param pulumi.Input[bool] public_network_access_enabled: Is public network access enabled?
+        :param pulumi.Input[bool] public_network_access_enabled: Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
+               
+               > **Note:** `public_network_access_enabled` must be set to `false` when `delegated_subnet_id` and `private_dns_zone_id` have a value.
         :param pulumi.Input[str] replication_role: The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
                
                > **Note:** The `replication_role` cannot be set while creating and only can be updated to `None` for replica server.
@@ -816,7 +838,9 @@ class _FlexibleServerState:
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is public network access enabled?
+        Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
+
+        > **Note:** `public_network_access_enabled` must be set to `false` when `delegated_subnet_id` and `private_dns_zone_id` have a value.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
@@ -961,6 +985,7 @@ class FlexibleServer(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  point_in_time_restore_time_in_utc: Optional[pulumi.Input[str]] = None,
                  private_dns_zone_id: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  replication_role: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
@@ -1016,6 +1041,7 @@ class FlexibleServer(pulumi.CustomResource):
             version="12",
             delegated_subnet_id=example_subnet.id,
             private_dns_zone_id=example_zone.id,
+            public_network_access_enabled=False,
             administrator_login="psqladmin",
             administrator_password="H@Sh1CoR3!",
             zone="1",
@@ -1083,6 +1109,9 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[str] private_dns_zone_id: The ID of the private DNS zone to create the PostgreSQL Flexible Server.
                
                > **Note:** There will be a breaking change from upstream service at 15th July 2021, the `private_dns_zone_id` will be required when setting a `delegated_subnet_id`. For existing flexible servers who don't want to be recreated, you need to provide the `private_dns_zone_id` to the service team to manually migrate to the specified private DNS zone. The `privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
+        :param pulumi.Input[bool] public_network_access_enabled: Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
+               
+               > **Note:** `public_network_access_enabled` must be set to `false` when `delegated_subnet_id` and `private_dns_zone_id` have a value.
         :param pulumi.Input[str] replication_role: The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
                
                > **Note:** The `replication_role` cannot be set while creating and only can be updated to `None` for replica server.
@@ -1153,6 +1182,7 @@ class FlexibleServer(pulumi.CustomResource):
             version="12",
             delegated_subnet_id=example_subnet.id,
             private_dns_zone_id=example_zone.id,
+            public_network_access_enabled=False,
             administrator_login="psqladmin",
             administrator_password="H@Sh1CoR3!",
             zone="1",
@@ -1221,6 +1251,7 @@ class FlexibleServer(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  point_in_time_restore_time_in_utc: Optional[pulumi.Input[str]] = None,
                  private_dns_zone_id: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  replication_role: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
@@ -1255,6 +1286,7 @@ class FlexibleServer(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["point_in_time_restore_time_in_utc"] = point_in_time_restore_time_in_utc
             __props__.__dict__["private_dns_zone_id"] = private_dns_zone_id
+            __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             __props__.__dict__["replication_role"] = replication_role
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -1267,7 +1299,6 @@ class FlexibleServer(pulumi.CustomResource):
             __props__.__dict__["version"] = version
             __props__.__dict__["zone"] = zone
             __props__.__dict__["fqdn"] = None
-            __props__.__dict__["public_network_access_enabled"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["administratorPassword"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(FlexibleServer, __self__).__init__(
@@ -1343,7 +1374,9 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[str] private_dns_zone_id: The ID of the private DNS zone to create the PostgreSQL Flexible Server.
                
                > **Note:** There will be a breaking change from upstream service at 15th July 2021, the `private_dns_zone_id` will be required when setting a `delegated_subnet_id`. For existing flexible servers who don't want to be recreated, you need to provide the `private_dns_zone_id` to the service team to manually migrate to the specified private DNS zone. The `privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
-        :param pulumi.Input[bool] public_network_access_enabled: Is public network access enabled?
+        :param pulumi.Input[bool] public_network_access_enabled: Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
+               
+               > **Note:** `public_network_access_enabled` must be set to `false` when `delegated_subnet_id` and `private_dns_zone_id` have a value.
         :param pulumi.Input[str] replication_role: The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
                
                > **Note:** The `replication_role` cannot be set while creating and only can be updated to `None` for replica server.
@@ -1546,9 +1579,11 @@ class FlexibleServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> pulumi.Output[bool]:
+    def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Is public network access enabled?
+        Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
+
+        > **Note:** `public_network_access_enabled` must be set to `false` when `delegated_subnet_id` and `private_dns_zone_id` have a value.
         """
         return pulumi.get(self, "public_network_access_enabled")
 

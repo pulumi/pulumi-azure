@@ -81,17 +81,17 @@ import * as utilities from "../utilities";
  *         "credentials.tenantId": current.then(current => current.tenantId),
  *     },
  * });
- * const extensionAndStorageAccountPermission = new azure.authorization.Assignment("extension_and_storage_account_permission", {
+ * const testExtensionAndStorageAccountPermission = new azure.authorization.Assignment("test_extension_and_storage_account_permission", {
  *     scope: exampleAccount.id,
  *     roleDefinitionName: "Storage Account Contributor",
  *     principalId: exampleKubernetesClusterExtension.aksAssignedIdentities.apply(aksAssignedIdentities => aksAssignedIdentities[0].principalId),
  * });
- * const vaultMsiReadOnCluster = new azure.authorization.Assignment("vault_msi_read_on_cluster", {
+ * const testVaultMsiReadOnCluster = new azure.authorization.Assignment("test_vault_msi_read_on_cluster", {
  *     scope: exampleKubernetesCluster.id,
  *     roleDefinitionName: "Reader",
  *     principalId: exampleBackupVault.identity.apply(identity => identity?.principalId),
  * });
- * const vaultMsiReadOnSnapRg = new azure.authorization.Assignment("vault_msi_read_on_snap_rg", {
+ * const testVaultMsiReadOnSnapRg = new azure.authorization.Assignment("test_vault_msi_read_on_snap_rg", {
  *     scope: snap.id,
  *     roleDefinitionName: "Reader",
  *     principalId: exampleBackupVault.identity.apply(identity => identity?.principalId),
@@ -99,19 +99,19 @@ import * as utilities from "../utilities";
  * const testVaultMsiSnapshotContributorOnSnapRg = new azure.authorization.Assignment("test_vault_msi_snapshot_contributor_on_snap_rg", {
  *     scope: snap.id,
  *     roleDefinitionName: "Disk Snapshot Contributor",
- *     principalId: test.identity[0].principalId,
+ *     principalId: exampleBackupVault.identity.apply(identity => identity?.principalId),
  * });
  * const testVaultDataOperatorOnSnapRg = new azure.authorization.Assignment("test_vault_data_operator_on_snap_rg", {
  *     scope: snap.id,
  *     roleDefinitionName: "Data Operator for Managed Disks",
- *     principalId: test.identity[0].principalId,
+ *     principalId: exampleBackupVault.identity.apply(identity => identity?.principalId),
  * });
  * const testVaultDataContributorOnStorage = new azure.authorization.Assignment("test_vault_data_contributor_on_storage", {
- *     scope: testAzurermStorageAccount.id,
+ *     scope: exampleAccount.id,
  *     roleDefinitionName: "Storage Blob Data Contributor",
- *     principalId: test.identity[0].principalId,
+ *     principalId: exampleBackupVault.identity.apply(identity => identity?.principalId),
  * });
- * const clusterMsiContributorOnSnapRg = new azure.authorization.Assignment("cluster_msi_contributor_on_snap_rg", {
+ * const testClusterMsiContributorOnSnapRg = new azure.authorization.Assignment("test_cluster_msi_contributor_on_snap_rg", {
  *     scope: snap.id,
  *     roleDefinitionName: "Contributor",
  *     principalId: exampleKubernetesCluster.identity.apply(identity => identity?.principalId),

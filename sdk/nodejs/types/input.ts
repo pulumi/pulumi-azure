@@ -2236,7 +2236,7 @@ export namespace appinsights {
          */
         headers?: pulumi.Input<pulumi.Input<inputs.appinsights.StandardWebTestRequestHeader>[]>;
         /**
-         * Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', and 'DELETE'. Defaults to `GET`.
+         * Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', and 'OPTIONS'. Defaults to `GET`.
          */
         httpVerb?: pulumi.Input<string>;
         /**
@@ -25249,7 +25249,7 @@ export namespace containerservice {
          */
         kedaEnabled?: pulumi.Input<boolean>;
         /**
-         * Which resources values should be controlled.
+         * @deprecated The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.
          */
         verticalPodAutoscalerControlledValues?: pulumi.Input<string>;
         /**
@@ -25259,7 +25259,7 @@ export namespace containerservice {
          */
         verticalPodAutoscalerEnabled?: pulumi.Input<boolean>;
         /**
-         * How the autoscaler applies changes to pod resources.
+         * @deprecated The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.
          */
         verticalPodAutoscalerUpdateMode?: pulumi.Input<string>;
     }

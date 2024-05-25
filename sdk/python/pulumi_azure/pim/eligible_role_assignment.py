@@ -537,7 +537,7 @@ class EligibleRoleAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def ticket(self) -> pulumi.Output[Optional['outputs.EligibleRoleAssignmentTicket']]:
+    def ticket(self) -> pulumi.Output['outputs.EligibleRoleAssignmentTicket']:
         """
         A `ticket` block as defined below. Changing this forces a new resource to be created.
         """

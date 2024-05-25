@@ -93,6 +93,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &OpenIdConnectProvider{}
 	case "azure:apimanagement/policy:Policy":
 		r = &Policy{}
+	case "azure:apimanagement/policyFragment:PolicyFragment":
+		r = &PolicyFragment{}
 	case "azure:apimanagement/product:Product":
 		r = &Product{}
 	case "azure:apimanagement/productApi:ProductApi":
@@ -304,6 +306,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"apimanagement/policy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"apimanagement/policyFragment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

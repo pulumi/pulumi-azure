@@ -723,6 +723,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "apimanagement/policyFragment",
+  "fqn": "pulumi_azure.apimanagement",
+  "classes": {
+   "azure:apimanagement/policyFragment:PolicyFragment": "PolicyFragment"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "apimanagement/product",
   "fqn": "pulumi_azure.apimanagement",
   "classes": {

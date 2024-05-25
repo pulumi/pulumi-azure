@@ -890,7 +890,7 @@ class ChannelsRegistration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="developerAppInsightsApiKey")
-    def developer_app_insights_api_key(self) -> pulumi.Output[str]:
+    def developer_app_insights_api_key(self) -> pulumi.Output[Optional[str]]:
         """
         The Application Insights API Key to associate with the Bot Channels Registration.
         """
@@ -898,7 +898,7 @@ class ChannelsRegistration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="developerAppInsightsApplicationId")
-    def developer_app_insights_application_id(self) -> pulumi.Output[str]:
+    def developer_app_insights_application_id(self) -> pulumi.Output[Optional[str]]:
         """
         The Application Insights Application ID to associate with the Bot Channels Registration.
         """
@@ -906,7 +906,7 @@ class ChannelsRegistration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="developerAppInsightsKey")
-    def developer_app_insights_key(self) -> pulumi.Output[str]:
+    def developer_app_insights_key(self) -> pulumi.Output[Optional[str]]:
         """
         The Application Insights Key to associate with the Bot Channels Registration.
         """

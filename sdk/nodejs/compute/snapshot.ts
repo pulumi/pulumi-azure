@@ -79,6 +79,10 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public readonly createOption!: pulumi.Output<string>;
     /**
+     * Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `networkAccessPolicy` to `AllowPrivate`.
+     */
+    public readonly diskAccessId!: pulumi.Output<string | undefined>;
+    /**
      * The size of the Snapshotted Disk in GB.
      */
     public readonly diskSizeGb!: pulumi.Output<number>;
@@ -147,6 +151,7 @@ export class Snapshot extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SnapshotState | undefined;
             resourceInputs["createOption"] = state ? state.createOption : undefined;
+            resourceInputs["diskAccessId"] = state ? state.diskAccessId : undefined;
             resourceInputs["diskSizeGb"] = state ? state.diskSizeGb : undefined;
             resourceInputs["encryptionSettings"] = state ? state.encryptionSettings : undefined;
             resourceInputs["incrementalEnabled"] = state ? state.incrementalEnabled : undefined;
@@ -169,6 +174,7 @@ export class Snapshot extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["createOption"] = args ? args.createOption : undefined;
+            resourceInputs["diskAccessId"] = args ? args.diskAccessId : undefined;
             resourceInputs["diskSizeGb"] = args ? args.diskSizeGb : undefined;
             resourceInputs["encryptionSettings"] = args ? args.encryptionSettings : undefined;
             resourceInputs["incrementalEnabled"] = args ? args.incrementalEnabled : undefined;
@@ -198,6 +204,10 @@ export interface SnapshotState {
      * > **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
      */
     createOption?: pulumi.Input<string>;
+    /**
+     * Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `networkAccessPolicy` to `AllowPrivate`.
+     */
+    diskAccessId?: pulumi.Input<string>;
     /**
      * The size of the Snapshotted Disk in GB.
      */
@@ -264,6 +274,10 @@ export interface SnapshotArgs {
      * > **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
      */
     createOption: pulumi.Input<string>;
+    /**
+     * Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `networkAccessPolicy` to `AllowPrivate`.
+     */
+    diskAccessId?: pulumi.Input<string>;
     /**
      * The size of the Snapshotted Disk in GB.
      */

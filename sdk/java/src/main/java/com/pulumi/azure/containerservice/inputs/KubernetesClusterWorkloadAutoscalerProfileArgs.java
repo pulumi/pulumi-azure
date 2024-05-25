@@ -32,16 +32,20 @@ public final class KubernetesClusterWorkloadAutoscalerProfileArgs extends com.pu
     }
 
     /**
-     * Which resources values should be controlled.
+     * @deprecated
+     * The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.
      * 
      */
+    @Deprecated /* The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider. */
     @Import(name="verticalPodAutoscalerControlledValues")
     private @Nullable Output<String> verticalPodAutoscalerControlledValues;
 
     /**
-     * @return Which resources values should be controlled.
+     * @deprecated
+     * The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.
      * 
      */
+    @Deprecated /* The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider. */
     public Optional<Output<String>> verticalPodAutoscalerControlledValues() {
         return Optional.ofNullable(this.verticalPodAutoscalerControlledValues);
     }
@@ -66,16 +70,20 @@ public final class KubernetesClusterWorkloadAutoscalerProfileArgs extends com.pu
     }
 
     /**
-     * How the autoscaler applies changes to pod resources.
+     * @deprecated
+     * The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.
      * 
      */
+    @Deprecated /* The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider. */
     @Import(name="verticalPodAutoscalerUpdateMode")
     private @Nullable Output<String> verticalPodAutoscalerUpdateMode;
 
     /**
-     * @return How the autoscaler applies changes to pod resources.
+     * @deprecated
+     * The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.
      * 
      */
+    @Deprecated /* The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider. */
     public Optional<Output<String>> verticalPodAutoscalerUpdateMode() {
         return Optional.ofNullable(this.verticalPodAutoscalerUpdateMode);
     }
@@ -129,22 +137,26 @@ public final class KubernetesClusterWorkloadAutoscalerProfileArgs extends com.pu
         }
 
         /**
-         * @param verticalPodAutoscalerControlledValues Which resources values should be controlled.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.
+         * 
          */
+        @Deprecated /* The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider. */
         public Builder verticalPodAutoscalerControlledValues(@Nullable Output<String> verticalPodAutoscalerControlledValues) {
             $.verticalPodAutoscalerControlledValues = verticalPodAutoscalerControlledValues;
             return this;
         }
 
         /**
-         * @param verticalPodAutoscalerControlledValues Which resources values should be controlled.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.
+         * 
          */
+        @Deprecated /* The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider. */
         public Builder verticalPodAutoscalerControlledValues(String verticalPodAutoscalerControlledValues) {
             return verticalPodAutoscalerControlledValues(Output.of(verticalPodAutoscalerControlledValues));
         }
@@ -175,22 +187,26 @@ public final class KubernetesClusterWorkloadAutoscalerProfileArgs extends com.pu
         }
 
         /**
-         * @param verticalPodAutoscalerUpdateMode How the autoscaler applies changes to pod resources.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.
+         * 
          */
+        @Deprecated /* The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider. */
         public Builder verticalPodAutoscalerUpdateMode(@Nullable Output<String> verticalPodAutoscalerUpdateMode) {
             $.verticalPodAutoscalerUpdateMode = verticalPodAutoscalerUpdateMode;
             return this;
         }
 
         /**
-         * @param verticalPodAutoscalerUpdateMode How the autoscaler applies changes to pod resources.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.
+         * 
          */
+        @Deprecated /* The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider. */
         public Builder verticalPodAutoscalerUpdateMode(String verticalPodAutoscalerUpdateMode) {
             return verticalPodAutoscalerUpdateMode(Output.of(verticalPodAutoscalerUpdateMode));
         }

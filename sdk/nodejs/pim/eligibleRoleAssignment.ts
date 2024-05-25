@@ -136,7 +136,7 @@ export class EligibleRoleAssignment extends pulumi.CustomResource {
     /**
      * A `ticket` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly ticket!: pulumi.Output<outputs.pim.EligibleRoleAssignmentTicket | undefined>;
+    public readonly ticket!: pulumi.Output<outputs.pim.EligibleRoleAssignmentTicket>;
 
     /**
      * Create a EligibleRoleAssignment resource with the given unique name, arguments, and options.
