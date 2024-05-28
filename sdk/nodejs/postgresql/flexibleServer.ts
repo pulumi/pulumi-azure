@@ -56,6 +56,7 @@ import * as utilities from "../utilities";
  *     version: "12",
  *     delegatedSubnetId: exampleSubnet.id,
  *     privateDnsZoneId: exampleZone.id,
+ *     publicNetworkAccessEnabled: false,
  *     administratorLogin: "psqladmin",
  *     administratorPassword: "H@Sh1CoR3!",
  *     zone: "1",
@@ -203,9 +204,11 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     public readonly privateDnsZoneId!: pulumi.Output<string>;
     /**
-     * Is public network access enabled?
+     * Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
+     *
+     * > **Note:** `publicNetworkAccessEnabled` must be set to `false` when `delegatedSubnetId` and `privateDnsZoneId` have a value.
      */
-    public /*out*/ readonly publicNetworkAccessEnabled!: pulumi.Output<boolean>;
+    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
      *
@@ -311,6 +314,7 @@ export class FlexibleServer extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["pointInTimeRestoreTimeInUtc"] = args ? args.pointInTimeRestoreTimeInUtc : undefined;
             resourceInputs["privateDnsZoneId"] = args ? args.privateDnsZoneId : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["replicationRole"] = args ? args.replicationRole : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["skuName"] = args ? args.skuName : undefined;
@@ -321,7 +325,6 @@ export class FlexibleServer extends pulumi.CustomResource {
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["zone"] = args ? args.zone : undefined;
             resourceInputs["fqdn"] = undefined /*out*/;
-            resourceInputs["publicNetworkAccessEnabled"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["administratorPassword"] };
@@ -415,7 +418,9 @@ export interface FlexibleServerState {
      */
     privateDnsZoneId?: pulumi.Input<string>;
     /**
-     * Is public network access enabled?
+     * Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
+     *
+     * > **Note:** `publicNetworkAccessEnabled` must be set to `false` when `delegatedSubnetId` and `privateDnsZoneId` have a value.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
@@ -543,6 +548,12 @@ export interface FlexibleServerArgs {
      * > **Note:** There will be a breaking change from upstream service at 15th July 2021, the `privateDnsZoneId` will be required when setting a `delegatedSubnetId`. For existing flexible servers who don't want to be recreated, you need to provide the `privateDnsZoneId` to the service team to manually migrate to the specified private DNS zone. The `azure.privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
      */
     privateDnsZoneId?: pulumi.Input<string>;
+    /**
+     * Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
+     *
+     * > **Note:** `publicNetworkAccessEnabled` must be set to `false` when `delegatedSubnetId` and `privateDnsZoneId` have a value.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
      *

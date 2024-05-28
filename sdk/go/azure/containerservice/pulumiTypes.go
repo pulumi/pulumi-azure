@@ -17970,13 +17970,13 @@ func (o KubernetesClusterWindowsProfileGmsaPtrOutput) RootDomain() pulumi.String
 type KubernetesClusterWorkloadAutoscalerProfile struct {
 	// Specifies whether KEDA Autoscaler can be used for workloads.
 	KedaEnabled *bool `pulumi:"kedaEnabled"`
-	// Which resources values should be controlled.
+	// Deprecated: The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.
 	VerticalPodAutoscalerControlledValues *string `pulumi:"verticalPodAutoscalerControlledValues"`
 	// Specifies whether Vertical Pod Autoscaler should be enabled.
 	//
 	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-VPAPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
 	VerticalPodAutoscalerEnabled *bool `pulumi:"verticalPodAutoscalerEnabled"`
-	// How the autoscaler applies changes to pod resources.
+	// Deprecated: The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.
 	VerticalPodAutoscalerUpdateMode *string `pulumi:"verticalPodAutoscalerUpdateMode"`
 }
 
@@ -17994,13 +17994,13 @@ type KubernetesClusterWorkloadAutoscalerProfileInput interface {
 type KubernetesClusterWorkloadAutoscalerProfileArgs struct {
 	// Specifies whether KEDA Autoscaler can be used for workloads.
 	KedaEnabled pulumi.BoolPtrInput `pulumi:"kedaEnabled"`
-	// Which resources values should be controlled.
+	// Deprecated: The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.
 	VerticalPodAutoscalerControlledValues pulumi.StringPtrInput `pulumi:"verticalPodAutoscalerControlledValues"`
 	// Specifies whether Vertical Pod Autoscaler should be enabled.
 	//
 	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-VPAPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
 	VerticalPodAutoscalerEnabled pulumi.BoolPtrInput `pulumi:"verticalPodAutoscalerEnabled"`
-	// How the autoscaler applies changes to pod resources.
+	// Deprecated: The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.
 	VerticalPodAutoscalerUpdateMode pulumi.StringPtrInput `pulumi:"verticalPodAutoscalerUpdateMode"`
 }
 
@@ -18086,7 +18086,7 @@ func (o KubernetesClusterWorkloadAutoscalerProfileOutput) KedaEnabled() pulumi.B
 	return o.ApplyT(func(v KubernetesClusterWorkloadAutoscalerProfile) *bool { return v.KedaEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Which resources values should be controlled.
+// Deprecated: The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.
 func (o KubernetesClusterWorkloadAutoscalerProfileOutput) VerticalPodAutoscalerControlledValues() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterWorkloadAutoscalerProfile) *string {
 		return v.VerticalPodAutoscalerControlledValues
@@ -18100,7 +18100,7 @@ func (o KubernetesClusterWorkloadAutoscalerProfileOutput) VerticalPodAutoscalerE
 	return o.ApplyT(func(v KubernetesClusterWorkloadAutoscalerProfile) *bool { return v.VerticalPodAutoscalerEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// How the autoscaler applies changes to pod resources.
+// Deprecated: The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.
 func (o KubernetesClusterWorkloadAutoscalerProfileOutput) VerticalPodAutoscalerUpdateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterWorkloadAutoscalerProfile) *string { return v.VerticalPodAutoscalerUpdateMode }).(pulumi.StringPtrOutput)
 }
@@ -18139,7 +18139,7 @@ func (o KubernetesClusterWorkloadAutoscalerProfilePtrOutput) KedaEnabled() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Which resources values should be controlled.
+// Deprecated: The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.
 func (o KubernetesClusterWorkloadAutoscalerProfilePtrOutput) VerticalPodAutoscalerControlledValues() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterWorkloadAutoscalerProfile) *string {
 		if v == nil {
@@ -18161,7 +18161,7 @@ func (o KubernetesClusterWorkloadAutoscalerProfilePtrOutput) VerticalPodAutoscal
 	}).(pulumi.BoolPtrOutput)
 }
 
-// How the autoscaler applies changes to pod resources.
+// Deprecated: The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.
 func (o KubernetesClusterWorkloadAutoscalerProfilePtrOutput) VerticalPodAutoscalerUpdateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterWorkloadAutoscalerProfile) *string {
 		if v == nil {

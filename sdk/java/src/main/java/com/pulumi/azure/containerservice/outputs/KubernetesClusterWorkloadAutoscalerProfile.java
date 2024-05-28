@@ -18,9 +18,11 @@ public final class KubernetesClusterWorkloadAutoscalerProfile {
      */
     private @Nullable Boolean kedaEnabled;
     /**
-     * @return Which resources values should be controlled.
+     * @deprecated
+     * The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.
      * 
      */
+    @Deprecated /* The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider. */
     private @Nullable String verticalPodAutoscalerControlledValues;
     /**
      * @return Specifies whether Vertical Pod Autoscaler should be enabled.
@@ -30,9 +32,11 @@ public final class KubernetesClusterWorkloadAutoscalerProfile {
      */
     private @Nullable Boolean verticalPodAutoscalerEnabled;
     /**
-     * @return How the autoscaler applies changes to pod resources.
+     * @deprecated
+     * The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.
      * 
      */
+    @Deprecated /* The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider. */
     private @Nullable String verticalPodAutoscalerUpdateMode;
 
     private KubernetesClusterWorkloadAutoscalerProfile() {}
@@ -44,9 +48,11 @@ public final class KubernetesClusterWorkloadAutoscalerProfile {
         return Optional.ofNullable(this.kedaEnabled);
     }
     /**
-     * @return Which resources values should be controlled.
+     * @deprecated
+     * The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.
      * 
      */
+    @Deprecated /* The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider. */
     public Optional<String> verticalPodAutoscalerControlledValues() {
         return Optional.ofNullable(this.verticalPodAutoscalerControlledValues);
     }
@@ -60,9 +66,11 @@ public final class KubernetesClusterWorkloadAutoscalerProfile {
         return Optional.ofNullable(this.verticalPodAutoscalerEnabled);
     }
     /**
-     * @return How the autoscaler applies changes to pod resources.
+     * @deprecated
+     * The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.
      * 
      */
+    @Deprecated /* The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider. */
     public Optional<String> verticalPodAutoscalerUpdateMode() {
         return Optional.ofNullable(this.verticalPodAutoscalerUpdateMode);
     }

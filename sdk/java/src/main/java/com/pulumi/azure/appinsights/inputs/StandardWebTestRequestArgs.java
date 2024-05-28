@@ -65,14 +65,14 @@ public final class StandardWebTestRequestArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Which HTTP verb to use for the call. Options are &#39;GET&#39;, &#39;POST&#39;, &#39;PUT&#39;, &#39;PATCH&#39;, and &#39;DELETE&#39;. Defaults to `GET`.
+     * Which HTTP verb to use for the call. Options are &#39;GET&#39;, &#39;POST&#39;, &#39;PUT&#39;, &#39;PATCH&#39;, &#39;DELETE&#39;, &#39;HEAD&#39;, and &#39;OPTIONS&#39;. Defaults to `GET`.
      * 
      */
     @Import(name="httpVerb")
     private @Nullable Output<String> httpVerb;
 
     /**
-     * @return Which HTTP verb to use for the call. Options are &#39;GET&#39;, &#39;POST&#39;, &#39;PUT&#39;, &#39;PATCH&#39;, and &#39;DELETE&#39;. Defaults to `GET`.
+     * @return Which HTTP verb to use for the call. Options are &#39;GET&#39;, &#39;POST&#39;, &#39;PUT&#39;, &#39;PATCH&#39;, &#39;DELETE&#39;, &#39;HEAD&#39;, and &#39;OPTIONS&#39;. Defaults to `GET`.
      * 
      */
     public Optional<Output<String>> httpVerb() {
@@ -212,7 +212,7 @@ public final class StandardWebTestRequestArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param httpVerb Which HTTP verb to use for the call. Options are &#39;GET&#39;, &#39;POST&#39;, &#39;PUT&#39;, &#39;PATCH&#39;, and &#39;DELETE&#39;. Defaults to `GET`.
+         * @param httpVerb Which HTTP verb to use for the call. Options are &#39;GET&#39;, &#39;POST&#39;, &#39;PUT&#39;, &#39;PATCH&#39;, &#39;DELETE&#39;, &#39;HEAD&#39;, and &#39;OPTIONS&#39;. Defaults to `GET`.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class StandardWebTestRequestArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param httpVerb Which HTTP verb to use for the call. Options are &#39;GET&#39;, &#39;POST&#39;, &#39;PUT&#39;, &#39;PATCH&#39;, and &#39;DELETE&#39;. Defaults to `GET`.
+         * @param httpVerb Which HTTP verb to use for the call. Options are &#39;GET&#39;, &#39;POST&#39;, &#39;PUT&#39;, &#39;PATCH&#39;, &#39;DELETE&#39;, &#39;HEAD&#39;, and &#39;OPTIONS&#39;. Defaults to `GET`.
          * 
          * @return builder
          * 

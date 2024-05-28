@@ -755,6 +755,10 @@
                 "current": "azure:apimanagement/policy:Policy",
                 "majorVersion": 5
             },
+            "azurerm_api_management_policy_fragment": {
+                "current": "azure:apimanagement/policyFragment:PolicyFragment",
+                "majorVersion": 5
+            },
             "azurerm_api_management_product": {
                 "current": "azure:apimanagement/product:Product",
                 "majorVersion": 5

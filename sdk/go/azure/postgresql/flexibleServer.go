@@ -91,18 +91,19 @@ import (
 //				return err
 //			}
 //			_, err = postgresql.NewFlexibleServer(ctx, "example", &postgresql.FlexibleServerArgs{
-//				Name:                  pulumi.String("example-psqlflexibleserver"),
-//				ResourceGroupName:     example.Name,
-//				Location:              example.Location,
-//				Version:               pulumi.String("12"),
-//				DelegatedSubnetId:     exampleSubnet.ID(),
-//				PrivateDnsZoneId:      exampleZone.ID(),
-//				AdministratorLogin:    pulumi.String("psqladmin"),
-//				AdministratorPassword: pulumi.String("H@Sh1CoR3!"),
-//				Zone:                  pulumi.String("1"),
-//				StorageMb:             pulumi.Int(32768),
-//				StorageTier:           pulumi.String("P30"),
-//				SkuName:               pulumi.String("GP_Standard_D4s_v3"),
+//				Name:                       pulumi.String("example-psqlflexibleserver"),
+//				ResourceGroupName:          example.Name,
+//				Location:                   example.Location,
+//				Version:                    pulumi.String("12"),
+//				DelegatedSubnetId:          exampleSubnet.ID(),
+//				PrivateDnsZoneId:           exampleZone.ID(),
+//				PublicNetworkAccessEnabled: pulumi.Bool(false),
+//				AdministratorLogin:         pulumi.String("psqladmin"),
+//				AdministratorPassword:      pulumi.String("H@Sh1CoR3!"),
+//				Zone:                       pulumi.String("1"),
+//				StorageMb:                  pulumi.Int(32768),
+//				StorageTier:                pulumi.String("P30"),
+//				SkuName:                    pulumi.String("GP_Standard_D4s_v3"),
 //			})
 //			if err != nil {
 //				return err
@@ -190,8 +191,10 @@ type FlexibleServer struct {
 	//
 	// > **Note:** There will be a breaking change from upstream service at 15th July 2021, the `privateDnsZoneId` will be required when setting a `delegatedSubnetId`. For existing flexible servers who don't want to be recreated, you need to provide the `privateDnsZoneId` to the service team to manually migrate to the specified private DNS zone. The `privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
 	PrivateDnsZoneId pulumi.StringOutput `pulumi:"privateDnsZoneId"`
-	// Is public network access enabled?
-	PublicNetworkAccessEnabled pulumi.BoolOutput `pulumi:"publicNetworkAccessEnabled"`
+	// Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
+	//
+	// > **Note:** `publicNetworkAccessEnabled` must be set to `false` when `delegatedSubnetId` and `privateDnsZoneId` have a value.
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
 	//
 	// > **Note:** The `replicationRole` cannot be set while creating and only can be updated to `None` for replica server.
@@ -307,7 +310,9 @@ type flexibleServerState struct {
 	//
 	// > **Note:** There will be a breaking change from upstream service at 15th July 2021, the `privateDnsZoneId` will be required when setting a `delegatedSubnetId`. For existing flexible servers who don't want to be recreated, you need to provide the `privateDnsZoneId` to the service team to manually migrate to the specified private DNS zone. The `privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
 	PrivateDnsZoneId *string `pulumi:"privateDnsZoneId"`
-	// Is public network access enabled?
+	// Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
+	//
+	// > **Note:** `publicNetworkAccessEnabled` must be set to `false` when `delegatedSubnetId` and `privateDnsZoneId` have a value.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
 	//
@@ -385,7 +390,9 @@ type FlexibleServerState struct {
 	//
 	// > **Note:** There will be a breaking change from upstream service at 15th July 2021, the `privateDnsZoneId` will be required when setting a `delegatedSubnetId`. For existing flexible servers who don't want to be recreated, you need to provide the `privateDnsZoneId` to the service team to manually migrate to the specified private DNS zone. The `privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
 	PrivateDnsZoneId pulumi.StringPtrInput
-	// Is public network access enabled?
+	// Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
+	//
+	// > **Note:** `publicNetworkAccessEnabled` must be set to `false` when `delegatedSubnetId` and `privateDnsZoneId` have a value.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
 	//
@@ -465,6 +472,10 @@ type flexibleServerArgs struct {
 	//
 	// > **Note:** There will be a breaking change from upstream service at 15th July 2021, the `privateDnsZoneId` will be required when setting a `delegatedSubnetId`. For existing flexible servers who don't want to be recreated, you need to provide the `privateDnsZoneId` to the service team to manually migrate to the specified private DNS zone. The `privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
 	PrivateDnsZoneId *string `pulumi:"privateDnsZoneId"`
+	// Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
+	//
+	// > **Note:** `publicNetworkAccessEnabled` must be set to `false` when `delegatedSubnetId` and `privateDnsZoneId` have a value.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
 	//
 	// > **Note:** The `replicationRole` cannot be set while creating and only can be updated to `None` for replica server.
@@ -540,6 +551,10 @@ type FlexibleServerArgs struct {
 	//
 	// > **Note:** There will be a breaking change from upstream service at 15th July 2021, the `privateDnsZoneId` will be required when setting a `delegatedSubnetId`. For existing flexible servers who don't want to be recreated, you need to provide the `privateDnsZoneId` to the service team to manually migrate to the specified private DNS zone. The `privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
 	PrivateDnsZoneId pulumi.StringPtrInput
+	// Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
+	//
+	// > **Note:** `publicNetworkAccessEnabled` must be set to `false` when `delegatedSubnetId` and `privateDnsZoneId` have a value.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
 	//
 	// > **Note:** The `replicationRole` cannot be set while creating and only can be updated to `None` for replica server.
@@ -753,9 +768,11 @@ func (o FlexibleServerOutput) PrivateDnsZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringOutput { return v.PrivateDnsZoneId }).(pulumi.StringOutput)
 }
 
-// Is public network access enabled?
-func (o FlexibleServerOutput) PublicNetworkAccessEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *FlexibleServer) pulumi.BoolOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolOutput)
+// Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
+//
+// > **Note:** `publicNetworkAccessEnabled` must be set to `false` when `delegatedSubnetId` and `privateDnsZoneId` have a value.
+func (o FlexibleServerOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FlexibleServer) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The replication role for the PostgreSQL Flexible Server. Possible value is `None`.

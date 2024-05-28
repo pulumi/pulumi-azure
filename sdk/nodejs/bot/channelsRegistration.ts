@@ -80,15 +80,15 @@ export class ChannelsRegistration extends pulumi.CustomResource {
     /**
      * The Application Insights API Key to associate with the Bot Channels Registration.
      */
-    public readonly developerAppInsightsApiKey!: pulumi.Output<string>;
+    public readonly developerAppInsightsApiKey!: pulumi.Output<string | undefined>;
     /**
      * The Application Insights Application ID to associate with the Bot Channels Registration.
      */
-    public readonly developerAppInsightsApplicationId!: pulumi.Output<string>;
+    public readonly developerAppInsightsApplicationId!: pulumi.Output<string | undefined>;
     /**
      * The Application Insights Key to associate with the Bot Channels Registration.
      */
-    public readonly developerAppInsightsKey!: pulumi.Output<string>;
+    public readonly developerAppInsightsKey!: pulumi.Output<string | undefined>;
     /**
      * The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified.
      */

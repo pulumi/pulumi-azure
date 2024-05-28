@@ -84,42 +84,42 @@ public class WebApp extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="developerAppInsightsApiKey", refs={String.class}, tree="[0]")
-    private Output<String> developerAppInsightsApiKey;
+    private Output</* @Nullable */ String> developerAppInsightsApiKey;
 
     /**
      * @return The Application Insights API Key to associate with the Web App Bot.
      * 
      */
-    public Output<String> developerAppInsightsApiKey() {
-        return this.developerAppInsightsApiKey;
+    public Output<Optional<String>> developerAppInsightsApiKey() {
+        return Codegen.optional(this.developerAppInsightsApiKey);
     }
     /**
      * The Application Insights Application ID to associate with the Web App Bot.
      * 
      */
     @Export(name="developerAppInsightsApplicationId", refs={String.class}, tree="[0]")
-    private Output<String> developerAppInsightsApplicationId;
+    private Output</* @Nullable */ String> developerAppInsightsApplicationId;
 
     /**
      * @return The Application Insights Application ID to associate with the Web App Bot.
      * 
      */
-    public Output<String> developerAppInsightsApplicationId() {
-        return this.developerAppInsightsApplicationId;
+    public Output<Optional<String>> developerAppInsightsApplicationId() {
+        return Codegen.optional(this.developerAppInsightsApplicationId);
     }
     /**
      * The Application Insights Key to associate with the Web App Bot.
      * 
      */
     @Export(name="developerAppInsightsKey", refs={String.class}, tree="[0]")
-    private Output<String> developerAppInsightsKey;
+    private Output</* @Nullable */ String> developerAppInsightsKey;
 
     /**
      * @return The Application Insights Key to associate with the Web App Bot.
      * 
      */
-    public Output<String> developerAppInsightsKey() {
-        return this.developerAppInsightsKey;
+    public Output<Optional<String>> developerAppInsightsKey() {
+        return Codegen.optional(this.developerAppInsightsKey);
     }
     /**
      * The name of the Web App Bot will be displayed as. This defaults to `name` if not specified.

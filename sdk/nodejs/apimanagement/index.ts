@@ -225,6 +225,11 @@ export type Policy = import("./policy").Policy;
 export const Policy: typeof import("./policy").Policy = null as any;
 utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
 
+export { PolicyFragmentArgs, PolicyFragmentState } from "./policyFragment";
+export type PolicyFragment = import("./policyFragment").PolicyFragment;
+export const PolicyFragment: typeof import("./policyFragment").PolicyFragment = null as any;
+utilities.lazyLoad(exports, ["PolicyFragment"], () => require("./policyFragment"));
+
 export { ProductArgs, ProductState } from "./product";
 export type Product = import("./product").Product;
 export const Product: typeof import("./product").Product = null as any;
@@ -352,6 +357,8 @@ const _module = {
                 return new OpenIdConnectProvider(name, <any>undefined, { urn })
             case "azure:apimanagement/policy:Policy":
                 return new Policy(name, <any>undefined, { urn })
+            case "azure:apimanagement/policyFragment:PolicyFragment":
+                return new PolicyFragment(name, <any>undefined, { urn })
             case "azure:apimanagement/product:Product":
                 return new Product(name, <any>undefined, { urn })
             case "azure:apimanagement/productApi:ProductApi":
@@ -413,6 +420,7 @@ pulumi.runtime.registerResourceModule("azure", "apimanagement/notificationRecipi
 pulumi.runtime.registerResourceModule("azure", "apimanagement/notificationRecipientUser", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/openIdConnectProvider", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/policy", _module)
+pulumi.runtime.registerResourceModule("azure", "apimanagement/policyFragment", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/product", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/productApi", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/productGroup", _module)

@@ -70,6 +70,12 @@ namespace Pulumi.Azure.Compute
         public Output<string> CreateOption { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `network_access_policy` to `AllowPrivate`.
+        /// </summary>
+        [Output("diskAccessId")]
+        public Output<string?> DiskAccessId { get; private set; } = null!;
+
+        /// <summary>
         /// The size of the Snapshotted Disk in GB.
         /// </summary>
         [Output("diskSizeGb")]
@@ -204,6 +210,12 @@ namespace Pulumi.Azure.Compute
         public Input<string> CreateOption { get; set; } = null!;
 
         /// <summary>
+        /// Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `network_access_policy` to `AllowPrivate`.
+        /// </summary>
+        [Input("diskAccessId")]
+        public Input<string>? DiskAccessId { get; set; }
+
+        /// <summary>
         /// The size of the Snapshotted Disk in GB.
         /// </summary>
         [Input("diskSizeGb")]
@@ -298,6 +310,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("createOption")]
         public Input<string>? CreateOption { get; set; }
+
+        /// <summary>
+        /// Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `network_access_policy` to `AllowPrivate`.
+        /// </summary>
+        [Input("diskAccessId")]
+        public Input<string>? DiskAccessId { get; set; }
 
         /// <summary>
         /// The size of the Snapshotted Disk in GB.

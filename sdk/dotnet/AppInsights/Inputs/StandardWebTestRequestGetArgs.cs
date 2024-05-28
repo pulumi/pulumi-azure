@@ -37,7 +37,7 @@ namespace Pulumi.Azure.AppInsights.Inputs
         }
 
         /// <summary>
-        /// Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', and 'DELETE'. Defaults to `GET`.
+        /// Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', and 'OPTIONS'. Defaults to `GET`.
         /// </summary>
         [Input("httpVerb")]
         public Input<string>? HttpVerb { get; set; }

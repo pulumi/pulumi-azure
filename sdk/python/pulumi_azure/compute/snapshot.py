@@ -18,6 +18,7 @@ class SnapshotArgs:
     def __init__(__self__, *,
                  create_option: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 disk_access_id: Optional[pulumi.Input[str]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  encryption_settings: Optional[pulumi.Input['SnapshotEncryptionSettingsArgs']] = None,
                  incremental_enabled: Optional[pulumi.Input[bool]] = None,
@@ -35,6 +36,7 @@ class SnapshotArgs:
                
                > **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] disk_access_id: Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `network_access_policy` to `AllowPrivate`.
         :param pulumi.Input[int] disk_size_gb: The size of the Snapshotted Disk in GB.
         :param pulumi.Input['SnapshotEncryptionSettingsArgs'] encryption_settings: A `encryption_settings` block as defined below.
                
@@ -51,6 +53,8 @@ class SnapshotArgs:
         """
         pulumi.set(__self__, "create_option", create_option)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if disk_access_id is not None:
+            pulumi.set(__self__, "disk_access_id", disk_access_id)
         if disk_size_gb is not None:
             pulumi.set(__self__, "disk_size_gb", disk_size_gb)
         if encryption_settings is not None:
@@ -99,6 +103,18 @@ class SnapshotArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="diskAccessId")
+    def disk_access_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `network_access_policy` to `AllowPrivate`.
+        """
+        return pulumi.get(self, "disk_access_id")
+
+    @disk_access_id.setter
+    def disk_access_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_access_id", value)
 
     @property
     @pulumi.getter(name="diskSizeGb")
@@ -239,6 +255,7 @@ class SnapshotArgs:
 class _SnapshotState:
     def __init__(__self__, *,
                  create_option: Optional[pulumi.Input[str]] = None,
+                 disk_access_id: Optional[pulumi.Input[str]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  encryption_settings: Optional[pulumi.Input['SnapshotEncryptionSettingsArgs']] = None,
                  incremental_enabled: Optional[pulumi.Input[bool]] = None,
@@ -257,6 +274,7 @@ class _SnapshotState:
         :param pulumi.Input[str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
                
                > **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
+        :param pulumi.Input[str] disk_access_id: Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `network_access_policy` to `AllowPrivate`.
         :param pulumi.Input[int] disk_size_gb: The size of the Snapshotted Disk in GB.
         :param pulumi.Input['SnapshotEncryptionSettingsArgs'] encryption_settings: A `encryption_settings` block as defined below.
                
@@ -275,6 +293,8 @@ class _SnapshotState:
         """
         if create_option is not None:
             pulumi.set(__self__, "create_option", create_option)
+        if disk_access_id is not None:
+            pulumi.set(__self__, "disk_access_id", disk_access_id)
         if disk_size_gb is not None:
             pulumi.set(__self__, "disk_size_gb", disk_size_gb)
         if encryption_settings is not None:
@@ -315,6 +335,18 @@ class _SnapshotState:
     @create_option.setter
     def create_option(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "create_option", value)
+
+    @property
+    @pulumi.getter(name="diskAccessId")
+    def disk_access_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `network_access_policy` to `AllowPrivate`.
+        """
+        return pulumi.get(self, "disk_access_id")
+
+    @disk_access_id.setter
+    def disk_access_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_access_id", value)
 
     @property
     @pulumi.getter(name="diskSizeGb")
@@ -481,6 +513,7 @@ class Snapshot(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  create_option: Optional[pulumi.Input[str]] = None,
+                 disk_access_id: Optional[pulumi.Input[str]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  encryption_settings: Optional[pulumi.Input[pulumi.InputType['SnapshotEncryptionSettingsArgs']]] = None,
                  incremental_enabled: Optional[pulumi.Input[bool]] = None,
@@ -534,6 +567,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
                
                > **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
+        :param pulumi.Input[str] disk_access_id: Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `network_access_policy` to `AllowPrivate`.
         :param pulumi.Input[int] disk_size_gb: The size of the Snapshotted Disk in GB.
         :param pulumi.Input[pulumi.InputType['SnapshotEncryptionSettingsArgs']] encryption_settings: A `encryption_settings` block as defined below.
                
@@ -606,6 +640,7 @@ class Snapshot(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  create_option: Optional[pulumi.Input[str]] = None,
+                 disk_access_id: Optional[pulumi.Input[str]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  encryption_settings: Optional[pulumi.Input[pulumi.InputType['SnapshotEncryptionSettingsArgs']]] = None,
                  incremental_enabled: Optional[pulumi.Input[bool]] = None,
@@ -630,6 +665,7 @@ class Snapshot(pulumi.CustomResource):
             if create_option is None and not opts.urn:
                 raise TypeError("Missing required property 'create_option'")
             __props__.__dict__["create_option"] = create_option
+            __props__.__dict__["disk_access_id"] = disk_access_id
             __props__.__dict__["disk_size_gb"] = disk_size_gb
             __props__.__dict__["encryption_settings"] = encryption_settings
             __props__.__dict__["incremental_enabled"] = incremental_enabled
@@ -656,6 +692,7 @@ class Snapshot(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             create_option: Optional[pulumi.Input[str]] = None,
+            disk_access_id: Optional[pulumi.Input[str]] = None,
             disk_size_gb: Optional[pulumi.Input[int]] = None,
             encryption_settings: Optional[pulumi.Input[pulumi.InputType['SnapshotEncryptionSettingsArgs']]] = None,
             incremental_enabled: Optional[pulumi.Input[bool]] = None,
@@ -679,6 +716,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
                
                > **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
+        :param pulumi.Input[str] disk_access_id: Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `network_access_policy` to `AllowPrivate`.
         :param pulumi.Input[int] disk_size_gb: The size of the Snapshotted Disk in GB.
         :param pulumi.Input[pulumi.InputType['SnapshotEncryptionSettingsArgs']] encryption_settings: A `encryption_settings` block as defined below.
                
@@ -700,6 +738,7 @@ class Snapshot(pulumi.CustomResource):
         __props__ = _SnapshotState.__new__(_SnapshotState)
 
         __props__.__dict__["create_option"] = create_option
+        __props__.__dict__["disk_access_id"] = disk_access_id
         __props__.__dict__["disk_size_gb"] = disk_size_gb
         __props__.__dict__["encryption_settings"] = encryption_settings
         __props__.__dict__["incremental_enabled"] = incremental_enabled
@@ -724,6 +763,14 @@ class Snapshot(pulumi.CustomResource):
         > **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
         """
         return pulumi.get(self, "create_option")
+
+    @property
+    @pulumi.getter(name="diskAccessId")
+    def disk_access_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `network_access_policy` to `AllowPrivate`.
+        """
+        return pulumi.get(self, "disk_access_id")
 
     @property
     @pulumi.getter(name="diskSizeGb")

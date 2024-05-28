@@ -65,6 +65,7 @@
         "apimanagement/notificationRecipientUser.ts",
         "apimanagement/openIdConnectProvider.ts",
         "apimanagement/policy.ts",
+        "apimanagement/policyFragment.ts",
         "apimanagement/product.ts",
         "apimanagement/productApi.ts",
         "apimanagement/productGroup.ts",

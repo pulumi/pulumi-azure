@@ -57,19 +57,19 @@ namespace Pulumi.Azure.Bot
         /// The Application Insights API Key to associate with the Web App Bot.
         /// </summary>
         [Output("developerAppInsightsApiKey")]
-        public Output<string> DeveloperAppInsightsApiKey { get; private set; } = null!;
+        public Output<string?> DeveloperAppInsightsApiKey { get; private set; } = null!;
 
         /// <summary>
         /// The Application Insights Application ID to associate with the Web App Bot.
         /// </summary>
         [Output("developerAppInsightsApplicationId")]
-        public Output<string> DeveloperAppInsightsApplicationId { get; private set; } = null!;
+        public Output<string?> DeveloperAppInsightsApplicationId { get; private set; } = null!;
 
         /// <summary>
         /// The Application Insights Key to associate with the Web App Bot.
         /// </summary>
         [Output("developerAppInsightsKey")]
-        public Output<string> DeveloperAppInsightsKey { get; private set; } = null!;
+        public Output<string?> DeveloperAppInsightsKey { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Web App Bot will be displayed as. This defaults to `name` if not specified.

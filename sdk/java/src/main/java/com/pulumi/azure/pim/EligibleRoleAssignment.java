@@ -13,7 +13,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -256,14 +255,14 @@ public class EligibleRoleAssignment extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="ticket", refs={EligibleRoleAssignmentTicket.class}, tree="[0]")
-    private Output</* @Nullable */ EligibleRoleAssignmentTicket> ticket;
+    private Output<EligibleRoleAssignmentTicket> ticket;
 
     /**
      * @return A `ticket` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    public Output<Optional<EligibleRoleAssignmentTicket>> ticket() {
-        return Codegen.optional(this.ticket);
+    public Output<EligibleRoleAssignmentTicket> ticket() {
+        return this.ticket;
     }
 
     /**

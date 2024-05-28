@@ -112,21 +112,21 @@ namespace Pulumi.Azure.DataProtection
     ///         },
     ///     });
     /// 
-    ///     var extensionAndStorageAccountPermission = new Azure.Authorization.Assignment("extension_and_storage_account_permission", new()
+    ///     var testExtensionAndStorageAccountPermission = new Azure.Authorization.Assignment("test_extension_and_storage_account_permission", new()
     ///     {
     ///         Scope = exampleAccount.Id,
     ///         RoleDefinitionName = "Storage Account Contributor",
     ///         PrincipalId = exampleKubernetesClusterExtension.AksAssignedIdentities.Apply(aksAssignedIdentities =&gt; aksAssignedIdentities[0].PrincipalId),
     ///     });
     /// 
-    ///     var vaultMsiReadOnCluster = new Azure.Authorization.Assignment("vault_msi_read_on_cluster", new()
+    ///     var testVaultMsiReadOnCluster = new Azure.Authorization.Assignment("test_vault_msi_read_on_cluster", new()
     ///     {
     ///         Scope = exampleKubernetesCluster.Id,
     ///         RoleDefinitionName = "Reader",
     ///         PrincipalId = exampleBackupVault.Identity.Apply(identity =&gt; identity?.PrincipalId),
     ///     });
     /// 
-    ///     var vaultMsiReadOnSnapRg = new Azure.Authorization.Assignment("vault_msi_read_on_snap_rg", new()
+    ///     var testVaultMsiReadOnSnapRg = new Azure.Authorization.Assignment("test_vault_msi_read_on_snap_rg", new()
     ///     {
     ///         Scope = snap.Id,
     ///         RoleDefinitionName = "Reader",
@@ -137,24 +137,24 @@ namespace Pulumi.Azure.DataProtection
     ///     {
     ///         Scope = snap.Id,
     ///         RoleDefinitionName = "Disk Snapshot Contributor",
-    ///         PrincipalId = test.Identity[0].PrincipalId,
+    ///         PrincipalId = exampleBackupVault.Identity.Apply(identity =&gt; identity?.PrincipalId),
     ///     });
     /// 
     ///     var testVaultDataOperatorOnSnapRg = new Azure.Authorization.Assignment("test_vault_data_operator_on_snap_rg", new()
     ///     {
     ///         Scope = snap.Id,
     ///         RoleDefinitionName = "Data Operator for Managed Disks",
-    ///         PrincipalId = test.Identity[0].PrincipalId,
+    ///         PrincipalId = exampleBackupVault.Identity.Apply(identity =&gt; identity?.PrincipalId),
     ///     });
     /// 
     ///     var testVaultDataContributorOnStorage = new Azure.Authorization.Assignment("test_vault_data_contributor_on_storage", new()
     ///     {
-    ///         Scope = testAzurermStorageAccount.Id,
+    ///         Scope = exampleAccount.Id,
     ///         RoleDefinitionName = "Storage Blob Data Contributor",
-    ///         PrincipalId = test.Identity[0].PrincipalId,
+    ///         PrincipalId = exampleBackupVault.Identity.Apply(identity =&gt; identity?.PrincipalId),
     ///     });
     /// 
-    ///     var clusterMsiContributorOnSnapRg = new Azure.Authorization.Assignment("cluster_msi_contributor_on_snap_rg", new()
+    ///     var testClusterMsiContributorOnSnapRg = new Azure.Authorization.Assignment("test_cluster_msi_contributor_on_snap_rg", new()
     ///     {
     ///         Scope = snap.Id,
     ///         RoleDefinitionName = "Contributor",

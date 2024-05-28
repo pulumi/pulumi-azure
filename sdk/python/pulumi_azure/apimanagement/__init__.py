@@ -49,6 +49,7 @@ from .notification_recipient_email import *
 from .notification_recipient_user import *
 from .open_id_connect_provider import *
 from .policy import *
+from .policy_fragment import *
 from .product import *
 from .product_api import *
 from .product_group import *

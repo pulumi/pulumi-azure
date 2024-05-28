@@ -108,6 +108,20 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
         return this.createOption;
     }
     /**
+     * Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `network_access_policy` to `AllowPrivate`.
+     * 
+     */
+    @Export(name="diskAccessId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> diskAccessId;
+
+    /**
+     * @return Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `network_access_policy` to `AllowPrivate`.
+     * 
+     */
+    public Output<Optional<String>> diskAccessId() {
+        return Codegen.optional(this.diskAccessId);
+    }
+    /**
      * The size of the Snapshotted Disk in GB.
      * 
      */

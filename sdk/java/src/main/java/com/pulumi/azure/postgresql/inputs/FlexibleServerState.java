@@ -303,14 +303,18 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Is public network access enabled?
+     * Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
+     * 
+     * &gt; **Note:** `public_network_access_enabled` must be set to `false` when `delegated_subnet_id` and `private_dns_zone_id` have a value.
      * 
      */
     @Import(name="publicNetworkAccessEnabled")
     private @Nullable Output<Boolean> publicNetworkAccessEnabled;
 
     /**
-     * @return Is public network access enabled?
+     * @return Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
+     * 
+     * &gt; **Note:** `public_network_access_enabled` must be set to `false` when `delegated_subnet_id` and `private_dns_zone_id` have a value.
      * 
      */
     public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
@@ -896,7 +900,9 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param publicNetworkAccessEnabled Is public network access enabled?
+         * @param publicNetworkAccessEnabled Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
+         * 
+         * &gt; **Note:** `public_network_access_enabled` must be set to `false` when `delegated_subnet_id` and `private_dns_zone_id` have a value.
          * 
          * @return builder
          * 
@@ -907,7 +913,9 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param publicNetworkAccessEnabled Is public network access enabled?
+         * @param publicNetworkAccessEnabled Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
+         * 
+         * &gt; **Note:** `public_network_access_enabled` must be set to `false` when `delegated_subnet_id` and `private_dns_zone_id` have a value.
          * 
          * @return builder
          * 

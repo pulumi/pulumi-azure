@@ -77,11 +77,11 @@ type ChannelsRegistration struct {
 	// The description of the Bot Channels Registration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The Application Insights API Key to associate with the Bot Channels Registration.
-	DeveloperAppInsightsApiKey pulumi.StringOutput `pulumi:"developerAppInsightsApiKey"`
+	DeveloperAppInsightsApiKey pulumi.StringPtrOutput `pulumi:"developerAppInsightsApiKey"`
 	// The Application Insights Application ID to associate with the Bot Channels Registration.
-	DeveloperAppInsightsApplicationId pulumi.StringOutput `pulumi:"developerAppInsightsApplicationId"`
+	DeveloperAppInsightsApplicationId pulumi.StringPtrOutput `pulumi:"developerAppInsightsApplicationId"`
 	// The Application Insights Key to associate with the Bot Channels Registration.
-	DeveloperAppInsightsKey pulumi.StringOutput `pulumi:"developerAppInsightsKey"`
+	DeveloperAppInsightsKey pulumi.StringPtrOutput `pulumi:"developerAppInsightsKey"`
 	// The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// The Bot Channels Registration endpoint.
@@ -444,18 +444,18 @@ func (o ChannelsRegistrationOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The Application Insights API Key to associate with the Bot Channels Registration.
-func (o ChannelsRegistrationOutput) DeveloperAppInsightsApiKey() pulumi.StringOutput {
-	return o.ApplyT(func(v *ChannelsRegistration) pulumi.StringOutput { return v.DeveloperAppInsightsApiKey }).(pulumi.StringOutput)
+func (o ChannelsRegistrationOutput) DeveloperAppInsightsApiKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelsRegistration) pulumi.StringPtrOutput { return v.DeveloperAppInsightsApiKey }).(pulumi.StringPtrOutput)
 }
 
 // The Application Insights Application ID to associate with the Bot Channels Registration.
-func (o ChannelsRegistrationOutput) DeveloperAppInsightsApplicationId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ChannelsRegistration) pulumi.StringOutput { return v.DeveloperAppInsightsApplicationId }).(pulumi.StringOutput)
+func (o ChannelsRegistrationOutput) DeveloperAppInsightsApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelsRegistration) pulumi.StringPtrOutput { return v.DeveloperAppInsightsApplicationId }).(pulumi.StringPtrOutput)
 }
 
 // The Application Insights Key to associate with the Bot Channels Registration.
-func (o ChannelsRegistrationOutput) DeveloperAppInsightsKey() pulumi.StringOutput {
-	return o.ApplyT(func(v *ChannelsRegistration) pulumi.StringOutput { return v.DeveloperAppInsightsKey }).(pulumi.StringOutput)
+func (o ChannelsRegistrationOutput) DeveloperAppInsightsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelsRegistration) pulumi.StringPtrOutput { return v.DeveloperAppInsightsKey }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified.

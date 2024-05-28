@@ -8387,18 +8387,22 @@ class KubernetesClusterWorkloadAutoscalerProfileArgs:
                  vertical_pod_autoscaler_update_mode: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] keda_enabled: Specifies whether KEDA Autoscaler can be used for workloads.
-        :param pulumi.Input[str] vertical_pod_autoscaler_controlled_values: Which resources values should be controlled.
         :param pulumi.Input[bool] vertical_pod_autoscaler_enabled: Specifies whether Vertical Pod Autoscaler should be enabled.
                
                > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-VPAPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
-        :param pulumi.Input[str] vertical_pod_autoscaler_update_mode: How the autoscaler applies changes to pod resources.
         """
         if keda_enabled is not None:
             pulumi.set(__self__, "keda_enabled", keda_enabled)
         if vertical_pod_autoscaler_controlled_values is not None:
+            warnings.warn("""The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.""", DeprecationWarning)
+            pulumi.log.warn("""vertical_pod_autoscaler_controlled_values is deprecated: The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.""")
+        if vertical_pod_autoscaler_controlled_values is not None:
             pulumi.set(__self__, "vertical_pod_autoscaler_controlled_values", vertical_pod_autoscaler_controlled_values)
         if vertical_pod_autoscaler_enabled is not None:
             pulumi.set(__self__, "vertical_pod_autoscaler_enabled", vertical_pod_autoscaler_enabled)
+        if vertical_pod_autoscaler_update_mode is not None:
+            warnings.warn("""The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.""", DeprecationWarning)
+            pulumi.log.warn("""vertical_pod_autoscaler_update_mode is deprecated: The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.""")
         if vertical_pod_autoscaler_update_mode is not None:
             pulumi.set(__self__, "vertical_pod_autoscaler_update_mode", vertical_pod_autoscaler_update_mode)
 
@@ -8417,9 +8421,9 @@ class KubernetesClusterWorkloadAutoscalerProfileArgs:
     @property
     @pulumi.getter(name="verticalPodAutoscalerControlledValues")
     def vertical_pod_autoscaler_controlled_values(self) -> Optional[pulumi.Input[str]]:
-        """
-        Which resources values should be controlled.
-        """
+        warnings.warn("""The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.""", DeprecationWarning)
+        pulumi.log.warn("""vertical_pod_autoscaler_controlled_values is deprecated: The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.""")
+
         return pulumi.get(self, "vertical_pod_autoscaler_controlled_values")
 
     @vertical_pod_autoscaler_controlled_values.setter
@@ -8443,9 +8447,9 @@ class KubernetesClusterWorkloadAutoscalerProfileArgs:
     @property
     @pulumi.getter(name="verticalPodAutoscalerUpdateMode")
     def vertical_pod_autoscaler_update_mode(self) -> Optional[pulumi.Input[str]]:
-        """
-        How the autoscaler applies changes to pod resources.
-        """
+        warnings.warn("""The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.""", DeprecationWarning)
+        pulumi.log.warn("""vertical_pod_autoscaler_update_mode is deprecated: The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.""")
+
         return pulumi.get(self, "vertical_pod_autoscaler_update_mode")
 
     @vertical_pod_autoscaler_update_mode.setter

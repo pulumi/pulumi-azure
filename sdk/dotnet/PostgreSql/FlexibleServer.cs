@@ -91,6 +91,7 @@ namespace Pulumi.Azure.PostgreSql
     ///         Version = "12",
     ///         DelegatedSubnetId = exampleSubnet.Id,
     ///         PrivateDnsZoneId = exampleZone.Id,
+    ///         PublicNetworkAccessEnabled = false,
     ///         AdministratorLogin = "psqladmin",
     ///         AdministratorPassword = "H@Sh1CoR3!",
     ///         Zone = "1",
@@ -249,10 +250,12 @@ namespace Pulumi.Azure.PostgreSql
         public Output<string> PrivateDnsZoneId { get; private set; } = null!;
 
         /// <summary>
-        /// Is public network access enabled?
+        /// Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
+        /// 
+        /// &gt; **Note:** `public_network_access_enabled` must be set to `false` when `delegated_subnet_id` and `private_dns_zone_id` have a value.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
-        public Output<bool> PublicNetworkAccessEnabled { get; private set; } = null!;
+        public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
@@ -484,6 +487,14 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? PrivateDnsZoneId { get; set; }
 
         /// <summary>
+        /// Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
+        /// 
+        /// &gt; **Note:** `public_network_access_enabled` must be set to `false` when `delegated_subnet_id` and `private_dns_zone_id` have a value.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
+
+        /// <summary>
         /// The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
         /// 
         /// &gt; **Note:** The `replication_role` cannot be set while creating and only can be updated to `None` for replica server.
@@ -683,7 +694,9 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? PrivateDnsZoneId { get; set; }
 
         /// <summary>
-        /// Is public network access enabled?
+        /// Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
+        /// 
+        /// &gt; **Note:** `public_network_access_enabled` must be set to `false` when `delegated_subnet_id` and `private_dns_zone_id` have a value.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }

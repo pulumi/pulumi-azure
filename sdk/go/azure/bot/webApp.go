@@ -67,11 +67,11 @@ type WebApp struct {
 	pulumi.CustomResourceState
 
 	// The Application Insights API Key to associate with the Web App Bot.
-	DeveloperAppInsightsApiKey pulumi.StringOutput `pulumi:"developerAppInsightsApiKey"`
+	DeveloperAppInsightsApiKey pulumi.StringPtrOutput `pulumi:"developerAppInsightsApiKey"`
 	// The Application Insights Application ID to associate with the Web App Bot.
-	DeveloperAppInsightsApplicationId pulumi.StringOutput `pulumi:"developerAppInsightsApplicationId"`
+	DeveloperAppInsightsApplicationId pulumi.StringPtrOutput `pulumi:"developerAppInsightsApplicationId"`
 	// The Application Insights Key to associate with the Web App Bot.
-	DeveloperAppInsightsKey pulumi.StringOutput `pulumi:"developerAppInsightsKey"`
+	DeveloperAppInsightsKey pulumi.StringPtrOutput `pulumi:"developerAppInsightsKey"`
 	// The name of the Web App Bot will be displayed as. This defaults to `name` if not specified.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// The Web App Bot endpoint.
@@ -352,18 +352,18 @@ func (o WebAppOutput) ToWebAppOutputWithContext(ctx context.Context) WebAppOutpu
 }
 
 // The Application Insights API Key to associate with the Web App Bot.
-func (o WebAppOutput) DeveloperAppInsightsApiKey() pulumi.StringOutput {
-	return o.ApplyT(func(v *WebApp) pulumi.StringOutput { return v.DeveloperAppInsightsApiKey }).(pulumi.StringOutput)
+func (o WebAppOutput) DeveloperAppInsightsApiKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.StringPtrOutput { return v.DeveloperAppInsightsApiKey }).(pulumi.StringPtrOutput)
 }
 
 // The Application Insights Application ID to associate with the Web App Bot.
-func (o WebAppOutput) DeveloperAppInsightsApplicationId() pulumi.StringOutput {
-	return o.ApplyT(func(v *WebApp) pulumi.StringOutput { return v.DeveloperAppInsightsApplicationId }).(pulumi.StringOutput)
+func (o WebAppOutput) DeveloperAppInsightsApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.StringPtrOutput { return v.DeveloperAppInsightsApplicationId }).(pulumi.StringPtrOutput)
 }
 
 // The Application Insights Key to associate with the Web App Bot.
-func (o WebAppOutput) DeveloperAppInsightsKey() pulumi.StringOutput {
-	return o.ApplyT(func(v *WebApp) pulumi.StringOutput { return v.DeveloperAppInsightsKey }).(pulumi.StringOutput)
+func (o WebAppOutput) DeveloperAppInsightsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.StringPtrOutput { return v.DeveloperAppInsightsKey }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Web App Bot will be displayed as. This defaults to `name` if not specified.

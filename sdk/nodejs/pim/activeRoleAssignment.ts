@@ -136,7 +136,7 @@ export class ActiveRoleAssignment extends pulumi.CustomResource {
     /**
      * A `ticket` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly ticket!: pulumi.Output<outputs.pim.ActiveRoleAssignmentTicket | undefined>;
+    public readonly ticket!: pulumi.Output<outputs.pim.ActiveRoleAssignmentTicket>;
 
     /**
      * Create a ActiveRoleAssignment resource with the given unique name, arguments, and options.

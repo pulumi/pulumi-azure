@@ -289,6 +289,25 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
+     * 
+     * &gt; **Note:** `public_network_access_enabled` must be set to `false` when `delegated_subnet_id` and `private_dns_zone_id` have a value.
+     * 
+     */
+    @Import(name="publicNetworkAccessEnabled")
+    private @Nullable Output<Boolean> publicNetworkAccessEnabled;
+
+    /**
+     * @return Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
+     * 
+     * &gt; **Note:** `public_network_access_enabled` must be set to `false` when `delegated_subnet_id` and `private_dns_zone_id` have a value.
+     * 
+     */
+    public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
+        return Optional.ofNullable(this.publicNetworkAccessEnabled);
+    }
+
+    /**
      * The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
      * 
      * &gt; **Note:** The `replication_role` cannot be set while creating and only can be updated to `None` for replica server.
@@ -454,6 +473,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         this.name = $.name;
         this.pointInTimeRestoreTimeInUtc = $.pointInTimeRestoreTimeInUtc;
         this.privateDnsZoneId = $.privateDnsZoneId;
+        this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.replicationRole = $.replicationRole;
         this.resourceGroupName = $.resourceGroupName;
         this.skuName = $.skuName;
@@ -841,6 +861,31 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder privateDnsZoneId(String privateDnsZoneId) {
             return privateDnsZoneId(Output.of(privateDnsZoneId));
+        }
+
+        /**
+         * @param publicNetworkAccessEnabled Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
+         * 
+         * &gt; **Note:** `public_network_access_enabled` must be set to `false` when `delegated_subnet_id` and `private_dns_zone_id` have a value.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccessEnabled(@Nullable Output<Boolean> publicNetworkAccessEnabled) {
+            $.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            return this;
+        }
+
+        /**
+         * @param publicNetworkAccessEnabled Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
+         * 
+         * &gt; **Note:** `public_network_access_enabled` must be set to `false` when `delegated_subnet_id` and `private_dns_zone_id` have a value.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
+            return publicNetworkAccessEnabled(Output.of(publicNetworkAccessEnabled));
         }
 
         /**

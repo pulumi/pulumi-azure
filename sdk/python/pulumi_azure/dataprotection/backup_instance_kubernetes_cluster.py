@@ -329,31 +329,31 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
                 "configuration.backupStorageLocation.config.subscriptionId": current.subscription_id,
                 "credentials.tenantId": current.tenant_id,
             })
-        extension_and_storage_account_permission = azure.authorization.Assignment("extension_and_storage_account_permission",
+        test_extension_and_storage_account_permission = azure.authorization.Assignment("test_extension_and_storage_account_permission",
             scope=example_account.id,
             role_definition_name="Storage Account Contributor",
             principal_id=example_kubernetes_cluster_extension.aks_assigned_identities[0].principal_id)
-        vault_msi_read_on_cluster = azure.authorization.Assignment("vault_msi_read_on_cluster",
+        test_vault_msi_read_on_cluster = azure.authorization.Assignment("test_vault_msi_read_on_cluster",
             scope=example_kubernetes_cluster.id,
             role_definition_name="Reader",
             principal_id=example_backup_vault.identity.principal_id)
-        vault_msi_read_on_snap_rg = azure.authorization.Assignment("vault_msi_read_on_snap_rg",
+        test_vault_msi_read_on_snap_rg = azure.authorization.Assignment("test_vault_msi_read_on_snap_rg",
             scope=snap.id,
             role_definition_name="Reader",
             principal_id=example_backup_vault.identity.principal_id)
         test_vault_msi_snapshot_contributor_on_snap_rg = azure.authorization.Assignment("test_vault_msi_snapshot_contributor_on_snap_rg",
             scope=snap.id,
             role_definition_name="Disk Snapshot Contributor",
-            principal_id=test["identity"][0]["principalId"])
+            principal_id=example_backup_vault.identity.principal_id)
         test_vault_data_operator_on_snap_rg = azure.authorization.Assignment("test_vault_data_operator_on_snap_rg",
             scope=snap.id,
             role_definition_name="Data Operator for Managed Disks",
-            principal_id=test["identity"][0]["principalId"])
+            principal_id=example_backup_vault.identity.principal_id)
         test_vault_data_contributor_on_storage = azure.authorization.Assignment("test_vault_data_contributor_on_storage",
-            scope=test_azurerm_storage_account["id"],
+            scope=example_account.id,
             role_definition_name="Storage Blob Data Contributor",
-            principal_id=test["identity"][0]["principalId"])
-        cluster_msi_contributor_on_snap_rg = azure.authorization.Assignment("cluster_msi_contributor_on_snap_rg",
+            principal_id=example_backup_vault.identity.principal_id)
+        test_cluster_msi_contributor_on_snap_rg = azure.authorization.Assignment("test_cluster_msi_contributor_on_snap_rg",
             scope=snap.id,
             role_definition_name="Contributor",
             principal_id=example_kubernetes_cluster.identity.principal_id)
@@ -491,31 +491,31 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
                 "configuration.backupStorageLocation.config.subscriptionId": current.subscription_id,
                 "credentials.tenantId": current.tenant_id,
             })
-        extension_and_storage_account_permission = azure.authorization.Assignment("extension_and_storage_account_permission",
+        test_extension_and_storage_account_permission = azure.authorization.Assignment("test_extension_and_storage_account_permission",
             scope=example_account.id,
             role_definition_name="Storage Account Contributor",
             principal_id=example_kubernetes_cluster_extension.aks_assigned_identities[0].principal_id)
-        vault_msi_read_on_cluster = azure.authorization.Assignment("vault_msi_read_on_cluster",
+        test_vault_msi_read_on_cluster = azure.authorization.Assignment("test_vault_msi_read_on_cluster",
             scope=example_kubernetes_cluster.id,
             role_definition_name="Reader",
             principal_id=example_backup_vault.identity.principal_id)
-        vault_msi_read_on_snap_rg = azure.authorization.Assignment("vault_msi_read_on_snap_rg",
+        test_vault_msi_read_on_snap_rg = azure.authorization.Assignment("test_vault_msi_read_on_snap_rg",
             scope=snap.id,
             role_definition_name="Reader",
             principal_id=example_backup_vault.identity.principal_id)
         test_vault_msi_snapshot_contributor_on_snap_rg = azure.authorization.Assignment("test_vault_msi_snapshot_contributor_on_snap_rg",
             scope=snap.id,
             role_definition_name="Disk Snapshot Contributor",
-            principal_id=test["identity"][0]["principalId"])
+            principal_id=example_backup_vault.identity.principal_id)
         test_vault_data_operator_on_snap_rg = azure.authorization.Assignment("test_vault_data_operator_on_snap_rg",
             scope=snap.id,
             role_definition_name="Data Operator for Managed Disks",
-            principal_id=test["identity"][0]["principalId"])
+            principal_id=example_backup_vault.identity.principal_id)
         test_vault_data_contributor_on_storage = azure.authorization.Assignment("test_vault_data_contributor_on_storage",
-            scope=test_azurerm_storage_account["id"],
+            scope=example_account.id,
             role_definition_name="Storage Blob Data Contributor",
-            principal_id=test["identity"][0]["principalId"])
-        cluster_msi_contributor_on_snap_rg = azure.authorization.Assignment("cluster_msi_contributor_on_snap_rg",
+            principal_id=example_backup_vault.identity.principal_id)
+        test_cluster_msi_contributor_on_snap_rg = azure.authorization.Assignment("test_cluster_msi_contributor_on_snap_rg",
             scope=snap.id,
             role_definition_name="Contributor",
             principal_id=example_kubernetes_cluster.identity.principal_id)

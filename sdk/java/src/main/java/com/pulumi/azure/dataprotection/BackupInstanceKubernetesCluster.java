@@ -144,19 +144,19 @@ import javax.annotation.Nullable;
  *             ))
  *             .build());
  * 
- *         var extensionAndStorageAccountPermission = new Assignment("extensionAndStorageAccountPermission", AssignmentArgs.builder()
+ *         var testExtensionAndStorageAccountPermission = new Assignment("testExtensionAndStorageAccountPermission", AssignmentArgs.builder()
  *             .scope(exampleAccount.id())
  *             .roleDefinitionName("Storage Account Contributor")
  *             .principalId(exampleKubernetesClusterExtension.aksAssignedIdentities().applyValue(aksAssignedIdentities -> aksAssignedIdentities[0].principalId()))
  *             .build());
  * 
- *         var vaultMsiReadOnCluster = new Assignment("vaultMsiReadOnCluster", AssignmentArgs.builder()
+ *         var testVaultMsiReadOnCluster = new Assignment("testVaultMsiReadOnCluster", AssignmentArgs.builder()
  *             .scope(exampleKubernetesCluster.id())
  *             .roleDefinitionName("Reader")
  *             .principalId(exampleBackupVault.identity().applyValue(identity -> identity.principalId()))
  *             .build());
  * 
- *         var vaultMsiReadOnSnapRg = new Assignment("vaultMsiReadOnSnapRg", AssignmentArgs.builder()
+ *         var testVaultMsiReadOnSnapRg = new Assignment("testVaultMsiReadOnSnapRg", AssignmentArgs.builder()
  *             .scope(snap.id())
  *             .roleDefinitionName("Reader")
  *             .principalId(exampleBackupVault.identity().applyValue(identity -> identity.principalId()))
@@ -165,22 +165,22 @@ import javax.annotation.Nullable;
  *         var testVaultMsiSnapshotContributorOnSnapRg = new Assignment("testVaultMsiSnapshotContributorOnSnapRg", AssignmentArgs.builder()
  *             .scope(snap.id())
  *             .roleDefinitionName("Disk Snapshot Contributor")
- *             .principalId(test.identity()[0].principalId())
+ *             .principalId(exampleBackupVault.identity().applyValue(identity -> identity.principalId()))
  *             .build());
  * 
  *         var testVaultDataOperatorOnSnapRg = new Assignment("testVaultDataOperatorOnSnapRg", AssignmentArgs.builder()
  *             .scope(snap.id())
  *             .roleDefinitionName("Data Operator for Managed Disks")
- *             .principalId(test.identity()[0].principalId())
+ *             .principalId(exampleBackupVault.identity().applyValue(identity -> identity.principalId()))
  *             .build());
  * 
  *         var testVaultDataContributorOnStorage = new Assignment("testVaultDataContributorOnStorage", AssignmentArgs.builder()
- *             .scope(testAzurermStorageAccount.id())
+ *             .scope(exampleAccount.id())
  *             .roleDefinitionName("Storage Blob Data Contributor")
- *             .principalId(test.identity()[0].principalId())
+ *             .principalId(exampleBackupVault.identity().applyValue(identity -> identity.principalId()))
  *             .build());
  * 
- *         var clusterMsiContributorOnSnapRg = new Assignment("clusterMsiContributorOnSnapRg", AssignmentArgs.builder()
+ *         var testClusterMsiContributorOnSnapRg = new Assignment("testClusterMsiContributorOnSnapRg", AssignmentArgs.builder()
  *             .scope(snap.id())
  *             .roleDefinitionName("Contributor")
  *             .principalId(exampleKubernetesCluster.identity().applyValue(identity -> identity.principalId()))

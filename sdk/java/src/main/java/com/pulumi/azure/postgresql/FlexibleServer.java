@@ -109,6 +109,7 @@ import javax.annotation.Nullable;
  *             .version("12")
  *             .delegatedSubnetId(exampleSubnet.id())
  *             .privateDnsZoneId(exampleZone.id())
+ *             .publicNetworkAccessEnabled(false)
  *             .administratorLogin("psqladmin")
  *             .administratorPassword("H{@literal @}Sh1CoR3!")
  *             .zone("1")
@@ -418,18 +419,22 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
         return this.privateDnsZoneId;
     }
     /**
-     * Is public network access enabled?
+     * Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
+     * 
+     * &gt; **Note:** `public_network_access_enabled` must be set to `false` when `delegated_subnet_id` and `private_dns_zone_id` have a value.
      * 
      */
     @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> publicNetworkAccessEnabled;
+    private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
-     * @return Is public network access enabled?
+     * @return Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
+     * 
+     * &gt; **Note:** `public_network_access_enabled` must be set to `false` when `delegated_subnet_id` and `private_dns_zone_id` have a value.
      * 
      */
-    public Output<Boolean> publicNetworkAccessEnabled() {
-        return this.publicNetworkAccessEnabled;
+    public Output<Optional<Boolean>> publicNetworkAccessEnabled() {
+        return Codegen.optional(this.publicNetworkAccessEnabled);
     }
     /**
      * The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
