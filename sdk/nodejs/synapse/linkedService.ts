@@ -65,6 +65,8 @@ import * as utilities from "../utilities";
  *     integrationRuntime: {
  *         name: exampleIntegrationRuntimeAzure.name,
  *     },
+ * }, {
+ *     dependsOn: [exampleFirewallRule],
  * });
  * ```
  *

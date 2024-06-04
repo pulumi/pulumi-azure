@@ -43,6 +43,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.keyvault.KeyArgs;
  * import com.pulumi.azure.storage.CustomerManagedKey;
  * import com.pulumi.azure.storage.CustomerManagedKeyArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -129,7 +130,11 @@ import javax.annotation.Nullable;
  *                 "unwrapKey",
  *                 "verify",
  *                 "wrapKey")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     client,
+ *                     storage)
+ *                 .build());
  * 
  *         var exampleCustomerManagedKey = new CustomerManagedKey("exampleCustomerManagedKey", CustomerManagedKeyArgs.builder()
  *             .storageAccountId(exampleAccount.id())

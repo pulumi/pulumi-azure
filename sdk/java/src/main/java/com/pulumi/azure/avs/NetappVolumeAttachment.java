@@ -59,6 +59,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.VirtualNetworkGatewayConnectionArgs;
  * import com.pulumi.azure.avs.NetappVolumeAttachment;
  * import com.pulumi.azure.avs.NetappVolumeAttachmentArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -202,7 +203,9 @@ import javax.annotation.Nullable;
  *             .name("example-vmwareattachment")
  *             .netappVolumeId(testVolume.id())
  *             .vmwareClusterId(testCluster.id())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(testVirtualNetworkGatewayConnection)
+ *                 .build());
  * 
  *     }
  * }

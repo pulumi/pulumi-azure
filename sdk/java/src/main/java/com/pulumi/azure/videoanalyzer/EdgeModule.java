@@ -42,6 +42,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.videoanalyzer.inputs.AnalyzerIdentityArgs;
  * import com.pulumi.azure.videoanalyzer.EdgeModule;
  * import com.pulumi.azure.videoanalyzer.EdgeModuleArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -99,7 +100,12 @@ import javax.annotation.Nullable;
  *                 .identityIds(exampleUserAssignedIdentity.id())
  *                 .build())
  *             .tags(Map.of("environment", "staging"))
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     exampleUserAssignedIdentity,
+ *                     contributor,
+ *                     reader)
+ *                 .build());
  * 
  *         var exampleEdgeModule = new EdgeModule("exampleEdgeModule", EdgeModuleArgs.builder()
  *             .name("example-edge-module")

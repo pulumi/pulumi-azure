@@ -126,7 +126,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = compute.NewLinuxVirtualMachine(ctx, "example", &compute.LinuxVirtualMachineArgs{
+//			exampleLinuxVirtualMachine, err := compute.NewLinuxVirtualMachine(ctx, "example", &compute.LinuxVirtualMachineArgs{
 //				Name:                          pulumi.String(fmt.Sprintf("%v-vm", prefix)),
 //				ResourceGroupName:             exampleResourceGroup.Name,
 //				Location:                      exampleResourceGroup.Location,
@@ -157,7 +157,10 @@ import (
 //				Name:              pulumi.String(fmt.Sprintf("%v-netapp-account", prefix)),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleSubnet,
+//				example1,
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -263,7 +266,10 @@ import (
 //						},
 //					},
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleLinuxVirtualMachine,
+//				examplePlacementGroup,
+//			}))
 //			if err != nil {
 //				return err
 //			}

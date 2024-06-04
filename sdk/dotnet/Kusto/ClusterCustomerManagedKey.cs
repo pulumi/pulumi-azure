@@ -100,6 +100,13 @@ namespace Pulumi.Azure.Kusto
     ///             "verify",
     ///             "wrapKey",
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             client,
+    ///             cluster,
+    ///         },
     ///     });
     /// 
     ///     var exampleClusterCustomerManagedKey = new Azure.Kusto.ClusterCustomerManagedKey("example", new()

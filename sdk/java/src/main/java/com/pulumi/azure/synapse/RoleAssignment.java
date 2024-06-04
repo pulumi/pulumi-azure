@@ -41,6 +41,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.CoreFunctions;
  * import com.pulumi.azure.synapse.RoleAssignment;
  * import com.pulumi.azure.synapse.RoleAssignmentArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -99,7 +100,9 @@ import javax.annotation.Nullable;
  *             .synapseWorkspaceId(exampleWorkspace.id())
  *             .roleName("Synapse SQL Administrator")
  *             .principalId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleFirewallRule)
+ *                 .build());
  * 
  *     }
  * }

@@ -138,7 +138,10 @@ import (
 //				ResourceGroupName: pulumi.Any(exampleAzurermResourceGroup.Name),
 //				Ttl:               pulumi.Int(3600),
 //				Record:            pulumi.Any(exampleAzurermCdnFrontdoorEndpoint.HostName),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAzurermCdnFrontdoorRoute,
+//				exampleAzurermCdnFrontdoorSecurityPolicy,
+//			}))
 //			if err != nil {
 //				return err
 //			}

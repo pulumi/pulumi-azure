@@ -30,6 +30,11 @@ import * as utilities from "../utilities";
  *     skuName: "GP_Gen5",
  *     vcores: 4,
  *     storageSizeInGb: 32,
+ * }, {
+ *     dependsOn: [
+ *         exampleAzurermSubnetNetworkSecurityGroupAssociation,
+ *         exampleAzurermSubnetRouteTableAssociation,
+ *     ],
  * });
  * const current = azure.core.getClientConfig({});
  * const exampleManagedInstanceActiveDirectoryAdministrator = new azure.sql.ManagedInstanceActiveDirectoryAdministrator("example", {

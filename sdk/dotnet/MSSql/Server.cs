@@ -130,6 +130,12 @@ namespace Pulumi.Azure.MSSql
     ///             "unwrapKey",
     ///             "wrapKey",
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleKeyVault,
+    ///         },
     ///     });
     /// 
     ///     var exampleServer = new Azure.MSSql.Server("example", new()

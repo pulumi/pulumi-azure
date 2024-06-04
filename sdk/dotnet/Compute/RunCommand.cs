@@ -250,6 +250,12 @@ namespace Pulumi.Azure.Compute
     ///             { "environment", "terraform-examples" },
     ///             { "some_key", "some-value" },
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAssignment,
+    ///         },
     ///     });
     /// 
     ///     // authorize to storage blob using SAS token

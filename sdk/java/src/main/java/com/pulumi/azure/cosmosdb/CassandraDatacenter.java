@@ -46,6 +46,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.cosmosdb.CassandraClusterArgs;
  * import com.pulumi.azure.cosmosdb.CassandraDatacenter;
  * import com.pulumi.azure.cosmosdb.CassandraDatacenterArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -94,7 +95,9 @@ import javax.annotation.Nullable;
  *             .location(exampleResourceGroup.location())
  *             .delegatedManagementSubnetId(exampleSubnet.id())
  *             .defaultAdminPassword("Password1234")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAssignment)
+ *                 .build());
  * 
  *         var exampleCassandraDatacenter = new CassandraDatacenter("exampleCassandraDatacenter", CassandraDatacenterArgs.builder()
  *             .name("example-datacenter")

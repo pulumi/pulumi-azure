@@ -87,6 +87,12 @@ namespace Pulumi.Azure.DataShare
     ///             SubscriptionId = "00000000-0000-0000-0000-000000000000",
     ///         },
     ///         FilePath = "myfile.txt",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAssignment,
+    ///         },
     ///     });
     /// 
     /// });

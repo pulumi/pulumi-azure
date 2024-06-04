@@ -917,7 +917,11 @@ class Workspace(pulumi.CustomResource):
                 "unwrapKey",
                 "verify",
                 "wrapKey",
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_key_vault,
+                    example_access_policy,
+                ]))
         example_workspace = azure.machinelearning.Workspace("example",
             name="example-workspace",
             location=example.location,
@@ -1010,7 +1014,11 @@ class Workspace(pulumi.CustomResource):
                 "Recover",
                 "UnwrapKey",
                 "WrapKey",
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    test,
+                    current,
+                ]))
         example_key = azure.keyvault.Key("example",
             name="example-keyvaultkey",
             key_vault_id=example_key_vault.id,
@@ -1023,7 +1031,11 @@ class Workspace(pulumi.CustomResource):
                 "unwrapKey",
                 "verify",
                 "wrapKey",
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_key_vault,
+                    example_sp,
+                ]))
         example_role1 = azure.authorization.Assignment("example-role1",
             scope=example_key_vault.id,
             role_definition_name="Contributor",
@@ -1057,7 +1069,14 @@ class Workspace(pulumi.CustomResource):
                 user_assigned_identity_id=example_user_assigned_identity.id,
                 key_vault_id=example_key_vault.id,
                 key_id=example_key.id,
-            ))
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_role1,
+                    example_role2,
+                    example_role3,
+                    example_role4,
+                    example_cosmosdb,
+                ]))
         ```
 
         ## Import
@@ -1198,7 +1217,11 @@ class Workspace(pulumi.CustomResource):
                 "unwrapKey",
                 "verify",
                 "wrapKey",
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_key_vault,
+                    example_access_policy,
+                ]))
         example_workspace = azure.machinelearning.Workspace("example",
             name="example-workspace",
             location=example.location,
@@ -1291,7 +1314,11 @@ class Workspace(pulumi.CustomResource):
                 "Recover",
                 "UnwrapKey",
                 "WrapKey",
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    test,
+                    current,
+                ]))
         example_key = azure.keyvault.Key("example",
             name="example-keyvaultkey",
             key_vault_id=example_key_vault.id,
@@ -1304,7 +1331,11 @@ class Workspace(pulumi.CustomResource):
                 "unwrapKey",
                 "verify",
                 "wrapKey",
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_key_vault,
+                    example_sp,
+                ]))
         example_role1 = azure.authorization.Assignment("example-role1",
             scope=example_key_vault.id,
             role_definition_name="Contributor",
@@ -1338,7 +1369,14 @@ class Workspace(pulumi.CustomResource):
                 user_assigned_identity_id=example_user_assigned_identity.id,
                 key_vault_id=example_key_vault.id,
                 key_id=example_key.id,
-            ))
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_role1,
+                    example_role2,
+                    example_role3,
+                    example_role4,
+                    example_cosmosdb,
+                ]))
         ```
 
         ## Import

@@ -62,7 +62,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewExpressRouteCircuitPeering(ctx, "example", &network.ExpressRouteCircuitPeeringArgs{
+//			exampleExpressRouteCircuitPeering, err := network.NewExpressRouteCircuitPeering(ctx, "example", &network.ExpressRouteCircuitPeeringArgs{
 //				PeeringType:                pulumi.String("MicrosoftPeering"),
 //				ExpressRouteCircuitName:    exampleExpressRouteCircuit.Name,
 //				ResourceGroupName:          example.Name,
@@ -83,7 +83,9 @@ import (
 //				Name:              pulumi.String("example-nfatc"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleExpressRouteCircuitPeering,
+//			}))
 //			if err != nil {
 //				return err
 //			}

@@ -46,6 +46,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.networkfunction.CollectorPolicyArgs;
  * import com.pulumi.azure.networkfunction.inputs.CollectorPolicyIpfxEmissionArgs;
  * import com.pulumi.azure.networkfunction.inputs.CollectorPolicyIpfxIngestionArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -102,7 +103,9 @@ import javax.annotation.Nullable;
  *             .name("example-nfatc")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleExpressRouteCircuitPeering)
+ *                 .build());
  * 
  *         var exampleCollectorPolicy = new CollectorPolicy("exampleCollectorPolicy", CollectorPolicyArgs.builder()
  *             .name("example-nfcp")

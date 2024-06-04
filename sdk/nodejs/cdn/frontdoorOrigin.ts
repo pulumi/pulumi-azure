@@ -108,20 +108,6 @@ import * as utilities from "../utilities";
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleFrontdoorProfile = new azure.cdn.FrontdoorProfile("example", {
- *     name: "profile-example",
- *     resourceGroupName: example.name,
- *     skuName: "Premium_AzureFrontDoor",
- * });
- * const exampleFrontdoorOriginGroup = new azure.cdn.FrontdoorOriginGroup("example", {
- *     name: "group-example",
- *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
- *     loadBalancing: {
- *         additionalLatencyInMilliseconds: 0,
- *         sampleSize: 16,
- *         successfulSamplesRequired: 3,
- *     },
- * });
  * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
  *     name: "vn-example",
  *     resourceGroupName: example.name,
@@ -165,6 +151,22 @@ import * as utilities from "../utilities";
  *         subnetId: exampleSubnet.id,
  *         primary: true,
  *     }],
+ * });
+ * const exampleFrontdoorProfile = new azure.cdn.FrontdoorProfile("example", {
+ *     name: "profile-example",
+ *     resourceGroupName: example.name,
+ *     skuName: "Premium_AzureFrontDoor",
+ * }, {
+ *     dependsOn: [exampleLinkService],
+ * });
+ * const exampleFrontdoorOriginGroup = new azure.cdn.FrontdoorOriginGroup("example", {
+ *     name: "group-example",
+ *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
+ *     loadBalancing: {
+ *         additionalLatencyInMilliseconds: 0,
+ *         sampleSize: 16,
+ *         successfulSamplesRequired: 3,
+ *     },
  * });
  * const exampleFrontdoorOrigin = new azure.cdn.FrontdoorOrigin("example", {
  *     name: "origin-example",

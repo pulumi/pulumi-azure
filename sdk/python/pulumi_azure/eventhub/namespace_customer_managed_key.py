@@ -251,7 +251,11 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
                 "unwrapKey",
                 "verify",
                 "wrapKey",
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_access_policy,
+                    example2,
+                ]))
         example_namespace_customer_managed_key = azure.eventhub.NamespaceCustomerManagedKey("example",
             eventhub_namespace_id=example_event_hub_namespace.id,
             key_vault_key_ids=[example_key.id])
@@ -327,7 +331,11 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
                 "unwrapKey",
                 "verify",
                 "wrapKey",
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_access_policy,
+                    example2,
+                ]))
         example_namespace_customer_managed_key = azure.eventhub.NamespaceCustomerManagedKey("example",
             eventhub_namespace_id=example_event_hub_namespace.id,
             key_vault_key_ids=[example_key.id],
@@ -431,7 +439,11 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
                 "unwrapKey",
                 "verify",
                 "wrapKey",
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_access_policy,
+                    example2,
+                ]))
         example_namespace_customer_managed_key = azure.eventhub.NamespaceCustomerManagedKey("example",
             eventhub_namespace_id=example_event_hub_namespace.id,
             key_vault_key_ids=[example_key.id])
@@ -507,7 +519,11 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
                 "unwrapKey",
                 "verify",
                 "wrapKey",
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_access_policy,
+                    example2,
+                ]))
         example_namespace_customer_managed_key = azure.eventhub.NamespaceCustomerManagedKey("example",
             eventhub_namespace_id=example_event_hub_namespace.id,
             key_vault_key_ids=[example_key.id],

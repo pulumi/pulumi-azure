@@ -220,6 +220,12 @@ namespace Pulumi.Azure.MSSql
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         DisableBgpRoutePropagation = false,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleSubnet,
+    ///         },
     ///     });
     /// 
     ///     var exampleSubnetRouteTableAssociation = new Azure.Network.SubnetRouteTableAssociation("example", new()
@@ -240,6 +246,13 @@ namespace Pulumi.Azure.MSSql
     ///         Vcores = 4,
     ///         AdministratorLogin = "mradministrator",
     ///         AdministratorLoginPassword = "thisIsDog11",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleSubnetNetworkSecurityGroupAssociation,
+    ///             exampleSubnetRouteTableAssociation,
+    ///         },
     ///     });
     /// 
     /// });

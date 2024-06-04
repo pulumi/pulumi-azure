@@ -40,6 +40,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.authorization.AssignmentArgs;
  * import com.pulumi.azure.datashare.DatasetKustoCluster;
  * import com.pulumi.azure.datashare.DatasetKustoClusterArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -93,7 +94,9 @@ import javax.annotation.Nullable;
  *             .name("example-dskc")
  *             .shareId(exampleShare.id())
  *             .kustoClusterId(exampleCluster.id())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAssignment)
+ *                 .build());
  * 
  *     }
  * }

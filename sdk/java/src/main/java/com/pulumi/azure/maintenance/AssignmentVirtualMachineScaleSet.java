@@ -61,6 +61,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs;
  * import com.pulumi.azure.maintenance.AssignmentVirtualMachineScaleSet;
  * import com.pulumi.azure.maintenance.AssignmentVirtualMachineScaleSetArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -211,7 +212,9 @@ import javax.annotation.Nullable;
  *                 .maxUnhealthyUpgradedInstancePercent(20)
  *                 .pauseTimeBetweenBatches("PT0S")
  *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleRule)
+ *                 .build());
  * 
  *         var exampleAssignmentVirtualMachineScaleSet = new AssignmentVirtualMachineScaleSet("exampleAssignmentVirtualMachineScaleSet", AssignmentVirtualMachineScaleSetArgs.builder()
  *             .location(example.location())

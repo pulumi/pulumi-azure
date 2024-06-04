@@ -95,6 +95,11 @@ import * as utilities from "../utilities";
  *         "verify",
  *         "wrapKey",
  *     ],
+ * }, {
+ *     dependsOn: [
+ *         client,
+ *         server,
+ *     ],
  * });
  * const exampleConfigurationStore = new azure.appconfiguration.ConfigurationStore("example", {
  *     name: "appConf2",
@@ -120,6 +125,11 @@ import * as utilities from "../utilities";
  *     tags: {
  *         environment: "development",
  *     },
+ * }, {
+ *     dependsOn: [
+ *         client,
+ *         server,
+ *     ],
  * });
  * ```
  *

@@ -431,7 +431,12 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
             kusto_cluster_id=example_cluster.id,
             kusto_cluster_uri=example_cluster.uri,
             kusto_database_name=example_database.name,
-            kusto_table_name="exampleTable")
+            kusto_table_name="exampleTable",
+            opts=pulumi.ResourceOptions(depends_on=[
+                    database_contributor,
+                    eventhub_data_owner,
+                    example_database_principal_assignment,
+                ]))
         ```
 
         ## Import
@@ -536,7 +541,12 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
             kusto_cluster_id=example_cluster.id,
             kusto_cluster_uri=example_cluster.uri,
             kusto_database_name=example_database.name,
-            kusto_table_name="exampleTable")
+            kusto_table_name="exampleTable",
+            opts=pulumi.ResourceOptions(depends_on=[
+                    database_contributor,
+                    eventhub_data_owner,
+                    example_database_principal_assignment,
+                ]))
         ```
 
         ## Import

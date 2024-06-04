@@ -51,6 +51,12 @@ namespace Pulumi.Azure.Sentinel
     ///         Source = "Microsoft Sentinel",
     ///         ValidateFromUtc = "2022-12-14T16:00:00Z",
     ///         DisplayName = "example-indicator",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             test,
+    ///         },
     ///     });
     /// 
     /// });

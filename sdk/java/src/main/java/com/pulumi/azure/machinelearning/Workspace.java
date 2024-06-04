@@ -133,6 +133,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.machinelearning.WorkspaceArgs;
  * import com.pulumi.azure.machinelearning.inputs.WorkspaceIdentityArgs;
  * import com.pulumi.azure.machinelearning.inputs.WorkspaceEncryptionArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -201,7 +202,11 @@ import javax.annotation.Nullable;
  *                 "unwrapKey",
  *                 "verify",
  *                 "wrapKey")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     exampleKeyVault,
+ *                     exampleAccessPolicy)
+ *                 .build());
  * 
  *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()
  *             .name("example-workspace")
@@ -260,6 +265,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.machinelearning.WorkspaceArgs;
  * import com.pulumi.azure.machinelearning.inputs.WorkspaceIdentityArgs;
  * import com.pulumi.azure.machinelearning.inputs.WorkspaceEncryptionArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -355,7 +361,11 @@ import javax.annotation.Nullable;
  *                 "Recover",
  *                 "UnwrapKey",
  *                 "WrapKey")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     test.applyValue(getServicePrincipalResult -> getServicePrincipalResult),
+ *                     current.applyValue(getClientConfigResult -> getClientConfigResult))
+ *                 .build());
  * 
  *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
  *             .name("example-keyvaultkey")
@@ -369,7 +379,11 @@ import javax.annotation.Nullable;
  *                 "unwrapKey",
  *                 "verify",
  *                 "wrapKey")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     exampleKeyVault,
+ *                     example_sp)
+ *                 .build());
  * 
  *         var example_role1 = new Assignment("example-role1", AssignmentArgs.builder()
  *             .scope(exampleKeyVault.id())
@@ -413,7 +427,14 @@ import javax.annotation.Nullable;
  *                 .keyVaultId(exampleKeyVault.id())
  *                 .keyId(exampleKey.id())
  *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     example_role1,
+ *                     example_role2,
+ *                     example_role3,
+ *                     example_role4,
+ *                     example_cosmosdb)
+ *                 .build());
  * 
  *     }
  * }

@@ -84,6 +84,12 @@ namespace Pulumi.Azure.Synapse
     ///         SynapseWorkspaceId = exampleWorkspace.Id,
     ///         TargetResourceId = exampleConnect.Id,
     ///         SubresourceName = "blob",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleFirewallRule,
+    ///         },
     ///     });
     /// 
     /// });

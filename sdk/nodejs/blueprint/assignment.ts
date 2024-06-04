@@ -75,6 +75,11 @@ import * as utilities from "../utilities";
  *       }
  *     }
  * `,
+ * }, {
+ *     dependsOn: [
+ *         operator,
+ *         owner,
+ *     ],
  * });
  * ```
  *

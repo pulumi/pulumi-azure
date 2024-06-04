@@ -62,6 +62,8 @@ import * as utilities from "../utilities";
  *         "unwrapKey",
  *         "wrapKey",
  *     ],
+ * }, {
+ *     dependsOn: [deployer],
  * });
  * const exampleWorkspace = new azure.synapse.Workspace("example", {
  *     name: "example",
@@ -96,6 +98,8 @@ import * as utilities from "../utilities";
  *     synapseWorkspaceId: exampleWorkspace.id,
  *     active: true,
  *     customerManagedKeyName: "enckey",
+ * }, {
+ *     dependsOn: [workspacePolicy],
  * });
  * ```
  *

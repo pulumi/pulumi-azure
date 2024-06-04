@@ -149,25 +149,6 @@ namespace Pulumi.Azure.Cdn
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile("example", new()
-    ///     {
-    ///         Name = "profile-example",
-    ///         ResourceGroupName = example.Name,
-    ///         SkuName = "Premium_AzureFrontDoor",
-    ///     });
-    /// 
-    ///     var exampleFrontdoorOriginGroup = new Azure.Cdn.FrontdoorOriginGroup("example", new()
-    ///     {
-    ///         Name = "group-example",
-    ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
-    ///         LoadBalancing = new Azure.Cdn.Inputs.FrontdoorOriginGroupLoadBalancingArgs
-    ///         {
-    ///             AdditionalLatencyInMilliseconds = 0,
-    ///             SampleSize = 16,
-    ///             SuccessfulSamplesRequired = 3,
-    ///         },
-    ///     });
-    /// 
     ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
     ///         Name = "vn-example",
@@ -239,6 +220,31 @@ namespace Pulumi.Azure.Cdn
     ///                 SubnetId = exampleSubnet.Id,
     ///                 Primary = true,
     ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile("example", new()
+    ///     {
+    ///         Name = "profile-example",
+    ///         ResourceGroupName = example.Name,
+    ///         SkuName = "Premium_AzureFrontDoor",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleLinkService,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleFrontdoorOriginGroup = new Azure.Cdn.FrontdoorOriginGroup("example", new()
+    ///     {
+    ///         Name = "group-example",
+    ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
+    ///         LoadBalancing = new Azure.Cdn.Inputs.FrontdoorOriginGroupLoadBalancingArgs
+    ///         {
+    ///             AdditionalLatencyInMilliseconds = 0,
+    ///             SampleSize = 16,
+    ///             SuccessfulSamplesRequired = 3,
     ///         },
     ///     });
     /// 

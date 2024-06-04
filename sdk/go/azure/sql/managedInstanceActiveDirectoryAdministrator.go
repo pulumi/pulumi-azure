@@ -49,7 +49,10 @@ import (
 //				SkuName:                    pulumi.String("GP_Gen5"),
 //				Vcores:                     pulumi.Int(4),
 //				StorageSizeInGb:            pulumi.Int(32),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAzurermSubnetNetworkSecurityGroupAssociation,
+//				exampleAzurermSubnetRouteTableAssociation,
+//			}))
 //			if err != nil {
 //				return err
 //			}

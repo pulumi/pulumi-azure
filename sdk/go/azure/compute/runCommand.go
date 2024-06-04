@@ -127,7 +127,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
+//			exampleAssignment, err := authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
 //				Scope:              exampleAccount.ID(),
 //				RoleDefinitionName: pulumi.String("Storage Blob Data Contributor"),
 //				PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
@@ -250,7 +250,9 @@ import (
 //					"environment": pulumi.String("terraform-examples"),
 //					"some_key":    pulumi.String("some-value"),
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAssignment,
+//			}))
 //			if err != nil {
 //				return err
 //			}

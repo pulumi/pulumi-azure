@@ -362,7 +362,11 @@ class CustomerManagedKey(pulumi.CustomResource):
                 "unwrapKey",
                 "verify",
                 "wrapKey",
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    client,
+                    storage,
+                ]))
         example_customer_managed_key = azure.storage.CustomerManagedKey("example",
             storage_account_id=example_account.id,
             key_vault_id=example_key_vault.id,
@@ -468,7 +472,11 @@ class CustomerManagedKey(pulumi.CustomResource):
                 "unwrapKey",
                 "verify",
                 "wrapKey",
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    client,
+                    storage,
+                ]))
         example_customer_managed_key = azure.storage.CustomerManagedKey("example",
             storage_account_id=example_account.id,
             key_vault_id=example_key_vault.id,

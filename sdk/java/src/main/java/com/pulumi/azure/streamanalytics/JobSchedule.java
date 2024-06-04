@@ -44,6 +44,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.streamanalytics.inputs.OutputBlobSerializationArgs;
  * import com.pulumi.azure.streamanalytics.JobSchedule;
  * import com.pulumi.azure.streamanalytics.JobScheduleArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import com.pulumi.asset.FileAsset;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -140,7 +141,12 @@ import javax.annotation.Nullable;
  *             .streamAnalyticsJobId(exampleJob.id())
  *             .startMode("CustomTime")
  *             .startTime("2022-09-21T00:00:00Z")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     exampleJob,
+ *                     exampleStreamInputBlob,
+ *                     exampleOutputBlob)
+ *                 .build());
  * 
  *     }
  * }

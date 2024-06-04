@@ -106,7 +106,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewVirtualNetworkGateway(ctx, "example", &network.VirtualNetworkGatewayArgs{
+//			exampleVirtualNetworkGateway, err := network.NewVirtualNetworkGateway(ctx, "example", &network.VirtualNetworkGatewayArgs{
 //				Name:              pulumi.String("example-vnetgateway"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
@@ -145,7 +145,9 @@ import (
 //				Tags: pulumi.StringMap{
 //					"env": pulumi.String("Test"),
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleVirtualNetworkGateway,
+//			}))
 //			if err != nil {
 //				return err
 //			}

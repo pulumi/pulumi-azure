@@ -150,7 +150,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
+//			exampleAssignment, err := authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
 //				Scope:              pulumi.String(primary.Id),
 //				RoleDefinitionName: pulumi.String("Storage Blob Data Contributor"),
 //				PrincipalId: exampleServer.Identity.ApplyT(func(identity mssql.ServerIdentity) (*string, error) {
@@ -212,7 +212,10 @@ import (
 //				RetentionInDays:              pulumi.Int(6),
 //				LogMonitoringEnabled:         pulumi.Bool(false),
 //				StorageAccountSubscriptionId: pulumi.Any(primaryAzurermSubscription.SubscriptionId),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAssignment,
+//				exampleAccount,
+//			}))
 //			if err != nil {
 //				return err
 //			}

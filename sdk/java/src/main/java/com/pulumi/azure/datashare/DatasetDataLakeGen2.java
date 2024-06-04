@@ -44,6 +44,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.authorization.AssignmentArgs;
  * import com.pulumi.azure.datashare.DatasetDataLakeGen2;
  * import com.pulumi.azure.datashare.DatasetDataLakeGen2Args;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -107,7 +108,9 @@ import javax.annotation.Nullable;
  *             .storageAccountId(exampleAccount2.id())
  *             .fileSystemName(exampleDataLakeGen2Filesystem.name())
  *             .filePath("myfile.txt")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAssignment)
+ *                 .build());
  * 
  *     }
  * }

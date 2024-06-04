@@ -323,7 +323,11 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
             storage_size_in_gb=32,
             tags={
                 "environment": "prod",
-            })
+            },
+            opts=pulumi.ResourceOptions(depends_on=[
+                    primary_azurerm_subnet_network_security_group_association,
+                    primary_azurerm_subnet_route_table_association,
+                ]))
         secondary = azure.sql.ManagedInstance("secondary",
             name="example-secondary",
             resource_group_name=secondary_azurerm_resource_group["name"],
@@ -337,7 +341,11 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
             storage_size_in_gb=32,
             tags={
                 "environment": "prod",
-            })
+            },
+            opts=pulumi.ResourceOptions(depends_on=[
+                    secondary_azurerm_subnet_network_security_group_association,
+                    secondary_azurerm_subnet_route_table_association,
+                ]))
         example_managed_instance_failover_group = azure.sql.ManagedInstanceFailoverGroup("example",
             name="example-failover-group",
             resource_group_name=primary_azurerm_resource_group["name"],
@@ -403,7 +411,11 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
             storage_size_in_gb=32,
             tags={
                 "environment": "prod",
-            })
+            },
+            opts=pulumi.ResourceOptions(depends_on=[
+                    primary_azurerm_subnet_network_security_group_association,
+                    primary_azurerm_subnet_route_table_association,
+                ]))
         secondary = azure.sql.ManagedInstance("secondary",
             name="example-secondary",
             resource_group_name=secondary_azurerm_resource_group["name"],
@@ -417,7 +429,11 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
             storage_size_in_gb=32,
             tags={
                 "environment": "prod",
-            })
+            },
+            opts=pulumi.ResourceOptions(depends_on=[
+                    secondary_azurerm_subnet_network_security_group_association,
+                    secondary_azurerm_subnet_route_table_association,
+                ]))
         example_managed_instance_failover_group = azure.sql.ManagedInstanceFailoverGroup("example",
             name="example-failover-group",
             resource_group_name=primary_azurerm_resource_group["name"],

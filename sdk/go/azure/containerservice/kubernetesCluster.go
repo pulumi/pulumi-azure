@@ -249,7 +249,7 @@ type KubernetesCluster struct {
 	// 		if err != nil {
 	// 			return err
 	// 		}
-	// 		_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
+	// 		exampleAssignment, err := authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
 	// 			Scope:              exampleZone.ID(),
 	// 			RoleDefinitionName: pulumi.String("Private DNS Zone Contributor"),
 	// 			PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
@@ -264,7 +264,9 @@ type KubernetesCluster struct {
 	// 			DnsPrefix:             pulumi.String("aksexamplednsprefix1"),
 	// 			PrivateClusterEnabled: pulumi.Bool(true),
 	// 			PrivateDnsZoneId:      exampleZone.ID(),
-	// 		})
+	// 		}, pulumi.DependsOn([]pulumi.Resource{
+	// 			exampleAssignment,
+	// 		}))
 	// 		if err != nil {
 	// 			return err
 	// 		}
@@ -535,7 +537,7 @@ type kubernetesClusterState struct {
 	// 		if err != nil {
 	// 			return err
 	// 		}
-	// 		_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
+	// 		exampleAssignment, err := authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
 	// 			Scope:              exampleZone.ID(),
 	// 			RoleDefinitionName: pulumi.String("Private DNS Zone Contributor"),
 	// 			PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
@@ -550,7 +552,9 @@ type kubernetesClusterState struct {
 	// 			DnsPrefix:             pulumi.String("aksexamplednsprefix1"),
 	// 			PrivateClusterEnabled: pulumi.Bool(true),
 	// 			PrivateDnsZoneId:      exampleZone.ID(),
-	// 		})
+	// 		}, pulumi.DependsOn([]pulumi.Resource{
+	// 			exampleAssignment,
+	// 		}))
 	// 		if err != nil {
 	// 			return err
 	// 		}
@@ -779,7 +783,7 @@ type KubernetesClusterState struct {
 	// 		if err != nil {
 	// 			return err
 	// 		}
-	// 		_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
+	// 		exampleAssignment, err := authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
 	// 			Scope:              exampleZone.ID(),
 	// 			RoleDefinitionName: pulumi.String("Private DNS Zone Contributor"),
 	// 			PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
@@ -794,7 +798,9 @@ type KubernetesClusterState struct {
 	// 			DnsPrefix:             pulumi.String("aksexamplednsprefix1"),
 	// 			PrivateClusterEnabled: pulumi.Bool(true),
 	// 			PrivateDnsZoneId:      exampleZone.ID(),
-	// 		})
+	// 		}, pulumi.DependsOn([]pulumi.Resource{
+	// 			exampleAssignment,
+	// 		}))
 	// 		if err != nil {
 	// 			return err
 	// 		}
@@ -1007,7 +1013,7 @@ type kubernetesClusterArgs struct {
 	// 		if err != nil {
 	// 			return err
 	// 		}
-	// 		_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
+	// 		exampleAssignment, err := authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
 	// 			Scope:              exampleZone.ID(),
 	// 			RoleDefinitionName: pulumi.String("Private DNS Zone Contributor"),
 	// 			PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
@@ -1022,7 +1028,9 @@ type kubernetesClusterArgs struct {
 	// 			DnsPrefix:             pulumi.String("aksexamplednsprefix1"),
 	// 			PrivateClusterEnabled: pulumi.Bool(true),
 	// 			PrivateDnsZoneId:      exampleZone.ID(),
-	// 		})
+	// 		}, pulumi.DependsOn([]pulumi.Resource{
+	// 			exampleAssignment,
+	// 		}))
 	// 		if err != nil {
 	// 			return err
 	// 		}
@@ -1230,7 +1238,7 @@ type KubernetesClusterArgs struct {
 	// 		if err != nil {
 	// 			return err
 	// 		}
-	// 		_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
+	// 		exampleAssignment, err := authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
 	// 			Scope:              exampleZone.ID(),
 	// 			RoleDefinitionName: pulumi.String("Private DNS Zone Contributor"),
 	// 			PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
@@ -1245,7 +1253,9 @@ type KubernetesClusterArgs struct {
 	// 			DnsPrefix:             pulumi.String("aksexamplednsprefix1"),
 	// 			PrivateClusterEnabled: pulumi.Bool(true),
 	// 			PrivateDnsZoneId:      exampleZone.ID(),
-	// 		})
+	// 		}, pulumi.DependsOn([]pulumi.Resource{
+	// 			exampleAssignment,
+	// 		}))
 	// 		if err != nil {
 	// 			return err
 	// 		}
@@ -1729,7 +1739,7 @@ func (o KubernetesClusterOutput) PrivateClusterEnabled() pulumi.BoolPtrOutput {
 //			if err != nil {
 //				return err
 //			}
-//			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
+//			exampleAssignment, err := authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
 //				Scope:              exampleZone.ID(),
 //				RoleDefinitionName: pulumi.String("Private DNS Zone Contributor"),
 //				PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
@@ -1744,7 +1754,9 @@ func (o KubernetesClusterOutput) PrivateClusterEnabled() pulumi.BoolPtrOutput {
 //				DnsPrefix:             pulumi.String("aksexamplednsprefix1"),
 //				PrivateClusterEnabled: pulumi.Bool(true),
 //				PrivateDnsZoneId:      exampleZone.ID(),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAssignment,
+//			}))
 //			if err != nil {
 //				return err
 //			}

@@ -36,6 +36,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.VirtualNetworkArgs;
  * import com.pulumi.azure.siterecovery.NetworkMapping;
  * import com.pulumi.azure.siterecovery.NetworkMappingArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -78,7 +79,9 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(secondary.name())
  *             .recoveryVaultName(vault.name())
  *             .location(secondary.location())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(primaryFabric)
+ *                 .build());
  * 
  *         var primaryVirtualNetwork = new VirtualNetwork("primaryVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("network1")

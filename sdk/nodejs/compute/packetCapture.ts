@@ -95,6 +95,8 @@ import * as utilities from "../utilities";
  *     storageLocation: {
  *         storageAccountId: exampleAccount.id,
  *     },
+ * }, {
+ *     dependsOn: [exampleExtension],
  * });
  * ```
  *

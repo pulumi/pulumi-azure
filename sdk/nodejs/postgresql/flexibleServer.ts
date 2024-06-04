@@ -48,6 +48,8 @@ import * as utilities from "../utilities";
  *     privateDnsZoneName: exampleZone.name,
  *     virtualNetworkId: exampleVirtualNetwork.id,
  *     resourceGroupName: example.name,
+ * }, {
+ *     dependsOn: [exampleSubnet],
  * });
  * const exampleFlexibleServer = new azure.postgresql.FlexibleServer("example", {
  *     name: "example-psqlflexibleserver",
@@ -63,6 +65,8 @@ import * as utilities from "../utilities";
  *     storageMb: 32768,
  *     storageTier: "P30",
  *     skuName: "GP_Standard_D4s_v3",
+ * }, {
+ *     dependsOn: [exampleZoneVirtualNetworkLink],
  * });
  * ```
  *

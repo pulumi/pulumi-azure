@@ -74,6 +74,12 @@ namespace Pulumi.Azure.Synapse
     ///         SynapseWorkspaceId = exampleWorkspace.Id,
     ///         RoleName = "Synapse SQL Administrator",
     ///         PrincipalId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleFirewallRule,
+    ///         },
     ///     });
     /// 
     /// });

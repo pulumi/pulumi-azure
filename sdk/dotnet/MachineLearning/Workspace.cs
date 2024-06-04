@@ -148,6 +148,13 @@ namespace Pulumi.Azure.MachineLearning
     ///             "verify",
     ///             "wrapKey",
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleKeyVault,
+    ///             exampleAccessPolicy,
+    ///         },
     ///     });
     /// 
     ///     var exampleWorkspace = new Azure.MachineLearning.Workspace("example", new()
@@ -284,6 +291,13 @@ namespace Pulumi.Azure.MachineLearning
     ///             "UnwrapKey",
     ///             "WrapKey",
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             test,
+    ///             current,
+    ///         },
     ///     });
     /// 
     ///     var exampleKey = new Azure.KeyVault.Key("example", new()
@@ -300,6 +314,13 @@ namespace Pulumi.Azure.MachineLearning
     ///             "unwrapKey",
     ///             "verify",
     ///             "wrapKey",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleKeyVault,
+    ///             example_sp,
     ///         },
     ///     });
     /// 
@@ -354,6 +375,16 @@ namespace Pulumi.Azure.MachineLearning
     ///             UserAssignedIdentityId = exampleUserAssignedIdentity.Id,
     ///             KeyVaultId = exampleKeyVault.Id,
     ///             KeyId = exampleKey.Id,
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             example_role1,
+    ///             example_role2,
+    ///             example_role3,
+    ///             example_role4,
+    ///             example_cosmosdb,
     ///         },
     ///     });
     /// 

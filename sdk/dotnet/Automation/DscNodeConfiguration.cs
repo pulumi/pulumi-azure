@@ -72,6 +72,12 @@ namespace Pulumi.Azure.Automation
     ///   Name=""test"";
     /// };
     /// ",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleDscConfiguration,
+    ///         },
     ///     });
     /// 
     /// });

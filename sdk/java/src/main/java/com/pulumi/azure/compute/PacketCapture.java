@@ -55,6 +55,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.compute.PacketCapture;
  * import com.pulumi.azure.compute.PacketCaptureArgs;
  * import com.pulumi.azure.compute.inputs.PacketCaptureStorageLocationArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -156,7 +157,9 @@ import javax.annotation.Nullable;
  *             .storageLocation(PacketCaptureStorageLocationArgs.builder()
  *                 .storageAccountId(exampleAccount.id())
  *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleExtension)
+ *                 .build());
  * 
  *     }
  * }

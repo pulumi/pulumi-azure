@@ -79,6 +79,12 @@ namespace Pulumi.Azure.KeyVault
     ///                 Email = "example2@example.com",
     ///             },
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAccessPolicy,
+    ///         },
     ///     });
     /// 
     /// });

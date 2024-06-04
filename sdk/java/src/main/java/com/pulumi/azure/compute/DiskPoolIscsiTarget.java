@@ -54,6 +54,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.compute.DiskPoolIscsiTarget;
  * import com.pulumi.azure.compute.DiskPoolIscsiTargetArgs;
  * import com.pulumi.codegen.internal.KeyedValue;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -133,14 +134,18 @@ import javax.annotation.Nullable;
  *         var exampleDiskPoolManagedDiskAttachment = new DiskPoolManagedDiskAttachment("exampleDiskPoolManagedDiskAttachment", DiskPoolManagedDiskAttachmentArgs.builder()
  *             .diskPoolId(exampleDiskPool.id())
  *             .managedDiskId(exampleManagedDisk.id())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAssignment)
+ *                 .build());
  * 
  *         var exampleDiskPoolIscsiTarget = new DiskPoolIscsiTarget("exampleDiskPoolIscsiTarget", DiskPoolIscsiTargetArgs.builder()
  *             .name("example")
  *             .aclMode("Dynamic")
  *             .disksPoolId(exampleDiskPool.id())
  *             .targetIqn("iqn.2021-11.com.microsoft:test")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleDiskPoolManagedDiskAttachment)
+ *                 .build());
  * 
  *     }
  * }

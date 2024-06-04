@@ -81,7 +81,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = privatedns.NewZoneVirtualNetworkLink(ctx, "example", &privatedns.ZoneVirtualNetworkLinkArgs{
+//			exampleZoneVirtualNetworkLink, err := privatedns.NewZoneVirtualNetworkLink(ctx, "example", &privatedns.ZoneVirtualNetworkLinkArgs{
 //				Name:               pulumi.String("exampleVnetZone.com"),
 //				PrivateDnsZoneName: exampleZone.Name,
 //				VirtualNetworkId:   exampleVirtualNetwork.ID(),
@@ -100,7 +100,9 @@ import (
 //				DelegatedSubnetId:     exampleSubnet.ID(),
 //				PrivateDnsZoneId:      exampleZone.ID(),
 //				SkuName:               pulumi.String("GP_Standard_D2ds_v4"),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleZoneVirtualNetworkLink,
+//			}))
 //			if err != nil {
 //				return err
 //			}

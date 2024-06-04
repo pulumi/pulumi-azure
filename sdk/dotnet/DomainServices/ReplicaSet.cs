@@ -178,6 +178,13 @@ namespace Pulumi.Azure.DomainServices
     ///         {
     ///             { "Environment", "prod" },
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             example,
+    ///             primarySubnetNetworkSecurityGroupAssociation,
+    ///         },
     ///     });
     /// 
     ///     var replica = new Azure.Core.ResourceGroup("replica", new()
@@ -307,6 +314,14 @@ namespace Pulumi.Azure.DomainServices
     ///         DomainServiceId = exampleService.Id,
     ///         Location = replica.Location,
     ///         SubnetId = aaddsReplica.Id,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             replicaSubnetNetworkSecurityGroupAssociation,
+    ///             primaryReplica,
+    ///             replicaPrimary,
+    ///         },
     ///     });
     /// 
     /// });

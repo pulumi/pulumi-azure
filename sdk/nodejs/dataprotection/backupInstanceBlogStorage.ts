@@ -50,6 +50,8 @@ import * as utilities from "../utilities";
  *     location: example.location,
  *     storageAccountId: exampleAccount.id,
  *     backupPolicyId: exampleBackupPolicyBlobStorage.id,
+ * }, {
+ *     dependsOn: [exampleAssignment],
  * });
  * ```
  *

@@ -54,6 +54,8 @@ import * as utilities from "../utilities";
  *     name: "example-nfatc",
  *     location: example.location,
  *     resourceGroupName: example.name,
+ * }, {
+ *     dependsOn: [exampleExpressRouteCircuitPeering],
  * });
  * const exampleCollectorPolicy = new azure.networkfunction.CollectorPolicy("example", {
  *     name: "example-nfcp",

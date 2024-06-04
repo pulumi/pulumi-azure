@@ -48,7 +48,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iot.NewSecuritySolution(ctx, "example", &iot.SecuritySolutionArgs{
+//			exampleSecuritySolution, err := iot.NewSecuritySolution(ctx, "example", &iot.SecuritySolutionArgs{
 //				Name:              pulumi.String("example-Iot-Security-Solution"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
@@ -76,7 +76,9 @@ import (
 //						Duration: pulumi.String("PT5M"),
 //					},
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleSecuritySolution,
+//			}))
 //			if err != nil {
 //				return err
 //			}

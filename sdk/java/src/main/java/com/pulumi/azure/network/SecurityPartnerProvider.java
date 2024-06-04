@@ -38,6 +38,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.VpnGatewayArgs;
  * import com.pulumi.azure.network.SecurityPartnerProvider;
  * import com.pulumi.azure.network.SecurityPartnerProviderArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -84,7 +85,9 @@ import javax.annotation.Nullable;
  *             .virtualHubId(exampleVirtualHub.id())
  *             .securityProviderName("IBoss")
  *             .tags(Map.of("ENV", "Prod"))
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleVpnGateway)
+ *                 .build());
  * 
  *     }
  * }

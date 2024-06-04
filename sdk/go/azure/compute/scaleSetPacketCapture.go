@@ -105,7 +105,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = compute.NewVirtualMachineScaleSetExtension(ctx, "example", &compute.VirtualMachineScaleSetExtensionArgs{
+//			exampleVirtualMachineScaleSetExtension, err := compute.NewVirtualMachineScaleSetExtension(ctx, "example", &compute.VirtualMachineScaleSetExtensionArgs{
 //				Name:                     pulumi.String("network-watcher"),
 //				VirtualMachineScaleSetId: exampleLinuxVirtualMachineScaleSet.ID(),
 //				Publisher:                pulumi.String("Microsoft.Azure.NetworkWatcher"),
@@ -132,7 +132,9 @@ import (
 //						pulumi.String("1"),
 //					},
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleVirtualMachineScaleSetExtension,
+//			}))
 //			if err != nil {
 //				return err
 //			}

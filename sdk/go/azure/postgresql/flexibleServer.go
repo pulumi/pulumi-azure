@@ -81,12 +81,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = privatedns.NewZoneVirtualNetworkLink(ctx, "example", &privatedns.ZoneVirtualNetworkLinkArgs{
+//			exampleZoneVirtualNetworkLink, err := privatedns.NewZoneVirtualNetworkLink(ctx, "example", &privatedns.ZoneVirtualNetworkLinkArgs{
 //				Name:               pulumi.String("exampleVnetZone.com"),
 //				PrivateDnsZoneName: exampleZone.Name,
 //				VirtualNetworkId:   exampleVirtualNetwork.ID(),
 //				ResourceGroupName:  example.Name,
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleSubnet,
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -104,7 +106,9 @@ import (
 //				StorageMb:                  pulumi.Int(32768),
 //				StorageTier:                pulumi.String("P30"),
 //				SkuName:                    pulumi.String("GP_Standard_D4s_v3"),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleZoneVirtualNetworkLink,
+//			}))
 //			if err != nil {
 //				return err
 //			}

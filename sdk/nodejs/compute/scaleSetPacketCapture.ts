@@ -87,6 +87,8 @@ import * as utilities from "../utilities";
  *         includeInstanceIds: ["0"],
  *         excludeInstanceIds: ["1"],
  *     },
+ * }, {
+ *     dependsOn: [exampleVirtualMachineScaleSetExtension],
  * });
  * ```
  *

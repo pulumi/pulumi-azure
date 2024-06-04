@@ -145,7 +145,8 @@ class CertificateContacts(pulumi.CustomResource):
                 azure.keyvault.CertificateContactsContactArgs(
                     email="example2@example.com",
                 ),
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[example_access_policy]))
         ```
 
         ## Import
@@ -210,7 +211,8 @@ class CertificateContacts(pulumi.CustomResource):
                 azure.keyvault.CertificateContactsContactArgs(
                     email="example2@example.com",
                 ),
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[example_access_policy]))
         ```
 
         ## Import

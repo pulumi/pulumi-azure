@@ -42,6 +42,13 @@ namespace Pulumi.Azure.Sql
     ///         SkuName = "GP_Gen5",
     ///         Vcores = 4,
     ///         StorageSizeInGb = 32,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAzurermSubnetNetworkSecurityGroupAssociation,
+    ///             exampleAzurermSubnetRouteTableAssociation,
+    ///         },
     ///     });
     /// 
     ///     var current = Azure.Core.GetClientConfig.Invoke();

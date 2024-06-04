@@ -76,7 +76,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cdn.NewFrontdoorOrigin(ctx, "example", &cdn.FrontdoorOriginArgs{
+//			exampleFrontdoorOrigin, err := cdn.NewFrontdoorOrigin(ctx, "example", &cdn.FrontdoorOriginArgs{
 //				Name:                        pulumi.String("example-origin"),
 //				CdnFrontdoorOriginGroupId:   exampleFrontdoorOriginGroup.ID(),
 //				Enabled:                     pulumi.Bool(true),
@@ -185,7 +185,10 @@ import (
 //						},
 //					},
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleFrontdoorOriginGroup,
+//				exampleFrontdoorOrigin,
+//			}))
 //			if err != nil {
 //				return err
 //			}

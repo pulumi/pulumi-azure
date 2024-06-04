@@ -630,7 +630,8 @@ class RunCommand(pulumi.CustomResource):
             tags={
                 "environment": "terraform-examples",
                 "some_key": "some-value",
-            })
+            },
+            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
         # authorize to storage blob using SAS token
         example3_run_command = azure.compute.RunCommand("example3",
             location=example_resource_group.location,
@@ -839,7 +840,8 @@ class RunCommand(pulumi.CustomResource):
             tags={
                 "environment": "terraform-examples",
                 "some_key": "some-value",
-            })
+            },
+            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
         # authorize to storage blob using SAS token
         example3_run_command = azure.compute.RunCommand("example3",
             location=example_resource_group.location,

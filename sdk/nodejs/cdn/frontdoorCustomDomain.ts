@@ -78,6 +78,11 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleAzurermResourceGroup.name,
  *     ttl: 3600,
  *     record: exampleAzurermCdnFrontdoorEndpoint.hostName,
+ * }, {
+ *     dependsOn: [
+ *         exampleAzurermCdnFrontdoorRoute,
+ *         exampleAzurermCdnFrontdoorSecurityPolicy,
+ *     ],
  * });
  * ```
  *

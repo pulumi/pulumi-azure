@@ -895,7 +895,8 @@ class FlexibleServer(pulumi.CustomResource):
             backup_retention_days=7,
             delegated_subnet_id=example_subnet.id,
             private_dns_zone_id=example_zone.id,
-            sku_name="GP_Standard_D2ds_v4")
+            sku_name="GP_Standard_D2ds_v4",
+            opts=pulumi.ResourceOptions(depends_on=[example_zone_virtual_network_link]))
         ```
 
         ## Import
@@ -995,7 +996,8 @@ class FlexibleServer(pulumi.CustomResource):
             backup_retention_days=7,
             delegated_subnet_id=example_subnet.id,
             private_dns_zone_id=example_zone.id,
-            sku_name="GP_Standard_D2ds_v4")
+            sku_name="GP_Standard_D2ds_v4",
+            opts=pulumi.ResourceOptions(depends_on=[example_zone_virtual_network_link]))
         ```
 
         ## Import

@@ -122,6 +122,14 @@ namespace Pulumi.Azure.DigitalTwins
     ///         KustoClusterUri = exampleCluster.Uri,
     ///         KustoDatabaseName = exampleDatabase.Name,
     ///         KustoTableName = "exampleTable",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             databaseContributor,
+    ///             eventhubDataOwner,
+    ///             exampleDatabasePrincipalAssignment,
+    ///         },
     ///     });
     /// 
     /// });

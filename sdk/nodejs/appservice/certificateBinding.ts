@@ -60,6 +60,8 @@ import * as utilities from "../utilities";
  *     }).apply(invoke => invoke.result),
  *     appServiceName: exampleAppService.name,
  *     resourceGroupName: exampleResourceGroup.name,
+ * }, {
+ *     dependsOn: [exampleTxtRecord],
  * });
  * const exampleManagedCertificate = new azure.appservice.ManagedCertificate("example", {customHostnameBindingId: exampleCustomHostnameBinding.id});
  * const exampleCertificateBinding = new azure.appservice.CertificateBinding("example", {

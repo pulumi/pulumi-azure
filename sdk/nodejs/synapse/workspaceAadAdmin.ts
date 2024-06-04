@@ -60,6 +60,8 @@ import * as utilities from "../utilities";
  *         "unwrapKey",
  *         "wrapKey",
  *     ],
+ * }, {
+ *     dependsOn: [deployer],
  * });
  * const exampleWorkspace = new azure.synapse.Workspace("example", {
  *     name: "example",

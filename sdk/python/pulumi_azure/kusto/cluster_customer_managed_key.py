@@ -259,7 +259,11 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
                 "unwrapKey",
                 "verify",
                 "wrapKey",
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    client,
+                    cluster,
+                ]))
         example_cluster_customer_managed_key = azure.kusto.ClusterCustomerManagedKey("example",
             cluster_id=example_cluster.id,
             key_vault_id=example_key_vault.id,
@@ -353,7 +357,11 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
                 "unwrapKey",
                 "verify",
                 "wrapKey",
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    client,
+                    cluster,
+                ]))
         example_cluster_customer_managed_key = azure.kusto.ClusterCustomerManagedKey("example",
             cluster_id=example_cluster.id,
             key_vault_id=example_key_vault.id,

@@ -158,6 +158,16 @@ import * as utilities from "../utilities";
  *         labelSelectors: ["kubernetes.io/metadata.name:test"],
  *         volumeSnapshotEnabled: true,
  *     },
+ * }, {
+ *     dependsOn: [
+ *         testExtensionAndStorageAccountPermission,
+ *         testVaultMsiReadOnCluster,
+ *         testVaultMsiReadOnSnapRg,
+ *         testClusterMsiContributorOnSnapRg,
+ *         testVaultMsiSnapshotContributorOnSnapRg,
+ *         testVaultDataOperatorOnSnapRg,
+ *         testVaultDataContributorOnStorage,
+ *     ],
  * });
  * ```
  *

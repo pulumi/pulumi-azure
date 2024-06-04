@@ -82,6 +82,13 @@ namespace Pulumi.Azure.VideoAnalyzer
     ///         {
     ///             { "environment", "staging" },
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             contributor,
+    ///             reader,
+    ///         },
     ///     });
     /// 
     /// });

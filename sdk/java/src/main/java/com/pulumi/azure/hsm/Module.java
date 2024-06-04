@@ -52,6 +52,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.hsm.ModuleArgs;
  * import com.pulumi.azure.hsm.inputs.ModuleManagementNetworkProfileArgs;
  * import com.pulumi.azure.hsm.inputs.ModuleNetworkProfileArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -143,7 +144,9 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .stampId("stamp2")
  *             .tags(Map.of("env", "Test"))
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleVirtualNetworkGateway)
+ *                 .build());
  * 
  *     }
  * }

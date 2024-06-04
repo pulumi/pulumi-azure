@@ -127,6 +127,12 @@ namespace Pulumi.Azure.Compute
     ///     {
     ///         DiskPoolId = exampleDiskPool.Id,
     ///         ManagedDiskId = exampleManagedDisk.Id,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAssignment,
+    ///         },
     ///     });
     /// 
     /// });

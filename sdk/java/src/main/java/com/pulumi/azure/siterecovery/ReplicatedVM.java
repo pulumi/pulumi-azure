@@ -66,6 +66,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.siterecovery.ReplicatedVMArgs;
  * import com.pulumi.azure.siterecovery.inputs.ReplicatedVMManagedDiskArgs;
  * import com.pulumi.azure.siterecovery.inputs.ReplicatedVMNetworkInterfaceArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -268,7 +269,11 @@ import javax.annotation.Nullable;
  *                 .targetSubnetName(secondarySubnet.name())
  *                 .recoveryPublicIpAddressId(secondaryPublicIp.id())
  *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     container_mapping,
+ *                     network_mapping)
+ *                 .build());
  * 
  *     }
  * }

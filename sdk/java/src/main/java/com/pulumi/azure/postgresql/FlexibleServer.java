@@ -50,6 +50,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.privatedns.ZoneVirtualNetworkLinkArgs;
  * import com.pulumi.azure.postgresql.FlexibleServer;
  * import com.pulumi.azure.postgresql.FlexibleServerArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -100,7 +101,9 @@ import javax.annotation.Nullable;
  *             .privateDnsZoneName(exampleZone.name())
  *             .virtualNetworkId(exampleVirtualNetwork.id())
  *             .resourceGroupName(example.name())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleSubnet)
+ *                 .build());
  * 
  *         var exampleFlexibleServer = new FlexibleServer("exampleFlexibleServer", FlexibleServerArgs.builder()
  *             .name("example-psqlflexibleserver")
@@ -116,7 +119,9 @@ import javax.annotation.Nullable;
  *             .storageMb(32768)
  *             .storageTier("P30")
  *             .skuName("GP_Standard_D4s_v3")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleZoneVirtualNetworkLink)
+ *                 .build());
  * 
  *     }
  * }

@@ -81,6 +81,12 @@ namespace Pulumi.Azure.PostgreSql
     ///         PrivateDnsZoneName = exampleZone.Name,
     ///         VirtualNetworkId = exampleVirtualNetwork.Id,
     ///         ResourceGroupName = example.Name,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleSubnet,
+    ///         },
     ///     });
     /// 
     ///     var exampleFlexibleServer = new Azure.PostgreSql.FlexibleServer("example", new()
@@ -98,6 +104,12 @@ namespace Pulumi.Azure.PostgreSql
     ///         StorageMb = 32768,
     ///         StorageTier = "P30",
     ///         SkuName = "GP_Standard_D4s_v3",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleZoneVirtualNetworkLink,
+    ///         },
     ///     });
     /// 
     /// });

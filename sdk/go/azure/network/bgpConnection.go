@@ -77,7 +77,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewVirtualHubIp(ctx, "example", &network.VirtualHubIpArgs{
+//			exampleVirtualHubIp, err := network.NewVirtualHubIp(ctx, "example", &network.VirtualHubIpArgs{
 //				Name:                      pulumi.String("example-vhubip"),
 //				VirtualHubId:              exampleVirtualHub.ID(),
 //				PrivateIpAddress:          pulumi.String("10.5.1.18"),
@@ -93,7 +93,9 @@ import (
 //				VirtualHubId: exampleVirtualHub.ID(),
 //				PeerAsn:      pulumi.Int(65514),
 //				PeerIp:       pulumi.String("169.254.21.5"),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleVirtualHubIp,
+//			}))
 //			if err != nil {
 //				return err
 //			}

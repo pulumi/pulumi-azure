@@ -99,6 +99,11 @@ import * as utilities from "../utilities";
  *     name: `${prefix}-netapp-account`,
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
+ * }, {
+ *     dependsOn: [
+ *         exampleSubnet,
+ *         example1,
+ *     ],
  * });
  * const examplePool = new azure.netapp.Pool("example", {
  *     name: `${prefix}-netapp-pool`,
@@ -192,6 +197,11 @@ import * as utilities from "../utilities";
  *                 rootAccessEnabled: false,
  *             }],
  *         },
+ *     ],
+ * }, {
+ *     dependsOn: [
+ *         exampleLinuxVirtualMachine,
+ *         examplePlacementGroup,
  *     ],
  * });
  * ```

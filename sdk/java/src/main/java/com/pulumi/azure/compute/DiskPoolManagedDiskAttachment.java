@@ -55,6 +55,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.compute.DiskPoolManagedDiskAttachment;
  * import com.pulumi.azure.compute.DiskPoolManagedDiskAttachmentArgs;
  * import com.pulumi.codegen.internal.KeyedValue;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -134,7 +135,9 @@ import javax.annotation.Nullable;
  *         var exampleDiskPoolManagedDiskAttachment = new DiskPoolManagedDiskAttachment("exampleDiskPoolManagedDiskAttachment", DiskPoolManagedDiskAttachmentArgs.builder()
  *             .diskPoolId(exampleDiskPool.id())
  *             .managedDiskId(exampleManagedDisk.id())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAssignment)
+ *                 .build());
  * 
  *     }
  * }

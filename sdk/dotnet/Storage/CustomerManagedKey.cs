@@ -116,6 +116,13 @@ namespace Pulumi.Azure.Storage
     ///             "verify",
     ///             "wrapKey",
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             client,
+    ///             storage,
+    ///         },
     ///     });
     /// 
     ///     var exampleCustomerManagedKey = new Azure.Storage.CustomerManagedKey("example", new()

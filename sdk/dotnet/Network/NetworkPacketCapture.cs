@@ -140,6 +140,12 @@ namespace Pulumi.Azure.Network
     ///         {
     ///             StorageAccountId = exampleAccount.Id,
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleExtension,
+    ///         },
     ///     });
     /// 
     /// });

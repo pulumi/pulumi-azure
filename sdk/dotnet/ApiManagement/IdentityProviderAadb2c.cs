@@ -61,6 +61,12 @@ namespace Pulumi.Azure.ApiManagement
     ///         Authority = "myb2ctenant.b2clogin.com",
     ///         SigninPolicy = "B2C_1_Login",
     ///         SignupPolicy = "B2C_1_Signup",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleApplicationPassword,
+    ///         },
     ///     });
     /// 
     /// });

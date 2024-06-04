@@ -58,6 +58,11 @@ import * as utilities from "../utilities";
  *     tags: {
  *         environment: "staging",
  *     },
+ * }, {
+ *     dependsOn: [
+ *         contributor,
+ *         reader,
+ *     ],
  * });
  * ```
  *

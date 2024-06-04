@@ -73,6 +73,12 @@ namespace Pulumi.Azure.Iot
     ///                 Duration = "PT5M",
     ///             },
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleSecuritySolution,
+    ///         },
     ///     });
     /// 
     /// });

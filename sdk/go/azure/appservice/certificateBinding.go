@@ -79,7 +79,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = dns.NewTxtRecord(ctx, "example", &dns.TxtRecordArgs{
+//			exampleTxtRecord, err := dns.NewTxtRecord(ctx, "example", &dns.TxtRecordArgs{
 //				Name: exampleCNameRecord.Name.ApplyT(func(name string) (string, error) {
 //					return fmt.Sprintf("asuid.%v", name), nil
 //				}).(pulumi.StringOutput),
@@ -108,7 +108,9 @@ import (
 //				}).(pulumi.StringPtrOutput),
 //				AppServiceName:    exampleAppService.Name,
 //				ResourceGroupName: exampleResourceGroup.Name,
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleTxtRecord,
+//			}))
 //			if err != nil {
 //				return err
 //			}

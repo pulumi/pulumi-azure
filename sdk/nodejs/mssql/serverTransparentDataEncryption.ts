@@ -119,6 +119,8 @@ import * as utilities from "../utilities";
  *         "unwrapKey",
  *         "wrapKey",
  *     ],
+ * }, {
+ *     dependsOn: [exampleKeyVault],
  * });
  * const exampleServerTransparentDataEncryption = new azure.mssql.ServerTransparentDataEncryption("example", {
  *     serverId: exampleServer.id,

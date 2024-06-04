@@ -62,6 +62,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.inputs.NetworkConnectionMonitorTestConfigurationArgs;
  * import com.pulumi.azure.network.inputs.NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs;
  * import com.pulumi.azure.network.inputs.NetworkConnectionMonitorTestGroupArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -191,7 +192,9 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .notes("examplenote")
  *             .outputWorkspaceResourceIds(exampleAnalyticsWorkspace.id())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleExtension)
+ *                 .build());
  * 
  *     }
  * }

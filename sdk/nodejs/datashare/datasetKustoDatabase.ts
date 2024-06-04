@@ -54,6 +54,8 @@ import * as utilities from "../utilities";
  *     name: "example-dskd",
  *     shareId: exampleShare.id,
  *     kustoDatabaseId: exampleDatabase.id,
+ * }, {
+ *     dependsOn: [exampleAssignment],
  * });
  * ```
  *

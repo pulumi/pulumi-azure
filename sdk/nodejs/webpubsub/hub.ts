@@ -76,6 +76,8 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  *     anonymousConnectionsEnabled: true,
+ * }, {
+ *     dependsOn: [exampleService],
  * });
  * ```
  *

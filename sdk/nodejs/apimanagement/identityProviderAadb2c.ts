@@ -41,6 +41,8 @@ import * as utilities from "../utilities";
  *     authority: "myb2ctenant.b2clogin.com",
  *     signinPolicy: "B2C_1_Login",
  *     signupPolicy: "B2C_1_Signup",
+ * }, {
+ *     dependsOn: [exampleApplicationPassword],
  * });
  * ```
  *

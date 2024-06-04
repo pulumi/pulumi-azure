@@ -309,7 +309,11 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
             zone_name=example_azurerm_dns_zone["name"],
             resource_group_name=example_azurerm_resource_group["name"],
             ttl=3600,
-            record=example_azurerm_cdn_frontdoor_endpoint["hostName"])
+            record=example_azurerm_cdn_frontdoor_endpoint["hostName"],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_azurerm_cdn_frontdoor_route,
+                    example_azurerm_cdn_frontdoor_security_policy,
+                ]))
         ```
 
         ## Import
@@ -402,7 +406,11 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
             zone_name=example_azurerm_dns_zone["name"],
             resource_group_name=example_azurerm_resource_group["name"],
             ttl=3600,
-            record=example_azurerm_cdn_frontdoor_endpoint["hostName"])
+            record=example_azurerm_cdn_frontdoor_endpoint["hostName"],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_azurerm_cdn_frontdoor_route,
+                    example_azurerm_cdn_frontdoor_security_policy,
+                ]))
         ```
 
         ## Import

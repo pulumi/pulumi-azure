@@ -43,6 +43,26 @@ namespace Pulumi.Azure.Compute
     ///         PurgeProtectionEnabled = true,
     ///     });
     /// 
+    ///     var example_user = new Azure.KeyVault.AccessPolicy("example-user", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///         KeyPermissions = new[]
+    ///         {
+    ///             "Create",
+    ///             "Delete",
+    ///             "Get",
+    ///             "Purge",
+    ///             "Recover",
+    ///             "Update",
+    ///             "List",
+    ///             "Decrypt",
+    ///             "Sign",
+    ///             "GetRotationPolicy",
+    ///         },
+    ///     });
+    /// 
     ///     var exampleKey = new Azure.KeyVault.Key("example", new()
     ///     {
     ///         Name = "des-example-key",
@@ -57,6 +77,12 @@ namespace Pulumi.Azure.Compute
     ///             "unwrapKey",
     ///             "verify",
     ///             "wrapKey",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             example_user,
     ///         },
     ///     });
     /// 
@@ -88,26 +114,6 @@ namespace Pulumi.Azure.Compute
     ///             "List",
     ///             "Decrypt",
     ///             "Sign",
-    ///         },
-    ///     });
-    /// 
-    ///     var example_user = new Azure.KeyVault.AccessPolicy("example-user", new()
-    ///     {
-    ///         KeyVaultId = exampleKeyVault.Id,
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
-    ///         KeyPermissions = new[]
-    ///         {
-    ///             "Create",
-    ///             "Delete",
-    ///             "Get",
-    ///             "Purge",
-    ///             "Recover",
-    ///             "Update",
-    ///             "List",
-    ///             "Decrypt",
-    ///             "Sign",
-    ///             "GetRotationPolicy",
     ///         },
     ///     });
     /// 
@@ -150,6 +156,26 @@ namespace Pulumi.Azure.Compute
     ///         PurgeProtectionEnabled = true,
     ///     });
     /// 
+    ///     var example_user = new Azure.KeyVault.AccessPolicy("example-user", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///         KeyPermissions = new[]
+    ///         {
+    ///             "Create",
+    ///             "Delete",
+    ///             "Get",
+    ///             "Purge",
+    ///             "Recover",
+    ///             "Update",
+    ///             "List",
+    ///             "Decrypt",
+    ///             "Sign",
+    ///             "GetRotationPolicy",
+    ///         },
+    ///     });
+    /// 
     ///     var exampleKey = new Azure.KeyVault.Key("example", new()
     ///     {
     ///         Name = "des-example-key",
@@ -164,6 +190,12 @@ namespace Pulumi.Azure.Compute
     ///             "unwrapKey",
     ///             "verify",
     ///             "wrapKey",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             example_user,
     ///         },
     ///     });
     /// 
@@ -196,26 +228,6 @@ namespace Pulumi.Azure.Compute
     ///             "List",
     ///             "Decrypt",
     ///             "Sign",
-    ///         },
-    ///     });
-    /// 
-    ///     var example_user = new Azure.KeyVault.AccessPolicy("example-user", new()
-    ///     {
-    ///         KeyVaultId = exampleKeyVault.Id,
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
-    ///         KeyPermissions = new[]
-    ///         {
-    ///             "Create",
-    ///             "Delete",
-    ///             "Get",
-    ///             "Purge",
-    ///             "Recover",
-    ///             "Update",
-    ///             "List",
-    ///             "Decrypt",
-    ///             "Sign",
-    ///             "GetRotationPolicy",
     ///         },
     ///     });
     /// 

@@ -250,7 +250,11 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
             subnet_id=example_azurerm_subnet["id"],
             sku_name="GP_Gen5",
             vcores=4,
-            storage_size_in_gb=32)
+            storage_size_in_gb=32,
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_azurerm_subnet_network_security_group_association,
+                    example_azurerm_subnet_route_table_association,
+                ]))
         current = azure.core.get_client_config()
         example_managed_instance_active_directory_administrator = azure.sql.ManagedInstanceActiveDirectoryAdministrator("example",
             managed_instance_name=example_managed_instance.name,
@@ -307,7 +311,11 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
             subnet_id=example_azurerm_subnet["id"],
             sku_name="GP_Gen5",
             vcores=4,
-            storage_size_in_gb=32)
+            storage_size_in_gb=32,
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_azurerm_subnet_network_security_group_association,
+                    example_azurerm_subnet_route_table_association,
+                ]))
         current = azure.core.get_client_config()
         example_managed_instance_active_directory_administrator = azure.sql.ManagedInstanceActiveDirectoryAdministrator("example",
             managed_instance_name=example_managed_instance.name,

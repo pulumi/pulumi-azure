@@ -198,6 +198,13 @@ namespace Pulumi.Azure.Cdn
     ///                 },
     ///             },
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleFrontdoorOriginGroup,
+    ///             exampleFrontdoorOrigin,
+    ///         },
     ///     });
     /// 
     /// });

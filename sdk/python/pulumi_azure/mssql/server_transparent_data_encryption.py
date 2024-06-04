@@ -256,7 +256,8 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
             key_opts=[
                 "unwrapKey",
                 "wrapKey",
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[example_key_vault]))
         example_server_transparent_data_encryption = azure.mssql.ServerTransparentDataEncryption("example",
             server_id=example_server.id,
             key_vault_key_id=example_key.id)
@@ -395,7 +396,8 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
             key_opts=[
                 "unwrapKey",
                 "wrapKey",
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[example_key_vault]))
         example_server_transparent_data_encryption = azure.mssql.ServerTransparentDataEncryption("example",
             server_id=example_server.id,
             key_vault_key_id=example_key.id)

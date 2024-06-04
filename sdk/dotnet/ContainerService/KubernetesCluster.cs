@@ -448,6 +448,12 @@ namespace Pulumi.Azure.ContainerService
         ///         DnsPrefix = "aksexamplednsprefix1",
         ///         PrivateClusterEnabled = true,
         ///         PrivateDnsZoneId = exampleZone.Id,
+        ///     }, new CustomResourceOptions
+        ///     {
+        ///         DependsOn =
+        ///         {
+        ///             exampleAssignment,
+        ///         },
         ///     });
         /// 
         /// });
@@ -946,6 +952,12 @@ namespace Pulumi.Azure.ContainerService
         ///         DnsPrefix = "aksexamplednsprefix1",
         ///         PrivateClusterEnabled = true,
         ///         PrivateDnsZoneId = exampleZone.Id,
+        ///     }, new CustomResourceOptions
+        ///     {
+        ///         DependsOn =
+        ///         {
+        ///             exampleAssignment,
+        ///         },
         ///     });
         /// 
         /// });
@@ -1499,6 +1511,12 @@ namespace Pulumi.Azure.ContainerService
         ///         DnsPrefix = "aksexamplednsprefix1",
         ///         PrivateClusterEnabled = true,
         ///         PrivateDnsZoneId = exampleZone.Id,
+        ///     }, new CustomResourceOptions
+        ///     {
+        ///         DependsOn =
+        ///         {
+        ///             exampleAssignment,
+        ///         },
         ///     });
         /// 
         /// });

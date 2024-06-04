@@ -192,11 +192,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.CoreFunctions;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.cdn.FrontdoorProfile;
- * import com.pulumi.azure.cdn.FrontdoorProfileArgs;
- * import com.pulumi.azure.cdn.FrontdoorOriginGroup;
- * import com.pulumi.azure.cdn.FrontdoorOriginGroupArgs;
- * import com.pulumi.azure.cdn.inputs.FrontdoorOriginGroupLoadBalancingArgs;
  * import com.pulumi.azure.network.VirtualNetwork;
  * import com.pulumi.azure.network.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
@@ -209,9 +204,15 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.privatedns.LinkService;
  * import com.pulumi.azure.privatedns.LinkServiceArgs;
  * import com.pulumi.azure.privatedns.inputs.LinkServiceNatIpConfigurationArgs;
+ * import com.pulumi.azure.cdn.FrontdoorProfile;
+ * import com.pulumi.azure.cdn.FrontdoorProfileArgs;
+ * import com.pulumi.azure.cdn.FrontdoorOriginGroup;
+ * import com.pulumi.azure.cdn.FrontdoorOriginGroupArgs;
+ * import com.pulumi.azure.cdn.inputs.FrontdoorOriginGroupLoadBalancingArgs;
  * import com.pulumi.azure.cdn.FrontdoorOrigin;
  * import com.pulumi.azure.cdn.FrontdoorOriginArgs;
  * import com.pulumi.azure.cdn.inputs.FrontdoorOriginPrivateLinkArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -230,22 +231,6 @@ import javax.annotation.Nullable;
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
- *             .build());
- * 
- *         var exampleFrontdoorProfile = new FrontdoorProfile("exampleFrontdoorProfile", FrontdoorProfileArgs.builder()
- *             .name("profile-example")
- *             .resourceGroupName(example.name())
- *             .skuName("Premium_AzureFrontDoor")
- *             .build());
- * 
- *         var exampleFrontdoorOriginGroup = new FrontdoorOriginGroup("exampleFrontdoorOriginGroup", FrontdoorOriginGroupArgs.builder()
- *             .name("group-example")
- *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
- *             .loadBalancing(FrontdoorOriginGroupLoadBalancingArgs.builder()
- *                 .additionalLatencyInMilliseconds(0)
- *                 .sampleSize(16)
- *                 .successfulSamplesRequired(3)
- *                 .build())
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
@@ -294,6 +279,24 @@ import javax.annotation.Nullable;
  *                 .privateIpAddressVersion("IPv4")
  *                 .subnetId(exampleSubnet.id())
  *                 .primary(true)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleFrontdoorProfile = new FrontdoorProfile("exampleFrontdoorProfile", FrontdoorProfileArgs.builder()
+ *             .name("profile-example")
+ *             .resourceGroupName(example.name())
+ *             .skuName("Premium_AzureFrontDoor")
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleLinkService)
+ *                 .build());
+ * 
+ *         var exampleFrontdoorOriginGroup = new FrontdoorOriginGroup("exampleFrontdoorOriginGroup", FrontdoorOriginGroupArgs.builder()
+ *             .name("group-example")
+ *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
+ *             .loadBalancing(FrontdoorOriginGroupLoadBalancingArgs.builder()
+ *                 .additionalLatencyInMilliseconds(0)
+ *                 .sampleSize(16)
+ *                 .successfulSamplesRequired(3)
  *                 .build())
  *             .build());
  * 

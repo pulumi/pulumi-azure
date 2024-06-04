@@ -50,6 +50,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.privatedns.ZoneVirtualNetworkLinkArgs;
  * import com.pulumi.azure.mysql.FlexibleServer;
  * import com.pulumi.azure.mysql.FlexibleServerArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -112,7 +113,9 @@ import javax.annotation.Nullable;
  *             .delegatedSubnetId(exampleSubnet.id())
  *             .privateDnsZoneId(exampleZone.id())
  *             .skuName("GP_Standard_D2ds_v4")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleZoneVirtualNetworkLink)
+ *                 .build());
  * 
  *     }
  * }

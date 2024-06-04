@@ -105,7 +105,9 @@ import (
 //						},
 //					},
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleEndpoint,
+//			}))
 //			if err != nil {
 //				return err
 //			}

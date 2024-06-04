@@ -146,6 +146,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.dns.CNameRecord;
  * import com.pulumi.azure.dns.CNameRecordArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -165,7 +166,11 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(exampleAzurermResourceGroup.name())
  *             .ttl(3600)
  *             .record(exampleAzurermCdnFrontdoorEndpoint.hostName())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     exampleAzurermCdnFrontdoorRoute,
+ *                     exampleAzurermCdnFrontdoorSecurityPolicy)
+ *                 .build());
  * 
  *     }
  * }

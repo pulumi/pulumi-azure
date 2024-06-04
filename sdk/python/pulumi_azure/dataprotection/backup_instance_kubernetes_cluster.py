@@ -397,7 +397,16 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
                 included_resource_types=["involumesnapshotcontents.snapshot.storage.k8s.io"],
                 label_selectors=["kubernetes.io/metadata.name:test"],
                 volume_snapshot_enabled=True,
-            ))
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[
+                    test_extension_and_storage_account_permission,
+                    test_vault_msi_read_on_cluster,
+                    test_vault_msi_read_on_snap_rg,
+                    test_cluster_msi_contributor_on_snap_rg,
+                    test_vault_msi_snapshot_contributor_on_snap_rg,
+                    test_vault_data_operator_on_snap_rg,
+                    test_vault_data_contributor_on_storage,
+                ]))
         ```
 
         ## Import
@@ -559,7 +568,16 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
                 included_resource_types=["involumesnapshotcontents.snapshot.storage.k8s.io"],
                 label_selectors=["kubernetes.io/metadata.name:test"],
                 volume_snapshot_enabled=True,
-            ))
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[
+                    test_extension_and_storage_account_permission,
+                    test_vault_msi_read_on_cluster,
+                    test_vault_msi_read_on_snap_rg,
+                    test_cluster_msi_contributor_on_snap_rg,
+                    test_vault_msi_snapshot_contributor_on_snap_rg,
+                    test_vault_data_operator_on_snap_rg,
+                    test_vault_data_contributor_on_storage,
+                ]))
         ```
 
         ## Import

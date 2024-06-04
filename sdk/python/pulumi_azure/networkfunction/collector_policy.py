@@ -273,7 +273,8 @@ class CollectorPolicy(pulumi.CustomResource):
         example_azure_traffic_collector = azure.networkfunction.AzureTrafficCollector("example",
             name="example-nfatc",
             location=example.location,
-            resource_group_name=example.name)
+            resource_group_name=example.name,
+            opts=pulumi.ResourceOptions(depends_on=[example_express_route_circuit_peering]))
         example_collector_policy = azure.networkfunction.CollectorPolicy("example",
             name="example-nfcp",
             traffic_collector_id=example_azure_traffic_collector.id,
@@ -355,7 +356,8 @@ class CollectorPolicy(pulumi.CustomResource):
         example_azure_traffic_collector = azure.networkfunction.AzureTrafficCollector("example",
             name="example-nfatc",
             location=example.location,
-            resource_group_name=example.name)
+            resource_group_name=example.name,
+            opts=pulumi.ResourceOptions(depends_on=[example_express_route_circuit_peering]))
         example_collector_policy = azure.networkfunction.CollectorPolicy("example",
             name="example-nfcp",
             traffic_collector_id=example_azure_traffic_collector.id,

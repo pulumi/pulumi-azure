@@ -143,6 +143,12 @@ namespace Pulumi.Azure.Synapse
     ///             "unwrapKey",
     ///             "wrapKey",
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             deployer,
+    ///         },
     ///     });
     /// 
     ///     var exampleWorkspace = new Azure.Synapse.Workspace("example", new()
@@ -187,6 +193,12 @@ namespace Pulumi.Azure.Synapse
     ///         SynapseWorkspaceId = exampleWorkspace.Id,
     ///         Active = true,
     ///         CustomerManagedKeyName = "enckey",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             workspacePolicy,
+    ///         },
     ///     });
     /// 
     ///     var exampleWorkspaceAadAdmin = new Azure.Synapse.WorkspaceAadAdmin("example", new()
@@ -195,6 +207,12 @@ namespace Pulumi.Azure.Synapse
     ///         Login = "AzureAD Admin",
     ///         ObjectId = "00000000-0000-0000-0000-000000000000",
     ///         TenantId = "00000000-0000-0000-0000-000000000000",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleWorkspaceKey,
+    ///         },
     ///     });
     /// 
     /// });

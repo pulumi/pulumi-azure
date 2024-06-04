@@ -47,6 +47,8 @@ import * as utilities from "../utilities";
  *         max: 30,
  *         duration: "PT5M",
  *     }],
+ * }, {
+ *     dependsOn: [exampleSecuritySolution],
  * });
  * ```
  *

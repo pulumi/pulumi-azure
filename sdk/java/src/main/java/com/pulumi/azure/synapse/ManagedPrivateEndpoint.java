@@ -39,6 +39,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.synapse.FirewallRuleArgs;
  * import com.pulumi.azure.synapse.ManagedPrivateEndpoint;
  * import com.pulumi.azure.synapse.ManagedPrivateEndpointArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -106,7 +107,9 @@ import javax.annotation.Nullable;
  *             .synapseWorkspaceId(exampleWorkspace.id())
  *             .targetResourceId(exampleConnect.id())
  *             .subresourceName("blob")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleFirewallRule)
+ *                 .build());
  * 
  *     }
  * }
