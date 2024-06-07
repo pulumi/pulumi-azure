@@ -176,7 +176,9 @@ import (
 //					pulumi.String("unwrapKey"),
 //					pulumi.String("wrapKey"),
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleKeyVault,
+//			}))
 //			if err != nil {
 //				return err
 //			}

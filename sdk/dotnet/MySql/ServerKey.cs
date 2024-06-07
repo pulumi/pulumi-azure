@@ -120,6 +120,13 @@ namespace Pulumi.Azure.MySql
     ///             "verify",
     ///             "wrapKey",
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             client,
+    ///             server,
+    ///         },
     ///     });
     /// 
     ///     var exampleServerKey = new Azure.MySql.ServerKey("example", new()

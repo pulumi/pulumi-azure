@@ -69,7 +69,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
+//			exampleAssignment, err := authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
 //				Scope:              exampleCluster.ID(),
 //				RoleDefinitionName: pulumi.String("Contributor"),
 //				PrincipalId: exampleAccount.Identity.ApplyT(func(identity datashare.AccountIdentity) (*string, error) {
@@ -83,7 +83,9 @@ import (
 //				Name:           pulumi.String("example-dskc"),
 //				ShareId:        exampleShare.ID(),
 //				KustoClusterId: exampleCluster.ID(),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAssignment,
+//			}))
 //			if err != nil {
 //				return err
 //			}

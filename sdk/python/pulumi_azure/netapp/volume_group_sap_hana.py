@@ -344,7 +344,11 @@ class VolumeGroupSapHana(pulumi.CustomResource):
         example_account = azure.netapp.Account("example",
             name=f"{prefix}-netapp-account",
             location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
+            resource_group_name=example_resource_group.name,
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_subnet,
+                    example1,
+                ]))
         example_pool = azure.netapp.Pool("example",
             name=f"{prefix}-netapp-pool",
             location=example_resource_group.location,
@@ -436,7 +440,11 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                         root_access_enabled=False,
                     )],
                 ),
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_linux_virtual_machine,
+                    example_placement_group,
+                ]))
         ```
 
         ## Import
@@ -546,7 +554,11 @@ class VolumeGroupSapHana(pulumi.CustomResource):
         example_account = azure.netapp.Account("example",
             name=f"{prefix}-netapp-account",
             location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
+            resource_group_name=example_resource_group.name,
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_subnet,
+                    example1,
+                ]))
         example_pool = azure.netapp.Pool("example",
             name=f"{prefix}-netapp-pool",
             location=example_resource_group.location,
@@ -638,7 +650,11 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                         root_access_enabled=False,
                     )],
                 ),
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_linux_virtual_machine,
+                    example_placement_group,
+                ]))
         ```
 
         ## Import

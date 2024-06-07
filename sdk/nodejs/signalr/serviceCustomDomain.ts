@@ -80,6 +80,8 @@ import * as utilities from "../utilities";
  *     name: "example-cert",
  *     signalrServiceId: exampleService.id,
  *     customCertificateId: exampleCertificate.id,
+ * }, {
+ *     dependsOn: [exampleAzurermKeyVaultAccessPolicy],
  * });
  * const testServiceCustomDomain = new azure.signalr.ServiceCustomDomain("test", {
  *     name: "example-domain",

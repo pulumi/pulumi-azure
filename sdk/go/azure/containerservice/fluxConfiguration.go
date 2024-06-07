@@ -53,7 +53,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = containerservice.NewKubernetesClusterExtension(ctx, "example", &containerservice.KubernetesClusterExtensionArgs{
+//			exampleKubernetesClusterExtension, err := containerservice.NewKubernetesClusterExtension(ctx, "example", &containerservice.KubernetesClusterExtensionArgs{
 //				Name:          pulumi.String("example-ext"),
 //				ClusterId:     pulumi.Any(test.Id),
 //				ExtensionType: pulumi.String("microsoft.flux"),
@@ -75,7 +75,9 @@ import (
 //						Name: pulumi.String("kustomization-1"),
 //					},
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleKubernetesClusterExtension,
+//			}))
 //			if err != nil {
 //				return err
 //			}

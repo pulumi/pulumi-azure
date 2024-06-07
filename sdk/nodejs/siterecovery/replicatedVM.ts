@@ -185,6 +185,11 @@ import * as utilities from "../utilities";
  *         targetSubnetName: secondarySubnet.name,
  *         recoveryPublicIpAddressId: secondaryPublicIp.id,
  *     }],
+ * }, {
+ *     dependsOn: [
+ *         container_mapping,
+ *         network_mapping,
+ *     ],
  * });
  * ```
  *

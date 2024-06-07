@@ -85,6 +85,11 @@ import * as utilities from "../utilities";
  *         "verify",
  *         "wrapKey",
  *     ],
+ * }, {
+ *     dependsOn: [
+ *         client,
+ *         storage,
+ *     ],
  * });
  * const exampleCustomerManagedKey = new azure.storage.CustomerManagedKey("example", {
  *     storageAccountId: exampleAccount.id,

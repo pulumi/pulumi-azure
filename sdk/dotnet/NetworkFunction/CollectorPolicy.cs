@@ -75,6 +75,12 @@ namespace Pulumi.Azure.NetworkFunction
     ///         Name = "example-nfatc",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleExpressRouteCircuitPeering,
+    ///         },
     ///     });
     /// 
     ///     var exampleCollectorPolicy = new Azure.NetworkFunction.CollectorPolicy("example", new()

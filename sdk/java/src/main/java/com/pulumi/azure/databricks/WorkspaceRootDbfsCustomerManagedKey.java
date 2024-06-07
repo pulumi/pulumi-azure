@@ -34,12 +34,13 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.databricks.WorkspaceArgs;
  * import com.pulumi.azure.keyvault.KeyVault;
  * import com.pulumi.azure.keyvault.KeyVaultArgs;
+ * import com.pulumi.azure.keyvault.AccessPolicy;
+ * import com.pulumi.azure.keyvault.AccessPolicyArgs;
  * import com.pulumi.azure.keyvault.Key;
  * import com.pulumi.azure.keyvault.KeyArgs;
  * import com.pulumi.azure.databricks.WorkspaceRootDbfsCustomerManagedKey;
  * import com.pulumi.azure.databricks.WorkspaceRootDbfsCustomerManagedKeyArgs;
- * import com.pulumi.azure.keyvault.AccessPolicy;
- * import com.pulumi.azure.keyvault.AccessPolicyArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -79,25 +80,6 @@ import javax.annotation.Nullable;
  *             .softDeleteRetentionDays(7)
  *             .build());
  * 
- *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
- *             .name("example-certificate")
- *             .keyVaultId(exampleKeyVault.id())
- *             .keyType("RSA")
- *             .keySize(2048)
- *             .keyOpts(            
- *                 "decrypt",
- *                 "encrypt",
- *                 "sign",
- *                 "unwrapKey",
- *                 "verify",
- *                 "wrapKey")
- *             .build());
- * 
- *         var exampleWorkspaceRootDbfsCustomerManagedKey = new WorkspaceRootDbfsCustomerManagedKey("exampleWorkspaceRootDbfsCustomerManagedKey", WorkspaceRootDbfsCustomerManagedKeyArgs.builder()
- *             .workspaceId(exampleWorkspace.id())
- *             .keyVaultKeyId(exampleKey.id())
- *             .build());
- * 
  *         var terraform = new AccessPolicy("terraform", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
  *             .tenantId(exampleKeyVault.tenantId())
@@ -115,6 +97,22 @@ import javax.annotation.Nullable;
  *                 "GetRotationPolicy")
  *             .build());
  * 
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
+ *             .name("example-certificate")
+ *             .keyVaultId(exampleKeyVault.id())
+ *             .keyType("RSA")
+ *             .keySize(2048)
+ *             .keyOpts(            
+ *                 "decrypt",
+ *                 "encrypt",
+ *                 "sign",
+ *                 "unwrapKey",
+ *                 "verify",
+ *                 "wrapKey")
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(terraform)
+ *                 .build());
+ * 
  *         var databricks = new AccessPolicy("databricks", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
  *             .tenantId(exampleWorkspace.storageAccountIdentities().applyValue(storageAccountIdentities -> storageAccountIdentities[0].tenantId()))
@@ -129,7 +127,16 @@ import javax.annotation.Nullable;
  *                 "List",
  *                 "Decrypt",
  *                 "Sign")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleWorkspace)
+ *                 .build());
+ * 
+ *         var exampleWorkspaceRootDbfsCustomerManagedKey = new WorkspaceRootDbfsCustomerManagedKey("exampleWorkspaceRootDbfsCustomerManagedKey", WorkspaceRootDbfsCustomerManagedKeyArgs.builder()
+ *             .workspaceId(exampleWorkspace.id())
+ *             .keyVaultKeyId(exampleKey.id())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(databricks)
+ *                 .build());
  * 
  *     }
  * }

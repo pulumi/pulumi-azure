@@ -37,6 +37,8 @@ import * as utilities from "../utilities";
  *     key: "appConfKey1",
  *     label: "somelabel",
  *     value: "a test",
+ * }, {
+ *     dependsOn: [appconfDataowner],
  * });
  * ```
  *
@@ -95,6 +97,8 @@ import * as utilities from "../utilities";
  *     type: "vault",
  *     label: "label1",
  *     vaultKeyReference: kvs.versionlessId,
+ * }, {
+ *     dependsOn: [appconfDataowner],
  * });
  * ```
  *

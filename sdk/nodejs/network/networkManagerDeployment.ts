@@ -140,6 +140,8 @@ import * as utilities from "../utilities";
  *             input: sourcePortRanges,
  *         })).apply(invoke => invoke.result),
  *     },
+ * }, {
+ *     dependsOn: [exampleNetworkManagerAdminRule],
  * });
  * ```
  *

@@ -378,7 +378,11 @@ class FrontdoorRule(pulumi.CustomResource):
                         "Trim",
                     ],
                 )],
-            ))
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_frontdoor_origin_group,
+                    example_frontdoor_origin,
+                ]))
         ```
 
         ## Specifying IP Address Ranges
@@ -651,7 +655,11 @@ class FrontdoorRule(pulumi.CustomResource):
                         "Trim",
                     ],
                 )],
-            ))
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_frontdoor_origin_group,
+                    example_frontdoor_origin,
+                ]))
         ```
 
         ## Specifying IP Address Ranges

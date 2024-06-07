@@ -134,6 +134,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.synapse.WorkspaceKeyArgs;
  * import com.pulumi.azure.synapse.WorkspaceAadAdmin;
  * import com.pulumi.azure.synapse.WorkspaceAadAdminArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -198,7 +199,9 @@ import javax.annotation.Nullable;
  *             .keyOpts(            
  *                 "unwrapKey",
  *                 "wrapKey")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(deployer)
+ *                 .build());
  * 
  *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()
  *             .name("example")
@@ -232,14 +235,18 @@ import javax.annotation.Nullable;
  *             .synapseWorkspaceId(exampleWorkspace.id())
  *             .active(true)
  *             .customerManagedKeyName("enckey")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(workspacePolicy)
+ *                 .build());
  * 
  *         var exampleWorkspaceAadAdmin = new WorkspaceAadAdmin("exampleWorkspaceAadAdmin", WorkspaceAadAdminArgs.builder()
  *             .synapseWorkspaceId(exampleWorkspace.id())
  *             .login("AzureAD Admin")
  *             .objectId("00000000-0000-0000-0000-000000000000")
  *             .tenantId("00000000-0000-0000-0000-000000000000")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleWorkspaceKey)
+ *                 .build());
  * 
  *     }
  * }

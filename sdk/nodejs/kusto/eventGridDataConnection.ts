@@ -86,6 +86,8 @@ import * as utilities from "../utilities";
  *     tableName: "my-table",
  *     mappingRuleName: "my-table-mapping",
  *     dataFormat: "JSON",
+ * }, {
+ *     dependsOn: [exampleEventSubscription],
  * });
  * ```
  *

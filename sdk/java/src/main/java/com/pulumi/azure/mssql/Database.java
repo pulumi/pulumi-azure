@@ -121,6 +121,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.mssql.Database;
  * import com.pulumi.azure.mssql.DatabaseArgs;
  * import com.pulumi.azure.mssql.inputs.DatabaseIdentityArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -204,7 +205,9 @@ import javax.annotation.Nullable;
  *             .keyOpts(            
  *                 "unwrapKey",
  *                 "wrapKey")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleKeyVault)
+ *                 .build());
  * 
  *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()
  *             .name("example-db")

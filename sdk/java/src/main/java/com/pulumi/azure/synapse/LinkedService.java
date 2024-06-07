@@ -46,6 +46,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.synapse.LinkedService;
  * import com.pulumi.azure.synapse.LinkedServiceArgs;
  * import com.pulumi.azure.synapse.inputs.LinkedServiceIntegrationRuntimeArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -116,7 +117,9 @@ import javax.annotation.Nullable;
  *             .integrationRuntime(LinkedServiceIntegrationRuntimeArgs.builder()
  *                 .name(exampleIntegrationRuntimeAzure.name())
  *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleFirewallRule)
+ *                 .build());
  * 
  *     }
  * }

@@ -34,6 +34,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.automation.DscConfigurationArgs;
  * import com.pulumi.azure.automation.DscNodeConfiguration;
  * import com.pulumi.azure.automation.DscNodeConfigurationArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -94,7 +95,9 @@ import javax.annotation.Nullable;
  *   Name="test";
  * };
  *             """)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleDscConfiguration)
+ *                 .build());
  * 
  *     }
  * }

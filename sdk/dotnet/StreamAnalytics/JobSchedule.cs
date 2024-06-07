@@ -116,6 +116,14 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         StreamAnalyticsJobId = exampleJob.Id,
     ///         StartMode = "CustomTime",
     ///         StartTime = "2022-09-21T00:00:00Z",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleJob,
+    ///             exampleStreamInputBlob,
+    ///             exampleOutputBlob,
+    ///         },
     ///     });
     /// 
     /// });

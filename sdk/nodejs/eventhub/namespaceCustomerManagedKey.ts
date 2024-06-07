@@ -83,6 +83,11 @@ import * as utilities from "../utilities";
  *         "verify",
  *         "wrapKey",
  *     ],
+ * }, {
+ *     dependsOn: [
+ *         exampleAccessPolicy,
+ *         example2,
+ *     ],
  * });
  * const exampleNamespaceCustomerManagedKey = new azure.eventhub.NamespaceCustomerManagedKey("example", {
  *     eventhubNamespaceId: exampleEventHubNamespace.id,
@@ -167,6 +172,11 @@ import * as utilities from "../utilities";
  *         "unwrapKey",
  *         "verify",
  *         "wrapKey",
+ *     ],
+ * }, {
+ *     dependsOn: [
+ *         exampleAccessPolicy,
+ *         example2,
  *     ],
  * });
  * const exampleNamespaceCustomerManagedKey = new azure.eventhub.NamespaceCustomerManagedKey("example", {

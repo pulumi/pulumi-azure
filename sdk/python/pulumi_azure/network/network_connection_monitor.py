@@ -439,7 +439,8 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
                 test_configuration_names=["tcpName"],
             )],
             notes="examplenote",
-            output_workspace_resource_ids=[example_analytics_workspace.id])
+            output_workspace_resource_ids=[example_analytics_workspace.id],
+            opts=pulumi.ResourceOptions(depends_on=[example_extension]))
         ```
 
         ## Import
@@ -579,7 +580,8 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
                 test_configuration_names=["tcpName"],
             )],
             notes="examplenote",
-            output_workspace_resource_ids=[example_analytics_workspace.id])
+            output_workspace_resource_ids=[example_analytics_workspace.id],
+            opts=pulumi.ResourceOptions(depends_on=[example_extension]))
         ```
 
         ## Import

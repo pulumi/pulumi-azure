@@ -131,6 +131,12 @@ namespace Pulumi.Azure.Compute
     ///                 "1",
     ///             },
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleVirtualMachineScaleSetExtension,
+    ///         },
     ///     });
     /// 
     /// });

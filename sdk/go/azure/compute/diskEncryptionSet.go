@@ -56,6 +56,26 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			_, err = keyvault.NewAccessPolicy(ctx, "example-user", &keyvault.AccessPolicyArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
+//				TenantId:   pulumi.String(current.TenantId),
+//				ObjectId:   pulumi.String(current.ObjectId),
+//				KeyPermissions: pulumi.StringArray{
+//					pulumi.String("Create"),
+//					pulumi.String("Delete"),
+//					pulumi.String("Get"),
+//					pulumi.String("Purge"),
+//					pulumi.String("Recover"),
+//					pulumi.String("Update"),
+//					pulumi.String("List"),
+//					pulumi.String("Decrypt"),
+//					pulumi.String("Sign"),
+//					pulumi.String("GetRotationPolicy"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
 //				Name:       pulumi.String("des-example-key"),
 //				KeyVaultId: exampleKeyVault.ID(),
@@ -69,7 +89,9 @@ import (
 //					pulumi.String("verify"),
 //					pulumi.String("wrapKey"),
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				example_user,
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -103,26 +125,6 @@ import (
 //					pulumi.String("List"),
 //					pulumi.String("Decrypt"),
 //					pulumi.String("Sign"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = keyvault.NewAccessPolicy(ctx, "example-user", &keyvault.AccessPolicyArgs{
-//				KeyVaultId: exampleKeyVault.ID(),
-//				TenantId:   pulumi.String(current.TenantId),
-//				ObjectId:   pulumi.String(current.ObjectId),
-//				KeyPermissions: pulumi.StringArray{
-//					pulumi.String("Create"),
-//					pulumi.String("Delete"),
-//					pulumi.String("Get"),
-//					pulumi.String("Purge"),
-//					pulumi.String("Recover"),
-//					pulumi.String("Update"),
-//					pulumi.String("List"),
-//					pulumi.String("Decrypt"),
-//					pulumi.String("Sign"),
-//					pulumi.String("GetRotationPolicy"),
 //				},
 //			})
 //			if err != nil {
@@ -184,6 +186,26 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			_, err = keyvault.NewAccessPolicy(ctx, "example-user", &keyvault.AccessPolicyArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
+//				TenantId:   pulumi.String(current.TenantId),
+//				ObjectId:   pulumi.String(current.ObjectId),
+//				KeyPermissions: pulumi.StringArray{
+//					pulumi.String("Create"),
+//					pulumi.String("Delete"),
+//					pulumi.String("Get"),
+//					pulumi.String("Purge"),
+//					pulumi.String("Recover"),
+//					pulumi.String("Update"),
+//					pulumi.String("List"),
+//					pulumi.String("Decrypt"),
+//					pulumi.String("Sign"),
+//					pulumi.String("GetRotationPolicy"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
 //				Name:       pulumi.String("des-example-key"),
 //				KeyVaultId: exampleKeyVault.ID(),
@@ -197,7 +219,9 @@ import (
 //					pulumi.String("verify"),
 //					pulumi.String("wrapKey"),
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				example_user,
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -232,26 +256,6 @@ import (
 //					pulumi.String("List"),
 //					pulumi.String("Decrypt"),
 //					pulumi.String("Sign"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = keyvault.NewAccessPolicy(ctx, "example-user", &keyvault.AccessPolicyArgs{
-//				KeyVaultId: exampleKeyVault.ID(),
-//				TenantId:   pulumi.String(current.TenantId),
-//				ObjectId:   pulumi.String(current.ObjectId),
-//				KeyPermissions: pulumi.StringArray{
-//					pulumi.String("Create"),
-//					pulumi.String("Delete"),
-//					pulumi.String("Get"),
-//					pulumi.String("Purge"),
-//					pulumi.String("Recover"),
-//					pulumi.String("Update"),
-//					pulumi.String("List"),
-//					pulumi.String("Decrypt"),
-//					pulumi.String("Sign"),
-//					pulumi.String("GetRotationPolicy"),
 //				},
 //			})
 //			if err != nil {

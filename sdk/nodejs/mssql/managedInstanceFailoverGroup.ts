@@ -65,6 +65,11 @@ import * as utilities from "../utilities";
  *     tags: {
  *         environment: "prod",
  *     },
+ * }, {
+ *     dependsOn: [
+ *         exampleSubnetNetworkSecurityGroupAssociation,
+ *         exampleSubnetRouteTableAssociation,
+ *     ],
  * });
  * const secondary = new azure.mssql.ManagedInstance("secondary", {
  *     name: "example-secondary",
@@ -80,6 +85,11 @@ import * as utilities from "../utilities";
  *     tags: {
  *         environment: "prod",
  *     },
+ * }, {
+ *     dependsOn: [
+ *         exampleSubnetNetworkSecurityGroupAssociation,
+ *         exampleSubnetRouteTableAssociation,
+ *     ],
  * });
  * const exampleManagedInstanceFailoverGroup = new azure.mssql.ManagedInstanceFailoverGroup("example", {
  *     name: "example-failover-group",

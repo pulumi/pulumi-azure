@@ -51,6 +51,8 @@ import * as utilities from "../utilities";
  *     kustomizations: [{
  *         name: "kustomization-1",
  *     }],
+ * }, {
+ *     dependsOn: [exampleClusterExtension],
  * });
  * ```
  *

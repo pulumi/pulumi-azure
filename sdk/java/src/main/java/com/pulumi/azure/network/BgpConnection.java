@@ -42,6 +42,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.VirtualHubIpArgs;
  * import com.pulumi.azure.network.BgpConnection;
  * import com.pulumi.azure.network.BgpConnectionArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -103,7 +104,9 @@ import javax.annotation.Nullable;
  *             .virtualHubId(exampleVirtualHub.id())
  *             .peerAsn(65514)
  *             .peerIp("169.254.21.5")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleVirtualHubIp)
+ *                 .build());
  * 
  *     }
  * }

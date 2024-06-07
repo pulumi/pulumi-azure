@@ -146,6 +146,12 @@ namespace Pulumi.Azure.Hsm
     ///         {
     ///             { "env", "Test" },
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleVirtualNetworkGateway,
+    ///         },
     ///     });
     /// 
     /// });

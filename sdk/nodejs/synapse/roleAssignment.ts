@@ -52,6 +52,8 @@ import * as utilities from "../utilities";
  *     synapseWorkspaceId: exampleWorkspace.id,
  *     roleName: "Synapse SQL Administrator",
  *     principalId: current.then(current => current.objectId),
+ * }, {
+ *     dependsOn: [exampleFirewallRule],
  * });
  * ```
  *

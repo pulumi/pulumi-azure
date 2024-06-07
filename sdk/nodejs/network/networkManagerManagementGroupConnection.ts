@@ -46,6 +46,8 @@ import * as utilities from "../utilities";
  *     managementGroupId: example.id,
  *     networkManagerId: exampleNetworkManager.id,
  *     description: "example",
+ * }, {
+ *     dependsOn: [networkContributor],
  * });
  * ```
  *

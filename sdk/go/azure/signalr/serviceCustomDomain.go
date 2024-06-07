@@ -116,7 +116,9 @@ import (
 //				Name:                pulumi.String("example-cert"),
 //				SignalrServiceId:    exampleService.ID(),
 //				CustomCertificateId: exampleCertificate.ID(),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAzurermKeyVaultAccessPolicy,
+//			}))
 //			if err != nil {
 //				return err
 //			}

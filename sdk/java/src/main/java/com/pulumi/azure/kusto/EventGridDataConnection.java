@@ -48,6 +48,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.eventgrid.inputs.EventSubscriptionRetryPolicyArgs;
  * import com.pulumi.azure.kusto.EventGridDataConnection;
  * import com.pulumi.azure.kusto.EventGridDataConnectionArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -141,7 +142,9 @@ import javax.annotation.Nullable;
  *             .tableName("my-table")
  *             .mappingRuleName("my-table-mapping")
  *             .dataFormat("JSON")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleEventSubscription)
+ *                 .build());
  * 
  *     }
  * }

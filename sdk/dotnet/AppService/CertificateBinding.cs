@@ -88,6 +88,12 @@ namespace Pulumi.Azure.AppService
     ///         }).Apply(invoke =&gt; invoke.Result),
     ///         AppServiceName = exampleAppService.Name,
     ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleTxtRecord,
+    ///         },
     ///     });
     /// 
     ///     var exampleManagedCertificate = new Azure.AppService.ManagedCertificate("example", new()

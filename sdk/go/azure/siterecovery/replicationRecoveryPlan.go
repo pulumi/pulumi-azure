@@ -278,7 +278,10 @@ import (
 //						RecoveryPublicIpAddressId: secondaryPublicIp.ID(),
 //					},
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				container_mapping,
+//				network_mapping,
+//			}))
 //			if err != nil {
 //				return err
 //			}

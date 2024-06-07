@@ -48,6 +48,8 @@ import * as utilities from "../utilities";
  *     name: "example-dskc",
  *     shareId: exampleShare.id,
  *     kustoClusterId: exampleCluster.id,
+ * }, {
+ *     dependsOn: [exampleAssignment],
  * });
  * ```
  *

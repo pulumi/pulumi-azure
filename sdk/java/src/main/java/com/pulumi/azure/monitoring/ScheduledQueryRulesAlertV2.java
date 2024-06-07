@@ -50,6 +50,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs;
  * import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertV2ActionArgs;
  * import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertV2IdentityArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -143,7 +144,9 @@ import javax.annotation.Nullable;
  *                 Map.entry("key", "value"),
  *                 Map.entry("key2", "value2")
  *             ))
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAssignment)
+ *                 .build());
  * 
  *     }
  * }

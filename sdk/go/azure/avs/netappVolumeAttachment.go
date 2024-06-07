@@ -190,7 +190,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewVirtualNetworkGatewayConnection(ctx, "test", &network.VirtualNetworkGatewayConnectionArgs{
+//			testVirtualNetworkGatewayConnection, err := network.NewVirtualNetworkGatewayConnection(ctx, "test", &network.VirtualNetworkGatewayConnectionArgs{
 //				Name:                    pulumi.String("example-vnetgwconn"),
 //				Location:                pulumi.Any(testAzurermResourceGroup.Location),
 //				ResourceGroupName:       pulumi.Any(testAzurermResourceGroup.Name),
@@ -208,7 +208,9 @@ import (
 //				Name:            pulumi.String("example-vmwareattachment"),
 //				NetappVolumeId:  testVolume.ID(),
 //				VmwareClusterId: testCluster.ID(),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				testVirtualNetworkGatewayConnection,
+//			}))
 //			if err != nil {
 //				return err
 //			}

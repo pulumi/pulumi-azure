@@ -124,6 +124,11 @@ import * as utilities from "../utilities";
  *     retentionInDays: 6,
  *     logMonitoringEnabled: false,
  *     storageAccountSubscriptionId: primaryAzurermSubscription.subscriptionId,
+ * }, {
+ *     dependsOn: [
+ *         exampleAssignment,
+ *         exampleAccount,
+ *     ],
  * });
  * ```
  *

@@ -113,6 +113,13 @@ namespace Pulumi.Azure.Cdn
     ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
     ///         Ttl = 3600,
     ///         Record = exampleAzurermCdnFrontdoorEndpoint.HostName,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAzurermCdnFrontdoorRoute,
+    ///             exampleAzurermCdnFrontdoorSecurityPolicy,
+    ///         },
     ///     });
     /// 
     /// });

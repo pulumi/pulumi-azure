@@ -37,6 +37,8 @@ import * as utilities from "../utilities";
  *     source: "Microsoft Sentinel",
  *     validateFromUtc: "2022-12-14T16:00:00Z",
  *     displayName: "example-indicator",
+ * }, {
+ *     dependsOn: [test],
  * });
  * ```
  *

@@ -120,6 +120,11 @@ import * as utilities from "../utilities";
  *     serverId: exampleServer.id,
  *     logMonitoringEnabled: false,
  *     storageAccountSubscriptionId: primaryAzurermSubscription.subscriptionId,
+ * }, {
+ *     dependsOn: [
+ *         exampleAssignment,
+ *         exampleAccount,
+ *     ],
  * });
  * ```
  *

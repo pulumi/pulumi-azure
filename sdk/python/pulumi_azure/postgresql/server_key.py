@@ -173,7 +173,11 @@ class ServerKey(pulumi.CustomResource):
                 "unwrapKey",
                 "verify",
                 "wrapKey",
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    client,
+                    server,
+                ]))
         example_server_key = azure.postgresql.ServerKey("example",
             server_id=example_server.id,
             key_vault_key_id=example_key.id)
@@ -274,7 +278,11 @@ class ServerKey(pulumi.CustomResource):
                 "unwrapKey",
                 "verify",
                 "wrapKey",
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    client,
+                    server,
+                ]))
         example_server_key = azure.postgresql.ServerKey("example",
             server_id=example_server.id,
             key_vault_key_id=example_key.id)

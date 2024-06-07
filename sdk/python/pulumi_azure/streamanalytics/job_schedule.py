@@ -231,7 +231,12 @@ class JobSchedule(pulumi.CustomResource):
         example_job_schedule = azure.streamanalytics.JobSchedule("example",
             stream_analytics_job_id=example_job.id,
             start_mode="CustomTime",
-            start_time="2022-09-21T00:00:00Z")
+            start_time="2022-09-21T00:00:00Z",
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_job,
+                    example_stream_input_blob,
+                    example_output_blob,
+                ]))
         ```
 
         ## Import
@@ -333,7 +338,12 @@ class JobSchedule(pulumi.CustomResource):
         example_job_schedule = azure.streamanalytics.JobSchedule("example",
             stream_analytics_job_id=example_job.id,
             start_mode="CustomTime",
-            start_time="2022-09-21T00:00:00Z")
+            start_time="2022-09-21T00:00:00Z",
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_job,
+                    example_stream_input_blob,
+                    example_output_blob,
+                ]))
         ```
 
         ## Import

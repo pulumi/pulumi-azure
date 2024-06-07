@@ -94,6 +94,12 @@ namespace Pulumi.Azure.MySql
     ///         DelegatedSubnetId = exampleSubnet.Id,
     ///         PrivateDnsZoneId = exampleZone.Id,
     ///         SkuName = "GP_Standard_D2ds_v4",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleZoneVirtualNetworkLink,
+    ///         },
     ///     });
     /// 
     /// });

@@ -69,7 +69,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
+//			exampleAssignment, err := authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
 //				Scope:              exampleVirtualNetwork.ID(),
 //				RoleDefinitionName: pulumi.String("Network Contributor"),
 //				PrincipalId:        pulumi.String(example.ObjectId),
@@ -83,7 +83,9 @@ import (
 //				Location:                    exampleResourceGroup.Location,
 //				DelegatedManagementSubnetId: exampleSubnet.ID(),
 //				DefaultAdminPassword:        pulumi.String("Password1234"),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAssignment,
+//			}))
 //			if err != nil {
 //				return err
 //			}

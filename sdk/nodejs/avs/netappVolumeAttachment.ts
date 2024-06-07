@@ -133,6 +133,8 @@ import * as utilities from "../utilities";
  *     name: "example-vmwareattachment",
  *     netappVolumeId: testVolume.id,
  *     vmwareClusterId: testCluster.id,
+ * }, {
+ *     dependsOn: [testVirtualNetworkGatewayConnection],
  * });
  * ```
  *

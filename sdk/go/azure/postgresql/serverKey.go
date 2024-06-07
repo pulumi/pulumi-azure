@@ -69,7 +69,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = keyvault.NewAccessPolicy(ctx, "server", &keyvault.AccessPolicyArgs{
+//			server, err := keyvault.NewAccessPolicy(ctx, "server", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   pulumi.String(current.TenantId),
 //				ObjectId: exampleServer.Identity.ApplyT(func(identity postgresql.ServerIdentity) (*string, error) {
@@ -87,7 +87,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = keyvault.NewAccessPolicy(ctx, "client", &keyvault.AccessPolicyArgs{
+//			client, err := keyvault.NewAccessPolicy(ctx, "client", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   pulumi.String(current.TenantId),
 //				ObjectId:   pulumi.String(current.ObjectId),
@@ -127,7 +127,10 @@ import (
 //					pulumi.String("verify"),
 //					pulumi.String("wrapKey"),
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				client,
+//				server,
+//			}))
 //			if err != nil {
 //				return err
 //			}

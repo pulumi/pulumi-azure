@@ -416,7 +416,8 @@ class Module(pulumi.CustomResource):
             stamp_id="stamp2",
             tags={
                 "env": "Test",
-            })
+            },
+            opts=pulumi.ResourceOptions(depends_on=[example_virtual_network_gateway]))
         ```
 
         ## Import
@@ -526,7 +527,8 @@ class Module(pulumi.CustomResource):
             stamp_id="stamp2",
             tags={
                 "env": "Test",
-            })
+            },
+            opts=pulumi.ResourceOptions(depends_on=[example_virtual_network_gateway]))
         ```
 
         ## Import

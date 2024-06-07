@@ -152,6 +152,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.inputs.NetworkManagerAdminRuleDestinationArgs;
  * import com.pulumi.azure.network.NetworkManagerDeployment;
  * import com.pulumi.azure.network.NetworkManagerDeploymentArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -235,7 +236,9 @@ import javax.annotation.Nullable;
  *             .scopeAccess("SecurityAdmin")
  *             .configurationIds(exampleNetworkManagerSecurityAdminConfiguration.id())
  *             .triggers(Map.of("source_port_ranges", exampleNetworkManagerAdminRule.sourcePortRanges().applyValue(sourcePortRanges -> StdFunctions.join()).applyValue(invoke -> invoke.result())))
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleNetworkManagerAdminRule)
+ *                 .build());
  * 
  *     }
  * }

@@ -89,6 +89,12 @@ import * as utilities from "../utilities";
  *     streamAnalyticsJobId: exampleJob.id,
  *     startMode: "CustomTime",
  *     startTime: "2022-09-21T00:00:00Z",
+ * }, {
+ *     dependsOn: [
+ *         exampleJob,
+ *         exampleStreamInputBlob,
+ *         exampleOutputBlob,
+ *     ],
  * });
  * ```
  *

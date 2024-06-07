@@ -56,7 +56,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = authorization.NewAssignment(ctx, "network_contributor", &authorization.AssignmentArgs{
+//			networkContributor, err := authorization.NewAssignment(ctx, "network_contributor", &authorization.AssignmentArgs{
 //				Scope:              example.ID(),
 //				RoleDefinitionName: pulumi.String("Network Contributor"),
 //				PrincipalId:        pulumi.String(currentGetClientConfig.ObjectId),
@@ -92,7 +92,9 @@ import (
 //				ManagementGroupId: example.ID(),
 //				NetworkManagerId:  exampleNetworkManager.ID(),
 //				Description:       pulumi.String("example"),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				networkContributor,
+//			}))
 //			if err != nil {
 //				return err
 //			}

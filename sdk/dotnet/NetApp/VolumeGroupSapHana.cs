@@ -151,6 +151,13 @@ namespace Pulumi.Azure.NetApp
     ///         Name = $"{prefix}-netapp-account",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleSubnet,
+    ///             example1,
+    ///         },
     ///     });
     /// 
     ///     var examplePool = new Azure.NetApp.Pool("example", new()
@@ -266,6 +273,13 @@ namespace Pulumi.Azure.NetApp
     ///                     },
     ///                 },
     ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleLinuxVirtualMachine,
+    ///             examplePlacementGroup,
     ///         },
     ///     });
     /// 

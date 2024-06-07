@@ -117,6 +117,13 @@ namespace Pulumi.Azure.PostgreSql
     ///             "verify",
     ///             "wrapKey",
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             client,
+    ///             server,
+    ///         },
     ///     });
     /// 
     ///     var exampleServerKey = new Azure.PostgreSql.ServerKey("example", new()

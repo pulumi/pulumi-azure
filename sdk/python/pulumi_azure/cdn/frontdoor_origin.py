@@ -556,18 +556,6 @@ class FrontdoorOrigin(pulumi.CustomResource):
         example = azure.core.ResourceGroup("example",
             name="example-resources",
             location="West Europe")
-        example_frontdoor_profile = azure.cdn.FrontdoorProfile("example",
-            name="profile-example",
-            resource_group_name=example.name,
-            sku_name="Premium_AzureFrontDoor")
-        example_frontdoor_origin_group = azure.cdn.FrontdoorOriginGroup("example",
-            name="group-example",
-            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
-            load_balancing=azure.cdn.FrontdoorOriginGroupLoadBalancingArgs(
-                additional_latency_in_milliseconds=0,
-                sample_size=16,
-                successful_samples_required=3,
-            ))
         example_virtual_network = azure.network.VirtualNetwork("example",
             name="vn-example",
             resource_group_name=example.name,
@@ -607,6 +595,19 @@ class FrontdoorOrigin(pulumi.CustomResource):
                 subnet_id=example_subnet.id,
                 primary=True,
             )])
+        example_frontdoor_profile = azure.cdn.FrontdoorProfile("example",
+            name="profile-example",
+            resource_group_name=example.name,
+            sku_name="Premium_AzureFrontDoor",
+            opts=pulumi.ResourceOptions(depends_on=[example_link_service]))
+        example_frontdoor_origin_group = azure.cdn.FrontdoorOriginGroup("example",
+            name="group-example",
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
+            load_balancing=azure.cdn.FrontdoorOriginGroupLoadBalancingArgs(
+                additional_latency_in_milliseconds=0,
+                sample_size=16,
+                successful_samples_required=3,
+            ))
         example_frontdoor_origin = azure.cdn.FrontdoorOrigin("example",
             name="origin-example",
             cdn_frontdoor_origin_group_id=example_frontdoor_origin_group.id,
@@ -758,18 +759,6 @@ class FrontdoorOrigin(pulumi.CustomResource):
         example = azure.core.ResourceGroup("example",
             name="example-resources",
             location="West Europe")
-        example_frontdoor_profile = azure.cdn.FrontdoorProfile("example",
-            name="profile-example",
-            resource_group_name=example.name,
-            sku_name="Premium_AzureFrontDoor")
-        example_frontdoor_origin_group = azure.cdn.FrontdoorOriginGroup("example",
-            name="group-example",
-            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
-            load_balancing=azure.cdn.FrontdoorOriginGroupLoadBalancingArgs(
-                additional_latency_in_milliseconds=0,
-                sample_size=16,
-                successful_samples_required=3,
-            ))
         example_virtual_network = azure.network.VirtualNetwork("example",
             name="vn-example",
             resource_group_name=example.name,
@@ -809,6 +798,19 @@ class FrontdoorOrigin(pulumi.CustomResource):
                 subnet_id=example_subnet.id,
                 primary=True,
             )])
+        example_frontdoor_profile = azure.cdn.FrontdoorProfile("example",
+            name="profile-example",
+            resource_group_name=example.name,
+            sku_name="Premium_AzureFrontDoor",
+            opts=pulumi.ResourceOptions(depends_on=[example_link_service]))
+        example_frontdoor_origin_group = azure.cdn.FrontdoorOriginGroup("example",
+            name="group-example",
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
+            load_balancing=azure.cdn.FrontdoorOriginGroupLoadBalancingArgs(
+                additional_latency_in_milliseconds=0,
+                sample_size=16,
+                successful_samples_required=3,
+            ))
         example_frontdoor_origin = azure.cdn.FrontdoorOrigin("example",
             name="origin-example",
             cdn_frontdoor_origin_group_id=example_frontdoor_origin_group.id,

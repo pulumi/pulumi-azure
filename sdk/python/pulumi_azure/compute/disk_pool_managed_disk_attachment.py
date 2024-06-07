@@ -166,7 +166,8 @@ class DiskPoolManagedDiskAttachment(pulumi.CustomResource):
                 scope=example_managed_disk.id))
         example_disk_pool_managed_disk_attachment = azure.compute.DiskPoolManagedDiskAttachment("example",
             disk_pool_id=example_disk_pool.id,
-            managed_disk_id=example_managed_disk.id)
+            managed_disk_id=example_managed_disk.id,
+            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
 
         ## Import
@@ -257,7 +258,8 @@ class DiskPoolManagedDiskAttachment(pulumi.CustomResource):
                 scope=example_managed_disk.id))
         example_disk_pool_managed_disk_attachment = azure.compute.DiskPoolManagedDiskAttachment("example",
             disk_pool_id=example_disk_pool.id,
-            managed_disk_id=example_managed_disk.id)
+            managed_disk_id=example_managed_disk.id,
+            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
 
         ## Import

@@ -54,7 +54,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = siterecovery.NewFabric(ctx, "primary", &siterecovery.FabricArgs{
+//			primaryFabric, err := siterecovery.NewFabric(ctx, "primary", &siterecovery.FabricArgs{
 //				Name:              pulumi.String("primary-fabric"),
 //				ResourceGroupName: secondary.Name,
 //				RecoveryVaultName: vault.Name,
@@ -68,7 +68,9 @@ import (
 //				ResourceGroupName: secondary.Name,
 //				RecoveryVaultName: vault.Name,
 //				Location:          secondary.Location,
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				primaryFabric,
+//			}))
 //			if err != nil {
 //				return err
 //			}

@@ -57,6 +57,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.VirtualNetworkDnsServersArgs;
  * import com.pulumi.azure.domainservices.ReplicaSet;
  * import com.pulumi.azure.domainservices.ReplicaSetArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -194,7 +195,11 @@ import javax.annotation.Nullable;
  *                 .syncOnPremPasswords(true)
  *                 .build())
  *             .tags(Map.of("Environment", "prod"))
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     example,
+ *                     primarySubnetNetworkSecurityGroupAssociation)
+ *                 .build());
  * 
  *         var replica = new ResourceGroup("replica", ResourceGroupArgs.builder()
  *             .name("aadds-replica-rg")
@@ -302,7 +307,12 @@ import javax.annotation.Nullable;
  *             .domainServiceId(exampleService.id())
  *             .location(replica.location())
  *             .subnetId(aaddsReplica.id())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     replicaSubnetNetworkSecurityGroupAssociation,
+ *                     primaryReplica,
+ *                     replicaPrimary)
+ *                 .build());
  * 
  *     }
  * }

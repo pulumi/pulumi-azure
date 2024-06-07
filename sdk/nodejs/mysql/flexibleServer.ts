@@ -59,6 +59,8 @@ import * as utilities from "../utilities";
  *     delegatedSubnetId: exampleSubnet.id,
  *     privateDnsZoneId: exampleZone.id,
  *     skuName: "GP_Standard_D2ds_v4",
+ * }, {
+ *     dependsOn: [exampleZoneVirtualNetworkLink],
  * });
  * ```
  *

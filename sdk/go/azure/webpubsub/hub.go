@@ -112,7 +112,9 @@ import (
 //					},
 //				},
 //				AnonymousConnectionsEnabled: pulumi.Bool(true),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleService,
+//			}))
 //			if err != nil {
 //				return err
 //			}

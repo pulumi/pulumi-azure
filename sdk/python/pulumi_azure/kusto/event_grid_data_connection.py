@@ -628,7 +628,8 @@ class EventGridDataConnection(pulumi.CustomResource):
             eventhub_consumer_group_name=example_consumer_group.name,
             table_name="my-table",
             mapping_rule_name="my-table-mapping",
-            data_format="JSON")
+            data_format="JSON",
+            opts=pulumi.ResourceOptions(depends_on=[example_event_subscription]))
         ```
 
         ## Import
@@ -737,7 +738,8 @@ class EventGridDataConnection(pulumi.CustomResource):
             eventhub_consumer_group_name=example_consumer_group.name,
             table_name="my-table",
             mapping_rule_name="my-table-mapping",
-            data_format="JSON")
+            data_format="JSON",
+            opts=pulumi.ResourceOptions(depends_on=[example_event_subscription]))
         ```
 
         ## Import

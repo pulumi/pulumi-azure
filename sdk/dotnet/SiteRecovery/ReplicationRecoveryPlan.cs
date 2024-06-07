@@ -262,6 +262,13 @@ namespace Pulumi.Azure.SiteRecovery
     ///                 RecoveryPublicIpAddressId = secondaryPublicIp.Id,
     ///             },
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             container_mapping,
+    ///             network_mapping,
+    ///         },
     ///     });
     /// 
     ///     var example = new Azure.SiteRecovery.ReplicationRecoveryPlan("example", new()

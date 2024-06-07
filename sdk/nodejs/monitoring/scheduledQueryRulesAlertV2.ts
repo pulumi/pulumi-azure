@@ -89,6 +89,8 @@ import * as utilities from "../utilities";
  *         key: "value",
  *         key2: "value2",
  *     },
+ * }, {
+ *     dependsOn: [exampleAssignment],
  * });
  * ```
  *

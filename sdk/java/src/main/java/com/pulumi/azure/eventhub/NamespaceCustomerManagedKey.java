@@ -49,6 +49,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.keyvault.KeyArgs;
  * import com.pulumi.azure.eventhub.NamespaceCustomerManagedKey;
  * import com.pulumi.azure.eventhub.NamespaceCustomerManagedKeyArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -132,7 +133,11 @@ import javax.annotation.Nullable;
  *                 "unwrapKey",
  *                 "verify",
  *                 "wrapKey")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     exampleAccessPolicy,
+ *                     example2)
+ *                 .build());
  * 
  *         var exampleNamespaceCustomerManagedKey = new NamespaceCustomerManagedKey("exampleNamespaceCustomerManagedKey", NamespaceCustomerManagedKeyArgs.builder()
  *             .eventhubNamespaceId(exampleEventHubNamespace.id())
@@ -173,6 +178,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.keyvault.KeyArgs;
  * import com.pulumi.azure.eventhub.NamespaceCustomerManagedKey;
  * import com.pulumi.azure.eventhub.NamespaceCustomerManagedKeyArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -263,7 +269,11 @@ import javax.annotation.Nullable;
  *                 "unwrapKey",
  *                 "verify",
  *                 "wrapKey")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     exampleAccessPolicy,
+ *                     example2)
+ *                 .build());
  * 
  *         var exampleNamespaceCustomerManagedKey = new NamespaceCustomerManagedKey("exampleNamespaceCustomerManagedKey", NamespaceCustomerManagedKeyArgs.builder()
  *             .eventhubNamespaceId(exampleEventHubNamespace.id())

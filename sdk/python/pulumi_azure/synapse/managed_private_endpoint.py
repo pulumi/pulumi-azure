@@ -228,7 +228,8 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
             name="example-endpoint",
             synapse_workspace_id=example_workspace.id,
             target_resource_id=example_connect.id,
-            subresource_name="blob")
+            subresource_name="blob",
+            opts=pulumi.ResourceOptions(depends_on=[example_firewall_rule]))
         ```
 
         ## Import
@@ -306,7 +307,8 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
             name="example-endpoint",
             synapse_workspace_id=example_workspace.id,
             target_resource_id=example_connect.id,
-            subresource_name="blob")
+            subresource_name="blob",
+            opts=pulumi.ResourceOptions(depends_on=[example_firewall_rule]))
         ```
 
         ## Import

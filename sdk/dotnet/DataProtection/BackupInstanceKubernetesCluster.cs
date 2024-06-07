@@ -251,6 +251,18 @@ namespace Pulumi.Azure.DataProtection
     ///             },
     ///             VolumeSnapshotEnabled = true,
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             testExtensionAndStorageAccountPermission,
+    ///             testVaultMsiReadOnCluster,
+    ///             testVaultMsiReadOnSnapRg,
+    ///             testClusterMsiContributorOnSnapRg,
+    ///             testVaultMsiSnapshotContributorOnSnapRg,
+    ///             testVaultDataOperatorOnSnapRg,
+    ///             testVaultDataContributorOnStorage,
+    ///         },
     ///     });
     /// 
     /// });

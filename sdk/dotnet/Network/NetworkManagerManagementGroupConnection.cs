@@ -76,6 +76,12 @@ namespace Pulumi.Azure.Network
     ///         ManagementGroupId = example.Id,
     ///         NetworkManagerId = exampleNetworkManager.Id,
     ///         Description = "example",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             networkContributor,
+    ///         },
     ///     });
     /// 
     /// });

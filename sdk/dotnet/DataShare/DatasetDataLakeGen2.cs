@@ -82,6 +82,12 @@ namespace Pulumi.Azure.DataShare
     ///         StorageAccountId = exampleAccount2.Id,
     ///         FileSystemName = exampleDataLakeGen2Filesystem.Name,
     ///         FilePath = "myfile.txt",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAssignment,
+    ///         },
     ///     });
     /// 
     /// });

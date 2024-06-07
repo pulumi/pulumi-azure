@@ -94,6 +94,13 @@ namespace Pulumi.Azure.MSSql
     ///         {
     ///             { "environment", "prod" },
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleSubnetNetworkSecurityGroupAssociation,
+    ///             exampleSubnetRouteTableAssociation,
+    ///         },
     ///     });
     /// 
     ///     var secondary = new Azure.MSSql.ManagedInstance("secondary", new()
@@ -111,6 +118,13 @@ namespace Pulumi.Azure.MSSql
     ///         Tags = 
     ///         {
     ///             { "environment", "prod" },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleSubnetNetworkSecurityGroupAssociation,
+    ///             exampleSubnetRouteTableAssociation,
     ///         },
     ///     });
     /// 

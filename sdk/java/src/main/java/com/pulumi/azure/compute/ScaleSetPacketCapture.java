@@ -51,6 +51,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.compute.ScaleSetPacketCaptureArgs;
  * import com.pulumi.azure.compute.inputs.ScaleSetPacketCaptureStorageLocationArgs;
  * import com.pulumi.azure.compute.inputs.ScaleSetPacketCaptureMachineScopeArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -142,7 +143,9 @@ import javax.annotation.Nullable;
  *                 .includeInstanceIds("0")
  *                 .excludeInstanceIds("1")
  *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleVirtualMachineScaleSetExtension)
+ *                 .build());
  * 
  *     }
  * }

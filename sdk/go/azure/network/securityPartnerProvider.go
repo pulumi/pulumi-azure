@@ -54,7 +54,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewVpnGateway(ctx, "example", &network.VpnGatewayArgs{
+//			exampleVpnGateway, err := network.NewVpnGateway(ctx, "example", &network.VpnGatewayArgs{
 //				Name:              pulumi.String("example-vpngw"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
@@ -72,7 +72,9 @@ import (
 //				Tags: pulumi.StringMap{
 //					"ENV": pulumi.String("Prod"),
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleVpnGateway,
+//			}))
 //			if err != nil {
 //				return err
 //			}

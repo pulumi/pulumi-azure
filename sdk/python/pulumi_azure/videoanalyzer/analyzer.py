@@ -276,7 +276,11 @@ class Analyzer(pulumi.CustomResource):
             ),
             tags={
                 "environment": "staging",
-            })
+            },
+            opts=pulumi.ResourceOptions(depends_on=[
+                    contributor,
+                    reader,
+                ]))
         ```
 
         ## Import
@@ -348,7 +352,11 @@ class Analyzer(pulumi.CustomResource):
             ),
             tags={
                 "environment": "staging",
-            })
+            },
+            opts=pulumi.ResourceOptions(depends_on=[
+                    contributor,
+                    reader,
+                ]))
         ```
 
         ## Import

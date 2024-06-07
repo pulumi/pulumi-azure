@@ -71,6 +71,12 @@ namespace Pulumi.Azure.DataProtection
     ///         Location = example.Location,
     ///         StorageAccountId = exampleAccount.Id,
     ///         BackupPolicyId = exampleBackupPolicyBlobStorage.Id,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAssignment,
+    ///         },
     ///     });
     /// 
     /// });

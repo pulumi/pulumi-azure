@@ -41,6 +41,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.iot.SecurityDeviceGroupArgs;
  * import com.pulumi.azure.iot.inputs.SecurityDeviceGroupAllowRuleArgs;
  * import com.pulumi.azure.iot.inputs.SecurityDeviceGroupRangeRuleArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -89,7 +90,9 @@ import javax.annotation.Nullable;
  *                 .max(30)
  *                 .duration("PT5M")
  *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleSecuritySolution)
+ *                 .build());
  * 
  *     }
  * }

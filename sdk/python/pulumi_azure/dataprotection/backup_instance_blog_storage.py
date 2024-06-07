@@ -235,7 +235,8 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
             vault_id=example_backup_vault.id,
             location=example.location,
             storage_account_id=example_account.id,
-            backup_policy_id=example_backup_policy_blob_storage.id)
+            backup_policy_id=example_backup_policy_blob_storage.id,
+            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
 
         ## Import
@@ -300,7 +301,8 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
             vault_id=example_backup_vault.id,
             location=example.location,
             storage_account_id=example_account.id,
-            backup_policy_id=example_backup_policy_blob_storage.id)
+            backup_policy_id=example_backup_policy_blob_storage.id,
+            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
 
         ## Import

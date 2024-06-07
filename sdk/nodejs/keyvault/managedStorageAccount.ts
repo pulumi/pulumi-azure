@@ -119,6 +119,8 @@ import * as utilities from "../utilities";
  *     storageAccountKey: "key1",
  *     regenerateKeyAutomatically: true,
  *     regenerationPeriod: "P1D",
+ * }, {
+ *     dependsOn: [exampleAssignment],
  * });
  * ```
  *

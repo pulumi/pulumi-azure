@@ -52,6 +52,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.mssql.ManagedInstanceArgs;
  * import com.pulumi.azure.mssql.ManagedInstanceSecurityAlertPolicy;
  * import com.pulumi.azure.mssql.ManagedInstanceSecurityAlertPolicyArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -230,7 +231,9 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .disableBgpRoutePropagation(false)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleSubnet)
+ *                 .build());
  * 
  *         var exampleSubnetRouteTableAssociation = new SubnetRouteTableAssociation("exampleSubnetRouteTableAssociation", SubnetRouteTableAssociationArgs.builder()
  *             .subnetId(exampleSubnet.id())
@@ -248,7 +251,11 @@ import javax.annotation.Nullable;
  *             .vcores(4)
  *             .administratorLogin("mradministrator")
  *             .administratorLoginPassword("thisIsDog11")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     exampleSubnetNetworkSecurityGroupAssociation,
+ *                     exampleSubnetRouteTableAssociation)
+ *                 .build());
  * 
  *         var exampleManagedInstanceSecurityAlertPolicy = new ManagedInstanceSecurityAlertPolicy("exampleManagedInstanceSecurityAlertPolicy", ManagedInstanceSecurityAlertPolicyArgs.builder()
  *             .resourceGroupName(example.name())

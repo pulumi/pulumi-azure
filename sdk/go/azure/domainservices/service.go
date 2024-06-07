@@ -112,7 +112,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewSubnetNetworkSecurityGroupAssociation(ctx, "deploy", &network.SubnetNetworkSecurityGroupAssociationArgs{
+//			deploySubnetNetworkSecurityGroupAssociation, err := network.NewSubnetNetworkSecurityGroupAssociation(ctx, "deploy", &network.SubnetNetworkSecurityGroupAssociationArgs{
 //				SubnetId:               deploySubnet.ID(),
 //				NetworkSecurityGroupId: deployNetworkSecurityGroup.ID(),
 //			})
@@ -141,7 +141,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuread.NewServicePrincipal(ctx, "example", &azuread.ServicePrincipalArgs{
+//			example, err := azuread.NewServicePrincipal(ctx, "example", &azuread.ServicePrincipalArgs{
 //				ApplicationId: pulumi.String("2565bd9d-da50-47d4-8b85-4c97f669dc36"),
 //			})
 //			if err != nil {
@@ -180,7 +180,10 @@ import (
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("prod"),
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				example,
+//				deploySubnetNetworkSecurityGroupAssociation,
+//			}))
 //			if err != nil {
 //				return err
 //			}

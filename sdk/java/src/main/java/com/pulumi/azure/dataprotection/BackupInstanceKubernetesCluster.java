@@ -56,6 +56,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.dataprotection.BackupInstanceKubernetesCluster;
  * import com.pulumi.azure.dataprotection.BackupInstanceKubernetesClusterArgs;
  * import com.pulumi.azure.dataprotection.inputs.BackupInstanceKubernetesClusterBackupDatasourceParametersArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -229,7 +230,16 @@ import javax.annotation.Nullable;
  *                 .labelSelectors("kubernetes.io/metadata.name:test")
  *                 .volumeSnapshotEnabled(true)
  *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     testExtensionAndStorageAccountPermission,
+ *                     testVaultMsiReadOnCluster,
+ *                     testVaultMsiReadOnSnapRg,
+ *                     testClusterMsiContributorOnSnapRg,
+ *                     testVaultMsiSnapshotContributorOnSnapRg,
+ *                     testVaultDataOperatorOnSnapRg,
+ *                     testVaultDataContributorOnStorage)
+ *                 .build());
  * 
  *     }
  * }

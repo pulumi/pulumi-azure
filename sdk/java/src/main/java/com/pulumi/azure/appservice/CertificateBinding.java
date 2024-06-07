@@ -46,6 +46,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appservice.ManagedCertificateArgs;
  * import com.pulumi.azure.appservice.CertificateBinding;
  * import com.pulumi.azure.appservice.CertificateBindingArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -108,7 +109,9 @@ import javax.annotation.Nullable;
  *             .hostname(StdFunctions.trim().applyValue(invoke -> invoke.result()))
  *             .appServiceName(exampleAppService.name())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleTxtRecord)
+ *                 .build());
  * 
  *         var exampleManagedCertificate = new ManagedCertificate("exampleManagedCertificate", ManagedCertificateArgs.builder()
  *             .customHostnameBindingId(exampleCustomHostnameBinding.id())

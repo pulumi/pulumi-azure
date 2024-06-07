@@ -38,6 +38,8 @@ import * as utilities from "../utilities";
  *     resourceGroupName: secondary.name,
  *     recoveryVaultName: vault.name,
  *     location: secondary.location,
+ * }, {
+ *     dependsOn: [primaryFabric],
  * });
  * const primaryVirtualNetwork = new azure.network.VirtualNetwork("primary", {
  *     name: "network1",

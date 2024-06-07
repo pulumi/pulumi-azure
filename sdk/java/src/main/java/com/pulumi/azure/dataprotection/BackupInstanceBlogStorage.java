@@ -39,6 +39,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.dataprotection.BackupPolicyBlobStorageArgs;
  * import com.pulumi.azure.dataprotection.BackupInstanceBlogStorage;
  * import com.pulumi.azure.dataprotection.BackupInstanceBlogStorageArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -94,7 +95,9 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .storageAccountId(exampleAccount.id())
  *             .backupPolicyId(exampleBackupPolicyBlobStorage.id())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAssignment)
+ *                 .build());
  * 
  *     }
  * }

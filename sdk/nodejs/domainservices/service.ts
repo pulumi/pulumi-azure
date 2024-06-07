@@ -129,6 +129,11 @@ import * as utilities from "../utilities";
  *     tags: {
  *         Environment: "prod",
  *     },
+ * }, {
+ *     dependsOn: [
+ *         example,
+ *         deploySubnetNetworkSecurityGroupAssociation,
+ *     ],
  * });
  * ```
  *

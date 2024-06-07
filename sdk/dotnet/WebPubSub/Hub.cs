@@ -118,6 +118,12 @@ namespace Pulumi.Azure.WebPubSub
     ///             },
     ///         },
     ///         AnonymousConnectionsEnabled = true,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleService,
+    ///         },
     ///     });
     /// 
     /// });

@@ -31,6 +31,23 @@ import * as utilities from "../utilities";
  *     enabledForDiskEncryption: true,
  *     purgeProtectionEnabled: true,
  * });
+ * const example_user = new azure.keyvault.AccessPolicy("example-user", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     tenantId: current.then(current => current.tenantId),
+ *     objectId: current.then(current => current.objectId),
+ *     keyPermissions: [
+ *         "Create",
+ *         "Delete",
+ *         "Get",
+ *         "Purge",
+ *         "Recover",
+ *         "Update",
+ *         "List",
+ *         "Decrypt",
+ *         "Sign",
+ *         "GetRotationPolicy",
+ *     ],
+ * });
  * const exampleKey = new azure.keyvault.Key("example", {
  *     name: "des-example-key",
  *     keyVaultId: exampleKeyVault.id,
@@ -44,6 +61,8 @@ import * as utilities from "../utilities";
  *         "verify",
  *         "wrapKey",
  *     ],
+ * }, {
+ *     dependsOn: [example_user],
  * });
  * const exampleDiskEncryptionSet = new azure.compute.DiskEncryptionSet("example", {
  *     name: "des",
@@ -68,23 +87,6 @@ import * as utilities from "../utilities";
  *         "List",
  *         "Decrypt",
  *         "Sign",
- *     ],
- * });
- * const example_user = new azure.keyvault.AccessPolicy("example-user", {
- *     keyVaultId: exampleKeyVault.id,
- *     tenantId: current.then(current => current.tenantId),
- *     objectId: current.then(current => current.objectId),
- *     keyPermissions: [
- *         "Create",
- *         "Delete",
- *         "Get",
- *         "Purge",
- *         "Recover",
- *         "Update",
- *         "List",
- *         "Decrypt",
- *         "Sign",
- *         "GetRotationPolicy",
  *     ],
  * });
  * const example_diskAssignment = new azure.authorization.Assignment("example-disk", {
@@ -114,6 +116,23 @@ import * as utilities from "../utilities";
  *     enabledForDiskEncryption: true,
  *     purgeProtectionEnabled: true,
  * });
+ * const example_user = new azure.keyvault.AccessPolicy("example-user", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     tenantId: current.then(current => current.tenantId),
+ *     objectId: current.then(current => current.objectId),
+ *     keyPermissions: [
+ *         "Create",
+ *         "Delete",
+ *         "Get",
+ *         "Purge",
+ *         "Recover",
+ *         "Update",
+ *         "List",
+ *         "Decrypt",
+ *         "Sign",
+ *         "GetRotationPolicy",
+ *     ],
+ * });
  * const exampleKey = new azure.keyvault.Key("example", {
  *     name: "des-example-key",
  *     keyVaultId: exampleKeyVault.id,
@@ -127,6 +146,8 @@ import * as utilities from "../utilities";
  *         "verify",
  *         "wrapKey",
  *     ],
+ * }, {
+ *     dependsOn: [example_user],
  * });
  * const exampleDiskEncryptionSet = new azure.compute.DiskEncryptionSet("example", {
  *     name: "des",
@@ -152,23 +173,6 @@ import * as utilities from "../utilities";
  *         "List",
  *         "Decrypt",
  *         "Sign",
- *     ],
- * });
- * const example_user = new azure.keyvault.AccessPolicy("example-user", {
- *     keyVaultId: exampleKeyVault.id,
- *     tenantId: current.then(current => current.tenantId),
- *     objectId: current.then(current => current.objectId),
- *     keyPermissions: [
- *         "Create",
- *         "Delete",
- *         "Get",
- *         "Purge",
- *         "Recover",
- *         "Update",
- *         "List",
- *         "Decrypt",
- *         "Sign",
- *         "GetRotationPolicy",
  *     ],
  * });
  * const example_diskAssignment = new azure.authorization.Assignment("example-disk", {

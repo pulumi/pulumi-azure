@@ -205,6 +205,12 @@ namespace Pulumi.Azure.Maintenance
     ///             MaxUnhealthyUpgradedInstancePercent = 20,
     ///             PauseTimeBetweenBatches = "PT0S",
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleRule,
+    ///         },
     ///     });
     /// 
     ///     var exampleAssignmentVirtualMachineScaleSet = new Azure.Maintenance.AssignmentVirtualMachineScaleSet("example", new()

@@ -42,6 +42,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.keyvault.KeyArgs;
  * import com.pulumi.azure.mysql.ServerKey;
  * import com.pulumi.azure.mysql.ServerKeyArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -132,7 +133,11 @@ import javax.annotation.Nullable;
  *                 "unwrapKey",
  *                 "verify",
  *                 "wrapKey")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     client,
+ *                     server)
+ *                 .build());
  * 
  *         var exampleServerKey = new ServerKey("exampleServerKey", ServerKeyArgs.builder()
  *             .serverId(exampleServer.id())

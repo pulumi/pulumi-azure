@@ -49,6 +49,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.kusto.DatabasePrincipalAssignmentArgs;
  * import com.pulumi.azure.digitaltwins.TimeSeriesDatabaseConnection;
  * import com.pulumi.azure.digitaltwins.TimeSeriesDatabaseConnectionArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -149,7 +150,12 @@ import javax.annotation.Nullable;
  *             .kustoClusterUri(exampleCluster.uri())
  *             .kustoDatabaseName(exampleDatabase.name())
  *             .kustoTableName("exampleTable")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     databaseContributor,
+ *                     eventhubDataOwner,
+ *                     exampleDatabasePrincipalAssignment)
+ *                 .build());
  * 
  *     }
  * }

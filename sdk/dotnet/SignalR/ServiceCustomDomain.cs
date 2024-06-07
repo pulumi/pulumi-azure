@@ -110,6 +110,12 @@ namespace Pulumi.Azure.SignalR
     ///         Name = "example-cert",
     ///         SignalrServiceId = exampleService.Id,
     ///         CustomCertificateId = exampleCertificate.Id,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAzurermKeyVaultAccessPolicy,
+    ///         },
     ///     });
     /// 
     ///     var testServiceCustomDomain = new Azure.SignalR.ServiceCustomDomain("test", new()

@@ -46,6 +46,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.datashare.DatasetBlobStorage;
  * import com.pulumi.azure.datashare.DatasetBlobStorageArgs;
  * import com.pulumi.azure.datashare.inputs.DatasetBlobStorageStorageAccountArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -113,7 +114,9 @@ import javax.annotation.Nullable;
  *                 .subscriptionId("00000000-0000-0000-0000-000000000000")
  *                 .build())
  *             .filePath("myfile.txt")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAssignment)
+ *                 .build());
  * 
  *     }
  * }

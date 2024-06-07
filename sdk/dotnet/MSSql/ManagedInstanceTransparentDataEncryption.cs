@@ -228,6 +228,12 @@ namespace Pulumi.Azure.MSSql
     ///             "unwrapKey",
     ///             "wrapKey",
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleKeyVault,
+    ///         },
     ///     });
     /// 
     ///     var exampleManagedInstanceTransparentDataEncryption = new Azure.MSSql.ManagedInstanceTransparentDataEncryption("example", new()

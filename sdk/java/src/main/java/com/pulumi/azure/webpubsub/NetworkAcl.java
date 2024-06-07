@@ -45,6 +45,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.webpubsub.NetworkAclArgs;
  * import com.pulumi.azure.webpubsub.inputs.NetworkAclPublicNetworkArgs;
  * import com.pulumi.azure.webpubsub.inputs.NetworkAclPrivateEndpointArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -111,7 +112,9 @@ import javax.annotation.Nullable;
  *                     "RESTAPI",
  *                     "ClientConnection")
  *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleEndpoint)
+ *                 .build());
  * 
  *     }
  * }

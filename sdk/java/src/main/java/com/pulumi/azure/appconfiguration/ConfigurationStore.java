@@ -96,6 +96,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appconfiguration.inputs.ConfigurationStoreIdentityArgs;
  * import com.pulumi.azure.appconfiguration.inputs.ConfigurationStoreEncryptionArgs;
  * import com.pulumi.azure.appconfiguration.inputs.ConfigurationStoreReplicaArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -177,7 +178,11 @@ import javax.annotation.Nullable;
  *                 "unwrapKey",
  *                 "verify",
  *                 "wrapKey")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     client,
+ *                     server)
+ *                 .build());
  * 
  *         var exampleConfigurationStore = new ConfigurationStore("exampleConfigurationStore", ConfigurationStoreArgs.builder()
  *             .name("appConf2")
@@ -201,7 +206,11 @@ import javax.annotation.Nullable;
  *                 .location("West US")
  *                 .build())
  *             .tags(Map.of("environment", "development"))
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     client,
+ *                     server)
+ *                 .build());
  * 
  *     }
  * }

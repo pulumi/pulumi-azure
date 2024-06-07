@@ -173,7 +173,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
+//			exampleAssignment, err := authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
 //				Scope:              exampleAccount.ID(),
 //				RoleDefinitionName: pulumi.String("Storage Account Key Operator Service Role"),
 //				PrincipalId:        pulumi.String(test.Id),
@@ -188,7 +188,9 @@ import (
 //				StorageAccountKey:          pulumi.String("key1"),
 //				RegenerateKeyAutomatically: pulumi.Bool(true),
 //				RegenerationPeriod:         pulumi.String("P1D"),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAssignment,
+//			}))
 //			if err != nil {
 //				return err
 //			}

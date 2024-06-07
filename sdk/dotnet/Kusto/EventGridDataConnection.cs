@@ -115,6 +115,12 @@ namespace Pulumi.Azure.Kusto
     ///         TableName = "my-table",
     ///         MappingRuleName = "my-table-mapping",
     ///         DataFormat = "JSON",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleEventSubscription,
+    ///         },
     ///     });
     /// 
     /// });

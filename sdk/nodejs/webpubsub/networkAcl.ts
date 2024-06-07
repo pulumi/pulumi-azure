@@ -64,6 +64,8 @@ import * as utilities from "../utilities";
  *             "ClientConnection",
  *         ],
  *     }],
+ * }, {
+ *     dependsOn: [exampleEndpoint],
  * });
  * ```
  *

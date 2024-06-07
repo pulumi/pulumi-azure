@@ -77,12 +77,16 @@ import * as utilities from "../utilities";
  * const exampleDiskPoolManagedDiskAttachment = new azure.compute.DiskPoolManagedDiskAttachment("example", {
  *     diskPoolId: exampleDiskPool.id,
  *     managedDiskId: exampleManagedDisk.id,
+ * }, {
+ *     dependsOn: [exampleAssignment],
  * });
  * const exampleDiskPoolIscsiTarget = new azure.compute.DiskPoolIscsiTarget("example", {
  *     name: "example",
  *     aclMode: "Dynamic",
  *     disksPoolId: exampleDiskPool.id,
  *     targetIqn: "iqn.2021-11.com.microsoft:test",
+ * }, {
+ *     dependsOn: [exampleDiskPoolManagedDiskAttachment],
  * });
  * ```
  *

@@ -44,6 +44,8 @@ import * as utilities from "../utilities";
  *     tags: {
  *         ENV: "Prod",
  *     },
+ * }, {
+ *     dependsOn: [exampleVpnGateway],
  * });
  * ```
  *

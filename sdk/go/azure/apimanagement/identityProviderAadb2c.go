@@ -54,7 +54,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuread.NewApplicationPassword(ctx, "example", &azuread.ApplicationPasswordArgs{
+//			exampleApplicationPassword, err := azuread.NewApplicationPassword(ctx, "example", &azuread.ApplicationPasswordArgs{
 //				ApplicationObjectId: exampleApplication.ObjectId,
 //				EndDateRelative:     pulumi.String("36h"),
 //			})
@@ -71,7 +71,9 @@ import (
 //				Authority:         pulumi.String("myb2ctenant.b2clogin.com"),
 //				SigninPolicy:      pulumi.String("B2C_1_Login"),
 //				SignupPolicy:      pulumi.String("B2C_1_Signup"),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleApplicationPassword,
+//			}))
 //			if err != nil {
 //				return err
 //			}

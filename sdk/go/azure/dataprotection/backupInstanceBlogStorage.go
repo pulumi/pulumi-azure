@@ -61,7 +61,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
+//			exampleAssignment, err := authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
 //				Scope:              exampleAccount.ID(),
 //				RoleDefinitionName: pulumi.String("Storage Account Backup Contributor"),
 //				PrincipalId: exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
@@ -85,7 +85,9 @@ import (
 //				Location:         example.Location,
 //				StorageAccountId: exampleAccount.ID(),
 //				BackupPolicyId:   exampleBackupPolicyBlobStorage.ID(),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAssignment,
+//			}))
 //			if err != nil {
 //				return err
 //			}

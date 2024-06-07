@@ -361,7 +361,11 @@ class VolumeGroup(pulumi.CustomResource):
                 "unwrapKey",
                 "verify",
                 "wrapKey",
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    user_assigned_identity,
+                    client,
+                ]))
         example_volume_group = azure.elasticsan.VolumeGroup("example",
             name="example-esvg",
             elastic_san_id=example_elastic_san.id,
@@ -494,7 +498,11 @@ class VolumeGroup(pulumi.CustomResource):
                 "unwrapKey",
                 "verify",
                 "wrapKey",
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    user_assigned_identity,
+                    client,
+                ]))
         example_volume_group = azure.elasticsan.VolumeGroup("example",
             name="example-esvg",
             elastic_san_id=example_elastic_san.id,

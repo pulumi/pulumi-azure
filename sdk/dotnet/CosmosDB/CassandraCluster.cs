@@ -72,6 +72,12 @@ namespace Pulumi.Azure.CosmosDB
     ///         Location = exampleResourceGroup.Location,
     ///         DelegatedManagementSubnetId = exampleSubnet.Id,
     ///         DefaultAdminPassword = "Password1234",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAssignment,
+    ///         },
     ///     });
     /// 
     /// });

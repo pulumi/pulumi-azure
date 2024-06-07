@@ -42,6 +42,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.webpubsub.CustomCertificateArgs;
  * import com.pulumi.azure.webpubsub.CustomDomain;
  * import com.pulumi.azure.webpubsub.CustomDomainArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -121,7 +122,9 @@ import javax.annotation.Nullable;
  *             .name("example-cert")
  *             .webPubsubId(exampleService.id())
  *             .customCertificateId(exampleCertificate.id())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAzurermKeyVaultAccessPolicy)
+ *                 .build());
  * 
  *         var testCustomDomain = new CustomDomain("testCustomDomain", CustomDomainArgs.builder()
  *             .name("example-domain")

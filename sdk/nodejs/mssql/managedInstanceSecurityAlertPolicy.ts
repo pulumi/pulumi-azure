@@ -168,6 +168,8 @@ import * as utilities from "../utilities";
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     disableBgpRoutePropagation: false,
+ * }, {
+ *     dependsOn: [exampleSubnet],
  * });
  * const exampleSubnetRouteTableAssociation = new azure.network.SubnetRouteTableAssociation("example", {
  *     subnetId: exampleSubnet.id,
@@ -184,6 +186,11 @@ import * as utilities from "../utilities";
  *     vcores: 4,
  *     administratorLogin: "mradministrator",
  *     administratorLoginPassword: "thisIsDog11",
+ * }, {
+ *     dependsOn: [
+ *         exampleSubnetNetworkSecurityGroupAssociation,
+ *         exampleSubnetRouteTableAssociation,
+ *     ],
  * });
  * const exampleManagedInstanceSecurityAlertPolicy = new azure.mssql.ManagedInstanceSecurityAlertPolicy("example", {
  *     resourceGroupName: example.name,

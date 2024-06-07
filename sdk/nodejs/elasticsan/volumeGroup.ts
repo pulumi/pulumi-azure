@@ -103,6 +103,11 @@ import * as utilities from "../utilities";
  *         "verify",
  *         "wrapKey",
  *     ],
+ * }, {
+ *     dependsOn: [
+ *         userAssignedIdentity,
+ *         client,
+ *     ],
  * });
  * const exampleVolumeGroup = new azure.elasticsan.VolumeGroup("example", {
  *     name: "example-esvg",

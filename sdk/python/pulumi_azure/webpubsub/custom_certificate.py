@@ -232,7 +232,8 @@ class CustomCertificate(pulumi.CustomResource):
         test = azure.webpubsub.CustomCertificate("test",
             name="example-cert",
             web_pubsub_id=example_web_pubsub_service["id"],
-            custom_certificate_id=example_certificate.id)
+            custom_certificate_id=example_certificate.id,
+            opts=pulumi.ResourceOptions(depends_on=[example_azurerm_key_vault_access_policy]))
         ```
 
         ## Import
@@ -329,7 +330,8 @@ class CustomCertificate(pulumi.CustomResource):
         test = azure.webpubsub.CustomCertificate("test",
             name="example-cert",
             web_pubsub_id=example_web_pubsub_service["id"],
-            custom_certificate_id=example_certificate.id)
+            custom_certificate_id=example_certificate.id,
+            opts=pulumi.ResourceOptions(depends_on=[example_azurerm_key_vault_access_policy]))
         ```
 
         ## Import
