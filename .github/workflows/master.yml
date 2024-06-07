@@ -474,11 +474,6 @@ jobs:
       with:
         swap-storage: false
         tool-cache: false
-    - if: ${{ matrix.language == 'dotnet' }}
-      name: Setup DotNet
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: ${{ env.DOTNETVERSION }}
     - name: make upstream
       run: |
         make upstream
