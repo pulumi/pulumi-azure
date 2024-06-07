@@ -12,6 +12,7 @@ TESTPARALLELISM := 10
 WORKING_DIR := $(shell pwd)
 PULUMI_PROVIDER_BUILD_PARALLELISM ?= -p 2
 PULUMI_CONVERT := 1
+PULUMI_MISSING_DOCS_ERROR := true
 
 # Override during CI using `make [TARGET] PROVIDER_VERSION=""` or by setting a PROVIDER_VERSION environment variable
 # Local & branch builds will just used this fixed default version unless specified
@@ -112,12 +113,12 @@ install_nodejs_sdk:
 install_plugins: export PULUMI_HOME := $(WORKING_DIR)/.pulumi
 install_plugins: export PATH := $(WORKING_DIR)/.pulumi/bin:$(PATH)
 install_plugins: .pulumi/bin/pulumi
-	.pulumi/bin/pulumi plugin install resource random 4.15.1
-	.pulumi/bin/pulumi plugin install resource azuread 5.33.0
-	.pulumi/bin/pulumi plugin install resource time 0.0.15
+	.pulumi/bin/pulumi plugin install resource random 4.16.1
+	.pulumi/bin/pulumi plugin install resource azuread 5.48.0
+	.pulumi/bin/pulumi plugin install resource time 0.0.17
 	.pulumi/bin/pulumi plugin install resource local 0.0.1
-	.pulumi/bin/pulumi plugin install resource std 1.4.0
-	.pulumi/bin/pulumi plugin install converter terraform 1.0.15
+	.pulumi/bin/pulumi plugin install resource std 1.6.2
+	.pulumi/bin/pulumi plugin install converter terraform 1.0.16
 
 lint_provider: provider
 	cd provider && golangci-lint run -c ../.golangci.yml
@@ -152,6 +153,7 @@ tfgen_no_deps: export PATH := $(WORKING_DIR)/.pulumi/bin:$(PATH)
 tfgen_no_deps: export PULUMI_CONVERT := $(PULUMI_CONVERT)
 tfgen_no_deps: export PULUMI_CONVERT_EXAMPLES_CACHE_DIR := $(WORKING_DIR)/.pulumi/examples-cache
 tfgen_no_deps: export PULUMI_DISABLE_AUTOMATIC_PLUGIN_ACQUISITION := $(PULUMI_CONVERT)
+tfgen_no_deps: export PULUMI_MISSING_DOCS_ERROR := $(PULUMI_MISSING_DOCS_ERROR)
 tfgen_no_deps: tfgen_build_only
 	$(WORKING_DIR)/bin/$(TFGEN) schema --out provider/cmd/$(PROVIDER)
 	(cd provider && VERSION=$(VERSION_GENERIC) go generate cmd/$(PROVIDER)/main.go)
