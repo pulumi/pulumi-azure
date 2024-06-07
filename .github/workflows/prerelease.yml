@@ -434,11 +434,6 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         version: v2.5.0
-    - name: Free Disk Space (Ubuntu)
-      uses: jlumbroso/free-disk-space@main
-      with:
-        swap-storage: false
-        tool-cache: false
     - name: make upstream
       run: |
         make upstream

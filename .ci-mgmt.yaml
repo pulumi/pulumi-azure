@@ -43,11 +43,6 @@ plugins:
 goBuildParallelism: 2
 actions:
   preTest:
-    - name: Free Disk Space (Ubuntu)
-      uses: jlumbroso/free-disk-space@main
-      with:
-        tool-cache: false
-        swap-storage: false
     - name: make upstream
       run: |
         make upstream
