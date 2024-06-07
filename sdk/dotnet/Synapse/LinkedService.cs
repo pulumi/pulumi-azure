@@ -87,6 +87,12 @@ namespace Pulumi.Azure.Synapse
     ///         {
     ///             Name = exampleIntegrationRuntimeAzure.Name,
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleFirewallRule,
+    ///         },
     ///     });
     /// 
     /// });

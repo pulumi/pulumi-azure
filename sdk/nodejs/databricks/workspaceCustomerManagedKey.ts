@@ -39,24 +39,6 @@ import * as utilities from "../utilities";
  *     purgeProtectionEnabled: true,
  *     softDeleteRetentionDays: 7,
  * });
- * const exampleKey = new azure.keyvault.Key("example", {
- *     name: "example-certificate",
- *     keyVaultId: exampleKeyVault.id,
- *     keyType: "RSA",
- *     keySize: 2048,
- *     keyOpts: [
- *         "decrypt",
- *         "encrypt",
- *         "sign",
- *         "unwrapKey",
- *         "verify",
- *         "wrapKey",
- *     ],
- * });
- * const exampleWorkspaceRootDbfsCustomerManagedKey = new azure.databricks.WorkspaceRootDbfsCustomerManagedKey("example", {
- *     workspaceId: exampleWorkspace.id,
- *     keyVaultKeyId: exampleKey.id,
- * });
  * const terraform = new azure.keyvault.AccessPolicy("terraform", {
  *     keyVaultId: exampleKeyVault.id,
  *     tenantId: exampleKeyVault.tenantId,
@@ -74,6 +56,22 @@ import * as utilities from "../utilities";
  *         "GetRotationPolicy",
  *     ],
  * });
+ * const exampleKey = new azure.keyvault.Key("example", {
+ *     name: "example-certificate",
+ *     keyVaultId: exampleKeyVault.id,
+ *     keyType: "RSA",
+ *     keySize: 2048,
+ *     keyOpts: [
+ *         "decrypt",
+ *         "encrypt",
+ *         "sign",
+ *         "unwrapKey",
+ *         "verify",
+ *         "wrapKey",
+ *     ],
+ * }, {
+ *     dependsOn: [terraform],
+ * });
  * const databricks = new azure.keyvault.AccessPolicy("databricks", {
  *     keyVaultId: exampleKeyVault.id,
  *     tenantId: exampleWorkspace.storageAccountIdentities.apply(storageAccountIdentities => storageAccountIdentities[0].tenantId),
@@ -89,6 +87,14 @@ import * as utilities from "../utilities";
  *         "Decrypt",
  *         "Sign",
  *     ],
+ * }, {
+ *     dependsOn: [exampleWorkspace],
+ * });
+ * const exampleWorkspaceRootDbfsCustomerManagedKey = new azure.databricks.WorkspaceRootDbfsCustomerManagedKey("example", {
+ *     workspaceId: exampleWorkspace.id,
+ *     keyVaultKeyId: exampleKey.id,
+ * }, {
+ *     dependsOn: [databricks],
  * });
  * ```
  *

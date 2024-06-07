@@ -90,6 +90,12 @@ import * as utilities from "../utilities";
  *     kustoClusterUri: exampleCluster.uri,
  *     kustoDatabaseName: exampleDatabase.name,
  *     kustoTableName: "exampleTable",
+ * }, {
+ *     dependsOn: [
+ *         databaseContributor,
+ *         eventhubDataOwner,
+ *         exampleDatabasePrincipalAssignment,
+ *     ],
  * });
  * ```
  *

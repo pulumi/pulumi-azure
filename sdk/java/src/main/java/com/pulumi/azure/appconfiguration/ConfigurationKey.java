@@ -42,6 +42,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.authorization.AssignmentArgs;
  * import com.pulumi.azure.appconfiguration.ConfigurationKey;
  * import com.pulumi.azure.appconfiguration.ConfigurationKeyArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -79,7 +80,9 @@ import javax.annotation.Nullable;
  *             .key("appConfKey1")
  *             .label("somelabel")
  *             .value("a test")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(appconfDataowner)
+ *                 .build());
  * 
  *     }
  * }
@@ -111,6 +114,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.authorization.AssignmentArgs;
  * import com.pulumi.azure.appconfiguration.ConfigurationKey;
  * import com.pulumi.azure.appconfiguration.ConfigurationKeyArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -177,7 +181,9 @@ import javax.annotation.Nullable;
  *             .type("vault")
  *             .label("label1")
  *             .vaultKeyReference(kvs.versionlessId())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(appconfDataowner)
+ *                 .build());
  * 
  *     }
  * }

@@ -37,6 +37,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.CoreFunctions;
  * import com.pulumi.azure.sql.ManagedInstanceActiveDirectoryAdministrator;
  * import com.pulumi.azure.sql.ManagedInstanceActiveDirectoryAdministratorArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -66,7 +67,11 @@ import javax.annotation.Nullable;
  *             .skuName("GP_Gen5")
  *             .vcores(4)
  *             .storageSizeInGb(32)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     exampleAzurermSubnetNetworkSecurityGroupAssociation,
+ *                     exampleAzurermSubnetRouteTableAssociation)
+ *                 .build());
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 

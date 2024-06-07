@@ -101,6 +101,12 @@ namespace Pulumi.Azure.WebPubSub
     ///                 },
     ///             },
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleEndpoint,
+    ///         },
     ///     });
     /// 
     /// });

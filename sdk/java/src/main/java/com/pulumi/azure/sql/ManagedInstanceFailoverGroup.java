@@ -42,6 +42,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.sql.ManagedInstanceFailoverGroup;
  * import com.pulumi.azure.sql.ManagedInstanceFailoverGroupArgs;
  * import com.pulumi.azure.sql.inputs.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -72,7 +73,11 @@ import javax.annotation.Nullable;
  *             .vcores(4)
  *             .storageSizeInGb(32)
  *             .tags(Map.of("environment", "prod"))
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     primaryAzurermSubnetNetworkSecurityGroupAssociation,
+ *                     primaryAzurermSubnetRouteTableAssociation)
+ *                 .build());
  * 
  *         var secondary = new ManagedInstance("secondary", ManagedInstanceArgs.builder()
  *             .name("example-secondary")
@@ -86,7 +91,11 @@ import javax.annotation.Nullable;
  *             .vcores(4)
  *             .storageSizeInGb(32)
  *             .tags(Map.of("environment", "prod"))
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     secondaryAzurermSubnetNetworkSecurityGroupAssociation,
+ *                     secondaryAzurermSubnetRouteTableAssociation)
+ *                 .build());
  * 
  *         var exampleManagedInstanceFailoverGroup = new ManagedInstanceFailoverGroup("exampleManagedInstanceFailoverGroup", ManagedInstanceFailoverGroupArgs.builder()
  *             .name("example-failover-group")

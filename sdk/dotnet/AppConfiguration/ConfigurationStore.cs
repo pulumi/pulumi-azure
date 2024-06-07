@@ -132,6 +132,13 @@ namespace Pulumi.Azure.AppConfiguration
     ///             "verify",
     ///             "wrapKey",
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             client,
+    ///             server,
+    ///         },
     ///     });
     /// 
     ///     var exampleConfigurationStore = new Azure.AppConfiguration.ConfigurationStore("example", new()
@@ -168,6 +175,13 @@ namespace Pulumi.Azure.AppConfiguration
     ///         Tags = 
     ///         {
     ///             { "environment", "development" },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             client,
+    ///             server,
     ///         },
     ///     });
     /// 

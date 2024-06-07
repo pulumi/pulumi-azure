@@ -79,7 +79,7 @@ import (
 //			example := azuread.LookupServicePrincipalOutput(ctx, azuread.GetServicePrincipalOutputArgs{
 //				DisplayName: exampleAccount.Name,
 //			}, nil)
-//			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
+//			exampleAssignment, err := authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
 //				Scope:              exampleAccount2.ID(),
 //				RoleDefinitionName: pulumi.String("Storage Blob Data Reader"),
 //				PrincipalId: example.ApplyT(func(example azuread.GetServicePrincipalResult) (*string, error) {
@@ -95,7 +95,9 @@ import (
 //				StorageAccountId: exampleAccount2.ID(),
 //				FileSystemName:   exampleDataLakeGen2Filesystem.Name,
 //				FilePath:         pulumi.String("myfile.txt"),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAssignment,
+//			}))
 //			if err != nil {
 //				return err
 //			}

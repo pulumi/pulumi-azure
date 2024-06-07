@@ -81,6 +81,8 @@ import * as utilities from "../utilities";
  *     name: "example-cert",
  *     webPubsubId: exampleWebPubsubService.id,
  *     customCertificateId: exampleCertificate.id,
+ * }, {
+ *     dependsOn: [exampleAzurermKeyVaultAccessPolicy],
  * });
  * ```
  *

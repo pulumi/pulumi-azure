@@ -57,6 +57,8 @@ import * as utilities from "../utilities";
  *     storageAccountId: exampleAccount2.id,
  *     fileSystemName: exampleDataLakeGen2Filesystem.name,
  *     filePath: "myfile.txt",
+ * }, {
+ *     dependsOn: [exampleAssignment],
  * });
  * ```
  *

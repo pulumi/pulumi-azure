@@ -72,6 +72,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.compute.inputs.RunCommandOutputBlobManagedIdentityArgs;
  * import com.pulumi.azure.compute.inputs.RunCommandParameterArgs;
  * import com.pulumi.azure.compute.inputs.RunCommandProtectedParameterArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -262,7 +263,9 @@ import javax.annotation.Nullable;
  *                 Map.entry("environment", "terraform-examples"),
  *                 Map.entry("some_key", "some-value")
  *             ))
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAssignment)
+ *                 .build());
  * 
  *         // authorize to storage blob using SAS token
  *         var example3RunCommand = new RunCommand("example3RunCommand", RunCommandArgs.builder()

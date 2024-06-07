@@ -71,6 +71,12 @@ namespace Pulumi.Azure.ContainerService
     ///                 Name = "kustomization-1",
     ///             },
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleKubernetesClusterExtension,
+    ///         },
     ///     });
     /// 
     /// });

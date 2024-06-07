@@ -84,7 +84,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = streamanalytics.NewStreamInputBlob(ctx, "example", &streamanalytics.StreamInputBlobArgs{
+//			exampleStreamInputBlob, err := streamanalytics.NewStreamInputBlob(ctx, "example", &streamanalytics.StreamInputBlobArgs{
 //				Name:                   pulumi.String("exampleinput"),
 //				StreamAnalyticsJobName: exampleJob.Name,
 //				ResourceGroupName:      exampleJob.ResourceGroupName,
@@ -103,7 +103,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = streamanalytics.NewOutputBlob(ctx, "example", &streamanalytics.OutputBlobArgs{
+//			exampleOutputBlob, err := streamanalytics.NewOutputBlob(ctx, "example", &streamanalytics.OutputBlobArgs{
 //				Name:                   pulumi.String("exampleoutput"),
 //				StreamAnalyticsJobName: exampleJob.Name,
 //				ResourceGroupName:      exampleJob.ResourceGroupName,
@@ -124,7 +124,11 @@ import (
 //				StreamAnalyticsJobId: exampleJob.ID(),
 //				StartMode:            pulumi.String("CustomTime"),
 //				StartTime:            pulumi.String("2022-09-21T00:00:00Z"),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleJob,
+//				exampleStreamInputBlob,
+//				exampleOutputBlob,
+//			}))
 //			if err != nil {
 //				return err
 //			}

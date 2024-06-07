@@ -117,7 +117,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = compute.NewExtension(ctx, "example", &compute.ExtensionArgs{
+//			exampleExtension, err := compute.NewExtension(ctx, "example", &compute.ExtensionArgs{
 //				Name:                    pulumi.String("example-VMExtension"),
 //				VirtualMachineId:        exampleVirtualMachine.ID(),
 //				Publisher:               pulumi.String("Microsoft.Azure.NetworkWatcher"),
@@ -188,7 +188,9 @@ import (
 //				OutputWorkspaceResourceIds: pulumi.StringArray{
 //					exampleAnalyticsWorkspace.ID(),
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleExtension,
+//			}))
 //			if err != nil {
 //				return err
 //			}

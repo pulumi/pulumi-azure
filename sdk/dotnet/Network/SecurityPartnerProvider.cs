@@ -63,6 +63,12 @@ namespace Pulumi.Azure.Network
     ///         {
     ///             { "ENV", "Prod" },
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleVpnGateway,
+    ///         },
     ///     });
     /// 
     /// });

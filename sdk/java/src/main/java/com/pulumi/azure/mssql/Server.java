@@ -100,6 +100,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.mssql.ServerArgs;
  * import com.pulumi.azure.mssql.inputs.ServerAzureadAdministratorArgs;
  * import com.pulumi.azure.mssql.inputs.ServerIdentityArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -168,7 +169,9 @@ import javax.annotation.Nullable;
  *             .keyOpts(            
  *                 "unwrapKey",
  *                 "wrapKey")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleKeyVault)
+ *                 .build());
  * 
  *         var exampleServer = new Server("exampleServer", ServerArgs.builder()
  *             .name("example-resource")

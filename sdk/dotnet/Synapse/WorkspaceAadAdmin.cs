@@ -83,6 +83,12 @@ namespace Pulumi.Azure.Synapse
     ///             "unwrapKey",
     ///             "wrapKey",
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             deployer,
+    ///         },
     ///     });
     /// 
     ///     var exampleWorkspace = new Azure.Synapse.Workspace("example", new()

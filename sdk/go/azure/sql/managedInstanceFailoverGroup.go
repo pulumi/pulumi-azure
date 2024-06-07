@@ -54,7 +54,10 @@ import (
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("prod"),
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				primaryAzurermSubnetNetworkSecurityGroupAssociation,
+//				primaryAzurermSubnetRouteTableAssociation,
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -72,7 +75,10 @@ import (
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("prod"),
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				secondaryAzurermSubnetNetworkSecurityGroupAssociation,
+//				secondaryAzurermSubnetRouteTableAssociation,
+//			}))
 //			if err != nil {
 //				return err
 //			}

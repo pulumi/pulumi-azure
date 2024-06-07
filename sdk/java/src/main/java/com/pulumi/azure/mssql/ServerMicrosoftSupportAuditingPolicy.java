@@ -116,6 +116,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.inputs.AccountIdentityArgs;
  * import com.pulumi.azure.mssql.ServerMicrosoftSupportAuditingPolicy;
  * import com.pulumi.azure.mssql.ServerMicrosoftSupportAuditingPolicyArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -214,7 +215,11 @@ import javax.annotation.Nullable;
  *             .serverId(exampleServer.id())
  *             .logMonitoringEnabled(false)
  *             .storageAccountSubscriptionId(primaryAzurermSubscription.subscriptionId())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     exampleAssignment,
+ *                     exampleAccount)
+ *                 .build());
  * 
  *     }
  * }

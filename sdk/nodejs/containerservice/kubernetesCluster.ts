@@ -346,6 +346,8 @@ export class KubernetesCluster extends pulumi.CustomResource {
      *     dnsPrefix: "aksexamplednsprefix1",
      *     privateClusterEnabled: true,
      *     privateDnsZoneId: exampleZone.id,
+     * }, {
+     *     dependsOn: [exampleAssignment],
      * });
      * ```
      */
@@ -866,6 +868,8 @@ export interface KubernetesClusterState {
      *     dnsPrefix: "aksexamplednsprefix1",
      *     privateClusterEnabled: true,
      *     privateDnsZoneId: exampleZone.id,
+     * }, {
+     *     dependsOn: [exampleAssignment],
      * });
      * ```
      */
@@ -1182,6 +1186,8 @@ export interface KubernetesClusterArgs {
      *     dnsPrefix: "aksexamplednsprefix1",
      *     privateClusterEnabled: true,
      *     privateDnsZoneId: exampleZone.id,
+     * }, {
+     *     dependsOn: [exampleAssignment],
      * });
      * ```
      */

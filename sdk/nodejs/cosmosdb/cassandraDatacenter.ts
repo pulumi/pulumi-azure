@@ -46,6 +46,8 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     delegatedManagementSubnetId: exampleSubnet.id,
  *     defaultAdminPassword: "Password1234",
+ * }, {
+ *     dependsOn: [exampleAssignment],
  * });
  * const exampleCassandraDatacenter = new azure.cosmosdb.CassandraDatacenter("example", {
  *     name: "example-datacenter",

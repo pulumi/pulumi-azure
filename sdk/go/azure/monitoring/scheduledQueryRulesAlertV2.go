@@ -63,7 +63,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
+//			exampleAssignment, err := authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
 //				Scope:              exampleInsights.ID(),
 //				RoleDefinitionName: pulumi.String("Reader"),
 //				PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
@@ -128,7 +128,9 @@ import (
 //					"key":  pulumi.String("value"),
 //					"key2": pulumi.String("value2"),
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAssignment,
+//			}))
 //			if err != nil {
 //				return err
 //			}

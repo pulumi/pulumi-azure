@@ -135,7 +135,9 @@ import (
 //			_, err = compute.NewDiskPoolManagedDiskAttachment(ctx, "example", &compute.DiskPoolManagedDiskAttachmentArgs{
 //				DiskPoolId:    exampleDiskPool.ID(),
 //				ManagedDiskId: exampleManagedDisk.ID(),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAssignment,
+//			}))
 //			if err != nil {
 //				return err
 //			}

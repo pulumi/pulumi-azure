@@ -117,6 +117,12 @@ namespace Pulumi.Azure.WebPubSub
     ///         Name = "example-cert",
     ///         WebPubsubId = exampleWebPubsubService.Id,
     ///         CustomCertificateId = exampleCertificate.Id,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAzurermKeyVaultAccessPolicy,
+    ///         },
     ///     });
     /// 
     /// });

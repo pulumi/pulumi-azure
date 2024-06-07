@@ -175,6 +175,13 @@ namespace Pulumi.Azure.DomainServices
     ///         {
     ///             { "Environment", "prod" },
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             example,
+    ///             deploySubnetNetworkSecurityGroupAssociation,
+    ///         },
     ///     });
     /// 
     /// });

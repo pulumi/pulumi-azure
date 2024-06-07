@@ -222,6 +222,12 @@ namespace Pulumi.Azure.Sql
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         DisableBgpRoutePropagation = false,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleSubnet,
+    ///         },
     ///     });
     /// 
     ///     var exampleSubnetRouteTableAssociation = new Azure.Network.SubnetRouteTableAssociation("example", new()
@@ -242,6 +248,13 @@ namespace Pulumi.Azure.Sql
     ///         SkuName = "GP_Gen5",
     ///         Vcores = 4,
     ///         StorageSizeInGb = 32,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleSubnetNetworkSecurityGroupAssociation,
+    ///             exampleSubnetRouteTableAssociation,
+    ///         },
     ///     });
     /// 
     /// });

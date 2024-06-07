@@ -78,6 +78,12 @@ namespace Pulumi.Azure.DataShare
     ///         Name = "example-dskd",
     ///         ShareId = exampleShare.Id,
     ///         KustoDatabaseId = exampleDatabase.Id,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAssignment,
+    ///         },
     ///     });
     /// 
     /// });

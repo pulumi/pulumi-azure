@@ -44,6 +44,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.videoanalyzer.AnalyzerArgs;
  * import com.pulumi.azure.videoanalyzer.inputs.AnalyzerStorageAccountArgs;
  * import com.pulumi.azure.videoanalyzer.inputs.AnalyzerIdentityArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -101,7 +102,11 @@ import javax.annotation.Nullable;
  *                 .identityIds(exampleUserAssignedIdentity.id())
  *                 .build())
  *             .tags(Map.of("environment", "staging"))
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     contributor,
+ *                     reader)
+ *                 .build());
  * 
  *     }
  * }

@@ -56,6 +56,12 @@ import * as utilities from "../utilities";
  *     tags: {
  *         environment: "staging",
  *     },
+ * }, {
+ *     dependsOn: [
+ *         exampleUserAssignedIdentity,
+ *         contributor,
+ *         reader,
+ *     ],
  * });
  * const exampleEdgeModule = new azure.videoanalyzer.EdgeModule("example", {
  *     name: "example-edge-module",

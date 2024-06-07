@@ -139,6 +139,8 @@ import * as utilities from "../utilities";
  *         maxUnhealthyUpgradedInstancePercent: 20,
  *         pauseTimeBetweenBatches: "PT0S",
  *     },
+ * }, {
+ *     dependsOn: [exampleRule],
  * });
  * const exampleAssignmentVirtualMachineScaleSet = new azure.maintenance.AssignmentVirtualMachineScaleSet("example", {
  *     location: example.location,

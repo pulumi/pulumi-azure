@@ -196,6 +196,12 @@ namespace Pulumi.Azure.Network
     ///         {
     ///             exampleAnalyticsWorkspace.Id,
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleExtension,
+    ///         },
     ///     });
     /// 
     /// });

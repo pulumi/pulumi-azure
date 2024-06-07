@@ -294,7 +294,11 @@ class ReplicaSet(pulumi.CustomResource):
             ),
             tags={
                 "Environment": "prod",
-            })
+            },
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example,
+                    primary_subnet_network_security_group_association,
+                ]))
         replica = azure.core.ResourceGroup("replica",
             name="aadds-replica-rg",
             location="North Europe")
@@ -385,7 +389,12 @@ class ReplicaSet(pulumi.CustomResource):
         replica_replica_set = azure.domainservices.ReplicaSet("replica",
             domain_service_id=example_service.id,
             location=replica.location,
-            subnet_id=aadds_replica.id)
+            subnet_id=aadds_replica.id,
+            opts=pulumi.ResourceOptions(depends_on=[
+                    replica_subnet_network_security_group_association,
+                    primary_replica,
+                    replica_primary,
+                ]))
         ```
 
         ## Import
@@ -524,7 +533,11 @@ class ReplicaSet(pulumi.CustomResource):
             ),
             tags={
                 "Environment": "prod",
-            })
+            },
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example,
+                    primary_subnet_network_security_group_association,
+                ]))
         replica = azure.core.ResourceGroup("replica",
             name="aadds-replica-rg",
             location="North Europe")
@@ -615,7 +628,12 @@ class ReplicaSet(pulumi.CustomResource):
         replica_replica_set = azure.domainservices.ReplicaSet("replica",
             domain_service_id=example_service.id,
             location=replica.location,
-            subnet_id=aadds_replica.id)
+            subnet_id=aadds_replica.id,
+            opts=pulumi.ResourceOptions(depends_on=[
+                    replica_subnet_network_security_group_association,
+                    primary_replica,
+                    replica_primary,
+                ]))
         ```
 
         ## Import

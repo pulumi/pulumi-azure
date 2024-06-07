@@ -82,6 +82,14 @@ namespace Pulumi.Azure.VideoAnalyzer
     ///         {
     ///             { "environment", "staging" },
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleUserAssignedIdentity,
+    ///             contributor,
+    ///             reader,
+    ///         },
     ///     });
     /// 
     ///     var exampleEdgeModule = new Azure.VideoAnalyzer.EdgeModule("example", new()

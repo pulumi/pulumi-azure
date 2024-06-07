@@ -205,7 +205,8 @@ class DatasetKustoDatabase(pulumi.CustomResource):
         example_dataset_kusto_database = azure.datashare.DatasetKustoDatabase("example",
             name="example-dskd",
             share_id=example_share.id,
-            kusto_database_id=example_database.id)
+            kusto_database_id=example_database.id,
+            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
 
         ## Import
@@ -271,7 +272,8 @@ class DatasetKustoDatabase(pulumi.CustomResource):
         example_dataset_kusto_database = azure.datashare.DatasetKustoDatabase("example",
             name="example-dskd",
             share_id=example_share.id,
-            kusto_database_id=example_database.id)
+            kusto_database_id=example_database.id,
+            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
 
         ## Import

@@ -41,6 +41,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.keyvault.inputs.CertificateCertificateArgs;
  * import com.pulumi.azure.signalr.ServiceCustomCertificate;
  * import com.pulumi.azure.signalr.ServiceCustomCertificateArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -120,7 +121,9 @@ import javax.annotation.Nullable;
  *             .name("example-cert")
  *             .signalrServiceId(exampleService.id())
  *             .customCertificateId(exampleCertificate.id())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAzurermKeyVaultAccessPolicy)
+ *                 .build());
  * 
  *     }
  * }

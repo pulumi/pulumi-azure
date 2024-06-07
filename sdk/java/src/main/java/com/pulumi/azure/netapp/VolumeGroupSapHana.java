@@ -54,6 +54,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.netapp.VolumeGroupSapHana;
  * import com.pulumi.azure.netapp.VolumeGroupSapHanaArgs;
  * import com.pulumi.azure.netapp.inputs.VolumeGroupSapHanaVolumeArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -162,7 +163,11 @@ import javax.annotation.Nullable;
  *             .name(String.format("%s-netapp-account", prefix))
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     exampleSubnet,
+ *                     example1)
+ *                 .build());
  * 
  *         var examplePool = new Pool("examplePool", PoolArgs.builder()
  *             .name(String.format("%s-netapp-pool", prefix))
@@ -253,7 +258,11 @@ import javax.annotation.Nullable;
  *                         .rootAccessEnabled(false)
  *                         .build())
  *                     .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     exampleLinuxVirtualMachine,
+ *                     examplePlacementGroup)
+ *                 .build());
  * 
  *     }
  * }

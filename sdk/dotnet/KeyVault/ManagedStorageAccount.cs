@@ -166,6 +166,12 @@ namespace Pulumi.Azure.KeyVault
     ///         StorageAccountKey = "key1",
     ///         RegenerateKeyAutomatically = true,
     ///         RegenerationPeriod = "P1D",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAssignment,
+    ///         },
     ///     });
     /// 
     /// });

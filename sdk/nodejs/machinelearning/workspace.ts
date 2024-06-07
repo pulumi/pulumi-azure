@@ -110,6 +110,11 @@ import * as utilities from "../utilities";
  *         "verify",
  *         "wrapKey",
  *     ],
+ * }, {
+ *     dependsOn: [
+ *         exampleKeyVault,
+ *         exampleAccessPolicy,
+ *     ],
  * });
  * const exampleWorkspace = new azure.machinelearning.Workspace("example", {
  *     name: "example-workspace",
@@ -214,6 +219,11 @@ import * as utilities from "../utilities";
  *         "UnwrapKey",
  *         "WrapKey",
  *     ],
+ * }, {
+ *     dependsOn: [
+ *         test,
+ *         current,
+ *     ],
  * });
  * const exampleKey = new azure.keyvault.Key("example", {
  *     name: "example-keyvaultkey",
@@ -227,6 +237,11 @@ import * as utilities from "../utilities";
  *         "unwrapKey",
  *         "verify",
  *         "wrapKey",
+ *     ],
+ * }, {
+ *     dependsOn: [
+ *         exampleKeyVault,
+ *         example_sp,
  *     ],
  * });
  * const example_role1 = new azure.authorization.Assignment("example-role1", {
@@ -267,6 +282,14 @@ import * as utilities from "../utilities";
  *         keyVaultId: exampleKeyVault.id,
  *         keyId: exampleKey.id,
  *     },
+ * }, {
+ *     dependsOn: [
+ *         example_role1,
+ *         example_role2,
+ *         example_role3,
+ *         example_role4,
+ *         example_cosmosdb,
+ *     ],
  * });
  * ```
  *

@@ -141,22 +141,6 @@ class WorkspaceCustomerManagedKey(pulumi.CustomResource):
             sku_name="premium",
             purge_protection_enabled=True,
             soft_delete_retention_days=7)
-        example_key = azure.keyvault.Key("example",
-            name="example-certificate",
-            key_vault_id=example_key_vault.id,
-            key_type="RSA",
-            key_size=2048,
-            key_opts=[
-                "decrypt",
-                "encrypt",
-                "sign",
-                "unwrapKey",
-                "verify",
-                "wrapKey",
-            ])
-        example_workspace_root_dbfs_customer_managed_key = azure.databricks.WorkspaceRootDbfsCustomerManagedKey("example",
-            workspace_id=example_workspace.id,
-            key_vault_key_id=example_key.id)
         terraform = azure.keyvault.AccessPolicy("terraform",
             key_vault_id=example_key_vault.id,
             tenant_id=example_key_vault.tenant_id,
@@ -173,6 +157,20 @@ class WorkspaceCustomerManagedKey(pulumi.CustomResource):
                 "Sign",
                 "GetRotationPolicy",
             ])
+        example_key = azure.keyvault.Key("example",
+            name="example-certificate",
+            key_vault_id=example_key_vault.id,
+            key_type="RSA",
+            key_size=2048,
+            key_opts=[
+                "decrypt",
+                "encrypt",
+                "sign",
+                "unwrapKey",
+                "verify",
+                "wrapKey",
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[terraform]))
         databricks = azure.keyvault.AccessPolicy("databricks",
             key_vault_id=example_key_vault.id,
             tenant_id=example_workspace.storage_account_identities[0].tenant_id,
@@ -187,7 +185,12 @@ class WorkspaceCustomerManagedKey(pulumi.CustomResource):
                 "List",
                 "Decrypt",
                 "Sign",
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[example_workspace]))
+        example_workspace_root_dbfs_customer_managed_key = azure.databricks.WorkspaceRootDbfsCustomerManagedKey("example",
+            workspace_id=example_workspace.id,
+            key_vault_key_id=example_key.id,
+            opts=pulumi.ResourceOptions(depends_on=[databricks]))
         ```
 
         ## Example HCL Configurations
@@ -247,22 +250,6 @@ class WorkspaceCustomerManagedKey(pulumi.CustomResource):
             sku_name="premium",
             purge_protection_enabled=True,
             soft_delete_retention_days=7)
-        example_key = azure.keyvault.Key("example",
-            name="example-certificate",
-            key_vault_id=example_key_vault.id,
-            key_type="RSA",
-            key_size=2048,
-            key_opts=[
-                "decrypt",
-                "encrypt",
-                "sign",
-                "unwrapKey",
-                "verify",
-                "wrapKey",
-            ])
-        example_workspace_root_dbfs_customer_managed_key = azure.databricks.WorkspaceRootDbfsCustomerManagedKey("example",
-            workspace_id=example_workspace.id,
-            key_vault_key_id=example_key.id)
         terraform = azure.keyvault.AccessPolicy("terraform",
             key_vault_id=example_key_vault.id,
             tenant_id=example_key_vault.tenant_id,
@@ -279,6 +266,20 @@ class WorkspaceCustomerManagedKey(pulumi.CustomResource):
                 "Sign",
                 "GetRotationPolicy",
             ])
+        example_key = azure.keyvault.Key("example",
+            name="example-certificate",
+            key_vault_id=example_key_vault.id,
+            key_type="RSA",
+            key_size=2048,
+            key_opts=[
+                "decrypt",
+                "encrypt",
+                "sign",
+                "unwrapKey",
+                "verify",
+                "wrapKey",
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[terraform]))
         databricks = azure.keyvault.AccessPolicy("databricks",
             key_vault_id=example_key_vault.id,
             tenant_id=example_workspace.storage_account_identities[0].tenant_id,
@@ -293,7 +294,12 @@ class WorkspaceCustomerManagedKey(pulumi.CustomResource):
                 "List",
                 "Decrypt",
                 "Sign",
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[example_workspace]))
+        example_workspace_root_dbfs_customer_managed_key = azure.databricks.WorkspaceRootDbfsCustomerManagedKey("example",
+            workspace_id=example_workspace.id,
+            key_vault_key_id=example_key.id,
+            opts=pulumi.ResourceOptions(depends_on=[databricks]))
         ```
 
         ## Example HCL Configurations

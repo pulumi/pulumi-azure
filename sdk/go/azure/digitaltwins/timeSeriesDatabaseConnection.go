@@ -101,7 +101,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = authorization.NewAssignment(ctx, "database_contributor", &authorization.AssignmentArgs{
+//			databaseContributor, err := authorization.NewAssignment(ctx, "database_contributor", &authorization.AssignmentArgs{
 //				Scope: exampleDatabase.ID(),
 //				PrincipalId: exampleInstance.Identity.ApplyT(func(identity digitaltwins.InstanceIdentity) (*string, error) {
 //					return &identity.PrincipalId, nil
@@ -111,7 +111,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = authorization.NewAssignment(ctx, "eventhub_data_owner", &authorization.AssignmentArgs{
+//			eventhubDataOwner, err := authorization.NewAssignment(ctx, "eventhub_data_owner", &authorization.AssignmentArgs{
 //				Scope: exampleEventHub.ID(),
 //				PrincipalId: exampleInstance.Identity.ApplyT(func(identity digitaltwins.InstanceIdentity) (*string, error) {
 //					return &identity.PrincipalId, nil
@@ -121,7 +121,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = kusto.NewDatabasePrincipalAssignment(ctx, "example", &kusto.DatabasePrincipalAssignmentArgs{
+//			exampleDatabasePrincipalAssignment, err := kusto.NewDatabasePrincipalAssignment(ctx, "example", &kusto.DatabasePrincipalAssignmentArgs{
 //				Name:              pulumi.String("dataadmin"),
 //				ResourceGroupName: example.Name,
 //				ClusterName:       exampleCluster.Name,
@@ -151,7 +151,11 @@ import (
 //				KustoClusterUri:           exampleCluster.Uri,
 //				KustoDatabaseName:         exampleDatabase.Name,
 //				KustoTableName:            pulumi.String("exampleTable"),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				databaseContributor,
+//				eventhubDataOwner,
+//				exampleDatabasePrincipalAssignment,
+//			}))
 //			if err != nil {
 //				return err
 //			}

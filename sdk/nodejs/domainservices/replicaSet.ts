@@ -130,6 +130,11 @@ import * as utilities from "../utilities";
  *     tags: {
  *         Environment: "prod",
  *     },
+ * }, {
+ *     dependsOn: [
+ *         example,
+ *         primarySubnetNetworkSecurityGroupAssociation,
+ *     ],
  * });
  * const replica = new azure.core.ResourceGroup("replica", {
  *     name: "aadds-replica-rg",
@@ -230,6 +235,12 @@ import * as utilities from "../utilities";
  *     domainServiceId: exampleService.id,
  *     location: replica.location,
  *     subnetId: aaddsReplica.id,
+ * }, {
+ *     dependsOn: [
+ *         replicaSubnetNetworkSecurityGroupAssociation,
+ *         primaryReplica,
+ *         replicaPrimary,
+ *     ],
  * });
  * ```
  *

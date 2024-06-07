@@ -229,6 +229,12 @@ namespace Pulumi.Azure.Network
     ///                 Input = sourcePortRanges,
     ///             })).Apply(invoke =&gt; invoke.Result) },
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleNetworkManagerAdminRule,
+    ///         },
     ///     });
     /// 
     /// });

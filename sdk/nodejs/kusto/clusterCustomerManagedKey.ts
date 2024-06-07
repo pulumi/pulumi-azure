@@ -74,6 +74,11 @@ import * as utilities from "../utilities";
  *         "verify",
  *         "wrapKey",
  *     ],
+ * }, {
+ *     dependsOn: [
+ *         client,
+ *         cluster,
+ *     ],
  * });
  * const exampleClusterCustomerManagedKey = new azure.kusto.ClusterCustomerManagedKey("example", {
  *     clusterId: exampleCluster.id,

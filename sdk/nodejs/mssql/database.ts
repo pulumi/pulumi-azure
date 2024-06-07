@@ -122,6 +122,8 @@ import * as utilities from "../utilities";
  *         "unwrapKey",
  *         "wrapKey",
  *     ],
+ * }, {
+ *     dependsOn: [exampleKeyVault],
  * });
  * const exampleDatabase = new azure.mssql.Database("example", {
  *     name: "example-db",

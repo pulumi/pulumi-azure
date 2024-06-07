@@ -54,6 +54,12 @@ namespace Pulumi.Azure.AppConfiguration
     ///         Key = "appConfKey1",
     ///         Label = "somelabel",
     ///         Value = "a test",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             appconfDataowner,
+    ///         },
     ///     });
     /// 
     /// });
@@ -136,6 +142,12 @@ namespace Pulumi.Azure.AppConfiguration
     ///         Type = "vault",
     ///         Label = "label1",
     ///         VaultKeyReference = kvs.VersionlessId,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             appconfDataowner,
+    ///         },
     ///     });
     /// 
     /// });

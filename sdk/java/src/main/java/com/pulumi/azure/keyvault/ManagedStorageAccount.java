@@ -130,6 +130,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.authorization.AssignmentArgs;
  * import com.pulumi.azure.keyvault.ManagedStorageAccount;
  * import com.pulumi.azure.keyvault.ManagedStorageAccountArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -199,7 +200,9 @@ import javax.annotation.Nullable;
  *             .storageAccountKey("key1")
  *             .regenerateKeyAutomatically(true)
  *             .regenerationPeriod("P1D")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAssignment)
+ *                 .build());
  * 
  *     }
  * }

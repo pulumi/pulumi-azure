@@ -419,7 +419,8 @@ class NetworkPacketCapture(pulumi.CustomResource):
             target_resource_id=example_virtual_machine.id,
             storage_location=azure.network.NetworkPacketCaptureStorageLocationArgs(
                 storage_account_id=example_account.id,
-            ))
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[example_extension]))
         ```
 
         > **NOTE:** This Resource requires that [the Network Watcher Virtual Machine Extension](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal#before-you-begin) is installed on the Virtual Machine before capturing can be enabled which can be installed via the `compute.Extension` resource.
@@ -535,7 +536,8 @@ class NetworkPacketCapture(pulumi.CustomResource):
             target_resource_id=example_virtual_machine.id,
             storage_location=azure.network.NetworkPacketCaptureStorageLocationArgs(
                 storage_account_id=example_account.id,
-            ))
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[example_extension]))
         ```
 
         > **NOTE:** This Resource requires that [the Network Watcher Virtual Machine Extension](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal#before-you-begin) is installed on the Virtual Machine before capturing can be enabled which can be installed via the `compute.Extension` resource.

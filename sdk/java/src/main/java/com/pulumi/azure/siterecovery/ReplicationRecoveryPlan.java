@@ -73,6 +73,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.siterecovery.inputs.ReplicationRecoveryPlanShutdownRecoveryGroupArgs;
  * import com.pulumi.azure.siterecovery.inputs.ReplicationRecoveryPlanFailoverRecoveryGroupArgs;
  * import com.pulumi.azure.siterecovery.inputs.ReplicationRecoveryPlanBootRecoveryGroupArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -275,7 +276,11 @@ import javax.annotation.Nullable;
  *                 .targetSubnetName(secondarySubnet.name())
  *                 .recoveryPublicIpAddressId(secondaryPublicIp.id())
  *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     container_mapping,
+ *                     network_mapping)
+ *                 .build());
  * 
  *         var example = new ReplicationRecoveryPlan("example", ReplicationRecoveryPlanArgs.builder()
  *             .name("example-recover-plan")

@@ -158,6 +158,8 @@ import * as utilities from "../utilities";
  *         "unwrapKey",
  *         "wrapKey",
  *     ],
+ * }, {
+ *     dependsOn: [exampleKeyVault],
  * });
  * const exampleManagedInstanceTransparentDataEncryption = new azure.mssql.ManagedInstanceTransparentDataEncryption("example", {
  *     managedInstanceId: exampleManagedInstance.id,

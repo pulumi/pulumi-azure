@@ -486,7 +486,8 @@ class CassandraDatacenter(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             delegated_management_subnet_id=example_subnet.id,
-            default_admin_password="Password1234")
+            default_admin_password="Password1234",
+            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
         example_cassandra_datacenter = azure.cosmosdb.CassandraDatacenter("example",
             name="example-datacenter",
             location=example_cassandra_cluster.location,
@@ -564,7 +565,8 @@ class CassandraDatacenter(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             delegated_management_subnet_id=example_subnet.id,
-            default_admin_password="Password1234")
+            default_admin_password="Password1234",
+            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
         example_cassandra_datacenter = azure.cosmosdb.CassandraDatacenter("example",
             name="example-datacenter",
             location=example_cassandra_cluster.location,

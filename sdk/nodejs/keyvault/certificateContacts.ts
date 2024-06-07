@@ -52,6 +52,8 @@ import * as utilities from "../utilities";
  *             email: "example2@example.com",
  *         },
  *     ],
+ * }, {
+ *     dependsOn: [exampleAccessPolicy],
  * });
  * ```
  *

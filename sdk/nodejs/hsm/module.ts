@@ -93,6 +93,8 @@ import * as utilities from "../utilities";
  *     tags: {
  *         env: "Test",
  *     },
+ * }, {
+ *     dependsOn: [exampleVirtualNetworkGateway],
  * });
  * ```
  *

@@ -380,6 +380,22 @@ class DiskEncryptionSet(pulumi.CustomResource):
             sku_name="premium",
             enabled_for_disk_encryption=True,
             purge_protection_enabled=True)
+        example_user = azure.keyvault.AccessPolicy("example-user",
+            key_vault_id=example_key_vault.id,
+            tenant_id=current.tenant_id,
+            object_id=current.object_id,
+            key_permissions=[
+                "Create",
+                "Delete",
+                "Get",
+                "Purge",
+                "Recover",
+                "Update",
+                "List",
+                "Decrypt",
+                "Sign",
+                "GetRotationPolicy",
+            ])
         example_key = azure.keyvault.Key("example",
             name="des-example-key",
             key_vault_id=example_key_vault.id,
@@ -392,7 +408,8 @@ class DiskEncryptionSet(pulumi.CustomResource):
                 "unwrapKey",
                 "verify",
                 "wrapKey",
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[example_user]))
         example_disk_encryption_set = azure.compute.DiskEncryptionSet("example",
             name="des",
             resource_group_name=example.name,
@@ -415,22 +432,6 @@ class DiskEncryptionSet(pulumi.CustomResource):
                 "List",
                 "Decrypt",
                 "Sign",
-            ])
-        example_user = azure.keyvault.AccessPolicy("example-user",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=current.object_id,
-            key_permissions=[
-                "Create",
-                "Delete",
-                "Get",
-                "Purge",
-                "Recover",
-                "Update",
-                "List",
-                "Decrypt",
-                "Sign",
-                "GetRotationPolicy",
             ])
         example_disk_assignment = azure.authorization.Assignment("example-disk",
             scope=example_key_vault.id,
@@ -456,6 +457,22 @@ class DiskEncryptionSet(pulumi.CustomResource):
             sku_name="premium",
             enabled_for_disk_encryption=True,
             purge_protection_enabled=True)
+        example_user = azure.keyvault.AccessPolicy("example-user",
+            key_vault_id=example_key_vault.id,
+            tenant_id=current.tenant_id,
+            object_id=current.object_id,
+            key_permissions=[
+                "Create",
+                "Delete",
+                "Get",
+                "Purge",
+                "Recover",
+                "Update",
+                "List",
+                "Decrypt",
+                "Sign",
+                "GetRotationPolicy",
+            ])
         example_key = azure.keyvault.Key("example",
             name="des-example-key",
             key_vault_id=example_key_vault.id,
@@ -468,7 +485,8 @@ class DiskEncryptionSet(pulumi.CustomResource):
                 "unwrapKey",
                 "verify",
                 "wrapKey",
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[example_user]))
         example_disk_encryption_set = azure.compute.DiskEncryptionSet("example",
             name="des",
             resource_group_name=example.name,
@@ -492,22 +510,6 @@ class DiskEncryptionSet(pulumi.CustomResource):
                 "List",
                 "Decrypt",
                 "Sign",
-            ])
-        example_user = azure.keyvault.AccessPolicy("example-user",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=current.object_id,
-            key_permissions=[
-                "Create",
-                "Delete",
-                "Get",
-                "Purge",
-                "Recover",
-                "Update",
-                "List",
-                "Decrypt",
-                "Sign",
-                "GetRotationPolicy",
             ])
         example_disk_assignment = azure.authorization.Assignment("example-disk",
             scope=example_key_vault.id,
@@ -568,6 +570,22 @@ class DiskEncryptionSet(pulumi.CustomResource):
             sku_name="premium",
             enabled_for_disk_encryption=True,
             purge_protection_enabled=True)
+        example_user = azure.keyvault.AccessPolicy("example-user",
+            key_vault_id=example_key_vault.id,
+            tenant_id=current.tenant_id,
+            object_id=current.object_id,
+            key_permissions=[
+                "Create",
+                "Delete",
+                "Get",
+                "Purge",
+                "Recover",
+                "Update",
+                "List",
+                "Decrypt",
+                "Sign",
+                "GetRotationPolicy",
+            ])
         example_key = azure.keyvault.Key("example",
             name="des-example-key",
             key_vault_id=example_key_vault.id,
@@ -580,7 +598,8 @@ class DiskEncryptionSet(pulumi.CustomResource):
                 "unwrapKey",
                 "verify",
                 "wrapKey",
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[example_user]))
         example_disk_encryption_set = azure.compute.DiskEncryptionSet("example",
             name="des",
             resource_group_name=example.name,
@@ -603,22 +622,6 @@ class DiskEncryptionSet(pulumi.CustomResource):
                 "List",
                 "Decrypt",
                 "Sign",
-            ])
-        example_user = azure.keyvault.AccessPolicy("example-user",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=current.object_id,
-            key_permissions=[
-                "Create",
-                "Delete",
-                "Get",
-                "Purge",
-                "Recover",
-                "Update",
-                "List",
-                "Decrypt",
-                "Sign",
-                "GetRotationPolicy",
             ])
         example_disk_assignment = azure.authorization.Assignment("example-disk",
             scope=example_key_vault.id,
@@ -644,6 +647,22 @@ class DiskEncryptionSet(pulumi.CustomResource):
             sku_name="premium",
             enabled_for_disk_encryption=True,
             purge_protection_enabled=True)
+        example_user = azure.keyvault.AccessPolicy("example-user",
+            key_vault_id=example_key_vault.id,
+            tenant_id=current.tenant_id,
+            object_id=current.object_id,
+            key_permissions=[
+                "Create",
+                "Delete",
+                "Get",
+                "Purge",
+                "Recover",
+                "Update",
+                "List",
+                "Decrypt",
+                "Sign",
+                "GetRotationPolicy",
+            ])
         example_key = azure.keyvault.Key("example",
             name="des-example-key",
             key_vault_id=example_key_vault.id,
@@ -656,7 +675,8 @@ class DiskEncryptionSet(pulumi.CustomResource):
                 "unwrapKey",
                 "verify",
                 "wrapKey",
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[example_user]))
         example_disk_encryption_set = azure.compute.DiskEncryptionSet("example",
             name="des",
             resource_group_name=example.name,
@@ -680,22 +700,6 @@ class DiskEncryptionSet(pulumi.CustomResource):
                 "List",
                 "Decrypt",
                 "Sign",
-            ])
-        example_user = azure.keyvault.AccessPolicy("example-user",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=current.object_id,
-            key_permissions=[
-                "Create",
-                "Delete",
-                "Get",
-                "Purge",
-                "Recover",
-                "Update",
-                "List",
-                "Decrypt",
-                "Sign",
-                "GetRotationPolicy",
             ])
         example_disk_assignment = azure.authorization.Assignment("example-disk",
             scope=example_key_vault.id,

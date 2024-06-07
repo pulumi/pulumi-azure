@@ -142,7 +142,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = keyvault.NewAccessPolicy(ctx, "deployer", &keyvault.AccessPolicyArgs{
+//			deployer, err := keyvault.NewAccessPolicy(ctx, "deployer", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   pulumi.String(current.TenantId),
 //				ObjectId:   pulumi.String(current.ObjectId),
@@ -166,7 +166,9 @@ import (
 //					pulumi.String("unwrapKey"),
 //					pulumi.String("wrapKey"),
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				deployer,
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -191,7 +193,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = keyvault.NewAccessPolicy(ctx, "workspace_policy", &keyvault.AccessPolicyArgs{
+//			workspacePolicy, err := keyvault.NewAccessPolicy(ctx, "workspace_policy", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId: exampleWorkspace.Identity.ApplyT(func(identity synapse.WorkspaceIdentity) (*string, error) {
 //					return &identity.TenantId, nil
@@ -208,12 +210,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = synapse.NewWorkspaceKey(ctx, "example", &synapse.WorkspaceKeyArgs{
+//			exampleWorkspaceKey, err := synapse.NewWorkspaceKey(ctx, "example", &synapse.WorkspaceKeyArgs{
 //				CustomerManagedKeyVersionlessId: exampleKey.VersionlessId,
 //				SynapseWorkspaceId:              exampleWorkspace.ID(),
 //				Active:                          pulumi.Bool(true),
 //				CustomerManagedKeyName:          pulumi.String("enckey"),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				workspacePolicy,
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -222,7 +226,9 @@ import (
 //				Login:              pulumi.String("AzureAD Admin"),
 //				ObjectId:           pulumi.String("00000000-0000-0000-0000-000000000000"),
 //				TenantId:           pulumi.String("00000000-0000-0000-0000-000000000000"),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleWorkspaceKey,
+//			}))
 //			if err != nil {
 //				return err
 //			}

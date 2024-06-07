@@ -37,15 +37,16 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.keyvault.KeyVault;
  * import com.pulumi.azure.keyvault.KeyVaultArgs;
+ * import com.pulumi.azure.keyvault.AccessPolicy;
+ * import com.pulumi.azure.keyvault.AccessPolicyArgs;
  * import com.pulumi.azure.keyvault.Key;
  * import com.pulumi.azure.keyvault.KeyArgs;
  * import com.pulumi.azure.compute.DiskEncryptionSet;
  * import com.pulumi.azure.compute.DiskEncryptionSetArgs;
  * import com.pulumi.azure.compute.inputs.DiskEncryptionSetIdentityArgs;
- * import com.pulumi.azure.keyvault.AccessPolicy;
- * import com.pulumi.azure.keyvault.AccessPolicyArgs;
  * import com.pulumi.azure.authorization.Assignment;
  * import com.pulumi.azure.authorization.AssignmentArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -76,6 +77,23 @@ import javax.annotation.Nullable;
  *             .purgeProtectionEnabled(true)
  *             .build());
  * 
+ *         var example_user = new AccessPolicy("example-user", AccessPolicyArgs.builder()
+ *             .keyVaultId(exampleKeyVault.id())
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *             .keyPermissions(            
+ *                 "Create",
+ *                 "Delete",
+ *                 "Get",
+ *                 "Purge",
+ *                 "Recover",
+ *                 "Update",
+ *                 "List",
+ *                 "Decrypt",
+ *                 "Sign",
+ *                 "GetRotationPolicy")
+ *             .build());
+ * 
  *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
  *             .name("des-example-key")
  *             .keyVaultId(exampleKeyVault.id())
@@ -88,7 +106,9 @@ import javax.annotation.Nullable;
  *                 "unwrapKey",
  *                 "verify",
  *                 "wrapKey")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(example_user)
+ *                 .build());
  * 
  *         var exampleDiskEncryptionSet = new DiskEncryptionSet("exampleDiskEncryptionSet", DiskEncryptionSetArgs.builder()
  *             .name("des")
@@ -114,23 +134,6 @@ import javax.annotation.Nullable;
  *                 "List",
  *                 "Decrypt",
  *                 "Sign")
- *             .build());
- * 
- *         var example_user = new AccessPolicy("example-user", AccessPolicyArgs.builder()
- *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
- *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
- *             .keyPermissions(            
- *                 "Create",
- *                 "Delete",
- *                 "Get",
- *                 "Purge",
- *                 "Recover",
- *                 "Update",
- *                 "List",
- *                 "Decrypt",
- *                 "Sign",
- *                 "GetRotationPolicy")
  *             .build());
  * 
  *         var example_diskAssignment = new Assignment("example-diskAssignment", AssignmentArgs.builder()
@@ -160,15 +163,16 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.keyvault.KeyVault;
  * import com.pulumi.azure.keyvault.KeyVaultArgs;
+ * import com.pulumi.azure.keyvault.AccessPolicy;
+ * import com.pulumi.azure.keyvault.AccessPolicyArgs;
  * import com.pulumi.azure.keyvault.Key;
  * import com.pulumi.azure.keyvault.KeyArgs;
  * import com.pulumi.azure.compute.DiskEncryptionSet;
  * import com.pulumi.azure.compute.DiskEncryptionSetArgs;
  * import com.pulumi.azure.compute.inputs.DiskEncryptionSetIdentityArgs;
- * import com.pulumi.azure.keyvault.AccessPolicy;
- * import com.pulumi.azure.keyvault.AccessPolicyArgs;
  * import com.pulumi.azure.authorization.Assignment;
  * import com.pulumi.azure.authorization.AssignmentArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -199,6 +203,23 @@ import javax.annotation.Nullable;
  *             .purgeProtectionEnabled(true)
  *             .build());
  * 
+ *         var example_user = new AccessPolicy("example-user", AccessPolicyArgs.builder()
+ *             .keyVaultId(exampleKeyVault.id())
+ *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *             .keyPermissions(            
+ *                 "Create",
+ *                 "Delete",
+ *                 "Get",
+ *                 "Purge",
+ *                 "Recover",
+ *                 "Update",
+ *                 "List",
+ *                 "Decrypt",
+ *                 "Sign",
+ *                 "GetRotationPolicy")
+ *             .build());
+ * 
  *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
  *             .name("des-example-key")
  *             .keyVaultId(exampleKeyVault.id())
@@ -211,7 +232,9 @@ import javax.annotation.Nullable;
  *                 "unwrapKey",
  *                 "verify",
  *                 "wrapKey")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(example_user)
+ *                 .build());
  * 
  *         var exampleDiskEncryptionSet = new DiskEncryptionSet("exampleDiskEncryptionSet", DiskEncryptionSetArgs.builder()
  *             .name("des")
@@ -238,23 +261,6 @@ import javax.annotation.Nullable;
  *                 "List",
  *                 "Decrypt",
  *                 "Sign")
- *             .build());
- * 
- *         var example_user = new AccessPolicy("example-user", AccessPolicyArgs.builder()
- *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
- *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
- *             .keyPermissions(            
- *                 "Create",
- *                 "Delete",
- *                 "Get",
- *                 "Purge",
- *                 "Recover",
- *                 "Update",
- *                 "List",
- *                 "Decrypt",
- *                 "Sign",
- *                 "GetRotationPolicy")
  *             .build());
  * 
  *         var example_diskAssignment = new Assignment("example-diskAssignment", AssignmentArgs.builder()

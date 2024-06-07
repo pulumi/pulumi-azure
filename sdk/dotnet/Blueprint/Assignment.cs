@@ -105,6 +105,13 @@ namespace Pulumi.Azure.Blueprint
     ///       }
     ///     }
     /// ",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             @operator,
+    ///             owner,
+    ///         },
     ///     });
     /// 
     /// });

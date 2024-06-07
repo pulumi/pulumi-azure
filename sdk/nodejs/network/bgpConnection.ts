@@ -55,6 +55,8 @@ import * as utilities from "../utilities";
  *     virtualHubId: exampleVirtualHub.id,
  *     peerAsn: 65514,
  *     peerIp: "169.254.21.5",
+ * }, {
+ *     dependsOn: [exampleVirtualHubIp],
  * });
  * ```
  *

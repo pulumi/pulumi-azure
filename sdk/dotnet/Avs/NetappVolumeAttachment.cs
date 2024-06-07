@@ -199,6 +199,12 @@ namespace Pulumi.Azure.Avs
     ///         Name = "example-vmwareattachment",
     ///         NetappVolumeId = testVolume.Id,
     ///         VmwareClusterId = testCluster.Id,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             testVirtualNetworkGatewayConnection,
+    ///         },
     ///     });
     /// 
     /// });

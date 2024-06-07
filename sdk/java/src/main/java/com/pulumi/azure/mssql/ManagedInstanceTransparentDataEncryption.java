@@ -144,6 +144,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.keyvault.KeyArgs;
  * import com.pulumi.azure.mssql.ManagedInstanceTransparentDataEncryption;
  * import com.pulumi.azure.mssql.ManagedInstanceTransparentDataEncryptionArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -246,7 +247,9 @@ import javax.annotation.Nullable;
  *             .keyOpts(            
  *                 "unwrapKey",
  *                 "wrapKey")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleKeyVault)
+ *                 .build());
  * 
  *         var exampleManagedInstanceTransparentDataEncryption = new ManagedInstanceTransparentDataEncryption("exampleManagedInstanceTransparentDataEncryption", ManagedInstanceTransparentDataEncryptionArgs.builder()
  *             .managedInstanceId(exampleManagedInstance.id())

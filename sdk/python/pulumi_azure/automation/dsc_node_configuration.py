@@ -222,7 +222,8 @@ class DscNodeConfiguration(pulumi.CustomResource):
           GenerationHost="bogusComputer";
           Name="test";
         };
-        \"\"\")
+        \"\"\",
+            opts=pulumi.ResourceOptions(depends_on=[example_dsc_configuration]))
         ```
 
         ## Import
@@ -294,7 +295,8 @@ class DscNodeConfiguration(pulumi.CustomResource):
           GenerationHost="bogusComputer";
           Name="test";
         };
-        \"\"\")
+        \"\"\",
+            opts=pulumi.ResourceOptions(depends_on=[example_dsc_configuration]))
         ```
 
         ## Import

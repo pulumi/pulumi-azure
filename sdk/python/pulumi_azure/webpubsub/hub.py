@@ -285,7 +285,8 @@ class Hub(pulumi.CustomResource):
                     eventhub_name=test1["name"],
                 ),
             ],
-            anonymous_connections_enabled=True)
+            anonymous_connections_enabled=True,
+            opts=pulumi.ResourceOptions(depends_on=[example_service]))
         ```
 
         ## Import
@@ -381,7 +382,8 @@ class Hub(pulumi.CustomResource):
                     eventhub_name=test1["name"],
                 ),
             ],
-            anonymous_connections_enabled=True)
+            anonymous_connections_enabled=True,
+            opts=pulumi.ResourceOptions(depends_on=[example_service]))
         ```
 
         ## Import

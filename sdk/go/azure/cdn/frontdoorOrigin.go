@@ -185,26 +185,6 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleFrontdoorProfile, err := cdn.NewFrontdoorProfile(ctx, "example", &cdn.FrontdoorProfileArgs{
-//				Name:              pulumi.String("profile-example"),
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("Premium_AzureFrontDoor"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleFrontdoorOriginGroup, err := cdn.NewFrontdoorOriginGroup(ctx, "example", &cdn.FrontdoorOriginGroupArgs{
-//				Name:                  pulumi.String("group-example"),
-//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
-//				LoadBalancing: &cdn.FrontdoorOriginGroupLoadBalancingArgs{
-//					AdditionalLatencyInMilliseconds: pulumi.Int(0),
-//					SampleSize:                      pulumi.Int(16),
-//					SuccessfulSamplesRequired:       pulumi.Int(3),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
 //			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
 //				Name:              pulumi.String("vn-example"),
 //				ResourceGroupName: example.Name,
@@ -273,6 +253,28 @@ import (
 //						SubnetId:                exampleSubnet.ID(),
 //						Primary:                 pulumi.Bool(true),
 //					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFrontdoorProfile, err := cdn.NewFrontdoorProfile(ctx, "example", &cdn.FrontdoorProfileArgs{
+//				Name:              pulumi.String("profile-example"),
+//				ResourceGroupName: example.Name,
+//				SkuName:           pulumi.String("Premium_AzureFrontDoor"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleLinkService,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			exampleFrontdoorOriginGroup, err := cdn.NewFrontdoorOriginGroup(ctx, "example", &cdn.FrontdoorOriginGroupArgs{
+//				Name:                  pulumi.String("group-example"),
+//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
+//				LoadBalancing: &cdn.FrontdoorOriginGroupLoadBalancingArgs{
+//					AdditionalLatencyInMilliseconds: pulumi.Int(0),
+//					SampleSize:                      pulumi.Int(16),
+//					SuccessfulSamplesRequired:       pulumi.Int(3),
 //				},
 //			})
 //			if err != nil {

@@ -110,6 +110,13 @@ namespace Pulumi.Azure.EventHub
     ///             "verify",
     ///             "wrapKey",
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAccessPolicy,
+    ///             example2,
+    ///         },
     ///     });
     /// 
     ///     var exampleNamespaceCustomerManagedKey = new Azure.EventHub.NamespaceCustomerManagedKey("example", new()
@@ -228,6 +235,13 @@ namespace Pulumi.Azure.EventHub
     ///             "unwrapKey",
     ///             "verify",
     ///             "wrapKey",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAccessPolicy,
+    ///             example2,
     ///         },
     ///     });
     /// 

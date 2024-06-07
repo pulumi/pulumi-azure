@@ -623,7 +623,11 @@ class ConfigurationStore(pulumi.CustomResource):
                 "unwrapKey",
                 "verify",
                 "wrapKey",
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    client,
+                    server,
+                ]))
         example_configuration_store = azure.appconfiguration.ConfigurationStore("example",
             name="appConf2",
             resource_group_name=example.name,
@@ -647,7 +651,11 @@ class ConfigurationStore(pulumi.CustomResource):
             )],
             tags={
                 "environment": "development",
-            })
+            },
+            opts=pulumi.ResourceOptions(depends_on=[
+                    client,
+                    server,
+                ]))
         ```
 
         ## Import
@@ -768,7 +776,11 @@ class ConfigurationStore(pulumi.CustomResource):
                 "unwrapKey",
                 "verify",
                 "wrapKey",
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    client,
+                    server,
+                ]))
         example_configuration_store = azure.appconfiguration.ConfigurationStore("example",
             name="appConf2",
             resource_group_name=example.name,
@@ -792,7 +804,11 @@ class ConfigurationStore(pulumi.CustomResource):
             )],
             tags={
                 "environment": "development",
-            })
+            },
+            opts=pulumi.ResourceOptions(depends_on=[
+                    client,
+                    server,
+                ]))
         ```
 
         ## Import

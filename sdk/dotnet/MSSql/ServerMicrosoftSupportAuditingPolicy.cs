@@ -180,6 +180,13 @@ namespace Pulumi.Azure.MSSql
     ///         ServerId = exampleServer.Id,
     ///         LogMonitoringEnabled = false,
     ///         StorageAccountSubscriptionId = primaryAzurermSubscription.SubscriptionId,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAssignment,
+    ///             exampleAccount,
+    ///         },
     ///     });
     /// 
     /// });

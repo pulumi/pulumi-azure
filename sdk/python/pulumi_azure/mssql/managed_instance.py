@@ -904,7 +904,8 @@ class ManagedInstance(pulumi.CustomResource):
             name="routetable-mi",
             location=example.location,
             resource_group_name=example.name,
-            disable_bgp_route_propagation=False)
+            disable_bgp_route_propagation=False,
+            opts=pulumi.ResourceOptions(depends_on=[example_subnet]))
         example_subnet_route_table_association = azure.network.SubnetRouteTableAssociation("example",
             subnet_id=example_subnet.id,
             route_table_id=example_route_table.id)
@@ -918,7 +919,11 @@ class ManagedInstance(pulumi.CustomResource):
             subnet_id=example_subnet.id,
             vcores=4,
             administrator_login="mradministrator",
-            administrator_login_password="thisIsDog11")
+            administrator_login_password="thisIsDog11",
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_subnet_network_security_group_association,
+                    example_subnet_route_table_association,
+                ]))
         ```
 
         ## Import
@@ -1111,7 +1116,8 @@ class ManagedInstance(pulumi.CustomResource):
             name="routetable-mi",
             location=example.location,
             resource_group_name=example.name,
-            disable_bgp_route_propagation=False)
+            disable_bgp_route_propagation=False,
+            opts=pulumi.ResourceOptions(depends_on=[example_subnet]))
         example_subnet_route_table_association = azure.network.SubnetRouteTableAssociation("example",
             subnet_id=example_subnet.id,
             route_table_id=example_route_table.id)
@@ -1125,7 +1131,11 @@ class ManagedInstance(pulumi.CustomResource):
             subnet_id=example_subnet.id,
             vcores=4,
             administrator_login="mradministrator",
-            administrator_login_password="thisIsDog11")
+            administrator_login_password="thisIsDog11",
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_subnet_network_security_group_association,
+                    example_subnet_route_table_association,
+                ]))
         ```
 
         ## Import

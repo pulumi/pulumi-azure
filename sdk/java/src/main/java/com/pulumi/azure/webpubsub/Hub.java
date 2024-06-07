@@ -42,6 +42,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.webpubsub.inputs.HubEventHandlerArgs;
  * import com.pulumi.azure.webpubsub.inputs.HubEventHandlerAuthArgs;
  * import com.pulumi.azure.webpubsub.inputs.HubEventListenerArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -115,7 +116,9 @@ import javax.annotation.Nullable;
  *                     .eventhubName(test1.name())
  *                     .build())
  *             .anonymousConnectionsEnabled(true)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleService)
+ *                 .build());
  * 
  *     }
  * }

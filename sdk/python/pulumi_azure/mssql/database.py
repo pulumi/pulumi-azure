@@ -1391,7 +1391,8 @@ class Database(pulumi.CustomResource):
             key_opts=[
                 "unwrapKey",
                 "wrapKey",
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[example_key_vault]))
         example_database = azure.mssql.Database("example",
             name="example-db",
             server_id=example_server.id,
@@ -1594,7 +1595,8 @@ class Database(pulumi.CustomResource):
             key_opts=[
                 "unwrapKey",
                 "wrapKey",
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[example_key_vault]))
         example_database = azure.mssql.Database("example",
             name="example-db",
             server_id=example_server.id,

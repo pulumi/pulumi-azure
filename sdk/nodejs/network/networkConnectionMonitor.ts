@@ -126,6 +126,8 @@ import * as utilities from "../utilities";
  *     }],
  *     notes: "examplenote",
  *     outputWorkspaceResourceIds: [exampleAnalyticsWorkspace.id],
+ * }, {
+ *     dependsOn: [exampleExtension],
  * });
  * ```
  *

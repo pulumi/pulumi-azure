@@ -313,7 +313,11 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
             storage_size_in_gb=32,
             tags={
                 "environment": "prod",
-            })
+            },
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_subnet_network_security_group_association,
+                    example_subnet_route_table_association,
+                ]))
         secondary = azure.mssql.ManagedInstance("secondary",
             name="example-secondary",
             resource_group_name=example.name,
@@ -327,7 +331,11 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
             storage_size_in_gb=32,
             tags={
                 "environment": "prod",
-            })
+            },
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_subnet_network_security_group_association,
+                    example_subnet_route_table_association,
+                ]))
         example_managed_instance_failover_group = azure.mssql.ManagedInstanceFailoverGroup("example",
             name="example-failover-group",
             location=primary.location,
@@ -413,7 +421,11 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
             storage_size_in_gb=32,
             tags={
                 "environment": "prod",
-            })
+            },
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_subnet_network_security_group_association,
+                    example_subnet_route_table_association,
+                ]))
         secondary = azure.mssql.ManagedInstance("secondary",
             name="example-secondary",
             resource_group_name=example.name,
@@ -427,7 +439,11 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
             storage_size_in_gb=32,
             tags={
                 "environment": "prod",
-            })
+            },
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_subnet_network_security_group_association,
+                    example_subnet_route_table_association,
+                ]))
         example_managed_instance_failover_group = azure.mssql.ManagedInstanceFailoverGroup("example",
             name="example-failover-group",
             location=primary.location,

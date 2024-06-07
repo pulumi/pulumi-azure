@@ -38,6 +38,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azuread.ApplicationPasswordArgs;
  * import com.pulumi.azure.apimanagement.IdentityProviderAadb2c;
  * import com.pulumi.azure.apimanagement.IdentityProviderAadb2cArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -84,7 +85,9 @@ import javax.annotation.Nullable;
  *             .authority("myb2ctenant.b2clogin.com")
  *             .signinPolicy("B2C_1_Login")
  *             .signupPolicy("B2C_1_Signup")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleApplicationPassword)
+ *                 .build());
  * 
  *     }
  * }

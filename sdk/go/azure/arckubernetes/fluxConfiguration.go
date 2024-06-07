@@ -58,7 +58,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = arckubernetes.NewClusterExtension(ctx, "example", &arckubernetes.ClusterExtensionArgs{
+//			exampleClusterExtension, err := arckubernetes.NewClusterExtension(ctx, "example", &arckubernetes.ClusterExtensionArgs{
 //				Name:          pulumi.String("example-ext"),
 //				ClusterId:     pulumi.Any(test.Id),
 //				ExtensionType: pulumi.String("microsoft.flux"),
@@ -80,7 +80,9 @@ import (
 //						Name: pulumi.String("kustomization-1"),
 //					},
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleClusterExtension,
+//			}))
 //			if err != nil {
 //				return err
 //			}

@@ -75,7 +75,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = authorization.NewAssignment(ctx, "operator", &authorization.AssignmentArgs{
+//			operator, err := authorization.NewAssignment(ctx, "operator", &authorization.AssignmentArgs{
 //				Scope:              pulumi.String(example.Id),
 //				RoleDefinitionName: pulumi.String("Blueprint Operator"),
 //				PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
@@ -83,7 +83,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = authorization.NewAssignment(ctx, "owner", &authorization.AssignmentArgs{
+//			owner, err := authorization.NewAssignment(ctx, "owner", &authorization.AssignmentArgs{
 //				Scope:              pulumi.String(example.Id),
 //				RoleDefinitionName: pulumi.String("Owner"),
 //				PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
@@ -122,7 +122,10 @@ import (
 //
 // `),
 //
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				operator,
+//				owner,
+//			}))
 //			if err != nil {
 //				return err
 //			}

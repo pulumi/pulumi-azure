@@ -129,6 +129,12 @@ namespace Pulumi.Azure.Monitoring
     ///             { "key", "value" },
     ///             { "key2", "value2" },
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAssignment,
+    ///         },
     ///     });
     /// 
     /// });

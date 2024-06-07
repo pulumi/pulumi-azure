@@ -844,7 +844,8 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
             pattern="http://example.com",
             source="Microsoft Sentinel",
             validate_from_utc="2022-12-14T16:00:00Z",
-            display_name="example-indicator")
+            display_name="example-indicator",
+            opts=pulumi.ResourceOptions(depends_on=[test]))
         ```
 
         ## Import
@@ -911,7 +912,8 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
             pattern="http://example.com",
             source="Microsoft Sentinel",
             validate_from_utc="2022-12-14T16:00:00Z",
-            display_name="example-indicator")
+            display_name="example-indicator",
+            opts=pulumi.ResourceOptions(depends_on=[test]))
         ```
 
         ## Import

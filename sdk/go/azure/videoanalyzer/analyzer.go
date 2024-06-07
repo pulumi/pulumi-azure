@@ -58,7 +58,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = authorization.NewAssignment(ctx, "contributor", &authorization.AssignmentArgs{
+//			contributor, err := authorization.NewAssignment(ctx, "contributor", &authorization.AssignmentArgs{
 //				Scope:              exampleAccount.ID(),
 //				RoleDefinitionName: pulumi.String("Storage Blob Data Contributor"),
 //				PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
@@ -66,7 +66,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = authorization.NewAssignment(ctx, "reader", &authorization.AssignmentArgs{
+//			reader, err := authorization.NewAssignment(ctx, "reader", &authorization.AssignmentArgs{
 //				Scope:              exampleAccount.ID(),
 //				RoleDefinitionName: pulumi.String("Reader"),
 //				PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
@@ -91,7 +91,10 @@ import (
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("staging"),
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				contributor,
+//				reader,
+//			}))
 //			if err != nil {
 //				return err
 //			}

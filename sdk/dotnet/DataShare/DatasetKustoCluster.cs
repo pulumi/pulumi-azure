@@ -70,6 +70,12 @@ namespace Pulumi.Azure.DataShare
     ///         Name = "example-dskc",
     ///         ShareId = exampleShare.Id,
     ///         KustoClusterId = exampleCluster.Id,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAssignment,
+    ///         },
     ///     });
     /// 
     /// });

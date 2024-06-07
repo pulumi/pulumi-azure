@@ -70,7 +70,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = synapse.NewFirewallRule(ctx, "example", &synapse.FirewallRuleArgs{
+//			exampleFirewallRule, err := synapse.NewFirewallRule(ctx, "example", &synapse.FirewallRuleArgs{
 //				Name:               pulumi.String("AllowAll"),
 //				SynapseWorkspaceId: exampleWorkspace.ID(),
 //				StartIpAddress:     pulumi.String("0.0.0.0"),
@@ -87,7 +87,9 @@ import (
 //				SynapseWorkspaceId: exampleWorkspace.ID(),
 //				RoleName:           pulumi.String("Synapse SQL Administrator"),
 //				PrincipalId:        pulumi.String(current.ObjectId),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleFirewallRule,
+//			}))
 //			if err != nil {
 //				return err
 //			}

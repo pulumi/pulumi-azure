@@ -56,6 +56,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.domainservices.inputs.ServiceInitialReplicaSetArgs;
  * import com.pulumi.azure.domainservices.inputs.ServiceNotificationsArgs;
  * import com.pulumi.azure.domainservices.inputs.ServiceSecurityArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -192,7 +193,11 @@ import javax.annotation.Nullable;
  *                 .syncOnPremPasswords(true)
  *                 .build())
  *             .tags(Map.of("Environment", "prod"))
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     example,
+ *                     deploySubnetNetworkSecurityGroupAssociation)
+ *                 .build());
  * 
  *     }
  * }

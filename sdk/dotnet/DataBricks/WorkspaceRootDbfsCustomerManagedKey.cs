@@ -54,29 +54,6 @@ namespace Pulumi.Azure.DataBricks
     ///         SoftDeleteRetentionDays = 7,
     ///     });
     /// 
-    ///     var exampleKey = new Azure.KeyVault.Key("example", new()
-    ///     {
-    ///         Name = "example-certificate",
-    ///         KeyVaultId = exampleKeyVault.Id,
-    ///         KeyType = "RSA",
-    ///         KeySize = 2048,
-    ///         KeyOpts = new[]
-    ///         {
-    ///             "decrypt",
-    ///             "encrypt",
-    ///             "sign",
-    ///             "unwrapKey",
-    ///             "verify",
-    ///             "wrapKey",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleWorkspaceRootDbfsCustomerManagedKey = new Azure.DataBricks.WorkspaceRootDbfsCustomerManagedKey("example", new()
-    ///     {
-    ///         WorkspaceId = exampleWorkspace.Id,
-    ///         KeyVaultKeyId = exampleKey.Id,
-    ///     });
-    /// 
     ///     var terraform = new Azure.KeyVault.AccessPolicy("terraform", new()
     ///     {
     ///         KeyVaultId = exampleKeyVault.Id,
@@ -97,6 +74,29 @@ namespace Pulumi.Azure.DataBricks
     ///         },
     ///     });
     /// 
+    ///     var exampleKey = new Azure.KeyVault.Key("example", new()
+    ///     {
+    ///         Name = "example-certificate",
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         KeyType = "RSA",
+    ///         KeySize = 2048,
+    ///         KeyOpts = new[]
+    ///         {
+    ///             "decrypt",
+    ///             "encrypt",
+    ///             "sign",
+    ///             "unwrapKey",
+    ///             "verify",
+    ///             "wrapKey",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             terraform,
+    ///         },
+    ///     });
+    /// 
     ///     var databricks = new Azure.KeyVault.AccessPolicy("databricks", new()
     ///     {
     ///         KeyVaultId = exampleKeyVault.Id,
@@ -113,6 +113,24 @@ namespace Pulumi.Azure.DataBricks
     ///             "List",
     ///             "Decrypt",
     ///             "Sign",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleWorkspace,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleWorkspaceRootDbfsCustomerManagedKey = new Azure.DataBricks.WorkspaceRootDbfsCustomerManagedKey("example", new()
+    ///     {
+    ///         WorkspaceId = exampleWorkspace.Id,
+    ///         KeyVaultKeyId = exampleKey.Id,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             databricks,
     ///         },
     ///     });
     /// 

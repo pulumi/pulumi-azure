@@ -68,31 +68,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
-//				Name:       pulumi.String("example-certificate"),
-//				KeyVaultId: exampleKeyVault.ID(),
-//				KeyType:    pulumi.String("RSA"),
-//				KeySize:    pulumi.Int(2048),
-//				KeyOpts: pulumi.StringArray{
-//					pulumi.String("decrypt"),
-//					pulumi.String("encrypt"),
-//					pulumi.String("sign"),
-//					pulumi.String("unwrapKey"),
-//					pulumi.String("verify"),
-//					pulumi.String("wrapKey"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = databricks.NewWorkspaceRootDbfsCustomerManagedKey(ctx, "example", &databricks.WorkspaceRootDbfsCustomerManagedKeyArgs{
-//				WorkspaceId:   exampleWorkspace.ID(),
-//				KeyVaultKeyId: exampleKey.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = keyvault.NewAccessPolicy(ctx, "terraform", &keyvault.AccessPolicyArgs{
+//			terraform, err := keyvault.NewAccessPolicy(ctx, "terraform", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   exampleKeyVault.TenantId,
 //				ObjectId:   pulumi.String(current.ObjectId),
@@ -112,7 +88,26 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = keyvault.NewAccessPolicy(ctx, "databricks", &keyvault.AccessPolicyArgs{
+//			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
+//				Name:       pulumi.String("example-certificate"),
+//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyType:    pulumi.String("RSA"),
+//				KeySize:    pulumi.Int(2048),
+//				KeyOpts: pulumi.StringArray{
+//					pulumi.String("decrypt"),
+//					pulumi.String("encrypt"),
+//					pulumi.String("sign"),
+//					pulumi.String("unwrapKey"),
+//					pulumi.String("verify"),
+//					pulumi.String("wrapKey"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				terraform,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			databricks, err := keyvault.NewAccessPolicy(ctx, "databricks", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId: exampleWorkspace.StorageAccountIdentities.ApplyT(func(storageAccountIdentities []databricks.WorkspaceStorageAccountIdentity) (*string, error) {
 //					return &storageAccountIdentities[0].TenantId, nil
@@ -131,7 +126,18 @@ import (
 //					pulumi.String("Decrypt"),
 //					pulumi.String("Sign"),
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleWorkspace,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = databricks.NewWorkspaceRootDbfsCustomerManagedKey(ctx, "example", &databricks.WorkspaceRootDbfsCustomerManagedKeyArgs{
+//				WorkspaceId:   exampleWorkspace.ID(),
+//				KeyVaultKeyId: exampleKey.ID(),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				databricks,
+//			}))
 //			if err != nil {
 //				return err
 //			}

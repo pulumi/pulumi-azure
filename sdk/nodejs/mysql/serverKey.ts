@@ -89,6 +89,11 @@ import * as utilities from "../utilities";
  *         "verify",
  *         "wrapKey",
  *     ],
+ * }, {
+ *     dependsOn: [
+ *         client,
+ *         server,
+ *     ],
  * });
  * const exampleServerKey = new azure.mysql.ServerKey("example", {
  *     serverId: exampleServer.id,

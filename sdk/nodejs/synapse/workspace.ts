@@ -106,6 +106,8 @@ import * as utilities from "../utilities";
  *         "unwrapKey",
  *         "wrapKey",
  *     ],
+ * }, {
+ *     dependsOn: [deployer],
  * });
  * const exampleWorkspace = new azure.synapse.Workspace("example", {
  *     name: "example",
@@ -140,12 +142,16 @@ import * as utilities from "../utilities";
  *     synapseWorkspaceId: exampleWorkspace.id,
  *     active: true,
  *     customerManagedKeyName: "enckey",
+ * }, {
+ *     dependsOn: [workspacePolicy],
  * });
  * const exampleWorkspaceAadAdmin = new azure.synapse.WorkspaceAadAdmin("example", {
  *     synapseWorkspaceId: exampleWorkspace.id,
  *     login: "AzureAD Admin",
  *     objectId: "00000000-0000-0000-0000-000000000000",
  *     tenantId: "00000000-0000-0000-0000-000000000000",
+ * }, {
+ *     dependsOn: [exampleWorkspaceKey],
  * });
  * ```
  *

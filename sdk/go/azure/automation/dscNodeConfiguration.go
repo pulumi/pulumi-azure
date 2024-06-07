@@ -45,7 +45,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = automation.NewDscConfiguration(ctx, "example", &automation.DscConfigurationArgs{
+//			exampleDscConfiguration, err := automation.NewDscConfiguration(ctx, "example", &automation.DscConfigurationArgs{
 //				Name:                  pulumi.String("test"),
 //				ResourceGroupName:     example.Name,
 //				AutomationAccountName: exampleAccount.Name,
@@ -86,7 +86,9 @@ import (
 //
 // `),
 //
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleDscConfiguration,
+//			}))
 //			if err != nil {
 //				return err
 //			}

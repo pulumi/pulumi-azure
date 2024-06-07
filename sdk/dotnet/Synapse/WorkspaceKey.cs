@@ -85,6 +85,12 @@ namespace Pulumi.Azure.Synapse
     ///             "unwrapKey",
     ///             "wrapKey",
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             deployer,
+    ///         },
     ///     });
     /// 
     ///     var exampleWorkspace = new Azure.Synapse.Workspace("example", new()
@@ -129,6 +135,12 @@ namespace Pulumi.Azure.Synapse
     ///         SynapseWorkspaceId = exampleWorkspace.Id,
     ///         Active = true,
     ///         CustomerManagedKeyName = "enckey",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             workspacePolicy,
+    ///         },
     ///     });
     /// 
     /// });

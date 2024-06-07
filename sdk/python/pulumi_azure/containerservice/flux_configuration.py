@@ -369,7 +369,8 @@ class FluxConfiguration(pulumi.CustomResource):
             ),
             kustomizations=[azure.containerservice.FluxConfigurationKustomizationArgs(
                 name="kustomization-1",
-            )])
+            )],
+            opts=pulumi.ResourceOptions(depends_on=[example_kubernetes_cluster_extension]))
         ```
 
         ## Import
@@ -438,7 +439,8 @@ class FluxConfiguration(pulumi.CustomResource):
             ),
             kustomizations=[azure.containerservice.FluxConfigurationKustomizationArgs(
                 name="kustomization-1",
-            )])
+            )],
+            opts=pulumi.ResourceOptions(depends_on=[example_kubernetes_cluster_extension]))
         ```
 
         ## Import

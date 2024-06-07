@@ -141,7 +141,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = keyvault.NewAccessPolicy(ctx, "example", &keyvault.AccessPolicyArgs{
+//			exampleAccessPolicy, err := keyvault.NewAccessPolicy(ctx, "example", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   pulumi.String(current.TenantId),
 //				ObjectId:   pulumi.String(current.ObjectId),
@@ -179,7 +179,10 @@ import (
 //					pulumi.String("verify"),
 //					pulumi.String("wrapKey"),
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleKeyVault,
+//				exampleAccessPolicy,
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -333,7 +336,10 @@ import (
 //					pulumi.String("UnwrapKey"),
 //					pulumi.String("WrapKey"),
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				test,
+//				current,
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -350,7 +356,10 @@ import (
 //					pulumi.String("verify"),
 //					pulumi.String("wrapKey"),
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleKeyVault,
+//				example_sp,
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -406,7 +415,13 @@ import (
 //					KeyVaultId:             exampleKeyVault.ID(),
 //					KeyId:                  exampleKey.ID(),
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				example_role1,
+//				example_role2,
+//				example_role3,
+//				example_role4,
+//				example_cosmosdb,
+//			}))
 //			if err != nil {
 //				return err
 //			}

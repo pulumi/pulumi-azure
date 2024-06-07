@@ -61,7 +61,9 @@ import (
 //				Source:          pulumi.String("Microsoft Sentinel"),
 //				ValidateFromUtc: pulumi.String("2022-12-14T16:00:00Z"),
 //				DisplayName:     pulumi.String("example-indicator"),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				test,
+//			}))
 //			if err != nil {
 //				return err
 //			}

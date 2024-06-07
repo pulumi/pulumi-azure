@@ -100,7 +100,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = eventgrid.NewEventSubscription(ctx, "example", &eventgrid.EventSubscriptionArgs{
+//			exampleEventSubscription, err := eventgrid.NewEventSubscription(ctx, "example", &eventgrid.EventSubscriptionArgs{
 //				Name:                pulumi.String("eventgrid-example"),
 //				Scope:               exampleAccount.ID(),
 //				EventhubEndpointId:  exampleEventHub.ID(),
@@ -129,7 +129,9 @@ import (
 //				TableName:                 pulumi.String("my-table"),
 //				MappingRuleName:           pulumi.String("my-table-mapping"),
 //				DataFormat:                pulumi.String("JSON"),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleEventSubscription,
+//			}))
 //			if err != nil {
 //				return err
 //			}

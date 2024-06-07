@@ -214,7 +214,8 @@ class NetworkManagerManagementGroupConnection(pulumi.CustomResource):
             name="example-nmmgc",
             management_group_id=example.id,
             network_manager_id=example_network_manager.id,
-            description="example")
+            description="example",
+            opts=pulumi.ResourceOptions(depends_on=[network_contributor]))
         ```
 
         ## Import
@@ -273,7 +274,8 @@ class NetworkManagerManagementGroupConnection(pulumi.CustomResource):
             name="example-nmmgc",
             management_group_id=example.id,
             network_manager_id=example_network_manager.id,
-            description="example")
+            description="example",
+            opts=pulumi.ResourceOptions(depends_on=[network_contributor]))
         ```
 
         ## Import

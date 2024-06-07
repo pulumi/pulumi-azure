@@ -222,7 +222,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewSubnetNetworkSecurityGroupAssociation(ctx, "example", &network.SubnetNetworkSecurityGroupAssociationArgs{
+//			exampleSubnetNetworkSecurityGroupAssociation, err := network.NewSubnetNetworkSecurityGroupAssociation(ctx, "example", &network.SubnetNetworkSecurityGroupAssociationArgs{
 //				SubnetId:               exampleSubnet.ID(),
 //				NetworkSecurityGroupId: exampleNetworkSecurityGroup.ID(),
 //			})
@@ -234,11 +234,13 @@ import (
 //				Location:                   example.Location,
 //				ResourceGroupName:          example.Name,
 //				DisableBgpRoutePropagation: pulumi.Bool(false),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleSubnet,
+//			}))
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewSubnetRouteTableAssociation(ctx, "example", &network.SubnetRouteTableAssociationArgs{
+//			exampleSubnetRouteTableAssociation, err := network.NewSubnetRouteTableAssociation(ctx, "example", &network.SubnetRouteTableAssociationArgs{
 //				SubnetId:     exampleSubnet.ID(),
 //				RouteTableId: exampleRouteTable.ID(),
 //			})
@@ -256,7 +258,10 @@ import (
 //				SkuName:                    pulumi.String("GP_Gen5"),
 //				Vcores:                     pulumi.Int(4),
 //				StorageSizeInGb:            pulumi.Int(32),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleSubnetNetworkSecurityGroupAssociation,
+//				exampleSubnetRouteTableAssociation,
+//			}))
 //			if err != nil {
 //				return err
 //			}

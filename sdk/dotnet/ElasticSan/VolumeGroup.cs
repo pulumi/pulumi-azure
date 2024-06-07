@@ -147,6 +147,13 @@ namespace Pulumi.Azure.ElasticSan
     ///             "verify",
     ///             "wrapKey",
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             userAssignedIdentity,
+    ///             client,
+    ///         },
     ///     });
     /// 
     ///     var exampleVolumeGroup = new Azure.ElasticSan.VolumeGroup("example", new()

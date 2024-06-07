@@ -126,10 +126,12 @@ import (
 //				}
 //				exampleAssignment = append(exampleAssignment, __res)
 //			}
-//			_, err = compute.NewDiskPoolManagedDiskAttachment(ctx, "example", &compute.DiskPoolManagedDiskAttachmentArgs{
+//			exampleDiskPoolManagedDiskAttachment, err := compute.NewDiskPoolManagedDiskAttachment(ctx, "example", &compute.DiskPoolManagedDiskAttachmentArgs{
 //				DiskPoolId:    exampleDiskPool.ID(),
 //				ManagedDiskId: exampleManagedDisk.ID(),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAssignment,
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -138,7 +140,9 @@ import (
 //				AclMode:     pulumi.String("Dynamic"),
 //				DisksPoolId: exampleDiskPool.ID(),
 //				TargetIqn:   pulumi.String("iqn.2021-11.com.microsoft:test"),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleDiskPoolManagedDiskAttachment,
+//			}))
 //			if err != nil {
 //				return err
 //			}

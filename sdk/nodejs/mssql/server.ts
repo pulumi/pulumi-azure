@@ -98,6 +98,8 @@ import * as utilities from "../utilities";
  *         "unwrapKey",
  *         "wrapKey",
  *     ],
+ * }, {
+ *     dependsOn: [exampleKeyVault],
  * });
  * const exampleServer = new azure.mssql.Server("example", {
  *     name: "example-resource",

@@ -121,6 +121,12 @@ namespace Pulumi.Azure.Compute
     ///     {
     ///         DiskPoolId = exampleDiskPool.Id,
     ///         ManagedDiskId = exampleManagedDisk.Id,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAssignment,
+    ///         },
     ///     });
     /// 
     ///     var exampleDiskPoolIscsiTarget = new Azure.Compute.DiskPoolIscsiTarget("example", new()
@@ -129,6 +135,12 @@ namespace Pulumi.Azure.Compute
     ///         AclMode = "Dynamic",
     ///         DisksPoolId = exampleDiskPool.Id,
     ///         TargetIqn = "iqn.2021-11.com.microsoft:test",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleDiskPoolManagedDiskAttachment,
+    ///         },
     ///     });
     /// 
     /// });

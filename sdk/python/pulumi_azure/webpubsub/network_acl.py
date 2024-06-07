@@ -217,7 +217,8 @@ class NetworkAcl(pulumi.CustomResource):
                     "RESTAPI",
                     "ClientConnection",
                 ],
-            )])
+            )],
+            opts=pulumi.ResourceOptions(depends_on=[example_endpoint]))
         ```
 
         ## Import
@@ -293,7 +294,8 @@ class NetworkAcl(pulumi.CustomResource):
                     "RESTAPI",
                     "ClientConnection",
                 ],
-            )])
+            )],
+            opts=pulumi.ResourceOptions(depends_on=[example_endpoint]))
         ```
 
         ## Import

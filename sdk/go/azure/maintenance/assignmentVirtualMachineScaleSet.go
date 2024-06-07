@@ -100,7 +100,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lb.NewRule(ctx, "example", &lb.RuleArgs{
+//			exampleRule, err := lb.NewRule(ctx, "example", &lb.RuleArgs{
 //				Name:                        pulumi.String("example"),
 //				LoadbalancerId:              exampleLoadBalancer.ID(),
 //				ProbeId:                     exampleProbe.ID(),
@@ -207,7 +207,9 @@ import (
 //					MaxUnhealthyUpgradedInstancePercent: pulumi.Int(20),
 //					PauseTimeBetweenBatches:             pulumi.String("PT0S"),
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleRule,
+//			}))
 //			if err != nil {
 //				return err
 //			}

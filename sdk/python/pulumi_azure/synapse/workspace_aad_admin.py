@@ -211,7 +211,8 @@ class WorkspaceAadAdmin(pulumi.CustomResource):
             key_opts=[
                 "unwrapKey",
                 "wrapKey",
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[deployer]))
         example_workspace = azure.synapse.Workspace("example",
             name="example",
             resource_group_name=example.name,
@@ -303,7 +304,8 @@ class WorkspaceAadAdmin(pulumi.CustomResource):
             key_opts=[
                 "unwrapKey",
                 "wrapKey",
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[deployer]))
         example_workspace = azure.synapse.Workspace("example",
             name="example",
             resource_group_name=example.name,

@@ -54,6 +54,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.elasticsan.inputs.VolumeGroupEncryptionArgs;
  * import com.pulumi.azure.elasticsan.inputs.VolumeGroupIdentityArgs;
  * import com.pulumi.azure.elasticsan.inputs.VolumeGroupNetworkRuleArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -161,7 +162,11 @@ import javax.annotation.Nullable;
  *                 "unwrapKey",
  *                 "verify",
  *                 "wrapKey")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     userAssignedIdentity,
+ *                     client)
+ *                 .build());
  * 
  *         var exampleVolumeGroup = new VolumeGroup("exampleVolumeGroup", VolumeGroupArgs.builder()
  *             .name("example-esvg")

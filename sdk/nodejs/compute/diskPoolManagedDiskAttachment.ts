@@ -83,6 +83,8 @@ import * as utilities from "../utilities";
  * const exampleDiskPoolManagedDiskAttachment = new azure.compute.DiskPoolManagedDiskAttachment("example", {
  *     diskPoolId: exampleDiskPool.id,
  *     managedDiskId: exampleManagedDisk.id,
+ * }, {
+ *     dependsOn: [exampleAssignment],
  * });
  * ```
  *

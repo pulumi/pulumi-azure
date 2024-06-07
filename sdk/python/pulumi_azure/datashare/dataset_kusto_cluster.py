@@ -200,7 +200,8 @@ class DatasetKustoCluster(pulumi.CustomResource):
         example_dataset_kusto_cluster = azure.datashare.DatasetKustoCluster("example",
             name="example-dskc",
             share_id=example_share.id,
-            kusto_cluster_id=example_cluster.id)
+            kusto_cluster_id=example_cluster.id,
+            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
 
         ## Import
@@ -261,7 +262,8 @@ class DatasetKustoCluster(pulumi.CustomResource):
         example_dataset_kusto_cluster = azure.datashare.DatasetKustoCluster("example",
             name="example-dskc",
             share_id=example_share.id,
-            kusto_cluster_id=example_cluster.id)
+            kusto_cluster_id=example_cluster.id,
+            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
 
         ## Import

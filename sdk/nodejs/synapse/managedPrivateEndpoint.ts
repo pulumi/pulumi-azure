@@ -61,6 +61,8 @@ import * as utilities from "../utilities";
  *     synapseWorkspaceId: exampleWorkspace.id,
  *     targetResourceId: exampleConnect.id,
  *     subresourceName: "blob",
+ * }, {
+ *     dependsOn: [exampleFirewallRule],
  * });
  * ```
  *

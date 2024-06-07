@@ -41,6 +41,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.inputs.NetworkManagerScopeArgs;
  * import com.pulumi.azure.network.NetworkManagerManagementGroupConnection;
  * import com.pulumi.azure.network.NetworkManagerManagementGroupConnectionArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -95,7 +96,9 @@ import javax.annotation.Nullable;
  *             .managementGroupId(example.id())
  *             .networkManagerId(exampleNetworkManager.id())
  *             .description("example")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(networkContributor)
+ *                 .build());
  * 
  *     }
  * }

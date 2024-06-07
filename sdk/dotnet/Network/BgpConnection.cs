@@ -83,6 +83,12 @@ namespace Pulumi.Azure.Network
     ///         VirtualHubId = exampleVirtualHub.Id,
     ///         PeerAsn = 65514,
     ///         PeerIp = "169.254.21.5",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleVirtualHubIp,
+    ///         },
     ///     });
     /// 
     /// });

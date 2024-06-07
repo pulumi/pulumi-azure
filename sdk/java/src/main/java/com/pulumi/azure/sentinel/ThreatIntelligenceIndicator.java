@@ -42,6 +42,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboardingArgs;
  * import com.pulumi.azure.sentinel.ThreatIntelligenceIndicator;
  * import com.pulumi.azure.sentinel.ThreatIntelligenceIndicatorArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -80,7 +81,9 @@ import javax.annotation.Nullable;
  *             .source("Microsoft Sentinel")
  *             .validateFromUtc("2022-12-14T16:00:00Z")
  *             .displayName("example-indicator")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(test)
+ *                 .build());
  * 
  *     }
  * }

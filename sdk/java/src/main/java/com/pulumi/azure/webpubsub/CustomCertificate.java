@@ -39,6 +39,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.keyvault.inputs.CertificateCertificateArgs;
  * import com.pulumi.azure.webpubsub.CustomCertificate;
  * import com.pulumi.azure.webpubsub.CustomCertificateArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -113,7 +114,9 @@ import javax.annotation.Nullable;
  *             .name("example-cert")
  *             .webPubsubId(exampleWebPubsubService.id())
  *             .customCertificateId(exampleCertificate.id())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAzurermKeyVaultAccessPolicy)
+ *                 .build());
  * 
  *     }
  * }

@@ -73,6 +73,12 @@ namespace Pulumi.Azure.ArcKubernetes
     ///                 Name = "kustomization-1",
     ///             },
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleClusterExtension,
+    ///         },
     ///     });
     /// 
     /// });

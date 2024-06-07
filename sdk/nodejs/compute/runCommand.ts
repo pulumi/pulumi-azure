@@ -178,6 +178,8 @@ import * as utilities from "../utilities";
  *         environment: "terraform-examples",
  *         some_key: "some-value",
  *     },
+ * }, {
+ *     dependsOn: [exampleAssignment],
  * });
  * // authorize to storage blob using SAS token
  * const example3RunCommand = new azure.compute.RunCommand("example3", {

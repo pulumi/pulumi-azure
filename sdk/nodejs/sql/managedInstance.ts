@@ -174,6 +174,8 @@ import * as utilities from "../utilities";
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     disableBgpRoutePropagation: false,
+ * }, {
+ *     dependsOn: [exampleSubnet],
  * });
  * const exampleSubnetRouteTableAssociation = new azure.network.SubnetRouteTableAssociation("example", {
  *     subnetId: exampleSubnet.id,
@@ -190,6 +192,11 @@ import * as utilities from "../utilities";
  *     skuName: "GP_Gen5",
  *     vcores: 4,
  *     storageSizeInGb: 32,
+ * }, {
+ *     dependsOn: [
+ *         exampleSubnetNetworkSecurityGroupAssociation,
+ *         exampleSubnetRouteTableAssociation,
+ *     ],
  * });
  * ```
  *

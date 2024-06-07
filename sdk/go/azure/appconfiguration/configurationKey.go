@@ -53,7 +53,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = authorization.NewAssignment(ctx, "appconf_dataowner", &authorization.AssignmentArgs{
+//			appconfDataowner, err := authorization.NewAssignment(ctx, "appconf_dataowner", &authorization.AssignmentArgs{
 //				Scope:              appconf.ID(),
 //				RoleDefinitionName: pulumi.String("App Configuration Data Owner"),
 //				PrincipalId:        pulumi.String(current.ObjectId),
@@ -66,7 +66,9 @@ import (
 //				Key:                  pulumi.String("appConfKey1"),
 //				Label:                pulumi.String("somelabel"),
 //				Value:                pulumi.String("a test"),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				appconfDataowner,
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -148,7 +150,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = authorization.NewAssignment(ctx, "appconf_dataowner", &authorization.AssignmentArgs{
+//			appconfDataowner, err := authorization.NewAssignment(ctx, "appconf_dataowner", &authorization.AssignmentArgs{
 //				Scope:              appconf.ID(),
 //				RoleDefinitionName: pulumi.String("App Configuration Data Owner"),
 //				PrincipalId:        pulumi.String(current.ObjectId),
@@ -162,7 +164,9 @@ import (
 //				Type:                 pulumi.String("vault"),
 //				Label:                pulumi.String("label1"),
 //				VaultKeyReference:    kvs.VersionlessId,
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				appconfDataowner,
+//			}))
 //			if err != nil {
 //				return err
 //			}

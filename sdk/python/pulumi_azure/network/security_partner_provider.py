@@ -264,7 +264,8 @@ class SecurityPartnerProvider(pulumi.CustomResource):
             security_provider_name="IBoss",
             tags={
                 "ENV": "Prod",
-            })
+            },
+            opts=pulumi.ResourceOptions(depends_on=[example_vpn_gateway]))
         ```
 
         ## Import
@@ -325,7 +326,8 @@ class SecurityPartnerProvider(pulumi.CustomResource):
             security_provider_name="IBoss",
             tags={
                 "ENV": "Prod",
-            })
+            },
+            opts=pulumi.ResourceOptions(depends_on=[example_vpn_gateway]))
         ```
 
         ## Import

@@ -752,6 +752,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
      * import com.pulumi.azure.authorization.AssignmentArgs;
      * import com.pulumi.azure.containerservice.KubernetesCluster;
      * import com.pulumi.azure.containerservice.KubernetesClusterArgs;
+     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -794,7 +795,9 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
      *             .dnsPrefix("aksexamplednsprefix1")
      *             .privateClusterEnabled(true)
      *             .privateDnsZoneId(exampleZone.id())
-     *             .build());
+     *             .build(), CustomResourceOptions.builder()
+     *                 .dependsOn(exampleAssignment)
+     *                 .build());
      * 
      *     }
      * }
@@ -829,6 +832,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
      * import com.pulumi.azure.authorization.AssignmentArgs;
      * import com.pulumi.azure.containerservice.KubernetesCluster;
      * import com.pulumi.azure.containerservice.KubernetesClusterArgs;
+     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -871,7 +875,9 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
      *             .dnsPrefix("aksexamplednsprefix1")
      *             .privateClusterEnabled(true)
      *             .privateDnsZoneId(exampleZone.id())
-     *             .build());
+     *             .build(), CustomResourceOptions.builder()
+     *                 .dependsOn(exampleAssignment)
+     *                 .build());
      * 
      *     }
      * }
@@ -2197,6 +2203,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
          * import com.pulumi.azure.authorization.AssignmentArgs;
          * import com.pulumi.azure.containerservice.KubernetesCluster;
          * import com.pulumi.azure.containerservice.KubernetesClusterArgs;
+         * import com.pulumi.resources.CustomResourceOptions;
          * import java.util.List;
          * import java.util.ArrayList;
          * import java.util.Map;
@@ -2239,7 +2246,9 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
          *             .dnsPrefix("aksexamplednsprefix1")
          *             .privateClusterEnabled(true)
          *             .privateDnsZoneId(exampleZone.id())
-         *             .build());
+         *             .build(), CustomResourceOptions.builder()
+         *                 .dependsOn(exampleAssignment)
+         *                 .build());
          * 
          *     }
          * }
@@ -2278,6 +2287,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
          * import com.pulumi.azure.authorization.AssignmentArgs;
          * import com.pulumi.azure.containerservice.KubernetesCluster;
          * import com.pulumi.azure.containerservice.KubernetesClusterArgs;
+         * import com.pulumi.resources.CustomResourceOptions;
          * import java.util.List;
          * import java.util.ArrayList;
          * import java.util.Map;
@@ -2320,7 +2330,9 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
          *             .dnsPrefix("aksexamplednsprefix1")
          *             .privateClusterEnabled(true)
          *             .privateDnsZoneId(exampleZone.id())
-         *             .build());
+         *             .build(), CustomResourceOptions.builder()
+         *                 .dependsOn(exampleAssignment)
+         *                 .build());
          * 
          *     }
          * }

@@ -43,16 +43,6 @@ plugins:
 goBuildParallelism: 2
 actions:
   preTest:
-    - name: Free Disk Space (Ubuntu)
-      uses: jlumbroso/free-disk-space@main
-      with:
-        tool-cache: false
-        swap-storage: false
-    - name: Setup DotNet
-      if: ${{ matrix.language == 'dotnet' }}
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: ${{ env.DOTNETVERSION }}
     - name: make upstream
       run: |
         make upstream

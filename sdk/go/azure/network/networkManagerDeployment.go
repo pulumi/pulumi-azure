@@ -242,7 +242,9 @@ import (
 //						return invoke.Result, nil
 //					}).(pulumi.StringPtrOutput),
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleNetworkManagerAdminRule,
+//			}))
 //			if err != nil {
 //				return err
 //			}

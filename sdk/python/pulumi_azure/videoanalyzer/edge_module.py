@@ -176,7 +176,12 @@ class EdgeModule(pulumi.CustomResource):
             ),
             tags={
                 "environment": "staging",
-            })
+            },
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_user_assigned_identity,
+                    contributor,
+                    reader,
+                ]))
         example_edge_module = azure.videoanalyzer.EdgeModule("example",
             name="example-edge-module",
             resource_group_name=example.name,
@@ -249,7 +254,12 @@ class EdgeModule(pulumi.CustomResource):
             ),
             tags={
                 "environment": "staging",
-            })
+            },
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_user_assigned_identity,
+                    contributor,
+                    reader,
+                ]))
         example_edge_module = azure.videoanalyzer.EdgeModule("example",
             name="example-edge-module",
             resource_group_name=example.name,
