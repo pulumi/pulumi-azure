@@ -74,7 +74,7 @@ index 5dbdb7d11e..2f4f4c2ff9 100644
  
  ```hcl
 diff --git a/website/docs/d/kubernetes_cluster.html.markdown b/website/docs/d/kubernetes_cluster.html.markdown
-index 29cdea762b..fb16b7aaa3 100644
+index 1fce80138e..d40f110308 100644
 --- a/website/docs/d/kubernetes_cluster.html.markdown
 +++ b/website/docs/d/kubernetes_cluster.html.markdown
 @@ -10,9 +10,6 @@ description: |-
@@ -87,7 +87,7 @@ index 29cdea762b..fb16b7aaa3 100644
  ## Example Usage
  
  ```hcl
-@@ -218,19 +215,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
+@@ -222,19 +219,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
  
  * `password` - A password or token used to authenticate to the Kubernetes cluster.
  
@@ -458,7 +458,7 @@ index e1c6fd705b..487624a246 100644
    sku_name = "Developer_1"
  }
 diff --git a/website/docs/r/api_management_named_value.html.markdown b/website/docs/r/api_management_named_value.html.markdown
-index 4d2c6121e1..cba3035681 100644
+index ffddcfa1b9..6c2a9dfb24 100644
 --- a/website/docs/r/api_management_named_value.html.markdown
 +++ b/website/docs/r/api_management_named_value.html.markdown
 @@ -55,7 +55,7 @@ The following arguments are supported:
@@ -1794,7 +1794,7 @@ index c6387f8e37..ab11365777 100644
  
  ```hcl
 diff --git a/website/docs/r/kubernetes_cluster.html.markdown b/website/docs/r/kubernetes_cluster.html.markdown
-index fda716b4de..0b6c51fbdd 100644
+index d61a413f62..5dea5933b9 100644
 --- a/website/docs/r/kubernetes_cluster.html.markdown
 +++ b/website/docs/r/kubernetes_cluster.html.markdown
 @@ -10,15 +10,9 @@ description: |-
@@ -1850,7 +1850,7 @@ index fda716b4de..0b6c51fbdd 100644
  * `ip_versions` - (Optional) Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
  
  ->**Note:** To configure dual-stack networking `ip_versions` should be set to `["IPv4", "IPv6"]`.
-@@ -1055,19 +1047,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
+@@ -1057,19 +1049,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
  
  * `password` - A password or token used to authenticate to the Kubernetes cluster.
  
@@ -1871,7 +1871,7 @@ index fda716b4de..0b6c51fbdd 100644
  
  The `ingress_application_gateway` block exports the following:
 diff --git a/website/docs/r/kubernetes_cluster_node_pool.html.markdown b/website/docs/r/kubernetes_cluster_node_pool.html.markdown
-index fdfd41a556..a2c1af2326 100644
+index e821b46236..26c3f15cd0 100644
 --- a/website/docs/r/kubernetes_cluster_node_pool.html.markdown
 +++ b/website/docs/r/kubernetes_cluster_node_pool.html.markdown
 @@ -10,13 +10,11 @@ description: |-
@@ -1921,7 +1921,7 @@ index 656e81119f..b9a4cae44f 100644
    scope              = "/subscriptions/00000000-0000-0000-0000-000000000000"
  
 diff --git a/website/docs/r/linux_virtual_machine.html.markdown b/website/docs/r/linux_virtual_machine.html.markdown
-index 72b87a1694..4499a5cded 100644
+index e4518f2e9a..1d953d6407 100644
 --- a/website/docs/r/linux_virtual_machine.html.markdown
 +++ b/website/docs/r/linux_virtual_machine.html.markdown
 @@ -12,9 +12,9 @@ Manages a Linux Virtual Machine.
@@ -2027,7 +2027,7 @@ index ab30d4dd11..bfdcbc15c1 100644
 --> **NOTE:** This ID is unique to Terraform and doesn't directly match to any other resource. To compose this ID, you can take the ID Logic App Workflow and append `/actions/{name of the action}`.
 +-> **NOTE:** This ID is unique to this provider and doesn't directly match to any other resource. To compose this ID, you can take the ID Logic App Workflow and append `/actions/{name of the action}`.
 diff --git a/website/docs/r/logic_app_trigger_custom.html.markdown b/website/docs/r/logic_app_trigger_custom.html.markdown
-index cad0583ab4..8451e74af6 100644
+index 884d35360e..1955ac8b8e 100644
 --- a/website/docs/r/logic_app_trigger_custom.html.markdown
 +++ b/website/docs/r/logic_app_trigger_custom.html.markdown
 @@ -53,8 +53,6 @@ The following arguments are supported:
@@ -2039,14 +2039,14 @@ index cad0583ab4..8451e74af6 100644
  ## Attributes Reference
  
  In addition to the Arguments listed above - the following Attributes are exported:
-@@ -78,4 +76,4 @@ Logic App Custom Triggers can be imported using the `resource id`, e.g.
+@@ -82,4 +80,4 @@ Logic App Custom Triggers can be imported using the `resource id`, e.g.
  terraform import azurerm_logic_app_trigger_custom.custom1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/triggers/custom1
  ```
  
 --> **NOTE:** This ID is unique to Terraform and doesn't directly match to any other resource. To compose this ID, you can take the ID Logic App Workflow and append `/triggers/{name of the trigger}`.
 +-> **NOTE:** This ID is unique to this provider and doesn't directly match to any other resource. To compose this ID, you can take the ID Logic App Workflow and append `/triggers/{name of the trigger}`.
 diff --git a/website/docs/r/logic_app_trigger_http_request.html.markdown b/website/docs/r/logic_app_trigger_http_request.html.markdown
-index acfcd4976e..dfe31fbe2d 100644
+index 1053f3c04c..f4550adc31 100644
 --- a/website/docs/r/logic_app_trigger_http_request.html.markdown
 +++ b/website/docs/r/logic_app_trigger_http_request.html.markdown
 @@ -54,8 +54,6 @@ The following arguments are supported:
@@ -2775,7 +2775,7 @@ index 6786f8eb01..38823a0fd4 100644
    name     = "example-resources"
    location = "West Europe"
 diff --git a/website/docs/r/subnet.html.markdown b/website/docs/r/subnet.html.markdown
-index 24b8800c76..4504555426 100644
+index 3d6cb51972..0a9d65a29a 100644
 --- a/website/docs/r/subnet.html.markdown
 +++ b/website/docs/r/subnet.html.markdown
 @@ -11,7 +11,7 @@ description: |-
@@ -3037,7 +3037,7 @@ index ec5ffc78a6..91e07e2778 100644
  
  ## Example Usage
 diff --git a/website/docs/r/windows_virtual_machine.html.markdown b/website/docs/r/windows_virtual_machine.html.markdown
-index dcdb453b43..758e33df0d 100644
+index 45781e8d0b..7a87d33337 100644
 --- a/website/docs/r/windows_virtual_machine.html.markdown
 +++ b/website/docs/r/windows_virtual_machine.html.markdown
 @@ -12,9 +12,9 @@ Manages a Windows Virtual Machine.
