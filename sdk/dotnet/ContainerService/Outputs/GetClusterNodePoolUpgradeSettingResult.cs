@@ -14,14 +14,29 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class GetClusterNodePoolUpgradeSettingResult
     {
         /// <summary>
+        /// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
+        /// </summary>
+        public readonly int DrainTimeoutInMinutes;
+        /// <summary>
         /// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
         /// </summary>
         public readonly string MaxSurge;
+        /// <summary>
+        /// The amount of time in minutes to wait after draining a node and before reimaging it and moving on to next node.
+        /// </summary>
+        public readonly int NodeSoakDurationInMinutes;
 
         [OutputConstructor]
-        private GetClusterNodePoolUpgradeSettingResult(string maxSurge)
+        private GetClusterNodePoolUpgradeSettingResult(
+            int drainTimeoutInMinutes,
+
+            string maxSurge,
+
+            int nodeSoakDurationInMinutes)
         {
+            DrainTimeoutInMinutes = drainTimeoutInMinutes;
             MaxSurge = maxSurge;
+            NodeSoakDurationInMinutes = nodeSoakDurationInMinutes;
         }
     }
 }

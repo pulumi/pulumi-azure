@@ -82,6 +82,10 @@ export class Powershell72Module extends pulumi.CustomResource {
      * Specifies the name of the Module. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Powershell72Module resource with the given unique name, arguments, and options.
@@ -99,6 +103,7 @@ export class Powershell72Module extends pulumi.CustomResource {
             resourceInputs["automationAccountId"] = state ? state.automationAccountId : undefined;
             resourceInputs["moduleLink"] = state ? state.moduleLink : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as Powershell72ModuleArgs | undefined;
             if ((!args || args.automationAccountId === undefined) && !opts.urn) {
@@ -110,6 +115,7 @@ export class Powershell72Module extends pulumi.CustomResource {
             resourceInputs["automationAccountId"] = args ? args.automationAccountId : undefined;
             resourceInputs["moduleLink"] = args ? args.moduleLink : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Powershell72Module.__pulumiType, name, resourceInputs, opts);
@@ -132,6 +138,10 @@ export interface Powershell72ModuleState {
      * Specifies the name of the Module. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -150,4 +160,8 @@ export interface Powershell72ModuleArgs {
      * Specifies the name of the Module. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

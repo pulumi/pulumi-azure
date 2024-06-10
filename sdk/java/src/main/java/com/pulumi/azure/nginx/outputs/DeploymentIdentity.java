@@ -23,7 +23,7 @@ public final class DeploymentIdentity {
     private @Nullable String principalId;
     private @Nullable String tenantId;
     /**
-     * @return Specifies the identity type of the NGINX Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
+     * @return Specifies the identity type of the NGINX Deployment. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
      */
     private String type;
@@ -45,7 +45,7 @@ public final class DeploymentIdentity {
         return Optional.ofNullable(this.tenantId);
     }
     /**
-     * @return Specifies the identity type of the NGINX Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
+     * @return Specifies the identity type of the NGINX Deployment. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
      */
     public String type() {

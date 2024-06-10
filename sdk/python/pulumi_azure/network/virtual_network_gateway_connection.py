@@ -1587,7 +1587,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sharedKey")
-    def shared_key(self) -> pulumi.Output[Optional[str]]:
+    def shared_key(self) -> pulumi.Output[str]:
         """
         The shared IPSec key. A key could be provided if a Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
         """

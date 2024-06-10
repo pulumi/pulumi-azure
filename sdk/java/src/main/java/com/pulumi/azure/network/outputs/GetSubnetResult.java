@@ -18,6 +18,11 @@ public final class GetSubnetResult {
      * 
      */
     private List<String> addressPrefixes;
+    /**
+     * @return Is the default outbound access enabled for the subnet.
+     * 
+     */
+    private Boolean defaultOutboundAccessEnabled;
     private Boolean enforcePrivateLinkEndpointNetworkPolicies;
     private Boolean enforcePrivateLinkServiceNetworkPolicies;
     /**
@@ -71,6 +76,13 @@ public final class GetSubnetResult {
      */
     public List<String> addressPrefixes() {
         return this.addressPrefixes;
+    }
+    /**
+     * @return Is the default outbound access enabled for the subnet.
+     * 
+     */
+    public Boolean defaultOutboundAccessEnabled() {
+        return this.defaultOutboundAccessEnabled;
     }
     public Boolean enforcePrivateLinkEndpointNetworkPolicies() {
         return this.enforcePrivateLinkEndpointNetworkPolicies;
@@ -150,6 +162,7 @@ public final class GetSubnetResult {
     public static final class Builder {
         private String addressPrefix;
         private List<String> addressPrefixes;
+        private Boolean defaultOutboundAccessEnabled;
         private Boolean enforcePrivateLinkEndpointNetworkPolicies;
         private Boolean enforcePrivateLinkServiceNetworkPolicies;
         private String id;
@@ -167,6 +180,7 @@ public final class GetSubnetResult {
     	      Objects.requireNonNull(defaults);
     	      this.addressPrefix = defaults.addressPrefix;
     	      this.addressPrefixes = defaults.addressPrefixes;
+    	      this.defaultOutboundAccessEnabled = defaults.defaultOutboundAccessEnabled;
     	      this.enforcePrivateLinkEndpointNetworkPolicies = defaults.enforcePrivateLinkEndpointNetworkPolicies;
     	      this.enforcePrivateLinkServiceNetworkPolicies = defaults.enforcePrivateLinkServiceNetworkPolicies;
     	      this.id = defaults.id;
@@ -199,6 +213,14 @@ public final class GetSubnetResult {
         }
         public Builder addressPrefixes(String... addressPrefixes) {
             return addressPrefixes(List.of(addressPrefixes));
+        }
+        @CustomType.Setter
+        public Builder defaultOutboundAccessEnabled(Boolean defaultOutboundAccessEnabled) {
+            if (defaultOutboundAccessEnabled == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "defaultOutboundAccessEnabled");
+            }
+            this.defaultOutboundAccessEnabled = defaultOutboundAccessEnabled;
+            return this;
         }
         @CustomType.Setter
         public Builder enforcePrivateLinkEndpointNetworkPolicies(Boolean enforcePrivateLinkEndpointNetworkPolicies) {
@@ -303,6 +325,7 @@ public final class GetSubnetResult {
             final var _resultValue = new GetSubnetResult();
             _resultValue.addressPrefix = addressPrefix;
             _resultValue.addressPrefixes = addressPrefixes;
+            _resultValue.defaultOutboundAccessEnabled = defaultOutboundAccessEnabled;
             _resultValue.enforcePrivateLinkEndpointNetworkPolicies = enforcePrivateLinkEndpointNetworkPolicies;
             _resultValue.enforcePrivateLinkServiceNetworkPolicies = enforcePrivateLinkServiceNetworkPolicies;
             _resultValue.id = id;

@@ -12,9 +12,15 @@ namespace Pulumi.Azure.Arc.Inputs
 
     public sealed class ResourceBridgeApplianceIdentityGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Principal ID associated with this Managed Service Identity.
+        /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
 
+        /// <summary>
+        /// The Tenant ID associated with this Managed Service Identity.
+        /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 

@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.newrelic.inputs;
 
+import com.pulumi.azure.newrelic.inputs.MonitorIdentityArgs;
 import com.pulumi.azure.newrelic.inputs.MonitorPlanArgs;
 import com.pulumi.azure.newrelic.inputs.MonitorUserArgs;
 import com.pulumi.core.Output;
@@ -49,6 +50,21 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
+    }
+
+    /**
+     * An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+     * 
+     */
+    @Import(name="identity")
+    private @Nullable Output<MonitorIdentityArgs> identity;
+
+    /**
+     * @return An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+     * 
+     */
+    public Optional<Output<MonitorIdentityArgs>> identity() {
+        return Optional.ofNullable(this.identity);
     }
 
     /**
@@ -195,6 +211,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
     private MonitorState(MonitorState $) {
         this.accountCreationSource = $.accountCreationSource;
         this.accountId = $.accountId;
+        this.identity = $.identity;
         this.ingestionKey = $.ingestionKey;
         this.location = $.location;
         this.name = $.name;
@@ -268,6 +285,27 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
+        }
+
+        /**
+         * @param identity An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(@Nullable Output<MonitorIdentityArgs> identity) {
+            $.identity = identity;
+            return this;
+        }
+
+        /**
+         * @param identity An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(MonitorIdentityArgs identity) {
+            return identity(Output.of(identity));
         }
 
         /**

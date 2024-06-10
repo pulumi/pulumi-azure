@@ -93,6 +93,12 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<string>> AddressPrefixes { get; private set; } = null!;
 
         /// <summary>
+        /// Enable default outbound access to the internet for the subnet. Defaults to `true`.
+        /// </summary>
+        [Output("defaultOutboundAccessEnabled")]
+        public Output<bool?> DefaultOutboundAccessEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// One or more `delegation` blocks as defined below.
         /// </summary>
         [Output("delegations")]
@@ -215,6 +221,12 @@ namespace Pulumi.Azure.Network
             set => _addressPrefixes = value;
         }
 
+        /// <summary>
+        /// Enable default outbound access to the internet for the subnet. Defaults to `true`.
+        /// </summary>
+        [Input("defaultOutboundAccessEnabled")]
+        public Input<bool>? DefaultOutboundAccessEnabled { get; set; }
+
         [Input("delegations")]
         private InputList<Inputs.SubnetDelegationArgs>? _delegations;
 
@@ -317,6 +329,12 @@ namespace Pulumi.Azure.Network
             get => _addressPrefixes ?? (_addressPrefixes = new InputList<string>());
             set => _addressPrefixes = value;
         }
+
+        /// <summary>
+        /// Enable default outbound access to the internet for the subnet. Defaults to `true`.
+        /// </summary>
+        [Input("defaultOutboundAccessEnabled")]
+        public Input<bool>? DefaultOutboundAccessEnabled { get; set; }
 
         [Input("delegations")]
         private InputList<Inputs.SubnetDelegationGetArgs>? _delegations;

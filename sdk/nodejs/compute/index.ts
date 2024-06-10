@@ -205,6 +205,11 @@ export type Image = import("./image").Image;
 export const Image: typeof import("./image").Image = null as any;
 utilities.lazyLoad(exports, ["Image"], () => require("./image"));
 
+export { ImplicitDataDiskFromSourceArgs, ImplicitDataDiskFromSourceState } from "./implicitDataDiskFromSource";
+export type ImplicitDataDiskFromSource = import("./implicitDataDiskFromSource").ImplicitDataDiskFromSource;
+export const ImplicitDataDiskFromSource: typeof import("./implicitDataDiskFromSource").ImplicitDataDiskFromSource = null as any;
+utilities.lazyLoad(exports, ["ImplicitDataDiskFromSource"], () => require("./implicitDataDiskFromSource"));
+
 export { LinuxVirtualMachineArgs, LinuxVirtualMachineState } from "./linuxVirtualMachine";
 export type LinuxVirtualMachine = import("./linuxVirtualMachine").LinuxVirtualMachine;
 export const LinuxVirtualMachine: typeof import("./linuxVirtualMachine").LinuxVirtualMachine = null as any;
@@ -338,6 +343,8 @@ const _module = {
                 return new GalleryApplicationVersion(name, <any>undefined, { urn })
             case "azure:compute/image:Image":
                 return new Image(name, <any>undefined, { urn })
+            case "azure:compute/implicitDataDiskFromSource:ImplicitDataDiskFromSource":
+                return new ImplicitDataDiskFromSource(name, <any>undefined, { urn })
             case "azure:compute/linuxVirtualMachine:LinuxVirtualMachine":
                 return new LinuxVirtualMachine(name, <any>undefined, { urn })
             case "azure:compute/linuxVirtualMachineScaleSet:LinuxVirtualMachineScaleSet":
@@ -398,6 +405,7 @@ pulumi.runtime.registerResourceModule("azure", "compute/galleryApplication", _mo
 pulumi.runtime.registerResourceModule("azure", "compute/galleryApplicationAssignment", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/galleryApplicationVersion", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/image", _module)
+pulumi.runtime.registerResourceModule("azure", "compute/implicitDataDiskFromSource", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/linuxVirtualMachine", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/linuxVirtualMachineScaleSet", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/managedDisk", _module)

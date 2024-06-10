@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -185,6 +186,20 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
         return this.primaryAccessKey;
     }
     /**
+     * The Primary Connetion String associated with this Authorization Rule.
+     * 
+     */
+    @Export(name="primaryConnectionString", refs={String.class}, tree="[0]")
+    private Output<String> primaryConnectionString;
+
+    /**
+     * @return The Primary Connetion String associated with this Authorization Rule.
+     * 
+     */
+    public Output<String> primaryConnectionString() {
+        return this.primaryConnectionString;
+    }
+    /**
      * The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
      * 
      */
@@ -211,6 +226,20 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
      */
     public Output<String> secondaryAccessKey() {
         return this.secondaryAccessKey;
+    }
+    /**
+     * The Secondary Connetion String associated with this Authorization Rule.
+     * 
+     */
+    @Export(name="secondaryConnectionString", refs={String.class}, tree="[0]")
+    private Output<String> secondaryConnectionString;
+
+    /**
+     * @return The Secondary Connetion String associated with this Authorization Rule.
+     * 
+     */
+    public Output<String> secondaryConnectionString() {
+        return this.secondaryConnectionString;
     }
     /**
      * Does this Authorization Rule have Send access to the Notification Hub? Defaults to `false`.
@@ -259,6 +288,10 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "primaryConnectionString",
+                "secondaryConnectionString"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

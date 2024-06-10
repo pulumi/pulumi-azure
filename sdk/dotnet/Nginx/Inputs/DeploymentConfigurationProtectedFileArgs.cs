@@ -14,10 +14,6 @@ namespace Pulumi.Azure.Nginx.Inputs
     {
         [Input("content", required: true)]
         private Input<string>? _content;
-
-        /// <summary>
-        /// Specifies the base-64 encoded contents of this config file (Sensitive).
-        /// </summary>
         public Input<string>? Content
         {
             get => _content;
@@ -28,9 +24,6 @@ namespace Pulumi.Azure.Nginx.Inputs
             }
         }
 
-        /// <summary>
-        /// Specify the path of this config file.
-        /// </summary>
         [Input("virtualPath", required: true)]
         public Input<string> VirtualPath { get; set; } = null!;
 

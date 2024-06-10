@@ -22,7 +22,7 @@ index d3723a3480..4953bff3b7 100644
 +	return true
 +}
 diff --git a/internal/services/advisor/advisor_recommendations_data_source.go b/internal/services/advisor/advisor_recommendations_data_source.go
-index 39c0506972..c4965dfbdb 100644
+index e6f8ebf9c3..10531eccb9 100644
 --- a/internal/services/advisor/advisor_recommendations_data_source.go
 +++ b/internal/services/advisor/advisor_recommendations_data_source.go
 @@ -8,6 +8,9 @@ import (
@@ -237,10 +237,10 @@ index d1de175cb8..e8fd90b9df 100644
  
  						"size_gb": {
 diff --git a/internal/services/compute/snapshot_resource.go b/internal/services/compute/snapshot_resource.go
-index 539c138df6..5446846a89 100644
+index c7166c707e..be69574aa5 100644
 --- a/internal/services/compute/snapshot_resource.go
 +++ b/internal/services/compute/snapshot_resource.go
-@@ -68,7 +68,7 @@ func resourceSnapshot() *pluginsdk.Resource {
+@@ -70,7 +70,7 @@ func resourceSnapshot() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
  					string(snapshots.DiskCreateOptionCopy),
  					string(snapshots.DiskCreateOptionImport),
@@ -250,18 +250,18 @@ index 539c138df6..5446846a89 100644
  
  			"incremental_enabled": {
 diff --git a/internal/services/compute/virtual_machine_data_disk_attachment_resource.go b/internal/services/compute/virtual_machine_data_disk_attachment_resource.go
-index db0a760341..fe30ade2d5 100644
+index 6478ffa1d2..db6625b9f4 100644
 --- a/internal/services/compute/virtual_machine_data_disk_attachment_resource.go
 +++ b/internal/services/compute/virtual_machine_data_disk_attachment_resource.go
-@@ -5,6 +5,7 @@ package compute
- 
+@@ -6,6 +6,7 @@ package compute
  import (
+ 	"context"
  	"fmt"
 +	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
  	"log"
  	"time"
  
-@@ -71,7 +72,8 @@ func resourceVirtualMachineDataDiskAttachment() *pluginsdk.Resource {
+@@ -114,7 +115,8 @@ func resourceVirtualMachineDataDiskAttachment() *pluginsdk.Resource {
  					string(virtualmachines.CachingTypesNone),
  					string(virtualmachines.CachingTypesReadOnly),
  					string(virtualmachines.CachingTypesReadWrite),
@@ -271,7 +271,7 @@ index db0a760341..fe30ade2d5 100644
  			},
  
  			"create_option": {
-@@ -82,7 +84,8 @@ func resourceVirtualMachineDataDiskAttachment() *pluginsdk.Resource {
+@@ -125,7 +127,8 @@ func resourceVirtualMachineDataDiskAttachment() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
  					string(virtualmachines.DiskCreateOptionTypesAttach),
  					string(virtualmachines.DiskCreateOptionTypesEmpty),
@@ -324,10 +324,10 @@ index 8c58fcc2df..be6dd18437 100644
  
  			"dns_name_label": {
 diff --git a/internal/services/containers/kubernetes_cluster_resource.go b/internal/services/containers/kubernetes_cluster_resource.go
-index e4a6c70f92..3706fdcb8f 100644
+index 847d6c2ab4..82ec9f2255 100644
 --- a/internal/services/containers/kubernetes_cluster_resource.go
 +++ b/internal/services/containers/kubernetes_cluster_resource.go
-@@ -1060,7 +1060,7 @@ func resourceKubernetesCluster() *pluginsdk.Resource {
+@@ -1073,7 +1073,7 @@ func resourceKubernetesCluster() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
  								string(managedclusters.LoadBalancerSkuBasic),
  								string(managedclusters.LoadBalancerSkuStandard),
@@ -477,7 +477,7 @@ index b3cb1e5f84..2ec36c63da 100644
  						"interval_in_seconds": {
  							Type:         pluginsdk.TypeInt,
 diff --git a/internal/services/firewall/firewall_policy_resource.go b/internal/services/firewall/firewall_policy_resource.go
-index 29d42ef784..f2f9d678ab 100644
+index 7a8c85cc01..a2b7988106 100644
 --- a/internal/services/firewall/firewall_policy_resource.go
 +++ b/internal/services/firewall/firewall_policy_resource.go
 @@ -8,6 +8,8 @@ import (
@@ -1131,7 +1131,7 @@ index f2531818d2..bc63a0394c 100644
  
  					"storage_account_access_key": {
 diff --git a/internal/services/mssql/mssql_elasticpool_resource.go b/internal/services/mssql/mssql_elasticpool_resource.go
-index a78b061fe0..8432341650 100644
+index 471d716371..0cbeb184da 100644
 --- a/internal/services/mssql/mssql_elasticpool_resource.go
 +++ b/internal/services/mssql/mssql_elasticpool_resource.go
 @@ -10,6 +10,9 @@ import (
@@ -1144,17 +1144,17 @@ index a78b061fe0..8432341650 100644
  	"github.com/Azure/azure-sdk-for-go/services/preview/sql/mgmt/v5.0/sql" // nolint: staticcheck
  	"github.com/hashicorp/go-azure-helpers/lang/pointer"
  	"github.com/hashicorp/go-azure-helpers/lang/response"
-@@ -90,7 +93,8 @@ func resourceMsSqlElasticPool() *pluginsdk.Resource {
- 								"BC_Gen5",
+@@ -91,7 +94,8 @@ func resourceMsSqlElasticPool() *pluginsdk.Resource {
  								"BC_DC",
  								"HS_Gen5",
+ 								"HS_PRMS",
 -							}, false),
 +							}, features.CaseInsensitive()),
 +							DiffSuppressFunc: suppress.CaseDifferenceV2Only,
  						},
  
  						"capacity": {
-@@ -109,7 +113,8 @@ func resourceMsSqlElasticPool() *pluginsdk.Resource {
+@@ -110,7 +114,8 @@ func resourceMsSqlElasticPool() *pluginsdk.Resource {
  								"GeneralPurpose",
  								"BusinessCritical",
  								"Hyperscale",
@@ -1164,7 +1164,7 @@ index a78b061fe0..8432341650 100644
  						},
  
  						"family": {
-@@ -120,7 +125,8 @@ func resourceMsSqlElasticPool() *pluginsdk.Resource {
+@@ -121,7 +126,8 @@ func resourceMsSqlElasticPool() *pluginsdk.Resource {
  								"Gen5",
  								"Fsv2",
  								"DC",
@@ -1321,31 +1321,32 @@ index bbdc096311..3b36382f4b 100644
  
  						"rule_set_type": {
 diff --git a/internal/services/network/express_route_circuit_resource.go b/internal/services/network/express_route_circuit_resource.go
-index b500b50239..4896bd84aa 100644
+index 1cd231526d..eb57d8d2ba 100644
 --- a/internal/services/network/express_route_circuit_resource.go
 +++ b/internal/services/network/express_route_circuit_resource.go
-@@ -6,6 +6,7 @@ package network
- import (
- 	"context"
- 	"fmt"
-+	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
+@@ -9,6 +9,8 @@ import (
  	"log"
  	"time"
  
-@@ -78,7 +79,8 @@ func resourceExpressRouteCircuit() *pluginsdk.Resource {
- 								string(network.ExpressRouteCircuitSkuTierLocal),
- 								string(network.ExpressRouteCircuitSkuTierStandard),
- 								string(network.ExpressRouteCircuitSkuTierPremium),
++	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
++
+ 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+ 	"github.com/hashicorp/go-azure-helpers/lang/response"
+ 	"github.com/hashicorp/go-azure-helpers/resourcemanager/commonschema"
+@@ -78,7 +80,8 @@ func resourceExpressRouteCircuit() *pluginsdk.Resource {
+ 								string(expressroutecircuits.ExpressRouteCircuitSkuTierLocal),
+ 								string(expressroutecircuits.ExpressRouteCircuitSkuTierStandard),
+ 								string(expressroutecircuits.ExpressRouteCircuitSkuTierPremium),
 -							}, false),
 +							}, features.CaseInsensitive()),
 +							DiffSuppressFunc: suppress.CaseDifferenceV2Only,
  						},
  
  						"family": {
-@@ -87,7 +89,8 @@ func resourceExpressRouteCircuit() *pluginsdk.Resource {
+@@ -87,7 +90,8 @@ func resourceExpressRouteCircuit() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
- 								string(network.ExpressRouteCircuitSkuFamilyMeteredData),
- 								string(network.ExpressRouteCircuitSkuFamilyUnlimitedData),
+ 								string(expressroutecircuits.ExpressRouteCircuitSkuFamilyMeteredData),
+ 								string(expressroutecircuits.ExpressRouteCircuitSkuFamilyUnlimitedData),
 -							}, false),
 +							}, features.CaseInsensitive()),
 +							DiffSuppressFunc: suppress.CaseDifferenceV2Only,
@@ -1353,7 +1354,7 @@ index b500b50239..4896bd84aa 100644
  					},
  				},
 diff --git a/internal/services/network/network_security_group_resource.go b/internal/services/network/network_security_group_resource.go
-index c8b19f6ed7..ab8bea4cd0 100644
+index 86f4020a07..8ba136b679 100644
 --- a/internal/services/network/network_security_group_resource.go
 +++ b/internal/services/network/network_security_group_resource.go
 @@ -8,6 +8,9 @@ import (
@@ -1397,7 +1398,7 @@ index c8b19f6ed7..ab8bea4cd0 100644
  					},
  				},
 diff --git a/internal/services/network/network_security_rule_resource.go b/internal/services/network/network_security_rule_resource.go
-index d1af54365a..800adca50c 100644
+index 5a91be7685..321276401b 100644
 --- a/internal/services/network/network_security_rule_resource.go
 +++ b/internal/services/network/network_security_rule_resource.go
 @@ -8,6 +8,9 @@ import (
@@ -1441,7 +1442,7 @@ index d1af54365a..800adca50c 100644
  		},
  	}
 diff --git a/internal/services/network/public_ip_prefix_resource.go b/internal/services/network/public_ip_prefix_resource.go
-index 13f71f8cd4..b465e823cc 100644
+index d0a693df1d..60390cdd5c 100644
 --- a/internal/services/network/public_ip_prefix_resource.go
 +++ b/internal/services/network/public_ip_prefix_resource.go
 @@ -8,6 +8,9 @@ import (
@@ -1465,7 +1466,7 @@ index 13f71f8cd4..b465e823cc 100644
  
  			"zones": commonschema.ZonesMultipleOptionalForceNew(),
 diff --git a/internal/services/network/public_ip_resource.go b/internal/services/network/public_ip_resource.go
-index 12768c7af0..f8323cac8b 100644
+index 6d81e29a86..32c9fe7925 100644
 --- a/internal/services/network/public_ip_resource.go
 +++ b/internal/services/network/public_ip_resource.go
 @@ -24,6 +24,7 @@ import (
@@ -1475,8 +1476,8 @@ index 12768c7af0..f8323cac8b 100644
 +	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/suppress"
  	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/validation"
  	"github.com/hashicorp/terraform-provider-azurerm/internal/timeouts"
- )
-@@ -96,7 +97,8 @@ func resourcePublicIp() *pluginsdk.Resource {
+ 	"github.com/hashicorp/terraform-provider-azurerm/utils"
+@@ -97,7 +98,8 @@ func resourcePublicIp() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
  					string(publicipaddresses.IPVersionIPvFour),
  					string(publicipaddresses.IPVersionIPvSix),
@@ -1486,7 +1487,7 @@ index 12768c7af0..f8323cac8b 100644
  			},
  
  			"sku": {
-@@ -113,7 +115,7 @@ func resourcePublicIp() *pluginsdk.Resource {
+@@ -114,7 +116,7 @@ func resourcePublicIp() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
  					string(publicipaddresses.PublicIPAddressSkuNameBasic),
  					string(publicipaddresses.PublicIPAddressSkuNameStandard),
@@ -1496,7 +1497,7 @@ index 12768c7af0..f8323cac8b 100644
  
  			"sku_tier": {
 diff --git a/internal/services/network/route_resource.go b/internal/services/network/route_resource.go
-index 948650490b..9fba7427fd 100644
+index 6672126ad0..00d659abc8 100644
 --- a/internal/services/network/route_resource.go
 +++ b/internal/services/network/route_resource.go
 @@ -5,6 +5,8 @@ package network
@@ -1519,7 +1520,7 @@ index 948650490b..9fba7427fd 100644
  
  			"next_hop_in_ip_address": {
 diff --git a/internal/services/network/route_table_resource.go b/internal/services/network/route_table_resource.go
-index 426dcd90a5..26c04e4e80 100644
+index e69493c040..f864c75bd7 100644
 --- a/internal/services/network/route_table_resource.go
 +++ b/internal/services/network/route_table_resource.go
 @@ -7,6 +7,9 @@ import (
@@ -1543,116 +1544,117 @@ index 426dcd90a5..26c04e4e80 100644
  
  						"next_hop_in_ip_address": {
 diff --git a/internal/services/network/virtual_network_gateway_connection_resource.go b/internal/services/network/virtual_network_gateway_connection_resource.go
-index 5687410c2c..c265864390 100644
+index 0cac900228..a2f0c690f3 100644
 --- a/internal/services/network/virtual_network_gateway_connection_resource.go
 +++ b/internal/services/network/virtual_network_gateway_connection_resource.go
-@@ -6,6 +6,8 @@ package network
- import (
- 	"context"
- 	"fmt"
-+	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
-+	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/suppress"
+@@ -9,6 +9,8 @@ import (
  	"log"
  	"time"
  
-@@ -62,7 +64,8 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
- 					string(network.VirtualNetworkGatewayConnectionTypeExpressRoute),
- 					string(network.VirtualNetworkGatewayConnectionTypeIPsec),
- 					string(network.VirtualNetworkGatewayConnectionTypeVnet2Vnet),
++	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/suppress"
++
+ 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+ 	"github.com/hashicorp/go-azure-helpers/lang/response"
+ 	"github.com/hashicorp/go-azure-helpers/resourcemanager/commonschema"
+@@ -67,7 +69,8 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
+ 					string(virtualnetworkgatewayconnections.VirtualNetworkGatewayConnectionTypeExpressRoute),
+ 					string(virtualnetworkgatewayconnections.VirtualNetworkGatewayConnectionTypeIPsec),
+ 					string(virtualnetworkgatewayconnections.VirtualNetworkGatewayConnectionTypeVnetTwoVnet),
 -				}, false),
 +				}, features.CaseInsensitive()),
 +				DiffSuppressFunc: suppress.CaseDifferenceV2Only,
  			},
  
  			"virtual_network_gateway_id": {
-@@ -251,7 +254,7 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
- 								string(network.DhGroupECP256),
- 								string(network.DhGroupECP384),
- 								string(network.DhGroupNone),
+@@ -257,7 +260,7 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
+ 								string(virtualnetworkgatewayconnections.DhGroupECPTwoFiveSix),
+ 								string(virtualnetworkgatewayconnections.DhGroupECPThreeEightFour),
+ 								string(virtualnetworkgatewayconnections.DhGroupNone),
 -							}, false),
 +							}, features.CaseInsensitive()),
  						},
  
  						"ike_encryption": {
-@@ -265,7 +268,7 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
- 								string(network.IkeEncryptionDES3),
- 								string(network.IkeEncryptionGCMAES128),
- 								string(network.IkeEncryptionGCMAES256),
+@@ -271,7 +274,7 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
+ 								string(virtualnetworkgatewayconnections.IkeEncryptionDESThree),
+ 								string(virtualnetworkgatewayconnections.IkeEncryptionGCMAESOneTwoEight),
+ 								string(virtualnetworkgatewayconnections.IkeEncryptionGCMAESTwoFiveSix),
 -							}, false),
 +							}, features.CaseInsensitive()),
  						},
  
  						"ike_integrity": {
-@@ -278,7 +281,7 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
- 								string(network.IkeIntegritySHA1),
- 								string(network.IkeIntegritySHA256),
- 								string(network.IkeIntegritySHA384),
+@@ -284,7 +287,7 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
+ 								string(virtualnetworkgatewayconnections.IkeIntegritySHAOne),
+ 								string(virtualnetworkgatewayconnections.IkeIntegritySHATwoFiveSix),
+ 								string(virtualnetworkgatewayconnections.IkeIntegritySHAThreeEightFour),
 -							}, false),
 +							}, features.CaseInsensitive()),
  						},
  
  						"ipsec_encryption": {
-@@ -294,7 +297,7 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
- 								string(network.IpsecEncryptionGCMAES192),
- 								string(network.IpsecEncryptionGCMAES256),
- 								string(network.IpsecEncryptionNone),
+@@ -300,7 +303,7 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
+ 								string(virtualnetworkgatewayconnections.IPsecEncryptionGCMAESOneNineTwo),
+ 								string(virtualnetworkgatewayconnections.IPsecEncryptionGCMAESTwoFiveSix),
+ 								string(virtualnetworkgatewayconnections.IPsecEncryptionNone),
 -							}, false),
 +							}, features.CaseInsensitive()),
  						},
  
  						"ipsec_integrity": {
-@@ -307,7 +310,7 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
- 								string(network.IpsecIntegrityMD5),
- 								string(network.IpsecIntegritySHA1),
- 								string(network.IpsecIntegritySHA256),
+@@ -313,7 +316,7 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
+ 								string(virtualnetworkgatewayconnections.IPsecIntegrityMDFive),
+ 								string(virtualnetworkgatewayconnections.IPsecIntegritySHAOne),
+ 								string(virtualnetworkgatewayconnections.IPsecIntegritySHATwoFiveSix),
 -							}, false),
 +							}, features.CaseInsensitive()),
  						},
  
  						"pfs_group": {
-@@ -323,7 +326,7 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
- 								string(network.PfsGroupPFS2048),
- 								string(network.PfsGroupPFS24),
- 								string(network.PfsGroupPFSMM),
+@@ -329,7 +332,7 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
+ 								string(virtualnetworkgatewayconnections.PfsGroupPFSTwoZeroFourEight),
+ 								string(virtualnetworkgatewayconnections.PfsGroupPFSTwoFour),
+ 								string(virtualnetworkgatewayconnections.PfsGroupPFSMM),
 -							}, false),
 +							}, features.CaseInsensitive()),
  						},
  
  						"sa_datasize": {
 diff --git a/internal/services/network/virtual_network_gateway_resource.go b/internal/services/network/virtual_network_gateway_resource.go
-index 055b16308d..487608122e 100644
+index 228a8dd31c..774db5b942 100644
 --- a/internal/services/network/virtual_network_gateway_resource.go
 +++ b/internal/services/network/virtual_network_gateway_resource.go
-@@ -6,6 +6,7 @@ package network
- import (
- 	"bytes"
- 	"fmt"
-+	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
+@@ -9,6 +9,8 @@ import (
  	"log"
  	"time"
  
-@@ -68,7 +69,7 @@ func resourceVirtualNetworkGatewaySchema() map[string]*pluginsdk.Schema {
++	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
++
+ 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+ 	"github.com/hashicorp/go-azure-helpers/lang/response"
+ 	"github.com/hashicorp/go-azure-helpers/resourcemanager/commonids"
+@@ -69,7 +71,7 @@ func resourceVirtualNetworkGatewaySchema() map[string]*pluginsdk.Schema {
  			ValidateFunc: validation.StringInSlice([]string{
- 				string(network.VirtualNetworkGatewayTypeExpressRoute),
- 				string(network.VirtualNetworkGatewayTypeVpn),
+ 				string(virtualnetworkgateways.VirtualNetworkGatewayTypeExpressRoute),
+ 				string(virtualnetworkgateways.VirtualNetworkGatewayTypeVpn),
 -			}, false),
 +			}, features.CaseInsensitive()),
  		},
  
  		"vpn_type": {
-@@ -79,7 +80,7 @@ func resourceVirtualNetworkGatewaySchema() map[string]*pluginsdk.Schema {
+@@ -80,7 +82,7 @@ func resourceVirtualNetworkGatewaySchema() map[string]*pluginsdk.Schema {
  			ValidateFunc: validation.StringInSlice([]string{
- 				string(network.VpnTypeRouteBased),
- 				string(network.VpnTypePolicyBased),
+ 				string(virtualnetworkgateways.VpnTypeRouteBased),
+ 				string(virtualnetworkgateways.VpnTypePolicyBased),
 -			}, false),
 +			}, features.CaseInsensitive()),
  		},
  
  		"edge_zone": commonschema.EdgeZoneOptionalForceNew(),
-@@ -508,7 +509,8 @@ func resourceVirtualNetworkGatewaySchema() map[string]*pluginsdk.Schema {
- 								string(network.VpnClientProtocolIkeV2),
- 								string(network.VpnClientProtocolOpenVPN),
- 								string(network.VpnClientProtocolSSTP),
+@@ -509,7 +511,8 @@ func resourceVirtualNetworkGatewaySchema() map[string]*pluginsdk.Schema {
+ 								string(virtualnetworkgateways.VpnClientProtocolIkeVTwo),
+ 								string(virtualnetworkgateways.VpnClientProtocolOpenVPN),
+ 								string(virtualnetworkgateways.VpnClientProtocolSSTP),
 -							}, false),
 +							}, features.CaseInsensitive()),
 +							DiffSuppressFunc: suppress.CaseDifferenceV2Only,
@@ -1681,7 +1683,7 @@ index abd8c6b3f6..55bc1b0b1d 100644
  
  			"tags": commonschema.Tags(),
 diff --git a/internal/services/policy/policy_definition_resource.go b/internal/services/policy/policy_definition_resource.go
-index a159838239..91f3791833 100644
+index a6e25db8f3..99c0bd5a4d 100644
 --- a/internal/services/policy/policy_definition_resource.go
 +++ b/internal/services/policy/policy_definition_resource.go
 @@ -6,6 +6,7 @@ package policy
@@ -1692,7 +1694,7 @@ index a159838239..91f3791833 100644
  	"log"
  	"strconv"
  	"time"
-@@ -303,7 +304,7 @@ func resourceArmPolicyDefinitionSchema() map[string]*pluginsdk.Schema {
+@@ -332,7 +333,7 @@ func resourceArmPolicyDefinitionSchema() map[string]*pluginsdk.Schema {
  				string(policy.TypeCustom),
  				string(policy.TypeNotSpecified),
  				string(policy.TypeStatic),

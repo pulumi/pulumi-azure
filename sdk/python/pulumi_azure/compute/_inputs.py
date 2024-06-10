@@ -762,7 +762,7 @@ class LinuxVirtualMachineAdditionalCapabilitiesArgs:
                  hibernation_enabled: Optional[pulumi.Input[bool]] = None,
                  ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[bool] hibernation_enabled: Whether to enable the hibernation capability or not. Changing this forces a new Linux Virtual Machine to be created.
+        :param pulumi.Input[bool] hibernation_enabled: Whether to enable the hibernation capability or not.
         :param pulumi.Input[bool] ultra_ssd_enabled: Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
         """
         if hibernation_enabled is not None:
@@ -774,7 +774,7 @@ class LinuxVirtualMachineAdditionalCapabilitiesArgs:
     @pulumi.getter(name="hibernationEnabled")
     def hibernation_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to enable the hibernation capability or not. Changing this forces a new Linux Virtual Machine to be created.
+        Whether to enable the hibernation capability or not.
         """
         return pulumi.get(self, "hibernation_enabled")
 
@@ -9121,7 +9121,7 @@ class WindowsVirtualMachineAdditionalCapabilitiesArgs:
                  hibernation_enabled: Optional[pulumi.Input[bool]] = None,
                  ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[bool] hibernation_enabled: Whether to enable the hibernation capability or not. Changing this forces a new Windows Virtual Machine to be created.
+        :param pulumi.Input[bool] hibernation_enabled: Whether to enable the hibernation capability or not.
         :param pulumi.Input[bool] ultra_ssd_enabled: Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
         """
         if hibernation_enabled is not None:
@@ -9133,7 +9133,7 @@ class WindowsVirtualMachineAdditionalCapabilitiesArgs:
     @pulumi.getter(name="hibernationEnabled")
     def hibernation_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to enable the hibernation capability or not. Changing this forces a new Windows Virtual Machine to be created.
+        Whether to enable the hibernation capability or not.
         """
         return pulumi.get(self, "hibernation_enabled")
 

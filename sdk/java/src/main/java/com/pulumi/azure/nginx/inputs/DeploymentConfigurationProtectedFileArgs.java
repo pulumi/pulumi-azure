@@ -14,32 +14,16 @@ public final class DeploymentConfigurationProtectedFileArgs extends com.pulumi.r
 
     public static final DeploymentConfigurationProtectedFileArgs Empty = new DeploymentConfigurationProtectedFileArgs();
 
-    /**
-     * Specifies the base-64 encoded contents of this config file (Sensitive).
-     * 
-     */
     @Import(name="content", required=true)
     private Output<String> content;
 
-    /**
-     * @return Specifies the base-64 encoded contents of this config file (Sensitive).
-     * 
-     */
     public Output<String> content() {
         return this.content;
     }
 
-    /**
-     * Specify the path of this config file.
-     * 
-     */
     @Import(name="virtualPath", required=true)
     private Output<String> virtualPath;
 
-    /**
-     * @return Specify the path of this config file.
-     * 
-     */
     public Output<String> virtualPath() {
         return this.virtualPath;
     }
@@ -69,44 +53,20 @@ public final class DeploymentConfigurationProtectedFileArgs extends com.pulumi.r
             $ = new DeploymentConfigurationProtectedFileArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param content Specifies the base-64 encoded contents of this config file (Sensitive).
-         * 
-         * @return builder
-         * 
-         */
         public Builder content(Output<String> content) {
             $.content = content;
             return this;
         }
 
-        /**
-         * @param content Specifies the base-64 encoded contents of this config file (Sensitive).
-         * 
-         * @return builder
-         * 
-         */
         public Builder content(String content) {
             return content(Output.of(content));
         }
 
-        /**
-         * @param virtualPath Specify the path of this config file.
-         * 
-         * @return builder
-         * 
-         */
         public Builder virtualPath(Output<String> virtualPath) {
             $.virtualPath = virtualPath;
             return this;
         }
 
-        /**
-         * @param virtualPath Specify the path of this config file.
-         * 
-         * @return builder
-         * 
-         */
         public Builder virtualPath(String virtualPath) {
             return virtualPath(Output.of(virtualPath));
         }

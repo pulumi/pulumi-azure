@@ -65,6 +65,11 @@ export const getRegistry: typeof import("./getRegistry").getRegistry = null as a
 export const getRegistryOutput: typeof import("./getRegistry").getRegistryOutput = null as any;
 utilities.lazyLoad(exports, ["getRegistry","getRegistryOutput"], () => require("./getRegistry"));
 
+export { GetRegistryCacheRuleArgs, GetRegistryCacheRuleResult, GetRegistryCacheRuleOutputArgs } from "./getRegistryCacheRule";
+export const getRegistryCacheRule: typeof import("./getRegistryCacheRule").getRegistryCacheRule = null as any;
+export const getRegistryCacheRuleOutput: typeof import("./getRegistryCacheRule").getRegistryCacheRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getRegistryCacheRule","getRegistryCacheRuleOutput"], () => require("./getRegistryCacheRule"));
+
 export { GetRegistryScopeMapArgs, GetRegistryScopeMapResult, GetRegistryScopeMapOutputArgs } from "./getRegistryScopeMap";
 export const getRegistryScopeMap: typeof import("./getRegistryScopeMap").getRegistryScopeMap = null as any;
 export const getRegistryScopeMapOutput: typeof import("./getRegistryScopeMap").getRegistryScopeMapOutput = null as any;
@@ -109,6 +114,11 @@ export { RegistryAgentPoolArgs, RegistryAgentPoolState } from "./registryAgentPo
 export type RegistryAgentPool = import("./registryAgentPool").RegistryAgentPool;
 export const RegistryAgentPool: typeof import("./registryAgentPool").RegistryAgentPool = null as any;
 utilities.lazyLoad(exports, ["RegistryAgentPool"], () => require("./registryAgentPool"));
+
+export { RegistryCacheRuleArgs, RegistryCacheRuleState } from "./registryCacheRule";
+export type RegistryCacheRule = import("./registryCacheRule").RegistryCacheRule;
+export const RegistryCacheRule: typeof import("./registryCacheRule").RegistryCacheRule = null as any;
+utilities.lazyLoad(exports, ["RegistryCacheRule"], () => require("./registryCacheRule"));
 
 export { RegistryScopeMapArgs, RegistryScopeMapState } from "./registryScopeMap";
 export type RegistryScopeMap = import("./registryScopeMap").RegistryScopeMap;
@@ -176,6 +186,8 @@ const _module = {
                 return new Registry(name, <any>undefined, { urn })
             case "azure:containerservice/registryAgentPool:RegistryAgentPool":
                 return new RegistryAgentPool(name, <any>undefined, { urn })
+            case "azure:containerservice/registryCacheRule:RegistryCacheRule":
+                return new RegistryCacheRule(name, <any>undefined, { urn })
             case "azure:containerservice/registryScopeMap:RegistryScopeMap":
                 return new RegistryScopeMap(name, <any>undefined, { urn })
             case "azure:containerservice/registryTask:RegistryTask":
@@ -208,6 +220,7 @@ pulumi.runtime.registerResourceModule("azure", "containerservice/kubernetesClust
 pulumi.runtime.registerResourceModule("azure", "containerservice/kubernetesFleetManager", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/registry", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/registryAgentPool", _module)
+pulumi.runtime.registerResourceModule("azure", "containerservice/registryCacheRule", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/registryScopeMap", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/registryTask", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/registryTaskScheduleRunNow", _module)

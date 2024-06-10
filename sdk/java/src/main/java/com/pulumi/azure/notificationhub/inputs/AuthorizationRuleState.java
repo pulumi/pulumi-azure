@@ -111,6 +111,21 @@ public final class AuthorizationRuleState extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The Primary Connetion String associated with this Authorization Rule.
+     * 
+     */
+    @Import(name="primaryConnectionString")
+    private @Nullable Output<String> primaryConnectionString;
+
+    /**
+     * @return The Primary Connetion String associated with this Authorization Rule.
+     * 
+     */
+    public Optional<Output<String>> primaryConnectionString() {
+        return Optional.ofNullable(this.primaryConnectionString);
+    }
+
+    /**
      * The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
      * 
      */
@@ -141,6 +156,21 @@ public final class AuthorizationRuleState extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The Secondary Connetion String associated with this Authorization Rule.
+     * 
+     */
+    @Import(name="secondaryConnectionString")
+    private @Nullable Output<String> secondaryConnectionString;
+
+    /**
+     * @return The Secondary Connetion String associated with this Authorization Rule.
+     * 
+     */
+    public Optional<Output<String>> secondaryConnectionString() {
+        return Optional.ofNullable(this.secondaryConnectionString);
+    }
+
+    /**
      * Does this Authorization Rule have Send access to the Notification Hub? Defaults to `false`.
      * 
      */
@@ -164,8 +194,10 @@ public final class AuthorizationRuleState extends com.pulumi.resources.ResourceA
         this.namespaceName = $.namespaceName;
         this.notificationHubName = $.notificationHubName;
         this.primaryAccessKey = $.primaryAccessKey;
+        this.primaryConnectionString = $.primaryConnectionString;
         this.resourceGroupName = $.resourceGroupName;
         this.secondaryAccessKey = $.secondaryAccessKey;
+        this.secondaryConnectionString = $.secondaryConnectionString;
         this.send = $.send;
     }
 
@@ -318,6 +350,27 @@ public final class AuthorizationRuleState extends com.pulumi.resources.ResourceA
         }
 
         /**
+         * @param primaryConnectionString The Primary Connetion String associated with this Authorization Rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryConnectionString(@Nullable Output<String> primaryConnectionString) {
+            $.primaryConnectionString = primaryConnectionString;
+            return this;
+        }
+
+        /**
+         * @param primaryConnectionString The Primary Connetion String associated with this Authorization Rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryConnectionString(String primaryConnectionString) {
+            return primaryConnectionString(Output.of(primaryConnectionString));
+        }
+
+        /**
          * @param resourceGroupName The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -357,6 +410,27 @@ public final class AuthorizationRuleState extends com.pulumi.resources.ResourceA
          */
         public Builder secondaryAccessKey(String secondaryAccessKey) {
             return secondaryAccessKey(Output.of(secondaryAccessKey));
+        }
+
+        /**
+         * @param secondaryConnectionString The Secondary Connetion String associated with this Authorization Rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryConnectionString(@Nullable Output<String> secondaryConnectionString) {
+            $.secondaryConnectionString = secondaryConnectionString;
+            return this;
+        }
+
+        /**
+         * @param secondaryConnectionString The Secondary Connetion String associated with this Authorization Rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryConnectionString(String secondaryConnectionString) {
+            return secondaryConnectionString(Output.of(secondaryConnectionString));
         }
 
         /**

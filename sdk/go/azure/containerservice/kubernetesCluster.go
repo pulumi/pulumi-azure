@@ -98,6 +98,8 @@ type KubernetesCluster struct {
 	AzurePolicyEnabled pulumi.BoolPtrOutput `pulumi:"azurePolicyEnabled"`
 	// A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
 	ConfidentialComputing KubernetesClusterConfidentialComputingPtrOutput `pulumi:"confidentialComputing"`
+	// Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `skuTier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
+	CostAnalysisEnabled pulumi.BoolPtrOutput `pulumi:"costAnalysisEnabled"`
 	// The current version running on the Azure Kubernetes Managed Cluster.
 	CurrentKubernetesVersion pulumi.StringOutput `pulumi:"currentKubernetesVersion"`
 	// A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
@@ -292,8 +294,6 @@ type KubernetesCluster struct {
 	// Whether to enable run command for the cluster or not. Defaults to `true`.
 	RunCommandEnabled pulumi.BoolPtrOutput `pulumi:"runCommandEnabled"`
 	// A `serviceMeshProfile` block as defined below.
-	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
 	ServiceMeshProfile KubernetesClusterServiceMeshProfilePtrOutput `pulumi:"serviceMeshProfile"`
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
 	//
@@ -386,6 +386,8 @@ type kubernetesClusterState struct {
 	AzurePolicyEnabled *bool `pulumi:"azurePolicyEnabled"`
 	// A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
 	ConfidentialComputing *KubernetesClusterConfidentialComputing `pulumi:"confidentialComputing"`
+	// Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `skuTier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
+	CostAnalysisEnabled *bool `pulumi:"costAnalysisEnabled"`
 	// The current version running on the Azure Kubernetes Managed Cluster.
 	CurrentKubernetesVersion *string `pulumi:"currentKubernetesVersion"`
 	// A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
@@ -580,8 +582,6 @@ type kubernetesClusterState struct {
 	// Whether to enable run command for the cluster or not. Defaults to `true`.
 	RunCommandEnabled *bool `pulumi:"runCommandEnabled"`
 	// A `serviceMeshProfile` block as defined below.
-	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
 	ServiceMeshProfile *KubernetesClusterServiceMeshProfile `pulumi:"serviceMeshProfile"`
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
 	//
@@ -632,6 +632,8 @@ type KubernetesClusterState struct {
 	AzurePolicyEnabled pulumi.BoolPtrInput
 	// A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
 	ConfidentialComputing KubernetesClusterConfidentialComputingPtrInput
+	// Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `skuTier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
+	CostAnalysisEnabled pulumi.BoolPtrInput
 	// The current version running on the Azure Kubernetes Managed Cluster.
 	CurrentKubernetesVersion pulumi.StringPtrInput
 	// A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
@@ -826,8 +828,6 @@ type KubernetesClusterState struct {
 	// Whether to enable run command for the cluster or not. Defaults to `true`.
 	RunCommandEnabled pulumi.BoolPtrInput
 	// A `serviceMeshProfile` block as defined below.
-	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
 	ServiceMeshProfile KubernetesClusterServiceMeshProfilePtrInput
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
 	//
@@ -882,6 +882,8 @@ type kubernetesClusterArgs struct {
 	AzurePolicyEnabled *bool `pulumi:"azurePolicyEnabled"`
 	// A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
 	ConfidentialComputing *KubernetesClusterConfidentialComputing `pulumi:"confidentialComputing"`
+	// Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `skuTier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
+	CostAnalysisEnabled *bool `pulumi:"costAnalysisEnabled"`
 	// A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
 	//
 	// > **Note:** Removing `customCaTrustCertificatesBase64` after it has been set forces a new resource to be created.
@@ -1054,8 +1056,6 @@ type kubernetesClusterArgs struct {
 	// Whether to enable run command for the cluster or not. Defaults to `true`.
 	RunCommandEnabled *bool `pulumi:"runCommandEnabled"`
 	// A `serviceMeshProfile` block as defined below.
-	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
 	ServiceMeshProfile *KubernetesClusterServiceMeshProfile `pulumi:"serviceMeshProfile"`
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
 	//
@@ -1107,6 +1107,8 @@ type KubernetesClusterArgs struct {
 	AzurePolicyEnabled pulumi.BoolPtrInput
 	// A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
 	ConfidentialComputing KubernetesClusterConfidentialComputingPtrInput
+	// Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `skuTier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
+	CostAnalysisEnabled pulumi.BoolPtrInput
 	// A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
 	//
 	// > **Note:** Removing `customCaTrustCertificatesBase64` after it has been set forces a new resource to be created.
@@ -1279,8 +1281,6 @@ type KubernetesClusterArgs struct {
 	// Whether to enable run command for the cluster or not. Defaults to `true`.
 	RunCommandEnabled pulumi.BoolPtrInput
 	// A `serviceMeshProfile` block as defined below.
-	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
 	ServiceMeshProfile KubernetesClusterServiceMeshProfilePtrInput
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
 	//
@@ -1445,6 +1445,11 @@ func (o KubernetesClusterOutput) ConfidentialComputing() KubernetesClusterConfid
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterConfidentialComputingPtrOutput {
 		return v.ConfidentialComputing
 	}).(KubernetesClusterConfidentialComputingPtrOutput)
+}
+
+// Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `skuTier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
+func (o KubernetesClusterOutput) CostAnalysisEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesCluster) pulumi.BoolPtrOutput { return v.CostAnalysisEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The current version running on the Azure Kubernetes Managed Cluster.
@@ -1804,8 +1809,6 @@ func (o KubernetesClusterOutput) RunCommandEnabled() pulumi.BoolPtrOutput {
 }
 
 // A `serviceMeshProfile` block as defined below.
-//
-// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
 func (o KubernetesClusterOutput) ServiceMeshProfile() KubernetesClusterServiceMeshProfilePtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterServiceMeshProfilePtrOutput { return v.ServiceMeshProfile }).(KubernetesClusterServiceMeshProfilePtrOutput)
 }

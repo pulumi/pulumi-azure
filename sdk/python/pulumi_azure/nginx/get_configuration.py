@@ -45,6 +45,9 @@ class GetConfigurationResult:
     @property
     @pulumi.getter(name="configFiles")
     def config_files(self) -> Sequence['outputs.GetConfigurationConfigFileResult']:
+        """
+        A `config_file` block as defined below.
+        """
         return pulumi.get(self, "config_files")
 
     @property
@@ -63,6 +66,9 @@ class GetConfigurationResult:
     @property
     @pulumi.getter(name="packageData")
     def package_data(self) -> str:
+        """
+        The package data for this configuration.
+        """
         return pulumi.get(self, "package_data")
 
     @property
@@ -73,6 +79,9 @@ class GetConfigurationResult:
     @property
     @pulumi.getter(name="rootFile")
     def root_file(self) -> str:
+        """
+        The root file path of this Nginx Configuration.
+        """
         return pulumi.get(self, "root_file")
 
 
@@ -93,7 +102,20 @@ class AwaitableGetConfigurationResult(GetConfigurationResult):
 def get_configuration(nginx_deployment_id: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to access information about an existing Nginx Configuration.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.nginx.get_configuration(nginx_deployment_id=example_azurerm_nginx_deployment["id"])
+    pulumi.export("id", example.id)
+    ```
+
+
+    :param str nginx_deployment_id: The ID of the Nginx Deployment.
     """
     __args__ = dict()
     __args__['nginxDeploymentId'] = nginx_deployment_id
@@ -113,6 +135,19 @@ def get_configuration(nginx_deployment_id: Optional[str] = None,
 def get_configuration_output(nginx_deployment_id: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to access information about an existing Nginx Configuration.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.nginx.get_configuration(nginx_deployment_id=example_azurerm_nginx_deployment["id"])
+    pulumi.export("id", example.id)
+    ```
+
+
+    :param str nginx_deployment_id: The ID of the Nginx Deployment.
     """
     ...

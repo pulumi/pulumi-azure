@@ -45,6 +45,7 @@ from .get_ssh_public_key import *
 from .get_virtual_machine import *
 from .get_virtual_machine_scale_set import *
 from .image import *
+from .implicit_data_disk_from_source import *
 from .linux_virtual_machine import *
 from .linux_virtual_machine_scale_set import *
 from .managed_disk import *

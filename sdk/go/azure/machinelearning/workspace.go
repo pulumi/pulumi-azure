@@ -485,6 +485,8 @@ type Workspace struct {
 	PublicNetworkAccessEnabled pulumi.BoolOutput `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// A `serverlessCompute` block as defined below.
+	ServerlessCompute WorkspaceServerlessComputePtrOutput `pulumi:"serverlessCompute"`
 	// SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 	SkuName pulumi.StringPtrOutput `pulumi:"skuName"`
 	// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
@@ -588,6 +590,8 @@ type workspaceState struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// A `serverlessCompute` block as defined below.
+	ServerlessCompute *WorkspaceServerlessCompute `pulumi:"serverlessCompute"`
 	// SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 	SkuName *string `pulumi:"skuName"`
 	// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
@@ -647,6 +651,8 @@ type WorkspaceState struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// A `serverlessCompute` block as defined below.
+	ServerlessCompute WorkspaceServerlessComputePtrInput
 	// SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 	SkuName pulumi.StringPtrInput
 	// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
@@ -708,6 +714,8 @@ type workspaceArgs struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A `serverlessCompute` block as defined below.
+	ServerlessCompute *WorkspaceServerlessCompute `pulumi:"serverlessCompute"`
 	// SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 	SkuName *string `pulumi:"skuName"`
 	// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
@@ -764,6 +772,8 @@ type WorkspaceArgs struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// A `serverlessCompute` block as defined below.
+	ServerlessCompute WorkspaceServerlessComputePtrInput
 	// SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 	SkuName pulumi.StringPtrInput
 	// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
@@ -962,6 +972,11 @@ func (o WorkspaceOutput) PublicNetworkAccessEnabled() pulumi.BoolOutput {
 // Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 func (o WorkspaceOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// A `serverlessCompute` block as defined below.
+func (o WorkspaceOutput) ServerlessCompute() WorkspaceServerlessComputePtrOutput {
+	return o.ApplyT(func(v *Workspace) WorkspaceServerlessComputePtrOutput { return v.ServerlessCompute }).(WorkspaceServerlessComputePtrOutput)
 }
 
 // SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.

@@ -26,6 +26,7 @@ class KubernetesClusterArgs:
                  azure_active_directory_role_based_access_control: Optional[pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']] = None,
                  azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  confidential_computing: Optional[pulumi.Input['KubernetesClusterConfidentialComputingArgs']] = None,
+                 cost_analysis_enabled: Optional[pulumi.Input[bool]] = None,
                  custom_ca_trust_certificates_base64s: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None,
@@ -88,6 +89,7 @@ class KubernetesClusterArgs:
         :param pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs'] azure_active_directory_role_based_access_control: A `azure_active_directory_role_based_access_control` block as defined below.
         :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input['KubernetesClusterConfidentialComputingArgs'] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+        :param pulumi.Input[bool] cost_analysis_enabled: Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_ca_trust_certificates_base64s: A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
                
                > **Note:** Removing `custom_ca_trust_certificates_base64` after it has been set forces a new resource to be created.
@@ -183,8 +185,6 @@ class KubernetesClusterArgs:
         :param pulumi.Input[bool] role_based_access_control_enabled: Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] run_command_enabled: Whether to enable run command for the cluster or not. Defaults to `true`.
         :param pulumi.Input['KubernetesClusterServiceMeshProfileArgs'] service_mesh_profile: A `service_mesh_profile` block as defined below.
-               
-               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
         :param pulumi.Input['KubernetesClusterServicePrincipalArgs'] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
                
                !> **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
@@ -224,6 +224,8 @@ class KubernetesClusterArgs:
             pulumi.set(__self__, "azure_policy_enabled", azure_policy_enabled)
         if confidential_computing is not None:
             pulumi.set(__self__, "confidential_computing", confidential_computing)
+        if cost_analysis_enabled is not None:
+            pulumi.set(__self__, "cost_analysis_enabled", cost_analysis_enabled)
         if custom_ca_trust_certificates_base64s is not None:
             pulumi.set(__self__, "custom_ca_trust_certificates_base64s", custom_ca_trust_certificates_base64s)
         if disk_encryption_set_id is not None:
@@ -448,6 +450,18 @@ class KubernetesClusterArgs:
     @confidential_computing.setter
     def confidential_computing(self, value: Optional[pulumi.Input['KubernetesClusterConfidentialComputingArgs']]):
         pulumi.set(self, "confidential_computing", value)
+
+    @property
+    @pulumi.getter(name="costAnalysisEnabled")
+    def cost_analysis_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
+        """
+        return pulumi.get(self, "cost_analysis_enabled")
+
+    @cost_analysis_enabled.setter
+    def cost_analysis_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cost_analysis_enabled", value)
 
     @property
     @pulumi.getter(name="customCaTrustCertificatesBase64s")
@@ -959,8 +973,6 @@ class KubernetesClusterArgs:
     def service_mesh_profile(self) -> Optional[pulumi.Input['KubernetesClusterServiceMeshProfileArgs']]:
         """
         A `service_mesh_profile` block as defined below.
-
-        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
         """
         return pulumi.get(self, "service_mesh_profile")
 
@@ -1096,6 +1108,7 @@ class _KubernetesClusterState:
                  azure_active_directory_role_based_access_control: Optional[pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']] = None,
                  azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  confidential_computing: Optional[pulumi.Input['KubernetesClusterConfidentialComputingArgs']] = None,
+                 cost_analysis_enabled: Optional[pulumi.Input[bool]] = None,
                  current_kubernetes_version: Optional[pulumi.Input[str]] = None,
                  custom_ca_trust_certificates_base64s: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_node_pool: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolArgs']] = None,
@@ -1169,6 +1182,7 @@ class _KubernetesClusterState:
         :param pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs'] azure_active_directory_role_based_access_control: A `azure_active_directory_role_based_access_control` block as defined below.
         :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input['KubernetesClusterConfidentialComputingArgs'] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+        :param pulumi.Input[bool] cost_analysis_enabled: Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
         :param pulumi.Input[str] current_kubernetes_version: The current version running on the Azure Kubernetes Managed Cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_ca_trust_certificates_base64s: A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
                
@@ -1277,8 +1291,6 @@ class _KubernetesClusterState:
         :param pulumi.Input[bool] role_based_access_control_enabled: Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] run_command_enabled: Whether to enable run command for the cluster or not. Defaults to `true`.
         :param pulumi.Input['KubernetesClusterServiceMeshProfileArgs'] service_mesh_profile: A `service_mesh_profile` block as defined below.
-               
-               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
         :param pulumi.Input['KubernetesClusterServicePrincipalArgs'] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
                
                !> **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
@@ -1316,6 +1328,8 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "azure_policy_enabled", azure_policy_enabled)
         if confidential_computing is not None:
             pulumi.set(__self__, "confidential_computing", confidential_computing)
+        if cost_analysis_enabled is not None:
+            pulumi.set(__self__, "cost_analysis_enabled", cost_analysis_enabled)
         if current_kubernetes_version is not None:
             pulumi.set(__self__, "current_kubernetes_version", current_kubernetes_version)
         if custom_ca_trust_certificates_base64s is not None:
@@ -1542,6 +1556,18 @@ class _KubernetesClusterState:
     @confidential_computing.setter
     def confidential_computing(self, value: Optional[pulumi.Input['KubernetesClusterConfidentialComputingArgs']]):
         pulumi.set(self, "confidential_computing", value)
+
+    @property
+    @pulumi.getter(name="costAnalysisEnabled")
+    def cost_analysis_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
+        """
+        return pulumi.get(self, "cost_analysis_enabled")
+
+    @cost_analysis_enabled.setter
+    def cost_analysis_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cost_analysis_enabled", value)
 
     @property
     @pulumi.getter(name="currentKubernetesVersion")
@@ -2209,8 +2235,6 @@ class _KubernetesClusterState:
     def service_mesh_profile(self) -> Optional[pulumi.Input['KubernetesClusterServiceMeshProfileArgs']]:
         """
         A `service_mesh_profile` block as defined below.
-
-        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
         """
         return pulumi.get(self, "service_mesh_profile")
 
@@ -2348,6 +2372,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  azure_active_directory_role_based_access_control: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']]] = None,
                  azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  confidential_computing: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterConfidentialComputingArgs']]] = None,
+                 cost_analysis_enabled: Optional[pulumi.Input[bool]] = None,
                  custom_ca_trust_certificates_base64s: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_node_pool: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
@@ -2453,6 +2478,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']] azure_active_directory_role_based_access_control: A `azure_active_directory_role_based_access_control` block as defined below.
         :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input[pulumi.InputType['KubernetesClusterConfidentialComputingArgs']] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+        :param pulumi.Input[bool] cost_analysis_enabled: Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_ca_trust_certificates_base64s: A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
                
                > **Note:** Removing `custom_ca_trust_certificates_base64` after it has been set forces a new resource to be created.
@@ -2550,8 +2576,6 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[bool] role_based_access_control_enabled: Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] run_command_enabled: Whether to enable run command for the cluster or not. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterServiceMeshProfileArgs']] service_mesh_profile: A `service_mesh_profile` block as defined below.
-               
-               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
                
                !> **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
@@ -2641,6 +2665,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  azure_active_directory_role_based_access_control: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']]] = None,
                  azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  confidential_computing: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterConfidentialComputingArgs']]] = None,
+                 cost_analysis_enabled: Optional[pulumi.Input[bool]] = None,
                  custom_ca_trust_certificates_base64s: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_node_pool: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
@@ -2707,6 +2732,7 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["azure_active_directory_role_based_access_control"] = azure_active_directory_role_based_access_control
             __props__.__dict__["azure_policy_enabled"] = azure_policy_enabled
             __props__.__dict__["confidential_computing"] = confidential_computing
+            __props__.__dict__["cost_analysis_enabled"] = cost_analysis_enabled
             __props__.__dict__["custom_ca_trust_certificates_base64s"] = custom_ca_trust_certificates_base64s
             if default_node_pool is None and not opts.urn:
                 raise TypeError("Missing required property 'default_node_pool'")
@@ -2791,6 +2817,7 @@ class KubernetesCluster(pulumi.CustomResource):
             azure_active_directory_role_based_access_control: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']]] = None,
             azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
             confidential_computing: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterConfidentialComputingArgs']]] = None,
+            cost_analysis_enabled: Optional[pulumi.Input[bool]] = None,
             current_kubernetes_version: Optional[pulumi.Input[str]] = None,
             custom_ca_trust_certificates_base64s: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             default_node_pool: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']]] = None,
@@ -2869,6 +2896,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']] azure_active_directory_role_based_access_control: A `azure_active_directory_role_based_access_control` block as defined below.
         :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input[pulumi.InputType['KubernetesClusterConfidentialComputingArgs']] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+        :param pulumi.Input[bool] cost_analysis_enabled: Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
         :param pulumi.Input[str] current_kubernetes_version: The current version running on the Azure Kubernetes Managed Cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_ca_trust_certificates_base64s: A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
                
@@ -2977,8 +3005,6 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[bool] role_based_access_control_enabled: Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] run_command_enabled: Whether to enable run command for the cluster or not. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterServiceMeshProfileArgs']] service_mesh_profile: A `service_mesh_profile` block as defined below.
-               
-               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
                
                !> **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
@@ -3009,6 +3035,7 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__.__dict__["azure_active_directory_role_based_access_control"] = azure_active_directory_role_based_access_control
         __props__.__dict__["azure_policy_enabled"] = azure_policy_enabled
         __props__.__dict__["confidential_computing"] = confidential_computing
+        __props__.__dict__["cost_analysis_enabled"] = cost_analysis_enabled
         __props__.__dict__["current_kubernetes_version"] = current_kubernetes_version
         __props__.__dict__["custom_ca_trust_certificates_base64s"] = custom_ca_trust_certificates_base64s
         __props__.__dict__["default_node_pool"] = default_node_pool
@@ -3138,6 +3165,14 @@ class KubernetesCluster(pulumi.CustomResource):
         A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
         """
         return pulumi.get(self, "confidential_computing")
+
+    @property
+    @pulumi.getter(name="costAnalysisEnabled")
+    def cost_analysis_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
+        """
+        return pulumi.get(self, "cost_analysis_enabled")
 
     @property
     @pulumi.getter(name="currentKubernetesVersion")
@@ -3605,8 +3640,6 @@ class KubernetesCluster(pulumi.CustomResource):
     def service_mesh_profile(self) -> pulumi.Output[Optional['outputs.KubernetesClusterServiceMeshProfile']]:
         """
         A `service_mesh_profile` block as defined below.
-
-        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
         """
         return pulumi.get(self, "service_mesh_profile")
 

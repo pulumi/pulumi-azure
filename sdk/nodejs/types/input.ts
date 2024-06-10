@@ -128,6 +128,7 @@ export interface ProviderFeaturesTemplateDeployment {
 
 export interface ProviderFeaturesVirtualMachine {
     deleteOsDiskOnDeletion?: pulumi.Input<boolean>;
+    detachImplicitDataDiskOnDeletion?: pulumi.Input<boolean>;
     gracefulShutdown?: pulumi.Input<boolean>;
     skipShutdownAndForceDelete?: pulumi.Input<boolean>;
 }
@@ -14390,7 +14391,13 @@ export namespace appservice {
 
 export namespace arc {
     export interface ResourceBridgeApplianceIdentity {
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
         principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
         tenantId?: pulumi.Input<string>;
         /**
          * Specifies the type of Managed Service Identity that should be configured on this Arc Resource Bridge Appliance. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
@@ -18261,7 +18268,7 @@ export namespace compute {
 
     export interface LinuxVirtualMachineAdditionalCapabilities {
         /**
-         * Whether to enable the hibernation capability or not. Changing this forces a new Linux Virtual Machine to be created.
+         * Whether to enable the hibernation capability or not.
          */
         hibernationEnabled?: pulumi.Input<boolean>;
         /**
@@ -20626,7 +20633,7 @@ export namespace compute {
 
     export interface WindowsVirtualMachineAdditionalCapabilities {
         /**
-         * Whether to enable the hibernation capability or not. Changing this forces a new Windows Virtual Machine to be created.
+         * Whether to enable the hibernation capability or not.
          */
         hibernationEnabled?: pulumi.Input<boolean>;
         /**
@@ -22656,11 +22663,11 @@ export namespace containerapp {
          */
         keyVaultSecretId?: pulumi.Input<string>;
         /**
-         * Name of the secret.
+         * Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
          */
         name: pulumi.Input<string>;
         /**
-         * Value of the secret.
+         * The value for this secret.
          */
         value?: pulumi.Input<string>;
     }
@@ -24300,11 +24307,19 @@ export namespace containerservice {
 
     export interface KubernetesClusterDefaultNodePoolUpgradeSettings {
         /**
+         * The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+         */
+        drainTimeoutInMinutes?: pulumi.Input<number>;
+        /**
          * The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
          *
          * > **Note:** If a percentage is provided, the number of surge nodes is calculated from the `nodeCount` value on the current cluster. Node surge can allow a cluster to have more nodes than `maxCount` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
          */
         maxSurge: pulumi.Input<string>;
+        /**
+         * The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`.
+         */
+        nodeSoakDurationInMinutes?: pulumi.Input<number>;
     }
 
     export interface KubernetesClusterExtensionAksAssignedIdentity {
@@ -25086,9 +25101,17 @@ export namespace containerservice {
 
     export interface KubernetesClusterNodePoolUpgradeSettings {
         /**
+         * The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+         */
+        drainTimeoutInMinutes?: pulumi.Input<number>;
+        /**
          * The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
          */
         maxSurge: pulumi.Input<string>;
+        /**
+         * The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`.
+         */
+        nodeSoakDurationInMinutes?: pulumi.Input<number>;
     }
 
     export interface KubernetesClusterNodePoolWindowsProfile {
@@ -25133,8 +25156,6 @@ export namespace containerservice {
     export interface KubernetesClusterServiceMeshProfile {
         /**
          * Is Istio External Ingress Gateway enabled?
-         *
-         * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
          *
          * > **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
          */
@@ -25187,9 +25208,13 @@ export namespace containerservice {
 
     export interface KubernetesClusterWebAppRouting {
         /**
-         * Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string `""`.
+         * @deprecated `dnsZoneId` has been deprecated in favor of `dnsZoneIds` and will be removed in v4.0 of the AzureRM Provider.
          */
-        dnsZoneId: pulumi.Input<string>;
+        dnsZoneId?: pulumi.Input<string>;
+        /**
+         * Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
+         */
+        dnsZoneIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * A `webAppRoutingIdentity` block is exported. The exported attributes are defined below.
          */
@@ -28850,6 +28875,63 @@ export namespace dataprotection {
         volumeSnapshotEnabled?: pulumi.Input<boolean>;
     }
 
+    export interface BackupPolicyBlobStorageRetentionRule {
+        /**
+         * A `criteria` block as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
+         */
+        criteria: pulumi.Input<inputs.dataprotection.BackupPolicyBlobStorageRetentionRuleCriteria>;
+        /**
+         * A `lifeCycle` block as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
+         */
+        lifeCycle: pulumi.Input<inputs.dataprotection.BackupPolicyBlobStorageRetentionRuleLifeCycle>;
+        /**
+         * The name which should be used for this retention rule. Changing this forces a new Backup Policy Blob Storage to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new Backup Policy Blob Storage to be created.
+         */
+        priority: pulumi.Input<number>;
+    }
+
+    export interface BackupPolicyBlobStorageRetentionRuleCriteria {
+        /**
+         * Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new Backup Policy Blob Storage to be created.
+         */
+        absoluteCriteria?: pulumi.Input<string>;
+        /**
+         * Must be between `0` and `28`. `0` for last day within the month. Changing this forces a new Backup Policy Blob Storage to be created.
+         */
+        daysOfMonths?: pulumi.Input<pulumi.Input<number>[]>;
+        /**
+         * Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new Backup Policy Blob Storage to be created.
+         */
+        daysOfWeeks?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new Backup Policy Blob Storage to be created.
+         */
+        monthsOfYears?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new Backup Policy Blob Storage to be created.
+         */
+        scheduledBackupTimes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new Backup Policy Blob Storage to be created.
+         */
+        weeksOfMonths?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface BackupPolicyBlobStorageRetentionRuleLifeCycle {
+        /**
+         * The type of data store. The only possible value is `VaultStore`. Changing this forces a new Backup Policy Blob Storage to be created.
+         */
+        dataStoreType: pulumi.Input<string>;
+        /**
+         * The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
+         */
+        duration: pulumi.Input<string>;
+    }
+
     export interface BackupPolicyDiskRetentionRule {
         /**
          * A `criteria` block as defined below. Changing this forces a new Backup Policy Disk to be created.
@@ -28939,6 +29021,77 @@ export namespace dataprotection {
     export interface BackupPolicyKubernetesClusterRetentionRuleLifeCycle {
         /**
          * The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
+         */
+        dataStoreType: pulumi.Input<string>;
+        /**
+         * The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+         */
+        duration: pulumi.Input<string>;
+    }
+
+    export interface BackupPolicyPostgresqlFlexibleServerDefaultRetentionRule {
+        /**
+         * A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
+         */
+        lifeCycles: pulumi.Input<pulumi.Input<inputs.dataprotection.BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycle>[]>;
+    }
+
+    export interface BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycle {
+        /**
+         * The type of data store. The only possible value is `VaultStore`. Changing this forces a new resource to be created.
+         */
+        dataStoreType: pulumi.Input<string>;
+        /**
+         * The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+         */
+        duration: pulumi.Input<string>;
+    }
+
+    export interface BackupPolicyPostgresqlFlexibleServerRetentionRule {
+        /**
+         * A `criteria` block as defined below. Changing this forces a new resource to be created.
+         */
+        criteria: pulumi.Input<inputs.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteria>;
+        /**
+         * A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
+         */
+        lifeCycles: pulumi.Input<pulumi.Input<inputs.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycle>[]>;
+        /**
+         * Specifies the name of the retention rule. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new resource to be created.
+         */
+        priority: pulumi.Input<number>;
+    }
+
+    export interface BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteria {
+        /**
+         * Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new resource to be created.
+         */
+        absoluteCriteria?: pulumi.Input<string>;
+        /**
+         * Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+         */
+        daysOfWeeks?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new resource to be created.
+         */
+        monthsOfYears?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
+         */
+        scheduledBackupTimes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+         */
+        weeksOfMonths?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycle {
+        /**
+         * The type of data store. The only possible value is `VaultStore`. Changing this forces a new resource to be created.
          */
         dataStoreType: pulumi.Input<string>;
         /**
@@ -37267,6 +37420,19 @@ export namespace machinelearning {
          */
         isolationMode?: pulumi.Input<string>;
     }
+
+    export interface WorkspaceServerlessCompute {
+        /**
+         * Should serverless compute nodes deployed in a custom Virtual Network have public IP addresses enabled for a workspace with private endpoint? Defaults to `false`.
+         *
+         * > **Note:** `publicIpEnabled` cannot be updated from `true` to `false` when `subnetId` is not set. `publicIpEnabled` must be set to `true` if `subnetId` is not set and when `publicNetworkAccessEnabled` is `false`.
+         */
+        publicIpEnabled?: pulumi.Input<boolean>;
+        /**
+         * The ID of an existing Virtual Network Subnet in which the serverless compute nodes should be deployed to.
+         */
+        subnetId?: pulumi.Input<string>;
+    }
 }
 
 export namespace maintenance {
@@ -41634,7 +41800,7 @@ export namespace monitoring {
          */
         columns: pulumi.Input<pulumi.Input<inputs.monitoring.DataCollectionRuleStreamDeclarationColumn>[]>;
         /**
-         * The name of the custom stream. This name should be unique across all `streamDeclaration` blocks.
+         * The name of the custom stream. This name should be unique across all `streamDeclaration` blocks and must begin with a prefix of `Custom-`.
          */
         streamName: pulumi.Input<string>;
     }
@@ -42325,7 +42491,7 @@ export namespace mssql {
          */
         family?: pulumi.Input<string>;
         /**
-         * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based or `DTU` based. Possible `DTU` based values are `BasicPool`, `StandardPool`, `PremiumPool` while possible `vCore` based values are `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5`, `BC_DC`, or `HS_Gen5`.
+         * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based or `DTU` based. Possible `DTU` based values are `BasicPool`, `StandardPool`, `PremiumPool` while possible `vCore` based values are `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5`, `BC_DC`, `HS_PRMS`, or `HS_Gen5`.
          */
         name: pulumi.Input<string>;
         /**
@@ -44400,7 +44566,9 @@ export namespace network {
         /**
          * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Express Route Port.
          */
-        identityIds: pulumi.Input<pulumi.Input<string>[]>;
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
         /**
          * Specifies the type of Managed Service Identity that should be configured on this Express Route Port. Only possible value is `UserAssigned`.
          */
@@ -45549,9 +45717,9 @@ export namespace network {
 
     export interface RouteMapRuleAction {
         /**
-         * A `parameter` block as defined below.
+         * A `parameter` block as defined below. Required if `type` is anything other than `Drop`.
          */
-        parameters: pulumi.Input<pulumi.Input<inputs.network.RouteMapRuleActionParameter>[]>;
+        parameters?: pulumi.Input<pulumi.Input<inputs.network.RouteMapRuleActionParameter>[]>;
         /**
          * The type of the action to be taken. Possible values are `Add`, `Drop`, `Remove`, `Replace` and `Unknown`.
          */
@@ -46712,6 +46880,21 @@ export namespace networkfunction {
 }
 
 export namespace newrelic {
+    export interface MonitorIdentity {
+        /**
+         * The Principal ID for the Service Principal associated with the Identity of this Azure Native New Relic Monitor.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID for the Service Principal associated with the Identity of this Azure Native New Relic Monitor.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the identity type of the Azure Native New Relic Monitor. The only possible value is `SystemAssigned`. Changing this forces a new Azure Native New Relic Monitor to be created.
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface MonitorPlan {
         /**
          * Specifies the billing cycles. Possible values are `MONTHLY`, `WEEKLY` and `YEARLY`. Defaults to `MONTHLY`. Changing this forces a new Azure Native New Relic Monitor to be created.
@@ -46783,12 +46966,24 @@ export namespace newrelic {
 
 export namespace nginx {
     export interface ConfigurationConfigFile {
+        /**
+         * Specifies the base-64 encoded contents of this config file.
+         */
         content: pulumi.Input<string>;
+        /**
+         * Specifies the path of this config file.
+         */
         virtualPath: pulumi.Input<string>;
     }
 
     export interface ConfigurationProtectedFile {
+        /**
+         * Specifies the base-64 encoded contents of this config file (Sensitive).
+         */
         content: pulumi.Input<string>;
+        /**
+         * Specifies the path of this config file.
+         */
         virtualPath: pulumi.Input<string>;
     }
 
@@ -46805,43 +47000,19 @@ export namespace nginx {
     }
 
     export interface DeploymentConfiguration {
-        /**
-         * One or more `configFile` blocks as defined below.
-         */
         configFiles?: pulumi.Input<pulumi.Input<inputs.nginx.DeploymentConfigurationConfigFile>[]>;
-        /**
-         * Specify the package data for this configuration.
-         */
         packageData?: pulumi.Input<string>;
-        /**
-         * One or more `protectedFile` blocks with sensitive information as defined below. If specified `configFile` must also be specified.
-         */
         protectedFiles?: pulumi.Input<pulumi.Input<inputs.nginx.DeploymentConfigurationProtectedFile>[]>;
-        /**
-         * Specify the root file path of this Nginx Configuration.
-         */
         rootFile: pulumi.Input<string>;
     }
 
     export interface DeploymentConfigurationConfigFile {
-        /**
-         * Specifies the base-64 encoded contents of this config file.
-         */
         content: pulumi.Input<string>;
-        /**
-         * Specify the path of this config file.
-         */
         virtualPath: pulumi.Input<string>;
     }
 
     export interface DeploymentConfigurationProtectedFile {
-        /**
-         * Specifies the base-64 encoded contents of this config file (Sensitive).
-         */
         content: pulumi.Input<string>;
-        /**
-         * Specify the path of this config file.
-         */
         virtualPath: pulumi.Input<string>;
     }
 
@@ -46877,7 +47048,7 @@ export namespace nginx {
         principalId?: pulumi.Input<string>;
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the identity type of the NGINX Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
+         * Specifies the identity type of the NGINX Deployment. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned`.
          */
         type: pulumi.Input<string>;
     }

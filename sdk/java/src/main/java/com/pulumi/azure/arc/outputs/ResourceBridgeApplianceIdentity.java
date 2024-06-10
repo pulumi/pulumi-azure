@@ -12,7 +12,15 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ResourceBridgeApplianceIdentity {
+    /**
+     * @return The Principal ID associated with this Managed Service Identity.
+     * 
+     */
     private @Nullable String principalId;
+    /**
+     * @return The Tenant ID associated with this Managed Service Identity.
+     * 
+     */
     private @Nullable String tenantId;
     /**
      * @return Specifies the type of Managed Service Identity that should be configured on this Arc Resource Bridge Appliance. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
@@ -21,9 +29,17 @@ public final class ResourceBridgeApplianceIdentity {
     private String type;
 
     private ResourceBridgeApplianceIdentity() {}
+    /**
+     * @return The Principal ID associated with this Managed Service Identity.
+     * 
+     */
     public Optional<String> principalId() {
         return Optional.ofNullable(this.principalId);
     }
+    /**
+     * @return The Tenant ID associated with this Managed Service Identity.
+     * 
+     */
     public Optional<String> tenantId() {
         return Optional.ofNullable(this.tenantId);
     }

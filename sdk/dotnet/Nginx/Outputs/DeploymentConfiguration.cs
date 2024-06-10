@@ -13,21 +13,9 @@ namespace Pulumi.Azure.Nginx.Outputs
     [OutputType]
     public sealed class DeploymentConfiguration
     {
-        /// <summary>
-        /// One or more `config_file` blocks as defined below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.DeploymentConfigurationConfigFile> ConfigFiles;
-        /// <summary>
-        /// Specify the package data for this configuration.
-        /// </summary>
         public readonly string? PackageData;
-        /// <summary>
-        /// One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
-        /// </summary>
         public readonly ImmutableArray<Outputs.DeploymentConfigurationProtectedFile> ProtectedFiles;
-        /// <summary>
-        /// Specify the root file path of this Nginx Configuration.
-        /// </summary>
         public readonly string RootFile;
 
         [OutputConstructor]

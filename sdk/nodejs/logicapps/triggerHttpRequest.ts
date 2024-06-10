@@ -74,7 +74,7 @@ export class TriggerHttpRequest extends pulumi.CustomResource {
     }
 
     /**
-     * The URL for the workflow trigger
+     * The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group.
      */
     public /*out*/ readonly callbackUrl!: pulumi.Output<string>;
     /**
@@ -146,7 +146,7 @@ export class TriggerHttpRequest extends pulumi.CustomResource {
  */
 export interface TriggerHttpRequestState {
     /**
-     * The URL for the workflow trigger
+     * The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group.
      */
     callbackUrl?: pulumi.Input<string>;
     /**

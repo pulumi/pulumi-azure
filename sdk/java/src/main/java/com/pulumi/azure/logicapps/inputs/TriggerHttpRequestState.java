@@ -16,14 +16,14 @@ public final class TriggerHttpRequestState extends com.pulumi.resources.Resource
     public static final TriggerHttpRequestState Empty = new TriggerHttpRequestState();
 
     /**
-     * The URL for the workflow trigger
+     * The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group.
      * 
      */
     @Import(name="callbackUrl")
     private @Nullable Output<String> callbackUrl;
 
     /**
-     * @return The URL for the workflow trigger
+     * @return The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group.
      * 
      */
     public Optional<Output<String>> callbackUrl() {
@@ -143,7 +143,7 @@ public final class TriggerHttpRequestState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param callbackUrl The URL for the workflow trigger
+         * @param callbackUrl The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class TriggerHttpRequestState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param callbackUrl The URL for the workflow trigger
+         * @param callbackUrl The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group.
          * 
          * @return builder
          * 

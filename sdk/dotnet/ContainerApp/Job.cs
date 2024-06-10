@@ -172,11 +172,14 @@ namespace Pulumi.Azure.ContainerApp
         [Output("outboundIpAddresses")]
         public Output<ImmutableArray<string>> OutboundIpAddresses { get; private set; } = null!;
 
-        /// <summary>
-        /// A `registries` block as defined below.
-        /// </summary>
         [Output("registries")]
         public Output<ImmutableArray<Outputs.JobRegistry>> Registries { get; private set; } = null!;
+
+        /// <summary>
+        /// One or more `registry` blocks as defined below.
+        /// </summary>
+        [Output("registry")]
+        public Output<ImmutableArray<Outputs.JobRegistry>> Registry { get; private set; } = null!;
 
         /// <summary>
         /// The maximum number of times a replica is allowed to retry.
@@ -205,8 +208,11 @@ namespace Pulumi.Azure.ContainerApp
         public Output<Outputs.JobScheduleTriggerConfig?> ScheduleTriggerConfig { get; private set; } = null!;
 
         /// <summary>
-        /// A `secrets` block as defined below.
+        /// One or more `secret` blocks as defined below.
         /// </summary>
+        [Output("secret")]
+        public Output<ImmutableArray<Outputs.JobSecret>> Secret { get; private set; } = null!;
+
         [Output("secrets")]
         public Output<ImmutableArray<Outputs.JobSecret>> Secrets { get; private set; } = null!;
 
@@ -253,6 +259,7 @@ namespace Pulumi.Azure.ContainerApp
                 Version = Utilities.Version,
                 AdditionalSecretOutputs =
                 {
+                    "secret",
                     "secrets",
                 },
             };
@@ -316,14 +323,23 @@ namespace Pulumi.Azure.ContainerApp
 
         [Input("registries")]
         private InputList<Inputs.JobRegistryArgs>? _registries;
-
-        /// <summary>
-        /// A `registries` block as defined below.
-        /// </summary>
+        [Obsolete(@"`registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider.")]
         public InputList<Inputs.JobRegistryArgs> Registries
         {
             get => _registries ?? (_registries = new InputList<Inputs.JobRegistryArgs>());
             set => _registries = value;
+        }
+
+        [Input("registry")]
+        private InputList<Inputs.JobRegistryArgs>? _registry;
+
+        /// <summary>
+        /// One or more `registry` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.JobRegistryArgs> Registry
+        {
+            get => _registry ?? (_registry = new InputList<Inputs.JobRegistryArgs>());
+            set => _registry = value;
         }
 
         /// <summary>
@@ -352,12 +368,25 @@ namespace Pulumi.Azure.ContainerApp
         [Input("scheduleTriggerConfig")]
         public Input<Inputs.JobScheduleTriggerConfigArgs>? ScheduleTriggerConfig { get; set; }
 
-        [Input("secrets")]
-        private InputList<Inputs.JobSecretArgs>? _secrets;
+        [Input("secret")]
+        private InputList<Inputs.JobSecretArgs>? _secret;
 
         /// <summary>
-        /// A `secrets` block as defined below.
+        /// One or more `secret` blocks as defined below.
         /// </summary>
+        public InputList<Inputs.JobSecretArgs> Secret
+        {
+            get => _secret ?? (_secret = new InputList<Inputs.JobSecretArgs>());
+            set
+            {
+                var emptySecret = Output.CreateSecret(ImmutableArray.Create<Inputs.JobSecretArgs>());
+                _secret = Output.All(value, emptySecret).Apply(v => v[0]);
+            }
+        }
+
+        [Input("secrets")]
+        private InputList<Inputs.JobSecretArgs>? _secrets;
+        [Obsolete(@"`secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider.")]
         public InputList<Inputs.JobSecretArgs> Secrets
         {
             get => _secrets ?? (_secrets = new InputList<Inputs.JobSecretArgs>());
@@ -456,14 +485,23 @@ namespace Pulumi.Azure.ContainerApp
 
         [Input("registries")]
         private InputList<Inputs.JobRegistryGetArgs>? _registries;
-
-        /// <summary>
-        /// A `registries` block as defined below.
-        /// </summary>
+        [Obsolete(@"`registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider.")]
         public InputList<Inputs.JobRegistryGetArgs> Registries
         {
             get => _registries ?? (_registries = new InputList<Inputs.JobRegistryGetArgs>());
             set => _registries = value;
+        }
+
+        [Input("registry")]
+        private InputList<Inputs.JobRegistryGetArgs>? _registry;
+
+        /// <summary>
+        /// One or more `registry` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.JobRegistryGetArgs> Registry
+        {
+            get => _registry ?? (_registry = new InputList<Inputs.JobRegistryGetArgs>());
+            set => _registry = value;
         }
 
         /// <summary>
@@ -492,12 +530,25 @@ namespace Pulumi.Azure.ContainerApp
         [Input("scheduleTriggerConfig")]
         public Input<Inputs.JobScheduleTriggerConfigGetArgs>? ScheduleTriggerConfig { get; set; }
 
-        [Input("secrets")]
-        private InputList<Inputs.JobSecretGetArgs>? _secrets;
+        [Input("secret")]
+        private InputList<Inputs.JobSecretGetArgs>? _secret;
 
         /// <summary>
-        /// A `secrets` block as defined below.
+        /// One or more `secret` blocks as defined below.
         /// </summary>
+        public InputList<Inputs.JobSecretGetArgs> Secret
+        {
+            get => _secret ?? (_secret = new InputList<Inputs.JobSecretGetArgs>());
+            set
+            {
+                var emptySecret = Output.CreateSecret(ImmutableArray.Create<Inputs.JobSecretGetArgs>());
+                _secret = Output.All(value, emptySecret).Apply(v => v[0]);
+            }
+        }
+
+        [Input("secrets")]
+        private InputList<Inputs.JobSecretGetArgs>? _secrets;
+        [Obsolete(@"`secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider.")]
         public InputList<Inputs.JobSecretGetArgs> Secrets
         {
             get => _secrets ?? (_secrets = new InputList<Inputs.JobSecretGetArgs>());

@@ -119,6 +119,20 @@ public class Subnet extends com.pulumi.resources.CustomResource {
         return this.addressPrefixes;
     }
     /**
+     * Enable default outbound access to the internet for the subnet. Defaults to `true`.
+     * 
+     */
+    @Export(name="defaultOutboundAccessEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> defaultOutboundAccessEnabled;
+
+    /**
+     * @return Enable default outbound access to the internet for the subnet. Defaults to `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> defaultOutboundAccessEnabled() {
+        return Codegen.optional(this.defaultOutboundAccessEnabled);
+    }
+    /**
      * One or more `delegation` blocks as defined below.
      * 
      */

@@ -179,6 +179,21 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
+     * 
+     */
+    @Import(name="costAnalysisEnabled")
+    private @Nullable Output<Boolean> costAnalysisEnabled;
+
+    /**
+     * @return Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
+     * 
+     */
+    public Optional<Output<Boolean>> costAnalysisEnabled() {
+        return Optional.ofNullable(this.costAnalysisEnabled);
+    }
+
+    /**
      * A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
      * 
      * &gt; **Note:** Removing `custom_ca_trust_certificates_base64` after it has been set forces a new resource to be created.
@@ -980,16 +995,12 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     /**
      * A `service_mesh_profile` block as defined below.
      * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
-     * 
      */
     @Import(name="serviceMeshProfile")
     private @Nullable Output<KubernetesClusterServiceMeshProfileArgs> serviceMeshProfile;
 
     /**
      * @return A `service_mesh_profile` block as defined below.
-     * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
      * 
      */
     public Optional<Output<KubernetesClusterServiceMeshProfileArgs>> serviceMeshProfile() {
@@ -1158,6 +1169,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         this.azureActiveDirectoryRoleBasedAccessControl = $.azureActiveDirectoryRoleBasedAccessControl;
         this.azurePolicyEnabled = $.azurePolicyEnabled;
         this.confidentialComputing = $.confidentialComputing;
+        this.costAnalysisEnabled = $.costAnalysisEnabled;
         this.customCaTrustCertificatesBase64s = $.customCaTrustCertificatesBase64s;
         this.defaultNodePool = $.defaultNodePool;
         this.diskEncryptionSetId = $.diskEncryptionSetId;
@@ -1417,6 +1429,27 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder confidentialComputing(KubernetesClusterConfidentialComputingArgs confidentialComputing) {
             return confidentialComputing(Output.of(confidentialComputing));
+        }
+
+        /**
+         * @param costAnalysisEnabled Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder costAnalysisEnabled(@Nullable Output<Boolean> costAnalysisEnabled) {
+            $.costAnalysisEnabled = costAnalysisEnabled;
+            return this;
+        }
+
+        /**
+         * @param costAnalysisEnabled Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder costAnalysisEnabled(Boolean costAnalysisEnabled) {
+            return costAnalysisEnabled(Output.of(costAnalysisEnabled));
         }
 
         /**
@@ -2467,8 +2500,6 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param serviceMeshProfile A `service_mesh_profile` block as defined below.
          * 
-         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
-         * 
          * @return builder
          * 
          */
@@ -2479,8 +2510,6 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
 
         /**
          * @param serviceMeshProfile A `service_mesh_profile` block as defined below.
-         * 
-         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
          * 
          * @return builder
          * 

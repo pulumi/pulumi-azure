@@ -23,6 +23,7 @@ __all__ = [
     'WorkspaceFeatureStoreArgs',
     'WorkspaceIdentityArgs',
     'WorkspaceManagedNetworkArgs',
+    'WorkspaceServerlessComputeArgs',
 ]
 
 @pulumi.input_type
@@ -822,5 +823,48 @@ class WorkspaceManagedNetworkArgs:
     @isolation_mode.setter
     def isolation_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "isolation_mode", value)
+
+
+@pulumi.input_type
+class WorkspaceServerlessComputeArgs:
+    def __init__(__self__, *,
+                 public_ip_enabled: Optional[pulumi.Input[bool]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] public_ip_enabled: Should serverless compute nodes deployed in a custom Virtual Network have public IP addresses enabled for a workspace with private endpoint? Defaults to `false`.
+               
+               > **Note:** `public_ip_enabled` cannot be updated from `true` to `false` when `subnet_id` is not set. `public_ip_enabled` must be set to `true` if `subnet_id` is not set and when `public_network_access_enabled` is `false`.
+        :param pulumi.Input[str] subnet_id: The ID of an existing Virtual Network Subnet in which the serverless compute nodes should be deployed to.
+        """
+        if public_ip_enabled is not None:
+            pulumi.set(__self__, "public_ip_enabled", public_ip_enabled)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="publicIpEnabled")
+    def public_ip_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should serverless compute nodes deployed in a custom Virtual Network have public IP addresses enabled for a workspace with private endpoint? Defaults to `false`.
+
+        > **Note:** `public_ip_enabled` cannot be updated from `true` to `false` when `subnet_id` is not set. `public_ip_enabled` must be set to `true` if `subnet_id` is not set and when `public_network_access_enabled` is `false`.
+        """
+        return pulumi.get(self, "public_ip_enabled")
+
+    @public_ip_enabled.setter
+    def public_ip_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_ip_enabled", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of an existing Virtual Network Subnet in which the serverless compute nodes should be deployed to.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
 
 

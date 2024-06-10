@@ -70,10 +70,28 @@ import (
 type BackupPolicyBlobStorage struct {
 	pulumi.CustomResourceState
 
+	// Specifies a list of repeating time interval. It should follow `ISO 8601` repeating time interval. Changing this forces a new Backup Policy Blob Storage to be created.
+	BackupRepeatingTimeIntervals pulumi.StringArrayOutput `pulumi:"backupRepeatingTimeIntervals"`
 	// The name which should be used for this Backup Policy Blob Storage. Changing this forces a new Backup Policy Blob Storage to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The duration of operational default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
+	OperationalDefaultRetentionDuration pulumi.StringOutput `pulumi:"operationalDefaultRetentionDuration"`
 	// Duration of deletion after given timespan. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
+	//
+	// > **Note:** > `retentionDuration` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use the `operationalDefaultRetentionDuration` instead.
+	//
+	// Deprecated: This property has been renamed to `operationalDefaultRetentionDuration` and will be removed in v4.0 of the AzureRM provider
 	RetentionDuration pulumi.StringOutput `pulumi:"retentionDuration"`
+	// One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
+	//
+	// > **Note:** Setting `retentionRule` also requires setting `vaultDefaultRetentionDuration`.
+	RetentionRules BackupPolicyBlobStorageRetentionRuleArrayOutput `pulumi:"retentionRules"`
+	// Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Blob Storage to be created.
+	TimeZone pulumi.StringPtrOutput `pulumi:"timeZone"`
+	// The duration of vault default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
+	//
+	// > **Note:** Setting `vaultDefaultRetentionDuration` also requires setting `backupRepeatingTimeIntervals`. At least one of `operationalDefaultRetentionDuration`, `retentionDuration` or `vaultDefaultRetentionDuration` must be specified.
+	VaultDefaultRetentionDuration pulumi.StringPtrOutput `pulumi:"vaultDefaultRetentionDuration"`
 	// The ID of the Backup Vault within which the Backup Policy Blob Storage should exist. Changing this forces a new Backup Policy Blob Storage to be created.
 	VaultId pulumi.StringOutput `pulumi:"vaultId"`
 }
@@ -85,9 +103,6 @@ func NewBackupPolicyBlobStorage(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.RetentionDuration == nil {
-		return nil, errors.New("invalid value for required argument 'RetentionDuration'")
-	}
 	if args.VaultId == nil {
 		return nil, errors.New("invalid value for required argument 'VaultId'")
 	}
@@ -114,19 +129,55 @@ func GetBackupPolicyBlobStorage(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BackupPolicyBlobStorage resources.
 type backupPolicyBlobStorageState struct {
+	// Specifies a list of repeating time interval. It should follow `ISO 8601` repeating time interval. Changing this forces a new Backup Policy Blob Storage to be created.
+	BackupRepeatingTimeIntervals []string `pulumi:"backupRepeatingTimeIntervals"`
 	// The name which should be used for this Backup Policy Blob Storage. Changing this forces a new Backup Policy Blob Storage to be created.
 	Name *string `pulumi:"name"`
+	// The duration of operational default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
+	OperationalDefaultRetentionDuration *string `pulumi:"operationalDefaultRetentionDuration"`
 	// Duration of deletion after given timespan. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
+	//
+	// > **Note:** > `retentionDuration` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use the `operationalDefaultRetentionDuration` instead.
+	//
+	// Deprecated: This property has been renamed to `operationalDefaultRetentionDuration` and will be removed in v4.0 of the AzureRM provider
 	RetentionDuration *string `pulumi:"retentionDuration"`
+	// One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
+	//
+	// > **Note:** Setting `retentionRule` also requires setting `vaultDefaultRetentionDuration`.
+	RetentionRules []BackupPolicyBlobStorageRetentionRule `pulumi:"retentionRules"`
+	// Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Blob Storage to be created.
+	TimeZone *string `pulumi:"timeZone"`
+	// The duration of vault default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
+	//
+	// > **Note:** Setting `vaultDefaultRetentionDuration` also requires setting `backupRepeatingTimeIntervals`. At least one of `operationalDefaultRetentionDuration`, `retentionDuration` or `vaultDefaultRetentionDuration` must be specified.
+	VaultDefaultRetentionDuration *string `pulumi:"vaultDefaultRetentionDuration"`
 	// The ID of the Backup Vault within which the Backup Policy Blob Storage should exist. Changing this forces a new Backup Policy Blob Storage to be created.
 	VaultId *string `pulumi:"vaultId"`
 }
 
 type BackupPolicyBlobStorageState struct {
+	// Specifies a list of repeating time interval. It should follow `ISO 8601` repeating time interval. Changing this forces a new Backup Policy Blob Storage to be created.
+	BackupRepeatingTimeIntervals pulumi.StringArrayInput
 	// The name which should be used for this Backup Policy Blob Storage. Changing this forces a new Backup Policy Blob Storage to be created.
 	Name pulumi.StringPtrInput
+	// The duration of operational default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
+	OperationalDefaultRetentionDuration pulumi.StringPtrInput
 	// Duration of deletion after given timespan. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
+	//
+	// > **Note:** > `retentionDuration` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use the `operationalDefaultRetentionDuration` instead.
+	//
+	// Deprecated: This property has been renamed to `operationalDefaultRetentionDuration` and will be removed in v4.0 of the AzureRM provider
 	RetentionDuration pulumi.StringPtrInput
+	// One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
+	//
+	// > **Note:** Setting `retentionRule` also requires setting `vaultDefaultRetentionDuration`.
+	RetentionRules BackupPolicyBlobStorageRetentionRuleArrayInput
+	// Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Blob Storage to be created.
+	TimeZone pulumi.StringPtrInput
+	// The duration of vault default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
+	//
+	// > **Note:** Setting `vaultDefaultRetentionDuration` also requires setting `backupRepeatingTimeIntervals`. At least one of `operationalDefaultRetentionDuration`, `retentionDuration` or `vaultDefaultRetentionDuration` must be specified.
+	VaultDefaultRetentionDuration pulumi.StringPtrInput
 	// The ID of the Backup Vault within which the Backup Policy Blob Storage should exist. Changing this forces a new Backup Policy Blob Storage to be created.
 	VaultId pulumi.StringPtrInput
 }
@@ -136,20 +187,56 @@ func (BackupPolicyBlobStorageState) ElementType() reflect.Type {
 }
 
 type backupPolicyBlobStorageArgs struct {
+	// Specifies a list of repeating time interval. It should follow `ISO 8601` repeating time interval. Changing this forces a new Backup Policy Blob Storage to be created.
+	BackupRepeatingTimeIntervals []string `pulumi:"backupRepeatingTimeIntervals"`
 	// The name which should be used for this Backup Policy Blob Storage. Changing this forces a new Backup Policy Blob Storage to be created.
 	Name *string `pulumi:"name"`
+	// The duration of operational default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
+	OperationalDefaultRetentionDuration *string `pulumi:"operationalDefaultRetentionDuration"`
 	// Duration of deletion after given timespan. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
-	RetentionDuration string `pulumi:"retentionDuration"`
+	//
+	// > **Note:** > `retentionDuration` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use the `operationalDefaultRetentionDuration` instead.
+	//
+	// Deprecated: This property has been renamed to `operationalDefaultRetentionDuration` and will be removed in v4.0 of the AzureRM provider
+	RetentionDuration *string `pulumi:"retentionDuration"`
+	// One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
+	//
+	// > **Note:** Setting `retentionRule` also requires setting `vaultDefaultRetentionDuration`.
+	RetentionRules []BackupPolicyBlobStorageRetentionRule `pulumi:"retentionRules"`
+	// Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Blob Storage to be created.
+	TimeZone *string `pulumi:"timeZone"`
+	// The duration of vault default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
+	//
+	// > **Note:** Setting `vaultDefaultRetentionDuration` also requires setting `backupRepeatingTimeIntervals`. At least one of `operationalDefaultRetentionDuration`, `retentionDuration` or `vaultDefaultRetentionDuration` must be specified.
+	VaultDefaultRetentionDuration *string `pulumi:"vaultDefaultRetentionDuration"`
 	// The ID of the Backup Vault within which the Backup Policy Blob Storage should exist. Changing this forces a new Backup Policy Blob Storage to be created.
 	VaultId string `pulumi:"vaultId"`
 }
 
 // The set of arguments for constructing a BackupPolicyBlobStorage resource.
 type BackupPolicyBlobStorageArgs struct {
+	// Specifies a list of repeating time interval. It should follow `ISO 8601` repeating time interval. Changing this forces a new Backup Policy Blob Storage to be created.
+	BackupRepeatingTimeIntervals pulumi.StringArrayInput
 	// The name which should be used for this Backup Policy Blob Storage. Changing this forces a new Backup Policy Blob Storage to be created.
 	Name pulumi.StringPtrInput
+	// The duration of operational default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
+	OperationalDefaultRetentionDuration pulumi.StringPtrInput
 	// Duration of deletion after given timespan. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
-	RetentionDuration pulumi.StringInput
+	//
+	// > **Note:** > `retentionDuration` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use the `operationalDefaultRetentionDuration` instead.
+	//
+	// Deprecated: This property has been renamed to `operationalDefaultRetentionDuration` and will be removed in v4.0 of the AzureRM provider
+	RetentionDuration pulumi.StringPtrInput
+	// One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
+	//
+	// > **Note:** Setting `retentionRule` also requires setting `vaultDefaultRetentionDuration`.
+	RetentionRules BackupPolicyBlobStorageRetentionRuleArrayInput
+	// Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Blob Storage to be created.
+	TimeZone pulumi.StringPtrInput
+	// The duration of vault default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
+	//
+	// > **Note:** Setting `vaultDefaultRetentionDuration` also requires setting `backupRepeatingTimeIntervals`. At least one of `operationalDefaultRetentionDuration`, `retentionDuration` or `vaultDefaultRetentionDuration` must be specified.
+	VaultDefaultRetentionDuration pulumi.StringPtrInput
 	// The ID of the Backup Vault within which the Backup Policy Blob Storage should exist. Changing this forces a new Backup Policy Blob Storage to be created.
 	VaultId pulumi.StringInput
 }
@@ -241,14 +328,49 @@ func (o BackupPolicyBlobStorageOutput) ToBackupPolicyBlobStorageOutputWithContex
 	return o
 }
 
+// Specifies a list of repeating time interval. It should follow `ISO 8601` repeating time interval. Changing this forces a new Backup Policy Blob Storage to be created.
+func (o BackupPolicyBlobStorageOutput) BackupRepeatingTimeIntervals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BackupPolicyBlobStorage) pulumi.StringArrayOutput { return v.BackupRepeatingTimeIntervals }).(pulumi.StringArrayOutput)
+}
+
 // The name which should be used for this Backup Policy Blob Storage. Changing this forces a new Backup Policy Blob Storage to be created.
 func (o BackupPolicyBlobStorageOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupPolicyBlobStorage) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The duration of operational default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
+func (o BackupPolicyBlobStorageOutput) OperationalDefaultRetentionDuration() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupPolicyBlobStorage) pulumi.StringOutput { return v.OperationalDefaultRetentionDuration }).(pulumi.StringOutput)
+}
+
 // Duration of deletion after given timespan. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
+//
+// > **Note:** > `retentionDuration` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use the `operationalDefaultRetentionDuration` instead.
+//
+// Deprecated: This property has been renamed to `operationalDefaultRetentionDuration` and will be removed in v4.0 of the AzureRM provider
 func (o BackupPolicyBlobStorageOutput) RetentionDuration() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupPolicyBlobStorage) pulumi.StringOutput { return v.RetentionDuration }).(pulumi.StringOutput)
+}
+
+// One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
+//
+// > **Note:** Setting `retentionRule` also requires setting `vaultDefaultRetentionDuration`.
+func (o BackupPolicyBlobStorageOutput) RetentionRules() BackupPolicyBlobStorageRetentionRuleArrayOutput {
+	return o.ApplyT(func(v *BackupPolicyBlobStorage) BackupPolicyBlobStorageRetentionRuleArrayOutput {
+		return v.RetentionRules
+	}).(BackupPolicyBlobStorageRetentionRuleArrayOutput)
+}
+
+// Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Blob Storage to be created.
+func (o BackupPolicyBlobStorageOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupPolicyBlobStorage) pulumi.StringPtrOutput { return v.TimeZone }).(pulumi.StringPtrOutput)
+}
+
+// The duration of vault default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
+//
+// > **Note:** Setting `vaultDefaultRetentionDuration` also requires setting `backupRepeatingTimeIntervals`. At least one of `operationalDefaultRetentionDuration`, `retentionDuration` or `vaultDefaultRetentionDuration` must be specified.
+func (o BackupPolicyBlobStorageOutput) VaultDefaultRetentionDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupPolicyBlobStorage) pulumi.StringPtrOutput { return v.VaultDefaultRetentionDuration }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Backup Vault within which the Backup Policy Blob Storage should exist. Changing this forces a new Backup Policy Blob Storage to be created.

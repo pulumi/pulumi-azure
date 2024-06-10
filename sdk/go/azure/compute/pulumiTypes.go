@@ -1550,7 +1550,7 @@ func (o ImageOsDiskPtrOutput) SizeGb() pulumi.IntPtrOutput {
 }
 
 type LinuxVirtualMachineAdditionalCapabilities struct {
-	// Whether to enable the hibernation capability or not. Changing this forces a new Linux Virtual Machine to be created.
+	// Whether to enable the hibernation capability or not.
 	HibernationEnabled *bool `pulumi:"hibernationEnabled"`
 	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
 	UltraSsdEnabled *bool `pulumi:"ultraSsdEnabled"`
@@ -1568,7 +1568,7 @@ type LinuxVirtualMachineAdditionalCapabilitiesInput interface {
 }
 
 type LinuxVirtualMachineAdditionalCapabilitiesArgs struct {
-	// Whether to enable the hibernation capability or not. Changing this forces a new Linux Virtual Machine to be created.
+	// Whether to enable the hibernation capability or not.
 	HibernationEnabled pulumi.BoolPtrInput `pulumi:"hibernationEnabled"`
 	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
 	UltraSsdEnabled pulumi.BoolPtrInput `pulumi:"ultraSsdEnabled"`
@@ -1651,7 +1651,7 @@ func (o LinuxVirtualMachineAdditionalCapabilitiesOutput) ToLinuxVirtualMachineAd
 	}).(LinuxVirtualMachineAdditionalCapabilitiesPtrOutput)
 }
 
-// Whether to enable the hibernation capability or not. Changing this forces a new Linux Virtual Machine to be created.
+// Whether to enable the hibernation capability or not.
 func (o LinuxVirtualMachineAdditionalCapabilitiesOutput) HibernationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineAdditionalCapabilities) *bool { return v.HibernationEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -1685,7 +1685,7 @@ func (o LinuxVirtualMachineAdditionalCapabilitiesPtrOutput) Elem() LinuxVirtualM
 	}).(LinuxVirtualMachineAdditionalCapabilitiesOutput)
 }
 
-// Whether to enable the hibernation capability or not. Changing this forces a new Linux Virtual Machine to be created.
+// Whether to enable the hibernation capability or not.
 func (o LinuxVirtualMachineAdditionalCapabilitiesPtrOutput) HibernationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineAdditionalCapabilities) *bool {
 		if v == nil {
@@ -22363,7 +22363,7 @@ func (o VirtualMachineStorageOsDiskPtrOutput) WriteAcceleratorEnabled() pulumi.B
 }
 
 type WindowsVirtualMachineAdditionalCapabilities struct {
-	// Whether to enable the hibernation capability or not. Changing this forces a new Windows Virtual Machine to be created.
+	// Whether to enable the hibernation capability or not.
 	HibernationEnabled *bool `pulumi:"hibernationEnabled"`
 	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
 	UltraSsdEnabled *bool `pulumi:"ultraSsdEnabled"`
@@ -22381,7 +22381,7 @@ type WindowsVirtualMachineAdditionalCapabilitiesInput interface {
 }
 
 type WindowsVirtualMachineAdditionalCapabilitiesArgs struct {
-	// Whether to enable the hibernation capability or not. Changing this forces a new Windows Virtual Machine to be created.
+	// Whether to enable the hibernation capability or not.
 	HibernationEnabled pulumi.BoolPtrInput `pulumi:"hibernationEnabled"`
 	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
 	UltraSsdEnabled pulumi.BoolPtrInput `pulumi:"ultraSsdEnabled"`
@@ -22464,7 +22464,7 @@ func (o WindowsVirtualMachineAdditionalCapabilitiesOutput) ToWindowsVirtualMachi
 	}).(WindowsVirtualMachineAdditionalCapabilitiesPtrOutput)
 }
 
-// Whether to enable the hibernation capability or not. Changing this forces a new Windows Virtual Machine to be created.
+// Whether to enable the hibernation capability or not.
 func (o WindowsVirtualMachineAdditionalCapabilitiesOutput) HibernationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineAdditionalCapabilities) *bool { return v.HibernationEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -22498,7 +22498,7 @@ func (o WindowsVirtualMachineAdditionalCapabilitiesPtrOutput) Elem() WindowsVirt
 	}).(WindowsVirtualMachineAdditionalCapabilitiesOutput)
 }
 
-// Whether to enable the hibernation capability or not. Changing this forces a new Windows Virtual Machine to be created.
+// Whether to enable the hibernation capability or not.
 func (o WindowsVirtualMachineAdditionalCapabilitiesPtrOutput) HibernationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineAdditionalCapabilities) *bool {
 		if v == nil {

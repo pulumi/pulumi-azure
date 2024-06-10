@@ -6,11 +6,14 @@ package com.pulumi.azure.dataprotection;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.dataprotection.BackupPolicyBlobStorageArgs;
 import com.pulumi.azure.dataprotection.inputs.BackupPolicyBlobStorageState;
+import com.pulumi.azure.dataprotection.outputs.BackupPolicyBlobStorageRetentionRule;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -82,6 +85,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:dataprotection/backupPolicyBlobStorage:BackupPolicyBlobStorage")
 public class BackupPolicyBlobStorage extends com.pulumi.resources.CustomResource {
     /**
+     * Specifies a list of repeating time interval. It should follow `ISO 8601` repeating time interval. Changing this forces a new Backup Policy Blob Storage to be created.
+     * 
+     */
+    @Export(name="backupRepeatingTimeIntervals", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> backupRepeatingTimeIntervals;
+
+    /**
+     * @return Specifies a list of repeating time interval. It should follow `ISO 8601` repeating time interval. Changing this forces a new Backup Policy Blob Storage to be created.
+     * 
+     */
+    public Output<Optional<List<String>>> backupRepeatingTimeIntervals() {
+        return Codegen.optional(this.backupRepeatingTimeIntervals);
+    }
+    /**
      * The name which should be used for this Backup Policy Blob Storage. Changing this forces a new Backup Policy Blob Storage to be created.
      * 
      */
@@ -96,18 +113,90 @@ public class BackupPolicyBlobStorage extends com.pulumi.resources.CustomResource
         return this.name;
     }
     /**
-     * Duration of deletion after given timespan. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
+     * The duration of operational default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
      * 
      */
+    @Export(name="operationalDefaultRetentionDuration", refs={String.class}, tree="[0]")
+    private Output<String> operationalDefaultRetentionDuration;
+
+    /**
+     * @return The duration of operational default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
+     * 
+     */
+    public Output<String> operationalDefaultRetentionDuration() {
+        return this.operationalDefaultRetentionDuration;
+    }
+    /**
+     * Duration of deletion after given timespan. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
+     * 
+     * &gt; **Note:** &gt; `retention_duration` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use the `operational_default_retention_duration` instead.
+     * 
+     * @deprecated
+     * This property has been renamed to `operational_default_retention_duration` and will be removed in v4.0 of the AzureRM provider
+     * 
+     */
+    @Deprecated /* This property has been renamed to `operational_default_retention_duration` and will be removed in v4.0 of the AzureRM provider */
     @Export(name="retentionDuration", refs={String.class}, tree="[0]")
     private Output<String> retentionDuration;
 
     /**
      * @return Duration of deletion after given timespan. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
      * 
+     * &gt; **Note:** &gt; `retention_duration` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use the `operational_default_retention_duration` instead.
+     * 
      */
     public Output<String> retentionDuration() {
         return this.retentionDuration;
+    }
+    /**
+     * One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
+     * 
+     * &gt; **Note:** Setting `retention_rule` also requires setting `vault_default_retention_duration`.
+     * 
+     */
+    @Export(name="retentionRules", refs={List.class,BackupPolicyBlobStorageRetentionRule.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<BackupPolicyBlobStorageRetentionRule>> retentionRules;
+
+    /**
+     * @return One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
+     * 
+     * &gt; **Note:** Setting `retention_rule` also requires setting `vault_default_retention_duration`.
+     * 
+     */
+    public Output<Optional<List<BackupPolicyBlobStorageRetentionRule>>> retentionRules() {
+        return Codegen.optional(this.retentionRules);
+    }
+    /**
+     * Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Blob Storage to be created.
+     * 
+     */
+    @Export(name="timeZone", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> timeZone;
+
+    /**
+     * @return Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Blob Storage to be created.
+     * 
+     */
+    public Output<Optional<String>> timeZone() {
+        return Codegen.optional(this.timeZone);
+    }
+    /**
+     * The duration of vault default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
+     * 
+     * &gt; **Note:** Setting `vault_default_retention_duration` also requires setting `backup_repeating_time_intervals`. At least one of `operational_default_retention_duration`, `retention_duration` or `vault_default_retention_duration` must be specified.
+     * 
+     */
+    @Export(name="vaultDefaultRetentionDuration", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> vaultDefaultRetentionDuration;
+
+    /**
+     * @return The duration of vault default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
+     * 
+     * &gt; **Note:** Setting `vault_default_retention_duration` also requires setting `backup_repeating_time_intervals`. At least one of `operational_default_retention_duration`, `retention_duration` or `vault_default_retention_duration` must be specified.
+     * 
+     */
+    public Output<Optional<String>> vaultDefaultRetentionDuration() {
+        return Codegen.optional(this.vaultDefaultRetentionDuration);
     }
     /**
      * The ID of the Backup Vault within which the Backup Policy Blob Storage should exist. Changing this forces a new Backup Policy Blob Storage to be created.

@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WindowsVirtualMachineAdditionalCapabilities {
     /**
-     * @return Whether to enable the hibernation capability or not. Changing this forces a new Windows Virtual Machine to be created.
+     * @return Whether to enable the hibernation capability or not.
      * 
      */
     private @Nullable Boolean hibernationEnabled;
@@ -24,7 +24,7 @@ public final class WindowsVirtualMachineAdditionalCapabilities {
 
     private WindowsVirtualMachineAdditionalCapabilities() {}
     /**
-     * @return Whether to enable the hibernation capability or not. Changing this forces a new Windows Virtual Machine to be created.
+     * @return Whether to enable the hibernation capability or not.
      * 
      */
     public Optional<Boolean> hibernationEnabled() {

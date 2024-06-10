@@ -121,6 +121,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.KubernetesClusterConfidentialComputing?> ConfidentialComputing { get; private set; } = null!;
 
         /// <summary>
+        /// Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
+        /// </summary>
+        [Output("costAnalysisEnabled")]
+        public Output<bool?> CostAnalysisEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The current version running on the Azure Kubernetes Managed Cluster.
         /// </summary>
         [Output("currentKubernetesVersion")]
@@ -502,8 +508,6 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// A `service_mesh_profile` block as defined below.
-        /// 
-        /// &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
         /// </summary>
         [Output("serviceMeshProfile")]
         public Output<Outputs.KubernetesClusterServiceMeshProfile?> ServiceMeshProfile { get; private set; } = null!;
@@ -677,6 +681,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("confidentialComputing")]
         public Input<Inputs.KubernetesClusterConfidentialComputingArgs>? ConfidentialComputing { get; set; }
+
+        /// <summary>
+        /// Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
+        /// </summary>
+        [Input("costAnalysisEnabled")]
+        public Input<bool>? CostAnalysisEnabled { get; set; }
 
         [Input("customCaTrustCertificatesBase64s")]
         private InputList<string>? _customCaTrustCertificatesBase64s;
@@ -1000,8 +1010,6 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// A `service_mesh_profile` block as defined below.
-        /// 
-        /// &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
         /// </summary>
         [Input("serviceMeshProfile")]
         public Input<Inputs.KubernetesClusterServiceMeshProfileArgs>? ServiceMeshProfile { get; set; }
@@ -1136,6 +1144,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("confidentialComputing")]
         public Input<Inputs.KubernetesClusterConfidentialComputingGetArgs>? ConfidentialComputing { get; set; }
+
+        /// <summary>
+        /// Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
+        /// </summary>
+        [Input("costAnalysisEnabled")]
+        public Input<bool>? CostAnalysisEnabled { get; set; }
 
         /// <summary>
         /// The current version running on the Azure Kubernetes Managed Cluster.
@@ -1565,8 +1579,6 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// A `service_mesh_profile` block as defined below.
-        /// 
-        /// &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
         /// </summary>
         [Input("serviceMeshProfile")]
         public Input<Inputs.KubernetesClusterServiceMeshProfileGetArgs>? ServiceMeshProfile { get; set; }

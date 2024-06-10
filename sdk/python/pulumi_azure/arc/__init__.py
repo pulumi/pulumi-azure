@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .get_resource_bridge_appliance import *
 from .private_link_scope import *
 from .resource_bridge_appliance import *
 from ._inputs import *

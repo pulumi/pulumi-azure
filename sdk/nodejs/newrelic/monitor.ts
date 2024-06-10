@@ -32,6 +32,30 @@ import * as utilities from "../utilities";
  *         lastName: "User",
  *         phoneNumber: "+12313803556",
  *     },
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * ```
+ *
+ * ## Role Assignment
+ *
+ * To enable metrics flow, perform role assignment on the identity created above. `Monitoring reader(43d0d8ad-25c7-4714-9337-8ba259a9fe05)` role is required .
+ *
+ * ### Role assignment on the monitor created
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const primary = azure.core.getSubscription({});
+ * const monitoringReader = azure.authorization.getRoleDefinition({
+ *     name: "Monitoring Reader",
+ * });
+ * const example = new azure.authorization.Assignment("example", {
+ *     scope: primary.then(primary => primary.id),
+ *     roleDefinitionId: Promise.all([primary, monitoringReader]).then(([primary, monitoringReader]) => `${primary.id}${monitoringReader.id}`),
+ *     principalId: exampleAzurermNewRelicMonitor.identity[0].principalId,
  * });
  * ```
  *
@@ -81,6 +105,10 @@ export class Monitor extends pulumi.CustomResource {
      * > **NOTE:** The value of `accountId` must come from an Azure Native New Relic Monitor instance of another different subscription.
      */
     public readonly accountId!: pulumi.Output<string>;
+    /**
+     * An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+     */
+    public readonly identity!: pulumi.Output<outputs.newrelic.MonitorIdentity | undefined>;
     /**
      * Specifies the ingestion key of account. Changing this forces a new Azure Native New Relic Monitor to be created.
      */
@@ -135,6 +163,7 @@ export class Monitor extends pulumi.CustomResource {
             const state = argsOrState as MonitorState | undefined;
             resourceInputs["accountCreationSource"] = state ? state.accountCreationSource : undefined;
             resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["ingestionKey"] = state ? state.ingestionKey : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -157,6 +186,7 @@ export class Monitor extends pulumi.CustomResource {
             }
             resourceInputs["accountCreationSource"] = args ? args.accountCreationSource : undefined;
             resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["ingestionKey"] = args?.ingestionKey ? pulumi.secret(args.ingestionKey) : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -188,6 +218,10 @@ export interface MonitorState {
      * > **NOTE:** The value of `accountId` must come from an Azure Native New Relic Monitor instance of another different subscription.
      */
     accountId?: pulumi.Input<string>;
+    /**
+     * An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+     */
+    identity?: pulumi.Input<inputs.newrelic.MonitorIdentity>;
     /**
      * Specifies the ingestion key of account. Changing this forces a new Azure Native New Relic Monitor to be created.
      */
@@ -242,6 +276,10 @@ export interface MonitorArgs {
      * > **NOTE:** The value of `accountId` must come from an Azure Native New Relic Monitor instance of another different subscription.
      */
     accountId?: pulumi.Input<string>;
+    /**
+     * An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+     */
+    identity?: pulumi.Input<inputs.newrelic.MonitorIdentity>;
     /**
      * Specifies the ingestion key of account. Changing this forces a new Azure Native New Relic Monitor to be created.
      */

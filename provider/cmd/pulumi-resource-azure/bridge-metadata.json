@@ -4139,8 +4139,14 @@
                     "registries": {
                         "maxItemsOne": false
                     },
+                    "registry": {
+                        "maxItemsOne": false
+                    },
                     "schedule_trigger_config": {
                         "maxItemsOne": true
+                    },
+                    "secret": {
+                        "maxItemsOne": false
                     },
                     "secrets": {
                         "maxItemsOne": false
@@ -4415,6 +4421,10 @@
             },
             "azurerm_container_registry_agent_pool": {
                 "current": "azure:containerservice/registryAgentPool:RegistryAgentPool",
+                "majorVersion": 5
+            },
+            "azurerm_container_registry_cache_rule": {
+                "current": "azure:containerservice/registryCacheRule:RegistryCacheRule",
                 "majorVersion": 5
             },
             "azurerm_container_registry_scope_map": {
@@ -5917,7 +5927,44 @@
             },
             "azurerm_data_protection_backup_policy_blob_storage": {
                 "current": "azure:dataprotection/backupPolicyBlobStorage:BackupPolicyBlobStorage",
-                "majorVersion": 5
+                "majorVersion": 5,
+                "fields": {
+                    "backup_repeating_time_intervals": {
+                        "maxItemsOne": false
+                    },
+                    "retention_rule": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "criteria": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "days_of_month": {
+                                                "maxItemsOne": false
+                                            },
+                                            "days_of_week": {
+                                                "maxItemsOne": false
+                                            },
+                                            "months_of_year": {
+                                                "maxItemsOne": false
+                                            },
+                                            "scheduled_backup_times": {
+                                                "maxItemsOne": false
+                                            },
+                                            "weeks_of_month": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "life_cycle": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "azurerm_data_protection_backup_policy_disk": {
                 "current": "azure:dataprotection/backupPolicyDisk:BackupPolicyDisk",
@@ -6015,6 +6062,54 @@
                                             }
                                         }
                                     }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "azurerm_data_protection_backup_policy_postgresql_flexible_server": {
+                "current": "azure:dataprotection/backupPolicyPostgresqlFlexibleServer:BackupPolicyPostgresqlFlexibleServer",
+                "majorVersion": 5,
+                "fields": {
+                    "backup_repeating_time_intervals": {
+                        "maxItemsOne": false
+                    },
+                    "default_retention_rule": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "life_cycle": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "retention_rule": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "criteria": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "days_of_week": {
+                                                "maxItemsOne": false
+                                            },
+                                            "months_of_year": {
+                                                "maxItemsOne": false
+                                            },
+                                            "scheduled_backup_times": {
+                                                "maxItemsOne": false
+                                            },
+                                            "weeks_of_month": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "life_cycle": {
+                                    "maxItemsOne": false
                                 }
                             }
                         }
@@ -10302,6 +10397,9 @@
                         "maxItemsOne": true,
                         "elem": {
                             "fields": {
+                                "dns_zone_ids": {
+                                    "maxItemsOne": false
+                                },
                                 "web_app_routing_identity": {
                                     "maxItemsOne": false
                                 }
@@ -13000,6 +13098,9 @@
                         }
                     },
                     "managed_network": {
+                        "maxItemsOne": true
+                    },
+                    "serverless_compute": {
                         "maxItemsOne": true
                     }
                 }
@@ -16303,6 +16404,9 @@
                 "current": "azure:newrelic/monitor:Monitor",
                 "majorVersion": 5,
                 "fields": {
+                    "identity": {
+                        "maxItemsOne": true
+                    },
                     "plan": {
                         "maxItemsOne": true
                     },
@@ -21287,6 +21391,10 @@
                 "current": "azure:compute/galleryApplicationAssignment:GalleryApplicationAssignment",
                 "majorVersion": 5
             },
+            "azurerm_virtual_machine_implicit_data_disk_from_source": {
+                "current": "azure:compute/implicitDataDiskFromSource:ImplicitDataDiskFromSource",
+                "majorVersion": 5
+            },
             "azurerm_virtual_machine_packet_capture": {
                 "current": "azure:compute/packetCapture:PacketCapture",
                 "majorVersion": 5,
@@ -24712,6 +24820,15 @@
                     }
                 }
             },
+            "azurerm_arc_resource_bridge_appliance": {
+                "current": "azure:arc/getResourceBridgeAppliance:getResourceBridgeAppliance",
+                "majorVersion": 5,
+                "fields": {
+                    "identity": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_attestation_provider": {
                 "current": "azure:attestation/getProvider:getProvider",
                 "majorVersion": 5
@@ -25459,6 +25576,10 @@
                 "current": "azure:containerservice/getRegistry:getRegistry",
                 "majorVersion": 5
             },
+            "azurerm_container_registry_cache_rule": {
+                "current": "azure:containerservice/getRegistryCacheRule:getRegistryCacheRule",
+                "majorVersion": 5
+            },
             "azurerm_container_registry_scope_map": {
                 "current": "azure:containerservice/getRegistryScopeMap:getRegistryScopeMap",
                 "majorVersion": 5,
@@ -25906,6 +26027,28 @@
                         "maxItemsOne": false
                     },
                     "zones": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_elastic_san_volume_group": {
+                "current": "azure:elasticsan/getVolumeGroup:getVolumeGroup",
+                "majorVersion": 5,
+                "fields": {
+                    "encryption": {
+                        "maxItemsOne": false
+                    },
+                    "identity": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "network_rule": {
                         "maxItemsOne": false
                     }
                 }
@@ -29868,6 +30011,10 @@
                     }
                 }
             },
+            "azurerm_storage_queue": {
+                "current": "azure:storage/getQueue:getQueue",
+                "majorVersion": 5
+            },
             "azurerm_storage_share": {
                 "current": "azure:storage/getShare:getShare",
                 "majorVersion": 5,
@@ -29891,6 +30038,22 @@
             "azurerm_storage_sync_group": {
                 "current": "azure:storage/getSyncGroup:getSyncGroup",
                 "majorVersion": 5
+            },
+            "azurerm_storage_table": {
+                "current": "azure:storage/getTable:getTable",
+                "majorVersion": 5,
+                "fields": {
+                    "acl": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "access_policy": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "azurerm_storage_table_entities": {
                 "current": "azure:storage/getTableEntities:getTableEntities",

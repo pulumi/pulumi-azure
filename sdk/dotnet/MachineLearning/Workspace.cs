@@ -521,6 +521,12 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// A `serverless_compute` block as defined below.
+        /// </summary>
+        [Output("serverlessCompute")]
+        public Output<Outputs.WorkspaceServerlessCompute?> ServerlessCompute { get; private set; } = null!;
+
+        /// <summary>
         /// SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
         /// </summary>
         [Output("skuName")]
@@ -711,6 +717,12 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// A `serverless_compute` block as defined below.
+        /// </summary>
+        [Input("serverlessCompute")]
+        public Input<Inputs.WorkspaceServerlessComputeArgs>? ServerlessCompute { get; set; }
+
+        /// <summary>
         /// SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
         /// </summary>
         [Input("skuName")]
@@ -867,6 +879,12 @@ namespace Pulumi.Azure.MachineLearning
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// A `serverless_compute` block as defined below.
+        /// </summary>
+        [Input("serverlessCompute")]
+        public Input<Inputs.WorkspaceServerlessComputeGetArgs>? ServerlessCompute { get; set; }
 
         /// <summary>
         /// SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.

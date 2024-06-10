@@ -62,7 +62,7 @@ export interface GetDeploymentResult {
      */
     readonly capacity: number;
     /**
-     * Whether diagnostic settings are enabled.
+     * Whether metrics are exported to Azure Monitor.
      */
     readonly diagnoseSupportEnabled: boolean;
     /**

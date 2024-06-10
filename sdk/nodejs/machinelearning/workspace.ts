@@ -412,6 +412,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * A `serverlessCompute` block as defined below.
+     */
+    public readonly serverlessCompute!: pulumi.Output<outputs.machinelearning.WorkspaceServerlessCompute | undefined>;
+    /**
      * SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
      */
     public readonly skuName!: pulumi.Output<string | undefined>;
@@ -466,6 +470,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["publicAccessBehindVirtualNetworkEnabled"] = state ? state.publicAccessBehindVirtualNetworkEnabled : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["serverlessCompute"] = state ? state.serverlessCompute : undefined;
             resourceInputs["skuName"] = state ? state.skuName : undefined;
             resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -506,6 +511,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["publicAccessBehindVirtualNetworkEnabled"] = args ? args.publicAccessBehindVirtualNetworkEnabled : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverlessCompute"] = args ? args.serverlessCompute : undefined;
             resourceInputs["skuName"] = args ? args.skuName : undefined;
             resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -604,6 +610,10 @@ export interface WorkspaceState {
      * Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * A `serverlessCompute` block as defined below.
+     */
+    serverlessCompute?: pulumi.Input<inputs.machinelearning.WorkspaceServerlessCompute>;
     /**
      * SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
      */
@@ -710,6 +720,10 @@ export interface WorkspaceArgs {
      * Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * A `serverlessCompute` block as defined below.
+     */
+    serverlessCompute?: pulumi.Input<inputs.machinelearning.WorkspaceServerlessCompute>;
     /**
      * SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
      */

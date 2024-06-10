@@ -7229,6 +7229,8 @@ func (o ExpressRouteConnectionRoutingPropagatedRouteTablePtrOutput) RouteTableId
 type ExpressRoutePortIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Express Route Port.
 	IdentityIds []string `pulumi:"identityIds"`
+	PrincipalId *string  `pulumi:"principalId"`
+	TenantId    *string  `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this Express Route Port. Only possible value is `UserAssigned`.
 	Type string `pulumi:"type"`
 }
@@ -7247,6 +7249,8 @@ type ExpressRoutePortIdentityInput interface {
 type ExpressRoutePortIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Express Route Port.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
+	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this Express Route Port. Only possible value is `UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -7333,6 +7337,14 @@ func (o ExpressRoutePortIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ExpressRoutePortIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
+func (o ExpressRoutePortIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressRoutePortIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+func (o ExpressRoutePortIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressRoutePortIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
 // Specifies the type of Managed Service Identity that should be configured on this Express Route Port. Only possible value is `UserAssigned`.
 func (o ExpressRoutePortIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ExpressRoutePortIdentity) string { return v.Type }).(pulumi.StringOutput)
@@ -7370,6 +7382,24 @@ func (o ExpressRoutePortIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutpu
 		}
 		return v.IdentityIds
 	}).(pulumi.StringArrayOutput)
+}
+
+func (o ExpressRoutePortIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRoutePortIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ExpressRoutePortIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRoutePortIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the type of Managed Service Identity that should be configured on this Express Route Port. Only possible value is `UserAssigned`.
@@ -16758,7 +16788,7 @@ func (o RouteMapRuleArrayOutput) Index(i pulumi.IntInput) RouteMapRuleOutput {
 }
 
 type RouteMapRuleAction struct {
-	// A `parameter` block as defined below.
+	// A `parameter` block as defined below. Required if `type` is anything other than `Drop`.
 	Parameters []RouteMapRuleActionParameter `pulumi:"parameters"`
 	// The type of the action to be taken. Possible values are `Add`, `Drop`, `Remove`, `Replace` and `Unknown`.
 	Type string `pulumi:"type"`
@@ -16776,7 +16806,7 @@ type RouteMapRuleActionInput interface {
 }
 
 type RouteMapRuleActionArgs struct {
-	// A `parameter` block as defined below.
+	// A `parameter` block as defined below. Required if `type` is anything other than `Drop`.
 	Parameters RouteMapRuleActionParameterArrayInput `pulumi:"parameters"`
 	// The type of the action to be taken. Possible values are `Add`, `Drop`, `Remove`, `Replace` and `Unknown`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -16833,7 +16863,7 @@ func (o RouteMapRuleActionOutput) ToRouteMapRuleActionOutputWithContext(ctx cont
 	return o
 }
 
-// A `parameter` block as defined below.
+// A `parameter` block as defined below. Required if `type` is anything other than `Drop`.
 func (o RouteMapRuleActionOutput) Parameters() RouteMapRuleActionParameterArrayOutput {
 	return o.ApplyT(func(v RouteMapRuleAction) []RouteMapRuleActionParameter { return v.Parameters }).(RouteMapRuleActionParameterArrayOutput)
 }

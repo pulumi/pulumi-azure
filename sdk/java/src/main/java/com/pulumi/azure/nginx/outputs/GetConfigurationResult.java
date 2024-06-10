@@ -13,6 +13,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetConfigurationResult {
+    /**
+     * @return A `config_file` block as defined below.
+     * 
+     */
     private List<GetConfigurationConfigFile> configFiles;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -20,11 +24,23 @@ public final class GetConfigurationResult {
      */
     private String id;
     private String nginxDeploymentId;
+    /**
+     * @return The package data for this configuration.
+     * 
+     */
     private String packageData;
     private List<GetConfigurationProtectedFile> protectedFiles;
+    /**
+     * @return The root file path of this Nginx Configuration.
+     * 
+     */
     private String rootFile;
 
     private GetConfigurationResult() {}
+    /**
+     * @return A `config_file` block as defined below.
+     * 
+     */
     public List<GetConfigurationConfigFile> configFiles() {
         return this.configFiles;
     }
@@ -38,12 +54,20 @@ public final class GetConfigurationResult {
     public String nginxDeploymentId() {
         return this.nginxDeploymentId;
     }
+    /**
+     * @return The package data for this configuration.
+     * 
+     */
     public String packageData() {
         return this.packageData;
     }
     public List<GetConfigurationProtectedFile> protectedFiles() {
         return this.protectedFiles;
     }
+    /**
+     * @return The root file path of this Nginx Configuration.
+     * 
+     */
     public String rootFile() {
         return this.rootFile;
     }

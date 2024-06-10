@@ -10,6 +10,7 @@ import com.pulumi.azure.machinelearning.outputs.WorkspaceEncryption;
 import com.pulumi.azure.machinelearning.outputs.WorkspaceFeatureStore;
 import com.pulumi.azure.machinelearning.outputs.WorkspaceIdentity;
 import com.pulumi.azure.machinelearning.outputs.WorkspaceManagedNetwork;
+import com.pulumi.azure.machinelearning.outputs.WorkspaceServerlessCompute;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -730,6 +731,20 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
+    }
+    /**
+     * A `serverless_compute` block as defined below.
+     * 
+     */
+    @Export(name="serverlessCompute", refs={WorkspaceServerlessCompute.class}, tree="[0]")
+    private Output</* @Nullable */ WorkspaceServerlessCompute> serverlessCompute;
+
+    /**
+     * @return A `serverless_compute` block as defined below.
+     * 
+     */
+    public Output<Optional<WorkspaceServerlessCompute>> serverlessCompute() {
+        return Codegen.optional(this.serverlessCompute);
     }
     /**
      * SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.

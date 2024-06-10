@@ -109,7 +109,7 @@ type BastionHost struct {
 	// > **Note:** `fileCopyEnabled` is only supported when `sku` is `Standard`.
 	FileCopyEnabled pulumi.BoolPtrOutput `pulumi:"fileCopyEnabled"`
 	// A `ipConfiguration` block as defined below. Changing this forces a new resource to be created.
-	IpConfiguration BastionHostIpConfigurationOutput `pulumi:"ipConfiguration"`
+	IpConfiguration BastionHostIpConfigurationPtrOutput `pulumi:"ipConfiguration"`
 	// Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
 	//
 	// > **Note:** `ipConnectEnabled` is only supported when `sku` is `Standard`.
@@ -132,7 +132,7 @@ type BastionHost struct {
 	//
 	// > **Note:** `shareableLinkEnabled` is only supported when `sku` is `Standard`.
 	ShareableLinkEnabled pulumi.BoolPtrOutput `pulumi:"shareableLinkEnabled"`
-	// The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+	// The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
 	//
 	// > **Note** Downgrading the SKU will force a new resource to be created.
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
@@ -142,6 +142,8 @@ type BastionHost struct {
 	//
 	// > **Note:** `tunnelingEnabled` is only supported when `sku` is `Standard`.
 	TunnelingEnabled pulumi.BoolPtrOutput `pulumi:"tunnelingEnabled"`
+	// The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
+	VirtualNetworkId pulumi.StringPtrOutput `pulumi:"virtualNetworkId"`
 }
 
 // NewBastionHost registers a new resource with the given unique name, arguments, and options.
@@ -151,9 +153,6 @@ func NewBastionHost(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.IpConfiguration == nil {
-		return nil, errors.New("invalid value for required argument 'IpConfiguration'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -212,7 +211,7 @@ type bastionHostState struct {
 	//
 	// > **Note:** `shareableLinkEnabled` is only supported when `sku` is `Standard`.
 	ShareableLinkEnabled *bool `pulumi:"shareableLinkEnabled"`
-	// The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+	// The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
 	//
 	// > **Note** Downgrading the SKU will force a new resource to be created.
 	Sku *string `pulumi:"sku"`
@@ -222,6 +221,8 @@ type bastionHostState struct {
 	//
 	// > **Note:** `tunnelingEnabled` is only supported when `sku` is `Standard`.
 	TunnelingEnabled *bool `pulumi:"tunnelingEnabled"`
+	// The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
+	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
 }
 
 type BastionHostState struct {
@@ -257,7 +258,7 @@ type BastionHostState struct {
 	//
 	// > **Note:** `shareableLinkEnabled` is only supported when `sku` is `Standard`.
 	ShareableLinkEnabled pulumi.BoolPtrInput
-	// The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+	// The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
 	//
 	// > **Note** Downgrading the SKU will force a new resource to be created.
 	Sku pulumi.StringPtrInput
@@ -267,6 +268,8 @@ type BastionHostState struct {
 	//
 	// > **Note:** `tunnelingEnabled` is only supported when `sku` is `Standard`.
 	TunnelingEnabled pulumi.BoolPtrInput
+	// The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
+	VirtualNetworkId pulumi.StringPtrInput
 }
 
 func (BastionHostState) ElementType() reflect.Type {
@@ -281,7 +284,7 @@ type bastionHostArgs struct {
 	// > **Note:** `fileCopyEnabled` is only supported when `sku` is `Standard`.
 	FileCopyEnabled *bool `pulumi:"fileCopyEnabled"`
 	// A `ipConfiguration` block as defined below. Changing this forces a new resource to be created.
-	IpConfiguration BastionHostIpConfiguration `pulumi:"ipConfiguration"`
+	IpConfiguration *BastionHostIpConfiguration `pulumi:"ipConfiguration"`
 	// Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
 	//
 	// > **Note:** `ipConnectEnabled` is only supported when `sku` is `Standard`.
@@ -304,7 +307,7 @@ type bastionHostArgs struct {
 	//
 	// > **Note:** `shareableLinkEnabled` is only supported when `sku` is `Standard`.
 	ShareableLinkEnabled *bool `pulumi:"shareableLinkEnabled"`
-	// The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+	// The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
 	//
 	// > **Note** Downgrading the SKU will force a new resource to be created.
 	Sku *string `pulumi:"sku"`
@@ -314,6 +317,8 @@ type bastionHostArgs struct {
 	//
 	// > **Note:** `tunnelingEnabled` is only supported when `sku` is `Standard`.
 	TunnelingEnabled *bool `pulumi:"tunnelingEnabled"`
+	// The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
+	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
 }
 
 // The set of arguments for constructing a BastionHost resource.
@@ -325,7 +330,7 @@ type BastionHostArgs struct {
 	// > **Note:** `fileCopyEnabled` is only supported when `sku` is `Standard`.
 	FileCopyEnabled pulumi.BoolPtrInput
 	// A `ipConfiguration` block as defined below. Changing this forces a new resource to be created.
-	IpConfiguration BastionHostIpConfigurationInput
+	IpConfiguration BastionHostIpConfigurationPtrInput
 	// Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
 	//
 	// > **Note:** `ipConnectEnabled` is only supported when `sku` is `Standard`.
@@ -348,7 +353,7 @@ type BastionHostArgs struct {
 	//
 	// > **Note:** `shareableLinkEnabled` is only supported when `sku` is `Standard`.
 	ShareableLinkEnabled pulumi.BoolPtrInput
-	// The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+	// The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
 	//
 	// > **Note** Downgrading the SKU will force a new resource to be created.
 	Sku pulumi.StringPtrInput
@@ -358,6 +363,8 @@ type BastionHostArgs struct {
 	//
 	// > **Note:** `tunnelingEnabled` is only supported when `sku` is `Standard`.
 	TunnelingEnabled pulumi.BoolPtrInput
+	// The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
+	VirtualNetworkId pulumi.StringPtrInput
 }
 
 func (BastionHostArgs) ElementType() reflect.Type {
@@ -465,8 +472,8 @@ func (o BastionHostOutput) FileCopyEnabled() pulumi.BoolPtrOutput {
 }
 
 // A `ipConfiguration` block as defined below. Changing this forces a new resource to be created.
-func (o BastionHostOutput) IpConfiguration() BastionHostIpConfigurationOutput {
-	return o.ApplyT(func(v *BastionHost) BastionHostIpConfigurationOutput { return v.IpConfiguration }).(BastionHostIpConfigurationOutput)
+func (o BastionHostOutput) IpConfiguration() BastionHostIpConfigurationPtrOutput {
+	return o.ApplyT(func(v *BastionHost) BastionHostIpConfigurationPtrOutput { return v.IpConfiguration }).(BastionHostIpConfigurationPtrOutput)
 }
 
 // Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
@@ -512,7 +519,7 @@ func (o BastionHostOutput) ShareableLinkEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BastionHost) pulumi.BoolPtrOutput { return v.ShareableLinkEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+// The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
 //
 // > **Note** Downgrading the SKU will force a new resource to be created.
 func (o BastionHostOutput) Sku() pulumi.StringPtrOutput {
@@ -529,6 +536,11 @@ func (o BastionHostOutput) Tags() pulumi.StringMapOutput {
 // > **Note:** `tunnelingEnabled` is only supported when `sku` is `Standard`.
 func (o BastionHostOutput) TunnelingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BastionHost) pulumi.BoolPtrOutput { return v.TunnelingEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
+func (o BastionHostOutput) VirtualNetworkId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BastionHost) pulumi.StringPtrOutput { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
 }
 
 type BastionHostArrayOutput struct{ *pulumi.OutputState }

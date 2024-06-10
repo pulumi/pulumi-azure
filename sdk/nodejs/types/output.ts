@@ -19581,8 +19581,29 @@ export namespace appservice {
 }
 
 export namespace arc {
-    export interface ResourceBridgeApplianceIdentity {
+    export interface GetResourceBridgeApplianceIdentity {
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
         principalId: string;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId: string;
+        /**
+         * The type of this Managed Service Identity.
+         */
+        type: string;
+    }
+
+    export interface ResourceBridgeApplianceIdentity {
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
         tenantId: string;
         /**
          * Specifies the type of Managed Service Identity that should be configured on this Arc Resource Bridge Appliance. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
@@ -25158,7 +25179,7 @@ export namespace compute {
 
     export interface LinuxVirtualMachineAdditionalCapabilities {
         /**
-         * Whether to enable the hibernation capability or not. Changing this forces a new Linux Virtual Machine to be created.
+         * Whether to enable the hibernation capability or not.
          */
         hibernationEnabled?: boolean;
         /**
@@ -27523,7 +27544,7 @@ export namespace compute {
 
     export interface WindowsVirtualMachineAdditionalCapabilities {
         /**
-         * Whether to enable the hibernation capability or not. Changing this forces a new Windows Virtual Machine to be created.
+         * Whether to enable the hibernation capability or not.
          */
         hibernationEnabled?: boolean;
         /**
@@ -28437,6 +28458,7 @@ export namespace config {
 
     export interface FeaturesVirtualMachine {
         deleteOsDiskOnDeletion?: boolean;
+        detachImplicitDataDiskOnDeletion?: boolean;
         gracefulShutdown?: boolean;
         skipShutdownAndForceDelete?: boolean;
     }
@@ -30509,11 +30531,11 @@ export namespace containerapp {
          */
         keyVaultSecretId?: string;
         /**
-         * Name of the secret.
+         * Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
          */
         name: string;
         /**
-         * Value of the secret.
+         * The value for this secret.
          */
         value?: string;
     }
@@ -31141,9 +31163,17 @@ export namespace containerservice {
 
     export interface GetClusterNodePoolUpgradeSetting {
         /**
+         * The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
+         */
+        drainTimeoutInMinutes: number;
+        /**
          * The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
          */
         maxSurge: string;
+        /**
+         * The amount of time in minutes to wait after draining a node and before reimaging it and moving on to next node.
+         */
+        nodeSoakDurationInMinutes: number;
     }
 
     export interface GetGroupIdentity {
@@ -31247,9 +31277,17 @@ export namespace containerservice {
 
     export interface GetKubernetesClusterAgentPoolProfileUpgradeSetting {
         /**
+         * The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
+         */
+        drainTimeoutInMinutes: number;
+        /**
          * The maximum number or percentage of nodes that will be added to the Node Pool size during an upgrade.
          */
         maxSurge: string;
+        /**
+         * The amount of time in minutes to wait after draining a node and before reimaging it and moving on to next node.
+         */
+        nodeSoakDurationInMinutes: number;
     }
 
     export interface GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl {
@@ -32597,11 +32635,19 @@ export namespace containerservice {
 
     export interface KubernetesClusterDefaultNodePoolUpgradeSettings {
         /**
+         * The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+         */
+        drainTimeoutInMinutes?: number;
+        /**
          * The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
          *
          * > **Note:** If a percentage is provided, the number of surge nodes is calculated from the `nodeCount` value on the current cluster. Node surge can allow a cluster to have more nodes than `maxCount` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
          */
         maxSurge: string;
+        /**
+         * The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`.
+         */
+        nodeSoakDurationInMinutes?: number;
     }
 
     export interface KubernetesClusterExtensionAksAssignedIdentity {
@@ -33383,9 +33429,17 @@ export namespace containerservice {
 
     export interface KubernetesClusterNodePoolUpgradeSettings {
         /**
+         * The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+         */
+        drainTimeoutInMinutes?: number;
+        /**
          * The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
          */
         maxSurge: string;
+        /**
+         * The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`.
+         */
+        nodeSoakDurationInMinutes?: number;
     }
 
     export interface KubernetesClusterNodePoolWindowsProfile {
@@ -33430,8 +33484,6 @@ export namespace containerservice {
     export interface KubernetesClusterServiceMeshProfile {
         /**
          * Is Istio External Ingress Gateway enabled?
-         *
-         * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
          *
          * > **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
          */
@@ -33484,9 +33536,13 @@ export namespace containerservice {
 
     export interface KubernetesClusterWebAppRouting {
         /**
-         * Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string `""`.
+         * @deprecated `dnsZoneId` has been deprecated in favor of `dnsZoneIds` and will be removed in v4.0 of the AzureRM Provider.
          */
-        dnsZoneId: string;
+        dnsZoneId?: string;
+        /**
+         * Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
+         */
+        dnsZoneIds?: string[];
         /**
          * A `webAppRoutingIdentity` block is exported. The exported attributes are defined below.
          */
@@ -37548,6 +37604,63 @@ export namespace dataprotection {
         volumeSnapshotEnabled?: boolean;
     }
 
+    export interface BackupPolicyBlobStorageRetentionRule {
+        /**
+         * A `criteria` block as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
+         */
+        criteria: outputs.dataprotection.BackupPolicyBlobStorageRetentionRuleCriteria;
+        /**
+         * A `lifeCycle` block as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
+         */
+        lifeCycle: outputs.dataprotection.BackupPolicyBlobStorageRetentionRuleLifeCycle;
+        /**
+         * The name which should be used for this retention rule. Changing this forces a new Backup Policy Blob Storage to be created.
+         */
+        name: string;
+        /**
+         * Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new Backup Policy Blob Storage to be created.
+         */
+        priority: number;
+    }
+
+    export interface BackupPolicyBlobStorageRetentionRuleCriteria {
+        /**
+         * Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new Backup Policy Blob Storage to be created.
+         */
+        absoluteCriteria?: string;
+        /**
+         * Must be between `0` and `28`. `0` for last day within the month. Changing this forces a new Backup Policy Blob Storage to be created.
+         */
+        daysOfMonths?: number[];
+        /**
+         * Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new Backup Policy Blob Storage to be created.
+         */
+        daysOfWeeks?: string[];
+        /**
+         * Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new Backup Policy Blob Storage to be created.
+         */
+        monthsOfYears?: string[];
+        /**
+         * Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new Backup Policy Blob Storage to be created.
+         */
+        scheduledBackupTimes?: string[];
+        /**
+         * Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new Backup Policy Blob Storage to be created.
+         */
+        weeksOfMonths?: string[];
+    }
+
+    export interface BackupPolicyBlobStorageRetentionRuleLifeCycle {
+        /**
+         * The type of data store. The only possible value is `VaultStore`. Changing this forces a new Backup Policy Blob Storage to be created.
+         */
+        dataStoreType: string;
+        /**
+         * The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
+         */
+        duration: string;
+    }
+
     export interface BackupPolicyDiskRetentionRule {
         /**
          * A `criteria` block as defined below. Changing this forces a new Backup Policy Disk to be created.
@@ -37637,6 +37750,77 @@ export namespace dataprotection {
     export interface BackupPolicyKubernetesClusterRetentionRuleLifeCycle {
         /**
          * The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
+         */
+        dataStoreType: string;
+        /**
+         * The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+         */
+        duration: string;
+    }
+
+    export interface BackupPolicyPostgresqlFlexibleServerDefaultRetentionRule {
+        /**
+         * A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
+         */
+        lifeCycles: outputs.dataprotection.BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycle[];
+    }
+
+    export interface BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycle {
+        /**
+         * The type of data store. The only possible value is `VaultStore`. Changing this forces a new resource to be created.
+         */
+        dataStoreType: string;
+        /**
+         * The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+         */
+        duration: string;
+    }
+
+    export interface BackupPolicyPostgresqlFlexibleServerRetentionRule {
+        /**
+         * A `criteria` block as defined below. Changing this forces a new resource to be created.
+         */
+        criteria: outputs.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteria;
+        /**
+         * A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
+         */
+        lifeCycles: outputs.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycle[];
+        /**
+         * Specifies the name of the retention rule. Changing this forces a new resource to be created.
+         */
+        name: string;
+        /**
+         * Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new resource to be created.
+         */
+        priority: number;
+    }
+
+    export interface BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteria {
+        /**
+         * Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new resource to be created.
+         */
+        absoluteCriteria?: string;
+        /**
+         * Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+         */
+        daysOfWeeks?: string[];
+        /**
+         * Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new resource to be created.
+         */
+        monthsOfYears?: string[];
+        /**
+         * Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
+         */
+        scheduledBackupTimes?: string[];
+        /**
+         * Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+         */
+        weeksOfMonths?: string[];
+    }
+
+    export interface BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycle {
+        /**
+         * The type of data store. The only possible value is `VaultStore`. Changing this forces a new resource to be created.
          */
         dataStoreType: string;
         /**
@@ -38628,6 +38812,59 @@ export namespace elasticsan {
          * The SKU tier.
          */
         tier: string;
+    }
+
+    export interface GetVolumeGroupEncryption {
+        /**
+         * The timestamp of the expiration time for the current version of the Customer Managed Key.
+         */
+        currentVersionedKeyExpirationTimestamp: string;
+        /**
+         * The ID of the current versioned Key Vault Key in use.
+         */
+        currentVersionedKeyId: string;
+        /**
+         * The Key Vault Key URI for Customer Managed Key encryption, which can be either a full URI or a versionless URI.
+         */
+        keyVaultKeyId: string;
+        /**
+         * The timestamp of the last rotation of the Key Vault Key.
+         */
+        lastKeyRotationTimestamp: string;
+        /**
+         * The ID of the User Assigned Identity used by this Elastic SAN Volume Group.
+         */
+        userAssignedIdentityId: string;
+    }
+
+    export interface GetVolumeGroupIdentity {
+        /**
+         * A list of the User Assigned Identity IDs assigned to this Elastic SAN Volume Group.
+         */
+        identityIds: string[];
+        /**
+         * The Principal ID associated with the Managed Service Identity assigned to this Elastic SAN Volume Group.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID associated with this Managed Service Identity assigned to this Elastic SAN Volume Group.
+         */
+        tenantId: string;
+        /**
+         * The type of Managed Identity assigned to this Elastic SAN Volume Group.
+         */
+        type: string;
+    }
+
+    export interface GetVolumeGroupNetworkRule {
+        /**
+         * The action to take when an access attempt to this Elastic SAN Volume Group from this Subnet is made.
+         */
+        action: string;
+        /**
+         * The ID of the Subnet from which access to this Elastic SAN Volume Group is allowed.
+         */
+        subnetId: string;
     }
 
     export interface VolumeCreateSource {
@@ -47038,6 +47275,19 @@ export namespace machinelearning {
         isolationMode: string;
     }
 
+    export interface WorkspaceServerlessCompute {
+        /**
+         * Should serverless compute nodes deployed in a custom Virtual Network have public IP addresses enabled for a workspace with private endpoint? Defaults to `false`.
+         *
+         * > **Note:** `publicIpEnabled` cannot be updated from `true` to `false` when `subnetId` is not set. `publicIpEnabled` must be set to `true` if `subnetId` is not set and when `publicNetworkAccessEnabled` is `false`.
+         */
+        publicIpEnabled?: boolean;
+        /**
+         * The ID of an existing Virtual Network Subnet in which the serverless compute nodes should be deployed to.
+         */
+        subnetId?: string;
+    }
+
 }
 
 export namespace maintenance {
@@ -51853,7 +52103,7 @@ export namespace monitoring {
          */
         columns: outputs.monitoring.DataCollectionRuleStreamDeclarationColumn[];
         /**
-         * The name of the custom stream. This name should be unique across all `streamDeclaration` blocks.
+         * The name of the custom stream. This name should be unique across all `streamDeclaration` blocks and must begin with a prefix of `Custom-`.
          */
         streamName: string;
     }
@@ -53283,7 +53533,7 @@ export namespace mssql {
          */
         family?: string;
         /**
-         * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based or `DTU` based. Possible `DTU` based values are `BasicPool`, `StandardPool`, `PremiumPool` while possible `vCore` based values are `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5`, `BC_DC`, or `HS_Gen5`.
+         * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based or `DTU` based. Possible `DTU` based values are `BasicPool`, `StandardPool`, `PremiumPool` while possible `vCore` based values are `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5`, `BC_DC`, `HS_PRMS`, or `HS_Gen5`.
          */
         name: string;
         /**
@@ -55725,7 +55975,9 @@ export namespace network {
         /**
          * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Express Route Port.
          */
-        identityIds: string[];
+        identityIds?: string[];
+        principalId: string;
+        tenantId: string;
         /**
          * Specifies the type of Managed Service Identity that should be configured on this Express Route Port. Only possible value is `UserAssigned`.
          */
@@ -58543,9 +58795,9 @@ export namespace network {
 
     export interface RouteMapRuleAction {
         /**
-         * A `parameter` block as defined below.
+         * A `parameter` block as defined below. Required if `type` is anything other than `Drop`.
          */
-        parameters: outputs.network.RouteMapRuleActionParameter[];
+        parameters?: outputs.network.RouteMapRuleActionParameter[];
         /**
          * The type of the action to be taken. Possible values are `Add`, `Drop`, `Remove`, `Replace` and `Unknown`.
          */
@@ -59708,6 +59960,21 @@ export namespace networkfunction {
 }
 
 export namespace newrelic {
+    export interface MonitorIdentity {
+        /**
+         * The Principal ID for the Service Principal associated with the Identity of this Azure Native New Relic Monitor.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID for the Service Principal associated with the Identity of this Azure Native New Relic Monitor.
+         */
+        tenantId: string;
+        /**
+         * Specifies the identity type of the Azure Native New Relic Monitor. The only possible value is `SystemAssigned`. Changing this forces a new Azure Native New Relic Monitor to be created.
+         */
+        type: string;
+    }
+
     export interface MonitorPlan {
         /**
          * Specifies the billing cycles. Possible values are `MONTHLY`, `WEEKLY` and `YEARLY`. Defaults to `MONTHLY`. Changing this forces a new Azure Native New Relic Monitor to be created.
@@ -59780,12 +60047,24 @@ export namespace newrelic {
 
 export namespace nginx {
     export interface ConfigurationConfigFile {
+        /**
+         * Specifies the base-64 encoded contents of this config file.
+         */
         content: string;
+        /**
+         * Specifies the path of this config file.
+         */
         virtualPath: string;
     }
 
     export interface ConfigurationProtectedFile {
+        /**
+         * Specifies the base-64 encoded contents of this config file (Sensitive).
+         */
         content: string;
+        /**
+         * Specifies the path of this config file.
+         */
         virtualPath: string;
     }
 
@@ -59802,43 +60081,19 @@ export namespace nginx {
     }
 
     export interface DeploymentConfiguration {
-        /**
-         * One or more `configFile` blocks as defined below.
-         */
         configFiles?: outputs.nginx.DeploymentConfigurationConfigFile[];
-        /**
-         * Specify the package data for this configuration.
-         */
         packageData?: string;
-        /**
-         * One or more `protectedFile` blocks with sensitive information as defined below. If specified `configFile` must also be specified.
-         */
         protectedFiles?: outputs.nginx.DeploymentConfigurationProtectedFile[];
-        /**
-         * Specify the root file path of this Nginx Configuration.
-         */
         rootFile: string;
     }
 
     export interface DeploymentConfigurationConfigFile {
-        /**
-         * Specifies the base-64 encoded contents of this config file.
-         */
         content: string;
-        /**
-         * Specify the path of this config file.
-         */
         virtualPath: string;
     }
 
     export interface DeploymentConfigurationProtectedFile {
-        /**
-         * Specifies the base-64 encoded contents of this config file (Sensitive).
-         */
         content: string;
-        /**
-         * Specify the path of this config file.
-         */
         virtualPath: string;
     }
 
@@ -59874,7 +60129,7 @@ export namespace nginx {
         principalId: string;
         tenantId: string;
         /**
-         * Specifies the identity type of the NGINX Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
+         * Specifies the identity type of the NGINX Deployment. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned`.
          */
         type: string;
     }
@@ -59898,12 +60153,24 @@ export namespace nginx {
     }
 
     export interface GetConfigurationConfigFile {
+        /**
+         * The base-64 encoded contents of this configuration file.
+         */
         content: string;
+        /**
+         * The path of this configuration file.
+         */
         virtualPath: string;
     }
 
     export interface GetConfigurationProtectedFile {
+        /**
+         * The base-64 encoded contents of this configuration file.
+         */
         content: string;
+        /**
+         * The path of this configuration file.
+         */
         virtualPath: string;
     }
 
@@ -65214,6 +65481,20 @@ export namespace storage {
         /**
          * The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
          */
+        start: string;
+    }
+
+    export interface GetTableAcl {
+        accessPolicies: outputs.storage.GetTableAclAccessPolicy[];
+        /**
+         * The ID of the Storage Table.
+         */
+        id: string;
+    }
+
+    export interface GetTableAclAccessPolicy {
+        expiry: string;
+        permissions: string;
         start: string;
     }
 

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class LinuxVirtualMachineAdditionalCapabilities
     {
         /// <summary>
-        /// Whether to enable the hibernation capability or not. Changing this forces a new Linux Virtual Machine to be created.
+        /// Whether to enable the hibernation capability or not.
         /// </summary>
         public readonly bool? HibernationEnabled;
         /// <summary>

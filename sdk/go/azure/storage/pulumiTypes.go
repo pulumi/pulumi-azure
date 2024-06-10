@@ -9551,6 +9551,215 @@ func (o GetShareAclAccessPolicyArrayOutput) Index(i pulumi.IntInput) GetShareAcl
 	}).(GetShareAclAccessPolicyOutput)
 }
 
+type GetTableAcl struct {
+	AccessPolicies []GetTableAclAccessPolicy `pulumi:"accessPolicies"`
+	// The ID of the Storage Table.
+	Id string `pulumi:"id"`
+}
+
+// GetTableAclInput is an input type that accepts GetTableAclArgs and GetTableAclOutput values.
+// You can construct a concrete instance of `GetTableAclInput` via:
+//
+//	GetTableAclArgs{...}
+type GetTableAclInput interface {
+	pulumi.Input
+
+	ToGetTableAclOutput() GetTableAclOutput
+	ToGetTableAclOutputWithContext(context.Context) GetTableAclOutput
+}
+
+type GetTableAclArgs struct {
+	AccessPolicies GetTableAclAccessPolicyArrayInput `pulumi:"accessPolicies"`
+	// The ID of the Storage Table.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetTableAclArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableAcl)(nil)).Elem()
+}
+
+func (i GetTableAclArgs) ToGetTableAclOutput() GetTableAclOutput {
+	return i.ToGetTableAclOutputWithContext(context.Background())
+}
+
+func (i GetTableAclArgs) ToGetTableAclOutputWithContext(ctx context.Context) GetTableAclOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableAclOutput)
+}
+
+// GetTableAclArrayInput is an input type that accepts GetTableAclArray and GetTableAclArrayOutput values.
+// You can construct a concrete instance of `GetTableAclArrayInput` via:
+//
+//	GetTableAclArray{ GetTableAclArgs{...} }
+type GetTableAclArrayInput interface {
+	pulumi.Input
+
+	ToGetTableAclArrayOutput() GetTableAclArrayOutput
+	ToGetTableAclArrayOutputWithContext(context.Context) GetTableAclArrayOutput
+}
+
+type GetTableAclArray []GetTableAclInput
+
+func (GetTableAclArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableAcl)(nil)).Elem()
+}
+
+func (i GetTableAclArray) ToGetTableAclArrayOutput() GetTableAclArrayOutput {
+	return i.ToGetTableAclArrayOutputWithContext(context.Background())
+}
+
+func (i GetTableAclArray) ToGetTableAclArrayOutputWithContext(ctx context.Context) GetTableAclArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableAclArrayOutput)
+}
+
+type GetTableAclOutput struct{ *pulumi.OutputState }
+
+func (GetTableAclOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableAcl)(nil)).Elem()
+}
+
+func (o GetTableAclOutput) ToGetTableAclOutput() GetTableAclOutput {
+	return o
+}
+
+func (o GetTableAclOutput) ToGetTableAclOutputWithContext(ctx context.Context) GetTableAclOutput {
+	return o
+}
+
+func (o GetTableAclOutput) AccessPolicies() GetTableAclAccessPolicyArrayOutput {
+	return o.ApplyT(func(v GetTableAcl) []GetTableAclAccessPolicy { return v.AccessPolicies }).(GetTableAclAccessPolicyArrayOutput)
+}
+
+// The ID of the Storage Table.
+func (o GetTableAclOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTableAcl) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetTableAclArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTableAclArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableAcl)(nil)).Elem()
+}
+
+func (o GetTableAclArrayOutput) ToGetTableAclArrayOutput() GetTableAclArrayOutput {
+	return o
+}
+
+func (o GetTableAclArrayOutput) ToGetTableAclArrayOutputWithContext(ctx context.Context) GetTableAclArrayOutput {
+	return o
+}
+
+func (o GetTableAclArrayOutput) Index(i pulumi.IntInput) GetTableAclOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTableAcl {
+		return vs[0].([]GetTableAcl)[vs[1].(int)]
+	}).(GetTableAclOutput)
+}
+
+type GetTableAclAccessPolicy struct {
+	Expiry      string `pulumi:"expiry"`
+	Permissions string `pulumi:"permissions"`
+	Start       string `pulumi:"start"`
+}
+
+// GetTableAclAccessPolicyInput is an input type that accepts GetTableAclAccessPolicyArgs and GetTableAclAccessPolicyOutput values.
+// You can construct a concrete instance of `GetTableAclAccessPolicyInput` via:
+//
+//	GetTableAclAccessPolicyArgs{...}
+type GetTableAclAccessPolicyInput interface {
+	pulumi.Input
+
+	ToGetTableAclAccessPolicyOutput() GetTableAclAccessPolicyOutput
+	ToGetTableAclAccessPolicyOutputWithContext(context.Context) GetTableAclAccessPolicyOutput
+}
+
+type GetTableAclAccessPolicyArgs struct {
+	Expiry      pulumi.StringInput `pulumi:"expiry"`
+	Permissions pulumi.StringInput `pulumi:"permissions"`
+	Start       pulumi.StringInput `pulumi:"start"`
+}
+
+func (GetTableAclAccessPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableAclAccessPolicy)(nil)).Elem()
+}
+
+func (i GetTableAclAccessPolicyArgs) ToGetTableAclAccessPolicyOutput() GetTableAclAccessPolicyOutput {
+	return i.ToGetTableAclAccessPolicyOutputWithContext(context.Background())
+}
+
+func (i GetTableAclAccessPolicyArgs) ToGetTableAclAccessPolicyOutputWithContext(ctx context.Context) GetTableAclAccessPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableAclAccessPolicyOutput)
+}
+
+// GetTableAclAccessPolicyArrayInput is an input type that accepts GetTableAclAccessPolicyArray and GetTableAclAccessPolicyArrayOutput values.
+// You can construct a concrete instance of `GetTableAclAccessPolicyArrayInput` via:
+//
+//	GetTableAclAccessPolicyArray{ GetTableAclAccessPolicyArgs{...} }
+type GetTableAclAccessPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetTableAclAccessPolicyArrayOutput() GetTableAclAccessPolicyArrayOutput
+	ToGetTableAclAccessPolicyArrayOutputWithContext(context.Context) GetTableAclAccessPolicyArrayOutput
+}
+
+type GetTableAclAccessPolicyArray []GetTableAclAccessPolicyInput
+
+func (GetTableAclAccessPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableAclAccessPolicy)(nil)).Elem()
+}
+
+func (i GetTableAclAccessPolicyArray) ToGetTableAclAccessPolicyArrayOutput() GetTableAclAccessPolicyArrayOutput {
+	return i.ToGetTableAclAccessPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetTableAclAccessPolicyArray) ToGetTableAclAccessPolicyArrayOutputWithContext(ctx context.Context) GetTableAclAccessPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableAclAccessPolicyArrayOutput)
+}
+
+type GetTableAclAccessPolicyOutput struct{ *pulumi.OutputState }
+
+func (GetTableAclAccessPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableAclAccessPolicy)(nil)).Elem()
+}
+
+func (o GetTableAclAccessPolicyOutput) ToGetTableAclAccessPolicyOutput() GetTableAclAccessPolicyOutput {
+	return o
+}
+
+func (o GetTableAclAccessPolicyOutput) ToGetTableAclAccessPolicyOutputWithContext(ctx context.Context) GetTableAclAccessPolicyOutput {
+	return o
+}
+
+func (o GetTableAclAccessPolicyOutput) Expiry() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTableAclAccessPolicy) string { return v.Expiry }).(pulumi.StringOutput)
+}
+
+func (o GetTableAclAccessPolicyOutput) Permissions() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTableAclAccessPolicy) string { return v.Permissions }).(pulumi.StringOutput)
+}
+
+func (o GetTableAclAccessPolicyOutput) Start() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTableAclAccessPolicy) string { return v.Start }).(pulumi.StringOutput)
+}
+
+type GetTableAclAccessPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTableAclAccessPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableAclAccessPolicy)(nil)).Elem()
+}
+
+func (o GetTableAclAccessPolicyArrayOutput) ToGetTableAclAccessPolicyArrayOutput() GetTableAclAccessPolicyArrayOutput {
+	return o
+}
+
+func (o GetTableAclAccessPolicyArrayOutput) ToGetTableAclAccessPolicyArrayOutputWithContext(ctx context.Context) GetTableAclAccessPolicyArrayOutput {
+	return o
+}
+
+func (o GetTableAclAccessPolicyArrayOutput) Index(i pulumi.IntInput) GetTableAclAccessPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTableAclAccessPolicy {
+		return vs[0].([]GetTableAclAccessPolicy)[vs[1].(int)]
+	}).(GetTableAclAccessPolicyOutput)
+}
+
 type GetTableEntitiesItem struct {
 	// Partition Key of the Entity.
 	PartitionKey string `pulumi:"partitionKey"`
@@ -9786,6 +9995,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetShareAclArrayInput)(nil)).Elem(), GetShareAclArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetShareAclAccessPolicyInput)(nil)).Elem(), GetShareAclAccessPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetShareAclAccessPolicyArrayInput)(nil)).Elem(), GetShareAclAccessPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableAclInput)(nil)).Elem(), GetTableAclArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableAclArrayInput)(nil)).Elem(), GetTableAclArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableAclAccessPolicyInput)(nil)).Elem(), GetTableAclAccessPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableAclAccessPolicyArrayInput)(nil)).Elem(), GetTableAclAccessPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableEntitiesItemInput)(nil)).Elem(), GetTableEntitiesItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableEntitiesItemArrayInput)(nil)).Elem(), GetTableEntitiesItemArray{})
 	pulumi.RegisterOutputType(AccountAzureFilesAuthenticationOutput{})
@@ -9907,6 +10120,10 @@ func init() {
 	pulumi.RegisterOutputType(GetShareAclArrayOutput{})
 	pulumi.RegisterOutputType(GetShareAclAccessPolicyOutput{})
 	pulumi.RegisterOutputType(GetShareAclAccessPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GetTableAclOutput{})
+	pulumi.RegisterOutputType(GetTableAclArrayOutput{})
+	pulumi.RegisterOutputType(GetTableAclAccessPolicyOutput{})
+	pulumi.RegisterOutputType(GetTableAclAccessPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetTableEntitiesItemOutput{})
 	pulumi.RegisterOutputType(GetTableEntitiesItemArrayOutput{})
 }

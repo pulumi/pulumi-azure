@@ -7,6 +7,7 @@ import com.pulumi.azure.automation.inputs.Powershell72ModuleModuleLinkArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -61,12 +62,28 @@ public final class Powershell72ModuleState extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * A mapping of tags to assign to the resource.
+     * 
+     */
+    @Import(name="tags")
+    private @Nullable Output<Map<String,String>> tags;
+
+    /**
+     * @return A mapping of tags to assign to the resource.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
     private Powershell72ModuleState() {}
 
     private Powershell72ModuleState(Powershell72ModuleState $) {
         this.automationAccountId = $.automationAccountId;
         this.moduleLink = $.moduleLink;
         this.name = $.name;
+        this.tags = $.tags;
     }
 
     public static Builder builder() {
@@ -148,6 +165,27 @@ public final class Powershell72ModuleState extends com.pulumi.resources.Resource
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param tags A mapping of tags to assign to the resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(@Nullable Output<Map<String,String>> tags) {
+            $.tags = tags;
+            return this;
+        }
+
+        /**
+         * @param tags A mapping of tags to assign to the resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(Map<String,String> tags) {
+            return tags(Output.of(tags));
         }
 
         public Powershell72ModuleState build() {

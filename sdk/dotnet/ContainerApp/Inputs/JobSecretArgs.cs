@@ -25,7 +25,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         public Input<string>? KeyVaultSecretId { get; set; }
 
         /// <summary>
-        /// Name of the secret.
+        /// Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         private Input<string>? _value;
 
         /// <summary>
-        /// Value of the secret.
+        /// The value for this secret.
         /// </summary>
         public Input<string>? Value
         {

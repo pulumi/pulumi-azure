@@ -392,7 +392,7 @@ namespace Pulumi.Azure.Network
         /// The shared IPSec key. A key could be provided if a Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
         /// </summary>
         [Output("sharedKey")]
-        public Output<string?> SharedKey { get; private set; } = null!;
+        public Output<string> SharedKey { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.

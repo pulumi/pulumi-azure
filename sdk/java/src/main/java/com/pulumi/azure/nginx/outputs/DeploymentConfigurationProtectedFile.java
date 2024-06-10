@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class DeploymentConfigurationProtectedFile {
-    /**
-     * @return Specifies the base-64 encoded contents of this config file (Sensitive).
-     * 
-     */
     private String content;
-    /**
-     * @return Specify the path of this config file.
-     * 
-     */
     private String virtualPath;
 
     private DeploymentConfigurationProtectedFile() {}
-    /**
-     * @return Specifies the base-64 encoded contents of this config file (Sensitive).
-     * 
-     */
     public String content() {
         return this.content;
     }
-    /**
-     * @return Specify the path of this config file.
-     * 
-     */
     public String virtualPath() {
         return this.virtualPath;
     }

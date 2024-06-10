@@ -77,6 +77,8 @@ type Powershell72Module struct {
 	ModuleLink Powershell72ModuleModuleLinkOutput `pulumi:"moduleLink"`
 	// Specifies the name of the Module. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewPowershell72Module registers a new resource with the given unique name, arguments, and options.
@@ -121,6 +123,8 @@ type powershell72ModuleState struct {
 	ModuleLink *Powershell72ModuleModuleLink `pulumi:"moduleLink"`
 	// Specifies the name of the Module. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type Powershell72ModuleState struct {
@@ -130,6 +134,8 @@ type Powershell72ModuleState struct {
 	ModuleLink Powershell72ModuleModuleLinkPtrInput
 	// Specifies the name of the Module. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (Powershell72ModuleState) ElementType() reflect.Type {
@@ -143,6 +149,8 @@ type powershell72ModuleArgs struct {
 	ModuleLink Powershell72ModuleModuleLink `pulumi:"moduleLink"`
 	// Specifies the name of the Module. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Powershell72Module resource.
@@ -153,6 +161,8 @@ type Powershell72ModuleArgs struct {
 	ModuleLink Powershell72ModuleModuleLinkInput
 	// Specifies the name of the Module. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (Powershell72ModuleArgs) ElementType() reflect.Type {
@@ -255,6 +265,11 @@ func (o Powershell72ModuleOutput) ModuleLink() Powershell72ModuleModuleLinkOutpu
 // Specifies the name of the Module. Changing this forces a new resource to be created.
 func (o Powershell72ModuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Powershell72Module) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A mapping of tags to assign to the resource.
+func (o Powershell72ModuleOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Powershell72Module) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 type Powershell72ModuleArrayOutput struct{ *pulumi.OutputState }

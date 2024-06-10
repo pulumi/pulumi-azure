@@ -120,6 +120,14 @@ namespace Pulumi.Azure.ContainerApp
         public Output<string?> LogAnalyticsWorkspaceId { get; private set; } = null!;
 
         /// <summary>
+        /// Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
+        /// 
+        /// &gt; **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
+        /// </summary>
+        [Output("mutualTlsEnabled")]
+        public Output<bool?> MutualTlsEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -272,6 +280,14 @@ namespace Pulumi.Azure.ContainerApp
         public Input<string>? LogAnalyticsWorkspaceId { get; set; }
 
         /// <summary>
+        /// Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
+        /// 
+        /// &gt; **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
+        /// </summary>
+        [Input("mutualTlsEnabled")]
+        public Input<bool>? MutualTlsEnabled { get; set; }
+
+        /// <summary>
         /// The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -392,6 +408,14 @@ namespace Pulumi.Azure.ContainerApp
         /// </summary>
         [Input("logAnalyticsWorkspaceId")]
         public Input<string>? LogAnalyticsWorkspaceId { get; set; }
+
+        /// <summary>
+        /// Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
+        /// 
+        /// &gt; **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
+        /// </summary>
+        [Input("mutualTlsEnabled")]
+        public Input<bool>? MutualTlsEnabled { get; set; }
 
         /// <summary>
         /// The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.

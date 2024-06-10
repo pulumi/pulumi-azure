@@ -5,19 +5,26 @@ package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterWebAppRoutingWebAppRoutingIdentity;
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class KubernetesClusterWebAppRouting {
     /**
-     * @return Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string `&#34;&#34;`.
+     * @deprecated
+     * `dns_zone_id` has been deprecated in favor of `dns_zone_ids` and will be removed in v4.0 of the AzureRM Provider.
      * 
      */
-    private String dnsZoneId;
+    @Deprecated /* `dns_zone_id` has been deprecated in favor of `dns_zone_ids` and will be removed in v4.0 of the AzureRM Provider. */
+    private @Nullable String dnsZoneId;
+    /**
+     * @return Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
+     * 
+     */
+    private @Nullable List<String> dnsZoneIds;
     /**
      * @return A `web_app_routing_identity` block is exported. The exported attributes are defined below.
      * 
@@ -26,11 +33,20 @@ public final class KubernetesClusterWebAppRouting {
 
     private KubernetesClusterWebAppRouting() {}
     /**
-     * @return Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string `&#34;&#34;`.
+     * @deprecated
+     * `dns_zone_id` has been deprecated in favor of `dns_zone_ids` and will be removed in v4.0 of the AzureRM Provider.
      * 
      */
-    public String dnsZoneId() {
-        return this.dnsZoneId;
+    @Deprecated /* `dns_zone_id` has been deprecated in favor of `dns_zone_ids` and will be removed in v4.0 of the AzureRM Provider. */
+    public Optional<String> dnsZoneId() {
+        return Optional.ofNullable(this.dnsZoneId);
+    }
+    /**
+     * @return Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
+     * 
+     */
+    public List<String> dnsZoneIds() {
+        return this.dnsZoneIds == null ? List.of() : this.dnsZoneIds;
     }
     /**
      * @return A `web_app_routing_identity` block is exported. The exported attributes are defined below.
@@ -49,22 +65,31 @@ public final class KubernetesClusterWebAppRouting {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String dnsZoneId;
+        private @Nullable String dnsZoneId;
+        private @Nullable List<String> dnsZoneIds;
         private @Nullable List<KubernetesClusterWebAppRoutingWebAppRoutingIdentity> webAppRoutingIdentities;
         public Builder() {}
         public Builder(KubernetesClusterWebAppRouting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dnsZoneId = defaults.dnsZoneId;
+    	      this.dnsZoneIds = defaults.dnsZoneIds;
     	      this.webAppRoutingIdentities = defaults.webAppRoutingIdentities;
         }
 
         @CustomType.Setter
-        public Builder dnsZoneId(String dnsZoneId) {
-            if (dnsZoneId == null) {
-              throw new MissingRequiredPropertyException("KubernetesClusterWebAppRouting", "dnsZoneId");
-            }
+        public Builder dnsZoneId(@Nullable String dnsZoneId) {
+
             this.dnsZoneId = dnsZoneId;
             return this;
+        }
+        @CustomType.Setter
+        public Builder dnsZoneIds(@Nullable List<String> dnsZoneIds) {
+
+            this.dnsZoneIds = dnsZoneIds;
+            return this;
+        }
+        public Builder dnsZoneIds(String... dnsZoneIds) {
+            return dnsZoneIds(List.of(dnsZoneIds));
         }
         @CustomType.Setter
         public Builder webAppRoutingIdentities(@Nullable List<KubernetesClusterWebAppRoutingWebAppRoutingIdentity> webAppRoutingIdentities) {
@@ -78,6 +103,7 @@ public final class KubernetesClusterWebAppRouting {
         public KubernetesClusterWebAppRouting build() {
             final var _resultValue = new KubernetesClusterWebAppRouting();
             _resultValue.dnsZoneId = dnsZoneId;
+            _resultValue.dnsZoneIds = dnsZoneIds;
             _resultValue.webAppRoutingIdentities = webAppRoutingIdentities;
             return _resultValue;
         }

@@ -134,6 +134,10 @@ namespace Pulumi.Azure.Network
         /// The address prefixes for the subnet.
         /// </summary>
         public readonly ImmutableArray<string> AddressPrefixes;
+        /// <summary>
+        /// Is the default outbound access enabled for the subnet.
+        /// </summary>
+        public readonly bool DefaultOutboundAccessEnabled;
         public readonly bool EnforcePrivateLinkEndpointNetworkPolicies;
         public readonly bool EnforcePrivateLinkServiceNetworkPolicies;
         /// <summary>
@@ -171,6 +175,8 @@ namespace Pulumi.Azure.Network
 
             ImmutableArray<string> addressPrefixes,
 
+            bool defaultOutboundAccessEnabled,
+
             bool enforcePrivateLinkEndpointNetworkPolicies,
 
             bool enforcePrivateLinkServiceNetworkPolicies,
@@ -197,6 +203,7 @@ namespace Pulumi.Azure.Network
         {
             AddressPrefix = addressPrefix;
             AddressPrefixes = addressPrefixes;
+            DefaultOutboundAccessEnabled = defaultOutboundAccessEnabled;
             EnforcePrivateLinkEndpointNetworkPolicies = enforcePrivateLinkEndpointNetworkPolicies;
             EnforcePrivateLinkServiceNetworkPolicies = enforcePrivateLinkServiceNetworkPolicies;
             Id = id;

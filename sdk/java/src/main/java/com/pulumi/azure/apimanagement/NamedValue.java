@@ -191,14 +191,14 @@ public class NamedValue extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.value);
     }
     /**
-     * A `value_from_key_vault` block as defined below.
+     * A `value_from_key_vault` block as defined below. If specified, `secret` must also be set to `true`.
      * 
      */
     @Export(name="valueFromKeyVault", refs={NamedValueValueFromKeyVault.class}, tree="[0]")
     private Output</* @Nullable */ NamedValueValueFromKeyVault> valueFromKeyVault;
 
     /**
-     * @return A `value_from_key_vault` block as defined below.
+     * @return A `value_from_key_vault` block as defined below. If specified, `secret` must also be set to `true`.
      * 
      */
     public Output<Optional<NamedValueValueFromKeyVault>> valueFromKeyVault() {

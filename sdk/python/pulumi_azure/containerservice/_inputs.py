@@ -4946,13 +4946,21 @@ class KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArgs:
 @pulumi.input_type
 class KubernetesClusterDefaultNodePoolUpgradeSettingsArgs:
     def __init__(__self__, *,
-                 max_surge: pulumi.Input[str]):
+                 max_surge: pulumi.Input[str],
+                 drain_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+                 node_soak_duration_in_minutes: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] max_surge: The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
                
                > **Note:** If a percentage is provided, the number of surge nodes is calculated from the `node_count` value on the current cluster. Node surge can allow a cluster to have more nodes than `max_count` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
+        :param pulumi.Input[int] drain_timeout_in_minutes: The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+        :param pulumi.Input[int] node_soak_duration_in_minutes: The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`.
         """
         pulumi.set(__self__, "max_surge", max_surge)
+        if drain_timeout_in_minutes is not None:
+            pulumi.set(__self__, "drain_timeout_in_minutes", drain_timeout_in_minutes)
+        if node_soak_duration_in_minutes is not None:
+            pulumi.set(__self__, "node_soak_duration_in_minutes", node_soak_duration_in_minutes)
 
     @property
     @pulumi.getter(name="maxSurge")
@@ -4967,6 +4975,30 @@ class KubernetesClusterDefaultNodePoolUpgradeSettingsArgs:
     @max_surge.setter
     def max_surge(self, value: pulumi.Input[str]):
         pulumi.set(self, "max_surge", value)
+
+    @property
+    @pulumi.getter(name="drainTimeoutInMinutes")
+    def drain_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+        """
+        return pulumi.get(self, "drain_timeout_in_minutes")
+
+    @drain_timeout_in_minutes.setter
+    def drain_timeout_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "drain_timeout_in_minutes", value)
+
+    @property
+    @pulumi.getter(name="nodeSoakDurationInMinutes")
+    def node_soak_duration_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`.
+        """
+        return pulumi.get(self, "node_soak_duration_in_minutes")
+
+    @node_soak_duration_in_minutes.setter
+    def node_soak_duration_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "node_soak_duration_in_minutes", value)
 
 
 @pulumi.input_type
@@ -7829,11 +7861,19 @@ class KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArgs:
 @pulumi.input_type
 class KubernetesClusterNodePoolUpgradeSettingsArgs:
     def __init__(__self__, *,
-                 max_surge: pulumi.Input[str]):
+                 max_surge: pulumi.Input[str],
+                 drain_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+                 node_soak_duration_in_minutes: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] max_surge: The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+        :param pulumi.Input[int] drain_timeout_in_minutes: The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+        :param pulumi.Input[int] node_soak_duration_in_minutes: The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`.
         """
         pulumi.set(__self__, "max_surge", max_surge)
+        if drain_timeout_in_minutes is not None:
+            pulumi.set(__self__, "drain_timeout_in_minutes", drain_timeout_in_minutes)
+        if node_soak_duration_in_minutes is not None:
+            pulumi.set(__self__, "node_soak_duration_in_minutes", node_soak_duration_in_minutes)
 
     @property
     @pulumi.getter(name="maxSurge")
@@ -7846,6 +7886,30 @@ class KubernetesClusterNodePoolUpgradeSettingsArgs:
     @max_surge.setter
     def max_surge(self, value: pulumi.Input[str]):
         pulumi.set(self, "max_surge", value)
+
+    @property
+    @pulumi.getter(name="drainTimeoutInMinutes")
+    def drain_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+        """
+        return pulumi.get(self, "drain_timeout_in_minutes")
+
+    @drain_timeout_in_minutes.setter
+    def drain_timeout_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "drain_timeout_in_minutes", value)
+
+    @property
+    @pulumi.getter(name="nodeSoakDurationInMinutes")
+    def node_soak_duration_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`.
+        """
+        return pulumi.get(self, "node_soak_duration_in_minutes")
+
+    @node_soak_duration_in_minutes.setter
+    def node_soak_duration_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "node_soak_duration_in_minutes", value)
 
 
 @pulumi.input_type
@@ -7994,8 +8058,6 @@ class KubernetesClusterServiceMeshProfileArgs:
         :param pulumi.Input[str] mode: The mode of the service mesh. Possible value is `Istio`.
         :param pulumi.Input[bool] external_ingress_gateway_enabled: Is Istio External Ingress Gateway enabled?
                
-               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
-               
                > **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
         :param pulumi.Input[bool] internal_ingress_gateway_enabled: Is Istio Internal Ingress Gateway enabled?
         """
@@ -8022,8 +8084,6 @@ class KubernetesClusterServiceMeshProfileArgs:
     def external_ingress_gateway_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Is Istio External Ingress Gateway enabled?
-
-        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
 
         > **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
         """
@@ -8177,27 +8237,46 @@ class KubernetesClusterStorageProfileArgs:
 @pulumi.input_type
 class KubernetesClusterWebAppRoutingArgs:
     def __init__(__self__, *,
-                 dns_zone_id: pulumi.Input[str],
+                 dns_zone_id: Optional[pulumi.Input[str]] = None,
+                 dns_zone_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  web_app_routing_identities: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs']]]] = None):
         """
-        :param pulumi.Input[str] dns_zone_id: Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string `""`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_zone_ids: Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs']]] web_app_routing_identities: A `web_app_routing_identity` block is exported. The exported attributes are defined below.
         """
-        pulumi.set(__self__, "dns_zone_id", dns_zone_id)
+        if dns_zone_id is not None:
+            warnings.warn("""`dns_zone_id` has been deprecated in favor of `dns_zone_ids` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""dns_zone_id is deprecated: `dns_zone_id` has been deprecated in favor of `dns_zone_ids` and will be removed in v4.0 of the AzureRM Provider.""")
+        if dns_zone_id is not None:
+            pulumi.set(__self__, "dns_zone_id", dns_zone_id)
+        if dns_zone_ids is not None:
+            pulumi.set(__self__, "dns_zone_ids", dns_zone_ids)
         if web_app_routing_identities is not None:
             pulumi.set(__self__, "web_app_routing_identities", web_app_routing_identities)
 
     @property
     @pulumi.getter(name="dnsZoneId")
-    def dns_zone_id(self) -> pulumi.Input[str]:
-        """
-        Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string `""`.
-        """
+    def dns_zone_id(self) -> Optional[pulumi.Input[str]]:
+        warnings.warn("""`dns_zone_id` has been deprecated in favor of `dns_zone_ids` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""dns_zone_id is deprecated: `dns_zone_id` has been deprecated in favor of `dns_zone_ids` and will be removed in v4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "dns_zone_id")
 
     @dns_zone_id.setter
-    def dns_zone_id(self, value: pulumi.Input[str]):
+    def dns_zone_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dns_zone_id", value)
+
+    @property
+    @pulumi.getter(name="dnsZoneIds")
+    def dns_zone_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
+        """
+        return pulumi.get(self, "dns_zone_ids")
+
+    @dns_zone_ids.setter
+    def dns_zone_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "dns_zone_ids", value)
 
     @property
     @pulumi.getter(name="webAppRoutingIdentities")

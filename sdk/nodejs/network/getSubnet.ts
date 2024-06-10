@@ -58,6 +58,10 @@ export interface GetSubnetResult {
      * The address prefixes for the subnet.
      */
     readonly addressPrefixes: string[];
+    /**
+     * Is the default outbound access enabled for the subnet.
+     */
+    readonly defaultOutboundAccessEnabled: boolean;
     readonly enforcePrivateLinkEndpointNetworkPolicies: boolean;
     readonly enforcePrivateLinkServiceNetworkPolicies: boolean;
     /**

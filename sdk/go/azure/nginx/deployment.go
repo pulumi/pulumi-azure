@@ -24,7 +24,6 @@ import (
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/nginx"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -84,37 +83,6 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			configContent := std.Base64encode(ctx, &std.Base64encodeArgs{
-//				Input: `http {
-//	    server {
-//	        listen 80;
-//	        location / {
-//	            auth_basic "Protected Area";
-//	            auth_basic_user_file /opt/.htpasswd;
-//	            default_type text/html;
-//	        }
-//	        include site/*.conf;
-//	    }
-//	}
-//
-// `,
-//
-//			}, nil).Result
-//			protectedContent := std.Base64encode(ctx, &std.Base64encodeArgs{
-//				Input: "user:$apr1$VeUA5kt.$IjjRk//8miRxDsZvD4daF1\n",
-//			}, nil).Result
-//			subConfigContent := std.Base64encode(ctx, &std.Base64encodeArgs{
-//				Input: `location /bbb {
-//		default_type text/html;
-//		return 200 '<!doctype html><html lang="en"><head></head><body>
-//			<div>this one will be updated</div>
-//			<div>at 10:38 am</div>
-//		</body></html>';
-//	}
-//
-// `,
-//
-//			}, nil).Result
 //			_, err = nginx.NewDeployment(ctx, "example", &nginx.DeploymentArgs{
 //				Name:                    pulumi.String("example-nginx"),
 //				ResourceGroupName:       example.Name,
@@ -135,25 +103,6 @@ import (
 //				},
 //				Capacity: pulumi.Int(20),
 //				Email:    pulumi.String("user@test.com"),
-//				Configuration: &nginx.DeploymentConfigurationArgs{
-//					RootFile: pulumi.String("/etc/nginx/nginx.conf"),
-//					ConfigFiles: nginx.DeploymentConfigurationConfigFileArray{
-//						&nginx.DeploymentConfigurationConfigFileArgs{
-//							Content:     pulumi.String(configContent),
-//							VirtualPath: pulumi.String("/etc/nginx/nginx.conf"),
-//						},
-//						&nginx.DeploymentConfigurationConfigFileArgs{
-//							Content:     pulumi.String(subConfigContent),
-//							VirtualPath: pulumi.String("/etc/nginx/site/b.conf"),
-//						},
-//					},
-//					ProtectedFiles: nginx.DeploymentConfigurationProtectedFileArray{
-//						&nginx.DeploymentConfigurationProtectedFileArgs{
-//							Content:     pulumi.String(protectedContent),
-//							VirtualPath: pulumi.String("/opt/.htpasswd"),
-//						},
-//					},
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -182,9 +131,9 @@ type Deployment struct {
 	//
 	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 	Capacity pulumi.IntPtrOutput `pulumi:"capacity"`
-	// Specify a custom `configuration` block as defined below.
+	// Deprecated: The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.
 	Configuration DeploymentConfigurationOutput `pulumi:"configuration"`
-	// Should the diagnosis support be enabled?
+	// Should the metrics be exported to Azure Monitor?
 	DiagnoseSupportEnabled pulumi.BoolPtrOutput `pulumi:"diagnoseSupportEnabled"`
 	// Specify the preferred support contact email address for receiving alerts and notifications.
 	Email pulumi.StringPtrOutput `pulumi:"email"`
@@ -210,8 +159,7 @@ type Deployment struct {
 	NginxVersion pulumi.StringOutput `pulumi:"nginxVersion"`
 	// The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
-	Sku pulumi.StringOutput `pulumi:"sku"`
+	Sku               pulumi.StringOutput `pulumi:"sku"`
 	// A mapping of tags which should be assigned to the NGINX Deployment.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -260,9 +208,9 @@ type deploymentState struct {
 	//
 	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 	Capacity *int `pulumi:"capacity"`
-	// Specify a custom `configuration` block as defined below.
+	// Deprecated: The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.
 	Configuration *DeploymentConfiguration `pulumi:"configuration"`
-	// Should the diagnosis support be enabled?
+	// Should the metrics be exported to Azure Monitor?
 	DiagnoseSupportEnabled *bool `pulumi:"diagnoseSupportEnabled"`
 	// Specify the preferred support contact email address for receiving alerts and notifications.
 	Email *string `pulumi:"email"`
@@ -288,8 +236,7 @@ type deploymentState struct {
 	NginxVersion *string `pulumi:"nginxVersion"`
 	// The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
-	Sku *string `pulumi:"sku"`
+	Sku               *string `pulumi:"sku"`
 	// A mapping of tags which should be assigned to the NGINX Deployment.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -303,9 +250,9 @@ type DeploymentState struct {
 	//
 	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 	Capacity pulumi.IntPtrInput
-	// Specify a custom `configuration` block as defined below.
+	// Deprecated: The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.
 	Configuration DeploymentConfigurationPtrInput
-	// Should the diagnosis support be enabled?
+	// Should the metrics be exported to Azure Monitor?
 	DiagnoseSupportEnabled pulumi.BoolPtrInput
 	// Specify the preferred support contact email address for receiving alerts and notifications.
 	Email pulumi.StringPtrInput
@@ -331,8 +278,7 @@ type DeploymentState struct {
 	NginxVersion pulumi.StringPtrInput
 	// The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
-	Sku pulumi.StringPtrInput
+	Sku               pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the NGINX Deployment.
 	Tags pulumi.StringMapInput
 }
@@ -350,9 +296,9 @@ type deploymentArgs struct {
 	//
 	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 	Capacity *int `pulumi:"capacity"`
-	// Specify a custom `configuration` block as defined below.
+	// Deprecated: The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.
 	Configuration *DeploymentConfiguration `pulumi:"configuration"`
-	// Should the diagnosis support be enabled?
+	// Should the metrics be exported to Azure Monitor?
 	DiagnoseSupportEnabled *bool `pulumi:"diagnoseSupportEnabled"`
 	// Specify the preferred support contact email address for receiving alerts and notifications.
 	Email *string `pulumi:"email"`
@@ -374,8 +320,7 @@ type deploymentArgs struct {
 	NetworkInterfaces []DeploymentNetworkInterface `pulumi:"networkInterfaces"`
 	// The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
-	Sku string `pulumi:"sku"`
+	Sku               string `pulumi:"sku"`
 	// A mapping of tags which should be assigned to the NGINX Deployment.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -390,9 +335,9 @@ type DeploymentArgs struct {
 	//
 	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 	Capacity pulumi.IntPtrInput
-	// Specify a custom `configuration` block as defined below.
+	// Deprecated: The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.
 	Configuration DeploymentConfigurationPtrInput
-	// Should the diagnosis support be enabled?
+	// Should the metrics be exported to Azure Monitor?
 	DiagnoseSupportEnabled pulumi.BoolPtrInput
 	// Specify the preferred support contact email address for receiving alerts and notifications.
 	Email pulumi.StringPtrInput
@@ -414,8 +359,7 @@ type DeploymentArgs struct {
 	NetworkInterfaces DeploymentNetworkInterfaceArrayInput
 	// The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
 	ResourceGroupName pulumi.StringInput
-	// Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
-	Sku pulumi.StringInput
+	Sku               pulumi.StringInput
 	// A mapping of tags which should be assigned to the NGINX Deployment.
 	Tags pulumi.StringMapInput
 }
@@ -524,12 +468,12 @@ func (o DeploymentOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.IntPtrOutput { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// Specify a custom `configuration` block as defined below.
+// Deprecated: The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.
 func (o DeploymentOutput) Configuration() DeploymentConfigurationOutput {
 	return o.ApplyT(func(v *Deployment) DeploymentConfigurationOutput { return v.Configuration }).(DeploymentConfigurationOutput)
 }
 
-// Should the diagnosis support be enabled?
+// Should the metrics be exported to Azure Monitor?
 func (o DeploymentOutput) DiagnoseSupportEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.BoolPtrOutput { return v.DiagnoseSupportEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -594,7 +538,6 @@ func (o DeploymentOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
 func (o DeploymentOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.Sku }).(pulumi.StringOutput)
 }

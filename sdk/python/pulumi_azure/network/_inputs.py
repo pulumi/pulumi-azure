@@ -4129,26 +4129,21 @@ class ExpressRouteConnectionRoutingPropagatedRouteTableArgs:
 @pulumi.input_type
 class ExpressRoutePortIdentityArgs:
     def __init__(__self__, *,
-                 identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input[str],
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Express Route Port.
         :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Express Route Port. Only possible value is `UserAssigned`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Express Route Port.
         """
-        pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Express Route Port.
-        """
-        return pulumi.get(self, "identity_ids")
-
-    @identity_ids.setter
-    def identity_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "identity_ids", value)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -4161,6 +4156,36 @@ class ExpressRoutePortIdentityArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Express Route Port.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "identity_ids", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
 
 
 @pulumi.input_type
@@ -8591,26 +8616,15 @@ class RouteMapRuleArgs:
 @pulumi.input_type
 class RouteMapRuleActionArgs:
     def __init__(__self__, *,
-                 parameters: pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionParameterArgs']]],
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input[str],
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionParameterArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionParameterArgs']]] parameters: A `parameter` block as defined below.
         :param pulumi.Input[str] type: The type of the action to be taken. Possible values are `Add`, `Drop`, `Remove`, `Replace` and `Unknown`.
+        :param pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionParameterArgs']]] parameters: A `parameter` block as defined below. Required if `type` is anything other than `Drop`.
         """
-        pulumi.set(__self__, "parameters", parameters)
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def parameters(self) -> pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionParameterArgs']]]:
-        """
-        A `parameter` block as defined below.
-        """
-        return pulumi.get(self, "parameters")
-
-    @parameters.setter
-    def parameters(self, value: pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionParameterArgs']]]):
-        pulumi.set(self, "parameters", value)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
 
     @property
     @pulumi.getter
@@ -8623,6 +8637,18 @@ class RouteMapRuleActionArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionParameterArgs']]]]:
+        """
+        A `parameter` block as defined below. Required if `type` is anything other than `Drop`.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionParameterArgs']]]]):
+        pulumi.set(self, "parameters", value)
 
 
 @pulumi.input_type

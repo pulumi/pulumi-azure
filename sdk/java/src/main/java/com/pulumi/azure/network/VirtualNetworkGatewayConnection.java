@@ -570,14 +570,14 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
      * 
      */
     @Export(name="sharedKey", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> sharedKey;
+    private Output<String> sharedKey;
 
     /**
      * @return The shared IPSec key. A key could be provided if a Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
      * 
      */
-    public Output<Optional<String>> sharedKey() {
-        return Codegen.optional(this.sharedKey);
+    public Output<String> sharedKey() {
+        return this.sharedKey;
     }
     /**
      * A mapping of tags to assign to the resource.

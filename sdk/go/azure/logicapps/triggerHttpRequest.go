@@ -78,7 +78,7 @@ import (
 type TriggerHttpRequest struct {
 	pulumi.CustomResourceState
 
-	// The URL for the workflow trigger
+	// The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group.
 	CallbackUrl pulumi.StringOutput `pulumi:"callbackUrl"`
 	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
 	LogicAppId pulumi.StringOutput `pulumi:"logicAppId"`
@@ -132,7 +132,7 @@ func GetTriggerHttpRequest(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TriggerHttpRequest resources.
 type triggerHttpRequestState struct {
-	// The URL for the workflow trigger
+	// The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group.
 	CallbackUrl *string `pulumi:"callbackUrl"`
 	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
 	LogicAppId *string `pulumi:"logicAppId"`
@@ -151,7 +151,7 @@ type triggerHttpRequestState struct {
 }
 
 type TriggerHttpRequestState struct {
-	// The URL for the workflow trigger
+	// The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group.
 	CallbackUrl pulumi.StringPtrInput
 	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
 	LogicAppId pulumi.StringPtrInput
@@ -295,7 +295,7 @@ func (o TriggerHttpRequestOutput) ToTriggerHttpRequestOutputWithContext(ctx cont
 	return o
 }
 
-// The URL for the workflow trigger
+// The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group.
 func (o TriggerHttpRequestOutput) CallbackUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *TriggerHttpRequest) pulumi.StringOutput { return v.CallbackUrl }).(pulumi.StringOutput)
 }

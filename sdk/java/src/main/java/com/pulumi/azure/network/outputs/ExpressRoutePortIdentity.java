@@ -8,6 +8,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ExpressRoutePortIdentity {
@@ -15,7 +17,9 @@ public final class ExpressRoutePortIdentity {
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Express Route Port.
      * 
      */
-    private List<String> identityIds;
+    private @Nullable List<String> identityIds;
+    private @Nullable String principalId;
+    private @Nullable String tenantId;
     /**
      * @return Specifies the type of Managed Service Identity that should be configured on this Express Route Port. Only possible value is `UserAssigned`.
      * 
@@ -28,7 +32,13 @@ public final class ExpressRoutePortIdentity {
      * 
      */
     public List<String> identityIds() {
-        return this.identityIds;
+        return this.identityIds == null ? List.of() : this.identityIds;
+    }
+    public Optional<String> principalId() {
+        return Optional.ofNullable(this.principalId);
+    }
+    public Optional<String> tenantId() {
+        return Optional.ofNullable(this.tenantId);
     }
     /**
      * @return Specifies the type of Managed Service Identity that should be configured on this Express Route Port. Only possible value is `UserAssigned`.
@@ -47,25 +57,39 @@ public final class ExpressRoutePortIdentity {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> identityIds;
+        private @Nullable List<String> identityIds;
+        private @Nullable String principalId;
+        private @Nullable String tenantId;
         private String type;
         public Builder() {}
         public Builder(ExpressRoutePortIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.identityIds = defaults.identityIds;
+    	      this.principalId = defaults.principalId;
+    	      this.tenantId = defaults.tenantId;
     	      this.type = defaults.type;
         }
 
         @CustomType.Setter
-        public Builder identityIds(List<String> identityIds) {
-            if (identityIds == null) {
-              throw new MissingRequiredPropertyException("ExpressRoutePortIdentity", "identityIds");
-            }
+        public Builder identityIds(@Nullable List<String> identityIds) {
+
             this.identityIds = identityIds;
             return this;
         }
         public Builder identityIds(String... identityIds) {
             return identityIds(List.of(identityIds));
+        }
+        @CustomType.Setter
+        public Builder principalId(@Nullable String principalId) {
+
+            this.principalId = principalId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder tenantId(@Nullable String tenantId) {
+
+            this.tenantId = tenantId;
+            return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
@@ -78,6 +102,8 @@ public final class ExpressRoutePortIdentity {
         public ExpressRoutePortIdentity build() {
             final var _resultValue = new ExpressRoutePortIdentity();
             _resultValue.identityIds = identityIds;
+            _resultValue.principalId = principalId;
+            _resultValue.tenantId = tenantId;
             _resultValue.type = type;
             return _resultValue;
         }

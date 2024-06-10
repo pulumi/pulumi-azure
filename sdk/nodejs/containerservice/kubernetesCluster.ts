@@ -115,6 +115,10 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly confidentialComputing!: pulumi.Output<outputs.containerservice.KubernetesClusterConfidentialComputing | undefined>;
     /**
+     * Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `skuTier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
+     */
+    public readonly costAnalysisEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The current version running on the Azure Kubernetes Managed Cluster.
      */
     public /*out*/ readonly currentKubernetesVersion!: pulumi.Output<string>;
@@ -382,8 +386,6 @@ export class KubernetesCluster extends pulumi.CustomResource {
     public readonly runCommandEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * A `serviceMeshProfile` block as defined below.
-     *
-     * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
      */
     public readonly serviceMeshProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterServiceMeshProfile | undefined>;
     /**
@@ -452,6 +454,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["azureActiveDirectoryRoleBasedAccessControl"] = state ? state.azureActiveDirectoryRoleBasedAccessControl : undefined;
             resourceInputs["azurePolicyEnabled"] = state ? state.azurePolicyEnabled : undefined;
             resourceInputs["confidentialComputing"] = state ? state.confidentialComputing : undefined;
+            resourceInputs["costAnalysisEnabled"] = state ? state.costAnalysisEnabled : undefined;
             resourceInputs["currentKubernetesVersion"] = state ? state.currentKubernetesVersion : undefined;
             resourceInputs["customCaTrustCertificatesBase64s"] = state ? state.customCaTrustCertificatesBase64s : undefined;
             resourceInputs["defaultNodePool"] = state ? state.defaultNodePool : undefined;
@@ -528,6 +531,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["azureActiveDirectoryRoleBasedAccessControl"] = args ? args.azureActiveDirectoryRoleBasedAccessControl : undefined;
             resourceInputs["azurePolicyEnabled"] = args ? args.azurePolicyEnabled : undefined;
             resourceInputs["confidentialComputing"] = args ? args.confidentialComputing : undefined;
+            resourceInputs["costAnalysisEnabled"] = args ? args.costAnalysisEnabled : undefined;
             resourceInputs["customCaTrustCertificatesBase64s"] = args ? args.customCaTrustCertificatesBase64s : undefined;
             resourceInputs["defaultNodePool"] = args ? args.defaultNodePool : undefined;
             resourceInputs["diskEncryptionSetId"] = args ? args.diskEncryptionSetId : undefined;
@@ -636,6 +640,10 @@ export interface KubernetesClusterState {
      * A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
      */
     confidentialComputing?: pulumi.Input<inputs.containerservice.KubernetesClusterConfidentialComputing>;
+    /**
+     * Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `skuTier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
+     */
+    costAnalysisEnabled?: pulumi.Input<boolean>;
     /**
      * The current version running on the Azure Kubernetes Managed Cluster.
      */
@@ -904,8 +912,6 @@ export interface KubernetesClusterState {
     runCommandEnabled?: pulumi.Input<boolean>;
     /**
      * A `serviceMeshProfile` block as defined below.
-     *
-     * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
      */
     serviceMeshProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterServiceMeshProfile>;
     /**
@@ -994,6 +1000,10 @@ export interface KubernetesClusterArgs {
      * A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
      */
     confidentialComputing?: pulumi.Input<inputs.containerservice.KubernetesClusterConfidentialComputing>;
+    /**
+     * Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `skuTier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
+     */
+    costAnalysisEnabled?: pulumi.Input<boolean>;
     /**
      * A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
      *
@@ -1218,8 +1228,6 @@ export interface KubernetesClusterArgs {
     runCommandEnabled?: pulumi.Input<boolean>;
     /**
      * A `serviceMeshProfile` block as defined below.
-     *
-     * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
      */
     serviceMeshProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterServiceMeshProfile>;
     /**

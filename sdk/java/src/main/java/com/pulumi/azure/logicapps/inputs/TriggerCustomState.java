@@ -31,6 +31,21 @@ public final class TriggerCustomState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group.
+     * 
+     */
+    @Import(name="callbackUrl")
+    private @Nullable Output<String> callbackUrl;
+
+    /**
+     * @return The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group.
+     * 
+     */
+    public Optional<Output<String>> callbackUrl() {
+        return Optional.ofNullable(this.callbackUrl);
+    }
+
+    /**
      * Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
      * 
      */
@@ -68,6 +83,7 @@ public final class TriggerCustomState extends com.pulumi.resources.ResourceArgs 
 
     private TriggerCustomState(TriggerCustomState $) {
         this.body = $.body;
+        this.callbackUrl = $.callbackUrl;
         this.logicAppId = $.logicAppId;
         this.name = $.name;
     }
@@ -109,6 +125,27 @@ public final class TriggerCustomState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder body(String body) {
             return body(Output.of(body));
+        }
+
+        /**
+         * @param callbackUrl The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder callbackUrl(@Nullable Output<String> callbackUrl) {
+            $.callbackUrl = callbackUrl;
+            return this;
+        }
+
+        /**
+         * @param callbackUrl The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder callbackUrl(String callbackUrl) {
+            return callbackUrl(Output.of(callbackUrl));
         }
 
         /**

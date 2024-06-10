@@ -23,6 +23,7 @@ __all__ = [
     'WorkspaceFeatureStore',
     'WorkspaceIdentity',
     'WorkspaceManagedNetwork',
+    'WorkspaceServerlessCompute',
     'GetWorkspaceIdentityResult',
 ]
 
@@ -912,6 +913,60 @@ class WorkspaceManagedNetwork(dict):
         The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`
         """
         return pulumi.get(self, "isolation_mode")
+
+
+@pulumi.output_type
+class WorkspaceServerlessCompute(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publicIpEnabled":
+            suggest = "public_ip_enabled"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceServerlessCompute. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceServerlessCompute.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceServerlessCompute.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 public_ip_enabled: Optional[bool] = None,
+                 subnet_id: Optional[str] = None):
+        """
+        :param bool public_ip_enabled: Should serverless compute nodes deployed in a custom Virtual Network have public IP addresses enabled for a workspace with private endpoint? Defaults to `false`.
+               
+               > **Note:** `public_ip_enabled` cannot be updated from `true` to `false` when `subnet_id` is not set. `public_ip_enabled` must be set to `true` if `subnet_id` is not set and when `public_network_access_enabled` is `false`.
+        :param str subnet_id: The ID of an existing Virtual Network Subnet in which the serverless compute nodes should be deployed to.
+        """
+        if public_ip_enabled is not None:
+            pulumi.set(__self__, "public_ip_enabled", public_ip_enabled)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="publicIpEnabled")
+    def public_ip_enabled(self) -> Optional[bool]:
+        """
+        Should serverless compute nodes deployed in a custom Virtual Network have public IP addresses enabled for a workspace with private endpoint? Defaults to `false`.
+
+        > **Note:** `public_ip_enabled` cannot be updated from `true` to `false` when `subnet_id` is not set. `public_ip_enabled` must be set to `true` if `subnet_id` is not set and when `public_network_access_enabled` is `false`.
+        """
+        return pulumi.get(self, "public_ip_enabled")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[str]:
+        """
+        The ID of an existing Virtual Network Subnet in which the serverless compute nodes should be deployed to.
+        """
+        return pulumi.get(self, "subnet_id")
 
 
 @pulumi.output_type

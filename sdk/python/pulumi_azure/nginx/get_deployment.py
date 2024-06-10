@@ -109,7 +109,7 @@ class GetDeploymentResult:
     @pulumi.getter(name="diagnoseSupportEnabled")
     def diagnose_support_enabled(self) -> bool:
         """
-        Whether diagnostic settings are enabled.
+        Whether metrics are exported to Azure Monitor.
         """
         return pulumi.get(self, "diagnose_support_enabled")
 

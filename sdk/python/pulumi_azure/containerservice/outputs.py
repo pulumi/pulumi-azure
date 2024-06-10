@@ -4818,6 +4818,10 @@ class KubernetesClusterDefaultNodePoolUpgradeSettings(dict):
         suggest = None
         if key == "maxSurge":
             suggest = "max_surge"
+        elif key == "drainTimeoutInMinutes":
+            suggest = "drain_timeout_in_minutes"
+        elif key == "nodeSoakDurationInMinutes":
+            suggest = "node_soak_duration_in_minutes"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterDefaultNodePoolUpgradeSettings. Access the value via the '{suggest}' property getter instead.")
@@ -4831,13 +4835,21 @@ class KubernetesClusterDefaultNodePoolUpgradeSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 max_surge: str):
+                 max_surge: str,
+                 drain_timeout_in_minutes: Optional[int] = None,
+                 node_soak_duration_in_minutes: Optional[int] = None):
         """
         :param str max_surge: The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
                
                > **Note:** If a percentage is provided, the number of surge nodes is calculated from the `node_count` value on the current cluster. Node surge can allow a cluster to have more nodes than `max_count` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
+        :param int drain_timeout_in_minutes: The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+        :param int node_soak_duration_in_minutes: The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`.
         """
         pulumi.set(__self__, "max_surge", max_surge)
+        if drain_timeout_in_minutes is not None:
+            pulumi.set(__self__, "drain_timeout_in_minutes", drain_timeout_in_minutes)
+        if node_soak_duration_in_minutes is not None:
+            pulumi.set(__self__, "node_soak_duration_in_minutes", node_soak_duration_in_minutes)
 
     @property
     @pulumi.getter(name="maxSurge")
@@ -4848,6 +4860,22 @@ class KubernetesClusterDefaultNodePoolUpgradeSettings(dict):
         > **Note:** If a percentage is provided, the number of surge nodes is calculated from the `node_count` value on the current cluster. Node surge can allow a cluster to have more nodes than `max_count` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
         """
         return pulumi.get(self, "max_surge")
+
+    @property
+    @pulumi.getter(name="drainTimeoutInMinutes")
+    def drain_timeout_in_minutes(self) -> Optional[int]:
+        """
+        The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+        """
+        return pulumi.get(self, "drain_timeout_in_minutes")
+
+    @property
+    @pulumi.getter(name="nodeSoakDurationInMinutes")
+    def node_soak_duration_in_minutes(self) -> Optional[int]:
+        """
+        The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`.
+        """
+        return pulumi.get(self, "node_soak_duration_in_minutes")
 
 
 @pulumi.output_type
@@ -7738,6 +7766,10 @@ class KubernetesClusterNodePoolUpgradeSettings(dict):
         suggest = None
         if key == "maxSurge":
             suggest = "max_surge"
+        elif key == "drainTimeoutInMinutes":
+            suggest = "drain_timeout_in_minutes"
+        elif key == "nodeSoakDurationInMinutes":
+            suggest = "node_soak_duration_in_minutes"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterNodePoolUpgradeSettings. Access the value via the '{suggest}' property getter instead.")
@@ -7751,11 +7783,19 @@ class KubernetesClusterNodePoolUpgradeSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 max_surge: str):
+                 max_surge: str,
+                 drain_timeout_in_minutes: Optional[int] = None,
+                 node_soak_duration_in_minutes: Optional[int] = None):
         """
         :param str max_surge: The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+        :param int drain_timeout_in_minutes: The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+        :param int node_soak_duration_in_minutes: The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`.
         """
         pulumi.set(__self__, "max_surge", max_surge)
+        if drain_timeout_in_minutes is not None:
+            pulumi.set(__self__, "drain_timeout_in_minutes", drain_timeout_in_minutes)
+        if node_soak_duration_in_minutes is not None:
+            pulumi.set(__self__, "node_soak_duration_in_minutes", node_soak_duration_in_minutes)
 
     @property
     @pulumi.getter(name="maxSurge")
@@ -7764,6 +7804,22 @@ class KubernetesClusterNodePoolUpgradeSettings(dict):
         The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
         """
         return pulumi.get(self, "max_surge")
+
+    @property
+    @pulumi.getter(name="drainTimeoutInMinutes")
+    def drain_timeout_in_minutes(self) -> Optional[int]:
+        """
+        The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+        """
+        return pulumi.get(self, "drain_timeout_in_minutes")
+
+    @property
+    @pulumi.getter(name="nodeSoakDurationInMinutes")
+    def node_soak_duration_in_minutes(self) -> Optional[int]:
+        """
+        The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`.
+        """
+        return pulumi.get(self, "node_soak_duration_in_minutes")
 
 
 @pulumi.output_type
@@ -7962,8 +8018,6 @@ class KubernetesClusterServiceMeshProfile(dict):
         :param str mode: The mode of the service mesh. Possible value is `Istio`.
         :param bool external_ingress_gateway_enabled: Is Istio External Ingress Gateway enabled?
                
-               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
-               
                > **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
         :param bool internal_ingress_gateway_enabled: Is Istio Internal Ingress Gateway enabled?
         """
@@ -7986,8 +8040,6 @@ class KubernetesClusterServiceMeshProfile(dict):
     def external_ingress_gateway_enabled(self) -> Optional[bool]:
         """
         Is Istio External Ingress Gateway enabled?
-
-        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
 
         > **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
         """
@@ -8153,6 +8205,8 @@ class KubernetesClusterWebAppRouting(dict):
         suggest = None
         if key == "dnsZoneId":
             suggest = "dns_zone_id"
+        elif key == "dnsZoneIds":
+            suggest = "dns_zone_ids"
         elif key == "webAppRoutingIdentities":
             suggest = "web_app_routing_identities"
 
@@ -8168,23 +8222,35 @@ class KubernetesClusterWebAppRouting(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 dns_zone_id: str,
+                 dns_zone_id: Optional[str] = None,
+                 dns_zone_ids: Optional[Sequence[str]] = None,
                  web_app_routing_identities: Optional[Sequence['outputs.KubernetesClusterWebAppRoutingWebAppRoutingIdentity']] = None):
         """
-        :param str dns_zone_id: Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string `""`.
+        :param Sequence[str] dns_zone_ids: Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
         :param Sequence['KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs'] web_app_routing_identities: A `web_app_routing_identity` block is exported. The exported attributes are defined below.
         """
-        pulumi.set(__self__, "dns_zone_id", dns_zone_id)
+        if dns_zone_id is not None:
+            pulumi.set(__self__, "dns_zone_id", dns_zone_id)
+        if dns_zone_ids is not None:
+            pulumi.set(__self__, "dns_zone_ids", dns_zone_ids)
         if web_app_routing_identities is not None:
             pulumi.set(__self__, "web_app_routing_identities", web_app_routing_identities)
 
     @property
     @pulumi.getter(name="dnsZoneId")
-    def dns_zone_id(self) -> str:
-        """
-        Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string `""`.
-        """
+    def dns_zone_id(self) -> Optional[str]:
+        warnings.warn("""`dns_zone_id` has been deprecated in favor of `dns_zone_ids` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""dns_zone_id is deprecated: `dns_zone_id` has been deprecated in favor of `dns_zone_ids` and will be removed in v4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "dns_zone_id")
+
+    @property
+    @pulumi.getter(name="dnsZoneIds")
+    def dns_zone_ids(self) -> Optional[Sequence[str]]:
+        """
+        Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
+        """
+        return pulumi.get(self, "dns_zone_ids")
 
     @property
     @pulumi.getter(name="webAppRoutingIdentities")
@@ -9926,11 +9992,25 @@ class TokenPasswordPassword2(dict):
 @pulumi.output_type
 class GetClusterNodePoolUpgradeSettingResult(dict):
     def __init__(__self__, *,
-                 max_surge: str):
+                 drain_timeout_in_minutes: int,
+                 max_surge: str,
+                 node_soak_duration_in_minutes: int):
         """
+        :param int drain_timeout_in_minutes: The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
         :param str max_surge: The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+        :param int node_soak_duration_in_minutes: The amount of time in minutes to wait after draining a node and before reimaging it and moving on to next node.
         """
+        pulumi.set(__self__, "drain_timeout_in_minutes", drain_timeout_in_minutes)
         pulumi.set(__self__, "max_surge", max_surge)
+        pulumi.set(__self__, "node_soak_duration_in_minutes", node_soak_duration_in_minutes)
+
+    @property
+    @pulumi.getter(name="drainTimeoutInMinutes")
+    def drain_timeout_in_minutes(self) -> int:
+        """
+        The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
+        """
+        return pulumi.get(self, "drain_timeout_in_minutes")
 
     @property
     @pulumi.getter(name="maxSurge")
@@ -9939,6 +10019,14 @@ class GetClusterNodePoolUpgradeSettingResult(dict):
         The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
         """
         return pulumi.get(self, "max_surge")
+
+    @property
+    @pulumi.getter(name="nodeSoakDurationInMinutes")
+    def node_soak_duration_in_minutes(self) -> int:
+        """
+        The amount of time in minutes to wait after draining a node and before reimaging it and moving on to next node.
+        """
+        return pulumi.get(self, "node_soak_duration_in_minutes")
 
 
 @pulumi.output_type
@@ -10221,11 +10309,25 @@ class GetKubernetesClusterAgentPoolProfileResult(dict):
 @pulumi.output_type
 class GetKubernetesClusterAgentPoolProfileUpgradeSettingResult(dict):
     def __init__(__self__, *,
-                 max_surge: str):
+                 drain_timeout_in_minutes: int,
+                 max_surge: str,
+                 node_soak_duration_in_minutes: int):
         """
+        :param int drain_timeout_in_minutes: The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
         :param str max_surge: The maximum number or percentage of nodes that will be added to the Node Pool size during an upgrade.
+        :param int node_soak_duration_in_minutes: The amount of time in minutes to wait after draining a node and before reimaging it and moving on to next node.
         """
+        pulumi.set(__self__, "drain_timeout_in_minutes", drain_timeout_in_minutes)
         pulumi.set(__self__, "max_surge", max_surge)
+        pulumi.set(__self__, "node_soak_duration_in_minutes", node_soak_duration_in_minutes)
+
+    @property
+    @pulumi.getter(name="drainTimeoutInMinutes")
+    def drain_timeout_in_minutes(self) -> int:
+        """
+        The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
+        """
+        return pulumi.get(self, "drain_timeout_in_minutes")
 
     @property
     @pulumi.getter(name="maxSurge")
@@ -10234,6 +10336,14 @@ class GetKubernetesClusterAgentPoolProfileUpgradeSettingResult(dict):
         The maximum number or percentage of nodes that will be added to the Node Pool size during an upgrade.
         """
         return pulumi.get(self, "max_surge")
+
+    @property
+    @pulumi.getter(name="nodeSoakDurationInMinutes")
+    def node_soak_duration_in_minutes(self) -> int:
+        """
+        The amount of time in minutes to wait after draining a node and before reimaging it and moving on to next node.
+        """
+        return pulumi.get(self, "node_soak_duration_in_minutes")
 
 
 @pulumi.output_type

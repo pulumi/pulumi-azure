@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DataCollectionRuleStreamDeclarationColumn> Columns;
         /// <summary>
-        /// The name of the custom stream. This name should be unique across all `stream_declaration` blocks.
+        /// The name of the custom stream. This name should be unique across all `stream_declaration` blocks and must begin with a prefix of `Custom-`.
         /// </summary>
         public readonly string StreamName;
 

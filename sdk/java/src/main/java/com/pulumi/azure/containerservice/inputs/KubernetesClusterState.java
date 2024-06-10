@@ -180,6 +180,21 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
+     * 
+     */
+    @Import(name="costAnalysisEnabled")
+    private @Nullable Output<Boolean> costAnalysisEnabled;
+
+    /**
+     * @return Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
+     * 
+     */
+    public Optional<Output<Boolean>> costAnalysisEnabled() {
+        return Optional.ofNullable(this.costAnalysisEnabled);
+    }
+
+    /**
      * The current version running on the Azure Kubernetes Managed Cluster.
      * 
      */
@@ -1146,16 +1161,12 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     /**
      * A `service_mesh_profile` block as defined below.
      * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
-     * 
      */
     @Import(name="serviceMeshProfile")
     private @Nullable Output<KubernetesClusterServiceMeshProfileArgs> serviceMeshProfile;
 
     /**
      * @return A `service_mesh_profile` block as defined below.
-     * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
      * 
      */
     public Optional<Output<KubernetesClusterServiceMeshProfileArgs>> serviceMeshProfile() {
@@ -1324,6 +1335,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         this.azureActiveDirectoryRoleBasedAccessControl = $.azureActiveDirectoryRoleBasedAccessControl;
         this.azurePolicyEnabled = $.azurePolicyEnabled;
         this.confidentialComputing = $.confidentialComputing;
+        this.costAnalysisEnabled = $.costAnalysisEnabled;
         this.currentKubernetesVersion = $.currentKubernetesVersion;
         this.customCaTrustCertificatesBase64s = $.customCaTrustCertificatesBase64s;
         this.defaultNodePool = $.defaultNodePool;
@@ -1594,6 +1606,27 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
          */
         public Builder confidentialComputing(KubernetesClusterConfidentialComputingArgs confidentialComputing) {
             return confidentialComputing(Output.of(confidentialComputing));
+        }
+
+        /**
+         * @param costAnalysisEnabled Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder costAnalysisEnabled(@Nullable Output<Boolean> costAnalysisEnabled) {
+            $.costAnalysisEnabled = costAnalysisEnabled;
+            return this;
+        }
+
+        /**
+         * @param costAnalysisEnabled Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder costAnalysisEnabled(Boolean costAnalysisEnabled) {
+            return costAnalysisEnabled(Output.of(costAnalysisEnabled));
         }
 
         /**
@@ -2895,8 +2928,6 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         /**
          * @param serviceMeshProfile A `service_mesh_profile` block as defined below.
          * 
-         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
-         * 
          * @return builder
          * 
          */
@@ -2907,8 +2938,6 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
 
         /**
          * @param serviceMeshProfile A `service_mesh_profile` block as defined below.
-         * 
-         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
          * 
          * @return builder
          * 

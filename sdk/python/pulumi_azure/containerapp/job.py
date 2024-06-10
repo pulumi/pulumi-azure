@@ -26,8 +26,10 @@ class JobArgs:
                  manual_trigger_config: Optional[pulumi.Input['JobManualTriggerConfigArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  registries: Optional[pulumi.Input[Sequence[pulumi.Input['JobRegistryArgs']]]] = None,
+                 registry: Optional[pulumi.Input[Sequence[pulumi.Input['JobRegistryArgs']]]] = None,
                  replica_retry_limit: Optional[pulumi.Input[int]] = None,
                  schedule_trigger_config: Optional[pulumi.Input['JobScheduleTriggerConfigArgs']] = None,
+                 secret: Optional[pulumi.Input[Sequence[pulumi.Input['JobSecretArgs']]]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input['JobSecretArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workload_profile_name: Optional[pulumi.Input[str]] = None):
@@ -42,12 +44,12 @@ class JobArgs:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input['JobManualTriggerConfigArgs'] manual_trigger_config: A `manual_trigger_config` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['JobRegistryArgs']]] registries: A `registries` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['JobRegistryArgs']]] registry: One or more `registry` blocks as defined below.
         :param pulumi.Input[int] replica_retry_limit: The maximum number of times a replica is allowed to retry.
         :param pulumi.Input['JobScheduleTriggerConfigArgs'] schedule_trigger_config: A `schedule_trigger_config` block as defined below.
                
                > ** NOTE **: Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
-        :param pulumi.Input[Sequence[pulumi.Input['JobSecretArgs']]] secrets: A `secrets` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['JobSecretArgs']]] secret: One or more `secret` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] workload_profile_name: The name of the workload profile to use for the Container App Job.
         """
@@ -66,11 +68,21 @@ class JobArgs:
         if name is not None:
             pulumi.set(__self__, "name", name)
         if registries is not None:
+            warnings.warn("""`registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""registries is deprecated: `registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider.""")
+        if registries is not None:
             pulumi.set(__self__, "registries", registries)
+        if registry is not None:
+            pulumi.set(__self__, "registry", registry)
         if replica_retry_limit is not None:
             pulumi.set(__self__, "replica_retry_limit", replica_retry_limit)
         if schedule_trigger_config is not None:
             pulumi.set(__self__, "schedule_trigger_config", schedule_trigger_config)
+        if secret is not None:
+            pulumi.set(__self__, "secret", secret)
+        if secrets is not None:
+            warnings.warn("""`secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""secrets is deprecated: `secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider.""")
         if secrets is not None:
             pulumi.set(__self__, "secrets", secrets)
         if tags is not None:
@@ -189,14 +201,26 @@ class JobArgs:
     @property
     @pulumi.getter
     def registries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobRegistryArgs']]]]:
-        """
-        A `registries` block as defined below.
-        """
+        warnings.warn("""`registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""registries is deprecated: `registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "registries")
 
     @registries.setter
     def registries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobRegistryArgs']]]]):
         pulumi.set(self, "registries", value)
+
+    @property
+    @pulumi.getter
+    def registry(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobRegistryArgs']]]]:
+        """
+        One or more `registry` blocks as defined below.
+        """
+        return pulumi.get(self, "registry")
+
+    @registry.setter
+    def registry(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobRegistryArgs']]]]):
+        pulumi.set(self, "registry", value)
 
     @property
     @pulumi.getter(name="replicaRetryLimit")
@@ -226,10 +250,22 @@ class JobArgs:
 
     @property
     @pulumi.getter
+    def secret(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobSecretArgs']]]]:
+        """
+        One or more `secret` blocks as defined below.
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobSecretArgs']]]]):
+        pulumi.set(self, "secret", value)
+
+    @property
+    @pulumi.getter
     def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobSecretArgs']]]]:
-        """
-        A `secrets` block as defined below.
-        """
+        warnings.warn("""`secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""secrets is deprecated: `secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "secrets")
 
     @secrets.setter
@@ -273,10 +309,12 @@ class _JobState:
                  name: Optional[pulumi.Input[str]] = None,
                  outbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  registries: Optional[pulumi.Input[Sequence[pulumi.Input['JobRegistryArgs']]]] = None,
+                 registry: Optional[pulumi.Input[Sequence[pulumi.Input['JobRegistryArgs']]]] = None,
                  replica_retry_limit: Optional[pulumi.Input[int]] = None,
                  replica_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schedule_trigger_config: Optional[pulumi.Input['JobScheduleTriggerConfigArgs']] = None,
+                 secret: Optional[pulumi.Input[Sequence[pulumi.Input['JobSecretArgs']]]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input['JobSecretArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template: Optional[pulumi.Input['JobTemplateArgs']] = None,
@@ -291,14 +329,14 @@ class _JobState:
         :param pulumi.Input['JobManualTriggerConfigArgs'] manual_trigger_config: A `manual_trigger_config` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_addresses: A list of the Public IP Addresses which the Container App uses for outbound network access.
-        :param pulumi.Input[Sequence[pulumi.Input['JobRegistryArgs']]] registries: A `registries` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['JobRegistryArgs']]] registry: One or more `registry` blocks as defined below.
         :param pulumi.Input[int] replica_retry_limit: The maximum number of times a replica is allowed to retry.
         :param pulumi.Input[int] replica_timeout_in_seconds: The maximum number of seconds a replica is allowed to run.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container App Job. Changing this forces a new resource to be created.
         :param pulumi.Input['JobScheduleTriggerConfigArgs'] schedule_trigger_config: A `schedule_trigger_config` block as defined below.
                
                > ** NOTE **: Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
-        :param pulumi.Input[Sequence[pulumi.Input['JobSecretArgs']]] secrets: A `secrets` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['JobSecretArgs']]] secret: One or more `secret` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['JobTemplateArgs'] template: A `template` block as defined below.
         :param pulumi.Input[str] workload_profile_name: The name of the workload profile to use for the Container App Job.
@@ -320,7 +358,12 @@ class _JobState:
         if outbound_ip_addresses is not None:
             pulumi.set(__self__, "outbound_ip_addresses", outbound_ip_addresses)
         if registries is not None:
+            warnings.warn("""`registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""registries is deprecated: `registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider.""")
+        if registries is not None:
             pulumi.set(__self__, "registries", registries)
+        if registry is not None:
+            pulumi.set(__self__, "registry", registry)
         if replica_retry_limit is not None:
             pulumi.set(__self__, "replica_retry_limit", replica_retry_limit)
         if replica_timeout_in_seconds is not None:
@@ -329,6 +372,11 @@ class _JobState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if schedule_trigger_config is not None:
             pulumi.set(__self__, "schedule_trigger_config", schedule_trigger_config)
+        if secret is not None:
+            pulumi.set(__self__, "secret", secret)
+        if secrets is not None:
+            warnings.warn("""`secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""secrets is deprecated: `secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider.""")
         if secrets is not None:
             pulumi.set(__self__, "secrets", secrets)
         if tags is not None:
@@ -437,14 +485,26 @@ class _JobState:
     @property
     @pulumi.getter
     def registries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobRegistryArgs']]]]:
-        """
-        A `registries` block as defined below.
-        """
+        warnings.warn("""`registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""registries is deprecated: `registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "registries")
 
     @registries.setter
     def registries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobRegistryArgs']]]]):
         pulumi.set(self, "registries", value)
+
+    @property
+    @pulumi.getter
+    def registry(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobRegistryArgs']]]]:
+        """
+        One or more `registry` blocks as defined below.
+        """
+        return pulumi.get(self, "registry")
+
+    @registry.setter
+    def registry(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobRegistryArgs']]]]):
+        pulumi.set(self, "registry", value)
 
     @property
     @pulumi.getter(name="replicaRetryLimit")
@@ -498,10 +558,22 @@ class _JobState:
 
     @property
     @pulumi.getter
+    def secret(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobSecretArgs']]]]:
+        """
+        One or more `secret` blocks as defined below.
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobSecretArgs']]]]):
+        pulumi.set(self, "secret", value)
+
+    @property
+    @pulumi.getter
     def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobSecretArgs']]]]:
-        """
-        A `secrets` block as defined below.
-        """
+        warnings.warn("""`secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""secrets is deprecated: `secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "secrets")
 
     @secrets.setter
@@ -557,10 +629,12 @@ class Job(pulumi.CustomResource):
                  manual_trigger_config: Optional[pulumi.Input[pulumi.InputType['JobManualTriggerConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobRegistryArgs']]]]] = None,
+                 registry: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobRegistryArgs']]]]] = None,
                  replica_retry_limit: Optional[pulumi.Input[int]] = None,
                  replica_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schedule_trigger_config: Optional[pulumi.Input[pulumi.InputType['JobScheduleTriggerConfigArgs']]] = None,
+                 secret: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobSecretArgs']]]]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobSecretArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template: Optional[pulumi.Input[pulumi.InputType['JobTemplateArgs']]] = None,
@@ -647,14 +721,14 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['JobManualTriggerConfigArgs']] manual_trigger_config: A `manual_trigger_config` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobRegistryArgs']]]] registries: A `registries` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobRegistryArgs']]]] registry: One or more `registry` blocks as defined below.
         :param pulumi.Input[int] replica_retry_limit: The maximum number of times a replica is allowed to retry.
         :param pulumi.Input[int] replica_timeout_in_seconds: The maximum number of seconds a replica is allowed to run.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container App Job. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['JobScheduleTriggerConfigArgs']] schedule_trigger_config: A `schedule_trigger_config` block as defined below.
                
                > ** NOTE **: Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobSecretArgs']]]] secrets: A `secrets` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobSecretArgs']]]] secret: One or more `secret` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['JobTemplateArgs']] template: A `template` block as defined below.
         :param pulumi.Input[str] workload_profile_name: The name of the workload profile to use for the Container App Job.
@@ -760,10 +834,12 @@ class Job(pulumi.CustomResource):
                  manual_trigger_config: Optional[pulumi.Input[pulumi.InputType['JobManualTriggerConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobRegistryArgs']]]]] = None,
+                 registry: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobRegistryArgs']]]]] = None,
                  replica_retry_limit: Optional[pulumi.Input[int]] = None,
                  replica_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schedule_trigger_config: Optional[pulumi.Input[pulumi.InputType['JobScheduleTriggerConfigArgs']]] = None,
+                 secret: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobSecretArgs']]]]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobSecretArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template: Optional[pulumi.Input[pulumi.InputType['JobTemplateArgs']]] = None,
@@ -786,6 +862,7 @@ class Job(pulumi.CustomResource):
             __props__.__dict__["manual_trigger_config"] = manual_trigger_config
             __props__.__dict__["name"] = name
             __props__.__dict__["registries"] = registries
+            __props__.__dict__["registry"] = registry
             __props__.__dict__["replica_retry_limit"] = replica_retry_limit
             if replica_timeout_in_seconds is None and not opts.urn:
                 raise TypeError("Missing required property 'replica_timeout_in_seconds'")
@@ -794,6 +871,7 @@ class Job(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["schedule_trigger_config"] = schedule_trigger_config
+            __props__.__dict__["secret"] = None if secret is None else pulumi.Output.secret(secret)
             __props__.__dict__["secrets"] = None if secrets is None else pulumi.Output.secret(secrets)
             __props__.__dict__["tags"] = tags
             if template is None and not opts.urn:
@@ -802,7 +880,7 @@ class Job(pulumi.CustomResource):
             __props__.__dict__["workload_profile_name"] = workload_profile_name
             __props__.__dict__["event_stream_endpoint"] = None
             __props__.__dict__["outbound_ip_addresses"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["secrets"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["secret", "secrets"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Job, __self__).__init__(
             'azure:containerapp/job:Job',
@@ -823,10 +901,12 @@ class Job(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             outbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobRegistryArgs']]]]] = None,
+            registry: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobRegistryArgs']]]]] = None,
             replica_retry_limit: Optional[pulumi.Input[int]] = None,
             replica_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             schedule_trigger_config: Optional[pulumi.Input[pulumi.InputType['JobScheduleTriggerConfigArgs']]] = None,
+            secret: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobSecretArgs']]]]] = None,
             secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobSecretArgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             template: Optional[pulumi.Input[pulumi.InputType['JobTemplateArgs']]] = None,
@@ -846,14 +926,14 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['JobManualTriggerConfigArgs']] manual_trigger_config: A `manual_trigger_config` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_addresses: A list of the Public IP Addresses which the Container App uses for outbound network access.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobRegistryArgs']]]] registries: A `registries` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobRegistryArgs']]]] registry: One or more `registry` blocks as defined below.
         :param pulumi.Input[int] replica_retry_limit: The maximum number of times a replica is allowed to retry.
         :param pulumi.Input[int] replica_timeout_in_seconds: The maximum number of seconds a replica is allowed to run.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container App Job. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['JobScheduleTriggerConfigArgs']] schedule_trigger_config: A `schedule_trigger_config` block as defined below.
                
                > ** NOTE **: Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobSecretArgs']]]] secrets: A `secrets` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobSecretArgs']]]] secret: One or more `secret` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['JobTemplateArgs']] template: A `template` block as defined below.
         :param pulumi.Input[str] workload_profile_name: The name of the workload profile to use for the Container App Job.
@@ -871,10 +951,12 @@ class Job(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["outbound_ip_addresses"] = outbound_ip_addresses
         __props__.__dict__["registries"] = registries
+        __props__.__dict__["registry"] = registry
         __props__.__dict__["replica_retry_limit"] = replica_retry_limit
         __props__.__dict__["replica_timeout_in_seconds"] = replica_timeout_in_seconds
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["schedule_trigger_config"] = schedule_trigger_config
+        __props__.__dict__["secret"] = secret
         __props__.__dict__["secrets"] = secrets
         __props__.__dict__["tags"] = tags
         __props__.__dict__["template"] = template
@@ -947,11 +1029,19 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def registries(self) -> pulumi.Output[Optional[Sequence['outputs.JobRegistry']]]:
-        """
-        A `registries` block as defined below.
-        """
+    def registries(self) -> pulumi.Output[Sequence['outputs.JobRegistry']]:
+        warnings.warn("""`registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""registries is deprecated: `registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "registries")
+
+    @property
+    @pulumi.getter
+    def registry(self) -> pulumi.Output[Sequence['outputs.JobRegistry']]:
+        """
+        One or more `registry` blocks as defined below.
+        """
+        return pulumi.get(self, "registry")
 
     @property
     @pulumi.getter(name="replicaRetryLimit")
@@ -989,10 +1079,18 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def secrets(self) -> pulumi.Output[Optional[Sequence['outputs.JobSecret']]]:
+    def secret(self) -> pulumi.Output[Sequence['outputs.JobSecret']]:
         """
-        A `secrets` block as defined below.
+        One or more `secret` blocks as defined below.
         """
+        return pulumi.get(self, "secret")
+
+    @property
+    @pulumi.getter
+    def secrets(self) -> pulumi.Output[Sequence['outputs.JobSecret']]:
+        warnings.warn("""`secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""secrets is deprecated: `secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "secrets")
 
     @property

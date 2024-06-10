@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         }
 
         /// <summary>
-        /// The name of the custom stream. This name should be unique across all `stream_declaration` blocks.
+        /// The name of the custom stream. This name should be unique across all `stream_declaration` blocks and must begin with a prefix of `Custom-`.
         /// </summary>
         [Input("streamName", required: true)]
         public Input<string> StreamName { get; set; } = null!;

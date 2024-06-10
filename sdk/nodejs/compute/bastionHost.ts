@@ -105,7 +105,7 @@ export class BastionHost extends pulumi.CustomResource {
     /**
      * A `ipConfiguration` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly ipConfiguration!: pulumi.Output<outputs.compute.BastionHostIpConfiguration>;
+    public readonly ipConfiguration!: pulumi.Output<outputs.compute.BastionHostIpConfiguration | undefined>;
     /**
      * Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
      *
@@ -143,7 +143,7 @@ export class BastionHost extends pulumi.CustomResource {
      */
     public readonly shareableLinkEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+     * The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
      *
      * > **Note** Downgrading the SKU will force a new resource to be created.
      */
@@ -158,6 +158,10 @@ export class BastionHost extends pulumi.CustomResource {
      * > **Note:** `tunnelingEnabled` is only supported when `sku` is `Standard`.
      */
     public readonly tunnelingEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
+     */
+    public readonly virtualNetworkId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a BastionHost resource with the given unique name, arguments, and options.
@@ -186,11 +190,9 @@ export class BastionHost extends pulumi.CustomResource {
             resourceInputs["sku"] = state ? state.sku : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tunnelingEnabled"] = state ? state.tunnelingEnabled : undefined;
+            resourceInputs["virtualNetworkId"] = state ? state.virtualNetworkId : undefined;
         } else {
             const args = argsOrState as BastionHostArgs | undefined;
-            if ((!args || args.ipConfiguration === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'ipConfiguration'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -207,6 +209,7 @@ export class BastionHost extends pulumi.CustomResource {
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tunnelingEnabled"] = args ? args.tunnelingEnabled : undefined;
+            resourceInputs["virtualNetworkId"] = args ? args.virtualNetworkId : undefined;
             resourceInputs["dnsName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -273,7 +276,7 @@ export interface BastionHostState {
      */
     shareableLinkEnabled?: pulumi.Input<boolean>;
     /**
-     * The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+     * The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
      *
      * > **Note** Downgrading the SKU will force a new resource to be created.
      */
@@ -288,6 +291,10 @@ export interface BastionHostState {
      * > **Note:** `tunnelingEnabled` is only supported when `sku` is `Standard`.
      */
     tunnelingEnabled?: pulumi.Input<boolean>;
+    /**
+     * The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
+     */
+    virtualNetworkId?: pulumi.Input<string>;
 }
 
 /**
@@ -307,7 +314,7 @@ export interface BastionHostArgs {
     /**
      * A `ipConfiguration` block as defined below. Changing this forces a new resource to be created.
      */
-    ipConfiguration: pulumi.Input<inputs.compute.BastionHostIpConfiguration>;
+    ipConfiguration?: pulumi.Input<inputs.compute.BastionHostIpConfiguration>;
     /**
      * Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
      *
@@ -345,7 +352,7 @@ export interface BastionHostArgs {
      */
     shareableLinkEnabled?: pulumi.Input<boolean>;
     /**
-     * The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+     * The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
      *
      * > **Note** Downgrading the SKU will force a new resource to be created.
      */
@@ -360,4 +367,8 @@ export interface BastionHostArgs {
      * > **Note:** `tunnelingEnabled` is only supported when `sku` is `Standard`.
      */
     tunnelingEnabled?: pulumi.Input<boolean>;
+    /**
+     * The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
+     */
+    virtualNetworkId?: pulumi.Input<string>;
 }

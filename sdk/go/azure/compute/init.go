@@ -59,6 +59,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GalleryApplicationVersion{}
 	case "azure:compute/image:Image":
 		r = &Image{}
+	case "azure:compute/implicitDataDiskFromSource:ImplicitDataDiskFromSource":
+		r = &ImplicitDataDiskFromSource{}
 	case "azure:compute/linuxVirtualMachine:LinuxVirtualMachine":
 		r = &LinuxVirtualMachine{}
 	case "azure:compute/linuxVirtualMachineScaleSet:LinuxVirtualMachineScaleSet":
@@ -201,6 +203,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"compute/image",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"compute/implicitDataDiskFromSource",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

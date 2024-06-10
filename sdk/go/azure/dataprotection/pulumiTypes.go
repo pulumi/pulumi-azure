@@ -276,6 +276,292 @@ func (o BackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutput) Volu
 	}).(pulumi.BoolPtrOutput)
 }
 
+type BackupPolicyBlobStorageRetentionRule struct {
+	// A `criteria` block as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
+	Criteria BackupPolicyBlobStorageRetentionRuleCriteria `pulumi:"criteria"`
+	// A `lifeCycle` block as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
+	LifeCycle BackupPolicyBlobStorageRetentionRuleLifeCycle `pulumi:"lifeCycle"`
+	// The name which should be used for this retention rule. Changing this forces a new Backup Policy Blob Storage to be created.
+	Name string `pulumi:"name"`
+	// Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new Backup Policy Blob Storage to be created.
+	Priority int `pulumi:"priority"`
+}
+
+// BackupPolicyBlobStorageRetentionRuleInput is an input type that accepts BackupPolicyBlobStorageRetentionRuleArgs and BackupPolicyBlobStorageRetentionRuleOutput values.
+// You can construct a concrete instance of `BackupPolicyBlobStorageRetentionRuleInput` via:
+//
+//	BackupPolicyBlobStorageRetentionRuleArgs{...}
+type BackupPolicyBlobStorageRetentionRuleInput interface {
+	pulumi.Input
+
+	ToBackupPolicyBlobStorageRetentionRuleOutput() BackupPolicyBlobStorageRetentionRuleOutput
+	ToBackupPolicyBlobStorageRetentionRuleOutputWithContext(context.Context) BackupPolicyBlobStorageRetentionRuleOutput
+}
+
+type BackupPolicyBlobStorageRetentionRuleArgs struct {
+	// A `criteria` block as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
+	Criteria BackupPolicyBlobStorageRetentionRuleCriteriaInput `pulumi:"criteria"`
+	// A `lifeCycle` block as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
+	LifeCycle BackupPolicyBlobStorageRetentionRuleLifeCycleInput `pulumi:"lifeCycle"`
+	// The name which should be used for this retention rule. Changing this forces a new Backup Policy Blob Storage to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new Backup Policy Blob Storage to be created.
+	Priority pulumi.IntInput `pulumi:"priority"`
+}
+
+func (BackupPolicyBlobStorageRetentionRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyBlobStorageRetentionRule)(nil)).Elem()
+}
+
+func (i BackupPolicyBlobStorageRetentionRuleArgs) ToBackupPolicyBlobStorageRetentionRuleOutput() BackupPolicyBlobStorageRetentionRuleOutput {
+	return i.ToBackupPolicyBlobStorageRetentionRuleOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyBlobStorageRetentionRuleArgs) ToBackupPolicyBlobStorageRetentionRuleOutputWithContext(ctx context.Context) BackupPolicyBlobStorageRetentionRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyBlobStorageRetentionRuleOutput)
+}
+
+// BackupPolicyBlobStorageRetentionRuleArrayInput is an input type that accepts BackupPolicyBlobStorageRetentionRuleArray and BackupPolicyBlobStorageRetentionRuleArrayOutput values.
+// You can construct a concrete instance of `BackupPolicyBlobStorageRetentionRuleArrayInput` via:
+//
+//	BackupPolicyBlobStorageRetentionRuleArray{ BackupPolicyBlobStorageRetentionRuleArgs{...} }
+type BackupPolicyBlobStorageRetentionRuleArrayInput interface {
+	pulumi.Input
+
+	ToBackupPolicyBlobStorageRetentionRuleArrayOutput() BackupPolicyBlobStorageRetentionRuleArrayOutput
+	ToBackupPolicyBlobStorageRetentionRuleArrayOutputWithContext(context.Context) BackupPolicyBlobStorageRetentionRuleArrayOutput
+}
+
+type BackupPolicyBlobStorageRetentionRuleArray []BackupPolicyBlobStorageRetentionRuleInput
+
+func (BackupPolicyBlobStorageRetentionRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPolicyBlobStorageRetentionRule)(nil)).Elem()
+}
+
+func (i BackupPolicyBlobStorageRetentionRuleArray) ToBackupPolicyBlobStorageRetentionRuleArrayOutput() BackupPolicyBlobStorageRetentionRuleArrayOutput {
+	return i.ToBackupPolicyBlobStorageRetentionRuleArrayOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyBlobStorageRetentionRuleArray) ToBackupPolicyBlobStorageRetentionRuleArrayOutputWithContext(ctx context.Context) BackupPolicyBlobStorageRetentionRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyBlobStorageRetentionRuleArrayOutput)
+}
+
+type BackupPolicyBlobStorageRetentionRuleOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyBlobStorageRetentionRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyBlobStorageRetentionRule)(nil)).Elem()
+}
+
+func (o BackupPolicyBlobStorageRetentionRuleOutput) ToBackupPolicyBlobStorageRetentionRuleOutput() BackupPolicyBlobStorageRetentionRuleOutput {
+	return o
+}
+
+func (o BackupPolicyBlobStorageRetentionRuleOutput) ToBackupPolicyBlobStorageRetentionRuleOutputWithContext(ctx context.Context) BackupPolicyBlobStorageRetentionRuleOutput {
+	return o
+}
+
+// A `criteria` block as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
+func (o BackupPolicyBlobStorageRetentionRuleOutput) Criteria() BackupPolicyBlobStorageRetentionRuleCriteriaOutput {
+	return o.ApplyT(func(v BackupPolicyBlobStorageRetentionRule) BackupPolicyBlobStorageRetentionRuleCriteria {
+		return v.Criteria
+	}).(BackupPolicyBlobStorageRetentionRuleCriteriaOutput)
+}
+
+// A `lifeCycle` block as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
+func (o BackupPolicyBlobStorageRetentionRuleOutput) LifeCycle() BackupPolicyBlobStorageRetentionRuleLifeCycleOutput {
+	return o.ApplyT(func(v BackupPolicyBlobStorageRetentionRule) BackupPolicyBlobStorageRetentionRuleLifeCycle {
+		return v.LifeCycle
+	}).(BackupPolicyBlobStorageRetentionRuleLifeCycleOutput)
+}
+
+// The name which should be used for this retention rule. Changing this forces a new Backup Policy Blob Storage to be created.
+func (o BackupPolicyBlobStorageRetentionRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupPolicyBlobStorageRetentionRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new Backup Policy Blob Storage to be created.
+func (o BackupPolicyBlobStorageRetentionRuleOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v BackupPolicyBlobStorageRetentionRule) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+type BackupPolicyBlobStorageRetentionRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyBlobStorageRetentionRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPolicyBlobStorageRetentionRule)(nil)).Elem()
+}
+
+func (o BackupPolicyBlobStorageRetentionRuleArrayOutput) ToBackupPolicyBlobStorageRetentionRuleArrayOutput() BackupPolicyBlobStorageRetentionRuleArrayOutput {
+	return o
+}
+
+func (o BackupPolicyBlobStorageRetentionRuleArrayOutput) ToBackupPolicyBlobStorageRetentionRuleArrayOutputWithContext(ctx context.Context) BackupPolicyBlobStorageRetentionRuleArrayOutput {
+	return o
+}
+
+func (o BackupPolicyBlobStorageRetentionRuleArrayOutput) Index(i pulumi.IntInput) BackupPolicyBlobStorageRetentionRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BackupPolicyBlobStorageRetentionRule {
+		return vs[0].([]BackupPolicyBlobStorageRetentionRule)[vs[1].(int)]
+	}).(BackupPolicyBlobStorageRetentionRuleOutput)
+}
+
+type BackupPolicyBlobStorageRetentionRuleCriteria struct {
+	// Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new Backup Policy Blob Storage to be created.
+	AbsoluteCriteria *string `pulumi:"absoluteCriteria"`
+	// Must be between `0` and `28`. `0` for last day within the month. Changing this forces a new Backup Policy Blob Storage to be created.
+	DaysOfMonths []int `pulumi:"daysOfMonths"`
+	// Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new Backup Policy Blob Storage to be created.
+	DaysOfWeeks []string `pulumi:"daysOfWeeks"`
+	// Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new Backup Policy Blob Storage to be created.
+	MonthsOfYears []string `pulumi:"monthsOfYears"`
+	// Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new Backup Policy Blob Storage to be created.
+	ScheduledBackupTimes []string `pulumi:"scheduledBackupTimes"`
+	// Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new Backup Policy Blob Storage to be created.
+	WeeksOfMonths []string `pulumi:"weeksOfMonths"`
+}
+
+// BackupPolicyBlobStorageRetentionRuleCriteriaInput is an input type that accepts BackupPolicyBlobStorageRetentionRuleCriteriaArgs and BackupPolicyBlobStorageRetentionRuleCriteriaOutput values.
+// You can construct a concrete instance of `BackupPolicyBlobStorageRetentionRuleCriteriaInput` via:
+//
+//	BackupPolicyBlobStorageRetentionRuleCriteriaArgs{...}
+type BackupPolicyBlobStorageRetentionRuleCriteriaInput interface {
+	pulumi.Input
+
+	ToBackupPolicyBlobStorageRetentionRuleCriteriaOutput() BackupPolicyBlobStorageRetentionRuleCriteriaOutput
+	ToBackupPolicyBlobStorageRetentionRuleCriteriaOutputWithContext(context.Context) BackupPolicyBlobStorageRetentionRuleCriteriaOutput
+}
+
+type BackupPolicyBlobStorageRetentionRuleCriteriaArgs struct {
+	// Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new Backup Policy Blob Storage to be created.
+	AbsoluteCriteria pulumi.StringPtrInput `pulumi:"absoluteCriteria"`
+	// Must be between `0` and `28`. `0` for last day within the month. Changing this forces a new Backup Policy Blob Storage to be created.
+	DaysOfMonths pulumi.IntArrayInput `pulumi:"daysOfMonths"`
+	// Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new Backup Policy Blob Storage to be created.
+	DaysOfWeeks pulumi.StringArrayInput `pulumi:"daysOfWeeks"`
+	// Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new Backup Policy Blob Storage to be created.
+	MonthsOfYears pulumi.StringArrayInput `pulumi:"monthsOfYears"`
+	// Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new Backup Policy Blob Storage to be created.
+	ScheduledBackupTimes pulumi.StringArrayInput `pulumi:"scheduledBackupTimes"`
+	// Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new Backup Policy Blob Storage to be created.
+	WeeksOfMonths pulumi.StringArrayInput `pulumi:"weeksOfMonths"`
+}
+
+func (BackupPolicyBlobStorageRetentionRuleCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyBlobStorageRetentionRuleCriteria)(nil)).Elem()
+}
+
+func (i BackupPolicyBlobStorageRetentionRuleCriteriaArgs) ToBackupPolicyBlobStorageRetentionRuleCriteriaOutput() BackupPolicyBlobStorageRetentionRuleCriteriaOutput {
+	return i.ToBackupPolicyBlobStorageRetentionRuleCriteriaOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyBlobStorageRetentionRuleCriteriaArgs) ToBackupPolicyBlobStorageRetentionRuleCriteriaOutputWithContext(ctx context.Context) BackupPolicyBlobStorageRetentionRuleCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyBlobStorageRetentionRuleCriteriaOutput)
+}
+
+type BackupPolicyBlobStorageRetentionRuleCriteriaOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyBlobStorageRetentionRuleCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyBlobStorageRetentionRuleCriteria)(nil)).Elem()
+}
+
+func (o BackupPolicyBlobStorageRetentionRuleCriteriaOutput) ToBackupPolicyBlobStorageRetentionRuleCriteriaOutput() BackupPolicyBlobStorageRetentionRuleCriteriaOutput {
+	return o
+}
+
+func (o BackupPolicyBlobStorageRetentionRuleCriteriaOutput) ToBackupPolicyBlobStorageRetentionRuleCriteriaOutputWithContext(ctx context.Context) BackupPolicyBlobStorageRetentionRuleCriteriaOutput {
+	return o
+}
+
+// Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new Backup Policy Blob Storage to be created.
+func (o BackupPolicyBlobStorageRetentionRuleCriteriaOutput) AbsoluteCriteria() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupPolicyBlobStorageRetentionRuleCriteria) *string { return v.AbsoluteCriteria }).(pulumi.StringPtrOutput)
+}
+
+// Must be between `0` and `28`. `0` for last day within the month. Changing this forces a new Backup Policy Blob Storage to be created.
+func (o BackupPolicyBlobStorageRetentionRuleCriteriaOutput) DaysOfMonths() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v BackupPolicyBlobStorageRetentionRuleCriteria) []int { return v.DaysOfMonths }).(pulumi.IntArrayOutput)
+}
+
+// Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new Backup Policy Blob Storage to be created.
+func (o BackupPolicyBlobStorageRetentionRuleCriteriaOutput) DaysOfWeeks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupPolicyBlobStorageRetentionRuleCriteria) []string { return v.DaysOfWeeks }).(pulumi.StringArrayOutput)
+}
+
+// Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new Backup Policy Blob Storage to be created.
+func (o BackupPolicyBlobStorageRetentionRuleCriteriaOutput) MonthsOfYears() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupPolicyBlobStorageRetentionRuleCriteria) []string { return v.MonthsOfYears }).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new Backup Policy Blob Storage to be created.
+func (o BackupPolicyBlobStorageRetentionRuleCriteriaOutput) ScheduledBackupTimes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupPolicyBlobStorageRetentionRuleCriteria) []string { return v.ScheduledBackupTimes }).(pulumi.StringArrayOutput)
+}
+
+// Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new Backup Policy Blob Storage to be created.
+func (o BackupPolicyBlobStorageRetentionRuleCriteriaOutput) WeeksOfMonths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupPolicyBlobStorageRetentionRuleCriteria) []string { return v.WeeksOfMonths }).(pulumi.StringArrayOutput)
+}
+
+type BackupPolicyBlobStorageRetentionRuleLifeCycle struct {
+	// The type of data store. The only possible value is `VaultStore`. Changing this forces a new Backup Policy Blob Storage to be created.
+	DataStoreType string `pulumi:"dataStoreType"`
+	// The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
+	Duration string `pulumi:"duration"`
+}
+
+// BackupPolicyBlobStorageRetentionRuleLifeCycleInput is an input type that accepts BackupPolicyBlobStorageRetentionRuleLifeCycleArgs and BackupPolicyBlobStorageRetentionRuleLifeCycleOutput values.
+// You can construct a concrete instance of `BackupPolicyBlobStorageRetentionRuleLifeCycleInput` via:
+//
+//	BackupPolicyBlobStorageRetentionRuleLifeCycleArgs{...}
+type BackupPolicyBlobStorageRetentionRuleLifeCycleInput interface {
+	pulumi.Input
+
+	ToBackupPolicyBlobStorageRetentionRuleLifeCycleOutput() BackupPolicyBlobStorageRetentionRuleLifeCycleOutput
+	ToBackupPolicyBlobStorageRetentionRuleLifeCycleOutputWithContext(context.Context) BackupPolicyBlobStorageRetentionRuleLifeCycleOutput
+}
+
+type BackupPolicyBlobStorageRetentionRuleLifeCycleArgs struct {
+	// The type of data store. The only possible value is `VaultStore`. Changing this forces a new Backup Policy Blob Storage to be created.
+	DataStoreType pulumi.StringInput `pulumi:"dataStoreType"`
+	// The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
+	Duration pulumi.StringInput `pulumi:"duration"`
+}
+
+func (BackupPolicyBlobStorageRetentionRuleLifeCycleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyBlobStorageRetentionRuleLifeCycle)(nil)).Elem()
+}
+
+func (i BackupPolicyBlobStorageRetentionRuleLifeCycleArgs) ToBackupPolicyBlobStorageRetentionRuleLifeCycleOutput() BackupPolicyBlobStorageRetentionRuleLifeCycleOutput {
+	return i.ToBackupPolicyBlobStorageRetentionRuleLifeCycleOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyBlobStorageRetentionRuleLifeCycleArgs) ToBackupPolicyBlobStorageRetentionRuleLifeCycleOutputWithContext(ctx context.Context) BackupPolicyBlobStorageRetentionRuleLifeCycleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyBlobStorageRetentionRuleLifeCycleOutput)
+}
+
+type BackupPolicyBlobStorageRetentionRuleLifeCycleOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyBlobStorageRetentionRuleLifeCycleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyBlobStorageRetentionRuleLifeCycle)(nil)).Elem()
+}
+
+func (o BackupPolicyBlobStorageRetentionRuleLifeCycleOutput) ToBackupPolicyBlobStorageRetentionRuleLifeCycleOutput() BackupPolicyBlobStorageRetentionRuleLifeCycleOutput {
+	return o
+}
+
+func (o BackupPolicyBlobStorageRetentionRuleLifeCycleOutput) ToBackupPolicyBlobStorageRetentionRuleLifeCycleOutputWithContext(ctx context.Context) BackupPolicyBlobStorageRetentionRuleLifeCycleOutput {
+	return o
+}
+
+// The type of data store. The only possible value is `VaultStore`. Changing this forces a new Backup Policy Blob Storage to be created.
+func (o BackupPolicyBlobStorageRetentionRuleLifeCycleOutput) DataStoreType() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupPolicyBlobStorageRetentionRuleLifeCycle) string { return v.DataStoreType }).(pulumi.StringOutput)
+}
+
+// The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
+func (o BackupPolicyBlobStorageRetentionRuleLifeCycleOutput) Duration() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupPolicyBlobStorageRetentionRuleLifeCycle) string { return v.Duration }).(pulumi.StringOutput)
+}
+
 type BackupPolicyDiskRetentionRule struct {
 	// A `criteria` block as defined below. Changing this forces a new Backup Policy Disk to be created.
 	Criteria BackupPolicyDiskRetentionRuleCriteria `pulumi:"criteria"`
@@ -1019,6 +1305,577 @@ func (o BackupPolicyKubernetesClusterRetentionRuleLifeCycleArrayOutput) Index(i 
 	}).(BackupPolicyKubernetesClusterRetentionRuleLifeCycleOutput)
 }
 
+type BackupPolicyPostgresqlFlexibleServerDefaultRetentionRule struct {
+	// A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
+	LifeCycles []BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycle `pulumi:"lifeCycles"`
+}
+
+// BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleInput is an input type that accepts BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs and BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleOutput values.
+// You can construct a concrete instance of `BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleInput` via:
+//
+//	BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs{...}
+type BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleInput interface {
+	pulumi.Input
+
+	ToBackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleOutput() BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleOutput
+	ToBackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleOutputWithContext(context.Context) BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleOutput
+}
+
+type BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs struct {
+	// A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
+	LifeCycles BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArrayInput `pulumi:"lifeCycles"`
+}
+
+func (BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyPostgresqlFlexibleServerDefaultRetentionRule)(nil)).Elem()
+}
+
+func (i BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs) ToBackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleOutput() BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleOutput {
+	return i.ToBackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs) ToBackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleOutputWithContext(ctx context.Context) BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleOutput)
+}
+
+func (i BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs) ToBackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrOutput() BackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrOutput {
+	return i.ToBackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs) ToBackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrOutputWithContext(ctx context.Context) BackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleOutput).ToBackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrOutputWithContext(ctx)
+}
+
+// BackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrInput is an input type that accepts BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs, BackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtr and BackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrOutput values.
+// You can construct a concrete instance of `BackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrInput` via:
+//
+//	        BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs{...}
+//
+//	or:
+//
+//	        nil
+type BackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrInput interface {
+	pulumi.Input
+
+	ToBackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrOutput() BackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrOutput
+	ToBackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrOutputWithContext(context.Context) BackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrOutput
+}
+
+type backupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrType BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs
+
+func BackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtr(v *BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs) BackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrInput {
+	return (*backupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrType)(v)
+}
+
+func (*backupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupPolicyPostgresqlFlexibleServerDefaultRetentionRule)(nil)).Elem()
+}
+
+func (i *backupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrType) ToBackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrOutput() BackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrOutput {
+	return i.ToBackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrOutputWithContext(context.Background())
+}
+
+func (i *backupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrType) ToBackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrOutputWithContext(ctx context.Context) BackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrOutput)
+}
+
+type BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyPostgresqlFlexibleServerDefaultRetentionRule)(nil)).Elem()
+}
+
+func (o BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleOutput) ToBackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleOutput() BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleOutput {
+	return o
+}
+
+func (o BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleOutput) ToBackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleOutputWithContext(ctx context.Context) BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleOutput {
+	return o
+}
+
+func (o BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleOutput) ToBackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrOutput() BackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrOutput {
+	return o.ToBackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrOutputWithContext(context.Background())
+}
+
+func (o BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleOutput) ToBackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrOutputWithContext(ctx context.Context) BackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupPolicyPostgresqlFlexibleServerDefaultRetentionRule) *BackupPolicyPostgresqlFlexibleServerDefaultRetentionRule {
+		return &v
+	}).(BackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrOutput)
+}
+
+// A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
+func (o BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleOutput) LifeCycles() BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput {
+	return o.ApplyT(func(v BackupPolicyPostgresqlFlexibleServerDefaultRetentionRule) []BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycle {
+		return v.LifeCycles
+	}).(BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput)
+}
+
+type BackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupPolicyPostgresqlFlexibleServerDefaultRetentionRule)(nil)).Elem()
+}
+
+func (o BackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrOutput) ToBackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrOutput() BackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrOutput {
+	return o
+}
+
+func (o BackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrOutput) ToBackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrOutputWithContext(ctx context.Context) BackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrOutput {
+	return o
+}
+
+func (o BackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrOutput) Elem() BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleOutput {
+	return o.ApplyT(func(v *BackupPolicyPostgresqlFlexibleServerDefaultRetentionRule) BackupPolicyPostgresqlFlexibleServerDefaultRetentionRule {
+		if v != nil {
+			return *v
+		}
+		var ret BackupPolicyPostgresqlFlexibleServerDefaultRetentionRule
+		return ret
+	}).(BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleOutput)
+}
+
+// A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
+func (o BackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrOutput) LifeCycles() BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput {
+	return o.ApplyT(func(v *BackupPolicyPostgresqlFlexibleServerDefaultRetentionRule) []BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycle {
+		if v == nil {
+			return nil
+		}
+		return v.LifeCycles
+	}).(BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput)
+}
+
+type BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycle struct {
+	// The type of data store. The only possible value is `VaultStore`. Changing this forces a new resource to be created.
+	DataStoreType string `pulumi:"dataStoreType"`
+	// The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+	Duration string `pulumi:"duration"`
+}
+
+// BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleInput is an input type that accepts BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArgs and BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleOutput values.
+// You can construct a concrete instance of `BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleInput` via:
+//
+//	BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArgs{...}
+type BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleInput interface {
+	pulumi.Input
+
+	ToBackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleOutput() BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleOutput
+	ToBackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleOutputWithContext(context.Context) BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleOutput
+}
+
+type BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArgs struct {
+	// The type of data store. The only possible value is `VaultStore`. Changing this forces a new resource to be created.
+	DataStoreType pulumi.StringInput `pulumi:"dataStoreType"`
+	// The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+	Duration pulumi.StringInput `pulumi:"duration"`
+}
+
+func (BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycle)(nil)).Elem()
+}
+
+func (i BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArgs) ToBackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleOutput() BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleOutput {
+	return i.ToBackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArgs) ToBackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleOutputWithContext(ctx context.Context) BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleOutput)
+}
+
+// BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArrayInput is an input type that accepts BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArray and BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput values.
+// You can construct a concrete instance of `BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArrayInput` via:
+//
+//	BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArray{ BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArgs{...} }
+type BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArrayInput interface {
+	pulumi.Input
+
+	ToBackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput() BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput
+	ToBackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutputWithContext(context.Context) BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput
+}
+
+type BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArray []BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleInput
+
+func (BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycle)(nil)).Elem()
+}
+
+func (i BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArray) ToBackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput() BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput {
+	return i.ToBackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArray) ToBackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutputWithContext(ctx context.Context) BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput)
+}
+
+type BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycle)(nil)).Elem()
+}
+
+func (o BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleOutput) ToBackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleOutput() BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleOutput {
+	return o
+}
+
+func (o BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleOutput) ToBackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleOutputWithContext(ctx context.Context) BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleOutput {
+	return o
+}
+
+// The type of data store. The only possible value is `VaultStore`. Changing this forces a new resource to be created.
+func (o BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleOutput) DataStoreType() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycle) string {
+		return v.DataStoreType
+	}).(pulumi.StringOutput)
+}
+
+// The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+func (o BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleOutput) Duration() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycle) string { return v.Duration }).(pulumi.StringOutput)
+}
+
+type BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycle)(nil)).Elem()
+}
+
+func (o BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput) ToBackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput() BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput {
+	return o
+}
+
+func (o BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput) ToBackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutputWithContext(ctx context.Context) BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput {
+	return o
+}
+
+func (o BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput) Index(i pulumi.IntInput) BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycle {
+		return vs[0].([]BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycle)[vs[1].(int)]
+	}).(BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleOutput)
+}
+
+type BackupPolicyPostgresqlFlexibleServerRetentionRule struct {
+	// A `criteria` block as defined below. Changing this forces a new resource to be created.
+	Criteria BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteria `pulumi:"criteria"`
+	// A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
+	LifeCycles []BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycle `pulumi:"lifeCycles"`
+	// Specifies the name of the retention rule. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new resource to be created.
+	Priority int `pulumi:"priority"`
+}
+
+// BackupPolicyPostgresqlFlexibleServerRetentionRuleInput is an input type that accepts BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs and BackupPolicyPostgresqlFlexibleServerRetentionRuleOutput values.
+// You can construct a concrete instance of `BackupPolicyPostgresqlFlexibleServerRetentionRuleInput` via:
+//
+//	BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs{...}
+type BackupPolicyPostgresqlFlexibleServerRetentionRuleInput interface {
+	pulumi.Input
+
+	ToBackupPolicyPostgresqlFlexibleServerRetentionRuleOutput() BackupPolicyPostgresqlFlexibleServerRetentionRuleOutput
+	ToBackupPolicyPostgresqlFlexibleServerRetentionRuleOutputWithContext(context.Context) BackupPolicyPostgresqlFlexibleServerRetentionRuleOutput
+}
+
+type BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs struct {
+	// A `criteria` block as defined below. Changing this forces a new resource to be created.
+	Criteria BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaInput `pulumi:"criteria"`
+	// A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
+	LifeCycles BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArrayInput `pulumi:"lifeCycles"`
+	// Specifies the name of the retention rule. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new resource to be created.
+	Priority pulumi.IntInput `pulumi:"priority"`
+}
+
+func (BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyPostgresqlFlexibleServerRetentionRule)(nil)).Elem()
+}
+
+func (i BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs) ToBackupPolicyPostgresqlFlexibleServerRetentionRuleOutput() BackupPolicyPostgresqlFlexibleServerRetentionRuleOutput {
+	return i.ToBackupPolicyPostgresqlFlexibleServerRetentionRuleOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs) ToBackupPolicyPostgresqlFlexibleServerRetentionRuleOutputWithContext(ctx context.Context) BackupPolicyPostgresqlFlexibleServerRetentionRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyPostgresqlFlexibleServerRetentionRuleOutput)
+}
+
+// BackupPolicyPostgresqlFlexibleServerRetentionRuleArrayInput is an input type that accepts BackupPolicyPostgresqlFlexibleServerRetentionRuleArray and BackupPolicyPostgresqlFlexibleServerRetentionRuleArrayOutput values.
+// You can construct a concrete instance of `BackupPolicyPostgresqlFlexibleServerRetentionRuleArrayInput` via:
+//
+//	BackupPolicyPostgresqlFlexibleServerRetentionRuleArray{ BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs{...} }
+type BackupPolicyPostgresqlFlexibleServerRetentionRuleArrayInput interface {
+	pulumi.Input
+
+	ToBackupPolicyPostgresqlFlexibleServerRetentionRuleArrayOutput() BackupPolicyPostgresqlFlexibleServerRetentionRuleArrayOutput
+	ToBackupPolicyPostgresqlFlexibleServerRetentionRuleArrayOutputWithContext(context.Context) BackupPolicyPostgresqlFlexibleServerRetentionRuleArrayOutput
+}
+
+type BackupPolicyPostgresqlFlexibleServerRetentionRuleArray []BackupPolicyPostgresqlFlexibleServerRetentionRuleInput
+
+func (BackupPolicyPostgresqlFlexibleServerRetentionRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPolicyPostgresqlFlexibleServerRetentionRule)(nil)).Elem()
+}
+
+func (i BackupPolicyPostgresqlFlexibleServerRetentionRuleArray) ToBackupPolicyPostgresqlFlexibleServerRetentionRuleArrayOutput() BackupPolicyPostgresqlFlexibleServerRetentionRuleArrayOutput {
+	return i.ToBackupPolicyPostgresqlFlexibleServerRetentionRuleArrayOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyPostgresqlFlexibleServerRetentionRuleArray) ToBackupPolicyPostgresqlFlexibleServerRetentionRuleArrayOutputWithContext(ctx context.Context) BackupPolicyPostgresqlFlexibleServerRetentionRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyPostgresqlFlexibleServerRetentionRuleArrayOutput)
+}
+
+type BackupPolicyPostgresqlFlexibleServerRetentionRuleOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyPostgresqlFlexibleServerRetentionRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyPostgresqlFlexibleServerRetentionRule)(nil)).Elem()
+}
+
+func (o BackupPolicyPostgresqlFlexibleServerRetentionRuleOutput) ToBackupPolicyPostgresqlFlexibleServerRetentionRuleOutput() BackupPolicyPostgresqlFlexibleServerRetentionRuleOutput {
+	return o
+}
+
+func (o BackupPolicyPostgresqlFlexibleServerRetentionRuleOutput) ToBackupPolicyPostgresqlFlexibleServerRetentionRuleOutputWithContext(ctx context.Context) BackupPolicyPostgresqlFlexibleServerRetentionRuleOutput {
+	return o
+}
+
+// A `criteria` block as defined below. Changing this forces a new resource to be created.
+func (o BackupPolicyPostgresqlFlexibleServerRetentionRuleOutput) Criteria() BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaOutput {
+	return o.ApplyT(func(v BackupPolicyPostgresqlFlexibleServerRetentionRule) BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteria {
+		return v.Criteria
+	}).(BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaOutput)
+}
+
+// A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
+func (o BackupPolicyPostgresqlFlexibleServerRetentionRuleOutput) LifeCycles() BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArrayOutput {
+	return o.ApplyT(func(v BackupPolicyPostgresqlFlexibleServerRetentionRule) []BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycle {
+		return v.LifeCycles
+	}).(BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArrayOutput)
+}
+
+// Specifies the name of the retention rule. Changing this forces a new resource to be created.
+func (o BackupPolicyPostgresqlFlexibleServerRetentionRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupPolicyPostgresqlFlexibleServerRetentionRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new resource to be created.
+func (o BackupPolicyPostgresqlFlexibleServerRetentionRuleOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v BackupPolicyPostgresqlFlexibleServerRetentionRule) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+type BackupPolicyPostgresqlFlexibleServerRetentionRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyPostgresqlFlexibleServerRetentionRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPolicyPostgresqlFlexibleServerRetentionRule)(nil)).Elem()
+}
+
+func (o BackupPolicyPostgresqlFlexibleServerRetentionRuleArrayOutput) ToBackupPolicyPostgresqlFlexibleServerRetentionRuleArrayOutput() BackupPolicyPostgresqlFlexibleServerRetentionRuleArrayOutput {
+	return o
+}
+
+func (o BackupPolicyPostgresqlFlexibleServerRetentionRuleArrayOutput) ToBackupPolicyPostgresqlFlexibleServerRetentionRuleArrayOutputWithContext(ctx context.Context) BackupPolicyPostgresqlFlexibleServerRetentionRuleArrayOutput {
+	return o
+}
+
+func (o BackupPolicyPostgresqlFlexibleServerRetentionRuleArrayOutput) Index(i pulumi.IntInput) BackupPolicyPostgresqlFlexibleServerRetentionRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BackupPolicyPostgresqlFlexibleServerRetentionRule {
+		return vs[0].([]BackupPolicyPostgresqlFlexibleServerRetentionRule)[vs[1].(int)]
+	}).(BackupPolicyPostgresqlFlexibleServerRetentionRuleOutput)
+}
+
+type BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteria struct {
+	// Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new resource to be created.
+	AbsoluteCriteria *string `pulumi:"absoluteCriteria"`
+	// Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+	DaysOfWeeks []string `pulumi:"daysOfWeeks"`
+	// Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new resource to be created.
+	MonthsOfYears []string `pulumi:"monthsOfYears"`
+	// Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
+	ScheduledBackupTimes []string `pulumi:"scheduledBackupTimes"`
+	// Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+	WeeksOfMonths []string `pulumi:"weeksOfMonths"`
+}
+
+// BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaInput is an input type that accepts BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs and BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaOutput values.
+// You can construct a concrete instance of `BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaInput` via:
+//
+//	BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs{...}
+type BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaInput interface {
+	pulumi.Input
+
+	ToBackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaOutput() BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaOutput
+	ToBackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaOutputWithContext(context.Context) BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaOutput
+}
+
+type BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs struct {
+	// Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new resource to be created.
+	AbsoluteCriteria pulumi.StringPtrInput `pulumi:"absoluteCriteria"`
+	// Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+	DaysOfWeeks pulumi.StringArrayInput `pulumi:"daysOfWeeks"`
+	// Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new resource to be created.
+	MonthsOfYears pulumi.StringArrayInput `pulumi:"monthsOfYears"`
+	// Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
+	ScheduledBackupTimes pulumi.StringArrayInput `pulumi:"scheduledBackupTimes"`
+	// Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+	WeeksOfMonths pulumi.StringArrayInput `pulumi:"weeksOfMonths"`
+}
+
+func (BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteria)(nil)).Elem()
+}
+
+func (i BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs) ToBackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaOutput() BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaOutput {
+	return i.ToBackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs) ToBackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaOutputWithContext(ctx context.Context) BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaOutput)
+}
+
+type BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteria)(nil)).Elem()
+}
+
+func (o BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaOutput) ToBackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaOutput() BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaOutput {
+	return o
+}
+
+func (o BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaOutput) ToBackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaOutputWithContext(ctx context.Context) BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaOutput {
+	return o
+}
+
+// Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new resource to be created.
+func (o BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaOutput) AbsoluteCriteria() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteria) *string { return v.AbsoluteCriteria }).(pulumi.StringPtrOutput)
+}
+
+// Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+func (o BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaOutput) DaysOfWeeks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteria) []string { return v.DaysOfWeeks }).(pulumi.StringArrayOutput)
+}
+
+// Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new resource to be created.
+func (o BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaOutput) MonthsOfYears() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteria) []string { return v.MonthsOfYears }).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
+func (o BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaOutput) ScheduledBackupTimes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteria) []string {
+		return v.ScheduledBackupTimes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+func (o BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaOutput) WeeksOfMonths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteria) []string { return v.WeeksOfMonths }).(pulumi.StringArrayOutput)
+}
+
+type BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycle struct {
+	// The type of data store. The only possible value is `VaultStore`. Changing this forces a new resource to be created.
+	DataStoreType string `pulumi:"dataStoreType"`
+	// The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+	Duration string `pulumi:"duration"`
+}
+
+// BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleInput is an input type that accepts BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs and BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleOutput values.
+// You can construct a concrete instance of `BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleInput` via:
+//
+//	BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs{...}
+type BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleInput interface {
+	pulumi.Input
+
+	ToBackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleOutput() BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleOutput
+	ToBackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleOutputWithContext(context.Context) BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleOutput
+}
+
+type BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs struct {
+	// The type of data store. The only possible value is `VaultStore`. Changing this forces a new resource to be created.
+	DataStoreType pulumi.StringInput `pulumi:"dataStoreType"`
+	// The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+	Duration pulumi.StringInput `pulumi:"duration"`
+}
+
+func (BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycle)(nil)).Elem()
+}
+
+func (i BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs) ToBackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleOutput() BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleOutput {
+	return i.ToBackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs) ToBackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleOutputWithContext(ctx context.Context) BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleOutput)
+}
+
+// BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArrayInput is an input type that accepts BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArray and BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArrayOutput values.
+// You can construct a concrete instance of `BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArrayInput` via:
+//
+//	BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArray{ BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs{...} }
+type BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArrayInput interface {
+	pulumi.Input
+
+	ToBackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArrayOutput() BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArrayOutput
+	ToBackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArrayOutputWithContext(context.Context) BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArrayOutput
+}
+
+type BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArray []BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleInput
+
+func (BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycle)(nil)).Elem()
+}
+
+func (i BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArray) ToBackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArrayOutput() BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArrayOutput {
+	return i.ToBackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArrayOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArray) ToBackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArrayOutputWithContext(ctx context.Context) BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArrayOutput)
+}
+
+type BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycle)(nil)).Elem()
+}
+
+func (o BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleOutput) ToBackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleOutput() BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleOutput {
+	return o
+}
+
+func (o BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleOutput) ToBackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleOutputWithContext(ctx context.Context) BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleOutput {
+	return o
+}
+
+// The type of data store. The only possible value is `VaultStore`. Changing this forces a new resource to be created.
+func (o BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleOutput) DataStoreType() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycle) string { return v.DataStoreType }).(pulumi.StringOutput)
+}
+
+// The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+func (o BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleOutput) Duration() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycle) string { return v.Duration }).(pulumi.StringOutput)
+}
+
+type BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArrayOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycle)(nil)).Elem()
+}
+
+func (o BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArrayOutput) ToBackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArrayOutput() BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArrayOutput {
+	return o
+}
+
+func (o BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArrayOutput) ToBackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArrayOutputWithContext(ctx context.Context) BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArrayOutput {
+	return o
+}
+
+func (o BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArrayOutput) Index(i pulumi.IntInput) BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycle {
+		return vs[0].([]BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycle)[vs[1].(int)]
+	}).(BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleOutput)
+}
+
 type BackupPolicyPostgresqlRetentionRule struct {
 	// A `criteria` block as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
 	Criteria BackupPolicyPostgresqlRetentionRuleCriteria `pulumi:"criteria"`
@@ -1526,6 +2383,10 @@ func (o GetBackupVaultIdentityArrayOutput) Index(i pulumi.IntInput) GetBackupVau
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupInstanceKubernetesClusterBackupDatasourceParametersInput)(nil)).Elem(), BackupInstanceKubernetesClusterBackupDatasourceParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupInstanceKubernetesClusterBackupDatasourceParametersPtrInput)(nil)).Elem(), BackupInstanceKubernetesClusterBackupDatasourceParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyBlobStorageRetentionRuleInput)(nil)).Elem(), BackupPolicyBlobStorageRetentionRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyBlobStorageRetentionRuleArrayInput)(nil)).Elem(), BackupPolicyBlobStorageRetentionRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyBlobStorageRetentionRuleCriteriaInput)(nil)).Elem(), BackupPolicyBlobStorageRetentionRuleCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyBlobStorageRetentionRuleLifeCycleInput)(nil)).Elem(), BackupPolicyBlobStorageRetentionRuleLifeCycleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyDiskRetentionRuleInput)(nil)).Elem(), BackupPolicyDiskRetentionRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyDiskRetentionRuleArrayInput)(nil)).Elem(), BackupPolicyDiskRetentionRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyDiskRetentionRuleCriteriaInput)(nil)).Elem(), BackupPolicyDiskRetentionRuleCriteriaArgs{})
@@ -1538,6 +2399,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyKubernetesClusterRetentionRuleCriteriaInput)(nil)).Elem(), BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyKubernetesClusterRetentionRuleLifeCycleInput)(nil)).Elem(), BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyKubernetesClusterRetentionRuleLifeCycleArrayInput)(nil)).Elem(), BackupPolicyKubernetesClusterRetentionRuleLifeCycleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleInput)(nil)).Elem(), BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrInput)(nil)).Elem(), BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleInput)(nil)).Elem(), BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArrayInput)(nil)).Elem(), BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyPostgresqlFlexibleServerRetentionRuleInput)(nil)).Elem(), BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyPostgresqlFlexibleServerRetentionRuleArrayInput)(nil)).Elem(), BackupPolicyPostgresqlFlexibleServerRetentionRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaInput)(nil)).Elem(), BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleInput)(nil)).Elem(), BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArrayInput)(nil)).Elem(), BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyPostgresqlRetentionRuleInput)(nil)).Elem(), BackupPolicyPostgresqlRetentionRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyPostgresqlRetentionRuleArrayInput)(nil)).Elem(), BackupPolicyPostgresqlRetentionRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyPostgresqlRetentionRuleCriteriaInput)(nil)).Elem(), BackupPolicyPostgresqlRetentionRuleCriteriaArgs{})
@@ -1547,6 +2417,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBackupVaultIdentityArrayInput)(nil)).Elem(), GetBackupVaultIdentityArray{})
 	pulumi.RegisterOutputType(BackupInstanceKubernetesClusterBackupDatasourceParametersOutput{})
 	pulumi.RegisterOutputType(BackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutput{})
+	pulumi.RegisterOutputType(BackupPolicyBlobStorageRetentionRuleOutput{})
+	pulumi.RegisterOutputType(BackupPolicyBlobStorageRetentionRuleArrayOutput{})
+	pulumi.RegisterOutputType(BackupPolicyBlobStorageRetentionRuleCriteriaOutput{})
+	pulumi.RegisterOutputType(BackupPolicyBlobStorageRetentionRuleLifeCycleOutput{})
 	pulumi.RegisterOutputType(BackupPolicyDiskRetentionRuleOutput{})
 	pulumi.RegisterOutputType(BackupPolicyDiskRetentionRuleArrayOutput{})
 	pulumi.RegisterOutputType(BackupPolicyDiskRetentionRuleCriteriaOutput{})
@@ -1559,6 +2433,15 @@ func init() {
 	pulumi.RegisterOutputType(BackupPolicyKubernetesClusterRetentionRuleCriteriaOutput{})
 	pulumi.RegisterOutputType(BackupPolicyKubernetesClusterRetentionRuleLifeCycleOutput{})
 	pulumi.RegisterOutputType(BackupPolicyKubernetesClusterRetentionRuleLifeCycleArrayOutput{})
+	pulumi.RegisterOutputType(BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleOutput{})
+	pulumi.RegisterOutputType(BackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrOutput{})
+	pulumi.RegisterOutputType(BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleOutput{})
+	pulumi.RegisterOutputType(BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput{})
+	pulumi.RegisterOutputType(BackupPolicyPostgresqlFlexibleServerRetentionRuleOutput{})
+	pulumi.RegisterOutputType(BackupPolicyPostgresqlFlexibleServerRetentionRuleArrayOutput{})
+	pulumi.RegisterOutputType(BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaOutput{})
+	pulumi.RegisterOutputType(BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleOutput{})
+	pulumi.RegisterOutputType(BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArrayOutput{})
 	pulumi.RegisterOutputType(BackupPolicyPostgresqlRetentionRuleOutput{})
 	pulumi.RegisterOutputType(BackupPolicyPostgresqlRetentionRuleArrayOutput{})
 	pulumi.RegisterOutputType(BackupPolicyPostgresqlRetentionRuleCriteriaOutput{})
