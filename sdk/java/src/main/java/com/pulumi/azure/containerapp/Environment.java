@@ -226,6 +226,24 @@ public class Environment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.logAnalyticsWorkspaceId);
     }
     /**
+     * Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
+     * 
+     * &gt; **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
+     * 
+     */
+    @Export(name="mutualTlsEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> mutualTlsEnabled;
+
+    /**
+     * @return Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
+     * 
+     * &gt; **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
+     * 
+     */
+    public Output<Optional<Boolean>> mutualTlsEnabled() {
+        return Codegen.optional(this.mutualTlsEnabled);
+    }
+    /**
      * The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
      * 
      */

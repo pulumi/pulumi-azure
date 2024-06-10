@@ -90,14 +90,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:logicapps/triggerHttpRequest:TriggerHttpRequest")
 public class TriggerHttpRequest extends com.pulumi.resources.CustomResource {
     /**
-     * The URL for the workflow trigger
+     * The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group.
      * 
      */
     @Export(name="callbackUrl", refs={String.class}, tree="[0]")
     private Output<String> callbackUrl;
 
     /**
-     * @return The URL for the workflow trigger
+     * @return The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group.
      * 
      */
     public Output<String> callbackUrl() {

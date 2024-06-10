@@ -15,6 +15,8 @@ import com.pulumi.azure.containerservice.inputs.GetKubernetesNodePoolSnapshotPla
 import com.pulumi.azure.containerservice.inputs.GetKubernetesServiceVersionsArgs;
 import com.pulumi.azure.containerservice.inputs.GetKubernetesServiceVersionsPlainArgs;
 import com.pulumi.azure.containerservice.inputs.GetRegistryArgs;
+import com.pulumi.azure.containerservice.inputs.GetRegistryCacheRuleArgs;
+import com.pulumi.azure.containerservice.inputs.GetRegistryCacheRulePlainArgs;
 import com.pulumi.azure.containerservice.inputs.GetRegistryPlainArgs;
 import com.pulumi.azure.containerservice.inputs.GetRegistryScopeMapArgs;
 import com.pulumi.azure.containerservice.inputs.GetRegistryScopeMapPlainArgs;
@@ -25,6 +27,7 @@ import com.pulumi.azure.containerservice.outputs.GetGroupResult;
 import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterResult;
 import com.pulumi.azure.containerservice.outputs.GetKubernetesNodePoolSnapshotResult;
 import com.pulumi.azure.containerservice.outputs.GetKubernetesServiceVersionsResult;
+import com.pulumi.azure.containerservice.outputs.GetRegistryCacheRuleResult;
 import com.pulumi.azure.containerservice.outputs.GetRegistryResult;
 import com.pulumi.azure.containerservice.outputs.GetRegistryScopeMapResult;
 import com.pulumi.azure.containerservice.outputs.GetRegistryTokenResult;
@@ -1094,6 +1097,182 @@ public final class ContainerserviceFunctions {
      */
     public static CompletableFuture<GetRegistryResult> getRegistryPlain(GetRegistryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:containerservice/getRegistry:getRegistry", TypeShape.of(GetRegistryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Container Registry Cache Rule.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetRegistryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerserviceFunctions.getRegistry(GetRegistryArgs.builder()
+     *             .name("testacr")
+     *             .containerRegistryId("test")
+     *             .build());
+     * 
+     *         ctx.export("cacheRuleSourceRepo", exampleAzurermContainerRegistryCacheRule.sourceRepo());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetRegistryCacheRuleResult> getRegistryCacheRule(GetRegistryCacheRuleArgs args) {
+        return getRegistryCacheRule(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Container Registry Cache Rule.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetRegistryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerserviceFunctions.getRegistry(GetRegistryArgs.builder()
+     *             .name("testacr")
+     *             .containerRegistryId("test")
+     *             .build());
+     * 
+     *         ctx.export("cacheRuleSourceRepo", exampleAzurermContainerRegistryCacheRule.sourceRepo());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetRegistryCacheRuleResult> getRegistryCacheRulePlain(GetRegistryCacheRulePlainArgs args) {
+        return getRegistryCacheRulePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Container Registry Cache Rule.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetRegistryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerserviceFunctions.getRegistry(GetRegistryArgs.builder()
+     *             .name("testacr")
+     *             .containerRegistryId("test")
+     *             .build());
+     * 
+     *         ctx.export("cacheRuleSourceRepo", exampleAzurermContainerRegistryCacheRule.sourceRepo());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetRegistryCacheRuleResult> getRegistryCacheRule(GetRegistryCacheRuleArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:containerservice/getRegistryCacheRule:getRegistryCacheRule", TypeShape.of(GetRegistryCacheRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Container Registry Cache Rule.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetRegistryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerserviceFunctions.getRegistry(GetRegistryArgs.builder()
+     *             .name("testacr")
+     *             .containerRegistryId("test")
+     *             .build());
+     * 
+     *         ctx.export("cacheRuleSourceRepo", exampleAzurermContainerRegistryCacheRule.sourceRepo());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetRegistryCacheRuleResult> getRegistryCacheRulePlain(GetRegistryCacheRulePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:containerservice/getRegistryCacheRule:getRegistryCacheRule", TypeShape.of(GetRegistryCacheRuleResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Container Registry scope map.

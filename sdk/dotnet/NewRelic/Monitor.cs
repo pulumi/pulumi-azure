@@ -44,6 +44,46 @@ namespace Pulumi.Azure.NewRelic
     ///             LastName = "User",
     ///             PhoneNumber = "+12313803556",
     ///         },
+    ///         Identity = new Azure.NewRelic.Inputs.MonitorIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Role Assignment
+    /// 
+    /// To enable metrics flow, perform role assignment on the identity created above. `Monitoring reader(43d0d8ad-25c7-4714-9337-8ba259a9fe05)` role is required .
+    /// 
+    /// ### Role assignment on the monitor created
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var primary = Azure.Core.GetSubscription.Invoke();
+    /// 
+    ///     var monitoringReader = Azure.Authorization.GetRoleDefinition.Invoke(new()
+    ///     {
+    ///         Name = "Monitoring Reader",
+    ///     });
+    /// 
+    ///     var example = new Azure.Authorization.Assignment("example", new()
+    ///     {
+    ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+    ///         RoleDefinitionId = Output.Tuple(primary, monitoringReader).Apply(values =&gt;
+    ///         {
+    ///             var primary = values.Item1;
+    ///             var monitoringReader = values.Item2;
+    ///             return $"{primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id)}{monitoringReader.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Id)}";
+    ///         }),
+    ///         PrincipalId = exampleAzurermNewRelicMonitor.Identity[0].PrincipalId,
     ///     });
     /// 
     /// });
@@ -73,6 +113,12 @@ namespace Pulumi.Azure.NewRelic
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
+
+        /// <summary>
+        /// An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.MonitorIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the ingestion key of account. Changing this forces a new Azure Native New Relic Monitor to be created.
@@ -194,6 +240,12 @@ namespace Pulumi.Azure.NewRelic
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
+        /// <summary>
+        /// An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.MonitorIdentityArgs>? Identity { get; set; }
+
         [Input("ingestionKey")]
         private Input<string>? _ingestionKey;
 
@@ -281,6 +333,12 @@ namespace Pulumi.Azure.NewRelic
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
+
+        /// <summary>
+        /// An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.MonitorIdentityGetArgs>? Identity { get; set; }
 
         [Input("ingestionKey")]
         private Input<string>? _ingestionKey;

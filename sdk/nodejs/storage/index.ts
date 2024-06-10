@@ -90,6 +90,11 @@ export const getPolicy: typeof import("./getPolicy").getPolicy = null as any;
 export const getPolicyOutput: typeof import("./getPolicy").getPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getPolicy","getPolicyOutput"], () => require("./getPolicy"));
 
+export { GetQueueArgs, GetQueueResult, GetQueueOutputArgs } from "./getQueue";
+export const getQueue: typeof import("./getQueue").getQueue = null as any;
+export const getQueueOutput: typeof import("./getQueue").getQueueOutput = null as any;
+utilities.lazyLoad(exports, ["getQueue","getQueueOutput"], () => require("./getQueue"));
+
 export { GetShareArgs, GetShareResult, GetShareOutputArgs } from "./getShare";
 export const getShare: typeof import("./getShare").getShare = null as any;
 export const getShareOutput: typeof import("./getShare").getShareOutput = null as any;
@@ -109,6 +114,11 @@ export { GetSyncGroupArgs, GetSyncGroupResult, GetSyncGroupOutputArgs } from "./
 export const getSyncGroup: typeof import("./getSyncGroup").getSyncGroup = null as any;
 export const getSyncGroupOutput: typeof import("./getSyncGroup").getSyncGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getSyncGroup","getSyncGroupOutput"], () => require("./getSyncGroup"));
+
+export { GetTableArgs, GetTableResult, GetTableOutputArgs } from "./getTable";
+export const getTable: typeof import("./getTable").getTable = null as any;
+export const getTableOutput: typeof import("./getTable").getTableOutput = null as any;
+utilities.lazyLoad(exports, ["getTable","getTableOutput"], () => require("./getTable"));
 
 export { GetTableEntitiesArgs, GetTableEntitiesResult, GetTableEntitiesOutputArgs } from "./getTableEntities";
 export const getTableEntities: typeof import("./getTableEntities").getTableEntities = null as any;

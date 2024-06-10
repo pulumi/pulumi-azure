@@ -96,6 +96,10 @@ type Environment struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
 	LogAnalyticsWorkspaceId pulumi.StringPtrOutput `pulumi:"logAnalyticsWorkspaceId"`
+	// Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
+	//
+	// > **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
+	MutualTlsEnabled pulumi.BoolPtrOutput `pulumi:"mutualTlsEnabled"`
 	// The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The IP range, in CIDR notation, that is reserved for environment infrastructure IP addresses.
@@ -180,6 +184,10 @@ type environmentState struct {
 	Location *string `pulumi:"location"`
 	// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
+	// Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
+	//
+	// > **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
+	MutualTlsEnabled *bool `pulumi:"mutualTlsEnabled"`
 	// The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The IP range, in CIDR notation, that is reserved for environment infrastructure IP addresses.
@@ -225,6 +233,10 @@ type EnvironmentState struct {
 	Location pulumi.StringPtrInput
 	// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput
+	// Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
+	//
+	// > **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
+	MutualTlsEnabled pulumi.BoolPtrInput
 	// The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The IP range, in CIDR notation, that is reserved for environment infrastructure IP addresses.
@@ -268,6 +280,10 @@ type environmentArgs struct {
 	Location *string `pulumi:"location"`
 	// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
+	// Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
+	//
+	// > **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
+	MutualTlsEnabled *bool `pulumi:"mutualTlsEnabled"`
 	// The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
@@ -302,6 +318,10 @@ type EnvironmentArgs struct {
 	Location pulumi.StringPtrInput
 	// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput
+	// Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
+	//
+	// > **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
+	MutualTlsEnabled pulumi.BoolPtrInput
 	// The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
@@ -452,6 +472,13 @@ func (o EnvironmentOutput) Location() pulumi.StringOutput {
 // The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
 func (o EnvironmentOutput) LogAnalyticsWorkspaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.LogAnalyticsWorkspaceId }).(pulumi.StringPtrOutput)
+}
+
+// Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
+//
+// > **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
+func (o EnvironmentOutput) MutualTlsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.BoolPtrOutput { return v.MutualTlsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.

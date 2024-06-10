@@ -14,8 +14,10 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ResourceBridgeApplianceIdentity struct {
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
-	TenantId    *string `pulumi:"tenantId"`
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId *string `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this Arc Resource Bridge Appliance. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
 	Type string `pulumi:"type"`
 }
@@ -32,8 +34,10 @@ type ResourceBridgeApplianceIdentityInput interface {
 }
 
 type ResourceBridgeApplianceIdentityArgs struct {
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	TenantId    pulumi.StringPtrInput `pulumi:"tenantId"`
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this Arc Resource Bridge Appliance. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -115,10 +119,12 @@ func (o ResourceBridgeApplianceIdentityOutput) ToResourceBridgeApplianceIdentity
 	}).(ResourceBridgeApplianceIdentityPtrOutput)
 }
 
+// The Principal ID associated with this Managed Service Identity.
 func (o ResourceBridgeApplianceIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceBridgeApplianceIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
+// The Tenant ID associated with this Managed Service Identity.
 func (o ResourceBridgeApplianceIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceBridgeApplianceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -152,6 +158,7 @@ func (o ResourceBridgeApplianceIdentityPtrOutput) Elem() ResourceBridgeAppliance
 	}).(ResourceBridgeApplianceIdentityOutput)
 }
 
+// The Principal ID associated with this Managed Service Identity.
 func (o ResourceBridgeApplianceIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceBridgeApplianceIdentity) *string {
 		if v == nil {
@@ -161,6 +168,7 @@ func (o ResourceBridgeApplianceIdentityPtrOutput) PrincipalId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Tenant ID associated with this Managed Service Identity.
 func (o ResourceBridgeApplianceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceBridgeApplianceIdentity) *string {
 		if v == nil {
@@ -180,9 +188,128 @@ func (o ResourceBridgeApplianceIdentityPtrOutput) Type() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetResourceBridgeApplianceIdentity struct {
+	// The Principal ID associated with this Managed Service Identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId string `pulumi:"tenantId"`
+	// The type of this Managed Service Identity.
+	Type string `pulumi:"type"`
+}
+
+// GetResourceBridgeApplianceIdentityInput is an input type that accepts GetResourceBridgeApplianceIdentityArgs and GetResourceBridgeApplianceIdentityOutput values.
+// You can construct a concrete instance of `GetResourceBridgeApplianceIdentityInput` via:
+//
+//	GetResourceBridgeApplianceIdentityArgs{...}
+type GetResourceBridgeApplianceIdentityInput interface {
+	pulumi.Input
+
+	ToGetResourceBridgeApplianceIdentityOutput() GetResourceBridgeApplianceIdentityOutput
+	ToGetResourceBridgeApplianceIdentityOutputWithContext(context.Context) GetResourceBridgeApplianceIdentityOutput
+}
+
+type GetResourceBridgeApplianceIdentityArgs struct {
+	// The Principal ID associated with this Managed Service Identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The type of this Managed Service Identity.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetResourceBridgeApplianceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetResourceBridgeApplianceIdentity)(nil)).Elem()
+}
+
+func (i GetResourceBridgeApplianceIdentityArgs) ToGetResourceBridgeApplianceIdentityOutput() GetResourceBridgeApplianceIdentityOutput {
+	return i.ToGetResourceBridgeApplianceIdentityOutputWithContext(context.Background())
+}
+
+func (i GetResourceBridgeApplianceIdentityArgs) ToGetResourceBridgeApplianceIdentityOutputWithContext(ctx context.Context) GetResourceBridgeApplianceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetResourceBridgeApplianceIdentityOutput)
+}
+
+// GetResourceBridgeApplianceIdentityArrayInput is an input type that accepts GetResourceBridgeApplianceIdentityArray and GetResourceBridgeApplianceIdentityArrayOutput values.
+// You can construct a concrete instance of `GetResourceBridgeApplianceIdentityArrayInput` via:
+//
+//	GetResourceBridgeApplianceIdentityArray{ GetResourceBridgeApplianceIdentityArgs{...} }
+type GetResourceBridgeApplianceIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetResourceBridgeApplianceIdentityArrayOutput() GetResourceBridgeApplianceIdentityArrayOutput
+	ToGetResourceBridgeApplianceIdentityArrayOutputWithContext(context.Context) GetResourceBridgeApplianceIdentityArrayOutput
+}
+
+type GetResourceBridgeApplianceIdentityArray []GetResourceBridgeApplianceIdentityInput
+
+func (GetResourceBridgeApplianceIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetResourceBridgeApplianceIdentity)(nil)).Elem()
+}
+
+func (i GetResourceBridgeApplianceIdentityArray) ToGetResourceBridgeApplianceIdentityArrayOutput() GetResourceBridgeApplianceIdentityArrayOutput {
+	return i.ToGetResourceBridgeApplianceIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetResourceBridgeApplianceIdentityArray) ToGetResourceBridgeApplianceIdentityArrayOutputWithContext(ctx context.Context) GetResourceBridgeApplianceIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetResourceBridgeApplianceIdentityArrayOutput)
+}
+
+type GetResourceBridgeApplianceIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetResourceBridgeApplianceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetResourceBridgeApplianceIdentity)(nil)).Elem()
+}
+
+func (o GetResourceBridgeApplianceIdentityOutput) ToGetResourceBridgeApplianceIdentityOutput() GetResourceBridgeApplianceIdentityOutput {
+	return o
+}
+
+func (o GetResourceBridgeApplianceIdentityOutput) ToGetResourceBridgeApplianceIdentityOutputWithContext(ctx context.Context) GetResourceBridgeApplianceIdentityOutput {
+	return o
+}
+
+// The Principal ID associated with this Managed Service Identity.
+func (o GetResourceBridgeApplianceIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResourceBridgeApplianceIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The Tenant ID associated with this Managed Service Identity.
+func (o GetResourceBridgeApplianceIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResourceBridgeApplianceIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of this Managed Service Identity.
+func (o GetResourceBridgeApplianceIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResourceBridgeApplianceIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetResourceBridgeApplianceIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetResourceBridgeApplianceIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetResourceBridgeApplianceIdentity)(nil)).Elem()
+}
+
+func (o GetResourceBridgeApplianceIdentityArrayOutput) ToGetResourceBridgeApplianceIdentityArrayOutput() GetResourceBridgeApplianceIdentityArrayOutput {
+	return o
+}
+
+func (o GetResourceBridgeApplianceIdentityArrayOutput) ToGetResourceBridgeApplianceIdentityArrayOutputWithContext(ctx context.Context) GetResourceBridgeApplianceIdentityArrayOutput {
+	return o
+}
+
+func (o GetResourceBridgeApplianceIdentityArrayOutput) Index(i pulumi.IntInput) GetResourceBridgeApplianceIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetResourceBridgeApplianceIdentity {
+		return vs[0].([]GetResourceBridgeApplianceIdentity)[vs[1].(int)]
+	}).(GetResourceBridgeApplianceIdentityOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceBridgeApplianceIdentityInput)(nil)).Elem(), ResourceBridgeApplianceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceBridgeApplianceIdentityPtrInput)(nil)).Elem(), ResourceBridgeApplianceIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetResourceBridgeApplianceIdentityInput)(nil)).Elem(), GetResourceBridgeApplianceIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetResourceBridgeApplianceIdentityArrayInput)(nil)).Elem(), GetResourceBridgeApplianceIdentityArray{})
 	pulumi.RegisterOutputType(ResourceBridgeApplianceIdentityOutput{})
 	pulumi.RegisterOutputType(ResourceBridgeApplianceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(GetResourceBridgeApplianceIdentityOutput{})
+	pulumi.RegisterOutputType(GetResourceBridgeApplianceIdentityArrayOutput{})
 }

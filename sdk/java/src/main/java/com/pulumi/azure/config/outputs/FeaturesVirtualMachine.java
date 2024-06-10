@@ -12,12 +12,16 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FeaturesVirtualMachine {
     private @Nullable Boolean deleteOsDiskOnDeletion;
+    private @Nullable Boolean detachImplicitDataDiskOnDeletion;
     private @Nullable Boolean gracefulShutdown;
     private @Nullable Boolean skipShutdownAndForceDelete;
 
     private FeaturesVirtualMachine() {}
     public Optional<Boolean> deleteOsDiskOnDeletion() {
         return Optional.ofNullable(this.deleteOsDiskOnDeletion);
+    }
+    public Optional<Boolean> detachImplicitDataDiskOnDeletion() {
+        return Optional.ofNullable(this.detachImplicitDataDiskOnDeletion);
     }
     public Optional<Boolean> gracefulShutdown() {
         return Optional.ofNullable(this.gracefulShutdown);
@@ -36,12 +40,14 @@ public final class FeaturesVirtualMachine {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean deleteOsDiskOnDeletion;
+        private @Nullable Boolean detachImplicitDataDiskOnDeletion;
         private @Nullable Boolean gracefulShutdown;
         private @Nullable Boolean skipShutdownAndForceDelete;
         public Builder() {}
         public Builder(FeaturesVirtualMachine defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deleteOsDiskOnDeletion = defaults.deleteOsDiskOnDeletion;
+    	      this.detachImplicitDataDiskOnDeletion = defaults.detachImplicitDataDiskOnDeletion;
     	      this.gracefulShutdown = defaults.gracefulShutdown;
     	      this.skipShutdownAndForceDelete = defaults.skipShutdownAndForceDelete;
         }
@@ -50,6 +56,12 @@ public final class FeaturesVirtualMachine {
         public Builder deleteOsDiskOnDeletion(@Nullable Boolean deleteOsDiskOnDeletion) {
 
             this.deleteOsDiskOnDeletion = deleteOsDiskOnDeletion;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder detachImplicitDataDiskOnDeletion(@Nullable Boolean detachImplicitDataDiskOnDeletion) {
+
+            this.detachImplicitDataDiskOnDeletion = detachImplicitDataDiskOnDeletion;
             return this;
         }
         @CustomType.Setter
@@ -67,6 +79,7 @@ public final class FeaturesVirtualMachine {
         public FeaturesVirtualMachine build() {
             final var _resultValue = new FeaturesVirtualMachine();
             _resultValue.deleteOsDiskOnDeletion = deleteOsDiskOnDeletion;
+            _resultValue.detachImplicitDataDiskOnDeletion = detachImplicitDataDiskOnDeletion;
             _resultValue.gracefulShutdown = gracefulShutdown;
             _resultValue.skipShutdownAndForceDelete = skipShutdownAndForceDelete;
             return _resultValue;

@@ -39,6 +39,21 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Enable default outbound access to the internet for the subnet. Defaults to `true`.
+     * 
+     */
+    @Import(name="defaultOutboundAccessEnabled")
+    private @Nullable Output<Boolean> defaultOutboundAccessEnabled;
+
+    /**
+     * @return Enable default outbound access to the internet for the subnet. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> defaultOutboundAccessEnabled() {
+        return Optional.ofNullable(this.defaultOutboundAccessEnabled);
+    }
+
+    /**
      * One or more `delegation` blocks as defined below.
      * 
      */
@@ -231,6 +246,7 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
 
     private SubnetArgs(SubnetArgs $) {
         this.addressPrefixes = $.addressPrefixes;
+        this.defaultOutboundAccessEnabled = $.defaultOutboundAccessEnabled;
         this.delegations = $.delegations;
         this.enforcePrivateLinkEndpointNetworkPolicies = $.enforcePrivateLinkEndpointNetworkPolicies;
         this.enforcePrivateLinkServiceNetworkPolicies = $.enforcePrivateLinkServiceNetworkPolicies;
@@ -297,6 +313,27 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder addressPrefixes(String... addressPrefixes) {
             return addressPrefixes(List.of(addressPrefixes));
+        }
+
+        /**
+         * @param defaultOutboundAccessEnabled Enable default outbound access to the internet for the subnet. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultOutboundAccessEnabled(@Nullable Output<Boolean> defaultOutboundAccessEnabled) {
+            $.defaultOutboundAccessEnabled = defaultOutboundAccessEnabled;
+            return this;
+        }
+
+        /**
+         * @param defaultOutboundAccessEnabled Enable default outbound access to the internet for the subnet. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultOutboundAccessEnabled(Boolean defaultOutboundAccessEnabled) {
+            return defaultOutboundAccessEnabled(Output.of(defaultOutboundAccessEnabled));
         }
 
         /**

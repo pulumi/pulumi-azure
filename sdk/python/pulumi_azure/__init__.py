@@ -2419,6 +2419,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "compute/implicitDataDiskFromSource",
+  "fqn": "pulumi_azure.compute",
+  "classes": {
+   "azure:compute/implicitDataDiskFromSource:ImplicitDataDiskFromSource": "ImplicitDataDiskFromSource"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "compute/linuxVirtualMachine",
   "fqn": "pulumi_azure.compute",
   "classes": {
@@ -2767,6 +2775,14 @@ _utilities.register(
   "fqn": "pulumi_azure.containerservice",
   "classes": {
    "azure:containerservice/registryAgentPool:RegistryAgentPool": "RegistryAgentPool"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "containerservice/registryCacheRule",
+  "fqn": "pulumi_azure.containerservice",
+  "classes": {
+   "azure:containerservice/registryCacheRule:RegistryCacheRule": "RegistryCacheRule"
   }
  },
  {
@@ -3823,6 +3839,14 @@ _utilities.register(
   "fqn": "pulumi_azure.dataprotection",
   "classes": {
    "azure:dataprotection/backupPolicyPostgresql:BackupPolicyPostgresql": "BackupPolicyPostgresql"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "dataprotection/backupPolicyPostgresqlFlexibleServer",
+  "fqn": "pulumi_azure.dataprotection",
+  "classes": {
+   "azure:dataprotection/backupPolicyPostgresqlFlexibleServer:BackupPolicyPostgresqlFlexibleServer": "BackupPolicyPostgresqlFlexibleServer"
   }
  },
  {

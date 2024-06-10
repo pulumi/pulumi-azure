@@ -103,7 +103,7 @@ export class NamedValue extends pulumi.CustomResource {
      */
     public readonly value!: pulumi.Output<string | undefined>;
     /**
-     * A `valueFromKeyVault` block as defined below.
+     * A `valueFromKeyVault` block as defined below. If specified, `secret` must also be set to `true`.
      */
     public readonly valueFromKeyVault!: pulumi.Output<outputs.apimanagement.NamedValueValueFromKeyVault | undefined>;
 
@@ -190,7 +190,7 @@ export interface NamedValueState {
      */
     value?: pulumi.Input<string>;
     /**
-     * A `valueFromKeyVault` block as defined below.
+     * A `valueFromKeyVault` block as defined below. If specified, `secret` must also be set to `true`.
      */
     valueFromKeyVault?: pulumi.Input<inputs.apimanagement.NamedValueValueFromKeyVault>;
 }
@@ -230,7 +230,7 @@ export interface NamedValueArgs {
      */
     value?: pulumi.Input<string>;
     /**
-     * A `valueFromKeyVault` block as defined below.
+     * A `valueFromKeyVault` block as defined below. If specified, `secret` must also be set to `true`.
      */
     valueFromKeyVault?: pulumi.Input<inputs.apimanagement.NamedValueValueFromKeyVault>;
 }

@@ -669,10 +669,13 @@ class ProviderFeaturesTemplateDeploymentArgs:
 class ProviderFeaturesVirtualMachineArgs:
     def __init__(__self__, *,
                  delete_os_disk_on_deletion: Optional[pulumi.Input[bool]] = None,
+                 detach_implicit_data_disk_on_deletion: Optional[pulumi.Input[bool]] = None,
                  graceful_shutdown: Optional[pulumi.Input[bool]] = None,
                  skip_shutdown_and_force_delete: Optional[pulumi.Input[bool]] = None):
         if delete_os_disk_on_deletion is not None:
             pulumi.set(__self__, "delete_os_disk_on_deletion", delete_os_disk_on_deletion)
+        if detach_implicit_data_disk_on_deletion is not None:
+            pulumi.set(__self__, "detach_implicit_data_disk_on_deletion", detach_implicit_data_disk_on_deletion)
         if graceful_shutdown is not None:
             pulumi.set(__self__, "graceful_shutdown", graceful_shutdown)
         if skip_shutdown_and_force_delete is not None:
@@ -686,6 +689,15 @@ class ProviderFeaturesVirtualMachineArgs:
     @delete_os_disk_on_deletion.setter
     def delete_os_disk_on_deletion(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "delete_os_disk_on_deletion", value)
+
+    @property
+    @pulumi.getter(name="detachImplicitDataDiskOnDeletion")
+    def detach_implicit_data_disk_on_deletion(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "detach_implicit_data_disk_on_deletion")
+
+    @detach_implicit_data_disk_on_deletion.setter
+    def detach_implicit_data_disk_on_deletion(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "detach_implicit_data_disk_on_deletion", value)
 
     @property
     @pulumi.getter(name="gracefulShutdown")

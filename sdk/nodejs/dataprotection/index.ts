@@ -45,6 +45,11 @@ export type BackupPolicyPostgresql = import("./backupPolicyPostgresql").BackupPo
 export const BackupPolicyPostgresql: typeof import("./backupPolicyPostgresql").BackupPolicyPostgresql = null as any;
 utilities.lazyLoad(exports, ["BackupPolicyPostgresql"], () => require("./backupPolicyPostgresql"));
 
+export { BackupPolicyPostgresqlFlexibleServerArgs, BackupPolicyPostgresqlFlexibleServerState } from "./backupPolicyPostgresqlFlexibleServer";
+export type BackupPolicyPostgresqlFlexibleServer = import("./backupPolicyPostgresqlFlexibleServer").BackupPolicyPostgresqlFlexibleServer;
+export const BackupPolicyPostgresqlFlexibleServer: typeof import("./backupPolicyPostgresqlFlexibleServer").BackupPolicyPostgresqlFlexibleServer = null as any;
+utilities.lazyLoad(exports, ["BackupPolicyPostgresqlFlexibleServer"], () => require("./backupPolicyPostgresqlFlexibleServer"));
+
 export { BackupVaultArgs, BackupVaultState } from "./backupVault";
 export type BackupVault = import("./backupVault").BackupVault;
 export const BackupVault: typeof import("./backupVault").BackupVault = null as any;
@@ -81,6 +86,8 @@ const _module = {
                 return new BackupPolicyKubernetesCluster(name, <any>undefined, { urn })
             case "azure:dataprotection/backupPolicyPostgresql:BackupPolicyPostgresql":
                 return new BackupPolicyPostgresql(name, <any>undefined, { urn })
+            case "azure:dataprotection/backupPolicyPostgresqlFlexibleServer:BackupPolicyPostgresqlFlexibleServer":
+                return new BackupPolicyPostgresqlFlexibleServer(name, <any>undefined, { urn })
             case "azure:dataprotection/backupVault:BackupVault":
                 return new BackupVault(name, <any>undefined, { urn })
             case "azure:dataprotection/resourceGuard:ResourceGuard":
@@ -98,5 +105,6 @@ pulumi.runtime.registerResourceModule("azure", "dataprotection/backupPolicyBlobS
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupPolicyDisk", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupPolicyKubernetesCluster", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupPolicyPostgresql", _module)
+pulumi.runtime.registerResourceModule("azure", "dataprotection/backupPolicyPostgresqlFlexibleServer", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupVault", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/resourceGuard", _module)

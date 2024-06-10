@@ -9739,10 +9739,14 @@ func (o KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArrayOu
 }
 
 type KubernetesClusterDefaultNodePoolUpgradeSettings struct {
+	// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+	DrainTimeoutInMinutes *int `pulumi:"drainTimeoutInMinutes"`
 	// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
 	//
 	// > **Note:** If a percentage is provided, the number of surge nodes is calculated from the `nodeCount` value on the current cluster. Node surge can allow a cluster to have more nodes than `maxCount` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
 	MaxSurge string `pulumi:"maxSurge"`
+	// The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`.
+	NodeSoakDurationInMinutes *int `pulumi:"nodeSoakDurationInMinutes"`
 }
 
 // KubernetesClusterDefaultNodePoolUpgradeSettingsInput is an input type that accepts KubernetesClusterDefaultNodePoolUpgradeSettingsArgs and KubernetesClusterDefaultNodePoolUpgradeSettingsOutput values.
@@ -9757,10 +9761,14 @@ type KubernetesClusterDefaultNodePoolUpgradeSettingsInput interface {
 }
 
 type KubernetesClusterDefaultNodePoolUpgradeSettingsArgs struct {
+	// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+	DrainTimeoutInMinutes pulumi.IntPtrInput `pulumi:"drainTimeoutInMinutes"`
 	// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
 	//
 	// > **Note:** If a percentage is provided, the number of surge nodes is calculated from the `nodeCount` value on the current cluster. Node surge can allow a cluster to have more nodes than `maxCount` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
 	MaxSurge pulumi.StringInput `pulumi:"maxSurge"`
+	// The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`.
+	NodeSoakDurationInMinutes pulumi.IntPtrInput `pulumi:"nodeSoakDurationInMinutes"`
 }
 
 func (KubernetesClusterDefaultNodePoolUpgradeSettingsArgs) ElementType() reflect.Type {
@@ -9840,11 +9848,21 @@ func (o KubernetesClusterDefaultNodePoolUpgradeSettingsOutput) ToKubernetesClust
 	}).(KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput)
 }
 
+// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolUpgradeSettingsOutput) DrainTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolUpgradeSettings) *int { return v.DrainTimeoutInMinutes }).(pulumi.IntPtrOutput)
+}
+
 // The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
 //
 // > **Note:** If a percentage is provided, the number of surge nodes is calculated from the `nodeCount` value on the current cluster. Node surge can allow a cluster to have more nodes than `maxCount` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
 func (o KubernetesClusterDefaultNodePoolUpgradeSettingsOutput) MaxSurge() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolUpgradeSettings) string { return v.MaxSurge }).(pulumi.StringOutput)
+}
+
+// The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`.
+func (o KubernetesClusterDefaultNodePoolUpgradeSettingsOutput) NodeSoakDurationInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolUpgradeSettings) *int { return v.NodeSoakDurationInMinutes }).(pulumi.IntPtrOutput)
 }
 
 type KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -9871,6 +9889,16 @@ func (o KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput) Elem() Kuberne
 	}).(KubernetesClusterDefaultNodePoolUpgradeSettingsOutput)
 }
 
+// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput) DrainTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolUpgradeSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DrainTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
 // The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
 //
 // > **Note:** If a percentage is provided, the number of surge nodes is calculated from the `nodeCount` value on the current cluster. Node surge can allow a cluster to have more nodes than `maxCount` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
@@ -9881,6 +9909,16 @@ func (o KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput) MaxSurge() pul
 		}
 		return &v.MaxSurge
 	}).(pulumi.StringPtrOutput)
+}
+
+// The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`.
+func (o KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput) NodeSoakDurationInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolUpgradeSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NodeSoakDurationInMinutes
+	}).(pulumi.IntPtrOutput)
 }
 
 type KubernetesClusterExtensionAksAssignedIdentity struct {
@@ -16195,8 +16233,12 @@ func (o KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArrayOutput) I
 }
 
 type KubernetesClusterNodePoolUpgradeSettings struct {
+	// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+	DrainTimeoutInMinutes *int `pulumi:"drainTimeoutInMinutes"`
 	// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
 	MaxSurge string `pulumi:"maxSurge"`
+	// The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`.
+	NodeSoakDurationInMinutes *int `pulumi:"nodeSoakDurationInMinutes"`
 }
 
 // KubernetesClusterNodePoolUpgradeSettingsInput is an input type that accepts KubernetesClusterNodePoolUpgradeSettingsArgs and KubernetesClusterNodePoolUpgradeSettingsOutput values.
@@ -16211,8 +16253,12 @@ type KubernetesClusterNodePoolUpgradeSettingsInput interface {
 }
 
 type KubernetesClusterNodePoolUpgradeSettingsArgs struct {
+	// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+	DrainTimeoutInMinutes pulumi.IntPtrInput `pulumi:"drainTimeoutInMinutes"`
 	// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
 	MaxSurge pulumi.StringInput `pulumi:"maxSurge"`
+	// The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`.
+	NodeSoakDurationInMinutes pulumi.IntPtrInput `pulumi:"nodeSoakDurationInMinutes"`
 }
 
 func (KubernetesClusterNodePoolUpgradeSettingsArgs) ElementType() reflect.Type {
@@ -16292,9 +16338,19 @@ func (o KubernetesClusterNodePoolUpgradeSettingsOutput) ToKubernetesClusterNodeP
 	}).(KubernetesClusterNodePoolUpgradeSettingsPtrOutput)
 }
 
+// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+func (o KubernetesClusterNodePoolUpgradeSettingsOutput) DrainTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolUpgradeSettings) *int { return v.DrainTimeoutInMinutes }).(pulumi.IntPtrOutput)
+}
+
 // The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
 func (o KubernetesClusterNodePoolUpgradeSettingsOutput) MaxSurge() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterNodePoolUpgradeSettings) string { return v.MaxSurge }).(pulumi.StringOutput)
+}
+
+// The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`.
+func (o KubernetesClusterNodePoolUpgradeSettingsOutput) NodeSoakDurationInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolUpgradeSettings) *int { return v.NodeSoakDurationInMinutes }).(pulumi.IntPtrOutput)
 }
 
 type KubernetesClusterNodePoolUpgradeSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -16321,6 +16377,16 @@ func (o KubernetesClusterNodePoolUpgradeSettingsPtrOutput) Elem() KubernetesClus
 	}).(KubernetesClusterNodePoolUpgradeSettingsOutput)
 }
 
+// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+func (o KubernetesClusterNodePoolUpgradeSettingsPtrOutput) DrainTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolUpgradeSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DrainTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
 // The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
 func (o KubernetesClusterNodePoolUpgradeSettingsPtrOutput) MaxSurge() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePoolUpgradeSettings) *string {
@@ -16329,6 +16395,16 @@ func (o KubernetesClusterNodePoolUpgradeSettingsPtrOutput) MaxSurge() pulumi.Str
 		}
 		return &v.MaxSurge
 	}).(pulumi.StringPtrOutput)
+}
+
+// The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`.
+func (o KubernetesClusterNodePoolUpgradeSettingsPtrOutput) NodeSoakDurationInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolUpgradeSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NodeSoakDurationInMinutes
+	}).(pulumi.IntPtrOutput)
 }
 
 type KubernetesClusterNodePoolWindowsProfile struct {
@@ -16771,8 +16847,6 @@ func (o KubernetesClusterOmsAgentOmsAgentIdentityArrayOutput) Index(i pulumi.Int
 type KubernetesClusterServiceMeshProfile struct {
 	// Is Istio External Ingress Gateway enabled?
 	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
-	//
 	// > **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
 	ExternalIngressGatewayEnabled *bool `pulumi:"externalIngressGatewayEnabled"`
 	// Is Istio Internal Ingress Gateway enabled?
@@ -16794,8 +16868,6 @@ type KubernetesClusterServiceMeshProfileInput interface {
 
 type KubernetesClusterServiceMeshProfileArgs struct {
 	// Is Istio External Ingress Gateway enabled?
-	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
 	//
 	// > **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
 	ExternalIngressGatewayEnabled pulumi.BoolPtrInput `pulumi:"externalIngressGatewayEnabled"`
@@ -16884,8 +16956,6 @@ func (o KubernetesClusterServiceMeshProfileOutput) ToKubernetesClusterServiceMes
 
 // Is Istio External Ingress Gateway enabled?
 //
-// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
-//
 // > **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
 func (o KubernetesClusterServiceMeshProfileOutput) ExternalIngressGatewayEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterServiceMeshProfile) *bool { return v.ExternalIngressGatewayEnabled }).(pulumi.BoolPtrOutput)
@@ -16926,8 +16996,6 @@ func (o KubernetesClusterServiceMeshProfilePtrOutput) Elem() KubernetesClusterSe
 }
 
 // Is Istio External Ingress Gateway enabled?
-//
-// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
 //
 // > **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
 func (o KubernetesClusterServiceMeshProfilePtrOutput) ExternalIngressGatewayEnabled() pulumi.BoolPtrOutput {
@@ -17337,8 +17405,10 @@ func (o KubernetesClusterStorageProfilePtrOutput) SnapshotControllerEnabled() pu
 }
 
 type KubernetesClusterWebAppRouting struct {
-	// Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string `""`.
-	DnsZoneId string `pulumi:"dnsZoneId"`
+	// Deprecated: `dnsZoneId` has been deprecated in favor of `dnsZoneIds` and will be removed in v4.0 of the AzureRM Provider.
+	DnsZoneId *string `pulumi:"dnsZoneId"`
+	// Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
+	DnsZoneIds []string `pulumi:"dnsZoneIds"`
 	// A `webAppRoutingIdentity` block is exported. The exported attributes are defined below.
 	WebAppRoutingIdentities []KubernetesClusterWebAppRoutingWebAppRoutingIdentity `pulumi:"webAppRoutingIdentities"`
 }
@@ -17355,8 +17425,10 @@ type KubernetesClusterWebAppRoutingInput interface {
 }
 
 type KubernetesClusterWebAppRoutingArgs struct {
-	// Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string `""`.
-	DnsZoneId pulumi.StringInput `pulumi:"dnsZoneId"`
+	// Deprecated: `dnsZoneId` has been deprecated in favor of `dnsZoneIds` and will be removed in v4.0 of the AzureRM Provider.
+	DnsZoneId pulumi.StringPtrInput `pulumi:"dnsZoneId"`
+	// Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
+	DnsZoneIds pulumi.StringArrayInput `pulumi:"dnsZoneIds"`
 	// A `webAppRoutingIdentity` block is exported. The exported attributes are defined below.
 	WebAppRoutingIdentities KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayInput `pulumi:"webAppRoutingIdentities"`
 }
@@ -17438,9 +17510,14 @@ func (o KubernetesClusterWebAppRoutingOutput) ToKubernetesClusterWebAppRoutingPt
 	}).(KubernetesClusterWebAppRoutingPtrOutput)
 }
 
-// Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string `""`.
-func (o KubernetesClusterWebAppRoutingOutput) DnsZoneId() pulumi.StringOutput {
-	return o.ApplyT(func(v KubernetesClusterWebAppRouting) string { return v.DnsZoneId }).(pulumi.StringOutput)
+// Deprecated: `dnsZoneId` has been deprecated in favor of `dnsZoneIds` and will be removed in v4.0 of the AzureRM Provider.
+func (o KubernetesClusterWebAppRoutingOutput) DnsZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterWebAppRouting) *string { return v.DnsZoneId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
+func (o KubernetesClusterWebAppRoutingOutput) DnsZoneIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KubernetesClusterWebAppRouting) []string { return v.DnsZoneIds }).(pulumi.StringArrayOutput)
 }
 
 // A `webAppRoutingIdentity` block is exported. The exported attributes are defined below.
@@ -17474,14 +17551,24 @@ func (o KubernetesClusterWebAppRoutingPtrOutput) Elem() KubernetesClusterWebAppR
 	}).(KubernetesClusterWebAppRoutingOutput)
 }
 
-// Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string `""`.
+// Deprecated: `dnsZoneId` has been deprecated in favor of `dnsZoneIds` and will be removed in v4.0 of the AzureRM Provider.
 func (o KubernetesClusterWebAppRoutingPtrOutput) DnsZoneId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterWebAppRouting) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.DnsZoneId
+		return v.DnsZoneId
 	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
+func (o KubernetesClusterWebAppRoutingPtrOutput) DnsZoneIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *KubernetesClusterWebAppRouting) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DnsZoneIds
+	}).(pulumi.StringArrayOutput)
 }
 
 // A `webAppRoutingIdentity` block is exported. The exported attributes are defined below.
@@ -22212,8 +22299,12 @@ func (o TokenPasswordPassword2PtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 type GetClusterNodePoolUpgradeSetting struct {
+	// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
+	DrainTimeoutInMinutes int `pulumi:"drainTimeoutInMinutes"`
 	// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
 	MaxSurge string `pulumi:"maxSurge"`
+	// The amount of time in minutes to wait after draining a node and before reimaging it and moving on to next node.
+	NodeSoakDurationInMinutes int `pulumi:"nodeSoakDurationInMinutes"`
 }
 
 // GetClusterNodePoolUpgradeSettingInput is an input type that accepts GetClusterNodePoolUpgradeSettingArgs and GetClusterNodePoolUpgradeSettingOutput values.
@@ -22228,8 +22319,12 @@ type GetClusterNodePoolUpgradeSettingInput interface {
 }
 
 type GetClusterNodePoolUpgradeSettingArgs struct {
+	// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
+	DrainTimeoutInMinutes pulumi.IntInput `pulumi:"drainTimeoutInMinutes"`
 	// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
 	MaxSurge pulumi.StringInput `pulumi:"maxSurge"`
+	// The amount of time in minutes to wait after draining a node and before reimaging it and moving on to next node.
+	NodeSoakDurationInMinutes pulumi.IntInput `pulumi:"nodeSoakDurationInMinutes"`
 }
 
 func (GetClusterNodePoolUpgradeSettingArgs) ElementType() reflect.Type {
@@ -22283,9 +22378,19 @@ func (o GetClusterNodePoolUpgradeSettingOutput) ToGetClusterNodePoolUpgradeSetti
 	return o
 }
 
+// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
+func (o GetClusterNodePoolUpgradeSettingOutput) DrainTimeoutInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterNodePoolUpgradeSetting) int { return v.DrainTimeoutInMinutes }).(pulumi.IntOutput)
+}
+
 // The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
 func (o GetClusterNodePoolUpgradeSettingOutput) MaxSurge() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterNodePoolUpgradeSetting) string { return v.MaxSurge }).(pulumi.StringOutput)
+}
+
+// The amount of time in minutes to wait after draining a node and before reimaging it and moving on to next node.
+func (o GetClusterNodePoolUpgradeSettingOutput) NodeSoakDurationInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterNodePoolUpgradeSetting) int { return v.NodeSoakDurationInMinutes }).(pulumi.IntOutput)
 }
 
 type GetClusterNodePoolUpgradeSettingArrayOutput struct{ *pulumi.OutputState }
@@ -22785,8 +22890,12 @@ func (o GetKubernetesClusterAgentPoolProfileArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetKubernetesClusterAgentPoolProfileUpgradeSetting struct {
+	// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
+	DrainTimeoutInMinutes int `pulumi:"drainTimeoutInMinutes"`
 	// The maximum number or percentage of nodes that will be added to the Node Pool size during an upgrade.
 	MaxSurge string `pulumi:"maxSurge"`
+	// The amount of time in minutes to wait after draining a node and before reimaging it and moving on to next node.
+	NodeSoakDurationInMinutes int `pulumi:"nodeSoakDurationInMinutes"`
 }
 
 // GetKubernetesClusterAgentPoolProfileUpgradeSettingInput is an input type that accepts GetKubernetesClusterAgentPoolProfileUpgradeSettingArgs and GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput values.
@@ -22801,8 +22910,12 @@ type GetKubernetesClusterAgentPoolProfileUpgradeSettingInput interface {
 }
 
 type GetKubernetesClusterAgentPoolProfileUpgradeSettingArgs struct {
+	// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
+	DrainTimeoutInMinutes pulumi.IntInput `pulumi:"drainTimeoutInMinutes"`
 	// The maximum number or percentage of nodes that will be added to the Node Pool size during an upgrade.
 	MaxSurge pulumi.StringInput `pulumi:"maxSurge"`
+	// The amount of time in minutes to wait after draining a node and before reimaging it and moving on to next node.
+	NodeSoakDurationInMinutes pulumi.IntInput `pulumi:"nodeSoakDurationInMinutes"`
 }
 
 func (GetKubernetesClusterAgentPoolProfileUpgradeSettingArgs) ElementType() reflect.Type {
@@ -22856,9 +22969,19 @@ func (o GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput) ToGetKubernete
 	return o
 }
 
+// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
+func (o GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput) DrainTimeoutInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfileUpgradeSetting) int { return v.DrainTimeoutInMinutes }).(pulumi.IntOutput)
+}
+
 // The maximum number or percentage of nodes that will be added to the Node Pool size during an upgrade.
 func (o GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput) MaxSurge() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfileUpgradeSetting) string { return v.MaxSurge }).(pulumi.StringOutput)
+}
+
+// The amount of time in minutes to wait after draining a node and before reimaging it and moving on to next node.
+func (o GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput) NodeSoakDurationInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfileUpgradeSetting) int { return v.NodeSoakDurationInMinutes }).(pulumi.IntOutput)
 }
 
 type GetKubernetesClusterAgentPoolProfileUpgradeSettingArrayOutput struct{ *pulumi.OutputState }

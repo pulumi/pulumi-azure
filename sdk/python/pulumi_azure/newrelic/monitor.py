@@ -21,6 +21,7 @@ class MonitorArgs:
                  user: pulumi.Input['MonitorUserArgs'],
                  account_creation_source: Optional[pulumi.Input[str]] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['MonitorIdentityArgs']] = None,
                  ingestion_key: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -36,6 +37,7 @@ class MonitorArgs:
         :param pulumi.Input[str] account_id: Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
                
                > **NOTE:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+        :param pulumi.Input['MonitorIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[str] ingestion_key: Specifies the ingestion key of account. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Azure Native New Relic Monitor. Changing this forces a new Azure Native New Relic Monitor to be created.
@@ -52,6 +54,8 @@ class MonitorArgs:
             pulumi.set(__self__, "account_creation_source", account_creation_source)
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if ingestion_key is not None:
             pulumi.set(__self__, "ingestion_key", ingestion_key)
         if location is not None:
@@ -126,6 +130,18 @@ class MonitorArgs:
     @account_id.setter
     def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['MonitorIdentityArgs']]:
+        """
+        An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['MonitorIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="ingestionKey")
@@ -207,6 +223,7 @@ class _MonitorState:
     def __init__(__self__, *,
                  account_creation_source: Optional[pulumi.Input[str]] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['MonitorIdentityArgs']] = None,
                  ingestion_key: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -222,6 +239,7 @@ class _MonitorState:
         :param pulumi.Input[str] account_id: Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
                
                > **NOTE:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+        :param pulumi.Input['MonitorIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[str] ingestion_key: Specifies the ingestion key of account. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Azure Native New Relic Monitor. Changing this forces a new Azure Native New Relic Monitor to be created.
@@ -238,6 +256,8 @@ class _MonitorState:
             pulumi.set(__self__, "account_creation_source", account_creation_source)
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if ingestion_key is not None:
             pulumi.set(__self__, "ingestion_key", ingestion_key)
         if location is not None:
@@ -282,6 +302,18 @@ class _MonitorState:
     @account_id.setter
     def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['MonitorIdentityArgs']]:
+        """
+        An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['MonitorIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="ingestionKey")
@@ -401,6 +433,7 @@ class Monitor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_creation_source: Optional[pulumi.Input[str]] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['MonitorIdentityArgs']]] = None,
                  ingestion_key: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -435,7 +468,28 @@ class Monitor(pulumi.CustomResource):
                 first_name="Example",
                 last_name="User",
                 phone_number="+12313803556",
+            ),
+            identity=azure.newrelic.MonitorIdentityArgs(
+                type="SystemAssigned",
             ))
+        ```
+
+        ## Role Assignment
+
+        To enable metrics flow, perform role assignment on the identity created above. `Monitoring reader(43d0d8ad-25c7-4714-9337-8ba259a9fe05)` role is required .
+
+        ### Role assignment on the monitor created
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        primary = azure.core.get_subscription()
+        monitoring_reader = azure.authorization.get_role_definition(name="Monitoring Reader")
+        example = azure.authorization.Assignment("example",
+            scope=primary.id,
+            role_definition_id=f"{primary.id}{monitoring_reader.id}",
+            principal_id=example_azurerm_new_relic_monitor["identity"][0]["principalId"])
         ```
 
         ## Import
@@ -452,6 +506,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] account_id: Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
                
                > **NOTE:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+        :param pulumi.Input[pulumi.InputType['MonitorIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[str] ingestion_key: Specifies the ingestion key of account. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Azure Native New Relic Monitor. Changing this forces a new Azure Native New Relic Monitor to be created.
@@ -494,7 +549,28 @@ class Monitor(pulumi.CustomResource):
                 first_name="Example",
                 last_name="User",
                 phone_number="+12313803556",
+            ),
+            identity=azure.newrelic.MonitorIdentityArgs(
+                type="SystemAssigned",
             ))
+        ```
+
+        ## Role Assignment
+
+        To enable metrics flow, perform role assignment on the identity created above. `Monitoring reader(43d0d8ad-25c7-4714-9337-8ba259a9fe05)` role is required .
+
+        ### Role assignment on the monitor created
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        primary = azure.core.get_subscription()
+        monitoring_reader = azure.authorization.get_role_definition(name="Monitoring Reader")
+        example = azure.authorization.Assignment("example",
+            scope=primary.id,
+            role_definition_id=f"{primary.id}{monitoring_reader.id}",
+            principal_id=example_azurerm_new_relic_monitor["identity"][0]["principalId"])
         ```
 
         ## Import
@@ -522,6 +598,7 @@ class Monitor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_creation_source: Optional[pulumi.Input[str]] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['MonitorIdentityArgs']]] = None,
                  ingestion_key: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -542,6 +619,7 @@ class Monitor(pulumi.CustomResource):
 
             __props__.__dict__["account_creation_source"] = account_creation_source
             __props__.__dict__["account_id"] = account_id
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["ingestion_key"] = None if ingestion_key is None else pulumi.Output.secret(ingestion_key)
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -571,6 +649,7 @@ class Monitor(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             account_creation_source: Optional[pulumi.Input[str]] = None,
             account_id: Optional[pulumi.Input[str]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['MonitorIdentityArgs']]] = None,
             ingestion_key: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -591,6 +670,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] account_id: Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
                
                > **NOTE:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+        :param pulumi.Input[pulumi.InputType['MonitorIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[str] ingestion_key: Specifies the ingestion key of account. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Azure Native New Relic Monitor. Changing this forces a new Azure Native New Relic Monitor to be created.
@@ -609,6 +689,7 @@ class Monitor(pulumi.CustomResource):
 
         __props__.__dict__["account_creation_source"] = account_creation_source
         __props__.__dict__["account_id"] = account_id
+        __props__.__dict__["identity"] = identity
         __props__.__dict__["ingestion_key"] = ingestion_key
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
@@ -637,6 +718,14 @@ class Monitor(pulumi.CustomResource):
         > **NOTE:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
         """
         return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.MonitorIdentity']]:
+        """
+        An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="ingestionKey")

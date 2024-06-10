@@ -498,10 +498,13 @@ class FeaturesTemplateDeployment(dict):
 class FeaturesVirtualMachine(dict):
     def __init__(__self__, *,
                  delete_os_disk_on_deletion: Optional[bool] = None,
+                 detach_implicit_data_disk_on_deletion: Optional[bool] = None,
                  graceful_shutdown: Optional[bool] = None,
                  skip_shutdown_and_force_delete: Optional[bool] = None):
         if delete_os_disk_on_deletion is not None:
             pulumi.set(__self__, "delete_os_disk_on_deletion", delete_os_disk_on_deletion)
+        if detach_implicit_data_disk_on_deletion is not None:
+            pulumi.set(__self__, "detach_implicit_data_disk_on_deletion", detach_implicit_data_disk_on_deletion)
         if graceful_shutdown is not None:
             pulumi.set(__self__, "graceful_shutdown", graceful_shutdown)
         if skip_shutdown_and_force_delete is not None:
@@ -511,6 +514,11 @@ class FeaturesVirtualMachine(dict):
     @pulumi.getter(name="deleteOsDiskOnDeletion")
     def delete_os_disk_on_deletion(self) -> Optional[bool]:
         return pulumi.get(self, "delete_os_disk_on_deletion")
+
+    @property
+    @pulumi.getter(name="detachImplicitDataDiskOnDeletion")
+    def detach_implicit_data_disk_on_deletion(self) -> Optional[bool]:
+        return pulumi.get(self, "detach_implicit_data_disk_on_deletion")
 
     @property
     @pulumi.getter(name="gracefulShutdown")

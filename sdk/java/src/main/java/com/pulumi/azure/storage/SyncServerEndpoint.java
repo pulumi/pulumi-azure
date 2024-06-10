@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
 /**
  * Manages a Storage Sync Server Endpoint.
  * 
+ * &gt; **NOTE:** The parent `azure.storage.SyncGroup` must have an `azure.storage.SyncCloudEndpoint` available before an `azure.storage.SyncServerEndpoint` resource can be created.
+ * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
@@ -40,8 +42,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.Share;
  * import com.pulumi.azure.storage.ShareArgs;
  * import com.pulumi.azure.storage.inputs.ShareAclArgs;
+ * import com.pulumi.azure.storage.SyncCloudEndpoint;
+ * import com.pulumi.azure.storage.SyncCloudEndpointArgs;
  * import com.pulumi.azure.storage.SyncServerEndpoint;
  * import com.pulumi.azure.storage.SyncServerEndpointArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -91,11 +96,20 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         var exampleSyncCloudEndpoint = new SyncCloudEndpoint("exampleSyncCloudEndpoint", SyncCloudEndpointArgs.builder()
+ *             .name("example-ss-ce")
+ *             .storageSyncGroupId(exampleSyncGroup.id())
+ *             .fileShareName(exampleShare.name())
+ *             .storageAccountId(exampleAccount.id())
+ *             .build());
+ * 
  *         var exampleSyncServerEndpoint = new SyncServerEndpoint("exampleSyncServerEndpoint", SyncServerEndpointArgs.builder()
  *             .name("example-storage-sync-server-endpoint")
  *             .storageSyncGroupId(exampleSyncGroup.id())
  *             .registeredServerId(exampleSync.registeredServers().applyValue(registeredServers -> registeredServers[0]))
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleSyncCloudEndpoint)
+ *                 .build());
  * 
  *     }
  * }
@@ -173,7 +187,7 @@ public class SyncServerEndpoint extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Registered Server that will be associate with the Storage Sync Server Endpoint. Changing this forces a new Storage Sync Server Endpoint to be created.
      * 
-     * &gt; **NOTE:** For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
+     * &gt; **NOTE:** The target server must already be registered with the parent `azure.storage.Sync` prior to creating this endpoint. For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
      * 
      */
     @Export(name="registeredServerId", refs={String.class}, tree="[0]")
@@ -182,7 +196,7 @@ public class SyncServerEndpoint extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the Registered Server that will be associate with the Storage Sync Server Endpoint. Changing this forces a new Storage Sync Server Endpoint to be created.
      * 
-     * &gt; **NOTE:** For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
+     * &gt; **NOTE:** The target server must already be registered with the parent `azure.storage.Sync` prior to creating this endpoint. For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
      * 
      */
     public Output<String> registeredServerId() {

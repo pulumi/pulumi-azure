@@ -66,7 +66,7 @@ type LookupDeploymentResult struct {
 	AutomaticUpgradeChannel string `pulumi:"automaticUpgradeChannel"`
 	// The number of NGINX capacity units for this NGINX Deployment.
 	Capacity int `pulumi:"capacity"`
-	// Whether diagnostic settings are enabled.
+	// Whether metrics are exported to Azure Monitor.
 	DiagnoseSupportEnabled bool `pulumi:"diagnoseSupportEnabled"`
 	// Preferred email associated with the NGINX Deployment.
 	Email string `pulumi:"email"`
@@ -154,7 +154,7 @@ func (o LookupDeploymentResultOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupDeploymentResult) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// Whether diagnostic settings are enabled.
+// Whether metrics are exported to Azure Monitor.
 func (o LookupDeploymentResultOutput) DiagnoseSupportEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupDeploymentResult) bool { return v.DiagnoseSupportEnabled }).(pulumi.BoolOutput)
 }

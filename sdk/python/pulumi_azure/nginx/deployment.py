@@ -36,14 +36,12 @@ class DeploymentArgs:
         """
         The set of arguments for constructing a Deployment resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
-        :param pulumi.Input[str] sku: Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentAutoScaleProfileArgs']]] auto_scale_profiles: An `auto_scale_profile` block as defined below.
         :param pulumi.Input[str] automatic_upgrade_channel: Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
         :param pulumi.Input[int] capacity: Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
                
                > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
-        :param pulumi.Input['DeploymentConfigurationArgs'] configuration: Specify a custom `configuration` block as defined below.
-        :param pulumi.Input[bool] diagnose_support_enabled: Should the diagnosis support be enabled?
+        :param pulumi.Input[bool] diagnose_support_enabled: Should the metrics be exported to Azure Monitor?
         :param pulumi.Input[str] email: Specify the preferred support contact email address for receiving alerts and notifications.
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]] frontend_privates: One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input['DeploymentFrontendPublicArgs'] frontend_public: A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
@@ -63,6 +61,9 @@ class DeploymentArgs:
             pulumi.set(__self__, "automatic_upgrade_channel", automatic_upgrade_channel)
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
+        if configuration is not None:
+            warnings.warn("""The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""configuration is deprecated: The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.""")
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
         if diagnose_support_enabled is not None:
@@ -103,9 +104,6 @@ class DeploymentArgs:
     @property
     @pulumi.getter
     def sku(self) -> pulumi.Input[str]:
-        """
-        Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "sku")
 
     @sku.setter
@@ -153,9 +151,9 @@ class DeploymentArgs:
     @property
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input['DeploymentConfigurationArgs']]:
-        """
-        Specify a custom `configuration` block as defined below.
-        """
+        warnings.warn("""The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""configuration is deprecated: The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -166,7 +164,7 @@ class DeploymentArgs:
     @pulumi.getter(name="diagnoseSupportEnabled")
     def diagnose_support_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the diagnosis support be enabled?
+        Should the metrics be exported to Azure Monitor?
         """
         return pulumi.get(self, "diagnose_support_enabled")
 
@@ -324,8 +322,7 @@ class _DeploymentState:
         :param pulumi.Input[int] capacity: Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
                
                > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
-        :param pulumi.Input['DeploymentConfigurationArgs'] configuration: Specify a custom `configuration` block as defined below.
-        :param pulumi.Input[bool] diagnose_support_enabled: Should the diagnosis support be enabled?
+        :param pulumi.Input[bool] diagnose_support_enabled: Should the metrics be exported to Azure Monitor?
         :param pulumi.Input[str] email: Specify the preferred support contact email address for receiving alerts and notifications.
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]] frontend_privates: One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input['DeploymentFrontendPublicArgs'] frontend_public: A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
@@ -338,7 +335,6 @@ class _DeploymentState:
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]] network_interfaces: One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[str] nginx_version: The version of deployed NGINX.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
-        :param pulumi.Input[str] sku: Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the NGINX Deployment.
         """
         if auto_scale_profiles is not None:
@@ -347,6 +343,9 @@ class _DeploymentState:
             pulumi.set(__self__, "automatic_upgrade_channel", automatic_upgrade_channel)
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
+        if configuration is not None:
+            warnings.warn("""The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""configuration is deprecated: The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.""")
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
         if diagnose_support_enabled is not None:
@@ -421,9 +420,9 @@ class _DeploymentState:
     @property
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input['DeploymentConfigurationArgs']]:
-        """
-        Specify a custom `configuration` block as defined below.
-        """
+        warnings.warn("""The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""configuration is deprecated: The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -434,7 +433,7 @@ class _DeploymentState:
     @pulumi.getter(name="diagnoseSupportEnabled")
     def diagnose_support_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the diagnosis support be enabled?
+        Should the metrics be exported to Azure Monitor?
         """
         return pulumi.get(self, "diagnose_support_enabled")
 
@@ -589,9 +588,6 @@ class _DeploymentState:
     @property
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "sku")
 
     @sku.setter
@@ -642,7 +638,6 @@ class Deployment(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
-        import pulumi_std as std
 
         example = azure.core.ResourceGroup("example",
             name="example-rg",
@@ -673,27 +668,6 @@ class Deployment(pulumi.CustomResource):
                     actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
                 ),
             )])
-        config_content = std.base64encode(input=\"\"\"http {
-            server {
-                listen 80;
-                location / {
-                    auth_basic "Protected Area";
-                    auth_basic_user_file /opt/.htpasswd;
-                    default_type text/html;
-                }
-                include site/*.conf;
-            }
-        }
-        \"\"\").result
-        protected_content = std.base64encode(input="user:$apr1$VeUA5kt.$IjjRk//8miRxDsZvD4daF1\\n").result
-        sub_config_content = std.base64encode(input=\"\"\"location /bbb {
-        \\x09default_type text/html;
-        \\x09return 200 '<!doctype html><html lang="en"><head></head><body>
-        \\x09\\x09<div>this one will be updated</div>
-        \\x09\\x09<div>at 10:38 am</div>
-        \\x09</body></html>';
-        }
-        \"\"\").result
         example_deployment = azure.nginx.Deployment("example",
             name="example-nginx",
             resource_group_name=example.name,
@@ -709,24 +683,7 @@ class Deployment(pulumi.CustomResource):
                 subnet_id=example_subnet.id,
             )],
             capacity=20,
-            email="user@test.com",
-            configuration=azure.nginx.DeploymentConfigurationArgs(
-                root_file="/etc/nginx/nginx.conf",
-                config_files=[
-                    azure.nginx.DeploymentConfigurationConfigFileArgs(
-                        content=config_content,
-                        virtual_path="/etc/nginx/nginx.conf",
-                    ),
-                    azure.nginx.DeploymentConfigurationConfigFileArgs(
-                        content=sub_config_content,
-                        virtual_path="/etc/nginx/site/b.conf",
-                    ),
-                ],
-                protected_files=[azure.nginx.DeploymentConfigurationProtectedFileArgs(
-                    content=protected_content,
-                    virtual_path="/opt/.htpasswd",
-                )],
-            ))
+            email="user@test.com")
         ```
 
         ## Import
@@ -744,8 +701,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[int] capacity: Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
                
                > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
-        :param pulumi.Input[pulumi.InputType['DeploymentConfigurationArgs']] configuration: Specify a custom `configuration` block as defined below.
-        :param pulumi.Input[bool] diagnose_support_enabled: Should the diagnosis support be enabled?
+        :param pulumi.Input[bool] diagnose_support_enabled: Should the metrics be exported to Azure Monitor?
         :param pulumi.Input[str] email: Specify the preferred support contact email address for receiving alerts and notifications.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentFrontendPrivateArgs']]]] frontend_privates: One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[pulumi.InputType['DeploymentFrontendPublicArgs']] frontend_public: A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
@@ -756,7 +712,6 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentNetworkInterfaceArgs']]]] network_interfaces: One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
-        :param pulumi.Input[str] sku: Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the NGINX Deployment.
         """
         ...
@@ -773,7 +728,6 @@ class Deployment(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
-        import pulumi_std as std
 
         example = azure.core.ResourceGroup("example",
             name="example-rg",
@@ -804,27 +758,6 @@ class Deployment(pulumi.CustomResource):
                     actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
                 ),
             )])
-        config_content = std.base64encode(input=\"\"\"http {
-            server {
-                listen 80;
-                location / {
-                    auth_basic "Protected Area";
-                    auth_basic_user_file /opt/.htpasswd;
-                    default_type text/html;
-                }
-                include site/*.conf;
-            }
-        }
-        \"\"\").result
-        protected_content = std.base64encode(input="user:$apr1$VeUA5kt.$IjjRk//8miRxDsZvD4daF1\\n").result
-        sub_config_content = std.base64encode(input=\"\"\"location /bbb {
-        \\x09default_type text/html;
-        \\x09return 200 '<!doctype html><html lang="en"><head></head><body>
-        \\x09\\x09<div>this one will be updated</div>
-        \\x09\\x09<div>at 10:38 am</div>
-        \\x09</body></html>';
-        }
-        \"\"\").result
         example_deployment = azure.nginx.Deployment("example",
             name="example-nginx",
             resource_group_name=example.name,
@@ -840,24 +773,7 @@ class Deployment(pulumi.CustomResource):
                 subnet_id=example_subnet.id,
             )],
             capacity=20,
-            email="user@test.com",
-            configuration=azure.nginx.DeploymentConfigurationArgs(
-                root_file="/etc/nginx/nginx.conf",
-                config_files=[
-                    azure.nginx.DeploymentConfigurationConfigFileArgs(
-                        content=config_content,
-                        virtual_path="/etc/nginx/nginx.conf",
-                    ),
-                    azure.nginx.DeploymentConfigurationConfigFileArgs(
-                        content=sub_config_content,
-                        virtual_path="/etc/nginx/site/b.conf",
-                    ),
-                ],
-                protected_files=[azure.nginx.DeploymentConfigurationProtectedFileArgs(
-                    content=protected_content,
-                    virtual_path="/opt/.htpasswd",
-                )],
-            ))
+            email="user@test.com")
         ```
 
         ## Import
@@ -973,8 +889,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[int] capacity: Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
                
                > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
-        :param pulumi.Input[pulumi.InputType['DeploymentConfigurationArgs']] configuration: Specify a custom `configuration` block as defined below.
-        :param pulumi.Input[bool] diagnose_support_enabled: Should the diagnosis support be enabled?
+        :param pulumi.Input[bool] diagnose_support_enabled: Should the metrics be exported to Azure Monitor?
         :param pulumi.Input[str] email: Specify the preferred support contact email address for receiving alerts and notifications.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentFrontendPrivateArgs']]]] frontend_privates: One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[pulumi.InputType['DeploymentFrontendPublicArgs']] frontend_public: A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
@@ -987,7 +902,6 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentNetworkInterfaceArgs']]]] network_interfaces: One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[str] nginx_version: The version of deployed NGINX.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
-        :param pulumi.Input[str] sku: Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the NGINX Deployment.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1044,16 +958,16 @@ class Deployment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def configuration(self) -> pulumi.Output['outputs.DeploymentConfiguration']:
-        """
-        Specify a custom `configuration` block as defined below.
-        """
+        warnings.warn("""The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""configuration is deprecated: The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "configuration")
 
     @property
     @pulumi.getter(name="diagnoseSupportEnabled")
     def diagnose_support_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Should the diagnosis support be enabled?
+        Should the metrics be exported to Azure Monitor?
         """
         return pulumi.get(self, "diagnose_support_enabled")
 
@@ -1156,9 +1070,6 @@ class Deployment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def sku(self) -> pulumi.Output[str]:
-        """
-        Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "sku")
 
     @property

@@ -73,11 +73,13 @@ class TriggerCustomArgs:
 class _TriggerCustomState:
     def __init__(__self__, *,
                  body: Optional[pulumi.Input[str]] = None,
+                 callback_url: Optional[pulumi.Input[str]] = None,
                  logic_app_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering TriggerCustom resources.
         :param pulumi.Input[str] body: Specifies the JSON Blob defining the Body of this Custom Trigger.
+        :param pulumi.Input[str] callback_url: The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group.
         :param pulumi.Input[str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
                
@@ -85,6 +87,8 @@ class _TriggerCustomState:
         """
         if body is not None:
             pulumi.set(__self__, "body", body)
+        if callback_url is not None:
+            pulumi.set(__self__, "callback_url", callback_url)
         if logic_app_id is not None:
             pulumi.set(__self__, "logic_app_id", logic_app_id)
         if name is not None:
@@ -101,6 +105,18 @@ class _TriggerCustomState:
     @body.setter
     def body(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "body", value)
+
+    @property
+    @pulumi.getter(name="callbackUrl")
+    def callback_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group.
+        """
+        return pulumi.get(self, "callback_url")
+
+    @callback_url.setter
+    def callback_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "callback_url", value)
 
     @property
     @pulumi.getter(name="logicAppId")
@@ -260,6 +276,7 @@ class TriggerCustom(pulumi.CustomResource):
                 raise TypeError("Missing required property 'logic_app_id'")
             __props__.__dict__["logic_app_id"] = logic_app_id
             __props__.__dict__["name"] = name
+            __props__.__dict__["callback_url"] = None
         super(TriggerCustom, __self__).__init__(
             'azure:logicapps/triggerCustom:TriggerCustom',
             resource_name,
@@ -271,6 +288,7 @@ class TriggerCustom(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             body: Optional[pulumi.Input[str]] = None,
+            callback_url: Optional[pulumi.Input[str]] = None,
             logic_app_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'TriggerCustom':
         """
@@ -281,6 +299,7 @@ class TriggerCustom(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] body: Specifies the JSON Blob defining the Body of this Custom Trigger.
+        :param pulumi.Input[str] callback_url: The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group.
         :param pulumi.Input[str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
                
@@ -291,6 +310,7 @@ class TriggerCustom(pulumi.CustomResource):
         __props__ = _TriggerCustomState.__new__(_TriggerCustomState)
 
         __props__.__dict__["body"] = body
+        __props__.__dict__["callback_url"] = callback_url
         __props__.__dict__["logic_app_id"] = logic_app_id
         __props__.__dict__["name"] = name
         return TriggerCustom(resource_name, opts=opts, __props__=__props__)
@@ -302,6 +322,14 @@ class TriggerCustom(pulumi.CustomResource):
         Specifies the JSON Blob defining the Body of this Custom Trigger.
         """
         return pulumi.get(self, "body")
+
+    @property
+    @pulumi.getter(name="callbackUrl")
+    def callback_url(self) -> pulumi.Output[str]:
+        """
+        The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group.
+        """
+        return pulumi.get(self, "callback_url")
 
     @property
     @pulumi.getter(name="logicAppId")

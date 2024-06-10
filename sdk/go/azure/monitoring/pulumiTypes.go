@@ -17547,7 +17547,7 @@ func (o DataCollectionRuleIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 type DataCollectionRuleStreamDeclaration struct {
 	// One or more `column` blocks as defined above.
 	Columns []DataCollectionRuleStreamDeclarationColumn `pulumi:"columns"`
-	// The name of the custom stream. This name should be unique across all `streamDeclaration` blocks.
+	// The name of the custom stream. This name should be unique across all `streamDeclaration` blocks and must begin with a prefix of `Custom-`.
 	StreamName string `pulumi:"streamName"`
 }
 
@@ -17565,7 +17565,7 @@ type DataCollectionRuleStreamDeclarationInput interface {
 type DataCollectionRuleStreamDeclarationArgs struct {
 	// One or more `column` blocks as defined above.
 	Columns DataCollectionRuleStreamDeclarationColumnArrayInput `pulumi:"columns"`
-	// The name of the custom stream. This name should be unique across all `streamDeclaration` blocks.
+	// The name of the custom stream. This name should be unique across all `streamDeclaration` blocks and must begin with a prefix of `Custom-`.
 	StreamName pulumi.StringInput `pulumi:"streamName"`
 }
 
@@ -17627,7 +17627,7 @@ func (o DataCollectionRuleStreamDeclarationOutput) Columns() DataCollectionRuleS
 	}).(DataCollectionRuleStreamDeclarationColumnArrayOutput)
 }
 
-// The name of the custom stream. This name should be unique across all `streamDeclaration` blocks.
+// The name of the custom stream. This name should be unique across all `streamDeclaration` blocks and must begin with a prefix of `Custom-`.
 func (o DataCollectionRuleStreamDeclarationOutput) StreamName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataCollectionRuleStreamDeclaration) string { return v.StreamName }).(pulumi.StringOutput)
 }

@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetResourceBridgeApplianceArgs, GetResourceBridgeApplianceResult, GetResourceBridgeApplianceOutputArgs } from "./getResourceBridgeAppliance";
+export const getResourceBridgeAppliance: typeof import("./getResourceBridgeAppliance").getResourceBridgeAppliance = null as any;
+export const getResourceBridgeApplianceOutput: typeof import("./getResourceBridgeAppliance").getResourceBridgeApplianceOutput = null as any;
+utilities.lazyLoad(exports, ["getResourceBridgeAppliance","getResourceBridgeApplianceOutput"], () => require("./getResourceBridgeAppliance"));
+
 export { PrivateLinkScopeArgs, PrivateLinkScopeState } from "./privateLinkScope";
 export type PrivateLinkScope = import("./privateLinkScope").PrivateLinkScope;
 export const PrivateLinkScope: typeof import("./privateLinkScope").PrivateLinkScope = null as any;

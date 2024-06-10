@@ -205,7 +205,7 @@ public final class BastionHostState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+     * The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
      * 
      * &gt; **Note** Downgrading the SKU will force a new resource to be created.
      * 
@@ -214,7 +214,7 @@ public final class BastionHostState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> sku;
 
     /**
-     * @return The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+     * @return The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
      * 
      * &gt; **Note** Downgrading the SKU will force a new resource to be created.
      * 
@@ -257,6 +257,21 @@ public final class BastionHostState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tunnelingEnabled);
     }
 
+    /**
+     * The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="virtualNetworkId")
+    private @Nullable Output<String> virtualNetworkId;
+
+    /**
+     * @return The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> virtualNetworkId() {
+        return Optional.ofNullable(this.virtualNetworkId);
+    }
+
     private BastionHostState() {}
 
     private BastionHostState(BastionHostState $) {
@@ -274,6 +289,7 @@ public final class BastionHostState extends com.pulumi.resources.ResourceArgs {
         this.sku = $.sku;
         this.tags = $.tags;
         this.tunnelingEnabled = $.tunnelingEnabled;
+        this.virtualNetworkId = $.virtualNetworkId;
     }
 
     public static Builder builder() {
@@ -546,7 +562,7 @@ public final class BastionHostState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+         * @param sku The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
          * 
          * &gt; **Note** Downgrading the SKU will force a new resource to be created.
          * 
@@ -559,7 +575,7 @@ public final class BastionHostState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+         * @param sku The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
          * 
          * &gt; **Note** Downgrading the SKU will force a new resource to be created.
          * 
@@ -614,6 +630,27 @@ public final class BastionHostState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tunnelingEnabled(Boolean tunnelingEnabled) {
             return tunnelingEnabled(Output.of(tunnelingEnabled));
+        }
+
+        /**
+         * @param virtualNetworkId The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder virtualNetworkId(@Nullable Output<String> virtualNetworkId) {
+            $.virtualNetworkId = virtualNetworkId;
+            return this;
+        }
+
+        /**
+         * @param virtualNetworkId The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder virtualNetworkId(String virtualNetworkId) {
+            return virtualNetworkId(Output.of(virtualNetworkId));
         }
 
         public BastionHostState build() {

@@ -123,6 +123,25 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
+     * 
+     * &gt; **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
+     * 
+     */
+    @Import(name="mutualTlsEnabled")
+    private @Nullable Output<Boolean> mutualTlsEnabled;
+
+    /**
+     * @return Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
+     * 
+     * &gt; **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
+     * 
+     */
+    public Optional<Output<Boolean>> mutualTlsEnabled() {
+        return Optional.ofNullable(this.mutualTlsEnabled);
+    }
+
+    /**
      * The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
      * 
      */
@@ -210,6 +229,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         this.internalLoadBalancerEnabled = $.internalLoadBalancerEnabled;
         this.location = $.location;
         this.logAnalyticsWorkspaceId = $.logAnalyticsWorkspaceId;
+        this.mutualTlsEnabled = $.mutualTlsEnabled;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
         this.tags = $.tags;
@@ -371,6 +391,31 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder logAnalyticsWorkspaceId(String logAnalyticsWorkspaceId) {
             return logAnalyticsWorkspaceId(Output.of(logAnalyticsWorkspaceId));
+        }
+
+        /**
+         * @param mutualTlsEnabled Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
+         * 
+         * &gt; **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mutualTlsEnabled(@Nullable Output<Boolean> mutualTlsEnabled) {
+            $.mutualTlsEnabled = mutualTlsEnabled;
+            return this;
+        }
+
+        /**
+         * @param mutualTlsEnabled Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
+         * 
+         * &gt; **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mutualTlsEnabled(Boolean mutualTlsEnabled) {
+            return mutualTlsEnabled(Output.of(mutualTlsEnabled));
         }
 
         /**

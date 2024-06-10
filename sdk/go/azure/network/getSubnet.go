@@ -65,9 +65,11 @@ type LookupSubnetArgs struct {
 type LookupSubnetResult struct {
 	AddressPrefix string `pulumi:"addressPrefix"`
 	// The address prefixes for the subnet.
-	AddressPrefixes                           []string `pulumi:"addressPrefixes"`
-	EnforcePrivateLinkEndpointNetworkPolicies bool     `pulumi:"enforcePrivateLinkEndpointNetworkPolicies"`
-	EnforcePrivateLinkServiceNetworkPolicies  bool     `pulumi:"enforcePrivateLinkServiceNetworkPolicies"`
+	AddressPrefixes []string `pulumi:"addressPrefixes"`
+	// Is the default outbound access enabled for the subnet.
+	DefaultOutboundAccessEnabled              bool `pulumi:"defaultOutboundAccessEnabled"`
+	EnforcePrivateLinkEndpointNetworkPolicies bool `pulumi:"enforcePrivateLinkEndpointNetworkPolicies"`
+	EnforcePrivateLinkServiceNetworkPolicies  bool `pulumi:"enforcePrivateLinkServiceNetworkPolicies"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
@@ -136,6 +138,11 @@ func (o LookupSubnetResultOutput) AddressPrefix() pulumi.StringOutput {
 // The address prefixes for the subnet.
 func (o LookupSubnetResultOutput) AddressPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSubnetResult) []string { return v.AddressPrefixes }).(pulumi.StringArrayOutput)
+}
+
+// Is the default outbound access enabled for the subnet.
+func (o LookupSubnetResultOutput) DefaultOutboundAccessEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSubnetResult) bool { return v.DefaultOutboundAccessEnabled }).(pulumi.BoolOutput)
 }
 
 func (o LookupSubnetResultOutput) EnforcePrivateLinkEndpointNetworkPolicies() pulumi.BoolOutput {

@@ -2428,6 +2428,170 @@ func (o WorkspaceManagedNetworkPtrOutput) IsolationMode() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+type WorkspaceServerlessCompute struct {
+	// Should serverless compute nodes deployed in a custom Virtual Network have public IP addresses enabled for a workspace with private endpoint? Defaults to `false`.
+	//
+	// > **Note:** `publicIpEnabled` cannot be updated from `true` to `false` when `subnetId` is not set. `publicIpEnabled` must be set to `true` if `subnetId` is not set and when `publicNetworkAccessEnabled` is `false`.
+	PublicIpEnabled *bool `pulumi:"publicIpEnabled"`
+	// The ID of an existing Virtual Network Subnet in which the serverless compute nodes should be deployed to.
+	SubnetId *string `pulumi:"subnetId"`
+}
+
+// WorkspaceServerlessComputeInput is an input type that accepts WorkspaceServerlessComputeArgs and WorkspaceServerlessComputeOutput values.
+// You can construct a concrete instance of `WorkspaceServerlessComputeInput` via:
+//
+//	WorkspaceServerlessComputeArgs{...}
+type WorkspaceServerlessComputeInput interface {
+	pulumi.Input
+
+	ToWorkspaceServerlessComputeOutput() WorkspaceServerlessComputeOutput
+	ToWorkspaceServerlessComputeOutputWithContext(context.Context) WorkspaceServerlessComputeOutput
+}
+
+type WorkspaceServerlessComputeArgs struct {
+	// Should serverless compute nodes deployed in a custom Virtual Network have public IP addresses enabled for a workspace with private endpoint? Defaults to `false`.
+	//
+	// > **Note:** `publicIpEnabled` cannot be updated from `true` to `false` when `subnetId` is not set. `publicIpEnabled` must be set to `true` if `subnetId` is not set and when `publicNetworkAccessEnabled` is `false`.
+	PublicIpEnabled pulumi.BoolPtrInput `pulumi:"publicIpEnabled"`
+	// The ID of an existing Virtual Network Subnet in which the serverless compute nodes should be deployed to.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+}
+
+func (WorkspaceServerlessComputeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceServerlessCompute)(nil)).Elem()
+}
+
+func (i WorkspaceServerlessComputeArgs) ToWorkspaceServerlessComputeOutput() WorkspaceServerlessComputeOutput {
+	return i.ToWorkspaceServerlessComputeOutputWithContext(context.Background())
+}
+
+func (i WorkspaceServerlessComputeArgs) ToWorkspaceServerlessComputeOutputWithContext(ctx context.Context) WorkspaceServerlessComputeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceServerlessComputeOutput)
+}
+
+func (i WorkspaceServerlessComputeArgs) ToWorkspaceServerlessComputePtrOutput() WorkspaceServerlessComputePtrOutput {
+	return i.ToWorkspaceServerlessComputePtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceServerlessComputeArgs) ToWorkspaceServerlessComputePtrOutputWithContext(ctx context.Context) WorkspaceServerlessComputePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceServerlessComputeOutput).ToWorkspaceServerlessComputePtrOutputWithContext(ctx)
+}
+
+// WorkspaceServerlessComputePtrInput is an input type that accepts WorkspaceServerlessComputeArgs, WorkspaceServerlessComputePtr and WorkspaceServerlessComputePtrOutput values.
+// You can construct a concrete instance of `WorkspaceServerlessComputePtrInput` via:
+//
+//	        WorkspaceServerlessComputeArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkspaceServerlessComputePtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceServerlessComputePtrOutput() WorkspaceServerlessComputePtrOutput
+	ToWorkspaceServerlessComputePtrOutputWithContext(context.Context) WorkspaceServerlessComputePtrOutput
+}
+
+type workspaceServerlessComputePtrType WorkspaceServerlessComputeArgs
+
+func WorkspaceServerlessComputePtr(v *WorkspaceServerlessComputeArgs) WorkspaceServerlessComputePtrInput {
+	return (*workspaceServerlessComputePtrType)(v)
+}
+
+func (*workspaceServerlessComputePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceServerlessCompute)(nil)).Elem()
+}
+
+func (i *workspaceServerlessComputePtrType) ToWorkspaceServerlessComputePtrOutput() WorkspaceServerlessComputePtrOutput {
+	return i.ToWorkspaceServerlessComputePtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceServerlessComputePtrType) ToWorkspaceServerlessComputePtrOutputWithContext(ctx context.Context) WorkspaceServerlessComputePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceServerlessComputePtrOutput)
+}
+
+type WorkspaceServerlessComputeOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceServerlessComputeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceServerlessCompute)(nil)).Elem()
+}
+
+func (o WorkspaceServerlessComputeOutput) ToWorkspaceServerlessComputeOutput() WorkspaceServerlessComputeOutput {
+	return o
+}
+
+func (o WorkspaceServerlessComputeOutput) ToWorkspaceServerlessComputeOutputWithContext(ctx context.Context) WorkspaceServerlessComputeOutput {
+	return o
+}
+
+func (o WorkspaceServerlessComputeOutput) ToWorkspaceServerlessComputePtrOutput() WorkspaceServerlessComputePtrOutput {
+	return o.ToWorkspaceServerlessComputePtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceServerlessComputeOutput) ToWorkspaceServerlessComputePtrOutputWithContext(ctx context.Context) WorkspaceServerlessComputePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceServerlessCompute) *WorkspaceServerlessCompute {
+		return &v
+	}).(WorkspaceServerlessComputePtrOutput)
+}
+
+// Should serverless compute nodes deployed in a custom Virtual Network have public IP addresses enabled for a workspace with private endpoint? Defaults to `false`.
+//
+// > **Note:** `publicIpEnabled` cannot be updated from `true` to `false` when `subnetId` is not set. `publicIpEnabled` must be set to `true` if `subnetId` is not set and when `publicNetworkAccessEnabled` is `false`.
+func (o WorkspaceServerlessComputeOutput) PublicIpEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkspaceServerlessCompute) *bool { return v.PublicIpEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The ID of an existing Virtual Network Subnet in which the serverless compute nodes should be deployed to.
+func (o WorkspaceServerlessComputeOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceServerlessCompute) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+type WorkspaceServerlessComputePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceServerlessComputePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceServerlessCompute)(nil)).Elem()
+}
+
+func (o WorkspaceServerlessComputePtrOutput) ToWorkspaceServerlessComputePtrOutput() WorkspaceServerlessComputePtrOutput {
+	return o
+}
+
+func (o WorkspaceServerlessComputePtrOutput) ToWorkspaceServerlessComputePtrOutputWithContext(ctx context.Context) WorkspaceServerlessComputePtrOutput {
+	return o
+}
+
+func (o WorkspaceServerlessComputePtrOutput) Elem() WorkspaceServerlessComputeOutput {
+	return o.ApplyT(func(v *WorkspaceServerlessCompute) WorkspaceServerlessCompute {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceServerlessCompute
+		return ret
+	}).(WorkspaceServerlessComputeOutput)
+}
+
+// Should serverless compute nodes deployed in a custom Virtual Network have public IP addresses enabled for a workspace with private endpoint? Defaults to `false`.
+//
+// > **Note:** `publicIpEnabled` cannot be updated from `true` to `false` when `subnetId` is not set. `publicIpEnabled` must be set to `true` if `subnetId` is not set and when `publicNetworkAccessEnabled` is `false`.
+func (o WorkspaceServerlessComputePtrOutput) PublicIpEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkspaceServerlessCompute) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PublicIpEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The ID of an existing Virtual Network Subnet in which the serverless compute nodes should be deployed to.
+func (o WorkspaceServerlessComputePtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceServerlessCompute) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetWorkspaceIdentity struct {
 	// A list of User Assigned Identity IDs assigned to this Machine Learning Workspace.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -2579,6 +2743,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceIdentityPtrInput)(nil)).Elem(), WorkspaceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceManagedNetworkInput)(nil)).Elem(), WorkspaceManagedNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceManagedNetworkPtrInput)(nil)).Elem(), WorkspaceManagedNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceServerlessComputeInput)(nil)).Elem(), WorkspaceServerlessComputeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceServerlessComputePtrInput)(nil)).Elem(), WorkspaceServerlessComputeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspaceIdentityInput)(nil)).Elem(), GetWorkspaceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspaceIdentityArrayInput)(nil)).Elem(), GetWorkspaceIdentityArray{})
 	pulumi.RegisterOutputType(ComputeClusterIdentityOutput{})
@@ -2607,6 +2773,8 @@ func init() {
 	pulumi.RegisterOutputType(WorkspaceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceManagedNetworkOutput{})
 	pulumi.RegisterOutputType(WorkspaceManagedNetworkPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceServerlessComputeOutput{})
+	pulumi.RegisterOutputType(WorkspaceServerlessComputePtrOutput{})
 	pulumi.RegisterOutputType(GetWorkspaceIdentityOutput{})
 	pulumi.RegisterOutputType(GetWorkspaceIdentityArrayOutput{})
 }

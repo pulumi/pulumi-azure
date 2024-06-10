@@ -16,14 +16,14 @@ public final class LinuxVirtualMachineAdditionalCapabilitiesArgs extends com.pul
     public static final LinuxVirtualMachineAdditionalCapabilitiesArgs Empty = new LinuxVirtualMachineAdditionalCapabilitiesArgs();
 
     /**
-     * Whether to enable the hibernation capability or not. Changing this forces a new Linux Virtual Machine to be created.
+     * Whether to enable the hibernation capability or not.
      * 
      */
     @Import(name="hibernationEnabled")
     private @Nullable Output<Boolean> hibernationEnabled;
 
     /**
-     * @return Whether to enable the hibernation capability or not. Changing this forces a new Linux Virtual Machine to be created.
+     * @return Whether to enable the hibernation capability or not.
      * 
      */
     public Optional<Output<Boolean>> hibernationEnabled() {
@@ -71,7 +71,7 @@ public final class LinuxVirtualMachineAdditionalCapabilitiesArgs extends com.pul
         }
 
         /**
-         * @param hibernationEnabled Whether to enable the hibernation capability or not. Changing this forces a new Linux Virtual Machine to be created.
+         * @param hibernationEnabled Whether to enable the hibernation capability or not.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class LinuxVirtualMachineAdditionalCapabilitiesArgs extends com.pul
         }
 
         /**
-         * @param hibernationEnabled Whether to enable the hibernation capability or not. Changing this forces a new Linux Virtual Machine to be created.
+         * @param hibernationEnabled Whether to enable the hibernation capability or not.
          * 
          * @return builder
          * 

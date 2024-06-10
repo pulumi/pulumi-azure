@@ -49,6 +49,54 @@ import (
 //					LastName:    pulumi.String("User"),
 //					PhoneNumber: pulumi.String("+12313803556"),
 //				},
+//				Identity: &newrelic.MonitorIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Role Assignment
+//
+// To enable metrics flow, perform role assignment on the identity created above. `Monitoring reader(43d0d8ad-25c7-4714-9337-8ba259a9fe05)` role is required .
+//
+// ### Role assignment on the monitor created
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			primary, err := core.LookupSubscription(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			monitoringReader, err := authorization.LookupRoleDefinition(ctx, &authorization.LookupRoleDefinitionArgs{
+//				Name: pulumi.StringRef("Monitoring Reader"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
+//				Scope:            pulumi.String(primary.Id),
+//				RoleDefinitionId: pulumi.String(fmt.Sprintf("%v%v", primary.Id, monitoringReader.Id)),
+//				PrincipalId:      pulumi.Any(exampleAzurermNewRelicMonitor.Identity[0].PrincipalId),
 //			})
 //			if err != nil {
 //				return err
@@ -75,6 +123,8 @@ type Monitor struct {
 	//
 	// > **NOTE:** The value of `accountId` must come from an Azure Native New Relic Monitor instance of another different subscription.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
+	// An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+	Identity MonitorIdentityPtrOutput `pulumi:"identity"`
 	// Specifies the ingestion key of account. Changing this forces a new Azure Native New Relic Monitor to be created.
 	IngestionKey pulumi.StringPtrOutput `pulumi:"ingestionKey"`
 	// Specifies the Azure Region where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created.
@@ -149,6 +199,8 @@ type monitorState struct {
 	//
 	// > **NOTE:** The value of `accountId` must come from an Azure Native New Relic Monitor instance of another different subscription.
 	AccountId *string `pulumi:"accountId"`
+	// An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+	Identity *MonitorIdentity `pulumi:"identity"`
 	// Specifies the ingestion key of account. Changing this forces a new Azure Native New Relic Monitor to be created.
 	IngestionKey *string `pulumi:"ingestionKey"`
 	// Specifies the Azure Region where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created.
@@ -178,6 +230,8 @@ type MonitorState struct {
 	//
 	// > **NOTE:** The value of `accountId` must come from an Azure Native New Relic Monitor instance of another different subscription.
 	AccountId pulumi.StringPtrInput
+	// An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+	Identity MonitorIdentityPtrInput
 	// Specifies the ingestion key of account. Changing this forces a new Azure Native New Relic Monitor to be created.
 	IngestionKey pulumi.StringPtrInput
 	// Specifies the Azure Region where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created.
@@ -211,6 +265,8 @@ type monitorArgs struct {
 	//
 	// > **NOTE:** The value of `accountId` must come from an Azure Native New Relic Monitor instance of another different subscription.
 	AccountId *string `pulumi:"accountId"`
+	// An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+	Identity *MonitorIdentity `pulumi:"identity"`
 	// Specifies the ingestion key of account. Changing this forces a new Azure Native New Relic Monitor to be created.
 	IngestionKey *string `pulumi:"ingestionKey"`
 	// Specifies the Azure Region where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created.
@@ -241,6 +297,8 @@ type MonitorArgs struct {
 	//
 	// > **NOTE:** The value of `accountId` must come from an Azure Native New Relic Monitor instance of another different subscription.
 	AccountId pulumi.StringPtrInput
+	// An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+	Identity MonitorIdentityPtrInput
 	// Specifies the ingestion key of account. Changing this forces a new Azure Native New Relic Monitor to be created.
 	IngestionKey pulumi.StringPtrInput
 	// Specifies the Azure Region where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created.
@@ -360,6 +418,11 @@ func (o MonitorOutput) AccountCreationSource() pulumi.StringPtrOutput {
 // > **NOTE:** The value of `accountId` must come from an Azure Native New Relic Monitor instance of another different subscription.
 func (o MonitorOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+func (o MonitorOutput) Identity() MonitorIdentityPtrOutput {
+	return o.ApplyT(func(v *Monitor) MonitorIdentityPtrOutput { return v.Identity }).(MonitorIdentityPtrOutput)
 }
 
 // Specifies the ingestion key of account. Changing this forces a new Azure Native New Relic Monitor to be created.

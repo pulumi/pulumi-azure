@@ -14,7 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ConfigurationConfigFile struct {
-	Content     string `pulumi:"content"`
+	// Specifies the base-64 encoded contents of this config file.
+	Content string `pulumi:"content"`
+	// Specifies the path of this config file.
 	VirtualPath string `pulumi:"virtualPath"`
 }
 
@@ -30,7 +32,9 @@ type ConfigurationConfigFileInput interface {
 }
 
 type ConfigurationConfigFileArgs struct {
-	Content     pulumi.StringInput `pulumi:"content"`
+	// Specifies the base-64 encoded contents of this config file.
+	Content pulumi.StringInput `pulumi:"content"`
+	// Specifies the path of this config file.
 	VirtualPath pulumi.StringInput `pulumi:"virtualPath"`
 }
 
@@ -85,10 +89,12 @@ func (o ConfigurationConfigFileOutput) ToConfigurationConfigFileOutputWithContex
 	return o
 }
 
+// Specifies the base-64 encoded contents of this config file.
 func (o ConfigurationConfigFileOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationConfigFile) string { return v.Content }).(pulumi.StringOutput)
 }
 
+// Specifies the path of this config file.
 func (o ConfigurationConfigFileOutput) VirtualPath() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationConfigFile) string { return v.VirtualPath }).(pulumi.StringOutput)
 }
@@ -114,7 +120,9 @@ func (o ConfigurationConfigFileArrayOutput) Index(i pulumi.IntInput) Configurati
 }
 
 type ConfigurationProtectedFile struct {
-	Content     string `pulumi:"content"`
+	// Specifies the base-64 encoded contents of this config file (Sensitive).
+	Content string `pulumi:"content"`
+	// Specifies the path of this config file.
 	VirtualPath string `pulumi:"virtualPath"`
 }
 
@@ -130,7 +138,9 @@ type ConfigurationProtectedFileInput interface {
 }
 
 type ConfigurationProtectedFileArgs struct {
-	Content     pulumi.StringInput `pulumi:"content"`
+	// Specifies the base-64 encoded contents of this config file (Sensitive).
+	Content pulumi.StringInput `pulumi:"content"`
+	// Specifies the path of this config file.
 	VirtualPath pulumi.StringInput `pulumi:"virtualPath"`
 }
 
@@ -185,10 +195,12 @@ func (o ConfigurationProtectedFileOutput) ToConfigurationProtectedFileOutputWith
 	return o
 }
 
+// Specifies the base-64 encoded contents of this config file (Sensitive).
 func (o ConfigurationProtectedFileOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationProtectedFile) string { return v.Content }).(pulumi.StringOutput)
 }
 
+// Specifies the path of this config file.
 func (o ConfigurationProtectedFileOutput) VirtualPath() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationProtectedFile) string { return v.VirtualPath }).(pulumi.StringOutput)
 }
@@ -326,14 +338,10 @@ func (o DeploymentAutoScaleProfileArrayOutput) Index(i pulumi.IntInput) Deployme
 }
 
 type DeploymentConfiguration struct {
-	// One or more `configFile` blocks as defined below.
-	ConfigFiles []DeploymentConfigurationConfigFile `pulumi:"configFiles"`
-	// Specify the package data for this configuration.
-	PackageData *string `pulumi:"packageData"`
-	// One or more `protectedFile` blocks with sensitive information as defined below. If specified `configFile` must also be specified.
+	ConfigFiles    []DeploymentConfigurationConfigFile    `pulumi:"configFiles"`
+	PackageData    *string                                `pulumi:"packageData"`
 	ProtectedFiles []DeploymentConfigurationProtectedFile `pulumi:"protectedFiles"`
-	// Specify the root file path of this Nginx Configuration.
-	RootFile string `pulumi:"rootFile"`
+	RootFile       string                                 `pulumi:"rootFile"`
 }
 
 // DeploymentConfigurationInput is an input type that accepts DeploymentConfigurationArgs and DeploymentConfigurationOutput values.
@@ -348,14 +356,10 @@ type DeploymentConfigurationInput interface {
 }
 
 type DeploymentConfigurationArgs struct {
-	// One or more `configFile` blocks as defined below.
-	ConfigFiles DeploymentConfigurationConfigFileArrayInput `pulumi:"configFiles"`
-	// Specify the package data for this configuration.
-	PackageData pulumi.StringPtrInput `pulumi:"packageData"`
-	// One or more `protectedFile` blocks with sensitive information as defined below. If specified `configFile` must also be specified.
+	ConfigFiles    DeploymentConfigurationConfigFileArrayInput    `pulumi:"configFiles"`
+	PackageData    pulumi.StringPtrInput                          `pulumi:"packageData"`
 	ProtectedFiles DeploymentConfigurationProtectedFileArrayInput `pulumi:"protectedFiles"`
-	// Specify the root file path of this Nginx Configuration.
-	RootFile pulumi.StringInput `pulumi:"rootFile"`
+	RootFile       pulumi.StringInput                             `pulumi:"rootFile"`
 }
 
 func (DeploymentConfigurationArgs) ElementType() reflect.Type {
@@ -435,22 +439,18 @@ func (o DeploymentConfigurationOutput) ToDeploymentConfigurationPtrOutputWithCon
 	}).(DeploymentConfigurationPtrOutput)
 }
 
-// One or more `configFile` blocks as defined below.
 func (o DeploymentConfigurationOutput) ConfigFiles() DeploymentConfigurationConfigFileArrayOutput {
 	return o.ApplyT(func(v DeploymentConfiguration) []DeploymentConfigurationConfigFile { return v.ConfigFiles }).(DeploymentConfigurationConfigFileArrayOutput)
 }
 
-// Specify the package data for this configuration.
 func (o DeploymentConfigurationOutput) PackageData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentConfiguration) *string { return v.PackageData }).(pulumi.StringPtrOutput)
 }
 
-// One or more `protectedFile` blocks with sensitive information as defined below. If specified `configFile` must also be specified.
 func (o DeploymentConfigurationOutput) ProtectedFiles() DeploymentConfigurationProtectedFileArrayOutput {
 	return o.ApplyT(func(v DeploymentConfiguration) []DeploymentConfigurationProtectedFile { return v.ProtectedFiles }).(DeploymentConfigurationProtectedFileArrayOutput)
 }
 
-// Specify the root file path of this Nginx Configuration.
 func (o DeploymentConfigurationOutput) RootFile() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentConfiguration) string { return v.RootFile }).(pulumi.StringOutput)
 }
@@ -479,7 +479,6 @@ func (o DeploymentConfigurationPtrOutput) Elem() DeploymentConfigurationOutput {
 	}).(DeploymentConfigurationOutput)
 }
 
-// One or more `configFile` blocks as defined below.
 func (o DeploymentConfigurationPtrOutput) ConfigFiles() DeploymentConfigurationConfigFileArrayOutput {
 	return o.ApplyT(func(v *DeploymentConfiguration) []DeploymentConfigurationConfigFile {
 		if v == nil {
@@ -489,7 +488,6 @@ func (o DeploymentConfigurationPtrOutput) ConfigFiles() DeploymentConfigurationC
 	}).(DeploymentConfigurationConfigFileArrayOutput)
 }
 
-// Specify the package data for this configuration.
 func (o DeploymentConfigurationPtrOutput) PackageData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentConfiguration) *string {
 		if v == nil {
@@ -499,7 +497,6 @@ func (o DeploymentConfigurationPtrOutput) PackageData() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// One or more `protectedFile` blocks with sensitive information as defined below. If specified `configFile` must also be specified.
 func (o DeploymentConfigurationPtrOutput) ProtectedFiles() DeploymentConfigurationProtectedFileArrayOutput {
 	return o.ApplyT(func(v *DeploymentConfiguration) []DeploymentConfigurationProtectedFile {
 		if v == nil {
@@ -509,7 +506,6 @@ func (o DeploymentConfigurationPtrOutput) ProtectedFiles() DeploymentConfigurati
 	}).(DeploymentConfigurationProtectedFileArrayOutput)
 }
 
-// Specify the root file path of this Nginx Configuration.
 func (o DeploymentConfigurationPtrOutput) RootFile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentConfiguration) *string {
 		if v == nil {
@@ -520,9 +516,7 @@ func (o DeploymentConfigurationPtrOutput) RootFile() pulumi.StringPtrOutput {
 }
 
 type DeploymentConfigurationConfigFile struct {
-	// Specifies the base-64 encoded contents of this config file.
-	Content string `pulumi:"content"`
-	// Specify the path of this config file.
+	Content     string `pulumi:"content"`
 	VirtualPath string `pulumi:"virtualPath"`
 }
 
@@ -538,9 +532,7 @@ type DeploymentConfigurationConfigFileInput interface {
 }
 
 type DeploymentConfigurationConfigFileArgs struct {
-	// Specifies the base-64 encoded contents of this config file.
-	Content pulumi.StringInput `pulumi:"content"`
-	// Specify the path of this config file.
+	Content     pulumi.StringInput `pulumi:"content"`
 	VirtualPath pulumi.StringInput `pulumi:"virtualPath"`
 }
 
@@ -595,12 +587,10 @@ func (o DeploymentConfigurationConfigFileOutput) ToDeploymentConfigurationConfig
 	return o
 }
 
-// Specifies the base-64 encoded contents of this config file.
 func (o DeploymentConfigurationConfigFileOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentConfigurationConfigFile) string { return v.Content }).(pulumi.StringOutput)
 }
 
-// Specify the path of this config file.
 func (o DeploymentConfigurationConfigFileOutput) VirtualPath() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentConfigurationConfigFile) string { return v.VirtualPath }).(pulumi.StringOutput)
 }
@@ -626,9 +616,7 @@ func (o DeploymentConfigurationConfigFileArrayOutput) Index(i pulumi.IntInput) D
 }
 
 type DeploymentConfigurationProtectedFile struct {
-	// Specifies the base-64 encoded contents of this config file (Sensitive).
-	Content string `pulumi:"content"`
-	// Specify the path of this config file.
+	Content     string `pulumi:"content"`
 	VirtualPath string `pulumi:"virtualPath"`
 }
 
@@ -644,9 +632,7 @@ type DeploymentConfigurationProtectedFileInput interface {
 }
 
 type DeploymentConfigurationProtectedFileArgs struct {
-	// Specifies the base-64 encoded contents of this config file (Sensitive).
-	Content pulumi.StringInput `pulumi:"content"`
-	// Specify the path of this config file.
+	Content     pulumi.StringInput `pulumi:"content"`
 	VirtualPath pulumi.StringInput `pulumi:"virtualPath"`
 }
 
@@ -701,12 +687,10 @@ func (o DeploymentConfigurationProtectedFileOutput) ToDeploymentConfigurationPro
 	return o
 }
 
-// Specifies the base-64 encoded contents of this config file (Sensitive).
 func (o DeploymentConfigurationProtectedFileOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentConfigurationProtectedFile) string { return v.Content }).(pulumi.StringOutput)
 }
 
-// Specify the path of this config file.
 func (o DeploymentConfigurationProtectedFileOutput) VirtualPath() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentConfigurationProtectedFile) string { return v.VirtualPath }).(pulumi.StringOutput)
 }
@@ -990,7 +974,7 @@ type DeploymentIdentity struct {
 	IdentityIds []string `pulumi:"identityIds"`
 	PrincipalId *string  `pulumi:"principalId"`
 	TenantId    *string  `pulumi:"tenantId"`
-	// Specifies the identity type of the NGINX Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
+	// Specifies the identity type of the NGINX Deployment. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -1012,7 +996,7 @@ type DeploymentIdentityArgs struct {
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
 	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
-	// Specifies the identity type of the NGINX Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
+	// Specifies the identity type of the NGINX Deployment. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1108,7 +1092,7 @@ func (o DeploymentIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of the NGINX Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
+// Specifies the identity type of the NGINX Deployment. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o DeploymentIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1167,7 +1151,7 @@ func (o DeploymentIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of the NGINX Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
+// Specifies the identity type of the NGINX Deployment. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o DeploymentIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentIdentity) *string {
 		if v == nil {
@@ -1381,7 +1365,9 @@ func (o DeploymentNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) Deployme
 }
 
 type GetConfigurationConfigFile struct {
-	Content     string `pulumi:"content"`
+	// The base-64 encoded contents of this configuration file.
+	Content string `pulumi:"content"`
+	// The path of this configuration file.
 	VirtualPath string `pulumi:"virtualPath"`
 }
 
@@ -1397,7 +1383,9 @@ type GetConfigurationConfigFileInput interface {
 }
 
 type GetConfigurationConfigFileArgs struct {
-	Content     pulumi.StringInput `pulumi:"content"`
+	// The base-64 encoded contents of this configuration file.
+	Content pulumi.StringInput `pulumi:"content"`
+	// The path of this configuration file.
 	VirtualPath pulumi.StringInput `pulumi:"virtualPath"`
 }
 
@@ -1452,10 +1440,12 @@ func (o GetConfigurationConfigFileOutput) ToGetConfigurationConfigFileOutputWith
 	return o
 }
 
+// The base-64 encoded contents of this configuration file.
 func (o GetConfigurationConfigFileOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConfigurationConfigFile) string { return v.Content }).(pulumi.StringOutput)
 }
 
+// The path of this configuration file.
 func (o GetConfigurationConfigFileOutput) VirtualPath() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConfigurationConfigFile) string { return v.VirtualPath }).(pulumi.StringOutput)
 }
@@ -1481,7 +1471,9 @@ func (o GetConfigurationConfigFileArrayOutput) Index(i pulumi.IntInput) GetConfi
 }
 
 type GetConfigurationProtectedFile struct {
-	Content     string `pulumi:"content"`
+	// The base-64 encoded contents of this configuration file.
+	Content string `pulumi:"content"`
+	// The path of this configuration file.
 	VirtualPath string `pulumi:"virtualPath"`
 }
 
@@ -1497,7 +1489,9 @@ type GetConfigurationProtectedFileInput interface {
 }
 
 type GetConfigurationProtectedFileArgs struct {
-	Content     pulumi.StringInput `pulumi:"content"`
+	// The base-64 encoded contents of this configuration file.
+	Content pulumi.StringInput `pulumi:"content"`
+	// The path of this configuration file.
 	VirtualPath pulumi.StringInput `pulumi:"virtualPath"`
 }
 
@@ -1552,10 +1546,12 @@ func (o GetConfigurationProtectedFileOutput) ToGetConfigurationProtectedFileOutp
 	return o
 }
 
+// The base-64 encoded contents of this configuration file.
 func (o GetConfigurationProtectedFileOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConfigurationProtectedFile) string { return v.Content }).(pulumi.StringOutput)
 }
 
+// The path of this configuration file.
 func (o GetConfigurationProtectedFileOutput) VirtualPath() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConfigurationProtectedFile) string { return v.VirtualPath }).(pulumi.StringOutput)
 }

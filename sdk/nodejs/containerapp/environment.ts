@@ -113,6 +113,12 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly logAnalyticsWorkspaceId!: pulumi.Output<string | undefined>;
     /**
+     * Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
+     *
+     * > **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
+     */
+    public readonly mutualTlsEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -169,6 +175,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["internalLoadBalancerEnabled"] = state ? state.internalLoadBalancerEnabled : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
+            resourceInputs["mutualTlsEnabled"] = state ? state.mutualTlsEnabled : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["platformReservedCidr"] = state ? state.platformReservedCidr : undefined;
             resourceInputs["platformReservedDnsIpAddress"] = state ? state.platformReservedDnsIpAddress : undefined;
@@ -188,6 +195,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["internalLoadBalancerEnabled"] = args ? args.internalLoadBalancerEnabled : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
+            resourceInputs["mutualTlsEnabled"] = args ? args.mutualTlsEnabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -253,6 +261,12 @@ export interface EnvironmentState {
      * The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
      */
     logAnalyticsWorkspaceId?: pulumi.Input<string>;
+    /**
+     * Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
+     *
+     * > **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
+     */
+    mutualTlsEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
      */
@@ -323,6 +337,12 @@ export interface EnvironmentArgs {
      * The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
      */
     logAnalyticsWorkspaceId?: pulumi.Input<string>;
+    /**
+     * Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
+     *
+     * > **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
+     */
+    mutualTlsEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
      */

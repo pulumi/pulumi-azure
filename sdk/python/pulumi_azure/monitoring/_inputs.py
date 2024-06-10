@@ -6885,7 +6885,7 @@ class DataCollectionRuleStreamDeclarationArgs:
                  stream_name: pulumi.Input[str]):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleStreamDeclarationColumnArgs']]] columns: One or more `column` blocks as defined above.
-        :param pulumi.Input[str] stream_name: The name of the custom stream. This name should be unique across all `stream_declaration` blocks.
+        :param pulumi.Input[str] stream_name: The name of the custom stream. This name should be unique across all `stream_declaration` blocks and must begin with a prefix of `Custom-`.
         """
         pulumi.set(__self__, "columns", columns)
         pulumi.set(__self__, "stream_name", stream_name)
@@ -6906,7 +6906,7 @@ class DataCollectionRuleStreamDeclarationArgs:
     @pulumi.getter(name="streamName")
     def stream_name(self) -> pulumi.Input[str]:
         """
-        The name of the custom stream. This name should be unique across all `stream_declaration` blocks.
+        The name of the custom stream. This name should be unique across all `stream_declaration` blocks and must begin with a prefix of `Custom-`.
         """
         return pulumi.get(self, "stream_name")
 

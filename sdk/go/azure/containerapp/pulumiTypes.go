@@ -5970,9 +5970,9 @@ type JobSecret struct {
 	Identity *string `pulumi:"identity"`
 	// The Key Vault Secret ID. Could be either one of `id` or `versionlessId`.
 	KeyVaultSecretId *string `pulumi:"keyVaultSecretId"`
-	// Name of the secret.
+	// Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
-	// Value of the secret.
+	// The value for this secret.
 	Value *string `pulumi:"value"`
 }
 
@@ -5992,9 +5992,9 @@ type JobSecretArgs struct {
 	Identity pulumi.StringPtrInput `pulumi:"identity"`
 	// The Key Vault Secret ID. Could be either one of `id` or `versionlessId`.
 	KeyVaultSecretId pulumi.StringPtrInput `pulumi:"keyVaultSecretId"`
-	// Name of the secret.
+	// Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Value of the secret.
+	// The value for this secret.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -6059,12 +6059,12 @@ func (o JobSecretOutput) KeyVaultSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobSecret) *string { return v.KeyVaultSecretId }).(pulumi.StringPtrOutput)
 }
 
-// Name of the secret.
+// Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
 func (o JobSecretOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v JobSecret) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Value of the secret.
+// The value for this secret.
 func (o JobSecretOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobSecret) *string { return v.Value }).(pulumi.StringPtrOutput)
 }

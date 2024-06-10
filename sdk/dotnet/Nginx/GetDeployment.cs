@@ -128,7 +128,7 @@ namespace Pulumi.Azure.Nginx
         /// </summary>
         public readonly int Capacity;
         /// <summary>
-        /// Whether diagnostic settings are enabled.
+        /// Whether metrics are exported to Azure Monitor.
         /// </summary>
         public readonly bool DiagnoseSupportEnabled;
         /// <summary>

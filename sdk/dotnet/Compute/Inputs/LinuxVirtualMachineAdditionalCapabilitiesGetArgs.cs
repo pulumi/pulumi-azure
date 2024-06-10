@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class LinuxVirtualMachineAdditionalCapabilitiesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to enable the hibernation capability or not. Changing this forces a new Linux Virtual Machine to be created.
+        /// Whether to enable the hibernation capability or not.
         /// </summary>
         [Input("hibernationEnabled")]
         public Input<bool>? HibernationEnabled { get; set; }

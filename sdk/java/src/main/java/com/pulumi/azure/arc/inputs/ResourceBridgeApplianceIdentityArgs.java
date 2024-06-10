@@ -16,16 +16,32 @@ public final class ResourceBridgeApplianceIdentityArgs extends com.pulumi.resour
 
     public static final ResourceBridgeApplianceIdentityArgs Empty = new ResourceBridgeApplianceIdentityArgs();
 
+    /**
+     * The Principal ID associated with this Managed Service Identity.
+     * 
+     */
     @Import(name="principalId")
     private @Nullable Output<String> principalId;
 
+    /**
+     * @return The Principal ID associated with this Managed Service Identity.
+     * 
+     */
     public Optional<Output<String>> principalId() {
         return Optional.ofNullable(this.principalId);
     }
 
+    /**
+     * The Tenant ID associated with this Managed Service Identity.
+     * 
+     */
     @Import(name="tenantId")
     private @Nullable Output<String> tenantId;
 
+    /**
+     * @return The Tenant ID associated with this Managed Service Identity.
+     * 
+     */
     public Optional<Output<String>> tenantId() {
         return Optional.ofNullable(this.tenantId);
     }
@@ -71,20 +87,44 @@ public final class ResourceBridgeApplianceIdentityArgs extends com.pulumi.resour
             $ = new ResourceBridgeApplianceIdentityArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param principalId The Principal ID associated with this Managed Service Identity.
+         * 
+         * @return builder
+         * 
+         */
         public Builder principalId(@Nullable Output<String> principalId) {
             $.principalId = principalId;
             return this;
         }
 
+        /**
+         * @param principalId The Principal ID associated with this Managed Service Identity.
+         * 
+         * @return builder
+         * 
+         */
         public Builder principalId(String principalId) {
             return principalId(Output.of(principalId));
         }
 
+        /**
+         * @param tenantId The Tenant ID associated with this Managed Service Identity.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tenantId(@Nullable Output<String> tenantId) {
             $.tenantId = tenantId;
             return this;
         }
 
+        /**
+         * @param tenantId The Tenant ID associated with this Managed Service Identity.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tenantId(String tenantId) {
             return tenantId(Output.of(tenantId));
         }

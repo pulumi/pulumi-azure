@@ -52,7 +52,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.nginx.DeploymentArgs;
  * import com.pulumi.azure.nginx.inputs.DeploymentFrontendPublicArgs;
  * import com.pulumi.azure.nginx.inputs.DeploymentNetworkInterfaceArgs;
- * import com.pulumi.azure.nginx.inputs.DeploymentConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -101,40 +100,6 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         final var configContent = StdFunctions.base64encode(Base64encodeArgs.builder()
- *             .input("""
- * http {
- *     server {
- *         listen 80;
- *         location / {
- *             auth_basic "Protected Area";
- *             auth_basic_user_file /opt/.htpasswd;
- *             default_type text/html;
- *         }
- *         include site/*.conf;
- *     }
- * }
- *             """)
- *             .build()).result();
- * 
- *         final var protectedContent = StdFunctions.base64encode(Base64encodeArgs.builder()
- *             .input("""
- * user:$apr1$VeUA5kt.$IjjRk//8miRxDsZvD4daF1
- *             """)
- *             .build()).result();
- * 
- *         final var subConfigContent = StdFunctions.base64encode(Base64encodeArgs.builder()
- *             .input("""
- * location /bbb {
- * 	default_type text/html;
- * 	return 200 '<!doctype html><html lang="en"><head></head><body>
- * 		<div>this one will be updated</div>
- * 		<div>at 10:38 am</div>
- * 	</body></html>';
- * }
- *             """)
- *             .build()).result();
- * 
  *         var exampleDeployment = new Deployment("exampleDeployment", DeploymentArgs.builder()
  *             .name("example-nginx")
  *             .resourceGroupName(example.name())
@@ -151,22 +116,6 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .capacity(20)
  *             .email("user{@literal @}test.com")
- *             .configuration(DeploymentConfigurationArgs.builder()
- *                 .rootFile("/etc/nginx/nginx.conf")
- *                 .configFiles(                
- *                     DeploymentConfigurationConfigFileArgs.builder()
- *                         .content(configContent)
- *                         .virtualPath("/etc/nginx/nginx.conf")
- *                         .build(),
- *                     DeploymentConfigurationConfigFileArgs.builder()
- *                         .content(subConfigContent)
- *                         .virtualPath("/etc/nginx/site/b.conf")
- *                         .build())
- *                 .protectedFiles(DeploymentConfigurationProtectedFileArgs.builder()
- *                     .content(protectedContent)
- *                     .virtualPath("/opt/.htpasswd")
- *                     .build())
- *                 .build())
  *             .build());
  * 
  *     }
@@ -233,28 +182,26 @@ public class Deployment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.capacity);
     }
     /**
-     * Specify a custom `configuration` block as defined below.
+     * @deprecated
+     * The `configuration` block has been superseded by the `azure.nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* The `configuration` block has been superseded by the `azure.nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider. */
     @Export(name="configuration", refs={DeploymentConfiguration.class}, tree="[0]")
     private Output<DeploymentConfiguration> configuration;
 
-    /**
-     * @return Specify a custom `configuration` block as defined below.
-     * 
-     */
     public Output<DeploymentConfiguration> configuration() {
         return this.configuration;
     }
     /**
-     * Should the diagnosis support be enabled?
+     * Should the metrics be exported to Azure Monitor?
      * 
      */
     @Export(name="diagnoseSupportEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> diagnoseSupportEnabled;
 
     /**
-     * @return Should the diagnosis support be enabled?
+     * @return Should the metrics be exported to Azure Monitor?
      * 
      */
     public Output<Optional<Boolean>> diagnoseSupportEnabled() {
@@ -428,17 +375,9 @@ public class Deployment extends com.pulumi.resources.CustomResource {
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
-    /**
-     * Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
-     * 
-     */
     @Export(name="sku", refs={String.class}, tree="[0]")
     private Output<String> sku;
 
-    /**
-     * @return Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
-     * 
-     */
     public Output<String> sku() {
         return this.sku;
     }

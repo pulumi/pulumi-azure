@@ -146,18 +146,37 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `registries` block as defined below.
+     * @deprecated
+     * `registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* `registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider. */
     @Import(name="registries")
     private @Nullable Output<List<JobRegistryArgs>> registries;
 
     /**
-     * @return A `registries` block as defined below.
+     * @deprecated
+     * `registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* `registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider. */
     public Optional<Output<List<JobRegistryArgs>>> registries() {
         return Optional.ofNullable(this.registries);
+    }
+
+    /**
+     * One or more `registry` blocks as defined below.
+     * 
+     */
+    @Import(name="registry")
+    private @Nullable Output<List<JobRegistryArgs>> registry;
+
+    /**
+     * @return One or more `registry` blocks as defined below.
+     * 
+     */
+    public Optional<Output<List<JobRegistryArgs>>> registry() {
+        return Optional.ofNullable(this.registry);
     }
 
     /**
@@ -225,16 +244,35 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `secrets` block as defined below.
+     * One or more `secret` blocks as defined below.
      * 
      */
+    @Import(name="secret")
+    private @Nullable Output<List<JobSecretArgs>> secret;
+
+    /**
+     * @return One or more `secret` blocks as defined below.
+     * 
+     */
+    public Optional<Output<List<JobSecretArgs>>> secret() {
+        return Optional.ofNullable(this.secret);
+    }
+
+    /**
+     * @deprecated
+     * `secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* `secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider. */
     @Import(name="secrets")
     private @Nullable Output<List<JobSecretArgs>> secrets;
 
     /**
-     * @return A `secrets` block as defined below.
+     * @deprecated
+     * `secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* `secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider. */
     public Optional<Output<List<JobSecretArgs>>> secrets() {
         return Optional.ofNullable(this.secrets);
     }
@@ -296,10 +334,12 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.outboundIpAddresses = $.outboundIpAddresses;
         this.registries = $.registries;
+        this.registry = $.registry;
         this.replicaRetryLimit = $.replicaRetryLimit;
         this.replicaTimeoutInSeconds = $.replicaTimeoutInSeconds;
         this.resourceGroupName = $.resourceGroupName;
         this.scheduleTriggerConfig = $.scheduleTriggerConfig;
+        this.secret = $.secret;
         this.secrets = $.secrets;
         this.tags = $.tags;
         this.template = $.template;
@@ -503,34 +543,71 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param registries A `registries` block as defined below.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* `registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider. */
         public Builder registries(@Nullable Output<List<JobRegistryArgs>> registries) {
             $.registries = registries;
             return this;
         }
 
         /**
-         * @param registries A `registries` block as defined below.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* `registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider. */
         public Builder registries(List<JobRegistryArgs> registries) {
             return registries(Output.of(registries));
         }
 
         /**
-         * @param registries A `registries` block as defined below.
+         * @return builder
+         * 
+         * @deprecated
+         * `registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider.
+         * 
+         */
+        @Deprecated /* `registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider. */
+        public Builder registries(JobRegistryArgs... registries) {
+            return registries(List.of(registries));
+        }
+
+        /**
+         * @param registry One or more `registry` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder registries(JobRegistryArgs... registries) {
-            return registries(List.of(registries));
+        public Builder registry(@Nullable Output<List<JobRegistryArgs>> registry) {
+            $.registry = registry;
+            return this;
+        }
+
+        /**
+         * @param registry One or more `registry` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder registry(List<JobRegistryArgs> registry) {
+            return registry(Output.of(registry));
+        }
+
+        /**
+         * @param registry One or more `registry` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder registry(JobRegistryArgs... registry) {
+            return registry(List.of(registry));
         }
 
         /**
@@ -622,32 +699,69 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secrets A `secrets` block as defined below.
+         * @param secret One or more `secret` blocks as defined below.
          * 
          * @return builder
          * 
          */
+        public Builder secret(@Nullable Output<List<JobSecretArgs>> secret) {
+            $.secret = secret;
+            return this;
+        }
+
+        /**
+         * @param secret One or more `secret` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secret(List<JobSecretArgs> secret) {
+            return secret(Output.of(secret));
+        }
+
+        /**
+         * @param secret One or more `secret` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secret(JobSecretArgs... secret) {
+            return secret(List.of(secret));
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * `secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider.
+         * 
+         */
+        @Deprecated /* `secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider. */
         public Builder secrets(@Nullable Output<List<JobSecretArgs>> secrets) {
             $.secrets = secrets;
             return this;
         }
 
         /**
-         * @param secrets A `secrets` block as defined below.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* `secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider. */
         public Builder secrets(List<JobSecretArgs> secrets) {
             return secrets(Output.of(secrets));
         }
 
         /**
-         * @param secrets A `secrets` block as defined below.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* `secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider. */
         public Builder secrets(JobSecretArgs... secrets) {
             return secrets(List.of(secrets));
         }

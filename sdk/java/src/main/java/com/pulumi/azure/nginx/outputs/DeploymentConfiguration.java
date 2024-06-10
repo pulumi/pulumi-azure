@@ -15,53 +15,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DeploymentConfiguration {
-    /**
-     * @return One or more `config_file` blocks as defined below.
-     * 
-     */
     private @Nullable List<DeploymentConfigurationConfigFile> configFiles;
-    /**
-     * @return Specify the package data for this configuration.
-     * 
-     */
     private @Nullable String packageData;
-    /**
-     * @return One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
-     * 
-     */
     private @Nullable List<DeploymentConfigurationProtectedFile> protectedFiles;
-    /**
-     * @return Specify the root file path of this Nginx Configuration.
-     * 
-     */
     private String rootFile;
 
     private DeploymentConfiguration() {}
-    /**
-     * @return One or more `config_file` blocks as defined below.
-     * 
-     */
     public List<DeploymentConfigurationConfigFile> configFiles() {
         return this.configFiles == null ? List.of() : this.configFiles;
     }
-    /**
-     * @return Specify the package data for this configuration.
-     * 
-     */
     public Optional<String> packageData() {
         return Optional.ofNullable(this.packageData);
     }
-    /**
-     * @return One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
-     * 
-     */
     public List<DeploymentConfigurationProtectedFile> protectedFiles() {
         return this.protectedFiles == null ? List.of() : this.protectedFiles;
     }
-    /**
-     * @return Specify the root file path of this Nginx Configuration.
-     * 
-     */
     public String rootFile() {
         return this.rootFile;
     }

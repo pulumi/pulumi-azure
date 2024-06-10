@@ -11,6 +11,34 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source to access information about an existing Nginx Configuration.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/nginx"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := nginx.LookupConfiguration(ctx, &nginx.LookupConfigurationArgs{
+//				NginxDeploymentId: exampleAzurermNginxDeployment.Id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("id", example.Id)
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupConfiguration(ctx *pulumi.Context, args *LookupConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupConfigurationResult
@@ -23,18 +51,22 @@ func LookupConfiguration(ctx *pulumi.Context, args *LookupConfigurationArgs, opt
 
 // A collection of arguments for invoking getConfiguration.
 type LookupConfigurationArgs struct {
+	// The ID of the Nginx Deployment.
 	NginxDeploymentId string `pulumi:"nginxDeploymentId"`
 }
 
 // A collection of values returned by getConfiguration.
 type LookupConfigurationResult struct {
+	// A `configFile` block as defined below.
 	ConfigFiles []GetConfigurationConfigFile `pulumi:"configFiles"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                string                          `pulumi:"id"`
-	NginxDeploymentId string                          `pulumi:"nginxDeploymentId"`
-	PackageData       string                          `pulumi:"packageData"`
-	ProtectedFiles    []GetConfigurationProtectedFile `pulumi:"protectedFiles"`
-	RootFile          string                          `pulumi:"rootFile"`
+	Id                string `pulumi:"id"`
+	NginxDeploymentId string `pulumi:"nginxDeploymentId"`
+	// The package data for this configuration.
+	PackageData    string                          `pulumi:"packageData"`
+	ProtectedFiles []GetConfigurationProtectedFile `pulumi:"protectedFiles"`
+	// The root file path of this Nginx Configuration.
+	RootFile string `pulumi:"rootFile"`
 }
 
 func LookupConfigurationOutput(ctx *pulumi.Context, args LookupConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationResultOutput {
@@ -52,6 +84,7 @@ func LookupConfigurationOutput(ctx *pulumi.Context, args LookupConfigurationOutp
 
 // A collection of arguments for invoking getConfiguration.
 type LookupConfigurationOutputArgs struct {
+	// The ID of the Nginx Deployment.
 	NginxDeploymentId pulumi.StringInput `pulumi:"nginxDeploymentId"`
 }
 
@@ -74,6 +107,7 @@ func (o LookupConfigurationResultOutput) ToLookupConfigurationResultOutputWithCo
 	return o
 }
 
+// A `configFile` block as defined below.
 func (o LookupConfigurationResultOutput) ConfigFiles() GetConfigurationConfigFileArrayOutput {
 	return o.ApplyT(func(v LookupConfigurationResult) []GetConfigurationConfigFile { return v.ConfigFiles }).(GetConfigurationConfigFileArrayOutput)
 }
@@ -87,6 +121,7 @@ func (o LookupConfigurationResultOutput) NginxDeploymentId() pulumi.StringOutput
 	return o.ApplyT(func(v LookupConfigurationResult) string { return v.NginxDeploymentId }).(pulumi.StringOutput)
 }
 
+// The package data for this configuration.
 func (o LookupConfigurationResultOutput) PackageData() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationResult) string { return v.PackageData }).(pulumi.StringOutput)
 }
@@ -95,6 +130,7 @@ func (o LookupConfigurationResultOutput) ProtectedFiles() GetConfigurationProtec
 	return o.ApplyT(func(v LookupConfigurationResult) []GetConfigurationProtectedFile { return v.ProtectedFiles }).(GetConfigurationProtectedFileArrayOutput)
 }
 
+// The root file path of this Nginx Configuration.
 func (o LookupConfigurationResultOutput) RootFile() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationResult) string { return v.RootFile }).(pulumi.StringOutput)
 }

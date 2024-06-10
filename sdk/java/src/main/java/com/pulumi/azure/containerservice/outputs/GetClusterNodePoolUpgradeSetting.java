@@ -5,24 +5,49 @@ package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 
 @CustomType
 public final class GetClusterNodePoolUpgradeSetting {
     /**
+     * @return The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
+     * 
+     */
+    private Integer drainTimeoutInMinutes;
+    /**
      * @return The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
      * 
      */
     private String maxSurge;
+    /**
+     * @return The amount of time in minutes to wait after draining a node and before reimaging it and moving on to next node.
+     * 
+     */
+    private Integer nodeSoakDurationInMinutes;
 
     private GetClusterNodePoolUpgradeSetting() {}
+    /**
+     * @return The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
+     * 
+     */
+    public Integer drainTimeoutInMinutes() {
+        return this.drainTimeoutInMinutes;
+    }
     /**
      * @return The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
      * 
      */
     public String maxSurge() {
         return this.maxSurge;
+    }
+    /**
+     * @return The amount of time in minutes to wait after draining a node and before reimaging it and moving on to next node.
+     * 
+     */
+    public Integer nodeSoakDurationInMinutes() {
+        return this.nodeSoakDurationInMinutes;
     }
 
     public static Builder builder() {
@@ -34,13 +59,25 @@ public final class GetClusterNodePoolUpgradeSetting {
     }
     @CustomType.Builder
     public static final class Builder {
+        private Integer drainTimeoutInMinutes;
         private String maxSurge;
+        private Integer nodeSoakDurationInMinutes;
         public Builder() {}
         public Builder(GetClusterNodePoolUpgradeSetting defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.drainTimeoutInMinutes = defaults.drainTimeoutInMinutes;
     	      this.maxSurge = defaults.maxSurge;
+    	      this.nodeSoakDurationInMinutes = defaults.nodeSoakDurationInMinutes;
         }
 
+        @CustomType.Setter
+        public Builder drainTimeoutInMinutes(Integer drainTimeoutInMinutes) {
+            if (drainTimeoutInMinutes == null) {
+              throw new MissingRequiredPropertyException("GetClusterNodePoolUpgradeSetting", "drainTimeoutInMinutes");
+            }
+            this.drainTimeoutInMinutes = drainTimeoutInMinutes;
+            return this;
+        }
         @CustomType.Setter
         public Builder maxSurge(String maxSurge) {
             if (maxSurge == null) {
@@ -49,9 +86,19 @@ public final class GetClusterNodePoolUpgradeSetting {
             this.maxSurge = maxSurge;
             return this;
         }
+        @CustomType.Setter
+        public Builder nodeSoakDurationInMinutes(Integer nodeSoakDurationInMinutes) {
+            if (nodeSoakDurationInMinutes == null) {
+              throw new MissingRequiredPropertyException("GetClusterNodePoolUpgradeSetting", "nodeSoakDurationInMinutes");
+            }
+            this.nodeSoakDurationInMinutes = nodeSoakDurationInMinutes;
+            return this;
+        }
         public GetClusterNodePoolUpgradeSetting build() {
             final var _resultValue = new GetClusterNodePoolUpgradeSetting();
+            _resultValue.drainTimeoutInMinutes = drainTimeoutInMinutes;
             _resultValue.maxSurge = maxSurge;
+            _resultValue.nodeSoakDurationInMinutes = nodeSoakDurationInMinutes;
             return _resultValue;
         }
     }

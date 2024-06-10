@@ -22,6 +22,13 @@ public final class ProviderFeaturesVirtualMachineArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.deleteOsDiskOnDeletion);
     }
 
+    @Import(name="detachImplicitDataDiskOnDeletion")
+    private @Nullable Output<Boolean> detachImplicitDataDiskOnDeletion;
+
+    public Optional<Output<Boolean>> detachImplicitDataDiskOnDeletion() {
+        return Optional.ofNullable(this.detachImplicitDataDiskOnDeletion);
+    }
+
     @Import(name="gracefulShutdown")
     private @Nullable Output<Boolean> gracefulShutdown;
 
@@ -40,6 +47,7 @@ public final class ProviderFeaturesVirtualMachineArgs extends com.pulumi.resourc
 
     private ProviderFeaturesVirtualMachineArgs(ProviderFeaturesVirtualMachineArgs $) {
         this.deleteOsDiskOnDeletion = $.deleteOsDiskOnDeletion;
+        this.detachImplicitDataDiskOnDeletion = $.detachImplicitDataDiskOnDeletion;
         this.gracefulShutdown = $.gracefulShutdown;
         this.skipShutdownAndForceDelete = $.skipShutdownAndForceDelete;
     }
@@ -69,6 +77,15 @@ public final class ProviderFeaturesVirtualMachineArgs extends com.pulumi.resourc
 
         public Builder deleteOsDiskOnDeletion(Boolean deleteOsDiskOnDeletion) {
             return deleteOsDiskOnDeletion(Output.of(deleteOsDiskOnDeletion));
+        }
+
+        public Builder detachImplicitDataDiskOnDeletion(@Nullable Output<Boolean> detachImplicitDataDiskOnDeletion) {
+            $.detachImplicitDataDiskOnDeletion = detachImplicitDataDiskOnDeletion;
+            return this;
+        }
+
+        public Builder detachImplicitDataDiskOnDeletion(Boolean detachImplicitDataDiskOnDeletion) {
+            return detachImplicitDataDiskOnDeletion(Output.of(detachImplicitDataDiskOnDeletion));
         }
 
         public Builder gracefulShutdown(@Nullable Output<Boolean> gracefulShutdown) {

@@ -106,7 +106,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string?> Value { get; private set; } = null!;
 
         /// <summary>
-        /// A `value_from_key_vault` block as defined below.
+        /// A `value_from_key_vault` block as defined below. If specified, `secret` must also be set to `true`.
         /// </summary>
         [Output("valueFromKeyVault")]
         public Output<Outputs.NamedValueValueFromKeyVault?> ValueFromKeyVault { get; private set; } = null!;
@@ -222,7 +222,7 @@ namespace Pulumi.Azure.ApiManagement
         }
 
         /// <summary>
-        /// A `value_from_key_vault` block as defined below.
+        /// A `value_from_key_vault` block as defined below. If specified, `secret` must also be set to `true`.
         /// </summary>
         [Input("valueFromKeyVault")]
         public Input<Inputs.NamedValueValueFromKeyVaultArgs>? ValueFromKeyVault { get; set; }
@@ -296,7 +296,7 @@ namespace Pulumi.Azure.ApiManagement
         }
 
         /// <summary>
-        /// A `value_from_key_vault` block as defined below.
+        /// A `value_from_key_vault` block as defined below. If specified, `secret` must also be set to `true`.
         /// </summary>
         [Input("valueFromKeyVault")]
         public Input<Inputs.NamedValueValueFromKeyVaultGetArgs>? ValueFromKeyVault { get; set; }

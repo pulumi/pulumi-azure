@@ -104,6 +104,10 @@ export class AuthorizationRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly primaryAccessKey!: pulumi.Output<string>;
     /**
+     * The Primary Connetion String associated with this Authorization Rule.
+     */
+    public /*out*/ readonly primaryConnectionString!: pulumi.Output<string>;
+    /**
      * The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -111,6 +115,10 @@ export class AuthorizationRule extends pulumi.CustomResource {
      * The Secondary Access Key associated with this Authorization Rule.
      */
     public /*out*/ readonly secondaryAccessKey!: pulumi.Output<string>;
+    /**
+     * The Secondary Connetion String associated with this Authorization Rule.
+     */
+    public /*out*/ readonly secondaryConnectionString!: pulumi.Output<string>;
     /**
      * Does this Authorization Rule have Send access to the Notification Hub? Defaults to `false`.
      */
@@ -135,8 +143,10 @@ export class AuthorizationRule extends pulumi.CustomResource {
             resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
             resourceInputs["notificationHubName"] = state ? state.notificationHubName : undefined;
             resourceInputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
+            resourceInputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
+            resourceInputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
             resourceInputs["send"] = state ? state.send : undefined;
         } else {
             const args = argsOrState as AuthorizationRuleArgs | undefined;
@@ -157,9 +167,13 @@ export class AuthorizationRule extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["send"] = args ? args.send : undefined;
             resourceInputs["primaryAccessKey"] = undefined /*out*/;
+            resourceInputs["primaryConnectionString"] = undefined /*out*/;
             resourceInputs["secondaryAccessKey"] = undefined /*out*/;
+            resourceInputs["secondaryConnectionString"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["primaryConnectionString", "secondaryConnectionString"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(AuthorizationRule.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -195,6 +209,10 @@ export interface AuthorizationRuleState {
      */
     primaryAccessKey?: pulumi.Input<string>;
     /**
+     * The Primary Connetion String associated with this Authorization Rule.
+     */
+    primaryConnectionString?: pulumi.Input<string>;
+    /**
      * The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
@@ -202,6 +220,10 @@ export interface AuthorizationRuleState {
      * The Secondary Access Key associated with this Authorization Rule.
      */
     secondaryAccessKey?: pulumi.Input<string>;
+    /**
+     * The Secondary Connetion String associated with this Authorization Rule.
+     */
+    secondaryConnectionString?: pulumi.Input<string>;
     /**
      * Does this Authorization Rule have Send access to the Notification Hub? Defaults to `false`.
      */

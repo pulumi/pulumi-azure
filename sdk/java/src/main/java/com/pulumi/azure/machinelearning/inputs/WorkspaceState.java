@@ -7,6 +7,7 @@ import com.pulumi.azure.machinelearning.inputs.WorkspaceEncryptionArgs;
 import com.pulumi.azure.machinelearning.inputs.WorkspaceFeatureStoreArgs;
 import com.pulumi.azure.machinelearning.inputs.WorkspaceIdentityArgs;
 import com.pulumi.azure.machinelearning.inputs.WorkspaceManagedNetworkArgs;
+import com.pulumi.azure.machinelearning.inputs.WorkspaceServerlessComputeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -323,6 +324,21 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A `serverless_compute` block as defined below.
+     * 
+     */
+    @Import(name="serverlessCompute")
+    private @Nullable Output<WorkspaceServerlessComputeArgs> serverlessCompute;
+
+    /**
+     * @return A `serverless_compute` block as defined below.
+     * 
+     */
+    public Optional<Output<WorkspaceServerlessComputeArgs>> serverlessCompute() {
+        return Optional.ofNullable(this.serverlessCompute);
+    }
+
+    /**
      * SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
      * 
      */
@@ -423,6 +439,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         this.publicAccessBehindVirtualNetworkEnabled = $.publicAccessBehindVirtualNetworkEnabled;
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.resourceGroupName = $.resourceGroupName;
+        this.serverlessCompute = $.serverlessCompute;
         this.skuName = $.skuName;
         this.storageAccountId = $.storageAccountId;
         this.tags = $.tags;
@@ -861,6 +878,27 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
+        }
+
+        /**
+         * @param serverlessCompute A `serverless_compute` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serverlessCompute(@Nullable Output<WorkspaceServerlessComputeArgs> serverlessCompute) {
+            $.serverlessCompute = serverlessCompute;
+            return this;
+        }
+
+        /**
+         * @param serverlessCompute A `serverless_compute` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serverlessCompute(WorkspaceServerlessComputeArgs serverlessCompute) {
+            return serverlessCompute(Output.of(serverlessCompute));
         }
 
         /**

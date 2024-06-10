@@ -6,6 +6,7 @@ package com.pulumi.azure.newrelic;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.newrelic.MonitorArgs;
 import com.pulumi.azure.newrelic.inputs.MonitorState;
+import com.pulumi.azure.newrelic.outputs.MonitorIdentity;
 import com.pulumi.azure.newrelic.outputs.MonitorPlan;
 import com.pulumi.azure.newrelic.outputs.MonitorUser;
 import com.pulumi.core.Output;
@@ -36,6 +37,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.newrelic.MonitorArgs;
  * import com.pulumi.azure.newrelic.inputs.MonitorPlanArgs;
  * import com.pulumi.azure.newrelic.inputs.MonitorUserArgs;
+ * import com.pulumi.azure.newrelic.inputs.MonitorIdentityArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -67,6 +69,60 @@ import javax.annotation.Nullable;
  *                 .lastName("User")
  *                 .phoneNumber("+12313803556")
  *                 .build())
+ *             .identity(MonitorIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## Role Assignment
+ * 
+ * To enable metrics flow, perform role assignment on the identity created above. `Monitoring reader(43d0d8ad-25c7-4714-9337-8ba259a9fe05)` role is required .
+ * 
+ * ### Role assignment on the monitor created
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
+ * import com.pulumi.azure.authorization.AuthorizationFunctions;
+ * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
+ * import com.pulumi.azure.authorization.Assignment;
+ * import com.pulumi.azure.authorization.AssignmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var primary = CoreFunctions.getSubscription();
+ * 
+ *         final var monitoringReader = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+ *             .name("Monitoring Reader")
+ *             .build());
+ * 
+ *         var example = new Assignment("example", AssignmentArgs.builder()
+ *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *             .roleDefinitionId(String.format("%s%s", primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()),monitoringReader.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id())))
+ *             .principalId(exampleAzurermNewRelicMonitor.identity()[0].principalId())
  *             .build());
  * 
  *     }
@@ -117,6 +173,20 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      */
     public Output<String> accountId() {
         return this.accountId;
+    }
+    /**
+     * An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+     * 
+     */
+    @Export(name="identity", refs={MonitorIdentity.class}, tree="[0]")
+    private Output</* @Nullable */ MonitorIdentity> identity;
+
+    /**
+     * @return An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+     * 
+     */
+    public Output<Optional<MonitorIdentity>> identity() {
+        return Codegen.optional(this.identity);
     }
     /**
      * Specifies the ingestion key of account. Changing this forces a new Azure Native New Relic Monitor to be created.

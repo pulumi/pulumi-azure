@@ -3173,10 +3173,10 @@ class JobSecret(dict):
                  key_vault_secret_id: Optional[str] = None,
                  value: Optional[str] = None):
         """
-        :param str name: Name of the secret.
+        :param str name: Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
         :param str identity: A `identity` block as defined below.
         :param str key_vault_secret_id: The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
-        :param str value: Value of the secret.
+        :param str value: The value for this secret.
         """
         pulumi.set(__self__, "name", name)
         if identity is not None:
@@ -3190,7 +3190,7 @@ class JobSecret(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of the secret.
+        Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -3214,7 +3214,7 @@ class JobSecret(dict):
     @pulumi.getter
     def value(self) -> Optional[str]:
         """
-        Value of the secret.
+        The value for this secret.
         """
         return pulumi.get(self, "value")
 

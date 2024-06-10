@@ -109,6 +109,12 @@ namespace Pulumi.Azure.NotificationHub
         public Output<string> PrimaryAccessKey { get; private set; } = null!;
 
         /// <summary>
+        /// The Primary Connetion String associated with this Authorization Rule.
+        /// </summary>
+        [Output("primaryConnectionString")]
+        public Output<string> PrimaryConnectionString { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -119,6 +125,12 @@ namespace Pulumi.Azure.NotificationHub
         /// </summary>
         [Output("secondaryAccessKey")]
         public Output<string> SecondaryAccessKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The Secondary Connetion String associated with this Authorization Rule.
+        /// </summary>
+        [Output("secondaryConnectionString")]
+        public Output<string> SecondaryConnectionString { get; private set; } = null!;
 
         /// <summary>
         /// Does this Authorization Rule have Send access to the Notification Hub? Defaults to `false`.
@@ -149,6 +161,11 @@ namespace Pulumi.Azure.NotificationHub
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "primaryConnectionString",
+                    "secondaryConnectionString",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -262,6 +279,22 @@ namespace Pulumi.Azure.NotificationHub
         [Input("primaryAccessKey")]
         public Input<string>? PrimaryAccessKey { get; set; }
 
+        [Input("primaryConnectionString")]
+        private Input<string>? _primaryConnectionString;
+
+        /// <summary>
+        /// The Primary Connetion String associated with this Authorization Rule.
+        /// </summary>
+        public Input<string>? PrimaryConnectionString
+        {
+            get => _primaryConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _primaryConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
         /// <summary>
         /// The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
         /// </summary>
@@ -273,6 +306,22 @@ namespace Pulumi.Azure.NotificationHub
         /// </summary>
         [Input("secondaryAccessKey")]
         public Input<string>? SecondaryAccessKey { get; set; }
+
+        [Input("secondaryConnectionString")]
+        private Input<string>? _secondaryConnectionString;
+
+        /// <summary>
+        /// The Secondary Connetion String associated with this Authorization Rule.
+        /// </summary>
+        public Input<string>? SecondaryConnectionString
+        {
+            get => _secondaryConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secondaryConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Does this Authorization Rule have Send access to the Notification Hub? Defaults to `false`.

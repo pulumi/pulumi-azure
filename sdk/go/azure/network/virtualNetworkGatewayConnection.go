@@ -336,7 +336,7 @@ type VirtualNetworkGatewayConnection struct {
 	// The routing weight. Defaults to `10`.
 	RoutingWeight pulumi.IntOutput `pulumi:"routingWeight"`
 	// The shared IPSec key. A key could be provided if a Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
-	SharedKey pulumi.StringPtrOutput `pulumi:"sharedKey"`
+	SharedKey pulumi.StringOutput `pulumi:"sharedKey"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// One or more `trafficSelectorPolicy` blocks which are documented below.
@@ -837,8 +837,8 @@ func (o VirtualNetworkGatewayConnectionOutput) RoutingWeight() pulumi.IntOutput 
 }
 
 // The shared IPSec key. A key could be provided if a Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
-func (o VirtualNetworkGatewayConnectionOutput) SharedKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.StringPtrOutput { return v.SharedKey }).(pulumi.StringPtrOutput)
+func (o VirtualNetworkGatewayConnectionOutput) SharedKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.StringOutput { return v.SharedKey }).(pulumi.StringOutput)
 }
 
 // A mapping of tags to assign to the resource.

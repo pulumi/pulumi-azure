@@ -13,7 +13,13 @@ namespace Pulumi.Azure.Nginx.Outputs
     [OutputType]
     public sealed class ConfigurationConfigFile
     {
+        /// <summary>
+        /// Specifies the base-64 encoded contents of this config file.
+        /// </summary>
         public readonly string Content;
+        /// <summary>
+        /// Specifies the path of this config file.
+        /// </summary>
         public readonly string VirtualPath;
 
         [OutputConstructor]

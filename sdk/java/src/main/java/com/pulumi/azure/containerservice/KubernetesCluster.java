@@ -239,6 +239,20 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.confidentialComputing);
     }
     /**
+     * Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
+     * 
+     */
+    @Export(name="costAnalysisEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> costAnalysisEnabled;
+
+    /**
+     * @return Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
+     * 
+     */
+    public Output<Optional<Boolean>> costAnalysisEnabled() {
+        return Codegen.optional(this.costAnalysisEnabled);
+    }
+    /**
      * The current version running on the Azure Kubernetes Managed Cluster.
      * 
      */
@@ -1145,16 +1159,12 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
     /**
      * A `service_mesh_profile` block as defined below.
      * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
-     * 
      */
     @Export(name="serviceMeshProfile", refs={KubernetesClusterServiceMeshProfile.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterServiceMeshProfile> serviceMeshProfile;
 
     /**
      * @return A `service_mesh_profile` block as defined below.
-     * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
      * 
      */
     public Output<Optional<KubernetesClusterServiceMeshProfile>> serviceMeshProfile() {

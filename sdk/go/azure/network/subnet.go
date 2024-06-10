@@ -94,6 +94,8 @@ type Subnet struct {
 	//
 	// > **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
 	AddressPrefixes pulumi.StringArrayOutput `pulumi:"addressPrefixes"`
+	// Enable default outbound access to the internet for the subnet. Defaults to `true`.
+	DefaultOutboundAccessEnabled pulumi.BoolPtrOutput `pulumi:"defaultOutboundAccessEnabled"`
 	// One or more `delegation` blocks as defined below.
 	Delegations SubnetDelegationArrayOutput `pulumi:"delegations"`
 	// Deprecated: `enforcePrivateLinkEndpointNetworkPolicies` will be removed in favour of the property `privateEndpointNetworkPolicies` in version 4.0 of the AzureRM Provider
@@ -167,6 +169,8 @@ type subnetState struct {
 	//
 	// > **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
 	AddressPrefixes []string `pulumi:"addressPrefixes"`
+	// Enable default outbound access to the internet for the subnet. Defaults to `true`.
+	DefaultOutboundAccessEnabled *bool `pulumi:"defaultOutboundAccessEnabled"`
 	// One or more `delegation` blocks as defined below.
 	Delegations []SubnetDelegation `pulumi:"delegations"`
 	// Deprecated: `enforcePrivateLinkEndpointNetworkPolicies` will be removed in favour of the property `privateEndpointNetworkPolicies` in version 4.0 of the AzureRM Provider
@@ -202,6 +206,8 @@ type SubnetState struct {
 	//
 	// > **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
 	AddressPrefixes pulumi.StringArrayInput
+	// Enable default outbound access to the internet for the subnet. Defaults to `true`.
+	DefaultOutboundAccessEnabled pulumi.BoolPtrInput
 	// One or more `delegation` blocks as defined below.
 	Delegations SubnetDelegationArrayInput
 	// Deprecated: `enforcePrivateLinkEndpointNetworkPolicies` will be removed in favour of the property `privateEndpointNetworkPolicies` in version 4.0 of the AzureRM Provider
@@ -241,6 +247,8 @@ type subnetArgs struct {
 	//
 	// > **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
 	AddressPrefixes []string `pulumi:"addressPrefixes"`
+	// Enable default outbound access to the internet for the subnet. Defaults to `true`.
+	DefaultOutboundAccessEnabled *bool `pulumi:"defaultOutboundAccessEnabled"`
 	// One or more `delegation` blocks as defined below.
 	Delegations []SubnetDelegation `pulumi:"delegations"`
 	// Deprecated: `enforcePrivateLinkEndpointNetworkPolicies` will be removed in favour of the property `privateEndpointNetworkPolicies` in version 4.0 of the AzureRM Provider
@@ -277,6 +285,8 @@ type SubnetArgs struct {
 	//
 	// > **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
 	AddressPrefixes pulumi.StringArrayInput
+	// Enable default outbound access to the internet for the subnet. Defaults to `true`.
+	DefaultOutboundAccessEnabled pulumi.BoolPtrInput
 	// One or more `delegation` blocks as defined below.
 	Delegations SubnetDelegationArrayInput
 	// Deprecated: `enforcePrivateLinkEndpointNetworkPolicies` will be removed in favour of the property `privateEndpointNetworkPolicies` in version 4.0 of the AzureRM Provider
@@ -399,6 +409,11 @@ func (o SubnetOutput) ToSubnetOutputWithContext(ctx context.Context) SubnetOutpu
 // > **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
 func (o SubnetOutput) AddressPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.StringArrayOutput { return v.AddressPrefixes }).(pulumi.StringArrayOutput)
+}
+
+// Enable default outbound access to the internet for the subnet. Defaults to `true`.
+func (o SubnetOutput) DefaultOutboundAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.BoolPtrOutput { return v.DefaultOutboundAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // One or more `delegation` blocks as defined below.

@@ -12,11 +12,11 @@ namespace Pulumi.Azure.Network.Inputs
 
     public sealed class RouteMapRuleActionArgs : global::Pulumi.ResourceArgs
     {
-        [Input("parameters", required: true)]
+        [Input("parameters")]
         private InputList<Inputs.RouteMapRuleActionParameterArgs>? _parameters;
 
         /// <summary>
-        /// A `parameter` block as defined below.
+        /// A `parameter` block as defined below. Required if `type` is anything other than `Drop`.
         /// </summary>
         public InputList<Inputs.RouteMapRuleActionParameterArgs> Parameters
         {

@@ -89,7 +89,7 @@ type NamedValue struct {
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
 	// The value of this API Management Named Value.
 	Value pulumi.StringPtrOutput `pulumi:"value"`
-	// A `valueFromKeyVault` block as defined below.
+	// A `valueFromKeyVault` block as defined below. If specified, `secret` must also be set to `true`.
 	ValueFromKeyVault NamedValueValueFromKeyVaultPtrOutput `pulumi:"valueFromKeyVault"`
 }
 
@@ -155,7 +155,7 @@ type namedValueState struct {
 	Tags []string `pulumi:"tags"`
 	// The value of this API Management Named Value.
 	Value *string `pulumi:"value"`
-	// A `valueFromKeyVault` block as defined below.
+	// A `valueFromKeyVault` block as defined below. If specified, `secret` must also be set to `true`.
 	ValueFromKeyVault *NamedValueValueFromKeyVault `pulumi:"valueFromKeyVault"`
 }
 
@@ -176,7 +176,7 @@ type NamedValueState struct {
 	Tags pulumi.StringArrayInput
 	// The value of this API Management Named Value.
 	Value pulumi.StringPtrInput
-	// A `valueFromKeyVault` block as defined below.
+	// A `valueFromKeyVault` block as defined below. If specified, `secret` must also be set to `true`.
 	ValueFromKeyVault NamedValueValueFromKeyVaultPtrInput
 }
 
@@ -201,7 +201,7 @@ type namedValueArgs struct {
 	Tags []string `pulumi:"tags"`
 	// The value of this API Management Named Value.
 	Value *string `pulumi:"value"`
-	// A `valueFromKeyVault` block as defined below.
+	// A `valueFromKeyVault` block as defined below. If specified, `secret` must also be set to `true`.
 	ValueFromKeyVault *NamedValueValueFromKeyVault `pulumi:"valueFromKeyVault"`
 }
 
@@ -223,7 +223,7 @@ type NamedValueArgs struct {
 	Tags pulumi.StringArrayInput
 	// The value of this API Management Named Value.
 	Value pulumi.StringPtrInput
-	// A `valueFromKeyVault` block as defined below.
+	// A `valueFromKeyVault` block as defined below. If specified, `secret` must also be set to `true`.
 	ValueFromKeyVault NamedValueValueFromKeyVaultPtrInput
 }
 
@@ -351,7 +351,7 @@ func (o NamedValueOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NamedValue) pulumi.StringPtrOutput { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-// A `valueFromKeyVault` block as defined below.
+// A `valueFromKeyVault` block as defined below. If specified, `secret` must also be set to `true`.
 func (o NamedValueOutput) ValueFromKeyVault() NamedValueValueFromKeyVaultPtrOutput {
 	return o.ApplyT(func(v *NamedValue) NamedValueValueFromKeyVaultPtrOutput { return v.ValueFromKeyVault }).(NamedValueValueFromKeyVaultPtrOutput)
 }

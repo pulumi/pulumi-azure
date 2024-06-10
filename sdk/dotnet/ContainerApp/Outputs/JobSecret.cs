@@ -22,11 +22,11 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly string? KeyVaultSecretId;
         /// <summary>
-        /// Name of the secret.
+        /// Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Value of the secret.
+        /// The value for this secret.
         /// </summary>
         public readonly string? Value;
 

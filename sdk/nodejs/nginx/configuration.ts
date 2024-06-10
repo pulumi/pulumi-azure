@@ -6,6 +6,111 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
+/**
+ * Manages the configuration for a Nginx Deployment.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-rg",
+ *     location: "West Europe",
+ * });
+ * const examplePublicIp = new azure.network.PublicIp("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     allocationMethod: "Static",
+ *     sku: "Standard",
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-vnet",
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "example-subnet",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.2.0/24"],
+ *     delegations: [{
+ *         name: "delegation",
+ *         serviceDelegation: {
+ *             name: "NGINX.NGINXPLUS/nginxDeployments",
+ *             actions: ["Microsoft.Network/virtualNetworks/subnets/join/action"],
+ *         },
+ *     }],
+ * });
+ * const exampleDeployment = new azure.nginx.Deployment("example", {
+ *     name: "example-nginx",
+ *     resourceGroupName: example.name,
+ *     sku: "publicpreview_Monthly_gmz7xq9ge3py",
+ *     location: example.location,
+ *     managedResourceGroup: "example",
+ *     diagnoseSupportEnabled: true,
+ *     frontendPublic: {
+ *         ipAddresses: [examplePublicIp.id],
+ *     },
+ *     networkInterfaces: [{
+ *         subnetId: exampleSubnet.id,
+ *     }],
+ * });
+ * const exampleConfiguration = new azure.nginx.Configuration("example", {
+ *     nginxDeploymentId: exampleDeployment.id,
+ *     rootFile: "/etc/nginx/nginx.conf",
+ *     configFiles: [
+ *         {
+ *             content: std.base64encode({
+ *                 input: `http {
+ *     server {
+ *         listen 80;
+ *         location / {
+ *             default_type text/html;
+ *             return 200 '<!doctype html><html lang="en"><head></head><body>
+ *                 <div>this one will be updated</div>
+ *                 <div>at 10:38 am</div>
+ *             </body></html>';
+ *         }
+ *         include site/*.conf;
+ *     }
+ * }
+ * `,
+ *             }).then(invoke => invoke.result),
+ *             virtualPath: "/etc/nginx/nginx.conf",
+ *         },
+ *         {
+ *             content: std.base64encode({
+ *                 input: `location /bbb {
+ *  default_type text/html;
+ *  return 200 '<!doctype html><html lang="en"><head></head><body>
+ *   <div>this one will be updated</div>
+ *   <div>at 10:38 am</div>
+ *  </body></html>';
+ * }
+ * `,
+ *             }).then(invoke => invoke.result),
+ *             virtualPath: "/etc/nginx/site/b.conf",
+ *         },
+ *     ],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * An Nginx Configuration can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure:nginx/configuration:Configuration example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Nginx.NginxPlus/nginxDeployments/dep1/configurations/default
+ * ```
+ */
 export class Configuration extends pulumi.CustomResource {
     /**
      * Get an existing Configuration resource's state with the given name, ID, and optional extra
@@ -34,10 +139,25 @@ export class Configuration extends pulumi.CustomResource {
         return obj['__pulumiType'] === Configuration.__pulumiType;
     }
 
+    /**
+     * One or more `configFile` blocks as defined below.
+     */
     public readonly configFiles!: pulumi.Output<outputs.nginx.ConfigurationConfigFile[] | undefined>;
+    /**
+     * The ID of the Nginx Deployment. Changing this forces a new Nginx Configuration to be created.
+     */
     public readonly nginxDeploymentId!: pulumi.Output<string>;
+    /**
+     * Specifies the package data for this configuration.
+     */
     public readonly packageData!: pulumi.Output<string | undefined>;
+    /**
+     * One or more `protectedFile` blocks with sensitive information as defined below. If specified `configFile` must also be specified.
+     */
     public readonly protectedFiles!: pulumi.Output<outputs.nginx.ConfigurationProtectedFile[] | undefined>;
+    /**
+     * Specifies the root file path of this Nginx Configuration.
+     */
     public readonly rootFile!: pulumi.Output<string>;
 
     /**
@@ -81,10 +201,25 @@ export class Configuration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Configuration resources.
  */
 export interface ConfigurationState {
+    /**
+     * One or more `configFile` blocks as defined below.
+     */
     configFiles?: pulumi.Input<pulumi.Input<inputs.nginx.ConfigurationConfigFile>[]>;
+    /**
+     * The ID of the Nginx Deployment. Changing this forces a new Nginx Configuration to be created.
+     */
     nginxDeploymentId?: pulumi.Input<string>;
+    /**
+     * Specifies the package data for this configuration.
+     */
     packageData?: pulumi.Input<string>;
+    /**
+     * One or more `protectedFile` blocks with sensitive information as defined below. If specified `configFile` must also be specified.
+     */
     protectedFiles?: pulumi.Input<pulumi.Input<inputs.nginx.ConfigurationProtectedFile>[]>;
+    /**
+     * Specifies the root file path of this Nginx Configuration.
+     */
     rootFile?: pulumi.Input<string>;
 }
 
@@ -92,9 +227,24 @@ export interface ConfigurationState {
  * The set of arguments for constructing a Configuration resource.
  */
 export interface ConfigurationArgs {
+    /**
+     * One or more `configFile` blocks as defined below.
+     */
     configFiles?: pulumi.Input<pulumi.Input<inputs.nginx.ConfigurationConfigFile>[]>;
+    /**
+     * The ID of the Nginx Deployment. Changing this forces a new Nginx Configuration to be created.
+     */
     nginxDeploymentId: pulumi.Input<string>;
+    /**
+     * Specifies the package data for this configuration.
+     */
     packageData?: pulumi.Input<string>;
+    /**
+     * One or more `protectedFile` blocks with sensitive information as defined below. If specified `configFile` must also be specified.
+     */
     protectedFiles?: pulumi.Input<pulumi.Input<inputs.nginx.ConfigurationProtectedFile>[]>;
+    /**
+     * Specifies the root file path of this Nginx Configuration.
+     */
     rootFile: pulumi.Input<string>;
 }

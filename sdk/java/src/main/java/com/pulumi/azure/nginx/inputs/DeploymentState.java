@@ -76,29 +76,33 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specify a custom `configuration` block as defined below.
+     * @deprecated
+     * The `configuration` block has been superseded by the `azure.nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* The `configuration` block has been superseded by the `azure.nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider. */
     @Import(name="configuration")
     private @Nullable Output<DeploymentConfigurationArgs> configuration;
 
     /**
-     * @return Specify a custom `configuration` block as defined below.
+     * @deprecated
+     * The `configuration` block has been superseded by the `azure.nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* The `configuration` block has been superseded by the `azure.nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider. */
     public Optional<Output<DeploymentConfigurationArgs>> configuration() {
         return Optional.ofNullable(this.configuration);
     }
 
     /**
-     * Should the diagnosis support be enabled?
+     * Should the metrics be exported to Azure Monitor?
      * 
      */
     @Import(name="diagnoseSupportEnabled")
     private @Nullable Output<Boolean> diagnoseSupportEnabled;
 
     /**
-     * @return Should the diagnosis support be enabled?
+     * @return Should the metrics be exported to Azure Monitor?
      * 
      */
     public Optional<Output<Boolean>> diagnoseSupportEnabled() {
@@ -285,17 +289,9 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.resourceGroupName);
     }
 
-    /**
-     * Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
-     * 
-     */
     @Import(name="sku")
     private @Nullable Output<String> sku;
 
-    /**
-     * @return Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
-     * 
-     */
     public Optional<Output<String>> sku() {
         return Optional.ofNullable(this.sku);
     }
@@ -435,28 +431,32 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configuration Specify a custom `configuration` block as defined below.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The `configuration` block has been superseded by the `azure.nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* The `configuration` block has been superseded by the `azure.nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider. */
         public Builder configuration(@Nullable Output<DeploymentConfigurationArgs> configuration) {
             $.configuration = configuration;
             return this;
         }
 
         /**
-         * @param configuration Specify a custom `configuration` block as defined below.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The `configuration` block has been superseded by the `azure.nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* The `configuration` block has been superseded by the `azure.nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider. */
         public Builder configuration(DeploymentConfigurationArgs configuration) {
             return configuration(Output.of(configuration));
         }
 
         /**
-         * @param diagnoseSupportEnabled Should the diagnosis support be enabled?
+         * @param diagnoseSupportEnabled Should the metrics be exported to Azure Monitor?
          * 
          * @return builder
          * 
@@ -467,7 +467,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param diagnoseSupportEnabled Should the diagnosis support be enabled?
+         * @param diagnoseSupportEnabled Should the metrics be exported to Azure Monitor?
          * 
          * @return builder
          * 
@@ -758,23 +758,11 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
             return resourceGroupName(Output.of(resourceGroupName));
         }
 
-        /**
-         * @param sku Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sku(@Nullable Output<String> sku) {
             $.sku = sku;
             return this;
         }
 
-        /**
-         * @param sku Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sku(String sku) {
             return sku(Output.of(sku));
         }

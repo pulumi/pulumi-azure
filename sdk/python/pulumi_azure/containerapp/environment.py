@@ -23,6 +23,7 @@ class EnvironmentArgs:
                  internal_load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+                 mutual_tls_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workload_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentWorkloadProfileArgs']]]] = None,
@@ -42,6 +43,9 @@ class EnvironmentArgs:
                > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] mutual_tls_enabled: Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
+               
+               > **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
         :param pulumi.Input[str] name: The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentWorkloadProfileArgs']]] workload_profiles: The profile of the workload to scope the container app execution. A `workload_profile` block as defined below.
@@ -62,6 +66,8 @@ class EnvironmentArgs:
             pulumi.set(__self__, "location", location)
         if log_analytics_workspace_id is not None:
             pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        if mutual_tls_enabled is not None:
+            pulumi.set(__self__, "mutual_tls_enabled", mutual_tls_enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -162,6 +168,20 @@ class EnvironmentArgs:
         pulumi.set(self, "log_analytics_workspace_id", value)
 
     @property
+    @pulumi.getter(name="mutualTlsEnabled")
+    def mutual_tls_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
+
+        > **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
+        """
+        return pulumi.get(self, "mutual_tls_enabled")
+
+    @mutual_tls_enabled.setter
+    def mutual_tls_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "mutual_tls_enabled", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -224,6 +244,7 @@ class _EnvironmentState:
                  internal_load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+                 mutual_tls_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  platform_reserved_cidr: Optional[pulumi.Input[str]] = None,
                  platform_reserved_dns_ip_address: Optional[pulumi.Input[str]] = None,
@@ -249,6 +270,9 @@ class _EnvironmentState:
                > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] mutual_tls_enabled: Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
+               
+               > **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
         :param pulumi.Input[str] name: The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] platform_reserved_cidr: The IP range, in CIDR notation, that is reserved for environment infrastructure IP addresses.
         :param pulumi.Input[str] platform_reserved_dns_ip_address: The IP address from the IP range defined by `platform_reserved_cidr` that is reserved for the internal DNS server.
@@ -278,6 +302,8 @@ class _EnvironmentState:
             pulumi.set(__self__, "location", location)
         if log_analytics_workspace_id is not None:
             pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        if mutual_tls_enabled is not None:
+            pulumi.set(__self__, "mutual_tls_enabled", mutual_tls_enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if platform_reserved_cidr is not None:
@@ -410,6 +436,20 @@ class _EnvironmentState:
         pulumi.set(self, "log_analytics_workspace_id", value)
 
     @property
+    @pulumi.getter(name="mutualTlsEnabled")
+    def mutual_tls_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
+
+        > **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
+        """
+        return pulumi.get(self, "mutual_tls_enabled")
+
+    @mutual_tls_enabled.setter
+    def mutual_tls_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "mutual_tls_enabled", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -519,6 +559,7 @@ class Environment(pulumi.CustomResource):
                  internal_load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+                 mutual_tls_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -572,6 +613,9 @@ class Environment(pulumi.CustomResource):
                > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] mutual_tls_enabled: Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
+               
+               > **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
         :param pulumi.Input[str] name: The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -640,6 +684,7 @@ class Environment(pulumi.CustomResource):
                  internal_load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+                 mutual_tls_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -660,6 +705,7 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["internal_load_balancer_enabled"] = internal_load_balancer_enabled
             __props__.__dict__["location"] = location
             __props__.__dict__["log_analytics_workspace_id"] = log_analytics_workspace_id
+            __props__.__dict__["mutual_tls_enabled"] = mutual_tls_enabled
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -694,6 +740,7 @@ class Environment(pulumi.CustomResource):
             internal_load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+            mutual_tls_enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             platform_reserved_cidr: Optional[pulumi.Input[str]] = None,
             platform_reserved_dns_ip_address: Optional[pulumi.Input[str]] = None,
@@ -724,6 +771,9 @@ class Environment(pulumi.CustomResource):
                > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] mutual_tls_enabled: Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
+               
+               > **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
         :param pulumi.Input[str] name: The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] platform_reserved_cidr: The IP range, in CIDR notation, that is reserved for environment infrastructure IP addresses.
         :param pulumi.Input[str] platform_reserved_dns_ip_address: The IP address from the IP range defined by `platform_reserved_cidr` that is reserved for the internal DNS server.
@@ -748,6 +798,7 @@ class Environment(pulumi.CustomResource):
         __props__.__dict__["internal_load_balancer_enabled"] = internal_load_balancer_enabled
         __props__.__dict__["location"] = location
         __props__.__dict__["log_analytics_workspace_id"] = log_analytics_workspace_id
+        __props__.__dict__["mutual_tls_enabled"] = mutual_tls_enabled
         __props__.__dict__["name"] = name
         __props__.__dict__["platform_reserved_cidr"] = platform_reserved_cidr
         __props__.__dict__["platform_reserved_dns_ip_address"] = platform_reserved_dns_ip_address
@@ -835,6 +886,16 @@ class Environment(pulumi.CustomResource):
         The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "log_analytics_workspace_id")
+
+    @property
+    @pulumi.getter(name="mutualTlsEnabled")
+    def mutual_tls_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
+
+        > **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
+        """
+        return pulumi.get(self, "mutual_tls_enabled")
 
     @property
     @pulumi.getter

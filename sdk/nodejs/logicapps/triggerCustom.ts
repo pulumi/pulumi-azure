@@ -77,6 +77,10 @@ export class TriggerCustom extends pulumi.CustomResource {
      */
     public readonly body!: pulumi.Output<string>;
     /**
+     * The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group.
+     */
+    public /*out*/ readonly callbackUrl!: pulumi.Output<string>;
+    /**
      * Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
      */
     public readonly logicAppId!: pulumi.Output<string>;
@@ -101,6 +105,7 @@ export class TriggerCustom extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as TriggerCustomState | undefined;
             resourceInputs["body"] = state ? state.body : undefined;
+            resourceInputs["callbackUrl"] = state ? state.callbackUrl : undefined;
             resourceInputs["logicAppId"] = state ? state.logicAppId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
         } else {
@@ -114,6 +119,7 @@ export class TriggerCustom extends pulumi.CustomResource {
             resourceInputs["body"] = args ? args.body : undefined;
             resourceInputs["logicAppId"] = args ? args.logicAppId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["callbackUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TriggerCustom.__pulumiType, name, resourceInputs, opts);
@@ -128,6 +134,10 @@ export interface TriggerCustomState {
      * Specifies the JSON Blob defining the Body of this Custom Trigger.
      */
     body?: pulumi.Input<string>;
+    /**
+     * The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group.
+     */
+    callbackUrl?: pulumi.Input<string>;
     /**
      * Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
      */

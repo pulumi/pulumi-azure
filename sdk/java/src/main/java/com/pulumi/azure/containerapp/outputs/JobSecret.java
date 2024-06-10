@@ -23,12 +23,12 @@ public final class JobSecret {
      */
     private @Nullable String keyVaultSecretId;
     /**
-     * @return Name of the secret.
+     * @return Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
      * 
      */
     private String name;
     /**
-     * @return Value of the secret.
+     * @return The value for this secret.
      * 
      */
     private @Nullable String value;
@@ -49,14 +49,14 @@ public final class JobSecret {
         return Optional.ofNullable(this.keyVaultSecretId);
     }
     /**
-     * @return Name of the secret.
+     * @return Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return Value of the secret.
+     * @return The value for this secret.
      * 
      */
     public Optional<String> value() {

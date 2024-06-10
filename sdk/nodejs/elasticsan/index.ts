@@ -15,6 +15,11 @@ export const get: typeof import("./get").get = null as any;
 export const getOutput: typeof import("./get").getOutput = null as any;
 utilities.lazyLoad(exports, ["get","getOutput"], () => require("./get"));
 
+export { GetVolumeGroupArgs, GetVolumeGroupResult, GetVolumeGroupOutputArgs } from "./getVolumeGroup";
+export const getVolumeGroup: typeof import("./getVolumeGroup").getVolumeGroup = null as any;
+export const getVolumeGroupOutput: typeof import("./getVolumeGroup").getVolumeGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getVolumeGroup","getVolumeGroupOutput"], () => require("./getVolumeGroup"));
+
 export { VolumeArgs, VolumeState } from "./volume";
 export type Volume = import("./volume").Volume;
 export const Volume: typeof import("./volume").Volume = null as any;

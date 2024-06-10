@@ -58,15 +58,15 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
      * A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Import(name="ipConfiguration", required=true)
-    private Output<BastionHostIpConfigurationArgs> ipConfiguration;
+    @Import(name="ipConfiguration")
+    private @Nullable Output<BastionHostIpConfigurationArgs> ipConfiguration;
 
     /**
      * @return A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    public Output<BastionHostIpConfigurationArgs> ipConfiguration() {
-        return this.ipConfiguration;
+    public Optional<Output<BastionHostIpConfigurationArgs>> ipConfiguration() {
+        return Optional.ofNullable(this.ipConfiguration);
     }
 
     /**
@@ -191,7 +191,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+     * The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
      * 
      * &gt; **Note** Downgrading the SKU will force a new resource to be created.
      * 
@@ -200,7 +200,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> sku;
 
     /**
-     * @return The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+     * @return The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
      * 
      * &gt; **Note** Downgrading the SKU will force a new resource to be created.
      * 
@@ -243,6 +243,21 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tunnelingEnabled);
     }
 
+    /**
+     * The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="virtualNetworkId")
+    private @Nullable Output<String> virtualNetworkId;
+
+    /**
+     * @return The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> virtualNetworkId() {
+        return Optional.ofNullable(this.virtualNetworkId);
+    }
+
     private BastionHostArgs() {}
 
     private BastionHostArgs(BastionHostArgs $) {
@@ -259,6 +274,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
         this.sku = $.sku;
         this.tags = $.tags;
         this.tunnelingEnabled = $.tunnelingEnabled;
+        this.virtualNetworkId = $.virtualNetworkId;
     }
 
     public static Builder builder() {
@@ -331,7 +347,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder ipConfiguration(Output<BastionHostIpConfigurationArgs> ipConfiguration) {
+        public Builder ipConfiguration(@Nullable Output<BastionHostIpConfigurationArgs> ipConfiguration) {
             $.ipConfiguration = ipConfiguration;
             return this;
         }
@@ -510,7 +526,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+         * @param sku The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
          * 
          * &gt; **Note** Downgrading the SKU will force a new resource to be created.
          * 
@@ -523,7 +539,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+         * @param sku The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
          * 
          * &gt; **Note** Downgrading the SKU will force a new resource to be created.
          * 
@@ -580,10 +596,28 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
             return tunnelingEnabled(Output.of(tunnelingEnabled));
         }
 
+        /**
+         * @param virtualNetworkId The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder virtualNetworkId(@Nullable Output<String> virtualNetworkId) {
+            $.virtualNetworkId = virtualNetworkId;
+            return this;
+        }
+
+        /**
+         * @param virtualNetworkId The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder virtualNetworkId(String virtualNetworkId) {
+            return virtualNetworkId(Output.of(virtualNetworkId));
+        }
+
         public BastionHostArgs build() {
-            if ($.ipConfiguration == null) {
-                throw new MissingRequiredPropertyException("BastionHostArgs", "ipConfiguration");
-            }
             if ($.resourceGroupName == null) {
                 throw new MissingRequiredPropertyException("BastionHostArgs", "resourceGroupName");
             }

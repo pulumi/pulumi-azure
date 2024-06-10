@@ -74,6 +74,8 @@ __all__ = [
     'GetPolicyRuleFilterMatchBlobIndexTagResult',
     'GetShareAclResult',
     'GetShareAclAccessPolicyResult',
+    'GetTableAclResult',
+    'GetTableAclAccessPolicyResult',
     'GetTableEntitiesItemResult',
 ]
 
@@ -4269,6 +4271,57 @@ class GetShareAclAccessPolicyResult(dict):
         """
         The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
         """
+        return pulumi.get(self, "start")
+
+
+@pulumi.output_type
+class GetTableAclResult(dict):
+    def __init__(__self__, *,
+                 access_policies: Sequence['outputs.GetTableAclAccessPolicyResult'],
+                 id: str):
+        """
+        :param str id: The ID of the Storage Table.
+        """
+        pulumi.set(__self__, "access_policies", access_policies)
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter(name="accessPolicies")
+    def access_policies(self) -> Sequence['outputs.GetTableAclAccessPolicyResult']:
+        return pulumi.get(self, "access_policies")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Storage Table.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetTableAclAccessPolicyResult(dict):
+    def __init__(__self__, *,
+                 expiry: str,
+                 permissions: str,
+                 start: str):
+        pulumi.set(__self__, "expiry", expiry)
+        pulumi.set(__self__, "permissions", permissions)
+        pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter
+    def expiry(self) -> str:
+        return pulumi.get(self, "expiry")
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> str:
+        return pulumi.get(self, "permissions")
+
+    @property
+    @pulumi.getter
+    def start(self) -> str:
         return pulumi.get(self, "start")
 
 

@@ -6,7 +6,10 @@ package com.pulumi.azure.elasticsan;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.elasticsan.inputs.GetArgs;
 import com.pulumi.azure.elasticsan.inputs.GetPlainArgs;
+import com.pulumi.azure.elasticsan.inputs.GetVolumeGroupArgs;
+import com.pulumi.azure.elasticsan.inputs.GetVolumeGroupPlainArgs;
 import com.pulumi.azure.elasticsan.outputs.GetResult;
+import com.pulumi.azure.elasticsan.outputs.GetVolumeGroupResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -189,5 +192,205 @@ public final class ElasticsanFunctions {
      */
     public static CompletableFuture<GetResult> getPlain(GetPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:elasticsan/get:get", TypeShape.of(GetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Elastic SAN Volume Group.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.elasticsan.ElasticsanFunctions;
+     * import com.pulumi.azure.elasticsan.inputs.GetArgs;
+     * import com.pulumi.azure.elasticsan.inputs.GetVolumeGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ElasticsanFunctions.get(GetArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         final var exampleGetVolumeGroup = ElasticsanFunctions.getVolumeGroup(GetVolumeGroupArgs.builder()
+     *             .name("existing")
+     *             .elasticSanId(example.applyValue(getResult -> getResult.id()))
+     *             .build());
+     * 
+     *         ctx.export("id", exampleGetVolumeGroup.applyValue(getVolumeGroupResult -> getVolumeGroupResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetVolumeGroupResult> getVolumeGroup(GetVolumeGroupArgs args) {
+        return getVolumeGroup(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Elastic SAN Volume Group.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.elasticsan.ElasticsanFunctions;
+     * import com.pulumi.azure.elasticsan.inputs.GetArgs;
+     * import com.pulumi.azure.elasticsan.inputs.GetVolumeGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ElasticsanFunctions.get(GetArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         final var exampleGetVolumeGroup = ElasticsanFunctions.getVolumeGroup(GetVolumeGroupArgs.builder()
+     *             .name("existing")
+     *             .elasticSanId(example.applyValue(getResult -> getResult.id()))
+     *             .build());
+     * 
+     *         ctx.export("id", exampleGetVolumeGroup.applyValue(getVolumeGroupResult -> getVolumeGroupResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetVolumeGroupResult> getVolumeGroupPlain(GetVolumeGroupPlainArgs args) {
+        return getVolumeGroupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Elastic SAN Volume Group.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.elasticsan.ElasticsanFunctions;
+     * import com.pulumi.azure.elasticsan.inputs.GetArgs;
+     * import com.pulumi.azure.elasticsan.inputs.GetVolumeGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ElasticsanFunctions.get(GetArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         final var exampleGetVolumeGroup = ElasticsanFunctions.getVolumeGroup(GetVolumeGroupArgs.builder()
+     *             .name("existing")
+     *             .elasticSanId(example.applyValue(getResult -> getResult.id()))
+     *             .build());
+     * 
+     *         ctx.export("id", exampleGetVolumeGroup.applyValue(getVolumeGroupResult -> getVolumeGroupResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetVolumeGroupResult> getVolumeGroup(GetVolumeGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:elasticsan/getVolumeGroup:getVolumeGroup", TypeShape.of(GetVolumeGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Elastic SAN Volume Group.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.elasticsan.ElasticsanFunctions;
+     * import com.pulumi.azure.elasticsan.inputs.GetArgs;
+     * import com.pulumi.azure.elasticsan.inputs.GetVolumeGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ElasticsanFunctions.get(GetArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         final var exampleGetVolumeGroup = ElasticsanFunctions.getVolumeGroup(GetVolumeGroupArgs.builder()
+     *             .name("existing")
+     *             .elasticSanId(example.applyValue(getResult -> getResult.id()))
+     *             .build());
+     * 
+     *         ctx.export("id", exampleGetVolumeGroup.applyValue(getVolumeGroupResult -> getVolumeGroupResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetVolumeGroupResult> getVolumeGroupPlain(GetVolumeGroupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:elasticsan/getVolumeGroup:getVolumeGroup", TypeShape.of(GetVolumeGroupResult.class), args, Utilities.withVersion(options));
     }
 }

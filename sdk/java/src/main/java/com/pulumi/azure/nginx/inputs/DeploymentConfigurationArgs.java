@@ -19,62 +19,30 @@ public final class DeploymentConfigurationArgs extends com.pulumi.resources.Reso
 
     public static final DeploymentConfigurationArgs Empty = new DeploymentConfigurationArgs();
 
-    /**
-     * One or more `config_file` blocks as defined below.
-     * 
-     */
     @Import(name="configFiles")
     private @Nullable Output<List<DeploymentConfigurationConfigFileArgs>> configFiles;
 
-    /**
-     * @return One or more `config_file` blocks as defined below.
-     * 
-     */
     public Optional<Output<List<DeploymentConfigurationConfigFileArgs>>> configFiles() {
         return Optional.ofNullable(this.configFiles);
     }
 
-    /**
-     * Specify the package data for this configuration.
-     * 
-     */
     @Import(name="packageData")
     private @Nullable Output<String> packageData;
 
-    /**
-     * @return Specify the package data for this configuration.
-     * 
-     */
     public Optional<Output<String>> packageData() {
         return Optional.ofNullable(this.packageData);
     }
 
-    /**
-     * One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
-     * 
-     */
     @Import(name="protectedFiles")
     private @Nullable Output<List<DeploymentConfigurationProtectedFileArgs>> protectedFiles;
 
-    /**
-     * @return One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
-     * 
-     */
     public Optional<Output<List<DeploymentConfigurationProtectedFileArgs>>> protectedFiles() {
         return Optional.ofNullable(this.protectedFiles);
     }
 
-    /**
-     * Specify the root file path of this Nginx Configuration.
-     * 
-     */
     @Import(name="rootFile", required=true)
     private Output<String> rootFile;
 
-    /**
-     * @return Specify the root file path of this Nginx Configuration.
-     * 
-     */
     public Output<String> rootFile() {
         return this.rootFile;
     }
@@ -106,106 +74,46 @@ public final class DeploymentConfigurationArgs extends com.pulumi.resources.Reso
             $ = new DeploymentConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param configFiles One or more `config_file` blocks as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configFiles(@Nullable Output<List<DeploymentConfigurationConfigFileArgs>> configFiles) {
             $.configFiles = configFiles;
             return this;
         }
 
-        /**
-         * @param configFiles One or more `config_file` blocks as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configFiles(List<DeploymentConfigurationConfigFileArgs> configFiles) {
             return configFiles(Output.of(configFiles));
         }
 
-        /**
-         * @param configFiles One or more `config_file` blocks as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configFiles(DeploymentConfigurationConfigFileArgs... configFiles) {
             return configFiles(List.of(configFiles));
         }
 
-        /**
-         * @param packageData Specify the package data for this configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder packageData(@Nullable Output<String> packageData) {
             $.packageData = packageData;
             return this;
         }
 
-        /**
-         * @param packageData Specify the package data for this configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder packageData(String packageData) {
             return packageData(Output.of(packageData));
         }
 
-        /**
-         * @param protectedFiles One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protectedFiles(@Nullable Output<List<DeploymentConfigurationProtectedFileArgs>> protectedFiles) {
             $.protectedFiles = protectedFiles;
             return this;
         }
 
-        /**
-         * @param protectedFiles One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protectedFiles(List<DeploymentConfigurationProtectedFileArgs> protectedFiles) {
             return protectedFiles(Output.of(protectedFiles));
         }
 
-        /**
-         * @param protectedFiles One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protectedFiles(DeploymentConfigurationProtectedFileArgs... protectedFiles) {
             return protectedFiles(List.of(protectedFiles));
         }
 
-        /**
-         * @param rootFile Specify the root file path of this Nginx Configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rootFile(Output<String> rootFile) {
             $.rootFile = rootFile;
             return this;
         }
 
-        /**
-         * @param rootFile Specify the root file path of this Nginx Configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rootFile(String rootFile) {
             return rootFile(Output.of(rootFile));
         }

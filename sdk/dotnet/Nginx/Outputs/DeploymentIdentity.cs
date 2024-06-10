@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Nginx.Outputs
         public readonly string? PrincipalId;
         public readonly string? TenantId;
         /// <summary>
-        /// Specifies the identity type of the NGINX Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
+        /// Specifies the identity type of the NGINX Deployment. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned`.
         /// </summary>
         public readonly string Type;
 

@@ -18,6 +18,8 @@ import com.pulumi.azure.storage.inputs.GetEncryptionScopeArgs;
 import com.pulumi.azure.storage.inputs.GetEncryptionScopePlainArgs;
 import com.pulumi.azure.storage.inputs.GetPolicyArgs;
 import com.pulumi.azure.storage.inputs.GetPolicyPlainArgs;
+import com.pulumi.azure.storage.inputs.GetQueueArgs;
+import com.pulumi.azure.storage.inputs.GetQueuePlainArgs;
 import com.pulumi.azure.storage.inputs.GetShareArgs;
 import com.pulumi.azure.storage.inputs.GetSharePlainArgs;
 import com.pulumi.azure.storage.inputs.GetStorageContainerArgs;
@@ -26,10 +28,12 @@ import com.pulumi.azure.storage.inputs.GetSyncArgs;
 import com.pulumi.azure.storage.inputs.GetSyncGroupArgs;
 import com.pulumi.azure.storage.inputs.GetSyncGroupPlainArgs;
 import com.pulumi.azure.storage.inputs.GetSyncPlainArgs;
+import com.pulumi.azure.storage.inputs.GetTableArgs;
 import com.pulumi.azure.storage.inputs.GetTableEntitiesArgs;
 import com.pulumi.azure.storage.inputs.GetTableEntitiesPlainArgs;
 import com.pulumi.azure.storage.inputs.GetTableEntityArgs;
 import com.pulumi.azure.storage.inputs.GetTableEntityPlainArgs;
+import com.pulumi.azure.storage.inputs.GetTablePlainArgs;
 import com.pulumi.azure.storage.outputs.GetAccountBlobContainerSASResult;
 import com.pulumi.azure.storage.outputs.GetAccountResult;
 import com.pulumi.azure.storage.outputs.GetAccountSASResult;
@@ -37,12 +41,14 @@ import com.pulumi.azure.storage.outputs.GetBlobResult;
 import com.pulumi.azure.storage.outputs.GetContainersResult;
 import com.pulumi.azure.storage.outputs.GetEncryptionScopeResult;
 import com.pulumi.azure.storage.outputs.GetPolicyResult;
+import com.pulumi.azure.storage.outputs.GetQueueResult;
 import com.pulumi.azure.storage.outputs.GetShareResult;
 import com.pulumi.azure.storage.outputs.GetStorageContainerResult;
 import com.pulumi.azure.storage.outputs.GetSyncGroupResult;
 import com.pulumi.azure.storage.outputs.GetSyncResult;
 import com.pulumi.azure.storage.outputs.GetTableEntitiesResult;
 import com.pulumi.azure.storage.outputs.GetTableEntityResult;
+import com.pulumi.azure.storage.outputs.GetTableResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -1707,6 +1713,178 @@ public final class StorageFunctions {
         return Deployment.getInstance().invokeAsync("azure:storage/getPolicy:getPolicy", TypeShape.of(GetPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing Storage Queue.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetQueueArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = StorageFunctions.getQueue(GetQueueArgs.builder()
+     *             .name("example-queue-name")
+     *             .storageAccountName("example-storage-account-name")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetQueueResult> getQueue(GetQueueArgs args) {
+        return getQueue(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Storage Queue.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetQueueArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = StorageFunctions.getQueue(GetQueueArgs.builder()
+     *             .name("example-queue-name")
+     *             .storageAccountName("example-storage-account-name")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetQueueResult> getQueuePlain(GetQueuePlainArgs args) {
+        return getQueuePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Storage Queue.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetQueueArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = StorageFunctions.getQueue(GetQueueArgs.builder()
+     *             .name("example-queue-name")
+     *             .storageAccountName("example-storage-account-name")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetQueueResult> getQueue(GetQueueArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:storage/getQueue:getQueue", TypeShape.of(GetQueueResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Storage Queue.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetQueueArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = StorageFunctions.getQueue(GetQueueArgs.builder()
+     *             .name("example-queue-name")
+     *             .storageAccountName("example-storage-account-name")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetQueueResult> getQueuePlain(GetQueuePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:storage/getQueue:getQueue", TypeShape.of(GetQueueResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Use this data source to access information about an existing File Share.
      * 
      * &gt; **Note on Authentication** Shared Key authentication will always be used for this data source, as AzureAD authentication is not supported by the Storage API for files.
@@ -2413,6 +2591,178 @@ public final class StorageFunctions {
      */
     public static CompletableFuture<GetSyncGroupResult> getSyncGroupPlain(GetSyncGroupPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:storage/getSyncGroup:getSyncGroup", TypeShape.of(GetSyncGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Storage Table.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = StorageFunctions.getTable(GetTableArgs.builder()
+     *             .name("example-table-name")
+     *             .storageAccountName("example-storage-account-name")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetTableResult> getTable(GetTableArgs args) {
+        return getTable(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Storage Table.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = StorageFunctions.getTable(GetTableArgs.builder()
+     *             .name("example-table-name")
+     *             .storageAccountName("example-storage-account-name")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetTableResult> getTablePlain(GetTablePlainArgs args) {
+        return getTablePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Storage Table.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = StorageFunctions.getTable(GetTableArgs.builder()
+     *             .name("example-table-name")
+     *             .storageAccountName("example-storage-account-name")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetTableResult> getTable(GetTableArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:storage/getTable:getTable", TypeShape.of(GetTableResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Storage Table.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = StorageFunctions.getTable(GetTableArgs.builder()
+     *             .name("example-table-name")
+     *             .storageAccountName("example-storage-account-name")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetTableResult> getTablePlain(GetTablePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:storage/getTable:getTable", TypeShape.of(GetTableResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Storage Table Entity.

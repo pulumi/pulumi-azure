@@ -294,7 +294,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
     /**
      * The shared IPSec key. A key could be provided if a Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
      */
-    public readonly sharedKey!: pulumi.Output<string | undefined>;
+    public readonly sharedKey!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

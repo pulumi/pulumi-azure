@@ -9,14 +9,15 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class RouteMapRuleAction {
     /**
-     * @return A `parameter` block as defined below.
+     * @return A `parameter` block as defined below. Required if `type` is anything other than `Drop`.
      * 
      */
-    private List<RouteMapRuleActionParameter> parameters;
+    private @Nullable List<RouteMapRuleActionParameter> parameters;
     /**
      * @return The type of the action to be taken. Possible values are `Add`, `Drop`, `Remove`, `Replace` and `Unknown`.
      * 
@@ -25,11 +26,11 @@ public final class RouteMapRuleAction {
 
     private RouteMapRuleAction() {}
     /**
-     * @return A `parameter` block as defined below.
+     * @return A `parameter` block as defined below. Required if `type` is anything other than `Drop`.
      * 
      */
     public List<RouteMapRuleActionParameter> parameters() {
-        return this.parameters;
+        return this.parameters == null ? List.of() : this.parameters;
     }
     /**
      * @return The type of the action to be taken. Possible values are `Add`, `Drop`, `Remove`, `Replace` and `Unknown`.
@@ -48,7 +49,7 @@ public final class RouteMapRuleAction {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<RouteMapRuleActionParameter> parameters;
+        private @Nullable List<RouteMapRuleActionParameter> parameters;
         private String type;
         public Builder() {}
         public Builder(RouteMapRuleAction defaults) {
@@ -58,10 +59,8 @@ public final class RouteMapRuleAction {
         }
 
         @CustomType.Setter
-        public Builder parameters(List<RouteMapRuleActionParameter> parameters) {
-            if (parameters == null) {
-              throw new MissingRequiredPropertyException("RouteMapRuleAction", "parameters");
-            }
+        public Builder parameters(@Nullable List<RouteMapRuleActionParameter> parameters) {
+
             this.parameters = parameters;
             return this;
         }

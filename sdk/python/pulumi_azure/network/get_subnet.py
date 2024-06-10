@@ -21,13 +21,16 @@ class GetSubnetResult:
     """
     A collection of values returned by getSubnet.
     """
-    def __init__(__self__, address_prefix=None, address_prefixes=None, enforce_private_link_endpoint_network_policies=None, enforce_private_link_service_network_policies=None, id=None, name=None, network_security_group_id=None, private_endpoint_network_policies=None, private_endpoint_network_policies_enabled=None, private_link_service_network_policies_enabled=None, resource_group_name=None, route_table_id=None, service_endpoints=None, virtual_network_name=None):
+    def __init__(__self__, address_prefix=None, address_prefixes=None, default_outbound_access_enabled=None, enforce_private_link_endpoint_network_policies=None, enforce_private_link_service_network_policies=None, id=None, name=None, network_security_group_id=None, private_endpoint_network_policies=None, private_endpoint_network_policies_enabled=None, private_link_service_network_policies_enabled=None, resource_group_name=None, route_table_id=None, service_endpoints=None, virtual_network_name=None):
         if address_prefix and not isinstance(address_prefix, str):
             raise TypeError("Expected argument 'address_prefix' to be a str")
         pulumi.set(__self__, "address_prefix", address_prefix)
         if address_prefixes and not isinstance(address_prefixes, list):
             raise TypeError("Expected argument 'address_prefixes' to be a list")
         pulumi.set(__self__, "address_prefixes", address_prefixes)
+        if default_outbound_access_enabled and not isinstance(default_outbound_access_enabled, bool):
+            raise TypeError("Expected argument 'default_outbound_access_enabled' to be a bool")
+        pulumi.set(__self__, "default_outbound_access_enabled", default_outbound_access_enabled)
         if enforce_private_link_endpoint_network_policies and not isinstance(enforce_private_link_endpoint_network_policies, bool):
             raise TypeError("Expected argument 'enforce_private_link_endpoint_network_policies' to be a bool")
         pulumi.set(__self__, "enforce_private_link_endpoint_network_policies", enforce_private_link_endpoint_network_policies)
@@ -77,6 +80,14 @@ class GetSubnetResult:
         The address prefixes for the subnet.
         """
         return pulumi.get(self, "address_prefixes")
+
+    @property
+    @pulumi.getter(name="defaultOutboundAccessEnabled")
+    def default_outbound_access_enabled(self) -> bool:
+        """
+        Is the default outbound access enabled for the subnet.
+        """
+        return pulumi.get(self, "default_outbound_access_enabled")
 
     @property
     @pulumi.getter(name="enforcePrivateLinkEndpointNetworkPolicies")
@@ -168,6 +179,7 @@ class AwaitableGetSubnetResult(GetSubnetResult):
         return GetSubnetResult(
             address_prefix=self.address_prefix,
             address_prefixes=self.address_prefixes,
+            default_outbound_access_enabled=self.default_outbound_access_enabled,
             enforce_private_link_endpoint_network_policies=self.enforce_private_link_endpoint_network_policies,
             enforce_private_link_service_network_policies=self.enforce_private_link_service_network_policies,
             id=self.id,
@@ -216,6 +228,7 @@ def get_subnet(name: Optional[str] = None,
     return AwaitableGetSubnetResult(
         address_prefix=pulumi.get(__ret__, 'address_prefix'),
         address_prefixes=pulumi.get(__ret__, 'address_prefixes'),
+        default_outbound_access_enabled=pulumi.get(__ret__, 'default_outbound_access_enabled'),
         enforce_private_link_endpoint_network_policies=pulumi.get(__ret__, 'enforce_private_link_endpoint_network_policies'),
         enforce_private_link_service_network_policies=pulumi.get(__ret__, 'enforce_private_link_service_network_policies'),
         id=pulumi.get(__ret__, 'id'),

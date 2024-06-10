@@ -16,8 +16,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// <summary>
         /// Is Istio External Ingress Gateway enabled?
         /// 
-        /// &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
-        /// 
         /// &gt; **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
         /// </summary>
         public readonly bool? ExternalIngressGatewayEnabled;

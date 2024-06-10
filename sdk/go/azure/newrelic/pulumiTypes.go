@@ -13,6 +13,181 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type MonitorIdentity struct {
+	// The Principal ID for the Service Principal associated with the Identity of this Azure Native New Relic Monitor.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Identity of this Azure Native New Relic Monitor.
+	TenantId *string `pulumi:"tenantId"`
+	// Specifies the identity type of the Azure Native New Relic Monitor. The only possible value is `SystemAssigned`. Changing this forces a new Azure Native New Relic Monitor to be created.
+	Type string `pulumi:"type"`
+}
+
+// MonitorIdentityInput is an input type that accepts MonitorIdentityArgs and MonitorIdentityOutput values.
+// You can construct a concrete instance of `MonitorIdentityInput` via:
+//
+//	MonitorIdentityArgs{...}
+type MonitorIdentityInput interface {
+	pulumi.Input
+
+	ToMonitorIdentityOutput() MonitorIdentityOutput
+	ToMonitorIdentityOutputWithContext(context.Context) MonitorIdentityOutput
+}
+
+type MonitorIdentityArgs struct {
+	// The Principal ID for the Service Principal associated with the Identity of this Azure Native New Relic Monitor.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Identity of this Azure Native New Relic Monitor.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Specifies the identity type of the Azure Native New Relic Monitor. The only possible value is `SystemAssigned`. Changing this forces a new Azure Native New Relic Monitor to be created.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (MonitorIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorIdentity)(nil)).Elem()
+}
+
+func (i MonitorIdentityArgs) ToMonitorIdentityOutput() MonitorIdentityOutput {
+	return i.ToMonitorIdentityOutputWithContext(context.Background())
+}
+
+func (i MonitorIdentityArgs) ToMonitorIdentityOutputWithContext(ctx context.Context) MonitorIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorIdentityOutput)
+}
+
+func (i MonitorIdentityArgs) ToMonitorIdentityPtrOutput() MonitorIdentityPtrOutput {
+	return i.ToMonitorIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i MonitorIdentityArgs) ToMonitorIdentityPtrOutputWithContext(ctx context.Context) MonitorIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorIdentityOutput).ToMonitorIdentityPtrOutputWithContext(ctx)
+}
+
+// MonitorIdentityPtrInput is an input type that accepts MonitorIdentityArgs, MonitorIdentityPtr and MonitorIdentityPtrOutput values.
+// You can construct a concrete instance of `MonitorIdentityPtrInput` via:
+//
+//	        MonitorIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type MonitorIdentityPtrInput interface {
+	pulumi.Input
+
+	ToMonitorIdentityPtrOutput() MonitorIdentityPtrOutput
+	ToMonitorIdentityPtrOutputWithContext(context.Context) MonitorIdentityPtrOutput
+}
+
+type monitorIdentityPtrType MonitorIdentityArgs
+
+func MonitorIdentityPtr(v *MonitorIdentityArgs) MonitorIdentityPtrInput {
+	return (*monitorIdentityPtrType)(v)
+}
+
+func (*monitorIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitorIdentity)(nil)).Elem()
+}
+
+func (i *monitorIdentityPtrType) ToMonitorIdentityPtrOutput() MonitorIdentityPtrOutput {
+	return i.ToMonitorIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *monitorIdentityPtrType) ToMonitorIdentityPtrOutputWithContext(ctx context.Context) MonitorIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorIdentityPtrOutput)
+}
+
+type MonitorIdentityOutput struct{ *pulumi.OutputState }
+
+func (MonitorIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorIdentity)(nil)).Elem()
+}
+
+func (o MonitorIdentityOutput) ToMonitorIdentityOutput() MonitorIdentityOutput {
+	return o
+}
+
+func (o MonitorIdentityOutput) ToMonitorIdentityOutputWithContext(ctx context.Context) MonitorIdentityOutput {
+	return o
+}
+
+func (o MonitorIdentityOutput) ToMonitorIdentityPtrOutput() MonitorIdentityPtrOutput {
+	return o.ToMonitorIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o MonitorIdentityOutput) ToMonitorIdentityPtrOutputWithContext(ctx context.Context) MonitorIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitorIdentity) *MonitorIdentity {
+		return &v
+	}).(MonitorIdentityPtrOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Identity of this Azure Native New Relic Monitor.
+func (o MonitorIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitorIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Identity of this Azure Native New Relic Monitor.
+func (o MonitorIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitorIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the identity type of the Azure Native New Relic Monitor. The only possible value is `SystemAssigned`. Changing this forces a new Azure Native New Relic Monitor to be created.
+func (o MonitorIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v MonitorIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type MonitorIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (MonitorIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitorIdentity)(nil)).Elem()
+}
+
+func (o MonitorIdentityPtrOutput) ToMonitorIdentityPtrOutput() MonitorIdentityPtrOutput {
+	return o
+}
+
+func (o MonitorIdentityPtrOutput) ToMonitorIdentityPtrOutputWithContext(ctx context.Context) MonitorIdentityPtrOutput {
+	return o
+}
+
+func (o MonitorIdentityPtrOutput) Elem() MonitorIdentityOutput {
+	return o.ApplyT(func(v *MonitorIdentity) MonitorIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret MonitorIdentity
+		return ret
+	}).(MonitorIdentityOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Identity of this Azure Native New Relic Monitor.
+func (o MonitorIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitorIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Identity of this Azure Native New Relic Monitor.
+func (o MonitorIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitorIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the identity type of the Azure Native New Relic Monitor. The only possible value is `SystemAssigned`. Changing this forces a new Azure Native New Relic Monitor to be created.
+func (o MonitorIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitorIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type MonitorPlan struct {
 	// Specifies the billing cycles. Possible values are `MONTHLY`, `WEEKLY` and `YEARLY`. Defaults to `MONTHLY`. Changing this forces a new Azure Native New Relic Monitor to be created.
 	BillingCycle *string `pulumi:"billingCycle"`
@@ -632,6 +807,8 @@ func (o TagRuleMetricTagFilterArrayOutput) Index(i pulumi.IntInput) TagRuleMetri
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorIdentityInput)(nil)).Elem(), MonitorIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorIdentityPtrInput)(nil)).Elem(), MonitorIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorPlanInput)(nil)).Elem(), MonitorPlanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorPlanPtrInput)(nil)).Elem(), MonitorPlanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorUserInput)(nil)).Elem(), MonitorUserArgs{})
@@ -640,6 +817,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TagRuleLogTagFilterArrayInput)(nil)).Elem(), TagRuleLogTagFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagRuleMetricTagFilterInput)(nil)).Elem(), TagRuleMetricTagFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagRuleMetricTagFilterArrayInput)(nil)).Elem(), TagRuleMetricTagFilterArray{})
+	pulumi.RegisterOutputType(MonitorIdentityOutput{})
+	pulumi.RegisterOutputType(MonitorIdentityPtrOutput{})
 	pulumi.RegisterOutputType(MonitorPlanOutput{})
 	pulumi.RegisterOutputType(MonitorPlanPtrOutput{})
 	pulumi.RegisterOutputType(MonitorUserOutput{})

@@ -35,6 +35,7 @@ class WorkspaceArgs:
                  primary_user_assigned_identity: Optional[pulumi.Input[str]] = None,
                  public_access_behind_virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 serverless_compute: Optional[pulumi.Input['WorkspaceServerlessComputeArgs']] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  v1_legacy_mode_enabled: Optional[pulumi.Input[bool]] = None):
@@ -65,6 +66,7 @@ class WorkspaceArgs:
         :param pulumi.Input[bool] public_network_access_enabled: Enable public access when this Machine Learning Workspace is behind VNet.
                
                > **NOTE:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
+        :param pulumi.Input['WorkspaceServerlessComputeArgs'] serverless_compute: A `serverless_compute` block as defined below.
         :param pulumi.Input[str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] v1_legacy_mode_enabled: Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
@@ -105,6 +107,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "public_access_behind_virtual_network_enabled", public_access_behind_virtual_network_enabled)
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+        if serverless_compute is not None:
+            pulumi.set(__self__, "serverless_compute", serverless_compute)
         if sku_name is not None:
             pulumi.set(__self__, "sku_name", sku_name)
         if tags is not None:
@@ -350,6 +354,18 @@ class WorkspaceArgs:
         pulumi.set(self, "public_network_access_enabled", value)
 
     @property
+    @pulumi.getter(name="serverlessCompute")
+    def serverless_compute(self) -> Optional[pulumi.Input['WorkspaceServerlessComputeArgs']]:
+        """
+        A `serverless_compute` block as defined below.
+        """
+        return pulumi.get(self, "serverless_compute")
+
+    @serverless_compute.setter
+    def serverless_compute(self, value: Optional[pulumi.Input['WorkspaceServerlessComputeArgs']]):
+        pulumi.set(self, "serverless_compute", value)
+
+    @property
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -408,6 +424,7 @@ class _WorkspaceState:
                  public_access_behind_virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 serverless_compute: Optional[pulumi.Input['WorkspaceServerlessComputeArgs']] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -438,6 +455,7 @@ class _WorkspaceState:
                
                > **NOTE:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input['WorkspaceServerlessComputeArgs'] serverless_compute: A `serverless_compute` block as defined below.
         :param pulumi.Input[str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
                
@@ -487,6 +505,8 @@ class _WorkspaceState:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if serverless_compute is not None:
+            pulumi.set(__self__, "serverless_compute", serverless_compute)
         if sku_name is not None:
             pulumi.set(__self__, "sku_name", sku_name)
         if storage_account_id is not None:
@@ -734,6 +754,18 @@ class _WorkspaceState:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="serverlessCompute")
+    def serverless_compute(self) -> Optional[pulumi.Input['WorkspaceServerlessComputeArgs']]:
+        """
+        A `serverless_compute` block as defined below.
+        """
+        return pulumi.get(self, "serverless_compute")
+
+    @serverless_compute.setter
+    def serverless_compute(self, value: Optional[pulumi.Input['WorkspaceServerlessComputeArgs']]):
+        pulumi.set(self, "serverless_compute", value)
+
+    @property
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -819,6 +851,7 @@ class Workspace(pulumi.CustomResource):
                  public_access_behind_virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 serverless_compute: Optional[pulumi.Input[pulumi.InputType['WorkspaceServerlessComputeArgs']]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1111,6 +1144,7 @@ class Workspace(pulumi.CustomResource):
                
                > **NOTE:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['WorkspaceServerlessComputeArgs']] serverless_compute: A `serverless_compute` block as defined below.
         :param pulumi.Input[str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
                
@@ -1420,6 +1454,7 @@ class Workspace(pulumi.CustomResource):
                  public_access_behind_virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 serverless_compute: Optional[pulumi.Input[pulumi.InputType['WorkspaceServerlessComputeArgs']]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1459,6 +1494,7 @@ class Workspace(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["serverless_compute"] = serverless_compute
             __props__.__dict__["sku_name"] = sku_name
             if storage_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_id'")
@@ -1496,6 +1532,7 @@ class Workspace(pulumi.CustomResource):
             public_access_behind_virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
+            serverless_compute: Optional[pulumi.Input[pulumi.InputType['WorkspaceServerlessComputeArgs']]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
             storage_account_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1531,6 +1568,7 @@ class Workspace(pulumi.CustomResource):
                
                > **NOTE:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['WorkspaceServerlessComputeArgs']] serverless_compute: A `serverless_compute` block as defined below.
         :param pulumi.Input[str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
                
@@ -1562,6 +1600,7 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["public_access_behind_virtual_network_enabled"] = public_access_behind_virtual_network_enabled
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["serverless_compute"] = serverless_compute
         __props__.__dict__["sku_name"] = sku_name
         __props__.__dict__["storage_account_id"] = storage_account_id
         __props__.__dict__["tags"] = tags
@@ -1727,6 +1766,14 @@ class Workspace(pulumi.CustomResource):
         Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="serverlessCompute")
+    def serverless_compute(self) -> pulumi.Output[Optional['outputs.WorkspaceServerlessCompute']]:
+        """
+        A `serverless_compute` block as defined below.
+        """
+        return pulumi.get(self, "serverless_compute")
 
     @property
     @pulumi.getter(name="skuName")

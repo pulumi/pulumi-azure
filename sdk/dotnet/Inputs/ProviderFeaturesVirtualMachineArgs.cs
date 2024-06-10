@@ -15,6 +15,9 @@ namespace Pulumi.Azure.Inputs
         [Input("deleteOsDiskOnDeletion")]
         public Input<bool>? DeleteOsDiskOnDeletion { get; set; }
 
+        [Input("detachImplicitDataDiskOnDeletion")]
+        public Input<bool>? DetachImplicitDataDiskOnDeletion { get; set; }
+
         [Input("gracefulShutdown")]
         public Input<bool>? GracefulShutdown { get; set; }
 

@@ -54,17 +54,27 @@ class ConfigurationConfigFile(dict):
     def __init__(__self__, *,
                  content: str,
                  virtual_path: str):
+        """
+        :param str content: Specifies the base-64 encoded contents of this config file.
+        :param str virtual_path: Specifies the path of this config file.
+        """
         pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "virtual_path", virtual_path)
 
     @property
     @pulumi.getter
     def content(self) -> str:
+        """
+        Specifies the base-64 encoded contents of this config file.
+        """
         return pulumi.get(self, "content")
 
     @property
     @pulumi.getter(name="virtualPath")
     def virtual_path(self) -> str:
+        """
+        Specifies the path of this config file.
+        """
         return pulumi.get(self, "virtual_path")
 
 
@@ -90,17 +100,27 @@ class ConfigurationProtectedFile(dict):
     def __init__(__self__, *,
                  content: str,
                  virtual_path: str):
+        """
+        :param str content: Specifies the base-64 encoded contents of this config file (Sensitive).
+        :param str virtual_path: Specifies the path of this config file.
+        """
         pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "virtual_path", virtual_path)
 
     @property
     @pulumi.getter
     def content(self) -> str:
+        """
+        Specifies the base-64 encoded contents of this config file (Sensitive).
+        """
         return pulumi.get(self, "content")
 
     @property
     @pulumi.getter(name="virtualPath")
     def virtual_path(self) -> str:
+        """
+        Specifies the path of this config file.
+        """
         return pulumi.get(self, "virtual_path")
 
 
@@ -189,12 +209,6 @@ class DeploymentConfiguration(dict):
                  config_files: Optional[Sequence['outputs.DeploymentConfigurationConfigFile']] = None,
                  package_data: Optional[str] = None,
                  protected_files: Optional[Sequence['outputs.DeploymentConfigurationProtectedFile']] = None):
-        """
-        :param str root_file: Specify the root file path of this Nginx Configuration.
-        :param Sequence['DeploymentConfigurationConfigFileArgs'] config_files: One or more `config_file` blocks as defined below.
-        :param str package_data: Specify the package data for this configuration.
-        :param Sequence['DeploymentConfigurationProtectedFileArgs'] protected_files: One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
-        """
         pulumi.set(__self__, "root_file", root_file)
         if config_files is not None:
             pulumi.set(__self__, "config_files", config_files)
@@ -206,33 +220,21 @@ class DeploymentConfiguration(dict):
     @property
     @pulumi.getter(name="rootFile")
     def root_file(self) -> str:
-        """
-        Specify the root file path of this Nginx Configuration.
-        """
         return pulumi.get(self, "root_file")
 
     @property
     @pulumi.getter(name="configFiles")
     def config_files(self) -> Optional[Sequence['outputs.DeploymentConfigurationConfigFile']]:
-        """
-        One or more `config_file` blocks as defined below.
-        """
         return pulumi.get(self, "config_files")
 
     @property
     @pulumi.getter(name="packageData")
     def package_data(self) -> Optional[str]:
-        """
-        Specify the package data for this configuration.
-        """
         return pulumi.get(self, "package_data")
 
     @property
     @pulumi.getter(name="protectedFiles")
     def protected_files(self) -> Optional[Sequence['outputs.DeploymentConfigurationProtectedFile']]:
-        """
-        One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
-        """
         return pulumi.get(self, "protected_files")
 
 
@@ -258,27 +260,17 @@ class DeploymentConfigurationConfigFile(dict):
     def __init__(__self__, *,
                  content: str,
                  virtual_path: str):
-        """
-        :param str content: Specifies the base-64 encoded contents of this config file.
-        :param str virtual_path: Specify the path of this config file.
-        """
         pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "virtual_path", virtual_path)
 
     @property
     @pulumi.getter
     def content(self) -> str:
-        """
-        Specifies the base-64 encoded contents of this config file.
-        """
         return pulumi.get(self, "content")
 
     @property
     @pulumi.getter(name="virtualPath")
     def virtual_path(self) -> str:
-        """
-        Specify the path of this config file.
-        """
         return pulumi.get(self, "virtual_path")
 
 
@@ -304,27 +296,17 @@ class DeploymentConfigurationProtectedFile(dict):
     def __init__(__self__, *,
                  content: str,
                  virtual_path: str):
-        """
-        :param str content: Specifies the base-64 encoded contents of this config file (Sensitive).
-        :param str virtual_path: Specify the path of this config file.
-        """
         pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "virtual_path", virtual_path)
 
     @property
     @pulumi.getter
     def content(self) -> str:
-        """
-        Specifies the base-64 encoded contents of this config file (Sensitive).
-        """
         return pulumi.get(self, "content")
 
     @property
     @pulumi.getter(name="virtualPath")
     def virtual_path(self) -> str:
-        """
-        Specify the path of this config file.
-        """
         return pulumi.get(self, "virtual_path")
 
 
@@ -454,7 +436,7 @@ class DeploymentIdentity(dict):
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: Specifies the identity type of the NGINX Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
+        :param str type: Specifies the identity type of the NGINX Deployment. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param Sequence[str] identity_ids: Specifies a list of user managed identity ids to be assigned.
                
                > **NOTE:** This is required when `type` is set to `UserAssigned`.
@@ -471,7 +453,7 @@ class DeploymentIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the identity type of the NGINX Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
+        Specifies the identity type of the NGINX Deployment. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -584,17 +566,27 @@ class GetConfigurationConfigFileResult(dict):
     def __init__(__self__, *,
                  content: str,
                  virtual_path: str):
+        """
+        :param str content: The base-64 encoded contents of this configuration file.
+        :param str virtual_path: The path of this configuration file.
+        """
         pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "virtual_path", virtual_path)
 
     @property
     @pulumi.getter
     def content(self) -> str:
+        """
+        The base-64 encoded contents of this configuration file.
+        """
         return pulumi.get(self, "content")
 
     @property
     @pulumi.getter(name="virtualPath")
     def virtual_path(self) -> str:
+        """
+        The path of this configuration file.
+        """
         return pulumi.get(self, "virtual_path")
 
 
@@ -603,17 +595,27 @@ class GetConfigurationProtectedFileResult(dict):
     def __init__(__self__, *,
                  content: str,
                  virtual_path: str):
+        """
+        :param str content: The base-64 encoded contents of this configuration file.
+        :param str virtual_path: The path of this configuration file.
+        """
         pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "virtual_path", virtual_path)
 
     @property
     @pulumi.getter
     def content(self) -> str:
+        """
+        The base-64 encoded contents of this configuration file.
+        """
         return pulumi.get(self, "content")
 
     @property
     @pulumi.getter(name="virtualPath")
     def virtual_path(self) -> str:
+        """
+        The path of this configuration file.
+        """
         return pulumi.get(self, "virtual_path")
 
 

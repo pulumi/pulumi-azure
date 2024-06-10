@@ -14,37 +14,23 @@ namespace Pulumi.Azure.Nginx.Inputs
     {
         [Input("configFiles")]
         private InputList<Inputs.DeploymentConfigurationConfigFileArgs>? _configFiles;
-
-        /// <summary>
-        /// One or more `config_file` blocks as defined below.
-        /// </summary>
         public InputList<Inputs.DeploymentConfigurationConfigFileArgs> ConfigFiles
         {
             get => _configFiles ?? (_configFiles = new InputList<Inputs.DeploymentConfigurationConfigFileArgs>());
             set => _configFiles = value;
         }
 
-        /// <summary>
-        /// Specify the package data for this configuration.
-        /// </summary>
         [Input("packageData")]
         public Input<string>? PackageData { get; set; }
 
         [Input("protectedFiles")]
         private InputList<Inputs.DeploymentConfigurationProtectedFileArgs>? _protectedFiles;
-
-        /// <summary>
-        /// One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
-        /// </summary>
         public InputList<Inputs.DeploymentConfigurationProtectedFileArgs> ProtectedFiles
         {
             get => _protectedFiles ?? (_protectedFiles = new InputList<Inputs.DeploymentConfigurationProtectedFileArgs>());
             set => _protectedFiles = value;
         }
 
-        /// <summary>
-        /// Specify the root file path of this Nginx Configuration.
-        /// </summary>
         [Input("rootFile", required: true)]
         public Input<string> RootFile { get; set; } = null!;
 

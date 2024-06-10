@@ -112,7 +112,7 @@ namespace Pulumi.Azure.Compute
         /// A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("ipConfiguration")]
-        public Output<Outputs.BastionHostIpConfiguration> IpConfiguration { get; private set; } = null!;
+        public Output<Outputs.BastionHostIpConfiguration?> IpConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
@@ -165,7 +165,7 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> ShareableLinkEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+        /// The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
         /// 
         /// &gt; **Note** Downgrading the SKU will force a new resource to be created.
         /// </summary>
@@ -185,6 +185,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Output("tunnelingEnabled")]
         public Output<bool?> TunnelingEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("virtualNetworkId")]
+        public Output<string?> VirtualNetworkId { get; private set; } = null!;
 
 
         /// <summary>
@@ -249,8 +255,8 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("ipConfiguration", required: true)]
-        public Input<Inputs.BastionHostIpConfigurationArgs> IpConfiguration { get; set; } = null!;
+        [Input("ipConfiguration")]
+        public Input<Inputs.BastionHostIpConfigurationArgs>? IpConfiguration { get; set; }
 
         /// <summary>
         /// Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
@@ -303,7 +309,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? ShareableLinkEnabled { get; set; }
 
         /// <summary>
-        /// The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+        /// The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
         /// 
         /// &gt; **Note** Downgrading the SKU will force a new resource to be created.
         /// </summary>
@@ -329,6 +335,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("tunnelingEnabled")]
         public Input<bool>? TunnelingEnabled { get; set; }
+
+        /// <summary>
+        /// The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("virtualNetworkId")]
+        public Input<string>? VirtualNetworkId { get; set; }
 
         public BastionHostArgs()
         {
@@ -415,7 +427,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? ShareableLinkEnabled { get; set; }
 
         /// <summary>
-        /// The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+        /// The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
         /// 
         /// &gt; **Note** Downgrading the SKU will force a new resource to be created.
         /// </summary>
@@ -441,6 +453,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("tunnelingEnabled")]
         public Input<bool>? TunnelingEnabled { get; set; }
+
+        /// <summary>
+        /// The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("virtualNetworkId")]
+        public Input<string>? VirtualNetworkId { get; set; }
 
         public BastionHostState()
         {

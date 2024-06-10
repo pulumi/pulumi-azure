@@ -70,6 +70,12 @@ namespace Pulumi.Azure.LogicApps
         public Output<string> Body { get; private set; } = null!;
 
         /// <summary>
+        /// The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group.
+        /// </summary>
+        [Output("callbackUrl")]
+        public Output<string> CallbackUrl { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         /// </summary>
         [Output("logicAppId")]
@@ -162,6 +168,12 @@ namespace Pulumi.Azure.LogicApps
         /// </summary>
         [Input("body")]
         public Input<string>? Body { get; set; }
+
+        /// <summary>
+        /// The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group.
+        /// </summary>
+        [Input("callbackUrl")]
+        public Input<string>? CallbackUrl { get; set; }
 
         /// <summary>
         /// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.

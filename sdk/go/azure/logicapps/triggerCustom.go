@@ -79,6 +79,8 @@ type TriggerCustom struct {
 
 	// Specifies the JSON Blob defining the Body of this Custom Trigger.
 	Body pulumi.StringOutput `pulumi:"body"`
+	// The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group.
+	CallbackUrl pulumi.StringOutput `pulumi:"callbackUrl"`
 	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
 	LogicAppId pulumi.StringOutput `pulumi:"logicAppId"`
 	// Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
@@ -125,6 +127,8 @@ func GetTriggerCustom(ctx *pulumi.Context,
 type triggerCustomState struct {
 	// Specifies the JSON Blob defining the Body of this Custom Trigger.
 	Body *string `pulumi:"body"`
+	// The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group.
+	CallbackUrl *string `pulumi:"callbackUrl"`
 	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
 	LogicAppId *string `pulumi:"logicAppId"`
 	// Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
@@ -136,6 +140,8 @@ type triggerCustomState struct {
 type TriggerCustomState struct {
 	// Specifies the JSON Blob defining the Body of this Custom Trigger.
 	Body pulumi.StringPtrInput
+	// The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group.
+	CallbackUrl pulumi.StringPtrInput
 	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
 	LogicAppId pulumi.StringPtrInput
 	// Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
@@ -261,6 +267,11 @@ func (o TriggerCustomOutput) ToTriggerCustomOutputWithContext(ctx context.Contex
 // Specifies the JSON Blob defining the Body of this Custom Trigger.
 func (o TriggerCustomOutput) Body() pulumi.StringOutput {
 	return o.ApplyT(func(v *TriggerCustom) pulumi.StringOutput { return v.Body }).(pulumi.StringOutput)
+}
+
+// The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group.
+func (o TriggerCustomOutput) CallbackUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *TriggerCustom) pulumi.StringOutput { return v.CallbackUrl }).(pulumi.StringOutput)
 }
 
 // Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.

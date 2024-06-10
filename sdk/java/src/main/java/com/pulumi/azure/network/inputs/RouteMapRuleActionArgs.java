@@ -10,6 +10,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class RouteMapRuleActionArgs extends com.pulumi.resources.ResourceArgs {
@@ -17,18 +19,18 @@ public final class RouteMapRuleActionArgs extends com.pulumi.resources.ResourceA
     public static final RouteMapRuleActionArgs Empty = new RouteMapRuleActionArgs();
 
     /**
-     * A `parameter` block as defined below.
+     * A `parameter` block as defined below. Required if `type` is anything other than `Drop`.
      * 
      */
-    @Import(name="parameters", required=true)
-    private Output<List<RouteMapRuleActionParameterArgs>> parameters;
+    @Import(name="parameters")
+    private @Nullable Output<List<RouteMapRuleActionParameterArgs>> parameters;
 
     /**
-     * @return A `parameter` block as defined below.
+     * @return A `parameter` block as defined below. Required if `type` is anything other than `Drop`.
      * 
      */
-    public Output<List<RouteMapRuleActionParameterArgs>> parameters() {
-        return this.parameters;
+    public Optional<Output<List<RouteMapRuleActionParameterArgs>>> parameters() {
+        return Optional.ofNullable(this.parameters);
     }
 
     /**
@@ -72,18 +74,18 @@ public final class RouteMapRuleActionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param parameters A `parameter` block as defined below.
+         * @param parameters A `parameter` block as defined below. Required if `type` is anything other than `Drop`.
          * 
          * @return builder
          * 
          */
-        public Builder parameters(Output<List<RouteMapRuleActionParameterArgs>> parameters) {
+        public Builder parameters(@Nullable Output<List<RouteMapRuleActionParameterArgs>> parameters) {
             $.parameters = parameters;
             return this;
         }
 
         /**
-         * @param parameters A `parameter` block as defined below.
+         * @param parameters A `parameter` block as defined below. Required if `type` is anything other than `Drop`.
          * 
          * @return builder
          * 
@@ -93,7 +95,7 @@ public final class RouteMapRuleActionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param parameters A `parameter` block as defined below.
+         * @param parameters A `parameter` block as defined below. Required if `type` is anything other than `Drop`.
          * 
          * @return builder
          * 
@@ -124,9 +126,6 @@ public final class RouteMapRuleActionArgs extends com.pulumi.resources.ResourceA
         }
 
         public RouteMapRuleActionArgs build() {
-            if ($.parameters == null) {
-                throw new MissingRequiredPropertyException("RouteMapRuleActionArgs", "parameters");
-            }
             if ($.type == null) {
                 throw new MissingRequiredPropertyException("RouteMapRuleActionArgs", "type");
             }

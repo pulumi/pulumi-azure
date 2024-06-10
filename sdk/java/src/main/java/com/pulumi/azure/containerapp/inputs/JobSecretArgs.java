@@ -47,14 +47,14 @@ public final class JobSecretArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the secret.
+     * Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the secret.
+     * @return Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -62,14 +62,14 @@ public final class JobSecretArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Value of the secret.
+     * The value for this secret.
      * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
-     * @return Value of the secret.
+     * @return The value for this secret.
      * 
      */
     public Optional<Output<String>> value() {
@@ -146,7 +146,7 @@ public final class JobSecretArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the secret.
+         * @param name Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class JobSecretArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the secret.
+         * @param name Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class JobSecretArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param value Value of the secret.
+         * @param value The value for this secret.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class JobSecretArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param value Value of the secret.
+         * @param value The value for this secret.
          * 
          * @return builder
          * 

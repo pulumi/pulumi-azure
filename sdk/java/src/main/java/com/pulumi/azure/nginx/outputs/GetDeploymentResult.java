@@ -36,7 +36,7 @@ public final class GetDeploymentResult {
      */
     private Integer capacity;
     /**
-     * @return Whether diagnostic settings are enabled.
+     * @return Whether metrics are exported to Azure Monitor.
      * 
      */
     private Boolean diagnoseSupportEnabled;
@@ -135,7 +135,7 @@ public final class GetDeploymentResult {
         return this.capacity;
     }
     /**
-     * @return Whether diagnostic settings are enabled.
+     * @return Whether metrics are exported to Azure Monitor.
      * 
      */
     public Boolean diagnoseSupportEnabled() {

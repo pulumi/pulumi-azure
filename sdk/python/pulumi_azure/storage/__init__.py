@@ -22,10 +22,12 @@ from .get_blob import *
 from .get_containers import *
 from .get_encryption_scope import *
 from .get_policy import *
+from .get_queue import *
 from .get_share import *
 from .get_storage_container import *
 from .get_sync import *
 from .get_sync_group import *
+from .get_table import *
 from .get_table_entities import *
 from .get_table_entity import *
 from .local_user import *

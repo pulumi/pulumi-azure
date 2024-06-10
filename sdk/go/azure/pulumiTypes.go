@@ -2475,9 +2475,10 @@ func (o ProviderFeaturesTemplateDeploymentPtrOutput) DeleteNestedItemsDuringDele
 }
 
 type ProviderFeaturesVirtualMachine struct {
-	DeleteOsDiskOnDeletion     *bool `pulumi:"deleteOsDiskOnDeletion"`
-	GracefulShutdown           *bool `pulumi:"gracefulShutdown"`
-	SkipShutdownAndForceDelete *bool `pulumi:"skipShutdownAndForceDelete"`
+	DeleteOsDiskOnDeletion           *bool `pulumi:"deleteOsDiskOnDeletion"`
+	DetachImplicitDataDiskOnDeletion *bool `pulumi:"detachImplicitDataDiskOnDeletion"`
+	GracefulShutdown                 *bool `pulumi:"gracefulShutdown"`
+	SkipShutdownAndForceDelete       *bool `pulumi:"skipShutdownAndForceDelete"`
 }
 
 // ProviderFeaturesVirtualMachineInput is an input type that accepts ProviderFeaturesVirtualMachineArgs and ProviderFeaturesVirtualMachineOutput values.
@@ -2492,9 +2493,10 @@ type ProviderFeaturesVirtualMachineInput interface {
 }
 
 type ProviderFeaturesVirtualMachineArgs struct {
-	DeleteOsDiskOnDeletion     pulumi.BoolPtrInput `pulumi:"deleteOsDiskOnDeletion"`
-	GracefulShutdown           pulumi.BoolPtrInput `pulumi:"gracefulShutdown"`
-	SkipShutdownAndForceDelete pulumi.BoolPtrInput `pulumi:"skipShutdownAndForceDelete"`
+	DeleteOsDiskOnDeletion           pulumi.BoolPtrInput `pulumi:"deleteOsDiskOnDeletion"`
+	DetachImplicitDataDiskOnDeletion pulumi.BoolPtrInput `pulumi:"detachImplicitDataDiskOnDeletion"`
+	GracefulShutdown                 pulumi.BoolPtrInput `pulumi:"gracefulShutdown"`
+	SkipShutdownAndForceDelete       pulumi.BoolPtrInput `pulumi:"skipShutdownAndForceDelete"`
 }
 
 func (ProviderFeaturesVirtualMachineArgs) ElementType() reflect.Type {
@@ -2578,6 +2580,10 @@ func (o ProviderFeaturesVirtualMachineOutput) DeleteOsDiskOnDeletion() pulumi.Bo
 	return o.ApplyT(func(v ProviderFeaturesVirtualMachine) *bool { return v.DeleteOsDiskOnDeletion }).(pulumi.BoolPtrOutput)
 }
 
+func (o ProviderFeaturesVirtualMachineOutput) DetachImplicitDataDiskOnDeletion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProviderFeaturesVirtualMachine) *bool { return v.DetachImplicitDataDiskOnDeletion }).(pulumi.BoolPtrOutput)
+}
+
 func (o ProviderFeaturesVirtualMachineOutput) GracefulShutdown() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ProviderFeaturesVirtualMachine) *bool { return v.GracefulShutdown }).(pulumi.BoolPtrOutput)
 }
@@ -2616,6 +2622,15 @@ func (o ProviderFeaturesVirtualMachinePtrOutput) DeleteOsDiskOnDeletion() pulumi
 			return nil
 		}
 		return v.DeleteOsDiskOnDeletion
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ProviderFeaturesVirtualMachinePtrOutput) DetachImplicitDataDiskOnDeletion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProviderFeaturesVirtualMachine) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DetachImplicitDataDiskOnDeletion
 	}).(pulumi.BoolPtrOutput)
 }
 

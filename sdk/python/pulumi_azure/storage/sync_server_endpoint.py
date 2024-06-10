@@ -27,7 +27,7 @@ class SyncServerEndpointArgs:
         The set of arguments for constructing a SyncServerEndpoint resource.
         :param pulumi.Input[str] registered_server_id: The ID of the Registered Server that will be associate with the Storage Sync Server Endpoint. Changing this forces a new Storage Sync Server Endpoint to be created.
                
-               > **NOTE:** For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
+               > **NOTE:** The target server must already be registered with the parent `storage.Sync` prior to creating this endpoint. For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
         :param pulumi.Input[str] server_local_path: The path on the Windows Server to be synced to the Azure file share. Changing this forces a new Storage Sync Server Endpoint to be created.
         :param pulumi.Input[str] storage_sync_group_id: The ID of the Storage Sync Group where the Storage Sync Server Endpoint should exist. Changing this forces a new Storage Sync Server Endpoint to be created.
         :param pulumi.Input[bool] cloud_tiering_enabled: Is Cloud Tiering Enabled? Defaults to `false`.
@@ -59,7 +59,7 @@ class SyncServerEndpointArgs:
         """
         The ID of the Registered Server that will be associate with the Storage Sync Server Endpoint. Changing this forces a new Storage Sync Server Endpoint to be created.
 
-        > **NOTE:** For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
+        > **NOTE:** The target server must already be registered with the parent `storage.Sync` prior to creating this endpoint. For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
         """
         return pulumi.get(self, "registered_server_id")
 
@@ -184,7 +184,7 @@ class _SyncServerEndpointState:
         :param pulumi.Input[str] name: The name which should be used for this Storage Sync. Changing this forces a new Storage Sync Server Endpoint to be created.
         :param pulumi.Input[str] registered_server_id: The ID of the Registered Server that will be associate with the Storage Sync Server Endpoint. Changing this forces a new Storage Sync Server Endpoint to be created.
                
-               > **NOTE:** For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
+               > **NOTE:** The target server must already be registered with the parent `storage.Sync` prior to creating this endpoint. For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
         :param pulumi.Input[str] server_local_path: The path on the Windows Server to be synced to the Azure file share. Changing this forces a new Storage Sync Server Endpoint to be created.
         :param pulumi.Input[str] storage_sync_group_id: The ID of the Storage Sync Group where the Storage Sync Server Endpoint should exist. Changing this forces a new Storage Sync Server Endpoint to be created.
         :param pulumi.Input[int] tier_files_older_than_days: Files older than the specified age will be tiered to the cloud.
@@ -263,7 +263,7 @@ class _SyncServerEndpointState:
         """
         The ID of the Registered Server that will be associate with the Storage Sync Server Endpoint. Changing this forces a new Storage Sync Server Endpoint to be created.
 
-        > **NOTE:** For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
+        > **NOTE:** The target server must already be registered with the parent `storage.Sync` prior to creating this endpoint. For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
         """
         return pulumi.get(self, "registered_server_id")
 
@@ -338,6 +338,8 @@ class SyncServerEndpoint(pulumi.CustomResource):
         """
         Manages a Storage Sync Server Endpoint.
 
+        > **NOTE:** The parent `storage.SyncGroup` must have an `storage.SyncCloudEndpoint` available before an `storage.SyncServerEndpoint` resource can be created.
+
         ## Example Usage
 
         ```python
@@ -370,10 +372,16 @@ class SyncServerEndpoint(pulumi.CustomResource):
                     permissions="r",
                 )],
             )])
+        example_sync_cloud_endpoint = azure.storage.SyncCloudEndpoint("example",
+            name="example-ss-ce",
+            storage_sync_group_id=example_sync_group.id,
+            file_share_name=example_share.name,
+            storage_account_id=example_account.id)
         example_sync_server_endpoint = azure.storage.SyncServerEndpoint("example",
             name="example-storage-sync-server-endpoint",
             storage_sync_group_id=example_sync_group.id,
-            registered_server_id=example_sync.registered_servers[0])
+            registered_server_id=example_sync.registered_servers[0],
+            opts=pulumi.ResourceOptions(depends_on=[example_sync_cloud_endpoint]))
         ```
 
         ## Import
@@ -392,7 +400,7 @@ class SyncServerEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Storage Sync. Changing this forces a new Storage Sync Server Endpoint to be created.
         :param pulumi.Input[str] registered_server_id: The ID of the Registered Server that will be associate with the Storage Sync Server Endpoint. Changing this forces a new Storage Sync Server Endpoint to be created.
                
-               > **NOTE:** For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
+               > **NOTE:** The target server must already be registered with the parent `storage.Sync` prior to creating this endpoint. For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
         :param pulumi.Input[str] server_local_path: The path on the Windows Server to be synced to the Azure file share. Changing this forces a new Storage Sync Server Endpoint to be created.
         :param pulumi.Input[str] storage_sync_group_id: The ID of the Storage Sync Group where the Storage Sync Server Endpoint should exist. Changing this forces a new Storage Sync Server Endpoint to be created.
         :param pulumi.Input[int] tier_files_older_than_days: Files older than the specified age will be tiered to the cloud.
@@ -406,6 +414,8 @@ class SyncServerEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Storage Sync Server Endpoint.
+
+        > **NOTE:** The parent `storage.SyncGroup` must have an `storage.SyncCloudEndpoint` available before an `storage.SyncServerEndpoint` resource can be created.
 
         ## Example Usage
 
@@ -439,10 +449,16 @@ class SyncServerEndpoint(pulumi.CustomResource):
                     permissions="r",
                 )],
             )])
+        example_sync_cloud_endpoint = azure.storage.SyncCloudEndpoint("example",
+            name="example-ss-ce",
+            storage_sync_group_id=example_sync_group.id,
+            file_share_name=example_share.name,
+            storage_account_id=example_account.id)
         example_sync_server_endpoint = azure.storage.SyncServerEndpoint("example",
             name="example-storage-sync-server-endpoint",
             storage_sync_group_id=example_sync_group.id,
-            registered_server_id=example_sync.registered_servers[0])
+            registered_server_id=example_sync.registered_servers[0],
+            opts=pulumi.ResourceOptions(depends_on=[example_sync_cloud_endpoint]))
         ```
 
         ## Import
@@ -533,7 +549,7 @@ class SyncServerEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Storage Sync. Changing this forces a new Storage Sync Server Endpoint to be created.
         :param pulumi.Input[str] registered_server_id: The ID of the Registered Server that will be associate with the Storage Sync Server Endpoint. Changing this forces a new Storage Sync Server Endpoint to be created.
                
-               > **NOTE:** For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
+               > **NOTE:** The target server must already be registered with the parent `storage.Sync` prior to creating this endpoint. For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
         :param pulumi.Input[str] server_local_path: The path on the Windows Server to be synced to the Azure file share. Changing this forces a new Storage Sync Server Endpoint to be created.
         :param pulumi.Input[str] storage_sync_group_id: The ID of the Storage Sync Group where the Storage Sync Server Endpoint should exist. Changing this forces a new Storage Sync Server Endpoint to be created.
         :param pulumi.Input[int] tier_files_older_than_days: Files older than the specified age will be tiered to the cloud.
@@ -592,7 +608,7 @@ class SyncServerEndpoint(pulumi.CustomResource):
         """
         The ID of the Registered Server that will be associate with the Storage Sync Server Endpoint. Changing this forces a new Storage Sync Server Endpoint to be created.
 
-        > **NOTE:** For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
+        > **NOTE:** The target server must already be registered with the parent `storage.Sync` prior to creating this endpoint. For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
         """
         return pulumi.get(self, "registered_server_id")
 

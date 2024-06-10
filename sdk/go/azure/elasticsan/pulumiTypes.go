@@ -952,6 +952,369 @@ func (o GetSkusArrayOutput) Index(i pulumi.IntInput) GetSkusOutput {
 	}).(GetSkusOutput)
 }
 
+type GetVolumeGroupEncryption struct {
+	// The timestamp of the expiration time for the current version of the Customer Managed Key.
+	CurrentVersionedKeyExpirationTimestamp string `pulumi:"currentVersionedKeyExpirationTimestamp"`
+	// The ID of the current versioned Key Vault Key in use.
+	CurrentVersionedKeyId string `pulumi:"currentVersionedKeyId"`
+	// The Key Vault Key URI for Customer Managed Key encryption, which can be either a full URI or a versionless URI.
+	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
+	// The timestamp of the last rotation of the Key Vault Key.
+	LastKeyRotationTimestamp string `pulumi:"lastKeyRotationTimestamp"`
+	// The ID of the User Assigned Identity used by this Elastic SAN Volume Group.
+	UserAssignedIdentityId string `pulumi:"userAssignedIdentityId"`
+}
+
+// GetVolumeGroupEncryptionInput is an input type that accepts GetVolumeGroupEncryptionArgs and GetVolumeGroupEncryptionOutput values.
+// You can construct a concrete instance of `GetVolumeGroupEncryptionInput` via:
+//
+//	GetVolumeGroupEncryptionArgs{...}
+type GetVolumeGroupEncryptionInput interface {
+	pulumi.Input
+
+	ToGetVolumeGroupEncryptionOutput() GetVolumeGroupEncryptionOutput
+	ToGetVolumeGroupEncryptionOutputWithContext(context.Context) GetVolumeGroupEncryptionOutput
+}
+
+type GetVolumeGroupEncryptionArgs struct {
+	// The timestamp of the expiration time for the current version of the Customer Managed Key.
+	CurrentVersionedKeyExpirationTimestamp pulumi.StringInput `pulumi:"currentVersionedKeyExpirationTimestamp"`
+	// The ID of the current versioned Key Vault Key in use.
+	CurrentVersionedKeyId pulumi.StringInput `pulumi:"currentVersionedKeyId"`
+	// The Key Vault Key URI for Customer Managed Key encryption, which can be either a full URI or a versionless URI.
+	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
+	// The timestamp of the last rotation of the Key Vault Key.
+	LastKeyRotationTimestamp pulumi.StringInput `pulumi:"lastKeyRotationTimestamp"`
+	// The ID of the User Assigned Identity used by this Elastic SAN Volume Group.
+	UserAssignedIdentityId pulumi.StringInput `pulumi:"userAssignedIdentityId"`
+}
+
+func (GetVolumeGroupEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeGroupEncryption)(nil)).Elem()
+}
+
+func (i GetVolumeGroupEncryptionArgs) ToGetVolumeGroupEncryptionOutput() GetVolumeGroupEncryptionOutput {
+	return i.ToGetVolumeGroupEncryptionOutputWithContext(context.Background())
+}
+
+func (i GetVolumeGroupEncryptionArgs) ToGetVolumeGroupEncryptionOutputWithContext(ctx context.Context) GetVolumeGroupEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeGroupEncryptionOutput)
+}
+
+// GetVolumeGroupEncryptionArrayInput is an input type that accepts GetVolumeGroupEncryptionArray and GetVolumeGroupEncryptionArrayOutput values.
+// You can construct a concrete instance of `GetVolumeGroupEncryptionArrayInput` via:
+//
+//	GetVolumeGroupEncryptionArray{ GetVolumeGroupEncryptionArgs{...} }
+type GetVolumeGroupEncryptionArrayInput interface {
+	pulumi.Input
+
+	ToGetVolumeGroupEncryptionArrayOutput() GetVolumeGroupEncryptionArrayOutput
+	ToGetVolumeGroupEncryptionArrayOutputWithContext(context.Context) GetVolumeGroupEncryptionArrayOutput
+}
+
+type GetVolumeGroupEncryptionArray []GetVolumeGroupEncryptionInput
+
+func (GetVolumeGroupEncryptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeGroupEncryption)(nil)).Elem()
+}
+
+func (i GetVolumeGroupEncryptionArray) ToGetVolumeGroupEncryptionArrayOutput() GetVolumeGroupEncryptionArrayOutput {
+	return i.ToGetVolumeGroupEncryptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetVolumeGroupEncryptionArray) ToGetVolumeGroupEncryptionArrayOutputWithContext(ctx context.Context) GetVolumeGroupEncryptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeGroupEncryptionArrayOutput)
+}
+
+type GetVolumeGroupEncryptionOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeGroupEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeGroupEncryption)(nil)).Elem()
+}
+
+func (o GetVolumeGroupEncryptionOutput) ToGetVolumeGroupEncryptionOutput() GetVolumeGroupEncryptionOutput {
+	return o
+}
+
+func (o GetVolumeGroupEncryptionOutput) ToGetVolumeGroupEncryptionOutputWithContext(ctx context.Context) GetVolumeGroupEncryptionOutput {
+	return o
+}
+
+// The timestamp of the expiration time for the current version of the Customer Managed Key.
+func (o GetVolumeGroupEncryptionOutput) CurrentVersionedKeyExpirationTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupEncryption) string { return v.CurrentVersionedKeyExpirationTimestamp }).(pulumi.StringOutput)
+}
+
+// The ID of the current versioned Key Vault Key in use.
+func (o GetVolumeGroupEncryptionOutput) CurrentVersionedKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupEncryption) string { return v.CurrentVersionedKeyId }).(pulumi.StringOutput)
+}
+
+// The Key Vault Key URI for Customer Managed Key encryption, which can be either a full URI or a versionless URI.
+func (o GetVolumeGroupEncryptionOutput) KeyVaultKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupEncryption) string { return v.KeyVaultKeyId }).(pulumi.StringOutput)
+}
+
+// The timestamp of the last rotation of the Key Vault Key.
+func (o GetVolumeGroupEncryptionOutput) LastKeyRotationTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupEncryption) string { return v.LastKeyRotationTimestamp }).(pulumi.StringOutput)
+}
+
+// The ID of the User Assigned Identity used by this Elastic SAN Volume Group.
+func (o GetVolumeGroupEncryptionOutput) UserAssignedIdentityId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupEncryption) string { return v.UserAssignedIdentityId }).(pulumi.StringOutput)
+}
+
+type GetVolumeGroupEncryptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeGroupEncryptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeGroupEncryption)(nil)).Elem()
+}
+
+func (o GetVolumeGroupEncryptionArrayOutput) ToGetVolumeGroupEncryptionArrayOutput() GetVolumeGroupEncryptionArrayOutput {
+	return o
+}
+
+func (o GetVolumeGroupEncryptionArrayOutput) ToGetVolumeGroupEncryptionArrayOutputWithContext(ctx context.Context) GetVolumeGroupEncryptionArrayOutput {
+	return o
+}
+
+func (o GetVolumeGroupEncryptionArrayOutput) Index(i pulumi.IntInput) GetVolumeGroupEncryptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVolumeGroupEncryption {
+		return vs[0].([]GetVolumeGroupEncryption)[vs[1].(int)]
+	}).(GetVolumeGroupEncryptionOutput)
+}
+
+type GetVolumeGroupIdentity struct {
+	// A list of the User Assigned Identity IDs assigned to this Elastic SAN Volume Group.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID associated with the Managed Service Identity assigned to this Elastic SAN Volume Group.
+	PrincipalId string `pulumi:"principalId"`
+	// The Tenant ID associated with this Managed Service Identity assigned to this Elastic SAN Volume Group.
+	TenantId string `pulumi:"tenantId"`
+	// The type of Managed Identity assigned to this Elastic SAN Volume Group.
+	Type string `pulumi:"type"`
+}
+
+// GetVolumeGroupIdentityInput is an input type that accepts GetVolumeGroupIdentityArgs and GetVolumeGroupIdentityOutput values.
+// You can construct a concrete instance of `GetVolumeGroupIdentityInput` via:
+//
+//	GetVolumeGroupIdentityArgs{...}
+type GetVolumeGroupIdentityInput interface {
+	pulumi.Input
+
+	ToGetVolumeGroupIdentityOutput() GetVolumeGroupIdentityOutput
+	ToGetVolumeGroupIdentityOutputWithContext(context.Context) GetVolumeGroupIdentityOutput
+}
+
+type GetVolumeGroupIdentityArgs struct {
+	// A list of the User Assigned Identity IDs assigned to this Elastic SAN Volume Group.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID associated with the Managed Service Identity assigned to this Elastic SAN Volume Group.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Tenant ID associated with this Managed Service Identity assigned to this Elastic SAN Volume Group.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The type of Managed Identity assigned to this Elastic SAN Volume Group.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetVolumeGroupIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeGroupIdentity)(nil)).Elem()
+}
+
+func (i GetVolumeGroupIdentityArgs) ToGetVolumeGroupIdentityOutput() GetVolumeGroupIdentityOutput {
+	return i.ToGetVolumeGroupIdentityOutputWithContext(context.Background())
+}
+
+func (i GetVolumeGroupIdentityArgs) ToGetVolumeGroupIdentityOutputWithContext(ctx context.Context) GetVolumeGroupIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeGroupIdentityOutput)
+}
+
+// GetVolumeGroupIdentityArrayInput is an input type that accepts GetVolumeGroupIdentityArray and GetVolumeGroupIdentityArrayOutput values.
+// You can construct a concrete instance of `GetVolumeGroupIdentityArrayInput` via:
+//
+//	GetVolumeGroupIdentityArray{ GetVolumeGroupIdentityArgs{...} }
+type GetVolumeGroupIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetVolumeGroupIdentityArrayOutput() GetVolumeGroupIdentityArrayOutput
+	ToGetVolumeGroupIdentityArrayOutputWithContext(context.Context) GetVolumeGroupIdentityArrayOutput
+}
+
+type GetVolumeGroupIdentityArray []GetVolumeGroupIdentityInput
+
+func (GetVolumeGroupIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeGroupIdentity)(nil)).Elem()
+}
+
+func (i GetVolumeGroupIdentityArray) ToGetVolumeGroupIdentityArrayOutput() GetVolumeGroupIdentityArrayOutput {
+	return i.ToGetVolumeGroupIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetVolumeGroupIdentityArray) ToGetVolumeGroupIdentityArrayOutputWithContext(ctx context.Context) GetVolumeGroupIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeGroupIdentityArrayOutput)
+}
+
+type GetVolumeGroupIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeGroupIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeGroupIdentity)(nil)).Elem()
+}
+
+func (o GetVolumeGroupIdentityOutput) ToGetVolumeGroupIdentityOutput() GetVolumeGroupIdentityOutput {
+	return o
+}
+
+func (o GetVolumeGroupIdentityOutput) ToGetVolumeGroupIdentityOutputWithContext(ctx context.Context) GetVolumeGroupIdentityOutput {
+	return o
+}
+
+// A list of the User Assigned Identity IDs assigned to this Elastic SAN Volume Group.
+func (o GetVolumeGroupIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVolumeGroupIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID associated with the Managed Service Identity assigned to this Elastic SAN Volume Group.
+func (o GetVolumeGroupIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The Tenant ID associated with this Managed Service Identity assigned to this Elastic SAN Volume Group.
+func (o GetVolumeGroupIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of Managed Identity assigned to this Elastic SAN Volume Group.
+func (o GetVolumeGroupIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetVolumeGroupIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeGroupIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeGroupIdentity)(nil)).Elem()
+}
+
+func (o GetVolumeGroupIdentityArrayOutput) ToGetVolumeGroupIdentityArrayOutput() GetVolumeGroupIdentityArrayOutput {
+	return o
+}
+
+func (o GetVolumeGroupIdentityArrayOutput) ToGetVolumeGroupIdentityArrayOutputWithContext(ctx context.Context) GetVolumeGroupIdentityArrayOutput {
+	return o
+}
+
+func (o GetVolumeGroupIdentityArrayOutput) Index(i pulumi.IntInput) GetVolumeGroupIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVolumeGroupIdentity {
+		return vs[0].([]GetVolumeGroupIdentity)[vs[1].(int)]
+	}).(GetVolumeGroupIdentityOutput)
+}
+
+type GetVolumeGroupNetworkRule struct {
+	// The action to take when an access attempt to this Elastic SAN Volume Group from this Subnet is made.
+	Action string `pulumi:"action"`
+	// The ID of the Subnet from which access to this Elastic SAN Volume Group is allowed.
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// GetVolumeGroupNetworkRuleInput is an input type that accepts GetVolumeGroupNetworkRuleArgs and GetVolumeGroupNetworkRuleOutput values.
+// You can construct a concrete instance of `GetVolumeGroupNetworkRuleInput` via:
+//
+//	GetVolumeGroupNetworkRuleArgs{...}
+type GetVolumeGroupNetworkRuleInput interface {
+	pulumi.Input
+
+	ToGetVolumeGroupNetworkRuleOutput() GetVolumeGroupNetworkRuleOutput
+	ToGetVolumeGroupNetworkRuleOutputWithContext(context.Context) GetVolumeGroupNetworkRuleOutput
+}
+
+type GetVolumeGroupNetworkRuleArgs struct {
+	// The action to take when an access attempt to this Elastic SAN Volume Group from this Subnet is made.
+	Action pulumi.StringInput `pulumi:"action"`
+	// The ID of the Subnet from which access to this Elastic SAN Volume Group is allowed.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (GetVolumeGroupNetworkRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeGroupNetworkRule)(nil)).Elem()
+}
+
+func (i GetVolumeGroupNetworkRuleArgs) ToGetVolumeGroupNetworkRuleOutput() GetVolumeGroupNetworkRuleOutput {
+	return i.ToGetVolumeGroupNetworkRuleOutputWithContext(context.Background())
+}
+
+func (i GetVolumeGroupNetworkRuleArgs) ToGetVolumeGroupNetworkRuleOutputWithContext(ctx context.Context) GetVolumeGroupNetworkRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeGroupNetworkRuleOutput)
+}
+
+// GetVolumeGroupNetworkRuleArrayInput is an input type that accepts GetVolumeGroupNetworkRuleArray and GetVolumeGroupNetworkRuleArrayOutput values.
+// You can construct a concrete instance of `GetVolumeGroupNetworkRuleArrayInput` via:
+//
+//	GetVolumeGroupNetworkRuleArray{ GetVolumeGroupNetworkRuleArgs{...} }
+type GetVolumeGroupNetworkRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetVolumeGroupNetworkRuleArrayOutput() GetVolumeGroupNetworkRuleArrayOutput
+	ToGetVolumeGroupNetworkRuleArrayOutputWithContext(context.Context) GetVolumeGroupNetworkRuleArrayOutput
+}
+
+type GetVolumeGroupNetworkRuleArray []GetVolumeGroupNetworkRuleInput
+
+func (GetVolumeGroupNetworkRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeGroupNetworkRule)(nil)).Elem()
+}
+
+func (i GetVolumeGroupNetworkRuleArray) ToGetVolumeGroupNetworkRuleArrayOutput() GetVolumeGroupNetworkRuleArrayOutput {
+	return i.ToGetVolumeGroupNetworkRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetVolumeGroupNetworkRuleArray) ToGetVolumeGroupNetworkRuleArrayOutputWithContext(ctx context.Context) GetVolumeGroupNetworkRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeGroupNetworkRuleArrayOutput)
+}
+
+type GetVolumeGroupNetworkRuleOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeGroupNetworkRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeGroupNetworkRule)(nil)).Elem()
+}
+
+func (o GetVolumeGroupNetworkRuleOutput) ToGetVolumeGroupNetworkRuleOutput() GetVolumeGroupNetworkRuleOutput {
+	return o
+}
+
+func (o GetVolumeGroupNetworkRuleOutput) ToGetVolumeGroupNetworkRuleOutputWithContext(ctx context.Context) GetVolumeGroupNetworkRuleOutput {
+	return o
+}
+
+// The action to take when an access attempt to this Elastic SAN Volume Group from this Subnet is made.
+func (o GetVolumeGroupNetworkRuleOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupNetworkRule) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// The ID of the Subnet from which access to this Elastic SAN Volume Group is allowed.
+func (o GetVolumeGroupNetworkRuleOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupNetworkRule) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type GetVolumeGroupNetworkRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeGroupNetworkRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeGroupNetworkRule)(nil)).Elem()
+}
+
+func (o GetVolumeGroupNetworkRuleArrayOutput) ToGetVolumeGroupNetworkRuleArrayOutput() GetVolumeGroupNetworkRuleArrayOutput {
+	return o
+}
+
+func (o GetVolumeGroupNetworkRuleArrayOutput) ToGetVolumeGroupNetworkRuleArrayOutputWithContext(ctx context.Context) GetVolumeGroupNetworkRuleArrayOutput {
+	return o
+}
+
+func (o GetVolumeGroupNetworkRuleArrayOutput) Index(i pulumi.IntInput) GetVolumeGroupNetworkRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVolumeGroupNetworkRule {
+		return vs[0].([]GetVolumeGroupNetworkRule)[vs[1].(int)]
+	}).(GetVolumeGroupNetworkRuleOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ElasticSanSkuInput)(nil)).Elem(), ElasticSanSkuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ElasticSanSkuPtrInput)(nil)).Elem(), ElasticSanSkuArgs{})
@@ -965,6 +1328,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupNetworkRuleArrayInput)(nil)).Elem(), VolumeGroupNetworkRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSkusInput)(nil)).Elem(), GetSkusArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSkusArrayInput)(nil)).Elem(), GetSkusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeGroupEncryptionInput)(nil)).Elem(), GetVolumeGroupEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeGroupEncryptionArrayInput)(nil)).Elem(), GetVolumeGroupEncryptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeGroupIdentityInput)(nil)).Elem(), GetVolumeGroupIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeGroupIdentityArrayInput)(nil)).Elem(), GetVolumeGroupIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeGroupNetworkRuleInput)(nil)).Elem(), GetVolumeGroupNetworkRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeGroupNetworkRuleArrayInput)(nil)).Elem(), GetVolumeGroupNetworkRuleArray{})
 	pulumi.RegisterOutputType(ElasticSanSkuOutput{})
 	pulumi.RegisterOutputType(ElasticSanSkuPtrOutput{})
 	pulumi.RegisterOutputType(VolumeCreateSourceOutput{})
@@ -977,4 +1346,10 @@ func init() {
 	pulumi.RegisterOutputType(VolumeGroupNetworkRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetSkusOutput{})
 	pulumi.RegisterOutputType(GetSkusArrayOutput{})
+	pulumi.RegisterOutputType(GetVolumeGroupEncryptionOutput{})
+	pulumi.RegisterOutputType(GetVolumeGroupEncryptionArrayOutput{})
+	pulumi.RegisterOutputType(GetVolumeGroupIdentityOutput{})
+	pulumi.RegisterOutputType(GetVolumeGroupIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetVolumeGroupNetworkRuleOutput{})
+	pulumi.RegisterOutputType(GetVolumeGroupNetworkRuleArrayOutput{})
 }

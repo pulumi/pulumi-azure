@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as std from "@pulumi/std";
  *
  * const example = new azure.core.ResourceGroup("example", {
  *     name: "example-rg",
@@ -49,33 +48,6 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
- * const configContent = std.base64encode({
- *     input: `http {
- *     server {
- *         listen 80;
- *         location / {
- *             auth_basic "Protected Area";
- *             auth_basic_user_file /opt/.htpasswd;
- *             default_type text/html;
- *         }
- *         include site/*.conf;
- *     }
- * }
- * `,
- * }).then(invoke => invoke.result);
- * const protectedContent = std.base64encode({
- *     input: "user:$apr1$VeUA5kt.$IjjRk//8miRxDsZvD4daF1\n",
- * }).then(invoke => invoke.result);
- * const subConfigContent = std.base64encode({
- *     input: `location /bbb {
- * \x09default_type text/html;
- * \x09return 200 '<!doctype html><html lang="en"><head></head><body>
- * \x09\x09<div>this one will be updated</div>
- * \x09\x09<div>at 10:38 am</div>
- * \x09</body></html>';
- * }
- * `,
- * }).then(invoke => invoke.result);
  * const exampleDeployment = new azure.nginx.Deployment("example", {
  *     name: "example-nginx",
  *     resourceGroupName: example.name,
@@ -92,23 +64,6 @@ import * as utilities from "../utilities";
  *     }],
  *     capacity: 20,
  *     email: "user@test.com",
- *     configuration: {
- *         rootFile: "/etc/nginx/nginx.conf",
- *         configFiles: [
- *             {
- *                 content: configContent,
- *                 virtualPath: "/etc/nginx/nginx.conf",
- *             },
- *             {
- *                 content: subConfigContent,
- *                 virtualPath: "/etc/nginx/site/b.conf",
- *             },
- *         ],
- *         protectedFiles: [{
- *             content: protectedContent,
- *             virtualPath: "/opt/.htpasswd",
- *         }],
- *     },
  * });
  * ```
  *
@@ -163,11 +118,11 @@ export class Deployment extends pulumi.CustomResource {
      */
     public readonly capacity!: pulumi.Output<number | undefined>;
     /**
-     * Specify a custom `configuration` block as defined below.
+     * @deprecated The `configuration` block has been superseded by the `azure.nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.
      */
     public readonly configuration!: pulumi.Output<outputs.nginx.DeploymentConfiguration>;
     /**
-     * Should the diagnosis support be enabled?
+     * Should the metrics be exported to Azure Monitor?
      */
     public readonly diagnoseSupportEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -218,9 +173,6 @@ export class Deployment extends pulumi.CustomResource {
      * The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
-    /**
-     * Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
-     */
     public readonly sku!: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the NGINX Deployment.
@@ -311,11 +263,11 @@ export interface DeploymentState {
      */
     capacity?: pulumi.Input<number>;
     /**
-     * Specify a custom `configuration` block as defined below.
+     * @deprecated The `configuration` block has been superseded by the `azure.nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.
      */
     configuration?: pulumi.Input<inputs.nginx.DeploymentConfiguration>;
     /**
-     * Should the diagnosis support be enabled?
+     * Should the metrics be exported to Azure Monitor?
      */
     diagnoseSupportEnabled?: pulumi.Input<boolean>;
     /**
@@ -366,9 +318,6 @@ export interface DeploymentState {
      * The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
-    /**
-     * Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
-     */
     sku?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the NGINX Deployment.
@@ -395,11 +344,11 @@ export interface DeploymentArgs {
      */
     capacity?: pulumi.Input<number>;
     /**
-     * Specify a custom `configuration` block as defined below.
+     * @deprecated The `configuration` block has been superseded by the `azure.nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.
      */
     configuration?: pulumi.Input<inputs.nginx.DeploymentConfiguration>;
     /**
-     * Should the diagnosis support be enabled?
+     * Should the metrics be exported to Azure Monitor?
      */
     diagnoseSupportEnabled?: pulumi.Input<boolean>;
     /**
@@ -442,9 +391,6 @@ export interface DeploymentArgs {
      * The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
-     */
     sku: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the NGINX Deployment.
