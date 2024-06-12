@@ -228,7 +228,7 @@ class Share(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 snapshot_schedule: Optional[pulumi.Input[pulumi.InputType['ShareSnapshotScheduleArgs']]] = None,
+                 snapshot_schedule: Optional[pulumi.Input[Union['ShareSnapshotScheduleArgs', 'ShareSnapshotScheduleArgsDict']]] = None,
                  terms: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -247,9 +247,9 @@ class Share(pulumi.CustomResource):
             name="example-dsa",
             location=example.location,
             resource_group_name=example.name,
-            identity=azure.datashare.AccountIdentityArgs(
-                type="SystemAssigned",
-            ),
+            identity={
+                "type": "SystemAssigned",
+            },
             tags={
                 "foo": "bar",
             })
@@ -259,11 +259,11 @@ class Share(pulumi.CustomResource):
             kind="CopyBased",
             description="example desc",
             terms="example terms",
-            snapshot_schedule=azure.datashare.ShareSnapshotScheduleArgs(
-                name="example-ss",
-                recurrence="Day",
-                start_time="2020-04-17T04:47:52.9614956Z",
-            ))
+            snapshot_schedule={
+                "name": "example-ss",
+                "recurrence": "Day",
+                "startTime": "2020-04-17T04:47:52.9614956Z",
+            })
         ```
 
         ## Import
@@ -280,7 +280,7 @@ class Share(pulumi.CustomResource):
         :param pulumi.Input[str] description: The Data Share's description.
         :param pulumi.Input[str] kind: The kind of the Data Share. Possible values are `CopyBased` and `InPlace`. Changing this forces a new Data Share to be created.
         :param pulumi.Input[str] name: The name which should be used for this Data Share. Changing this forces a new Data Share to be created.
-        :param pulumi.Input[pulumi.InputType['ShareSnapshotScheduleArgs']] snapshot_schedule: A `snapshot_schedule` block as defined below.
+        :param pulumi.Input[Union['ShareSnapshotScheduleArgs', 'ShareSnapshotScheduleArgsDict']] snapshot_schedule: A `snapshot_schedule` block as defined below.
         :param pulumi.Input[str] terms: The terms of the Data Share.
         """
         ...
@@ -305,9 +305,9 @@ class Share(pulumi.CustomResource):
             name="example-dsa",
             location=example.location,
             resource_group_name=example.name,
-            identity=azure.datashare.AccountIdentityArgs(
-                type="SystemAssigned",
-            ),
+            identity={
+                "type": "SystemAssigned",
+            },
             tags={
                 "foo": "bar",
             })
@@ -317,11 +317,11 @@ class Share(pulumi.CustomResource):
             kind="CopyBased",
             description="example desc",
             terms="example terms",
-            snapshot_schedule=azure.datashare.ShareSnapshotScheduleArgs(
-                name="example-ss",
-                recurrence="Day",
-                start_time="2020-04-17T04:47:52.9614956Z",
-            ))
+            snapshot_schedule={
+                "name": "example-ss",
+                "recurrence": "Day",
+                "startTime": "2020-04-17T04:47:52.9614956Z",
+            })
         ```
 
         ## Import
@@ -351,7 +351,7 @@ class Share(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 snapshot_schedule: Optional[pulumi.Input[pulumi.InputType['ShareSnapshotScheduleArgs']]] = None,
+                 snapshot_schedule: Optional[pulumi.Input[Union['ShareSnapshotScheduleArgs', 'ShareSnapshotScheduleArgsDict']]] = None,
                  terms: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -386,7 +386,7 @@ class Share(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             kind: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            snapshot_schedule: Optional[pulumi.Input[pulumi.InputType['ShareSnapshotScheduleArgs']]] = None,
+            snapshot_schedule: Optional[pulumi.Input[Union['ShareSnapshotScheduleArgs', 'ShareSnapshotScheduleArgsDict']]] = None,
             terms: Optional[pulumi.Input[str]] = None) -> 'Share':
         """
         Get an existing Share resource's state with the given name, id, and optional extra
@@ -399,7 +399,7 @@ class Share(pulumi.CustomResource):
         :param pulumi.Input[str] description: The Data Share's description.
         :param pulumi.Input[str] kind: The kind of the Data Share. Possible values are `CopyBased` and `InPlace`. Changing this forces a new Data Share to be created.
         :param pulumi.Input[str] name: The name which should be used for this Data Share. Changing this forces a new Data Share to be created.
-        :param pulumi.Input[pulumi.InputType['ShareSnapshotScheduleArgs']] snapshot_schedule: A `snapshot_schedule` block as defined below.
+        :param pulumi.Input[Union['ShareSnapshotScheduleArgs', 'ShareSnapshotScheduleArgsDict']] snapshot_schedule: A `snapshot_schedule` block as defined below.
         :param pulumi.Input[str] terms: The terms of the Data Share.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

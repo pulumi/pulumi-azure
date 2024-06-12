@@ -201,17 +201,17 @@ class ClusterTrustedAccessRoleBinding(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             dns_prefix="acctestaksexample",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
-                name="example-value",
-                node_count="example-value",
-                vm_size="example-value",
-                upgrade_settings=azure.containerservice.KubernetesClusterDefaultNodePoolUpgradeSettingsArgs(
-                    max_surge="example-value",
-                ),
-            ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
-                type="example-value",
-            ))
+            default_node_pool={
+                "name": "example-value",
+                "nodeCount": "example-value",
+                "vmSize": "example-value",
+                "upgradeSettings": {
+                    "maxSurge": "example-value",
+                },
+            },
+            identity={
+                "type": "example-value",
+            })
         example_account = azure.storage.Account("example",
             name="example",
             location=example_resource_group.location,
@@ -225,9 +225,9 @@ class ClusterTrustedAccessRoleBinding(pulumi.CustomResource):
             key_vault_id=example_key_vault.id,
             storage_account_id=example_account.id,
             application_insights_id=example.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
-                type="example-value",
-            ))
+            identity={
+                "type": "example-value",
+            })
         example_cluster_trusted_access_role_binding = azure.containerservice.ClusterTrustedAccessRoleBinding("example",
             kubernetes_cluster_id=example_kubernetes_cluster.id,
             name="example",
@@ -303,17 +303,17 @@ class ClusterTrustedAccessRoleBinding(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             dns_prefix="acctestaksexample",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
-                name="example-value",
-                node_count="example-value",
-                vm_size="example-value",
-                upgrade_settings=azure.containerservice.KubernetesClusterDefaultNodePoolUpgradeSettingsArgs(
-                    max_surge="example-value",
-                ),
-            ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
-                type="example-value",
-            ))
+            default_node_pool={
+                "name": "example-value",
+                "nodeCount": "example-value",
+                "vmSize": "example-value",
+                "upgradeSettings": {
+                    "maxSurge": "example-value",
+                },
+            },
+            identity={
+                "type": "example-value",
+            })
         example_account = azure.storage.Account("example",
             name="example",
             location=example_resource_group.location,
@@ -327,9 +327,9 @@ class ClusterTrustedAccessRoleBinding(pulumi.CustomResource):
             key_vault_id=example_key_vault.id,
             storage_account_id=example_account.id,
             application_insights_id=example.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
-                type="example-value",
-            ))
+            identity={
+                "type": "example-value",
+            })
         example_cluster_trusted_access_role_binding = azure.containerservice.ClusterTrustedAccessRoleBinding("example",
             kubernetes_cluster_id=example_kubernetes_cluster.id,
             name="example",

@@ -129,7 +129,7 @@ class RoutingIntent(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutingIntentRoutingPolicyArgs']]]]] = None,
+                 routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoutingIntentRoutingPolicyArgs', 'RoutingIntentRoutingPolicyArgsDict']]]]] = None,
                  virtual_hub_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -160,18 +160,18 @@ class RoutingIntent(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="AZFW_Hub",
             sku_tier="Standard",
-            virtual_hub=azure.network.FirewallVirtualHubArgs(
-                virtual_hub_id=example_virtual_hub.id,
-                public_ip_count=1,
-            ))
+            virtual_hub={
+                "virtualHubId": example_virtual_hub.id,
+                "publicIpCount": 1,
+            })
         example_routing_intent = azure.network.RoutingIntent("example",
             name="example-routingintent",
             virtual_hub_id=example_virtual_hub.id,
-            routing_policies=[azure.network.RoutingIntentRoutingPolicyArgs(
-                name="InternetTrafficPolicy",
-                destinations=["Internet"],
-                next_hop=example_firewall.id,
-            )])
+            routing_policies=[{
+                "name": "InternetTrafficPolicy",
+                "destinations": ["Internet"],
+                "nextHop": example_firewall.id,
+            }])
         ```
 
         ## Import
@@ -185,7 +185,7 @@ class RoutingIntent(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name which should be used for this Virtual Hub Routing Intent. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutingIntentRoutingPolicyArgs']]]] routing_policies: One or more `routing_policy` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RoutingIntentRoutingPolicyArgs', 'RoutingIntentRoutingPolicyArgsDict']]]] routing_policies: One or more `routing_policy` blocks as defined below.
         :param pulumi.Input[str] virtual_hub_id: The resource ID of the Virtual Hub. Changing this forces a new resource to be created.
         """
         ...
@@ -222,18 +222,18 @@ class RoutingIntent(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="AZFW_Hub",
             sku_tier="Standard",
-            virtual_hub=azure.network.FirewallVirtualHubArgs(
-                virtual_hub_id=example_virtual_hub.id,
-                public_ip_count=1,
-            ))
+            virtual_hub={
+                "virtualHubId": example_virtual_hub.id,
+                "publicIpCount": 1,
+            })
         example_routing_intent = azure.network.RoutingIntent("example",
             name="example-routingintent",
             virtual_hub_id=example_virtual_hub.id,
-            routing_policies=[azure.network.RoutingIntentRoutingPolicyArgs(
-                name="InternetTrafficPolicy",
-                destinations=["Internet"],
-                next_hop=example_firewall.id,
-            )])
+            routing_policies=[{
+                "name": "InternetTrafficPolicy",
+                "destinations": ["Internet"],
+                "nextHop": example_firewall.id,
+            }])
         ```
 
         ## Import
@@ -260,7 +260,7 @@ class RoutingIntent(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutingIntentRoutingPolicyArgs']]]]] = None,
+                 routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoutingIntentRoutingPolicyArgs', 'RoutingIntentRoutingPolicyArgsDict']]]]] = None,
                  virtual_hub_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -289,7 +289,7 @@ class RoutingIntent(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             name: Optional[pulumi.Input[str]] = None,
-            routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutingIntentRoutingPolicyArgs']]]]] = None,
+            routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoutingIntentRoutingPolicyArgs', 'RoutingIntentRoutingPolicyArgsDict']]]]] = None,
             virtual_hub_id: Optional[pulumi.Input[str]] = None) -> 'RoutingIntent':
         """
         Get an existing RoutingIntent resource's state with the given name, id, and optional extra
@@ -299,7 +299,7 @@ class RoutingIntent(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name which should be used for this Virtual Hub Routing Intent. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutingIntentRoutingPolicyArgs']]]] routing_policies: One or more `routing_policy` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RoutingIntentRoutingPolicyArgs', 'RoutingIntentRoutingPolicyArgsDict']]]] routing_policies: One or more `routing_policy` blocks as defined below.
         :param pulumi.Input[str] virtual_hub_id: The resource ID of the Virtual Hub. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

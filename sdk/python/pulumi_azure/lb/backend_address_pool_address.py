@@ -372,7 +372,7 @@ class BackendAddressPoolAddress(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             backend_address_ip_configuration_id: Optional[pulumi.Input[str]] = None,
             backend_address_pool_id: Optional[pulumi.Input[str]] = None,
-            inbound_nat_rule_port_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackendAddressPoolAddressInboundNatRulePortMappingArgs']]]]] = None,
+            inbound_nat_rule_port_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BackendAddressPoolAddressInboundNatRulePortMappingArgs', 'BackendAddressPoolAddressInboundNatRulePortMappingArgsDict']]]]] = None,
             ip_address: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             virtual_network_id: Optional[pulumi.Input[str]] = None) -> 'BackendAddressPoolAddress':
@@ -387,7 +387,7 @@ class BackendAddressPoolAddress(pulumi.CustomResource):
                
                > **Note:** For cross-region load balancer, please append the name of the load balancers, virtual machines, and other resources in each region with a -R1 and -R2.
         :param pulumi.Input[str] backend_address_pool_id: The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackendAddressPoolAddressInboundNatRulePortMappingArgs']]]] inbound_nat_rule_port_mappings: A list of `inbound_nat_rule_port_mapping` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BackendAddressPoolAddressInboundNatRulePortMappingArgs', 'BackendAddressPoolAddressInboundNatRulePortMappingArgsDict']]]] inbound_nat_rule_port_mappings: A list of `inbound_nat_rule_port_mapping` block as defined below.
         :param pulumi.Input[str] ip_address: The Static IP Address which should be allocated to this Backend Address Pool.
         :param pulumi.Input[str] name: The name which should be used for this Backend Address Pool Address. Changing this forces a new Backend Address Pool Address to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network within which the Backend Address Pool should exist.

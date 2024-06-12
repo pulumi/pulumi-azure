@@ -563,7 +563,7 @@ class Environment(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 workload_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentWorkloadProfileArgs']]]]] = None,
+                 workload_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentWorkloadProfileArgs', 'EnvironmentWorkloadProfileArgsDict']]]]] = None,
                  zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -619,7 +619,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentWorkloadProfileArgs']]]] workload_profiles: The profile of the workload to scope the container app execution. A `workload_profile` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentWorkloadProfileArgs', 'EnvironmentWorkloadProfileArgsDict']]]] workload_profiles: The profile of the workload to scope the container app execution. A `workload_profile` block as defined below.
         :param pulumi.Input[bool] zone_redundancy_enabled: Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
                
                > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
@@ -688,7 +688,7 @@ class Environment(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 workload_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentWorkloadProfileArgs']]]]] = None,
+                 workload_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentWorkloadProfileArgs', 'EnvironmentWorkloadProfileArgsDict']]]]] = None,
                  zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -747,7 +747,7 @@ class Environment(pulumi.CustomResource):
             resource_group_name: Optional[pulumi.Input[str]] = None,
             static_ip_address: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            workload_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentWorkloadProfileArgs']]]]] = None,
+            workload_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentWorkloadProfileArgs', 'EnvironmentWorkloadProfileArgsDict']]]]] = None,
             zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None) -> 'Environment':
         """
         Get an existing Environment resource's state with the given name, id, and optional extra
@@ -780,7 +780,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] static_ip_address: The Static IP address of the Environment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentWorkloadProfileArgs']]]] workload_profiles: The profile of the workload to scope the container app execution. A `workload_profile` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentWorkloadProfileArgs', 'EnvironmentWorkloadProfileArgsDict']]]] workload_profiles: The profile of the workload to scope the container app execution. A `workload_profile` block as defined below.
         :param pulumi.Input[bool] zone_redundancy_enabled: Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
                
                > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.

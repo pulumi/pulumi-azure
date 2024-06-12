@@ -325,8 +325,8 @@ class PolicySetDefinition(pulumi.CustomResource):
                  metadata: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[str]] = None,
-                 policy_definition_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicySetDefinitionPolicyDefinitionGroupArgs']]]]] = None,
-                 policy_definition_references: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicySetDefinitionPolicyDefinitionReferenceArgs']]]]] = None,
+                 policy_definition_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicySetDefinitionPolicyDefinitionGroupArgs', 'PolicySetDefinitionPolicyDefinitionGroupArgsDict']]]]] = None,
+                 policy_definition_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicySetDefinitionPolicyDefinitionReferenceArgs', 'PolicySetDefinitionPolicyDefinitionReferenceArgsDict']]]]] = None,
                  policy_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -355,13 +355,13 @@ class PolicySetDefinition(pulumi.CustomResource):
                 }
             }
         \"\"\",
-            policy_definition_references=[azure.policy.PolicySetDefinitionPolicyDefinitionReferenceArgs(
-                policy_definition_id="/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
-                parameter_values=\"\"\"    {
+            policy_definition_references=[{
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
+                "parameterValues": \"\"\"    {
               "listOfAllowedLocations": {"value": "[parameters('allowedLocations')]"}
             }
         \"\"\",
-            )])
+            }])
         ```
 
         ## Import
@@ -386,8 +386,8 @@ class PolicySetDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] metadata: The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
         :param pulumi.Input[str] name: The name of the policy set definition. Changing this forces a new resource to be created.
         :param pulumi.Input[str] parameters: Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicySetDefinitionPolicyDefinitionGroupArgs']]]] policy_definition_groups: One or more `policy_definition_group` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicySetDefinitionPolicyDefinitionReferenceArgs']]]] policy_definition_references: One or more `policy_definition_reference` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PolicySetDefinitionPolicyDefinitionGroupArgs', 'PolicySetDefinitionPolicyDefinitionGroupArgsDict']]]] policy_definition_groups: One or more `policy_definition_group` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PolicySetDefinitionPolicyDefinitionReferenceArgs', 'PolicySetDefinitionPolicyDefinitionReferenceArgsDict']]]] policy_definition_references: One or more `policy_definition_reference` blocks as defined below.
         :param pulumi.Input[str] policy_type: The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
         """
         ...
@@ -422,13 +422,13 @@ class PolicySetDefinition(pulumi.CustomResource):
                 }
             }
         \"\"\",
-            policy_definition_references=[azure.policy.PolicySetDefinitionPolicyDefinitionReferenceArgs(
-                policy_definition_id="/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
-                parameter_values=\"\"\"    {
+            policy_definition_references=[{
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
+                "parameterValues": \"\"\"    {
               "listOfAllowedLocations": {"value": "[parameters('allowedLocations')]"}
             }
         \"\"\",
-            )])
+            }])
         ```
 
         ## Import
@@ -466,8 +466,8 @@ class PolicySetDefinition(pulumi.CustomResource):
                  metadata: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[str]] = None,
-                 policy_definition_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicySetDefinitionPolicyDefinitionGroupArgs']]]]] = None,
-                 policy_definition_references: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicySetDefinitionPolicyDefinitionReferenceArgs']]]]] = None,
+                 policy_definition_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicySetDefinitionPolicyDefinitionGroupArgs', 'PolicySetDefinitionPolicyDefinitionGroupArgsDict']]]]] = None,
+                 policy_definition_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicySetDefinitionPolicyDefinitionReferenceArgs', 'PolicySetDefinitionPolicyDefinitionReferenceArgsDict']]]]] = None,
                  policy_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -509,8 +509,8 @@ class PolicySetDefinition(pulumi.CustomResource):
             metadata: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[str]] = None,
-            policy_definition_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicySetDefinitionPolicyDefinitionGroupArgs']]]]] = None,
-            policy_definition_references: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicySetDefinitionPolicyDefinitionReferenceArgs']]]]] = None,
+            policy_definition_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicySetDefinitionPolicyDefinitionGroupArgs', 'PolicySetDefinitionPolicyDefinitionGroupArgsDict']]]]] = None,
+            policy_definition_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicySetDefinitionPolicyDefinitionReferenceArgs', 'PolicySetDefinitionPolicyDefinitionReferenceArgsDict']]]]] = None,
             policy_type: Optional[pulumi.Input[str]] = None) -> 'PolicySetDefinition':
         """
         Get an existing PolicySetDefinition resource's state with the given name, id, and optional extra
@@ -525,8 +525,8 @@ class PolicySetDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] metadata: The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
         :param pulumi.Input[str] name: The name of the policy set definition. Changing this forces a new resource to be created.
         :param pulumi.Input[str] parameters: Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicySetDefinitionPolicyDefinitionGroupArgs']]]] policy_definition_groups: One or more `policy_definition_group` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicySetDefinitionPolicyDefinitionReferenceArgs']]]] policy_definition_references: One or more `policy_definition_reference` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PolicySetDefinitionPolicyDefinitionGroupArgs', 'PolicySetDefinitionPolicyDefinitionGroupArgsDict']]]] policy_definition_groups: One or more `policy_definition_group` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PolicySetDefinitionPolicyDefinitionReferenceArgs', 'PolicySetDefinitionPolicyDefinitionReferenceArgsDict']]]] policy_definition_references: One or more `policy_definition_reference` blocks as defined below.
         :param pulumi.Input[str] policy_type: The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

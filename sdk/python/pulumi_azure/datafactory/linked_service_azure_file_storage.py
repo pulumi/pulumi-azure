@@ -464,7 +464,7 @@ class LinkedServiceAzureFileStorage(pulumi.CustomResource):
                  file_share: Optional[pulumi.Input[str]] = None,
                  host: Optional[pulumi.Input[str]] = None,
                  integration_runtime_name: Optional[pulumi.Input[str]] = None,
-                 key_vault_password: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureFileStorageKeyVaultPasswordArgs']]] = None,
+                 key_vault_password: Optional[pulumi.Input[Union['LinkedServiceAzureFileStorageKeyVaultPasswordArgs', 'LinkedServiceAzureFileStorageKeyVaultPasswordArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  password: Optional[pulumi.Input[str]] = None,
@@ -514,7 +514,7 @@ class LinkedServiceAzureFileStorage(pulumi.CustomResource):
         :param pulumi.Input[str] file_share: The name of the file share.
         :param pulumi.Input[str] host: The Host name of the server.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
-        :param pulumi.Input[pulumi.InputType['LinkedServiceAzureFileStorageKeyVaultPasswordArgs']] key_vault_password: A `key_vault_password` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+        :param pulumi.Input[Union['LinkedServiceAzureFileStorageKeyVaultPasswordArgs', 'LinkedServiceAzureFileStorageKeyVaultPasswordArgsDict']] key_vault_password: A `key_vault_password` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] password: The password to log in the server.
@@ -581,7 +581,7 @@ class LinkedServiceAzureFileStorage(pulumi.CustomResource):
                  file_share: Optional[pulumi.Input[str]] = None,
                  host: Optional[pulumi.Input[str]] = None,
                  integration_runtime_name: Optional[pulumi.Input[str]] = None,
-                 key_vault_password: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureFileStorageKeyVaultPasswordArgs']]] = None,
+                 key_vault_password: Optional[pulumi.Input[Union['LinkedServiceAzureFileStorageKeyVaultPasswordArgs', 'LinkedServiceAzureFileStorageKeyVaultPasswordArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  password: Optional[pulumi.Input[str]] = None,
@@ -632,7 +632,7 @@ class LinkedServiceAzureFileStorage(pulumi.CustomResource):
             file_share: Optional[pulumi.Input[str]] = None,
             host: Optional[pulumi.Input[str]] = None,
             integration_runtime_name: Optional[pulumi.Input[str]] = None,
-            key_vault_password: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureFileStorageKeyVaultPasswordArgs']]] = None,
+            key_vault_password: Optional[pulumi.Input[Union['LinkedServiceAzureFileStorageKeyVaultPasswordArgs', 'LinkedServiceAzureFileStorageKeyVaultPasswordArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             password: Optional[pulumi.Input[str]] = None,
@@ -654,7 +654,7 @@ class LinkedServiceAzureFileStorage(pulumi.CustomResource):
         :param pulumi.Input[str] file_share: The name of the file share.
         :param pulumi.Input[str] host: The Host name of the server.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
-        :param pulumi.Input[pulumi.InputType['LinkedServiceAzureFileStorageKeyVaultPasswordArgs']] key_vault_password: A `key_vault_password` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+        :param pulumi.Input[Union['LinkedServiceAzureFileStorageKeyVaultPasswordArgs', 'LinkedServiceAzureFileStorageKeyVaultPasswordArgsDict']] key_vault_password: A `key_vault_password` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] password: The password to log in the server.

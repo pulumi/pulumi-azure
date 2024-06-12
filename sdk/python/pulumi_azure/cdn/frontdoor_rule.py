@@ -247,10 +247,10 @@ class FrontdoorRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[pulumi.InputType['FrontdoorRuleActionsArgs']]] = None,
+                 actions: Optional[pulumi.Input[Union['FrontdoorRuleActionsArgs', 'FrontdoorRuleActionsArgsDict']]] = None,
                  behavior_on_match: Optional[pulumi.Input[str]] = None,
                  cdn_frontdoor_rule_set_id: Optional[pulumi.Input[str]] = None,
-                 conditions: Optional[pulumi.Input[pulumi.InputType['FrontdoorRuleConditionsArgs']]] = None,
+                 conditions: Optional[pulumi.Input[Union['FrontdoorRuleConditionsArgs', 'FrontdoorRuleConditionsArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  order: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -283,17 +283,17 @@ class FrontdoorRule(pulumi.CustomResource):
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             session_affinity_enabled=True,
             restore_traffic_time_to_healed_or_new_endpoint_in_minutes=10,
-            health_probe=azure.cdn.FrontdoorOriginGroupHealthProbeArgs(
-                interval_in_seconds=240,
-                path="/healthProbe",
-                protocol="Https",
-                request_type="GET",
-            ),
-            load_balancing=azure.cdn.FrontdoorOriginGroupLoadBalancingArgs(
-                additional_latency_in_milliseconds=0,
-                sample_size=16,
-                successful_samples_required=3,
-            ))
+            health_probe={
+                "intervalInSeconds": 240,
+                "path": "/healthProbe",
+                "protocol": "Https",
+                "requestType": "GET",
+            },
+            load_balancing={
+                "additionalLatencyInMilliseconds": 0,
+                "sampleSize": 16,
+                "successfulSamplesRequired": 3,
+            })
         example_frontdoor_origin = azure.cdn.FrontdoorOrigin("example",
             name="example-origin",
             cdn_frontdoor_origin_group_id=example_frontdoor_origin_group.id,
@@ -313,72 +313,72 @@ class FrontdoorRule(pulumi.CustomResource):
             cdn_frontdoor_rule_set_id=example_frontdoor_rule_set.id,
             order=1,
             behavior_on_match="Continue",
-            actions=azure.cdn.FrontdoorRuleActionsArgs(
-                route_configuration_override_action=azure.cdn.FrontdoorRuleActionsRouteConfigurationOverrideActionArgs(
-                    cdn_frontdoor_origin_group_id=example_frontdoor_origin_group.id,
-                    forwarding_protocol="HttpsOnly",
-                    query_string_caching_behavior="IncludeSpecifiedQueryStrings",
-                    query_string_parameters=[
+            actions={
+                "routeConfigurationOverrideAction": {
+                    "cdnFrontdoorOriginGroupId": example_frontdoor_origin_group.id,
+                    "forwardingProtocol": "HttpsOnly",
+                    "queryStringCachingBehavior": "IncludeSpecifiedQueryStrings",
+                    "queryStringParameters": [
                         "foo",
                         "clientIp={client_ip}",
                     ],
-                    compression_enabled=True,
-                    cache_behavior="OverrideIfOriginMissing",
-                    cache_duration="365.23:59:59",
-                ),
-                url_redirect_action=azure.cdn.FrontdoorRuleActionsUrlRedirectActionArgs(
-                    redirect_type="PermanentRedirect",
-                    redirect_protocol="MatchRequest",
-                    query_string="clientIp={client_ip}",
-                    destination_path="/exampleredirection",
-                    destination_hostname="contoso.com",
-                    destination_fragment="UrlRedirect",
-                ),
-            ),
-            conditions=azure.cdn.FrontdoorRuleConditionsArgs(
-                host_name_conditions=[azure.cdn.FrontdoorRuleConditionsHostNameConditionArgs(
-                    operator="Equal",
-                    negate_condition=False,
-                    match_values=[
+                    "compressionEnabled": True,
+                    "cacheBehavior": "OverrideIfOriginMissing",
+                    "cacheDuration": "365.23:59:59",
+                },
+                "urlRedirectAction": {
+                    "redirectType": "PermanentRedirect",
+                    "redirectProtocol": "MatchRequest",
+                    "queryString": "clientIp={client_ip}",
+                    "destinationPath": "/exampleredirection",
+                    "destinationHostname": "contoso.com",
+                    "destinationFragment": "UrlRedirect",
+                },
+            },
+            conditions={
+                "hostNameConditions": [{
+                    "operator": "Equal",
+                    "negateCondition": False,
+                    "matchValues": [
                         "www.contoso.com",
                         "images.contoso.com",
                         "video.contoso.com",
                     ],
-                    transforms=[
+                    "transforms": [
                         "Lowercase",
                         "Trim",
                     ],
-                )],
-                is_device_conditions=[azure.cdn.FrontdoorRuleConditionsIsDeviceConditionArgs(
-                    operator="Equal",
-                    negate_condition=False,
-                    match_values="Mobile",
-                )],
-                post_args_conditions=[azure.cdn.FrontdoorRuleConditionsPostArgsConditionArgs(
-                    post_args_name="customerName",
-                    operator="BeginsWith",
-                    match_values=[
+                }],
+                "isDeviceConditions": [{
+                    "operator": "Equal",
+                    "negateCondition": False,
+                    "matchValues": "Mobile",
+                }],
+                "postArgsConditions": [{
+                    "postArgsName": "customerName",
+                    "operator": "BeginsWith",
+                    "matchValues": [
                         "J",
                         "K",
                     ],
-                    transforms=["Uppercase"],
-                )],
-                request_method_conditions=[azure.cdn.FrontdoorRuleConditionsRequestMethodConditionArgs(
-                    operator="Equal",
-                    negate_condition=False,
-                    match_values=["DELETE"],
-                )],
-                url_filename_conditions=[azure.cdn.FrontdoorRuleConditionsUrlFilenameConditionArgs(
-                    operator="Equal",
-                    negate_condition=False,
-                    match_values=["media.mp4"],
-                    transforms=[
+                    "transforms": ["Uppercase"],
+                }],
+                "requestMethodConditions": [{
+                    "operator": "Equal",
+                    "negateCondition": False,
+                    "matchValues": ["DELETE"],
+                }],
+                "urlFilenameConditions": [{
+                    "operator": "Equal",
+                    "negateCondition": False,
+                    "matchValues": ["media.mp4"],
+                    "transforms": [
                         "Lowercase",
                         "RemoveNulls",
                         "Trim",
                     ],
-                )],
-            ),
+                }],
+            },
             opts=pulumi.ResourceOptions(depends_on=[
                     example_frontdoor_origin_group,
                     example_frontdoor_origin,
@@ -516,10 +516,10 @@ class FrontdoorRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['FrontdoorRuleActionsArgs']] actions: An `actions` block as defined below.
+        :param pulumi.Input[Union['FrontdoorRuleActionsArgs', 'FrontdoorRuleActionsArgsDict']] actions: An `actions` block as defined below.
         :param pulumi.Input[str] behavior_on_match: If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
         :param pulumi.Input[str] cdn_frontdoor_rule_set_id: The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
-        :param pulumi.Input[pulumi.InputType['FrontdoorRuleConditionsArgs']] conditions: A `conditions` block as defined below.
+        :param pulumi.Input[Union['FrontdoorRuleConditionsArgs', 'FrontdoorRuleConditionsArgsDict']] conditions: A `conditions` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
         :param pulumi.Input[int] order: The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
                
@@ -560,17 +560,17 @@ class FrontdoorRule(pulumi.CustomResource):
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             session_affinity_enabled=True,
             restore_traffic_time_to_healed_or_new_endpoint_in_minutes=10,
-            health_probe=azure.cdn.FrontdoorOriginGroupHealthProbeArgs(
-                interval_in_seconds=240,
-                path="/healthProbe",
-                protocol="Https",
-                request_type="GET",
-            ),
-            load_balancing=azure.cdn.FrontdoorOriginGroupLoadBalancingArgs(
-                additional_latency_in_milliseconds=0,
-                sample_size=16,
-                successful_samples_required=3,
-            ))
+            health_probe={
+                "intervalInSeconds": 240,
+                "path": "/healthProbe",
+                "protocol": "Https",
+                "requestType": "GET",
+            },
+            load_balancing={
+                "additionalLatencyInMilliseconds": 0,
+                "sampleSize": 16,
+                "successfulSamplesRequired": 3,
+            })
         example_frontdoor_origin = azure.cdn.FrontdoorOrigin("example",
             name="example-origin",
             cdn_frontdoor_origin_group_id=example_frontdoor_origin_group.id,
@@ -590,72 +590,72 @@ class FrontdoorRule(pulumi.CustomResource):
             cdn_frontdoor_rule_set_id=example_frontdoor_rule_set.id,
             order=1,
             behavior_on_match="Continue",
-            actions=azure.cdn.FrontdoorRuleActionsArgs(
-                route_configuration_override_action=azure.cdn.FrontdoorRuleActionsRouteConfigurationOverrideActionArgs(
-                    cdn_frontdoor_origin_group_id=example_frontdoor_origin_group.id,
-                    forwarding_protocol="HttpsOnly",
-                    query_string_caching_behavior="IncludeSpecifiedQueryStrings",
-                    query_string_parameters=[
+            actions={
+                "routeConfigurationOverrideAction": {
+                    "cdnFrontdoorOriginGroupId": example_frontdoor_origin_group.id,
+                    "forwardingProtocol": "HttpsOnly",
+                    "queryStringCachingBehavior": "IncludeSpecifiedQueryStrings",
+                    "queryStringParameters": [
                         "foo",
                         "clientIp={client_ip}",
                     ],
-                    compression_enabled=True,
-                    cache_behavior="OverrideIfOriginMissing",
-                    cache_duration="365.23:59:59",
-                ),
-                url_redirect_action=azure.cdn.FrontdoorRuleActionsUrlRedirectActionArgs(
-                    redirect_type="PermanentRedirect",
-                    redirect_protocol="MatchRequest",
-                    query_string="clientIp={client_ip}",
-                    destination_path="/exampleredirection",
-                    destination_hostname="contoso.com",
-                    destination_fragment="UrlRedirect",
-                ),
-            ),
-            conditions=azure.cdn.FrontdoorRuleConditionsArgs(
-                host_name_conditions=[azure.cdn.FrontdoorRuleConditionsHostNameConditionArgs(
-                    operator="Equal",
-                    negate_condition=False,
-                    match_values=[
+                    "compressionEnabled": True,
+                    "cacheBehavior": "OverrideIfOriginMissing",
+                    "cacheDuration": "365.23:59:59",
+                },
+                "urlRedirectAction": {
+                    "redirectType": "PermanentRedirect",
+                    "redirectProtocol": "MatchRequest",
+                    "queryString": "clientIp={client_ip}",
+                    "destinationPath": "/exampleredirection",
+                    "destinationHostname": "contoso.com",
+                    "destinationFragment": "UrlRedirect",
+                },
+            },
+            conditions={
+                "hostNameConditions": [{
+                    "operator": "Equal",
+                    "negateCondition": False,
+                    "matchValues": [
                         "www.contoso.com",
                         "images.contoso.com",
                         "video.contoso.com",
                     ],
-                    transforms=[
+                    "transforms": [
                         "Lowercase",
                         "Trim",
                     ],
-                )],
-                is_device_conditions=[azure.cdn.FrontdoorRuleConditionsIsDeviceConditionArgs(
-                    operator="Equal",
-                    negate_condition=False,
-                    match_values="Mobile",
-                )],
-                post_args_conditions=[azure.cdn.FrontdoorRuleConditionsPostArgsConditionArgs(
-                    post_args_name="customerName",
-                    operator="BeginsWith",
-                    match_values=[
+                }],
+                "isDeviceConditions": [{
+                    "operator": "Equal",
+                    "negateCondition": False,
+                    "matchValues": "Mobile",
+                }],
+                "postArgsConditions": [{
+                    "postArgsName": "customerName",
+                    "operator": "BeginsWith",
+                    "matchValues": [
                         "J",
                         "K",
                     ],
-                    transforms=["Uppercase"],
-                )],
-                request_method_conditions=[azure.cdn.FrontdoorRuleConditionsRequestMethodConditionArgs(
-                    operator="Equal",
-                    negate_condition=False,
-                    match_values=["DELETE"],
-                )],
-                url_filename_conditions=[azure.cdn.FrontdoorRuleConditionsUrlFilenameConditionArgs(
-                    operator="Equal",
-                    negate_condition=False,
-                    match_values=["media.mp4"],
-                    transforms=[
+                    "transforms": ["Uppercase"],
+                }],
+                "requestMethodConditions": [{
+                    "operator": "Equal",
+                    "negateCondition": False,
+                    "matchValues": ["DELETE"],
+                }],
+                "urlFilenameConditions": [{
+                    "operator": "Equal",
+                    "negateCondition": False,
+                    "matchValues": ["media.mp4"],
+                    "transforms": [
                         "Lowercase",
                         "RemoveNulls",
                         "Trim",
                     ],
-                )],
-            ),
+                }],
+            },
             opts=pulumi.ResourceOptions(depends_on=[
                     example_frontdoor_origin_group,
                     example_frontdoor_origin,
@@ -806,10 +806,10 @@ class FrontdoorRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[pulumi.InputType['FrontdoorRuleActionsArgs']]] = None,
+                 actions: Optional[pulumi.Input[Union['FrontdoorRuleActionsArgs', 'FrontdoorRuleActionsArgsDict']]] = None,
                  behavior_on_match: Optional[pulumi.Input[str]] = None,
                  cdn_frontdoor_rule_set_id: Optional[pulumi.Input[str]] = None,
-                 conditions: Optional[pulumi.Input[pulumi.InputType['FrontdoorRuleConditionsArgs']]] = None,
+                 conditions: Optional[pulumi.Input[Union['FrontdoorRuleConditionsArgs', 'FrontdoorRuleConditionsArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  order: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -844,11 +844,11 @@ class FrontdoorRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            actions: Optional[pulumi.Input[pulumi.InputType['FrontdoorRuleActionsArgs']]] = None,
+            actions: Optional[pulumi.Input[Union['FrontdoorRuleActionsArgs', 'FrontdoorRuleActionsArgsDict']]] = None,
             behavior_on_match: Optional[pulumi.Input[str]] = None,
             cdn_frontdoor_rule_set_id: Optional[pulumi.Input[str]] = None,
             cdn_frontdoor_rule_set_name: Optional[pulumi.Input[str]] = None,
-            conditions: Optional[pulumi.Input[pulumi.InputType['FrontdoorRuleConditionsArgs']]] = None,
+            conditions: Optional[pulumi.Input[Union['FrontdoorRuleConditionsArgs', 'FrontdoorRuleConditionsArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             order: Optional[pulumi.Input[int]] = None) -> 'FrontdoorRule':
         """
@@ -858,11 +858,11 @@ class FrontdoorRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['FrontdoorRuleActionsArgs']] actions: An `actions` block as defined below.
+        :param pulumi.Input[Union['FrontdoorRuleActionsArgs', 'FrontdoorRuleActionsArgsDict']] actions: An `actions` block as defined below.
         :param pulumi.Input[str] behavior_on_match: If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
         :param pulumi.Input[str] cdn_frontdoor_rule_set_id: The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
         :param pulumi.Input[str] cdn_frontdoor_rule_set_name: The name of the Front Door Rule Set containing this Front Door Rule.
-        :param pulumi.Input[pulumi.InputType['FrontdoorRuleConditionsArgs']] conditions: A `conditions` block as defined below.
+        :param pulumi.Input[Union['FrontdoorRuleConditionsArgs', 'FrontdoorRuleConditionsArgsDict']] conditions: A `conditions` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
         :param pulumi.Input[int] order: The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
                

@@ -288,12 +288,12 @@ class BudgetManagementGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  amount: Optional[pulumi.Input[float]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
-                 filter: Optional[pulumi.Input[pulumi.InputType['BudgetManagementGroupFilterArgs']]] = None,
+                 filter: Optional[pulumi.Input[Union['BudgetManagementGroupFilterArgs', 'BudgetManagementGroupFilterArgsDict']]] = None,
                  management_group_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetManagementGroupNotificationArgs']]]]] = None,
+                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BudgetManagementGroupNotificationArgs', 'BudgetManagementGroupNotificationArgsDict']]]]] = None,
                  time_grain: Optional[pulumi.Input[str]] = None,
-                 time_period: Optional[pulumi.Input[pulumi.InputType['BudgetManagementGroupTimePeriodArgs']]] = None,
+                 time_period: Optional[pulumi.Input[Union['BudgetManagementGroupTimePeriodArgs', 'BudgetManagementGroupTimePeriodArgsDict']]] = None,
                  __props__=None):
         """
         Manages a Consumption Budget for a Management Group.
@@ -313,43 +313,43 @@ class BudgetManagementGroup(pulumi.CustomResource):
             management_group_id=example.id,
             amount=1000,
             time_grain="Monthly",
-            time_period=azure.consumption.BudgetManagementGroupTimePeriodArgs(
-                start_date="2022-06-01T00:00:00Z",
-                end_date="2022-07-01T00:00:00Z",
-            ),
-            filter=azure.consumption.BudgetManagementGroupFilterArgs(
-                dimensions=[azure.consumption.BudgetManagementGroupFilterDimensionArgs(
-                    name="ResourceGroupName",
-                    values=[example_resource_group.name],
-                )],
-                tags=[azure.consumption.BudgetManagementGroupFilterTagArgs(
-                    name="foo",
-                    values=[
+            time_period={
+                "startDate": "2022-06-01T00:00:00Z",
+                "endDate": "2022-07-01T00:00:00Z",
+            },
+            filter={
+                "dimensions": [{
+                    "name": "ResourceGroupName",
+                    "values": [example_resource_group.name],
+                }],
+                "tags": [{
+                    "name": "foo",
+                    "values": [
                         "bar",
                         "baz",
                     ],
-                )],
-            ),
+                }],
+            },
             notifications=[
-                azure.consumption.BudgetManagementGroupNotificationArgs(
-                    enabled=True,
-                    threshold=90,
-                    operator="EqualTo",
-                    contact_emails=[
+                {
+                    "enabled": True,
+                    "threshold": 90,
+                    "operator": "EqualTo",
+                    "contactEmails": [
                         "foo@example.com",
                         "bar@example.com",
                     ],
-                ),
-                azure.consumption.BudgetManagementGroupNotificationArgs(
-                    enabled=False,
-                    threshold=100,
-                    operator="GreaterThan",
-                    threshold_type="Forecasted",
-                    contact_emails=[
+                },
+                {
+                    "enabled": False,
+                    "threshold": 100,
+                    "operator": "GreaterThan",
+                    "thresholdType": "Forecasted",
+                    "contactEmails": [
                         "foo@example.com",
                         "bar@example.com",
                     ],
-                ),
+                },
             ])
         ```
 
@@ -365,12 +365,12 @@ class BudgetManagementGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] amount: The total amount of cost to track with the budget.
         :param pulumi.Input[str] etag: (Optional) The ETag of the Management Group Consumption Budget.
-        :param pulumi.Input[pulumi.InputType['BudgetManagementGroupFilterArgs']] filter: A `filter` block as defined below.
+        :param pulumi.Input[Union['BudgetManagementGroupFilterArgs', 'BudgetManagementGroupFilterArgsDict']] filter: A `filter` block as defined below.
         :param pulumi.Input[str] management_group_id: The ID of the Management Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Management Group Consumption Budget. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetManagementGroupNotificationArgs']]]] notifications: One or more `notification` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BudgetManagementGroupNotificationArgs', 'BudgetManagementGroupNotificationArgsDict']]]] notifications: One or more `notification` blocks as defined below.
         :param pulumi.Input[str] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['BudgetManagementGroupTimePeriodArgs']] time_period: A `time_period` block as defined below.
+        :param pulumi.Input[Union['BudgetManagementGroupTimePeriodArgs', 'BudgetManagementGroupTimePeriodArgsDict']] time_period: A `time_period` block as defined below.
         """
         ...
     @overload
@@ -396,43 +396,43 @@ class BudgetManagementGroup(pulumi.CustomResource):
             management_group_id=example.id,
             amount=1000,
             time_grain="Monthly",
-            time_period=azure.consumption.BudgetManagementGroupTimePeriodArgs(
-                start_date="2022-06-01T00:00:00Z",
-                end_date="2022-07-01T00:00:00Z",
-            ),
-            filter=azure.consumption.BudgetManagementGroupFilterArgs(
-                dimensions=[azure.consumption.BudgetManagementGroupFilterDimensionArgs(
-                    name="ResourceGroupName",
-                    values=[example_resource_group.name],
-                )],
-                tags=[azure.consumption.BudgetManagementGroupFilterTagArgs(
-                    name="foo",
-                    values=[
+            time_period={
+                "startDate": "2022-06-01T00:00:00Z",
+                "endDate": "2022-07-01T00:00:00Z",
+            },
+            filter={
+                "dimensions": [{
+                    "name": "ResourceGroupName",
+                    "values": [example_resource_group.name],
+                }],
+                "tags": [{
+                    "name": "foo",
+                    "values": [
                         "bar",
                         "baz",
                     ],
-                )],
-            ),
+                }],
+            },
             notifications=[
-                azure.consumption.BudgetManagementGroupNotificationArgs(
-                    enabled=True,
-                    threshold=90,
-                    operator="EqualTo",
-                    contact_emails=[
+                {
+                    "enabled": True,
+                    "threshold": 90,
+                    "operator": "EqualTo",
+                    "contactEmails": [
                         "foo@example.com",
                         "bar@example.com",
                     ],
-                ),
-                azure.consumption.BudgetManagementGroupNotificationArgs(
-                    enabled=False,
-                    threshold=100,
-                    operator="GreaterThan",
-                    threshold_type="Forecasted",
-                    contact_emails=[
+                },
+                {
+                    "enabled": False,
+                    "threshold": 100,
+                    "operator": "GreaterThan",
+                    "thresholdType": "Forecasted",
+                    "contactEmails": [
                         "foo@example.com",
                         "bar@example.com",
                     ],
-                ),
+                },
             ])
         ```
 
@@ -461,12 +461,12 @@ class BudgetManagementGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  amount: Optional[pulumi.Input[float]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
-                 filter: Optional[pulumi.Input[pulumi.InputType['BudgetManagementGroupFilterArgs']]] = None,
+                 filter: Optional[pulumi.Input[Union['BudgetManagementGroupFilterArgs', 'BudgetManagementGroupFilterArgsDict']]] = None,
                  management_group_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetManagementGroupNotificationArgs']]]]] = None,
+                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BudgetManagementGroupNotificationArgs', 'BudgetManagementGroupNotificationArgsDict']]]]] = None,
                  time_grain: Optional[pulumi.Input[str]] = None,
-                 time_period: Optional[pulumi.Input[pulumi.InputType['BudgetManagementGroupTimePeriodArgs']]] = None,
+                 time_period: Optional[pulumi.Input[Union['BudgetManagementGroupTimePeriodArgs', 'BudgetManagementGroupTimePeriodArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -504,12 +504,12 @@ class BudgetManagementGroup(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             amount: Optional[pulumi.Input[float]] = None,
             etag: Optional[pulumi.Input[str]] = None,
-            filter: Optional[pulumi.Input[pulumi.InputType['BudgetManagementGroupFilterArgs']]] = None,
+            filter: Optional[pulumi.Input[Union['BudgetManagementGroupFilterArgs', 'BudgetManagementGroupFilterArgsDict']]] = None,
             management_group_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            notifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetManagementGroupNotificationArgs']]]]] = None,
+            notifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BudgetManagementGroupNotificationArgs', 'BudgetManagementGroupNotificationArgsDict']]]]] = None,
             time_grain: Optional[pulumi.Input[str]] = None,
-            time_period: Optional[pulumi.Input[pulumi.InputType['BudgetManagementGroupTimePeriodArgs']]] = None) -> 'BudgetManagementGroup':
+            time_period: Optional[pulumi.Input[Union['BudgetManagementGroupTimePeriodArgs', 'BudgetManagementGroupTimePeriodArgsDict']]] = None) -> 'BudgetManagementGroup':
         """
         Get an existing BudgetManagementGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -519,12 +519,12 @@ class BudgetManagementGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] amount: The total amount of cost to track with the budget.
         :param pulumi.Input[str] etag: (Optional) The ETag of the Management Group Consumption Budget.
-        :param pulumi.Input[pulumi.InputType['BudgetManagementGroupFilterArgs']] filter: A `filter` block as defined below.
+        :param pulumi.Input[Union['BudgetManagementGroupFilterArgs', 'BudgetManagementGroupFilterArgsDict']] filter: A `filter` block as defined below.
         :param pulumi.Input[str] management_group_id: The ID of the Management Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Management Group Consumption Budget. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetManagementGroupNotificationArgs']]]] notifications: One or more `notification` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BudgetManagementGroupNotificationArgs', 'BudgetManagementGroupNotificationArgsDict']]]] notifications: One or more `notification` blocks as defined below.
         :param pulumi.Input[str] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['BudgetManagementGroupTimePeriodArgs']] time_period: A `time_period` block as defined below.
+        :param pulumi.Input[Union['BudgetManagementGroupTimePeriodArgs', 'BudgetManagementGroupTimePeriodArgsDict']] time_period: A `time_period` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

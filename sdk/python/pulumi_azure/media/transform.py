@@ -195,7 +195,7 @@ class Transform(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  media_services_account_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransformOutputArgs']]]]] = None,
+                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TransformOutputArgs', 'TransformOutputArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -220,22 +220,22 @@ class Transform(pulumi.CustomResource):
             name="examplemediaacc",
             location=example.location,
             resource_group_name=example.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
-                id=example_account.id,
-                is_primary=True,
-            )])
+            storage_accounts=[{
+                "id": example_account.id,
+                "isPrimary": True,
+            }])
         example_transform = azure.media.Transform("example",
             name="transform1",
             resource_group_name=example.name,
             media_services_account_name=example_service_account.name,
             description="My transform description",
-            outputs=[azure.media.TransformOutputArgs(
-                relative_priority="Normal",
-                on_error_action="ContinueJob",
-                builtin_preset=azure.media.TransformOutputBuiltinPresetArgs(
-                    preset_name="AACGoodQualityAudio",
-                ),
-            )])
+            outputs=[{
+                "relativePriority": "Normal",
+                "onErrorAction": "ContinueJob",
+                "builtinPreset": {
+                    "presetName": "AACGoodQualityAudio",
+                },
+            }])
         ```
 
         ### With Multiple Outputs
@@ -257,281 +257,281 @@ class Transform(pulumi.CustomResource):
             name="examplemediaacc",
             location=example.location,
             resource_group_name=example.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
-                id=example_account.id,
-                is_primary=True,
-            )])
+            storage_accounts=[{
+                "id": example_account.id,
+                "isPrimary": True,
+            }])
         example_transform = azure.media.Transform("example",
             name="transform1",
             resource_group_name=example.name,
             media_services_account_name=example_service_account.name,
             description="My transform description",
             outputs=[
-                azure.media.TransformOutputArgs(
-                    relative_priority="Normal",
-                    on_error_action="ContinueJob",
-                    builtin_preset=azure.media.TransformOutputBuiltinPresetArgs(
-                        preset_name="AACGoodQualityAudio",
-                        preset_configuration=azure.media.TransformOutputBuiltinPresetPresetConfigurationArgs(
-                            complexity="Balanced",
-                            interleave_output="NonInterleavedOutput",
-                            key_frame_interval_in_seconds=123122.5,
-                            max_bitrate_bps=300000,
-                            max_height=480,
-                            max_layers=14,
-                            min_bitrate_bps=200000,
-                            min_height=360,
-                        ),
-                    ),
-                ),
-                azure.media.TransformOutputArgs(
-                    relative_priority="Low",
-                    on_error_action="ContinueJob",
-                    audio_analyzer_preset=azure.media.TransformOutputAudioAnalyzerPresetArgs(
-                        audio_language="en-US",
-                        audio_analysis_mode="Basic",
-                        experimental_options={
+                {
+                    "relativePriority": "Normal",
+                    "onErrorAction": "ContinueJob",
+                    "builtinPreset": {
+                        "presetName": "AACGoodQualityAudio",
+                        "presetConfiguration": {
+                            "complexity": "Balanced",
+                            "interleaveOutput": "NonInterleavedOutput",
+                            "keyFrameIntervalInSeconds": 123122.5,
+                            "maxBitrateBps": 300000,
+                            "maxHeight": 480,
+                            "maxLayers": 14,
+                            "minBitrateBps": 200000,
+                            "minHeight": 360,
+                        },
+                    },
+                },
+                {
+                    "relativePriority": "Low",
+                    "onErrorAction": "ContinueJob",
+                    "audioAnalyzerPreset": {
+                        "audioLanguage": "en-US",
+                        "audioAnalysisMode": "Basic",
+                        "experimentalOptions": {
                             "env": "test",
                         },
-                    ),
-                ),
-                azure.media.TransformOutputArgs(
-                    relative_priority="Low",
-                    on_error_action="StopProcessingJob",
-                    face_detector_preset=azure.media.TransformOutputFaceDetectorPresetArgs(
-                        analysis_resolution="StandardDefinition",
-                        blur_type="Med",
-                        face_redactor_mode="Combined",
-                        experimental_options={
+                    },
+                },
+                {
+                    "relativePriority": "Low",
+                    "onErrorAction": "StopProcessingJob",
+                    "faceDetectorPreset": {
+                        "analysisResolution": "StandardDefinition",
+                        "blurType": "Med",
+                        "faceRedactorMode": "Combined",
+                        "experimentalOptions": {
                             "env": "test",
                         },
-                    ),
-                ),
-                azure.media.TransformOutputArgs(
-                    relative_priority="Normal",
-                    on_error_action="StopProcessingJob",
-                    video_analyzer_preset=azure.media.TransformOutputVideoAnalyzerPresetArgs(
-                        audio_language="en-US",
-                        audio_analysis_mode="Basic",
-                        insights_type="AllInsights",
-                        experimental_options={
+                    },
+                },
+                {
+                    "relativePriority": "Normal",
+                    "onErrorAction": "StopProcessingJob",
+                    "videoAnalyzerPreset": {
+                        "audioLanguage": "en-US",
+                        "audioAnalysisMode": "Basic",
+                        "insightsType": "AllInsights",
+                        "experimentalOptions": {
                             "env": "test",
                         },
-                    ),
-                ),
-                azure.media.TransformOutputArgs(
-                    relative_priority="Low",
-                    on_error_action="ContinueJob",
-                    custom_preset=azure.media.TransformOutputCustomPresetArgs(
-                        codecs=[
-                            azure.media.TransformOutputCustomPresetCodecArgs(
-                                aac_audio=azure.media.TransformOutputCustomPresetCodecAacAudioArgs(
-                                    bitrate=128000,
-                                    channels=2,
-                                    sampling_rate=48000,
-                                    profile="AacLc",
-                                ),
-                            ),
-                            azure.media.TransformOutputCustomPresetCodecArgs(
-                                copy_audio=azure.media.TransformOutputCustomPresetCodecCopyAudioArgs(
-                                    label="test",
-                                ),
-                            ),
-                            azure.media.TransformOutputCustomPresetCodecArgs(
-                                copy_video=azure.media.TransformOutputCustomPresetCodecCopyVideoArgs(
-                                    label="test",
-                                ),
-                            ),
-                            azure.media.TransformOutputCustomPresetCodecArgs(
-                                h264_video=azure.media.TransformOutputCustomPresetCodecH264VideoArgs(
-                                    key_frame_interval="PT1S",
-                                    stretch_mode="AutoSize",
-                                    sync_mode="Auto",
-                                    scene_change_detection_enabled=False,
-                                    rate_control_mode="ABR",
-                                    complexity="Quality",
-                                    layers=[
-                                        azure.media.TransformOutputCustomPresetCodecH264VideoLayerArgs(
-                                            width="64",
-                                            height="64",
-                                            bitrate=1045000,
-                                            max_bitrate=1045000,
-                                            b_frames=3,
-                                            slices=0,
-                                            adaptive_b_frame_enabled=True,
-                                            profile="Auto",
-                                            level="auto",
-                                            buffer_window="PT5S",
-                                            reference_frames=4,
-                                            crf=23,
-                                            entropy_mode="Cabac",
-                                        ),
-                                        azure.media.TransformOutputCustomPresetCodecH264VideoLayerArgs(
-                                            width="64",
-                                            height="64",
-                                            bitrate=1000,
-                                            max_bitrate=1000,
-                                            b_frames=3,
-                                            frame_rate="32",
-                                            slices=1,
-                                            adaptive_b_frame_enabled=True,
-                                            profile="High444",
-                                            level="auto",
-                                            buffer_window="PT5S",
-                                            reference_frames=4,
-                                            crf=23,
-                                            entropy_mode="Cavlc",
-                                        ),
+                    },
+                },
+                {
+                    "relativePriority": "Low",
+                    "onErrorAction": "ContinueJob",
+                    "customPreset": {
+                        "codecs": [
+                            {
+                                "aacAudio": {
+                                    "bitrate": 128000,
+                                    "channels": 2,
+                                    "samplingRate": 48000,
+                                    "profile": "AacLc",
+                                },
+                            },
+                            {
+                                "copyAudio": {
+                                    "label": "test",
+                                },
+                            },
+                            {
+                                "copyVideo": {
+                                    "label": "test",
+                                },
+                            },
+                            {
+                                "h264Video": {
+                                    "keyFrameInterval": "PT1S",
+                                    "stretchMode": "AutoSize",
+                                    "syncMode": "Auto",
+                                    "sceneChangeDetectionEnabled": False,
+                                    "rateControlMode": "ABR",
+                                    "complexity": "Quality",
+                                    "layers": [
+                                        {
+                                            "width": "64",
+                                            "height": "64",
+                                            "bitrate": 1045000,
+                                            "maxBitrate": 1045000,
+                                            "bFrames": 3,
+                                            "slices": 0,
+                                            "adaptiveBFrameEnabled": True,
+                                            "profile": "Auto",
+                                            "level": "auto",
+                                            "bufferWindow": "PT5S",
+                                            "referenceFrames": 4,
+                                            "crf": 23,
+                                            "entropyMode": "Cabac",
+                                        },
+                                        {
+                                            "width": "64",
+                                            "height": "64",
+                                            "bitrate": 1000,
+                                            "maxBitrate": 1000,
+                                            "bFrames": 3,
+                                            "frameRate": "32",
+                                            "slices": 1,
+                                            "adaptiveBFrameEnabled": True,
+                                            "profile": "High444",
+                                            "level": "auto",
+                                            "bufferWindow": "PT5S",
+                                            "referenceFrames": 4,
+                                            "crf": 23,
+                                            "entropyMode": "Cavlc",
+                                        },
                                     ],
-                                ),
-                            ),
-                            azure.media.TransformOutputCustomPresetCodecArgs(
-                                h265_video=azure.media.TransformOutputCustomPresetCodecH265VideoArgs(
-                                    key_frame_interval="PT2S",
-                                    stretch_mode="AutoSize",
-                                    sync_mode="Auto",
-                                    scene_change_detection_enabled=False,
-                                    complexity="Speed",
-                                    layers=[azure.media.TransformOutputCustomPresetCodecH265VideoLayerArgs(
-                                        width="64",
-                                        height="64",
-                                        bitrate=1045000,
-                                        max_bitrate=1045000,
-                                        b_frames=3,
-                                        slices=5,
-                                        adaptive_b_frame_enabled=True,
-                                        profile="Auto",
-                                        label="test",
-                                        level="auto",
-                                        buffer_window="PT5S",
-                                        frame_rate="32",
-                                        reference_frames=4,
-                                        crf=23,
-                                    )],
-                                ),
-                            ),
-                            azure.media.TransformOutputCustomPresetCodecArgs(
-                                jpg_image=azure.media.TransformOutputCustomPresetCodecJpgImageArgs(
-                                    stretch_mode="AutoSize",
-                                    sync_mode="Auto",
-                                    start="10",
-                                    range="100%%",
-                                    sprite_column=1,
-                                    step="10",
-                                    layers=[azure.media.TransformOutputCustomPresetCodecJpgImageLayerArgs(
-                                        quality=70,
-                                        height="180",
-                                        label="test",
-                                        width="120",
-                                    )],
-                                ),
-                            ),
-                            azure.media.TransformOutputCustomPresetCodecArgs(
-                                png_image=azure.media.TransformOutputCustomPresetCodecPngImageArgs(
-                                    stretch_mode="AutoSize",
-                                    sync_mode="Auto",
-                                    start="{Best}",
-                                    range="80",
-                                    step="10",
-                                    layers=[azure.media.TransformOutputCustomPresetCodecPngImageLayerArgs(
-                                        height="180",
-                                        label="test",
-                                        width="120",
-                                    )],
-                                ),
-                            ),
+                                },
+                            },
+                            {
+                                "h265Video": {
+                                    "keyFrameInterval": "PT2S",
+                                    "stretchMode": "AutoSize",
+                                    "syncMode": "Auto",
+                                    "sceneChangeDetectionEnabled": False,
+                                    "complexity": "Speed",
+                                    "layers": [{
+                                        "width": "64",
+                                        "height": "64",
+                                        "bitrate": 1045000,
+                                        "maxBitrate": 1045000,
+                                        "bFrames": 3,
+                                        "slices": 5,
+                                        "adaptiveBFrameEnabled": True,
+                                        "profile": "Auto",
+                                        "label": "test",
+                                        "level": "auto",
+                                        "bufferWindow": "PT5S",
+                                        "frameRate": "32",
+                                        "referenceFrames": 4,
+                                        "crf": 23,
+                                    }],
+                                },
+                            },
+                            {
+                                "jpgImage": {
+                                    "stretchMode": "AutoSize",
+                                    "syncMode": "Auto",
+                                    "start": "10",
+                                    "range": "100%%",
+                                    "spriteColumn": 1,
+                                    "step": "10",
+                                    "layers": [{
+                                        "quality": 70,
+                                        "height": "180",
+                                        "label": "test",
+                                        "width": "120",
+                                    }],
+                                },
+                            },
+                            {
+                                "pngImage": {
+                                    "stretchMode": "AutoSize",
+                                    "syncMode": "Auto",
+                                    "start": "{Best}",
+                                    "range": "80",
+                                    "step": "10",
+                                    "layers": [{
+                                        "height": "180",
+                                        "label": "test",
+                                        "width": "120",
+                                    }],
+                                },
+                            },
                         ],
-                        formats=[
-                            azure.media.TransformOutputCustomPresetFormatArgs(
-                                jpg=azure.media.TransformOutputCustomPresetFormatJpgArgs(
-                                    filename_pattern="test{Basename}",
-                                ),
-                            ),
-                            azure.media.TransformOutputCustomPresetFormatArgs(
-                                mp4=azure.media.TransformOutputCustomPresetFormatMp4Args(
-                                    filename_pattern="test{Bitrate}",
-                                    output_files=[azure.media.TransformOutputCustomPresetFormatMp4OutputFileArgs(
-                                        labels=[
+                        "formats": [
+                            {
+                                "jpg": {
+                                    "filenamePattern": "test{Basename}",
+                                },
+                            },
+                            {
+                                "mp4": {
+                                    "filenamePattern": "test{Bitrate}",
+                                    "outputFiles": [{
+                                        "labels": [
                                             "test",
                                             "ppe",
                                         ],
-                                    )],
-                                ),
-                            ),
-                            azure.media.TransformOutputCustomPresetFormatArgs(
-                                png=azure.media.TransformOutputCustomPresetFormatPngArgs(
-                                    filename_pattern="test{Basename}",
-                                ),
-                            ),
-                            azure.media.TransformOutputCustomPresetFormatArgs(
-                                transport_stream=azure.media.TransformOutputCustomPresetFormatTransportStreamArgs(
-                                    filename_pattern="test{Bitrate}",
-                                    output_files=[azure.media.TransformOutputCustomPresetFormatTransportStreamOutputFileArgs(
-                                        labels=["prod"],
-                                    )],
-                                ),
-                            ),
+                                    }],
+                                },
+                            },
+                            {
+                                "png": {
+                                    "filenamePattern": "test{Basename}",
+                                },
+                            },
+                            {
+                                "transportStream": {
+                                    "filenamePattern": "test{Bitrate}",
+                                    "outputFiles": [{
+                                        "labels": ["prod"],
+                                    }],
+                                },
+                            },
                         ],
-                        filter=azure.media.TransformOutputCustomPresetFilterArgs(
-                            crop_rectangle=azure.media.TransformOutputCustomPresetFilterCropRectangleArgs(
-                                height="240",
-                                left="30",
-                                top="360",
-                                width="70",
-                            ),
-                            deinterlace=azure.media.TransformOutputCustomPresetFilterDeinterlaceArgs(
-                                parity="TopFieldFirst",
-                                mode="AutoPixelAdaptive",
-                            ),
-                            fade_in=azure.media.TransformOutputCustomPresetFilterFadeInArgs(
-                                duration="PT5S",
-                                fade_color="0xFF0000",
-                                start="10",
-                            ),
-                            fade_out=azure.media.TransformOutputCustomPresetFilterFadeOutArgs(
-                                duration="90%%",
-                                fade_color="#FF0C7B",
-                                start="10%%",
-                            ),
-                            rotation="Auto",
-                            overlays=[
-                                azure.media.TransformOutputCustomPresetFilterOverlayArgs(
-                                    audio=azure.media.TransformOutputCustomPresetFilterOverlayAudioArgs(
-                                        input_label="label.jpg",
-                                        start="PT5S",
-                                        end="PT30S",
-                                        fade_in_duration="PT1S",
-                                        fade_out_duration="PT2S",
-                                        audio_gain_level=1,
-                                    ),
-                                ),
-                                azure.media.TransformOutputCustomPresetFilterOverlayArgs(
-                                    video=azure.media.TransformOutputCustomPresetFilterOverlayVideoArgs(
-                                        input_label="label.jpg",
-                                        start="PT5S",
-                                        end="PT30S",
-                                        fade_in_duration="PT1S",
-                                        fade_out_duration="PT2S",
-                                        audio_gain_level=1,
-                                        opacity=1,
-                                        position=azure.media.TransformOutputCustomPresetFilterOverlayVideoPositionArgs(
-                                            height="180",
-                                            left="20",
-                                            top="240",
-                                            width="140",
-                                        ),
-                                        crop_rectangle=azure.media.TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs(
-                                            height="240",
-                                            left="30",
-                                            top="360",
-                                            width="70",
-                                        ),
-                                    ),
-                                ),
+                        "filter": {
+                            "cropRectangle": {
+                                "height": "240",
+                                "left": "30",
+                                "top": "360",
+                                "width": "70",
+                            },
+                            "deinterlace": {
+                                "parity": "TopFieldFirst",
+                                "mode": "AutoPixelAdaptive",
+                            },
+                            "fadeIn": {
+                                "duration": "PT5S",
+                                "fadeColor": "0xFF0000",
+                                "start": "10",
+                            },
+                            "fadeOut": {
+                                "duration": "90%%",
+                                "fadeColor": "#FF0C7B",
+                                "start": "10%%",
+                            },
+                            "rotation": "Auto",
+                            "overlays": [
+                                {
+                                    "audio": {
+                                        "inputLabel": "label.jpg",
+                                        "start": "PT5S",
+                                        "end": "PT30S",
+                                        "fadeInDuration": "PT1S",
+                                        "fadeOutDuration": "PT2S",
+                                        "audioGainLevel": 1,
+                                    },
+                                },
+                                {
+                                    "video": {
+                                        "inputLabel": "label.jpg",
+                                        "start": "PT5S",
+                                        "end": "PT30S",
+                                        "fadeInDuration": "PT1S",
+                                        "fadeOutDuration": "PT2S",
+                                        "audioGainLevel": 1,
+                                        "opacity": 1,
+                                        "position": {
+                                            "height": "180",
+                                            "left": "20",
+                                            "top": "240",
+                                            "width": "140",
+                                        },
+                                        "cropRectangle": {
+                                            "height": "240",
+                                            "left": "30",
+                                            "top": "360",
+                                            "width": "70",
+                                        },
+                                    },
+                                },
                             ],
-                        ),
-                    ),
-                ),
+                        },
+                    },
+                },
             ])
         ```
 
@@ -548,7 +548,7 @@ class Transform(pulumi.CustomResource):
         :param pulumi.Input[str] description: An optional verbose description of the Transform.
         :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Transform to be created.
         :param pulumi.Input[str] name: The name which should be used for this Transform. Changing this forces a new Transform to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransformOutputArgs']]]] outputs: One or more `output` blocks as defined below. At least one `output` must be defined.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TransformOutputArgs', 'TransformOutputArgsDict']]]] outputs: One or more `output` blocks as defined below. At least one `output` must be defined.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Transform should exist. Changing this forces a new Transform to be created.
         """
         ...
@@ -579,22 +579,22 @@ class Transform(pulumi.CustomResource):
             name="examplemediaacc",
             location=example.location,
             resource_group_name=example.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
-                id=example_account.id,
-                is_primary=True,
-            )])
+            storage_accounts=[{
+                "id": example_account.id,
+                "isPrimary": True,
+            }])
         example_transform = azure.media.Transform("example",
             name="transform1",
             resource_group_name=example.name,
             media_services_account_name=example_service_account.name,
             description="My transform description",
-            outputs=[azure.media.TransformOutputArgs(
-                relative_priority="Normal",
-                on_error_action="ContinueJob",
-                builtin_preset=azure.media.TransformOutputBuiltinPresetArgs(
-                    preset_name="AACGoodQualityAudio",
-                ),
-            )])
+            outputs=[{
+                "relativePriority": "Normal",
+                "onErrorAction": "ContinueJob",
+                "builtinPreset": {
+                    "presetName": "AACGoodQualityAudio",
+                },
+            }])
         ```
 
         ### With Multiple Outputs
@@ -616,281 +616,281 @@ class Transform(pulumi.CustomResource):
             name="examplemediaacc",
             location=example.location,
             resource_group_name=example.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
-                id=example_account.id,
-                is_primary=True,
-            )])
+            storage_accounts=[{
+                "id": example_account.id,
+                "isPrimary": True,
+            }])
         example_transform = azure.media.Transform("example",
             name="transform1",
             resource_group_name=example.name,
             media_services_account_name=example_service_account.name,
             description="My transform description",
             outputs=[
-                azure.media.TransformOutputArgs(
-                    relative_priority="Normal",
-                    on_error_action="ContinueJob",
-                    builtin_preset=azure.media.TransformOutputBuiltinPresetArgs(
-                        preset_name="AACGoodQualityAudio",
-                        preset_configuration=azure.media.TransformOutputBuiltinPresetPresetConfigurationArgs(
-                            complexity="Balanced",
-                            interleave_output="NonInterleavedOutput",
-                            key_frame_interval_in_seconds=123122.5,
-                            max_bitrate_bps=300000,
-                            max_height=480,
-                            max_layers=14,
-                            min_bitrate_bps=200000,
-                            min_height=360,
-                        ),
-                    ),
-                ),
-                azure.media.TransformOutputArgs(
-                    relative_priority="Low",
-                    on_error_action="ContinueJob",
-                    audio_analyzer_preset=azure.media.TransformOutputAudioAnalyzerPresetArgs(
-                        audio_language="en-US",
-                        audio_analysis_mode="Basic",
-                        experimental_options={
+                {
+                    "relativePriority": "Normal",
+                    "onErrorAction": "ContinueJob",
+                    "builtinPreset": {
+                        "presetName": "AACGoodQualityAudio",
+                        "presetConfiguration": {
+                            "complexity": "Balanced",
+                            "interleaveOutput": "NonInterleavedOutput",
+                            "keyFrameIntervalInSeconds": 123122.5,
+                            "maxBitrateBps": 300000,
+                            "maxHeight": 480,
+                            "maxLayers": 14,
+                            "minBitrateBps": 200000,
+                            "minHeight": 360,
+                        },
+                    },
+                },
+                {
+                    "relativePriority": "Low",
+                    "onErrorAction": "ContinueJob",
+                    "audioAnalyzerPreset": {
+                        "audioLanguage": "en-US",
+                        "audioAnalysisMode": "Basic",
+                        "experimentalOptions": {
                             "env": "test",
                         },
-                    ),
-                ),
-                azure.media.TransformOutputArgs(
-                    relative_priority="Low",
-                    on_error_action="StopProcessingJob",
-                    face_detector_preset=azure.media.TransformOutputFaceDetectorPresetArgs(
-                        analysis_resolution="StandardDefinition",
-                        blur_type="Med",
-                        face_redactor_mode="Combined",
-                        experimental_options={
+                    },
+                },
+                {
+                    "relativePriority": "Low",
+                    "onErrorAction": "StopProcessingJob",
+                    "faceDetectorPreset": {
+                        "analysisResolution": "StandardDefinition",
+                        "blurType": "Med",
+                        "faceRedactorMode": "Combined",
+                        "experimentalOptions": {
                             "env": "test",
                         },
-                    ),
-                ),
-                azure.media.TransformOutputArgs(
-                    relative_priority="Normal",
-                    on_error_action="StopProcessingJob",
-                    video_analyzer_preset=azure.media.TransformOutputVideoAnalyzerPresetArgs(
-                        audio_language="en-US",
-                        audio_analysis_mode="Basic",
-                        insights_type="AllInsights",
-                        experimental_options={
+                    },
+                },
+                {
+                    "relativePriority": "Normal",
+                    "onErrorAction": "StopProcessingJob",
+                    "videoAnalyzerPreset": {
+                        "audioLanguage": "en-US",
+                        "audioAnalysisMode": "Basic",
+                        "insightsType": "AllInsights",
+                        "experimentalOptions": {
                             "env": "test",
                         },
-                    ),
-                ),
-                azure.media.TransformOutputArgs(
-                    relative_priority="Low",
-                    on_error_action="ContinueJob",
-                    custom_preset=azure.media.TransformOutputCustomPresetArgs(
-                        codecs=[
-                            azure.media.TransformOutputCustomPresetCodecArgs(
-                                aac_audio=azure.media.TransformOutputCustomPresetCodecAacAudioArgs(
-                                    bitrate=128000,
-                                    channels=2,
-                                    sampling_rate=48000,
-                                    profile="AacLc",
-                                ),
-                            ),
-                            azure.media.TransformOutputCustomPresetCodecArgs(
-                                copy_audio=azure.media.TransformOutputCustomPresetCodecCopyAudioArgs(
-                                    label="test",
-                                ),
-                            ),
-                            azure.media.TransformOutputCustomPresetCodecArgs(
-                                copy_video=azure.media.TransformOutputCustomPresetCodecCopyVideoArgs(
-                                    label="test",
-                                ),
-                            ),
-                            azure.media.TransformOutputCustomPresetCodecArgs(
-                                h264_video=azure.media.TransformOutputCustomPresetCodecH264VideoArgs(
-                                    key_frame_interval="PT1S",
-                                    stretch_mode="AutoSize",
-                                    sync_mode="Auto",
-                                    scene_change_detection_enabled=False,
-                                    rate_control_mode="ABR",
-                                    complexity="Quality",
-                                    layers=[
-                                        azure.media.TransformOutputCustomPresetCodecH264VideoLayerArgs(
-                                            width="64",
-                                            height="64",
-                                            bitrate=1045000,
-                                            max_bitrate=1045000,
-                                            b_frames=3,
-                                            slices=0,
-                                            adaptive_b_frame_enabled=True,
-                                            profile="Auto",
-                                            level="auto",
-                                            buffer_window="PT5S",
-                                            reference_frames=4,
-                                            crf=23,
-                                            entropy_mode="Cabac",
-                                        ),
-                                        azure.media.TransformOutputCustomPresetCodecH264VideoLayerArgs(
-                                            width="64",
-                                            height="64",
-                                            bitrate=1000,
-                                            max_bitrate=1000,
-                                            b_frames=3,
-                                            frame_rate="32",
-                                            slices=1,
-                                            adaptive_b_frame_enabled=True,
-                                            profile="High444",
-                                            level="auto",
-                                            buffer_window="PT5S",
-                                            reference_frames=4,
-                                            crf=23,
-                                            entropy_mode="Cavlc",
-                                        ),
+                    },
+                },
+                {
+                    "relativePriority": "Low",
+                    "onErrorAction": "ContinueJob",
+                    "customPreset": {
+                        "codecs": [
+                            {
+                                "aacAudio": {
+                                    "bitrate": 128000,
+                                    "channels": 2,
+                                    "samplingRate": 48000,
+                                    "profile": "AacLc",
+                                },
+                            },
+                            {
+                                "copyAudio": {
+                                    "label": "test",
+                                },
+                            },
+                            {
+                                "copyVideo": {
+                                    "label": "test",
+                                },
+                            },
+                            {
+                                "h264Video": {
+                                    "keyFrameInterval": "PT1S",
+                                    "stretchMode": "AutoSize",
+                                    "syncMode": "Auto",
+                                    "sceneChangeDetectionEnabled": False,
+                                    "rateControlMode": "ABR",
+                                    "complexity": "Quality",
+                                    "layers": [
+                                        {
+                                            "width": "64",
+                                            "height": "64",
+                                            "bitrate": 1045000,
+                                            "maxBitrate": 1045000,
+                                            "bFrames": 3,
+                                            "slices": 0,
+                                            "adaptiveBFrameEnabled": True,
+                                            "profile": "Auto",
+                                            "level": "auto",
+                                            "bufferWindow": "PT5S",
+                                            "referenceFrames": 4,
+                                            "crf": 23,
+                                            "entropyMode": "Cabac",
+                                        },
+                                        {
+                                            "width": "64",
+                                            "height": "64",
+                                            "bitrate": 1000,
+                                            "maxBitrate": 1000,
+                                            "bFrames": 3,
+                                            "frameRate": "32",
+                                            "slices": 1,
+                                            "adaptiveBFrameEnabled": True,
+                                            "profile": "High444",
+                                            "level": "auto",
+                                            "bufferWindow": "PT5S",
+                                            "referenceFrames": 4,
+                                            "crf": 23,
+                                            "entropyMode": "Cavlc",
+                                        },
                                     ],
-                                ),
-                            ),
-                            azure.media.TransformOutputCustomPresetCodecArgs(
-                                h265_video=azure.media.TransformOutputCustomPresetCodecH265VideoArgs(
-                                    key_frame_interval="PT2S",
-                                    stretch_mode="AutoSize",
-                                    sync_mode="Auto",
-                                    scene_change_detection_enabled=False,
-                                    complexity="Speed",
-                                    layers=[azure.media.TransformOutputCustomPresetCodecH265VideoLayerArgs(
-                                        width="64",
-                                        height="64",
-                                        bitrate=1045000,
-                                        max_bitrate=1045000,
-                                        b_frames=3,
-                                        slices=5,
-                                        adaptive_b_frame_enabled=True,
-                                        profile="Auto",
-                                        label="test",
-                                        level="auto",
-                                        buffer_window="PT5S",
-                                        frame_rate="32",
-                                        reference_frames=4,
-                                        crf=23,
-                                    )],
-                                ),
-                            ),
-                            azure.media.TransformOutputCustomPresetCodecArgs(
-                                jpg_image=azure.media.TransformOutputCustomPresetCodecJpgImageArgs(
-                                    stretch_mode="AutoSize",
-                                    sync_mode="Auto",
-                                    start="10",
-                                    range="100%%",
-                                    sprite_column=1,
-                                    step="10",
-                                    layers=[azure.media.TransformOutputCustomPresetCodecJpgImageLayerArgs(
-                                        quality=70,
-                                        height="180",
-                                        label="test",
-                                        width="120",
-                                    )],
-                                ),
-                            ),
-                            azure.media.TransformOutputCustomPresetCodecArgs(
-                                png_image=azure.media.TransformOutputCustomPresetCodecPngImageArgs(
-                                    stretch_mode="AutoSize",
-                                    sync_mode="Auto",
-                                    start="{Best}",
-                                    range="80",
-                                    step="10",
-                                    layers=[azure.media.TransformOutputCustomPresetCodecPngImageLayerArgs(
-                                        height="180",
-                                        label="test",
-                                        width="120",
-                                    )],
-                                ),
-                            ),
+                                },
+                            },
+                            {
+                                "h265Video": {
+                                    "keyFrameInterval": "PT2S",
+                                    "stretchMode": "AutoSize",
+                                    "syncMode": "Auto",
+                                    "sceneChangeDetectionEnabled": False,
+                                    "complexity": "Speed",
+                                    "layers": [{
+                                        "width": "64",
+                                        "height": "64",
+                                        "bitrate": 1045000,
+                                        "maxBitrate": 1045000,
+                                        "bFrames": 3,
+                                        "slices": 5,
+                                        "adaptiveBFrameEnabled": True,
+                                        "profile": "Auto",
+                                        "label": "test",
+                                        "level": "auto",
+                                        "bufferWindow": "PT5S",
+                                        "frameRate": "32",
+                                        "referenceFrames": 4,
+                                        "crf": 23,
+                                    }],
+                                },
+                            },
+                            {
+                                "jpgImage": {
+                                    "stretchMode": "AutoSize",
+                                    "syncMode": "Auto",
+                                    "start": "10",
+                                    "range": "100%%",
+                                    "spriteColumn": 1,
+                                    "step": "10",
+                                    "layers": [{
+                                        "quality": 70,
+                                        "height": "180",
+                                        "label": "test",
+                                        "width": "120",
+                                    }],
+                                },
+                            },
+                            {
+                                "pngImage": {
+                                    "stretchMode": "AutoSize",
+                                    "syncMode": "Auto",
+                                    "start": "{Best}",
+                                    "range": "80",
+                                    "step": "10",
+                                    "layers": [{
+                                        "height": "180",
+                                        "label": "test",
+                                        "width": "120",
+                                    }],
+                                },
+                            },
                         ],
-                        formats=[
-                            azure.media.TransformOutputCustomPresetFormatArgs(
-                                jpg=azure.media.TransformOutputCustomPresetFormatJpgArgs(
-                                    filename_pattern="test{Basename}",
-                                ),
-                            ),
-                            azure.media.TransformOutputCustomPresetFormatArgs(
-                                mp4=azure.media.TransformOutputCustomPresetFormatMp4Args(
-                                    filename_pattern="test{Bitrate}",
-                                    output_files=[azure.media.TransformOutputCustomPresetFormatMp4OutputFileArgs(
-                                        labels=[
+                        "formats": [
+                            {
+                                "jpg": {
+                                    "filenamePattern": "test{Basename}",
+                                },
+                            },
+                            {
+                                "mp4": {
+                                    "filenamePattern": "test{Bitrate}",
+                                    "outputFiles": [{
+                                        "labels": [
                                             "test",
                                             "ppe",
                                         ],
-                                    )],
-                                ),
-                            ),
-                            azure.media.TransformOutputCustomPresetFormatArgs(
-                                png=azure.media.TransformOutputCustomPresetFormatPngArgs(
-                                    filename_pattern="test{Basename}",
-                                ),
-                            ),
-                            azure.media.TransformOutputCustomPresetFormatArgs(
-                                transport_stream=azure.media.TransformOutputCustomPresetFormatTransportStreamArgs(
-                                    filename_pattern="test{Bitrate}",
-                                    output_files=[azure.media.TransformOutputCustomPresetFormatTransportStreamOutputFileArgs(
-                                        labels=["prod"],
-                                    )],
-                                ),
-                            ),
+                                    }],
+                                },
+                            },
+                            {
+                                "png": {
+                                    "filenamePattern": "test{Basename}",
+                                },
+                            },
+                            {
+                                "transportStream": {
+                                    "filenamePattern": "test{Bitrate}",
+                                    "outputFiles": [{
+                                        "labels": ["prod"],
+                                    }],
+                                },
+                            },
                         ],
-                        filter=azure.media.TransformOutputCustomPresetFilterArgs(
-                            crop_rectangle=azure.media.TransformOutputCustomPresetFilterCropRectangleArgs(
-                                height="240",
-                                left="30",
-                                top="360",
-                                width="70",
-                            ),
-                            deinterlace=azure.media.TransformOutputCustomPresetFilterDeinterlaceArgs(
-                                parity="TopFieldFirst",
-                                mode="AutoPixelAdaptive",
-                            ),
-                            fade_in=azure.media.TransformOutputCustomPresetFilterFadeInArgs(
-                                duration="PT5S",
-                                fade_color="0xFF0000",
-                                start="10",
-                            ),
-                            fade_out=azure.media.TransformOutputCustomPresetFilterFadeOutArgs(
-                                duration="90%%",
-                                fade_color="#FF0C7B",
-                                start="10%%",
-                            ),
-                            rotation="Auto",
-                            overlays=[
-                                azure.media.TransformOutputCustomPresetFilterOverlayArgs(
-                                    audio=azure.media.TransformOutputCustomPresetFilterOverlayAudioArgs(
-                                        input_label="label.jpg",
-                                        start="PT5S",
-                                        end="PT30S",
-                                        fade_in_duration="PT1S",
-                                        fade_out_duration="PT2S",
-                                        audio_gain_level=1,
-                                    ),
-                                ),
-                                azure.media.TransformOutputCustomPresetFilterOverlayArgs(
-                                    video=azure.media.TransformOutputCustomPresetFilterOverlayVideoArgs(
-                                        input_label="label.jpg",
-                                        start="PT5S",
-                                        end="PT30S",
-                                        fade_in_duration="PT1S",
-                                        fade_out_duration="PT2S",
-                                        audio_gain_level=1,
-                                        opacity=1,
-                                        position=azure.media.TransformOutputCustomPresetFilterOverlayVideoPositionArgs(
-                                            height="180",
-                                            left="20",
-                                            top="240",
-                                            width="140",
-                                        ),
-                                        crop_rectangle=azure.media.TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs(
-                                            height="240",
-                                            left="30",
-                                            top="360",
-                                            width="70",
-                                        ),
-                                    ),
-                                ),
+                        "filter": {
+                            "cropRectangle": {
+                                "height": "240",
+                                "left": "30",
+                                "top": "360",
+                                "width": "70",
+                            },
+                            "deinterlace": {
+                                "parity": "TopFieldFirst",
+                                "mode": "AutoPixelAdaptive",
+                            },
+                            "fadeIn": {
+                                "duration": "PT5S",
+                                "fadeColor": "0xFF0000",
+                                "start": "10",
+                            },
+                            "fadeOut": {
+                                "duration": "90%%",
+                                "fadeColor": "#FF0C7B",
+                                "start": "10%%",
+                            },
+                            "rotation": "Auto",
+                            "overlays": [
+                                {
+                                    "audio": {
+                                        "inputLabel": "label.jpg",
+                                        "start": "PT5S",
+                                        "end": "PT30S",
+                                        "fadeInDuration": "PT1S",
+                                        "fadeOutDuration": "PT2S",
+                                        "audioGainLevel": 1,
+                                    },
+                                },
+                                {
+                                    "video": {
+                                        "inputLabel": "label.jpg",
+                                        "start": "PT5S",
+                                        "end": "PT30S",
+                                        "fadeInDuration": "PT1S",
+                                        "fadeOutDuration": "PT2S",
+                                        "audioGainLevel": 1,
+                                        "opacity": 1,
+                                        "position": {
+                                            "height": "180",
+                                            "left": "20",
+                                            "top": "240",
+                                            "width": "140",
+                                        },
+                                        "cropRectangle": {
+                                            "height": "240",
+                                            "left": "30",
+                                            "top": "360",
+                                            "width": "70",
+                                        },
+                                    },
+                                },
                             ],
-                        ),
-                    ),
-                ),
+                        },
+                    },
+                },
             ])
         ```
 
@@ -920,7 +920,7 @@ class Transform(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  media_services_account_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransformOutputArgs']]]]] = None,
+                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TransformOutputArgs', 'TransformOutputArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -953,7 +953,7 @@ class Transform(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             media_services_account_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransformOutputArgs']]]]] = None,
+            outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TransformOutputArgs', 'TransformOutputArgsDict']]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None) -> 'Transform':
         """
         Get an existing Transform resource's state with the given name, id, and optional extra
@@ -965,7 +965,7 @@ class Transform(pulumi.CustomResource):
         :param pulumi.Input[str] description: An optional verbose description of the Transform.
         :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Transform to be created.
         :param pulumi.Input[str] name: The name which should be used for this Transform. Changing this forces a new Transform to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransformOutputArgs']]]] outputs: One or more `output` blocks as defined below. At least one `output` must be defined.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TransformOutputArgs', 'TransformOutputArgsDict']]]] outputs: One or more `output` blocks as defined below. At least one `output` must be defined.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Transform should exist. Changing this forces a new Transform to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

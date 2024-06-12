@@ -245,22 +245,22 @@ class SqlRoleAssignment(pulumi.CustomResource):
             resource_group_name=example.name,
             offer_type="Standard",
             kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="Strong",
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example.location,
-                failover_priority=0,
-            )])
+            consistency_policy={
+                "consistencyLevel": "Strong",
+            },
+            geo_locations=[{
+                "location": example.location,
+                "failoverPriority": 0,
+            }])
         example_sql_role_definition = azure.cosmosdb.SqlRoleDefinition("example",
             name="examplesqlroledef",
             resource_group_name=example.name,
             account_name=example_account.name,
             type="CustomRole",
             assignable_scopes=[example_account.id],
-            permissions=[azure.cosmosdb.SqlRoleDefinitionPermissionArgs(
-                data_actions=["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],
-            )])
+            permissions=[{
+                "dataActions": ["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],
+            }])
         example_sql_role_assignment = azure.cosmosdb.SqlRoleAssignment("example",
             name="736180af-7fbc-4c7f-9004-22735173c1c3",
             resource_group_name=example.name,
@@ -312,22 +312,22 @@ class SqlRoleAssignment(pulumi.CustomResource):
             resource_group_name=example.name,
             offer_type="Standard",
             kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="Strong",
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example.location,
-                failover_priority=0,
-            )])
+            consistency_policy={
+                "consistencyLevel": "Strong",
+            },
+            geo_locations=[{
+                "location": example.location,
+                "failoverPriority": 0,
+            }])
         example_sql_role_definition = azure.cosmosdb.SqlRoleDefinition("example",
             name="examplesqlroledef",
             resource_group_name=example.name,
             account_name=example_account.name,
             type="CustomRole",
             assignable_scopes=[example_account.id],
-            permissions=[azure.cosmosdb.SqlRoleDefinitionPermissionArgs(
-                data_actions=["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],
-            )])
+            permissions=[{
+                "dataActions": ["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],
+            }])
         example_sql_role_assignment = azure.cosmosdb.SqlRoleAssignment("example",
             name="736180af-7fbc-4c7f-9004-22735173c1c3",
             resource_group_name=example.name,

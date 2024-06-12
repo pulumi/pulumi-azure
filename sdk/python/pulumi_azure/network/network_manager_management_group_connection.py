@@ -206,9 +206,9 @@ class NetworkManagerManagementGroupConnection(pulumi.CustomResource):
             name="example-networkmanager",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            scope=azure.network.NetworkManagerScopeArgs(
-                subscription_ids=[current.id],
-            ),
+            scope={
+                "subscriptionIds": [current.id],
+            },
             scope_accesses=["SecurityAdmin"])
         example_network_manager_management_group_connection = azure.network.NetworkManagerManagementGroupConnection("example",
             name="example-nmmgc",
@@ -266,9 +266,9 @@ class NetworkManagerManagementGroupConnection(pulumi.CustomResource):
             name="example-networkmanager",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            scope=azure.network.NetworkManagerScopeArgs(
-                subscription_ids=[current.id],
-            ),
+            scope={
+                "subscriptionIds": [current.id],
+            },
             scope_accesses=["SecurityAdmin"])
         example_network_manager_management_group_connection = azure.network.NetworkManagerManagementGroupConnection("example",
             name="example-nmmgc",

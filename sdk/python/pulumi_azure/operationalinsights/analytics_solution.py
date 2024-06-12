@@ -254,7 +254,7 @@ class AnalyticsSolution(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['AnalyticsSolutionPlanArgs']]] = None,
+                 plan: Optional[pulumi.Input[Union['AnalyticsSolutionPlanArgs', 'AnalyticsSolutionPlanArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  solution_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -290,10 +290,10 @@ class AnalyticsSolution(pulumi.CustomResource):
             resource_group_name=example.name,
             workspace_resource_id=example_analytics_workspace.id,
             workspace_name=example_analytics_workspace.name,
-            plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
-                publisher="Microsoft",
-                product="OMSGallery/ContainerInsights",
-            ))
+            plan={
+                "publisher": "Microsoft",
+                "product": "OMSGallery/ContainerInsights",
+            })
         ```
 
         ## Import
@@ -307,7 +307,7 @@ class AnalyticsSolution(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['AnalyticsSolutionPlanArgs']] plan: A `plan` block as documented below.
+        :param pulumi.Input[Union['AnalyticsSolutionPlanArgs', 'AnalyticsSolutionPlanArgsDict']] plan: A `plan` block as documented below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and its related workspace can only exist in the same resource group.
         :param pulumi.Input[str] solution_name: Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -349,10 +349,10 @@ class AnalyticsSolution(pulumi.CustomResource):
             resource_group_name=example.name,
             workspace_resource_id=example_analytics_workspace.id,
             workspace_name=example_analytics_workspace.name,
-            plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
-                publisher="Microsoft",
-                product="OMSGallery/ContainerInsights",
-            ))
+            plan={
+                "publisher": "Microsoft",
+                "product": "OMSGallery/ContainerInsights",
+            })
         ```
 
         ## Import
@@ -379,7 +379,7 @@ class AnalyticsSolution(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['AnalyticsSolutionPlanArgs']]] = None,
+                 plan: Optional[pulumi.Input[Union['AnalyticsSolutionPlanArgs', 'AnalyticsSolutionPlanArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  solution_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -422,7 +422,7 @@ class AnalyticsSolution(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             location: Optional[pulumi.Input[str]] = None,
-            plan: Optional[pulumi.Input[pulumi.InputType['AnalyticsSolutionPlanArgs']]] = None,
+            plan: Optional[pulumi.Input[Union['AnalyticsSolutionPlanArgs', 'AnalyticsSolutionPlanArgsDict']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             solution_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -436,7 +436,7 @@ class AnalyticsSolution(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['AnalyticsSolutionPlanArgs']] plan: A `plan` block as documented below.
+        :param pulumi.Input[Union['AnalyticsSolutionPlanArgs', 'AnalyticsSolutionPlanArgsDict']] plan: A `plan` block as documented below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and its related workspace can only exist in the same resource group.
         :param pulumi.Input[str] solution_name: Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.

@@ -499,17 +499,17 @@ class LinkedServiceKusto(pulumi.CustomResource):
             name="example",
             location=example.location,
             resource_group_name=example.name,
-            identity=azure.datafactory.FactoryIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_cluster = azure.kusto.Cluster("example",
             name="kustocluster",
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Standard_D13_v2",
-                capacity=2,
-            ))
+            sku={
+                "name": "Standard_D13_v2",
+                "capacity": 2,
+            })
         example_database = azure.kusto.Database("example",
             name="my-kusto-database",
             resource_group_name=example.name,
@@ -584,17 +584,17 @@ class LinkedServiceKusto(pulumi.CustomResource):
             name="example",
             location=example.location,
             resource_group_name=example.name,
-            identity=azure.datafactory.FactoryIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_cluster = azure.kusto.Cluster("example",
             name="kustocluster",
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Standard_D13_v2",
-                capacity=2,
-            ))
+            sku={
+                "name": "Standard_D13_v2",
+                "capacity": 2,
+            })
         example_database = azure.kusto.Database("example",
             name="my-kusto-database",
             resource_group_name=example.name,

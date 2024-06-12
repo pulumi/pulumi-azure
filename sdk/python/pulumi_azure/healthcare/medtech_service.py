@@ -321,7 +321,7 @@ class MedtechService(pulumi.CustomResource):
                  eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
                  eventhub_name: Optional[pulumi.Input[str]] = None,
                  eventhub_namespace_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['MedtechServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['MedtechServiceIdentityArgs', 'MedtechServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -348,9 +348,9 @@ class MedtechService(pulumi.CustomResource):
             name="examplemed",
             workspace_id=example_workspace.id,
             location="east us",
-            identity=azure.healthcare.MedtechServiceIdentityArgs(
-                type="SystemAssigned",
-            ),
+            identity={
+                "type": "SystemAssigned",
+            },
             eventhub_namespace_name="example-eventhub-namespace",
             eventhub_name="example-eventhub",
             eventhub_consumer_group_name="$Default",
@@ -387,7 +387,7 @@ class MedtechService(pulumi.CustomResource):
         :param pulumi.Input[str] eventhub_consumer_group_name: Specifies the Consumer Group of the Event Hub to connect to.
         :param pulumi.Input[str] eventhub_name: Specifies the name of the Event Hub to connect to.
         :param pulumi.Input[str] eventhub_namespace_name: Specifies the namespace name of the Event Hub to connect to.
-        :param pulumi.Input[pulumi.InputType['MedtechServiceIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['MedtechServiceIdentityArgs', 'MedtechServiceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Healthcare Med Tech Service should be created. Changing this forces a new Healthcare Med Tech Service to be created.
         :param pulumi.Input[str] name: Specifies the name of the Healthcare Med Tech Service. Changing this forces a new Healthcare Med Tech Service to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Healthcare Med Tech Service.
@@ -420,9 +420,9 @@ class MedtechService(pulumi.CustomResource):
             name="examplemed",
             workspace_id=example_workspace.id,
             location="east us",
-            identity=azure.healthcare.MedtechServiceIdentityArgs(
-                type="SystemAssigned",
-            ),
+            identity={
+                "type": "SystemAssigned",
+            },
             eventhub_namespace_name="example-eventhub-namespace",
             eventhub_name="example-eventhub",
             eventhub_consumer_group_name="$Default",
@@ -472,7 +472,7 @@ class MedtechService(pulumi.CustomResource):
                  eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
                  eventhub_name: Optional[pulumi.Input[str]] = None,
                  eventhub_namespace_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['MedtechServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['MedtechServiceIdentityArgs', 'MedtechServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -519,7 +519,7 @@ class MedtechService(pulumi.CustomResource):
             eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
             eventhub_name: Optional[pulumi.Input[str]] = None,
             eventhub_namespace_name: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['MedtechServiceIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[Union['MedtechServiceIdentityArgs', 'MedtechServiceIdentityArgsDict']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -535,7 +535,7 @@ class MedtechService(pulumi.CustomResource):
         :param pulumi.Input[str] eventhub_consumer_group_name: Specifies the Consumer Group of the Event Hub to connect to.
         :param pulumi.Input[str] eventhub_name: Specifies the name of the Event Hub to connect to.
         :param pulumi.Input[str] eventhub_namespace_name: Specifies the namespace name of the Event Hub to connect to.
-        :param pulumi.Input[pulumi.InputType['MedtechServiceIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['MedtechServiceIdentityArgs', 'MedtechServiceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Healthcare Med Tech Service should be created. Changing this forces a new Healthcare Med Tech Service to be created.
         :param pulumi.Input[str] name: Specifies the name of the Healthcare Med Tech Service. Changing this forces a new Healthcare Med Tech Service to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Healthcare Med Tech Service.

@@ -801,24 +801,24 @@ class KafkaCluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
-                 component_version: Optional[pulumi.Input[pulumi.InputType['KafkaClusterComponentVersionArgs']]] = None,
-                 compute_isolation: Optional[pulumi.Input[pulumi.InputType['KafkaClusterComputeIsolationArgs']]] = None,
-                 disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterDiskEncryptionArgs']]]]] = None,
+                 component_version: Optional[pulumi.Input[Union['KafkaClusterComponentVersionArgs', 'KafkaClusterComponentVersionArgsDict']]] = None,
+                 compute_isolation: Optional[pulumi.Input[Union['KafkaClusterComputeIsolationArgs', 'KafkaClusterComputeIsolationArgsDict']]] = None,
+                 disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KafkaClusterDiskEncryptionArgs', 'KafkaClusterDiskEncryptionArgsDict']]]]] = None,
                  encryption_in_transit_enabled: Optional[pulumi.Input[bool]] = None,
-                 extension: Optional[pulumi.Input[pulumi.InputType['KafkaClusterExtensionArgs']]] = None,
-                 gateway: Optional[pulumi.Input[pulumi.InputType['KafkaClusterGatewayArgs']]] = None,
+                 extension: Optional[pulumi.Input[Union['KafkaClusterExtensionArgs', 'KafkaClusterExtensionArgsDict']]] = None,
+                 gateway: Optional[pulumi.Input[Union['KafkaClusterGatewayArgs', 'KafkaClusterGatewayArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 metastores: Optional[pulumi.Input[pulumi.InputType['KafkaClusterMetastoresArgs']]] = None,
-                 monitor: Optional[pulumi.Input[pulumi.InputType['KafkaClusterMonitorArgs']]] = None,
+                 metastores: Optional[pulumi.Input[Union['KafkaClusterMetastoresArgs', 'KafkaClusterMetastoresArgsDict']]] = None,
+                 monitor: Optional[pulumi.Input[Union['KafkaClusterMonitorArgs', 'KafkaClusterMonitorArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network: Optional[pulumi.Input[pulumi.InputType['KafkaClusterNetworkArgs']]] = None,
-                 private_link_configuration: Optional[pulumi.Input[pulumi.InputType['KafkaClusterPrivateLinkConfigurationArgs']]] = None,
+                 network: Optional[pulumi.Input[Union['KafkaClusterNetworkArgs', 'KafkaClusterNetworkArgsDict']]] = None,
+                 private_link_configuration: Optional[pulumi.Input[Union['KafkaClusterPrivateLinkConfigurationArgs', 'KafkaClusterPrivateLinkConfigurationArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 rest_proxy: Optional[pulumi.Input[pulumi.InputType['KafkaClusterRestProxyArgs']]] = None,
-                 roles: Optional[pulumi.Input[pulumi.InputType['KafkaClusterRolesArgs']]] = None,
-                 security_profile: Optional[pulumi.Input[pulumi.InputType['KafkaClusterSecurityProfileArgs']]] = None,
-                 storage_account_gen2: Optional[pulumi.Input[pulumi.InputType['KafkaClusterStorageAccountGen2Args']]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterStorageAccountArgs']]]]] = None,
+                 rest_proxy: Optional[pulumi.Input[Union['KafkaClusterRestProxyArgs', 'KafkaClusterRestProxyArgsDict']]] = None,
+                 roles: Optional[pulumi.Input[Union['KafkaClusterRolesArgs', 'KafkaClusterRolesArgsDict']]] = None,
+                 security_profile: Optional[pulumi.Input[Union['KafkaClusterSecurityProfileArgs', 'KafkaClusterSecurityProfileArgsDict']]] = None,
+                 storage_account_gen2: Optional[pulumi.Input[Union['KafkaClusterStorageAccountGen2Args', 'KafkaClusterStorageAccountGen2ArgsDict']]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KafkaClusterStorageAccountArgs', 'KafkaClusterStorageAccountArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
                  tls_min_version: Optional[pulumi.Input[str]] = None,
@@ -851,37 +851,37 @@ class KafkaCluster(pulumi.CustomResource):
             location=example.location,
             cluster_version="4.0",
             tier="Standard",
-            component_version=azure.hdinsight.KafkaClusterComponentVersionArgs(
-                kafka="2.1",
-            ),
-            gateway=azure.hdinsight.KafkaClusterGatewayArgs(
-                username="acctestusrgw",
-                password="Password123!",
-            ),
-            storage_accounts=[azure.hdinsight.KafkaClusterStorageAccountArgs(
-                storage_container_id=example_container.id,
-                storage_account_key=example_account.primary_access_key,
-                is_default=True,
-            )],
-            roles=azure.hdinsight.KafkaClusterRolesArgs(
-                head_node=azure.hdinsight.KafkaClusterRolesHeadNodeArgs(
-                    vm_size="Standard_D3_V2",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                ),
-                worker_node=azure.hdinsight.KafkaClusterRolesWorkerNodeArgs(
-                    vm_size="Standard_D3_V2",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                    number_of_disks_per_node=3,
-                    target_instance_count=3,
-                ),
-                zookeeper_node=azure.hdinsight.KafkaClusterRolesZookeeperNodeArgs(
-                    vm_size="Standard_D3_V2",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                ),
-            ))
+            component_version={
+                "kafka": "2.1",
+            },
+            gateway={
+                "username": "acctestusrgw",
+                "password": "Password123!",
+            },
+            storage_accounts=[{
+                "storageContainerId": example_container.id,
+                "storageAccountKey": example_account.primary_access_key,
+                "isDefault": True,
+            }],
+            roles={
+                "headNode": {
+                    "vmSize": "Standard_D3_V2",
+                    "username": "acctestusrvm",
+                    "password": "AccTestvdSC4daf986!",
+                },
+                "workerNode": {
+                    "vmSize": "Standard_D3_V2",
+                    "username": "acctestusrvm",
+                    "password": "AccTestvdSC4daf986!",
+                    "numberOfDisksPerNode": 3,
+                    "targetInstanceCount": 3,
+                },
+                "zookeeperNode": {
+                    "vmSize": "Standard_D3_V2",
+                    "username": "acctestusrvm",
+                    "password": "AccTestvdSC4daf986!",
+                },
+            })
         ```
 
         ## Import
@@ -895,26 +895,26 @@ class KafkaCluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['KafkaClusterComponentVersionArgs']] component_version: A `component_version` block as defined below.
-        :param pulumi.Input[pulumi.InputType['KafkaClusterComputeIsolationArgs']] compute_isolation: A `compute_isolation` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterDiskEncryptionArgs']]]] disk_encryptions: One or more `disk_encryption` block as defined below.
+        :param pulumi.Input[Union['KafkaClusterComponentVersionArgs', 'KafkaClusterComponentVersionArgsDict']] component_version: A `component_version` block as defined below.
+        :param pulumi.Input[Union['KafkaClusterComputeIsolationArgs', 'KafkaClusterComputeIsolationArgsDict']] compute_isolation: A `compute_isolation` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['KafkaClusterDiskEncryptionArgs', 'KafkaClusterDiskEncryptionArgsDict']]]] disk_encryptions: One or more `disk_encryption` block as defined below.
                
                > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         :param pulumi.Input[bool] encryption_in_transit_enabled: Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['KafkaClusterExtensionArgs']] extension: An `extension` block as defined below.
-        :param pulumi.Input[pulumi.InputType['KafkaClusterGatewayArgs']] gateway: A `gateway` block as defined below.
+        :param pulumi.Input[Union['KafkaClusterExtensionArgs', 'KafkaClusterExtensionArgsDict']] extension: An `extension` block as defined below.
+        :param pulumi.Input[Union['KafkaClusterGatewayArgs', 'KafkaClusterGatewayArgsDict']] gateway: A `gateway` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['KafkaClusterMetastoresArgs']] metastores: A `metastores` block as defined below.
-        :param pulumi.Input[pulumi.InputType['KafkaClusterMonitorArgs']] monitor: A `monitor` block as defined below.
+        :param pulumi.Input[Union['KafkaClusterMetastoresArgs', 'KafkaClusterMetastoresArgsDict']] metastores: A `metastores` block as defined below.
+        :param pulumi.Input[Union['KafkaClusterMonitorArgs', 'KafkaClusterMonitorArgsDict']] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['KafkaClusterNetworkArgs']] network: A `network` block as defined below.
-        :param pulumi.Input[pulumi.InputType['KafkaClusterPrivateLinkConfigurationArgs']] private_link_configuration: A `private_link_configuration` block as defined below.
+        :param pulumi.Input[Union['KafkaClusterNetworkArgs', 'KafkaClusterNetworkArgsDict']] network: A `network` block as defined below.
+        :param pulumi.Input[Union['KafkaClusterPrivateLinkConfigurationArgs', 'KafkaClusterPrivateLinkConfigurationArgsDict']] private_link_configuration: A `private_link_configuration` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['KafkaClusterRestProxyArgs']] rest_proxy: A `rest_proxy` block as defined below.
-        :param pulumi.Input[pulumi.InputType['KafkaClusterRolesArgs']] roles: A `roles` block as defined below.
-        :param pulumi.Input[pulumi.InputType['KafkaClusterSecurityProfileArgs']] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['KafkaClusterStorageAccountGen2Args']] storage_account_gen2: A `storage_account_gen2` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterStorageAccountArgs']]]] storage_accounts: One or more `storage_account` block as defined below.
+        :param pulumi.Input[Union['KafkaClusterRestProxyArgs', 'KafkaClusterRestProxyArgsDict']] rest_proxy: A `rest_proxy` block as defined below.
+        :param pulumi.Input[Union['KafkaClusterRolesArgs', 'KafkaClusterRolesArgsDict']] roles: A `roles` block as defined below.
+        :param pulumi.Input[Union['KafkaClusterSecurityProfileArgs', 'KafkaClusterSecurityProfileArgsDict']] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['KafkaClusterStorageAccountGen2Args', 'KafkaClusterStorageAccountGen2ArgsDict']] storage_account_gen2: A `storage_account_gen2` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['KafkaClusterStorageAccountArgs', 'KafkaClusterStorageAccountArgsDict']]]] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight Kafka Cluster.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight Kafka Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tls_min_version: The minimal supported TLS version. Possible values are `1.0`, `1.1` or `1.2`. Changing this forces a new resource to be created.
@@ -953,37 +953,37 @@ class KafkaCluster(pulumi.CustomResource):
             location=example.location,
             cluster_version="4.0",
             tier="Standard",
-            component_version=azure.hdinsight.KafkaClusterComponentVersionArgs(
-                kafka="2.1",
-            ),
-            gateway=azure.hdinsight.KafkaClusterGatewayArgs(
-                username="acctestusrgw",
-                password="Password123!",
-            ),
-            storage_accounts=[azure.hdinsight.KafkaClusterStorageAccountArgs(
-                storage_container_id=example_container.id,
-                storage_account_key=example_account.primary_access_key,
-                is_default=True,
-            )],
-            roles=azure.hdinsight.KafkaClusterRolesArgs(
-                head_node=azure.hdinsight.KafkaClusterRolesHeadNodeArgs(
-                    vm_size="Standard_D3_V2",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                ),
-                worker_node=azure.hdinsight.KafkaClusterRolesWorkerNodeArgs(
-                    vm_size="Standard_D3_V2",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                    number_of_disks_per_node=3,
-                    target_instance_count=3,
-                ),
-                zookeeper_node=azure.hdinsight.KafkaClusterRolesZookeeperNodeArgs(
-                    vm_size="Standard_D3_V2",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                ),
-            ))
+            component_version={
+                "kafka": "2.1",
+            },
+            gateway={
+                "username": "acctestusrgw",
+                "password": "Password123!",
+            },
+            storage_accounts=[{
+                "storageContainerId": example_container.id,
+                "storageAccountKey": example_account.primary_access_key,
+                "isDefault": True,
+            }],
+            roles={
+                "headNode": {
+                    "vmSize": "Standard_D3_V2",
+                    "username": "acctestusrvm",
+                    "password": "AccTestvdSC4daf986!",
+                },
+                "workerNode": {
+                    "vmSize": "Standard_D3_V2",
+                    "username": "acctestusrvm",
+                    "password": "AccTestvdSC4daf986!",
+                    "numberOfDisksPerNode": 3,
+                    "targetInstanceCount": 3,
+                },
+                "zookeeperNode": {
+                    "vmSize": "Standard_D3_V2",
+                    "username": "acctestusrvm",
+                    "password": "AccTestvdSC4daf986!",
+                },
+            })
         ```
 
         ## Import
@@ -1010,24 +1010,24 @@ class KafkaCluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
-                 component_version: Optional[pulumi.Input[pulumi.InputType['KafkaClusterComponentVersionArgs']]] = None,
-                 compute_isolation: Optional[pulumi.Input[pulumi.InputType['KafkaClusterComputeIsolationArgs']]] = None,
-                 disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterDiskEncryptionArgs']]]]] = None,
+                 component_version: Optional[pulumi.Input[Union['KafkaClusterComponentVersionArgs', 'KafkaClusterComponentVersionArgsDict']]] = None,
+                 compute_isolation: Optional[pulumi.Input[Union['KafkaClusterComputeIsolationArgs', 'KafkaClusterComputeIsolationArgsDict']]] = None,
+                 disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KafkaClusterDiskEncryptionArgs', 'KafkaClusterDiskEncryptionArgsDict']]]]] = None,
                  encryption_in_transit_enabled: Optional[pulumi.Input[bool]] = None,
-                 extension: Optional[pulumi.Input[pulumi.InputType['KafkaClusterExtensionArgs']]] = None,
-                 gateway: Optional[pulumi.Input[pulumi.InputType['KafkaClusterGatewayArgs']]] = None,
+                 extension: Optional[pulumi.Input[Union['KafkaClusterExtensionArgs', 'KafkaClusterExtensionArgsDict']]] = None,
+                 gateway: Optional[pulumi.Input[Union['KafkaClusterGatewayArgs', 'KafkaClusterGatewayArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 metastores: Optional[pulumi.Input[pulumi.InputType['KafkaClusterMetastoresArgs']]] = None,
-                 monitor: Optional[pulumi.Input[pulumi.InputType['KafkaClusterMonitorArgs']]] = None,
+                 metastores: Optional[pulumi.Input[Union['KafkaClusterMetastoresArgs', 'KafkaClusterMetastoresArgsDict']]] = None,
+                 monitor: Optional[pulumi.Input[Union['KafkaClusterMonitorArgs', 'KafkaClusterMonitorArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network: Optional[pulumi.Input[pulumi.InputType['KafkaClusterNetworkArgs']]] = None,
-                 private_link_configuration: Optional[pulumi.Input[pulumi.InputType['KafkaClusterPrivateLinkConfigurationArgs']]] = None,
+                 network: Optional[pulumi.Input[Union['KafkaClusterNetworkArgs', 'KafkaClusterNetworkArgsDict']]] = None,
+                 private_link_configuration: Optional[pulumi.Input[Union['KafkaClusterPrivateLinkConfigurationArgs', 'KafkaClusterPrivateLinkConfigurationArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 rest_proxy: Optional[pulumi.Input[pulumi.InputType['KafkaClusterRestProxyArgs']]] = None,
-                 roles: Optional[pulumi.Input[pulumi.InputType['KafkaClusterRolesArgs']]] = None,
-                 security_profile: Optional[pulumi.Input[pulumi.InputType['KafkaClusterSecurityProfileArgs']]] = None,
-                 storage_account_gen2: Optional[pulumi.Input[pulumi.InputType['KafkaClusterStorageAccountGen2Args']]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterStorageAccountArgs']]]]] = None,
+                 rest_proxy: Optional[pulumi.Input[Union['KafkaClusterRestProxyArgs', 'KafkaClusterRestProxyArgsDict']]] = None,
+                 roles: Optional[pulumi.Input[Union['KafkaClusterRolesArgs', 'KafkaClusterRolesArgsDict']]] = None,
+                 security_profile: Optional[pulumi.Input[Union['KafkaClusterSecurityProfileArgs', 'KafkaClusterSecurityProfileArgsDict']]] = None,
+                 storage_account_gen2: Optional[pulumi.Input[Union['KafkaClusterStorageAccountGen2Args', 'KafkaClusterStorageAccountGen2ArgsDict']]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KafkaClusterStorageAccountArgs', 'KafkaClusterStorageAccountArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
                  tls_min_version: Optional[pulumi.Input[str]] = None,
@@ -1088,27 +1088,27 @@ class KafkaCluster(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             cluster_version: Optional[pulumi.Input[str]] = None,
-            component_version: Optional[pulumi.Input[pulumi.InputType['KafkaClusterComponentVersionArgs']]] = None,
-            compute_isolation: Optional[pulumi.Input[pulumi.InputType['KafkaClusterComputeIsolationArgs']]] = None,
-            disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterDiskEncryptionArgs']]]]] = None,
+            component_version: Optional[pulumi.Input[Union['KafkaClusterComponentVersionArgs', 'KafkaClusterComponentVersionArgsDict']]] = None,
+            compute_isolation: Optional[pulumi.Input[Union['KafkaClusterComputeIsolationArgs', 'KafkaClusterComputeIsolationArgsDict']]] = None,
+            disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KafkaClusterDiskEncryptionArgs', 'KafkaClusterDiskEncryptionArgsDict']]]]] = None,
             encryption_in_transit_enabled: Optional[pulumi.Input[bool]] = None,
-            extension: Optional[pulumi.Input[pulumi.InputType['KafkaClusterExtensionArgs']]] = None,
-            gateway: Optional[pulumi.Input[pulumi.InputType['KafkaClusterGatewayArgs']]] = None,
+            extension: Optional[pulumi.Input[Union['KafkaClusterExtensionArgs', 'KafkaClusterExtensionArgsDict']]] = None,
+            gateway: Optional[pulumi.Input[Union['KafkaClusterGatewayArgs', 'KafkaClusterGatewayArgsDict']]] = None,
             https_endpoint: Optional[pulumi.Input[str]] = None,
             kafka_rest_proxy_endpoint: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
-            metastores: Optional[pulumi.Input[pulumi.InputType['KafkaClusterMetastoresArgs']]] = None,
-            monitor: Optional[pulumi.Input[pulumi.InputType['KafkaClusterMonitorArgs']]] = None,
+            metastores: Optional[pulumi.Input[Union['KafkaClusterMetastoresArgs', 'KafkaClusterMetastoresArgsDict']]] = None,
+            monitor: Optional[pulumi.Input[Union['KafkaClusterMonitorArgs', 'KafkaClusterMonitorArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            network: Optional[pulumi.Input[pulumi.InputType['KafkaClusterNetworkArgs']]] = None,
-            private_link_configuration: Optional[pulumi.Input[pulumi.InputType['KafkaClusterPrivateLinkConfigurationArgs']]] = None,
+            network: Optional[pulumi.Input[Union['KafkaClusterNetworkArgs', 'KafkaClusterNetworkArgsDict']]] = None,
+            private_link_configuration: Optional[pulumi.Input[Union['KafkaClusterPrivateLinkConfigurationArgs', 'KafkaClusterPrivateLinkConfigurationArgsDict']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            rest_proxy: Optional[pulumi.Input[pulumi.InputType['KafkaClusterRestProxyArgs']]] = None,
-            roles: Optional[pulumi.Input[pulumi.InputType['KafkaClusterRolesArgs']]] = None,
-            security_profile: Optional[pulumi.Input[pulumi.InputType['KafkaClusterSecurityProfileArgs']]] = None,
+            rest_proxy: Optional[pulumi.Input[Union['KafkaClusterRestProxyArgs', 'KafkaClusterRestProxyArgsDict']]] = None,
+            roles: Optional[pulumi.Input[Union['KafkaClusterRolesArgs', 'KafkaClusterRolesArgsDict']]] = None,
+            security_profile: Optional[pulumi.Input[Union['KafkaClusterSecurityProfileArgs', 'KafkaClusterSecurityProfileArgsDict']]] = None,
             ssh_endpoint: Optional[pulumi.Input[str]] = None,
-            storage_account_gen2: Optional[pulumi.Input[pulumi.InputType['KafkaClusterStorageAccountGen2Args']]] = None,
-            storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterStorageAccountArgs']]]]] = None,
+            storage_account_gen2: Optional[pulumi.Input[Union['KafkaClusterStorageAccountGen2Args', 'KafkaClusterStorageAccountGen2ArgsDict']]] = None,
+            storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KafkaClusterStorageAccountArgs', 'KafkaClusterStorageAccountArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tier: Optional[pulumi.Input[str]] = None,
             tls_min_version: Optional[pulumi.Input[str]] = None) -> 'KafkaCluster':
@@ -1120,29 +1120,29 @@ class KafkaCluster(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['KafkaClusterComponentVersionArgs']] component_version: A `component_version` block as defined below.
-        :param pulumi.Input[pulumi.InputType['KafkaClusterComputeIsolationArgs']] compute_isolation: A `compute_isolation` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterDiskEncryptionArgs']]]] disk_encryptions: One or more `disk_encryption` block as defined below.
+        :param pulumi.Input[Union['KafkaClusterComponentVersionArgs', 'KafkaClusterComponentVersionArgsDict']] component_version: A `component_version` block as defined below.
+        :param pulumi.Input[Union['KafkaClusterComputeIsolationArgs', 'KafkaClusterComputeIsolationArgsDict']] compute_isolation: A `compute_isolation` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['KafkaClusterDiskEncryptionArgs', 'KafkaClusterDiskEncryptionArgsDict']]]] disk_encryptions: One or more `disk_encryption` block as defined below.
                
                > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         :param pulumi.Input[bool] encryption_in_transit_enabled: Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['KafkaClusterExtensionArgs']] extension: An `extension` block as defined below.
-        :param pulumi.Input[pulumi.InputType['KafkaClusterGatewayArgs']] gateway: A `gateway` block as defined below.
+        :param pulumi.Input[Union['KafkaClusterExtensionArgs', 'KafkaClusterExtensionArgsDict']] extension: An `extension` block as defined below.
+        :param pulumi.Input[Union['KafkaClusterGatewayArgs', 'KafkaClusterGatewayArgsDict']] gateway: A `gateway` block as defined below.
         :param pulumi.Input[str] https_endpoint: The HTTPS Connectivity Endpoint for this HDInsight Kafka Cluster.
         :param pulumi.Input[str] kafka_rest_proxy_endpoint: The Kafka Rest Proxy Endpoint for this HDInsight Kafka Cluster.
         :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['KafkaClusterMetastoresArgs']] metastores: A `metastores` block as defined below.
-        :param pulumi.Input[pulumi.InputType['KafkaClusterMonitorArgs']] monitor: A `monitor` block as defined below.
+        :param pulumi.Input[Union['KafkaClusterMetastoresArgs', 'KafkaClusterMetastoresArgsDict']] metastores: A `metastores` block as defined below.
+        :param pulumi.Input[Union['KafkaClusterMonitorArgs', 'KafkaClusterMonitorArgsDict']] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['KafkaClusterNetworkArgs']] network: A `network` block as defined below.
-        :param pulumi.Input[pulumi.InputType['KafkaClusterPrivateLinkConfigurationArgs']] private_link_configuration: A `private_link_configuration` block as defined below.
+        :param pulumi.Input[Union['KafkaClusterNetworkArgs', 'KafkaClusterNetworkArgsDict']] network: A `network` block as defined below.
+        :param pulumi.Input[Union['KafkaClusterPrivateLinkConfigurationArgs', 'KafkaClusterPrivateLinkConfigurationArgsDict']] private_link_configuration: A `private_link_configuration` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['KafkaClusterRestProxyArgs']] rest_proxy: A `rest_proxy` block as defined below.
-        :param pulumi.Input[pulumi.InputType['KafkaClusterRolesArgs']] roles: A `roles` block as defined below.
-        :param pulumi.Input[pulumi.InputType['KafkaClusterSecurityProfileArgs']] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['KafkaClusterRestProxyArgs', 'KafkaClusterRestProxyArgsDict']] rest_proxy: A `rest_proxy` block as defined below.
+        :param pulumi.Input[Union['KafkaClusterRolesArgs', 'KafkaClusterRolesArgsDict']] roles: A `roles` block as defined below.
+        :param pulumi.Input[Union['KafkaClusterSecurityProfileArgs', 'KafkaClusterSecurityProfileArgsDict']] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ssh_endpoint: The SSH Connectivity Endpoint for this HDInsight Kafka Cluster.
-        :param pulumi.Input[pulumi.InputType['KafkaClusterStorageAccountGen2Args']] storage_account_gen2: A `storage_account_gen2` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterStorageAccountArgs']]]] storage_accounts: One or more `storage_account` block as defined below.
+        :param pulumi.Input[Union['KafkaClusterStorageAccountGen2Args', 'KafkaClusterStorageAccountGen2ArgsDict']] storage_account_gen2: A `storage_account_gen2` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['KafkaClusterStorageAccountArgs', 'KafkaClusterStorageAccountArgsDict']]]] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight Kafka Cluster.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight Kafka Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tls_min_version: The minimal supported TLS version. Possible values are `1.0`, `1.1` or `1.2`. Changing this forces a new resource to be created.

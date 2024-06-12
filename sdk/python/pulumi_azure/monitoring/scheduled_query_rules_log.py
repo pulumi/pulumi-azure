@@ -320,7 +320,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorized_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 criteria: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesLogCriteriaArgs']]] = None,
+                 criteria: Optional[pulumi.Input[Union['ScheduledQueryRulesLogCriteriaArgs', 'ScheduledQueryRulesLogCriteriaArgsDict']]] = None,
                  data_source_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -351,10 +351,10 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
             name="example-actiongroup",
             resource_group_name=example.name,
             short_name="exampleact",
-            webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArgs(
-                name="callmyapi",
-                service_uri="http://example.com/alert",
-            )])
+            webhook_receivers=[{
+                "name": "callmyapi",
+                "serviceUri": "http://example.com/alert",
+            }])
         # Example: Creates alert using the new Scheduled Query Rules metric
         example_metric_alert = azure.monitoring.MetricAlert("example",
             name="example-metricalert",
@@ -363,29 +363,29 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
             description="Action will be triggered when Average_% Idle Time metric is less than 10.",
             frequency="PT1M",
             window_size="PT5M",
-            criterias=[azure.monitoring.MetricAlertCriteriaArgs(
-                metric_namespace="Microsoft.OperationalInsights/workspaces",
-                metric_name="UsedCapacity",
-                aggregation="Average",
-                operator="LessThan",
-                threshold=10,
-            )],
-            actions=[azure.monitoring.MetricAlertActionArgs(
-                action_group_id=example_action_group.id,
-            )])
+            criterias=[{
+                "metricNamespace": "Microsoft.OperationalInsights/workspaces",
+                "metricName": "UsedCapacity",
+                "aggregation": "Average",
+                "operator": "LessThan",
+                "threshold": 10,
+            }],
+            actions=[{
+                "actionGroupId": example_action_group.id,
+            }])
         # Example: LogToMetric Action for the named Computer
         example_scheduled_query_rules_log = azure.monitoring.ScheduledQueryRulesLog("example",
             name="example",
             location=example.location,
             resource_group_name=example.name,
-            criteria=azure.monitoring.ScheduledQueryRulesLogCriteriaArgs(
-                metric_name="Average_% Idle Time",
-                dimensions=[azure.monitoring.ScheduledQueryRulesLogCriteriaDimensionArgs(
-                    name="Computer",
-                    operator="Include",
-                    values=["targetVM"],
-                )],
-            ),
+            criteria={
+                "metricName": "Average_% Idle Time",
+                "dimensions": [{
+                    "name": "Computer",
+                    "operator": "Include",
+                    "values": ["targetVM"],
+                }],
+            },
             data_source_id=example_analytics_workspace.id,
             description="Scheduled query rule LogToMetric example",
             enabled=True,
@@ -405,7 +405,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_resource_ids: A list of IDs of Resources referred into query.
-        :param pulumi.Input[pulumi.InputType['ScheduledQueryRulesLogCriteriaArgs']] criteria: A `criteria` block as defined below.
+        :param pulumi.Input[Union['ScheduledQueryRulesLogCriteriaArgs', 'ScheduledQueryRulesLogCriteriaArgsDict']] criteria: A `criteria` block as defined below.
         :param pulumi.Input[str] data_source_id: The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of the scheduled query rule.
         :param pulumi.Input[bool] enabled: Whether this scheduled query rule is enabled. Default is `true`.
@@ -442,10 +442,10 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
             name="example-actiongroup",
             resource_group_name=example.name,
             short_name="exampleact",
-            webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArgs(
-                name="callmyapi",
-                service_uri="http://example.com/alert",
-            )])
+            webhook_receivers=[{
+                "name": "callmyapi",
+                "serviceUri": "http://example.com/alert",
+            }])
         # Example: Creates alert using the new Scheduled Query Rules metric
         example_metric_alert = azure.monitoring.MetricAlert("example",
             name="example-metricalert",
@@ -454,29 +454,29 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
             description="Action will be triggered when Average_% Idle Time metric is less than 10.",
             frequency="PT1M",
             window_size="PT5M",
-            criterias=[azure.monitoring.MetricAlertCriteriaArgs(
-                metric_namespace="Microsoft.OperationalInsights/workspaces",
-                metric_name="UsedCapacity",
-                aggregation="Average",
-                operator="LessThan",
-                threshold=10,
-            )],
-            actions=[azure.monitoring.MetricAlertActionArgs(
-                action_group_id=example_action_group.id,
-            )])
+            criterias=[{
+                "metricNamespace": "Microsoft.OperationalInsights/workspaces",
+                "metricName": "UsedCapacity",
+                "aggregation": "Average",
+                "operator": "LessThan",
+                "threshold": 10,
+            }],
+            actions=[{
+                "actionGroupId": example_action_group.id,
+            }])
         # Example: LogToMetric Action for the named Computer
         example_scheduled_query_rules_log = azure.monitoring.ScheduledQueryRulesLog("example",
             name="example",
             location=example.location,
             resource_group_name=example.name,
-            criteria=azure.monitoring.ScheduledQueryRulesLogCriteriaArgs(
-                metric_name="Average_% Idle Time",
-                dimensions=[azure.monitoring.ScheduledQueryRulesLogCriteriaDimensionArgs(
-                    name="Computer",
-                    operator="Include",
-                    values=["targetVM"],
-                )],
-            ),
+            criteria={
+                "metricName": "Average_% Idle Time",
+                "dimensions": [{
+                    "name": "Computer",
+                    "operator": "Include",
+                    "values": ["targetVM"],
+                }],
+            },
             data_source_id=example_analytics_workspace.id,
             description="Scheduled query rule LogToMetric example",
             enabled=True,
@@ -509,7 +509,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorized_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 criteria: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesLogCriteriaArgs']]] = None,
+                 criteria: Optional[pulumi.Input[Union['ScheduledQueryRulesLogCriteriaArgs', 'ScheduledQueryRulesLogCriteriaArgsDict']]] = None,
                  data_source_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -552,7 +552,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             authorized_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            criteria: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesLogCriteriaArgs']]] = None,
+            criteria: Optional[pulumi.Input[Union['ScheduledQueryRulesLogCriteriaArgs', 'ScheduledQueryRulesLogCriteriaArgsDict']]] = None,
             data_source_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
@@ -568,7 +568,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_resource_ids: A list of IDs of Resources referred into query.
-        :param pulumi.Input[pulumi.InputType['ScheduledQueryRulesLogCriteriaArgs']] criteria: A `criteria` block as defined below.
+        :param pulumi.Input[Union['ScheduledQueryRulesLogCriteriaArgs', 'ScheduledQueryRulesLogCriteriaArgsDict']] criteria: A `criteria` block as defined below.
         :param pulumi.Input[str] data_source_id: The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of the scheduled query rule.
         :param pulumi.Input[bool] enabled: Whether this scheduled query rule is enabled. Default is `true`.

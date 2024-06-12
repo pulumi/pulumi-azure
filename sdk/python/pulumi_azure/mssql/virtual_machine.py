@@ -545,22 +545,22 @@ class VirtualMachine(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assessment: Optional[pulumi.Input[pulumi.InputType['VirtualMachineAssessmentArgs']]] = None,
-                 auto_backup: Optional[pulumi.Input[pulumi.InputType['VirtualMachineAutoBackupArgs']]] = None,
-                 auto_patching: Optional[pulumi.Input[pulumi.InputType['VirtualMachineAutoPatchingArgs']]] = None,
-                 key_vault_credential: Optional[pulumi.Input[pulumi.InputType['VirtualMachineKeyVaultCredentialArgs']]] = None,
+                 assessment: Optional[pulumi.Input[Union['VirtualMachineAssessmentArgs', 'VirtualMachineAssessmentArgsDict']]] = None,
+                 auto_backup: Optional[pulumi.Input[Union['VirtualMachineAutoBackupArgs', 'VirtualMachineAutoBackupArgsDict']]] = None,
+                 auto_patching: Optional[pulumi.Input[Union['VirtualMachineAutoPatchingArgs', 'VirtualMachineAutoPatchingArgsDict']]] = None,
+                 key_vault_credential: Optional[pulumi.Input[Union['VirtualMachineKeyVaultCredentialArgs', 'VirtualMachineKeyVaultCredentialArgsDict']]] = None,
                  r_services_enabled: Optional[pulumi.Input[bool]] = None,
                  sql_connectivity_port: Optional[pulumi.Input[int]] = None,
                  sql_connectivity_type: Optional[pulumi.Input[str]] = None,
                  sql_connectivity_update_password: Optional[pulumi.Input[str]] = None,
                  sql_connectivity_update_username: Optional[pulumi.Input[str]] = None,
-                 sql_instance: Optional[pulumi.Input[pulumi.InputType['VirtualMachineSqlInstanceArgs']]] = None,
+                 sql_instance: Optional[pulumi.Input[Union['VirtualMachineSqlInstanceArgs', 'VirtualMachineSqlInstanceArgsDict']]] = None,
                  sql_license_type: Optional[pulumi.Input[str]] = None,
                  sql_virtual_machine_group_id: Optional[pulumi.Input[str]] = None,
-                 storage_configuration: Optional[pulumi.Input[pulumi.InputType['VirtualMachineStorageConfigurationArgs']]] = None,
+                 storage_configuration: Optional[pulumi.Input[Union['VirtualMachineStorageConfigurationArgs', 'VirtualMachineStorageConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_machine_id: Optional[pulumi.Input[str]] = None,
-                 wsfc_domain_credential: Optional[pulumi.Input[pulumi.InputType['VirtualMachineWsfcDomainCredentialArgs']]] = None,
+                 wsfc_domain_credential: Optional[pulumi.Input[Union['VirtualMachineWsfcDomainCredentialArgs', 'VirtualMachineWsfcDomainCredentialArgsDict']]] = None,
                  __props__=None):
         """
         Manages a Microsoft SQL Virtual Machine
@@ -583,11 +583,11 @@ class VirtualMachine(pulumi.CustomResource):
             sql_connectivity_type="PRIVATE",
             sql_connectivity_update_password="Password1234!",
             sql_connectivity_update_username="sqllogin",
-            auto_patching=azure.mssql.VirtualMachineAutoPatchingArgs(
-                day_of_week="Sunday",
-                maintenance_window_duration_in_minutes=60,
-                maintenance_window_starting_hour=2,
-            ))
+            auto_patching={
+                "dayOfWeek": "Sunday",
+                "maintenanceWindowDurationInMinutes": 60,
+                "maintenanceWindowStartingHour": 2,
+            })
         ```
 
         ## Import
@@ -600,22 +600,22 @@ class VirtualMachine(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineAssessmentArgs']] assessment: An `assessment` block as defined below.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineAutoBackupArgs']] auto_backup: An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineAutoPatchingArgs']] auto_patching: An `auto_patching` block as defined below.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineKeyVaultCredentialArgs']] key_vault_credential: An `key_vault_credential` block as defined below.
+        :param pulumi.Input[Union['VirtualMachineAssessmentArgs', 'VirtualMachineAssessmentArgsDict']] assessment: An `assessment` block as defined below.
+        :param pulumi.Input[Union['VirtualMachineAutoBackupArgs', 'VirtualMachineAutoBackupArgsDict']] auto_backup: An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
+        :param pulumi.Input[Union['VirtualMachineAutoPatchingArgs', 'VirtualMachineAutoPatchingArgsDict']] auto_patching: An `auto_patching` block as defined below.
+        :param pulumi.Input[Union['VirtualMachineKeyVaultCredentialArgs', 'VirtualMachineKeyVaultCredentialArgsDict']] key_vault_credential: An `key_vault_credential` block as defined below.
         :param pulumi.Input[bool] r_services_enabled: Should R Services be enabled?
         :param pulumi.Input[int] sql_connectivity_port: The SQL Server port. Defaults to `1433`.
         :param pulumi.Input[str] sql_connectivity_type: The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`.
         :param pulumi.Input[str] sql_connectivity_update_password: The SQL Server sysadmin login password.
         :param pulumi.Input[str] sql_connectivity_update_username: The SQL Server sysadmin login to create.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineSqlInstanceArgs']] sql_instance: A `sql_instance` block as defined below.
+        :param pulumi.Input[Union['VirtualMachineSqlInstanceArgs', 'VirtualMachineSqlInstanceArgsDict']] sql_instance: A `sql_instance` block as defined below.
         :param pulumi.Input[str] sql_license_type: The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
         :param pulumi.Input[str] sql_virtual_machine_group_id: The ID of the SQL Virtual Machine Group that the SQL Virtual Machine belongs to.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineStorageConfigurationArgs']] storage_configuration: An `storage_configuration` block as defined below.
+        :param pulumi.Input[Union['VirtualMachineStorageConfigurationArgs', 'VirtualMachineStorageConfigurationArgsDict']] storage_configuration: An `storage_configuration` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineWsfcDomainCredentialArgs']] wsfc_domain_credential: A `wsfc_domain_credential` block as defined below
+        :param pulumi.Input[Union['VirtualMachineWsfcDomainCredentialArgs', 'VirtualMachineWsfcDomainCredentialArgsDict']] wsfc_domain_credential: A `wsfc_domain_credential` block as defined below
         """
         ...
     @overload
@@ -644,11 +644,11 @@ class VirtualMachine(pulumi.CustomResource):
             sql_connectivity_type="PRIVATE",
             sql_connectivity_update_password="Password1234!",
             sql_connectivity_update_username="sqllogin",
-            auto_patching=azure.mssql.VirtualMachineAutoPatchingArgs(
-                day_of_week="Sunday",
-                maintenance_window_duration_in_minutes=60,
-                maintenance_window_starting_hour=2,
-            ))
+            auto_patching={
+                "dayOfWeek": "Sunday",
+                "maintenanceWindowDurationInMinutes": 60,
+                "maintenanceWindowStartingHour": 2,
+            })
         ```
 
         ## Import
@@ -674,22 +674,22 @@ class VirtualMachine(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assessment: Optional[pulumi.Input[pulumi.InputType['VirtualMachineAssessmentArgs']]] = None,
-                 auto_backup: Optional[pulumi.Input[pulumi.InputType['VirtualMachineAutoBackupArgs']]] = None,
-                 auto_patching: Optional[pulumi.Input[pulumi.InputType['VirtualMachineAutoPatchingArgs']]] = None,
-                 key_vault_credential: Optional[pulumi.Input[pulumi.InputType['VirtualMachineKeyVaultCredentialArgs']]] = None,
+                 assessment: Optional[pulumi.Input[Union['VirtualMachineAssessmentArgs', 'VirtualMachineAssessmentArgsDict']]] = None,
+                 auto_backup: Optional[pulumi.Input[Union['VirtualMachineAutoBackupArgs', 'VirtualMachineAutoBackupArgsDict']]] = None,
+                 auto_patching: Optional[pulumi.Input[Union['VirtualMachineAutoPatchingArgs', 'VirtualMachineAutoPatchingArgsDict']]] = None,
+                 key_vault_credential: Optional[pulumi.Input[Union['VirtualMachineKeyVaultCredentialArgs', 'VirtualMachineKeyVaultCredentialArgsDict']]] = None,
                  r_services_enabled: Optional[pulumi.Input[bool]] = None,
                  sql_connectivity_port: Optional[pulumi.Input[int]] = None,
                  sql_connectivity_type: Optional[pulumi.Input[str]] = None,
                  sql_connectivity_update_password: Optional[pulumi.Input[str]] = None,
                  sql_connectivity_update_username: Optional[pulumi.Input[str]] = None,
-                 sql_instance: Optional[pulumi.Input[pulumi.InputType['VirtualMachineSqlInstanceArgs']]] = None,
+                 sql_instance: Optional[pulumi.Input[Union['VirtualMachineSqlInstanceArgs', 'VirtualMachineSqlInstanceArgsDict']]] = None,
                  sql_license_type: Optional[pulumi.Input[str]] = None,
                  sql_virtual_machine_group_id: Optional[pulumi.Input[str]] = None,
-                 storage_configuration: Optional[pulumi.Input[pulumi.InputType['VirtualMachineStorageConfigurationArgs']]] = None,
+                 storage_configuration: Optional[pulumi.Input[Union['VirtualMachineStorageConfigurationArgs', 'VirtualMachineStorageConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_machine_id: Optional[pulumi.Input[str]] = None,
-                 wsfc_domain_credential: Optional[pulumi.Input[pulumi.InputType['VirtualMachineWsfcDomainCredentialArgs']]] = None,
+                 wsfc_domain_credential: Optional[pulumi.Input[Union['VirtualMachineWsfcDomainCredentialArgs', 'VirtualMachineWsfcDomainCredentialArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -729,22 +729,22 @@ class VirtualMachine(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            assessment: Optional[pulumi.Input[pulumi.InputType['VirtualMachineAssessmentArgs']]] = None,
-            auto_backup: Optional[pulumi.Input[pulumi.InputType['VirtualMachineAutoBackupArgs']]] = None,
-            auto_patching: Optional[pulumi.Input[pulumi.InputType['VirtualMachineAutoPatchingArgs']]] = None,
-            key_vault_credential: Optional[pulumi.Input[pulumi.InputType['VirtualMachineKeyVaultCredentialArgs']]] = None,
+            assessment: Optional[pulumi.Input[Union['VirtualMachineAssessmentArgs', 'VirtualMachineAssessmentArgsDict']]] = None,
+            auto_backup: Optional[pulumi.Input[Union['VirtualMachineAutoBackupArgs', 'VirtualMachineAutoBackupArgsDict']]] = None,
+            auto_patching: Optional[pulumi.Input[Union['VirtualMachineAutoPatchingArgs', 'VirtualMachineAutoPatchingArgsDict']]] = None,
+            key_vault_credential: Optional[pulumi.Input[Union['VirtualMachineKeyVaultCredentialArgs', 'VirtualMachineKeyVaultCredentialArgsDict']]] = None,
             r_services_enabled: Optional[pulumi.Input[bool]] = None,
             sql_connectivity_port: Optional[pulumi.Input[int]] = None,
             sql_connectivity_type: Optional[pulumi.Input[str]] = None,
             sql_connectivity_update_password: Optional[pulumi.Input[str]] = None,
             sql_connectivity_update_username: Optional[pulumi.Input[str]] = None,
-            sql_instance: Optional[pulumi.Input[pulumi.InputType['VirtualMachineSqlInstanceArgs']]] = None,
+            sql_instance: Optional[pulumi.Input[Union['VirtualMachineSqlInstanceArgs', 'VirtualMachineSqlInstanceArgsDict']]] = None,
             sql_license_type: Optional[pulumi.Input[str]] = None,
             sql_virtual_machine_group_id: Optional[pulumi.Input[str]] = None,
-            storage_configuration: Optional[pulumi.Input[pulumi.InputType['VirtualMachineStorageConfigurationArgs']]] = None,
+            storage_configuration: Optional[pulumi.Input[Union['VirtualMachineStorageConfigurationArgs', 'VirtualMachineStorageConfigurationArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             virtual_machine_id: Optional[pulumi.Input[str]] = None,
-            wsfc_domain_credential: Optional[pulumi.Input[pulumi.InputType['VirtualMachineWsfcDomainCredentialArgs']]] = None) -> 'VirtualMachine':
+            wsfc_domain_credential: Optional[pulumi.Input[Union['VirtualMachineWsfcDomainCredentialArgs', 'VirtualMachineWsfcDomainCredentialArgsDict']]] = None) -> 'VirtualMachine':
         """
         Get an existing VirtualMachine resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -752,22 +752,22 @@ class VirtualMachine(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineAssessmentArgs']] assessment: An `assessment` block as defined below.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineAutoBackupArgs']] auto_backup: An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineAutoPatchingArgs']] auto_patching: An `auto_patching` block as defined below.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineKeyVaultCredentialArgs']] key_vault_credential: An `key_vault_credential` block as defined below.
+        :param pulumi.Input[Union['VirtualMachineAssessmentArgs', 'VirtualMachineAssessmentArgsDict']] assessment: An `assessment` block as defined below.
+        :param pulumi.Input[Union['VirtualMachineAutoBackupArgs', 'VirtualMachineAutoBackupArgsDict']] auto_backup: An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
+        :param pulumi.Input[Union['VirtualMachineAutoPatchingArgs', 'VirtualMachineAutoPatchingArgsDict']] auto_patching: An `auto_patching` block as defined below.
+        :param pulumi.Input[Union['VirtualMachineKeyVaultCredentialArgs', 'VirtualMachineKeyVaultCredentialArgsDict']] key_vault_credential: An `key_vault_credential` block as defined below.
         :param pulumi.Input[bool] r_services_enabled: Should R Services be enabled?
         :param pulumi.Input[int] sql_connectivity_port: The SQL Server port. Defaults to `1433`.
         :param pulumi.Input[str] sql_connectivity_type: The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`.
         :param pulumi.Input[str] sql_connectivity_update_password: The SQL Server sysadmin login password.
         :param pulumi.Input[str] sql_connectivity_update_username: The SQL Server sysadmin login to create.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineSqlInstanceArgs']] sql_instance: A `sql_instance` block as defined below.
+        :param pulumi.Input[Union['VirtualMachineSqlInstanceArgs', 'VirtualMachineSqlInstanceArgsDict']] sql_instance: A `sql_instance` block as defined below.
         :param pulumi.Input[str] sql_license_type: The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
         :param pulumi.Input[str] sql_virtual_machine_group_id: The ID of the SQL Virtual Machine Group that the SQL Virtual Machine belongs to.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineStorageConfigurationArgs']] storage_configuration: An `storage_configuration` block as defined below.
+        :param pulumi.Input[Union['VirtualMachineStorageConfigurationArgs', 'VirtualMachineStorageConfigurationArgsDict']] storage_configuration: An `storage_configuration` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineWsfcDomainCredentialArgs']] wsfc_domain_credential: A `wsfc_domain_credential` block as defined below
+        :param pulumi.Input[Union['VirtualMachineWsfcDomainCredentialArgs', 'VirtualMachineWsfcDomainCredentialArgsDict']] wsfc_domain_credential: A `wsfc_domain_credential` block as defined below
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

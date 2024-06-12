@@ -472,10 +472,10 @@ class IotHubDataConnection(pulumi.CustomResource):
             name="examplekustocluster",
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Standard_D13_v2",
-                capacity=2,
-            ))
+            sku={
+                "name": "Standard_D13_v2",
+                "capacity": 2,
+            })
         example_database = azure.kusto.Database("example",
             name="example-kusto-database",
             resource_group_name=example.name,
@@ -487,10 +487,10 @@ class IotHubDataConnection(pulumi.CustomResource):
             name="exampleIoTHub",
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="B1",
-                capacity=1,
-            ))
+            sku={
+                "name": "B1",
+                "capacity": 1,
+            })
         example_shared_access_policy = azure.iot.SharedAccessPolicy("example",
             name="example-shared-access-policy",
             resource_group_name=example.name,
@@ -566,10 +566,10 @@ class IotHubDataConnection(pulumi.CustomResource):
             name="examplekustocluster",
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Standard_D13_v2",
-                capacity=2,
-            ))
+            sku={
+                "name": "Standard_D13_v2",
+                "capacity": 2,
+            })
         example_database = azure.kusto.Database("example",
             name="example-kusto-database",
             resource_group_name=example.name,
@@ -581,10 +581,10 @@ class IotHubDataConnection(pulumi.CustomResource):
             name="exampleIoTHub",
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="B1",
-                capacity=1,
-            ))
+            sku={
+                "name": "B1",
+                "capacity": 1,
+            })
         example_shared_access_policy = azure.iot.SharedAccessPolicy("example",
             name="example-shared-access-policy",
             resource_group_name=example.name,

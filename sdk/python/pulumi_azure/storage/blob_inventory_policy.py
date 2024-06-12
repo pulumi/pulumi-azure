@@ -96,7 +96,7 @@ class BlobInventoryPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BlobInventoryPolicyRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BlobInventoryPolicyRuleArgs', 'BlobInventoryPolicyRuleArgsDict']]]]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -117,26 +117,26 @@ class BlobInventoryPolicy(pulumi.CustomResource):
             location=example.location,
             account_tier="Standard",
             account_replication_type="LRS",
-            blob_properties=azure.storage.AccountBlobPropertiesArgs(
-                versioning_enabled=True,
-            ))
+            blob_properties={
+                "versioningEnabled": True,
+            })
         example_container = azure.storage.Container("example",
             name="examplecontainer",
             storage_account_name=example_account.name,
             container_access_type="private")
         example_blob_inventory_policy = azure.storage.BlobInventoryPolicy("example",
             storage_account_id=example_account.id,
-            rules=[azure.storage.BlobInventoryPolicyRuleArgs(
-                name="rule1",
-                storage_container_name=example_container.name,
-                format="Csv",
-                schedule="Daily",
-                scope="Container",
-                schema_fields=[
+            rules=[{
+                "name": "rule1",
+                "storageContainerName": example_container.name,
+                "format": "Csv",
+                "schedule": "Daily",
+                "scope": "Container",
+                "schemaFields": [
                     "Name",
                     "Last-Modified",
                 ],
-            )])
+            }])
         ```
 
         ## Import
@@ -149,7 +149,7 @@ class BlobInventoryPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BlobInventoryPolicyRuleArgs']]]] rules: One or more `rules` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BlobInventoryPolicyRuleArgs', 'BlobInventoryPolicyRuleArgsDict']]]] rules: One or more `rules` blocks as defined below.
         :param pulumi.Input[str] storage_account_id: The ID of the storage account to apply this Blob Inventory Policy to. Changing this forces a new Storage Blob Inventory Policy to be created.
         """
         ...
@@ -176,26 +176,26 @@ class BlobInventoryPolicy(pulumi.CustomResource):
             location=example.location,
             account_tier="Standard",
             account_replication_type="LRS",
-            blob_properties=azure.storage.AccountBlobPropertiesArgs(
-                versioning_enabled=True,
-            ))
+            blob_properties={
+                "versioningEnabled": True,
+            })
         example_container = azure.storage.Container("example",
             name="examplecontainer",
             storage_account_name=example_account.name,
             container_access_type="private")
         example_blob_inventory_policy = azure.storage.BlobInventoryPolicy("example",
             storage_account_id=example_account.id,
-            rules=[azure.storage.BlobInventoryPolicyRuleArgs(
-                name="rule1",
-                storage_container_name=example_container.name,
-                format="Csv",
-                schedule="Daily",
-                scope="Container",
-                schema_fields=[
+            rules=[{
+                "name": "rule1",
+                "storageContainerName": example_container.name,
+                "format": "Csv",
+                "schedule": "Daily",
+                "scope": "Container",
+                "schemaFields": [
                     "Name",
                     "Last-Modified",
                 ],
-            )])
+            }])
         ```
 
         ## Import
@@ -221,7 +221,7 @@ class BlobInventoryPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BlobInventoryPolicyRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BlobInventoryPolicyRuleArgs', 'BlobInventoryPolicyRuleArgsDict']]]]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -248,7 +248,7 @@ class BlobInventoryPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BlobInventoryPolicyRuleArgs']]]]] = None,
+            rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BlobInventoryPolicyRuleArgs', 'BlobInventoryPolicyRuleArgsDict']]]]] = None,
             storage_account_id: Optional[pulumi.Input[str]] = None) -> 'BlobInventoryPolicy':
         """
         Get an existing BlobInventoryPolicy resource's state with the given name, id, and optional extra
@@ -257,7 +257,7 @@ class BlobInventoryPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BlobInventoryPolicyRuleArgs']]]] rules: One or more `rules` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BlobInventoryPolicyRuleArgs', 'BlobInventoryPolicyRuleArgsDict']]]] rules: One or more `rules` blocks as defined below.
         :param pulumi.Input[str] storage_account_id: The ID of the storage account to apply this Blob Inventory Policy to. Changing this forces a new Storage Blob Inventory Policy to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

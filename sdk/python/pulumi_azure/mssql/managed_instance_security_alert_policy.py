@@ -468,17 +468,17 @@ class ManagedInstanceSecurityAlertPolicy(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.0.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="managedinstancedelegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Sql/managedInstances",
-                    actions=[
+            delegations=[{
+                "name": "managedinstancedelegation",
+                "serviceDelegation": {
+                    "name": "Microsoft.Sql/managedInstances",
+                    "actions": [
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                         "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
                         "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
                     ],
-                ),
-            )])
+                },
+            }])
         example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("example",
             subnet_id=example_subnet.id,
             network_security_group_id=example_network_security_group.id)
@@ -679,17 +679,17 @@ class ManagedInstanceSecurityAlertPolicy(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.0.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="managedinstancedelegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Sql/managedInstances",
-                    actions=[
+            delegations=[{
+                "name": "managedinstancedelegation",
+                "serviceDelegation": {
+                    "name": "Microsoft.Sql/managedInstances",
+                    "actions": [
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                         "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
                         "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
                     ],
-                ),
-            )])
+                },
+            }])
         example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("example",
             subnet_id=example_subnet.id,
             network_security_group_id=example_network_security_group.id)

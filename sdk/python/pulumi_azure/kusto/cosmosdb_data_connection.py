@@ -311,13 +311,13 @@ class CosmosdbDataConnection(pulumi.CustomResource):
             name="examplekc",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Dev(No SLA)_Standard_D11_v2",
-                capacity=1,
-            ),
-            identity=azure.kusto.ClusterIdentityArgs(
-                type="SystemAssigned",
-            ))
+            sku={
+                "name": "Dev(No SLA)_Standard_D11_v2",
+                "capacity": 1,
+            },
+            identity={
+                "type": "SystemAssigned",
+            })
         example_assignment = azure.authorization.Assignment("example",
             scope=example_resource_group.id,
             role_definition_name=builtin.name,
@@ -328,15 +328,15 @@ class CosmosdbDataConnection(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             offer_type="Standard",
             kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="Session",
-                max_interval_in_seconds=5,
-                max_staleness_prefix=100,
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example_resource_group.location,
-                failover_priority=0,
-            )])
+            consistency_policy={
+                "consistencyLevel": "Session",
+                "maxIntervalInSeconds": 5,
+                "maxStalenessPrefix": 100,
+            },
+            geo_locations=[{
+                "location": example_resource_group.location,
+                "failoverPriority": 0,
+            }])
         example_sql_database = azure.cosmosdb.SqlDatabase("example",
             name="examplecosmosdbsqldb",
             resource_group_name=example_account.resource_group_name,
@@ -429,13 +429,13 @@ class CosmosdbDataConnection(pulumi.CustomResource):
             name="examplekc",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Dev(No SLA)_Standard_D11_v2",
-                capacity=1,
-            ),
-            identity=azure.kusto.ClusterIdentityArgs(
-                type="SystemAssigned",
-            ))
+            sku={
+                "name": "Dev(No SLA)_Standard_D11_v2",
+                "capacity": 1,
+            },
+            identity={
+                "type": "SystemAssigned",
+            })
         example_assignment = azure.authorization.Assignment("example",
             scope=example_resource_group.id,
             role_definition_name=builtin.name,
@@ -446,15 +446,15 @@ class CosmosdbDataConnection(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             offer_type="Standard",
             kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="Session",
-                max_interval_in_seconds=5,
-                max_staleness_prefix=100,
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example_resource_group.location,
-                failover_priority=0,
-            )])
+            consistency_policy={
+                "consistencyLevel": "Session",
+                "maxIntervalInSeconds": 5,
+                "maxStalenessPrefix": 100,
+            },
+            geo_locations=[{
+                "location": example_resource_group.location,
+                "failoverPriority": 0,
+            }])
         example_sql_database = azure.cosmosdb.SqlDatabase("example",
             name="examplecosmosdbsqldb",
             resource_group_name=example_account.resource_group_name,

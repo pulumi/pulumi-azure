@@ -6057,21 +6057,21 @@ class ScaleSetIdentityArgs:
                    name="vm-scaleset",
                    resource_group_name=example_azurerm_resource_group["name"],
                    location=example_azurerm_resource_group["location"],
-                   sku=azure.compute.ScaleSetSkuArgs(
-                       name=vm_sku,
-                       tier="Standard",
-                       capacity=instance_count,
-                   ),
-                   identity=azure.compute.ScaleSetIdentityArgs(
-                       type="SystemAssigned",
-                   ),
-                   extensions=[azure.compute.ScaleSetExtensionArgs(
-                       name="MSILinuxExtension",
-                       publisher="Microsoft.ManagedIdentity",
-                       type="ManagedIdentityExtensionForLinux",
-                       type_handler_version="1.0",
-                       settings="{\\"port\\": 50342}",
-                   )])
+                   sku={
+                       "name": vm_sku,
+                       "tier": "Standard",
+                       "capacity": instance_count,
+                   },
+                   identity={
+                       "type": "SystemAssigned",
+                   },
+                   extensions=[{
+                       "name": "MSILinuxExtension",
+                       "publisher": "Microsoft.ManagedIdentity",
+                       "type": "ManagedIdentityExtensionForLinux",
+                       "typeHandlerVersion": "1.0",
+                       "settings": "{\\"port\\": 50342}",
+                   }])
                pulumi.export("principalId", example.identity.principal_id)
                ```
         """
@@ -6109,21 +6109,21 @@ class ScaleSetIdentityArgs:
             name="vm-scaleset",
             resource_group_name=example_azurerm_resource_group["name"],
             location=example_azurerm_resource_group["location"],
-            sku=azure.compute.ScaleSetSkuArgs(
-                name=vm_sku,
-                tier="Standard",
-                capacity=instance_count,
-            ),
-            identity=azure.compute.ScaleSetIdentityArgs(
-                type="SystemAssigned",
-            ),
-            extensions=[azure.compute.ScaleSetExtensionArgs(
-                name="MSILinuxExtension",
-                publisher="Microsoft.ManagedIdentity",
-                type="ManagedIdentityExtensionForLinux",
-                type_handler_version="1.0",
-                settings="{\\"port\\": 50342}",
-            )])
+            sku={
+                "name": vm_sku,
+                "tier": "Standard",
+                "capacity": instance_count,
+            },
+            identity={
+                "type": "SystemAssigned",
+            },
+            extensions=[{
+                "name": "MSILinuxExtension",
+                "publisher": "Microsoft.ManagedIdentity",
+                "type": "ManagedIdentityExtensionForLinux",
+                "typeHandlerVersion": "1.0",
+                "settings": "{\\"port\\": 50342}",
+            }])
         pulumi.export("principalId", example.identity.principal_id)
         ```
         """

@@ -216,9 +216,9 @@ class EncryptionScope(pulumi.CustomResource):
             location=example.location,
             account_tier="Standard",
             account_replication_type="LRS",
-            identity=azure.storage.AccountIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_encryption_scope = azure.storage.EncryptionScope("example",
             name="microsoftmanaged",
             storage_account_id=example_account.id,
@@ -267,9 +267,9 @@ class EncryptionScope(pulumi.CustomResource):
             location=example.location,
             account_tier="Standard",
             account_replication_type="LRS",
-            identity=azure.storage.AccountIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_encryption_scope = azure.storage.EncryptionScope("example",
             name="microsoftmanaged",
             storage_account_id=example_account.id,

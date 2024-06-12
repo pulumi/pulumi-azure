@@ -561,22 +561,22 @@ class SpringCloudGateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_metadata: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayApiMetadataArgs']]] = None,
+                 api_metadata: Optional[pulumi.Input[Union['SpringCloudGatewayApiMetadataArgs', 'SpringCloudGatewayApiMetadataArgsDict']]] = None,
                  application_performance_monitoring_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  application_performance_monitoring_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 client_authorization: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayClientAuthorizationArgs']]] = None,
-                 cors: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayCorsArgs']]] = None,
+                 client_authorization: Optional[pulumi.Input[Union['SpringCloudGatewayClientAuthorizationArgs', 'SpringCloudGatewayClientAuthorizationArgsDict']]] = None,
+                 cors: Optional[pulumi.Input[Union['SpringCloudGatewayCorsArgs', 'SpringCloudGatewayCorsArgsDict']]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
-                 local_response_cache_per_instance: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayLocalResponseCachePerInstanceArgs']]] = None,
-                 local_response_cache_per_route: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayLocalResponseCachePerRouteArgs']]] = None,
+                 local_response_cache_per_instance: Optional[pulumi.Input[Union['SpringCloudGatewayLocalResponseCachePerInstanceArgs', 'SpringCloudGatewayLocalResponseCachePerInstanceArgsDict']]] = None,
+                 local_response_cache_per_route: Optional[pulumi.Input[Union['SpringCloudGatewayLocalResponseCachePerRouteArgs', 'SpringCloudGatewayLocalResponseCachePerRouteArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-                 quota: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayQuotaArgs']]] = None,
+                 quota: Optional[pulumi.Input[Union['SpringCloudGatewayQuotaArgs', 'SpringCloudGatewayQuotaArgsDict']]] = None,
                  sensitive_environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
-                 sso: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewaySsoArgs']]] = None,
+                 sso: Optional[pulumi.Input[Union['SpringCloudGatewaySsoArgs', 'SpringCloudGatewaySsoArgsDict']]] = None,
                  __props__=None):
         """
         > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
@@ -603,35 +603,35 @@ class SpringCloudGateway(pulumi.CustomResource):
             https_only=False,
             public_network_access_enabled=True,
             instance_count=2,
-            api_metadata=azure.appplatform.SpringCloudGatewayApiMetadataArgs(
-                description="example description",
-                documentation_url="https://www.example.com/docs",
-                server_url="https://wwww.example.com",
-                title="example title",
-                version="1.0",
-            ),
-            cors=azure.appplatform.SpringCloudGatewayCorsArgs(
-                credentials_allowed=False,
-                allowed_headers=["*"],
-                allowed_methods=["PUT"],
-                allowed_origins=["example.com"],
-                exposed_headers=["x-example-header"],
-                max_age_seconds=86400,
-            ),
-            quota=azure.appplatform.SpringCloudGatewayQuotaArgs(
-                cpu="1",
-                memory="2Gi",
-            ),
-            sso=azure.appplatform.SpringCloudGatewaySsoArgs(
-                client_id="example id",
-                client_secret="example secret",
-                issuer_uri="https://www.test.com/issueToken",
-                scopes=["read"],
-            ),
-            local_response_cache_per_instance=azure.appplatform.SpringCloudGatewayLocalResponseCachePerInstanceArgs(
-                size="100MB",
-                time_to_live="30s",
-            ))
+            api_metadata={
+                "description": "example description",
+                "documentationUrl": "https://www.example.com/docs",
+                "serverUrl": "https://wwww.example.com",
+                "title": "example title",
+                "version": "1.0",
+            },
+            cors={
+                "credentialsAllowed": False,
+                "allowedHeaders": ["*"],
+                "allowedMethods": ["PUT"],
+                "allowedOrigins": ["example.com"],
+                "exposedHeaders": ["x-example-header"],
+                "maxAgeSeconds": 86400,
+            },
+            quota={
+                "cpu": "1",
+                "memory": "2Gi",
+            },
+            sso={
+                "clientId": "example id",
+                "clientSecret": "example secret",
+                "issuerUri": "https://www.test.com/issueToken",
+                "scopes": ["read"],
+            },
+            local_response_cache_per_instance={
+                "size": "100MB",
+                "timeToLive": "30s",
+            })
         ```
 
         ## Import
@@ -644,22 +644,22 @@ class SpringCloudGateway(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SpringCloudGatewayApiMetadataArgs']] api_metadata: A `api_metadata` block as defined below.
+        :param pulumi.Input[Union['SpringCloudGatewayApiMetadataArgs', 'SpringCloudGatewayApiMetadataArgsDict']] api_metadata: A `api_metadata` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] application_performance_monitoring_ids: Specifies a list of Spring Cloud Application Performance Monitoring IDs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] application_performance_monitoring_types: Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
-        :param pulumi.Input[pulumi.InputType['SpringCloudGatewayClientAuthorizationArgs']] client_authorization: A `client_authorization` block as defined below.
-        :param pulumi.Input[pulumi.InputType['SpringCloudGatewayCorsArgs']] cors: A `cors` block as defined below.
+        :param pulumi.Input[Union['SpringCloudGatewayClientAuthorizationArgs', 'SpringCloudGatewayClientAuthorizationArgsDict']] client_authorization: A `client_authorization` block as defined below.
+        :param pulumi.Input[Union['SpringCloudGatewayCorsArgs', 'SpringCloudGatewayCorsArgsDict']] cors: A `cors` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] https_only: is only https is allowed?
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
-        :param pulumi.Input[pulumi.InputType['SpringCloudGatewayLocalResponseCachePerInstanceArgs']] local_response_cache_per_instance: A `local_response_cache_per_instance` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
-        :param pulumi.Input[pulumi.InputType['SpringCloudGatewayLocalResponseCachePerRouteArgs']] local_response_cache_per_route: A `local_response_cache_per_route` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+        :param pulumi.Input[Union['SpringCloudGatewayLocalResponseCachePerInstanceArgs', 'SpringCloudGatewayLocalResponseCachePerInstanceArgsDict']] local_response_cache_per_instance: A `local_response_cache_per_instance` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+        :param pulumi.Input[Union['SpringCloudGatewayLocalResponseCachePerRouteArgs', 'SpringCloudGatewayLocalResponseCachePerRouteArgsDict']] local_response_cache_per_route: A `local_response_cache_per_route` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
         :param pulumi.Input[bool] public_network_access_enabled: Indicates whether the Spring Cloud Gateway exposes endpoint.
-        :param pulumi.Input[pulumi.InputType['SpringCloudGatewayQuotaArgs']] quota: A `quota` block as defined below.
+        :param pulumi.Input[Union['SpringCloudGatewayQuotaArgs', 'SpringCloudGatewayQuotaArgsDict']] quota: A `quota` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] sensitive_environment_variables: Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Gateway to be created.
-        :param pulumi.Input[pulumi.InputType['SpringCloudGatewaySsoArgs']] sso: A `sso` block as defined below.
+        :param pulumi.Input[Union['SpringCloudGatewaySsoArgs', 'SpringCloudGatewaySsoArgsDict']] sso: A `sso` block as defined below.
         """
         ...
     @overload
@@ -692,35 +692,35 @@ class SpringCloudGateway(pulumi.CustomResource):
             https_only=False,
             public_network_access_enabled=True,
             instance_count=2,
-            api_metadata=azure.appplatform.SpringCloudGatewayApiMetadataArgs(
-                description="example description",
-                documentation_url="https://www.example.com/docs",
-                server_url="https://wwww.example.com",
-                title="example title",
-                version="1.0",
-            ),
-            cors=azure.appplatform.SpringCloudGatewayCorsArgs(
-                credentials_allowed=False,
-                allowed_headers=["*"],
-                allowed_methods=["PUT"],
-                allowed_origins=["example.com"],
-                exposed_headers=["x-example-header"],
-                max_age_seconds=86400,
-            ),
-            quota=azure.appplatform.SpringCloudGatewayQuotaArgs(
-                cpu="1",
-                memory="2Gi",
-            ),
-            sso=azure.appplatform.SpringCloudGatewaySsoArgs(
-                client_id="example id",
-                client_secret="example secret",
-                issuer_uri="https://www.test.com/issueToken",
-                scopes=["read"],
-            ),
-            local_response_cache_per_instance=azure.appplatform.SpringCloudGatewayLocalResponseCachePerInstanceArgs(
-                size="100MB",
-                time_to_live="30s",
-            ))
+            api_metadata={
+                "description": "example description",
+                "documentationUrl": "https://www.example.com/docs",
+                "serverUrl": "https://wwww.example.com",
+                "title": "example title",
+                "version": "1.0",
+            },
+            cors={
+                "credentialsAllowed": False,
+                "allowedHeaders": ["*"],
+                "allowedMethods": ["PUT"],
+                "allowedOrigins": ["example.com"],
+                "exposedHeaders": ["x-example-header"],
+                "maxAgeSeconds": 86400,
+            },
+            quota={
+                "cpu": "1",
+                "memory": "2Gi",
+            },
+            sso={
+                "clientId": "example id",
+                "clientSecret": "example secret",
+                "issuerUri": "https://www.test.com/issueToken",
+                "scopes": ["read"],
+            },
+            local_response_cache_per_instance={
+                "size": "100MB",
+                "timeToLive": "30s",
+            })
         ```
 
         ## Import
@@ -746,22 +746,22 @@ class SpringCloudGateway(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_metadata: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayApiMetadataArgs']]] = None,
+                 api_metadata: Optional[pulumi.Input[Union['SpringCloudGatewayApiMetadataArgs', 'SpringCloudGatewayApiMetadataArgsDict']]] = None,
                  application_performance_monitoring_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  application_performance_monitoring_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 client_authorization: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayClientAuthorizationArgs']]] = None,
-                 cors: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayCorsArgs']]] = None,
+                 client_authorization: Optional[pulumi.Input[Union['SpringCloudGatewayClientAuthorizationArgs', 'SpringCloudGatewayClientAuthorizationArgsDict']]] = None,
+                 cors: Optional[pulumi.Input[Union['SpringCloudGatewayCorsArgs', 'SpringCloudGatewayCorsArgsDict']]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
-                 local_response_cache_per_instance: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayLocalResponseCachePerInstanceArgs']]] = None,
-                 local_response_cache_per_route: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayLocalResponseCachePerRouteArgs']]] = None,
+                 local_response_cache_per_instance: Optional[pulumi.Input[Union['SpringCloudGatewayLocalResponseCachePerInstanceArgs', 'SpringCloudGatewayLocalResponseCachePerInstanceArgsDict']]] = None,
+                 local_response_cache_per_route: Optional[pulumi.Input[Union['SpringCloudGatewayLocalResponseCachePerRouteArgs', 'SpringCloudGatewayLocalResponseCachePerRouteArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-                 quota: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayQuotaArgs']]] = None,
+                 quota: Optional[pulumi.Input[Union['SpringCloudGatewayQuotaArgs', 'SpringCloudGatewayQuotaArgsDict']]] = None,
                  sensitive_environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
-                 sso: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewaySsoArgs']]] = None,
+                 sso: Optional[pulumi.Input[Union['SpringCloudGatewaySsoArgs', 'SpringCloudGatewaySsoArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -802,22 +802,22 @@ class SpringCloudGateway(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_metadata: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayApiMetadataArgs']]] = None,
+            api_metadata: Optional[pulumi.Input[Union['SpringCloudGatewayApiMetadataArgs', 'SpringCloudGatewayApiMetadataArgsDict']]] = None,
             application_performance_monitoring_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             application_performance_monitoring_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            client_authorization: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayClientAuthorizationArgs']]] = None,
-            cors: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayCorsArgs']]] = None,
+            client_authorization: Optional[pulumi.Input[Union['SpringCloudGatewayClientAuthorizationArgs', 'SpringCloudGatewayClientAuthorizationArgsDict']]] = None,
+            cors: Optional[pulumi.Input[Union['SpringCloudGatewayCorsArgs', 'SpringCloudGatewayCorsArgsDict']]] = None,
             environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             https_only: Optional[pulumi.Input[bool]] = None,
             instance_count: Optional[pulumi.Input[int]] = None,
-            local_response_cache_per_instance: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayLocalResponseCachePerInstanceArgs']]] = None,
-            local_response_cache_per_route: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayLocalResponseCachePerRouteArgs']]] = None,
+            local_response_cache_per_instance: Optional[pulumi.Input[Union['SpringCloudGatewayLocalResponseCachePerInstanceArgs', 'SpringCloudGatewayLocalResponseCachePerInstanceArgsDict']]] = None,
+            local_response_cache_per_route: Optional[pulumi.Input[Union['SpringCloudGatewayLocalResponseCachePerRouteArgs', 'SpringCloudGatewayLocalResponseCachePerRouteArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-            quota: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayQuotaArgs']]] = None,
+            quota: Optional[pulumi.Input[Union['SpringCloudGatewayQuotaArgs', 'SpringCloudGatewayQuotaArgsDict']]] = None,
             sensitive_environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
-            sso: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewaySsoArgs']]] = None,
+            sso: Optional[pulumi.Input[Union['SpringCloudGatewaySsoArgs', 'SpringCloudGatewaySsoArgsDict']]] = None,
             url: Optional[pulumi.Input[str]] = None) -> 'SpringCloudGateway':
         """
         Get an existing SpringCloudGateway resource's state with the given name, id, and optional extra
@@ -826,22 +826,22 @@ class SpringCloudGateway(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SpringCloudGatewayApiMetadataArgs']] api_metadata: A `api_metadata` block as defined below.
+        :param pulumi.Input[Union['SpringCloudGatewayApiMetadataArgs', 'SpringCloudGatewayApiMetadataArgsDict']] api_metadata: A `api_metadata` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] application_performance_monitoring_ids: Specifies a list of Spring Cloud Application Performance Monitoring IDs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] application_performance_monitoring_types: Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
-        :param pulumi.Input[pulumi.InputType['SpringCloudGatewayClientAuthorizationArgs']] client_authorization: A `client_authorization` block as defined below.
-        :param pulumi.Input[pulumi.InputType['SpringCloudGatewayCorsArgs']] cors: A `cors` block as defined below.
+        :param pulumi.Input[Union['SpringCloudGatewayClientAuthorizationArgs', 'SpringCloudGatewayClientAuthorizationArgsDict']] client_authorization: A `client_authorization` block as defined below.
+        :param pulumi.Input[Union['SpringCloudGatewayCorsArgs', 'SpringCloudGatewayCorsArgsDict']] cors: A `cors` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] https_only: is only https is allowed?
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
-        :param pulumi.Input[pulumi.InputType['SpringCloudGatewayLocalResponseCachePerInstanceArgs']] local_response_cache_per_instance: A `local_response_cache_per_instance` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
-        :param pulumi.Input[pulumi.InputType['SpringCloudGatewayLocalResponseCachePerRouteArgs']] local_response_cache_per_route: A `local_response_cache_per_route` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+        :param pulumi.Input[Union['SpringCloudGatewayLocalResponseCachePerInstanceArgs', 'SpringCloudGatewayLocalResponseCachePerInstanceArgsDict']] local_response_cache_per_instance: A `local_response_cache_per_instance` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+        :param pulumi.Input[Union['SpringCloudGatewayLocalResponseCachePerRouteArgs', 'SpringCloudGatewayLocalResponseCachePerRouteArgsDict']] local_response_cache_per_route: A `local_response_cache_per_route` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
         :param pulumi.Input[bool] public_network_access_enabled: Indicates whether the Spring Cloud Gateway exposes endpoint.
-        :param pulumi.Input[pulumi.InputType['SpringCloudGatewayQuotaArgs']] quota: A `quota` block as defined below.
+        :param pulumi.Input[Union['SpringCloudGatewayQuotaArgs', 'SpringCloudGatewayQuotaArgsDict']] quota: A `quota` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] sensitive_environment_variables: Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Gateway to be created.
-        :param pulumi.Input[pulumi.InputType['SpringCloudGatewaySsoArgs']] sso: A `sso` block as defined below.
+        :param pulumi.Input[Union['SpringCloudGatewaySsoArgs', 'SpringCloudGatewaySsoArgsDict']] sso: A `sso` block as defined below.
         :param pulumi.Input[str] url: URL of the Spring Cloud Gateway, exposed when 'public_network_access_enabled' is true.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

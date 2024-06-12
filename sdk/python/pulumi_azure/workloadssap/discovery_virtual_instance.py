@@ -352,7 +352,7 @@ class DiscoveryVirtualInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  central_server_virtual_machine_id: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['DiscoveryVirtualInstanceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['DiscoveryVirtualInstanceIdentityArgs', 'DiscoveryVirtualInstanceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
                  managed_storage_account_name: Optional[pulumi.Input[str]] = None,
@@ -383,10 +383,10 @@ class DiscoveryVirtualInstance(pulumi.CustomResource):
             sap_product="S4HANA",
             central_server_virtual_machine_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleRG/providers/Microsoft.Compute/virtualMachines/csvm1",
             managed_storage_account_name="managedsa",
-            identity=azure.workloadssap.DiscoveryVirtualInstanceIdentityArgs(
-                type="UserAssigned",
-                identity_ids=["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai1"],
-            ))
+            identity={
+                "type": "UserAssigned",
+                "identityIds": ["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai1"],
+            })
         ```
 
         ## Import
@@ -401,7 +401,7 @@ class DiscoveryVirtualInstance(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] central_server_virtual_machine_id: The ID of the Virtual Machine of the Central Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] environment: The environment type for the SAP Discovery Virtual Instance. Possible values are `NonProd` and `Prod`. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['DiscoveryVirtualInstanceIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['DiscoveryVirtualInstanceIdentityArgs', 'DiscoveryVirtualInstanceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the SAP Discovery Virtual Instance should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_resource_group_name: The name of the managed Resource Group for the SAP Discovery Virtual Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_storage_account_name: The name of the custom Storage Account created by the service in the managed Resource Group. Changing this forces a new resource to be created.
@@ -438,10 +438,10 @@ class DiscoveryVirtualInstance(pulumi.CustomResource):
             sap_product="S4HANA",
             central_server_virtual_machine_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleRG/providers/Microsoft.Compute/virtualMachines/csvm1",
             managed_storage_account_name="managedsa",
-            identity=azure.workloadssap.DiscoveryVirtualInstanceIdentityArgs(
-                type="UserAssigned",
-                identity_ids=["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai1"],
-            ))
+            identity={
+                "type": "UserAssigned",
+                "identityIds": ["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai1"],
+            })
         ```
 
         ## Import
@@ -469,7 +469,7 @@ class DiscoveryVirtualInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  central_server_virtual_machine_id: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['DiscoveryVirtualInstanceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['DiscoveryVirtualInstanceIdentityArgs', 'DiscoveryVirtualInstanceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
                  managed_storage_account_name: Optional[pulumi.Input[str]] = None,
@@ -516,7 +516,7 @@ class DiscoveryVirtualInstance(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             central_server_virtual_machine_id: Optional[pulumi.Input[str]] = None,
             environment: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['DiscoveryVirtualInstanceIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[Union['DiscoveryVirtualInstanceIdentityArgs', 'DiscoveryVirtualInstanceIdentityArgsDict']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             managed_resource_group_name: Optional[pulumi.Input[str]] = None,
             managed_storage_account_name: Optional[pulumi.Input[str]] = None,
@@ -533,7 +533,7 @@ class DiscoveryVirtualInstance(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] central_server_virtual_machine_id: The ID of the Virtual Machine of the Central Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] environment: The environment type for the SAP Discovery Virtual Instance. Possible values are `NonProd` and `Prod`. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['DiscoveryVirtualInstanceIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['DiscoveryVirtualInstanceIdentityArgs', 'DiscoveryVirtualInstanceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the SAP Discovery Virtual Instance should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_resource_group_name: The name of the managed Resource Group for the SAP Discovery Virtual Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_storage_account_name: The name of the custom Storage Account created by the service in the managed Resource Group. Changing this forces a new resource to be created.

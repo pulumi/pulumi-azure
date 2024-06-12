@@ -287,10 +287,10 @@ class Route(pulumi.CustomResource):
             name="exampleIothub",
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ),
+            sku={
+                "name": "S1",
+                "capacity": 1,
+            },
             tags={
                 "purpose": "testing",
             })
@@ -366,10 +366,10 @@ class Route(pulumi.CustomResource):
             name="exampleIothub",
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ),
+            sku={
+                "name": "S1",
+                "capacity": 1,
+            },
             tags={
                 "purpose": "testing",
             })

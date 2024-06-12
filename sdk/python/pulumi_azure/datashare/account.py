@@ -192,7 +192,7 @@ class Account(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -214,9 +214,9 @@ class Account(pulumi.CustomResource):
             name="example-dsa",
             location=example.location,
             resource_group_name=example.name,
-            identity=azure.datashare.AccountIdentityArgs(
-                type="SystemAssigned",
-            ),
+            identity={
+                "type": "SystemAssigned",
+            },
             tags={
                 "foo": "bar",
             })
@@ -232,7 +232,7 @@ class Account(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The Azure Region where the Data Share Account should exist. Changing this forces a new Data Share Account to be created.
         :param pulumi.Input[str] name: The name which should be used for this Data Share Account. Changing this forces a new Data Share Account to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Data Share Account should exist. Changing this forces a new Data Share Account to be created.
@@ -260,9 +260,9 @@ class Account(pulumi.CustomResource):
             name="example-dsa",
             location=example.location,
             resource_group_name=example.name,
-            identity=azure.datashare.AccountIdentityArgs(
-                type="SystemAssigned",
-            ),
+            identity={
+                "type": "SystemAssigned",
+            },
             tags={
                 "foo": "bar",
             })
@@ -291,7 +291,7 @@ class Account(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -324,7 +324,7 @@ class Account(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -336,7 +336,7 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The Azure Region where the Data Share Account should exist. Changing this forces a new Data Share Account to be created.
         :param pulumi.Input[str] name: The name which should be used for this Data Share Account. Changing this forces a new Data Share Account to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Data Share Account should exist. Changing this forces a new Data Share Account to be created.

@@ -182,17 +182,17 @@ class FleetMember(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             dns_prefix="acctestaksexample",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
-                name="example-value",
-                node_count="example-value",
-                vm_size="example-value",
-                upgrade_settings=azure.containerservice.KubernetesClusterDefaultNodePoolUpgradeSettingsArgs(
-                    max_surge="example-value",
-                ),
-            ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
-                type="example-value",
-            ))
+            default_node_pool={
+                "name": "example-value",
+                "nodeCount": "example-value",
+                "vmSize": "example-value",
+                "upgradeSettings": {
+                    "maxSurge": "example-value",
+                },
+            },
+            identity={
+                "type": "example-value",
+            })
         example_kubernetes_fleet_manager = azure.containerservice.KubernetesFleetManager("example",
             name="example",
             location=example_resource_group.location,
@@ -251,17 +251,17 @@ class FleetMember(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             dns_prefix="acctestaksexample",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
-                name="example-value",
-                node_count="example-value",
-                vm_size="example-value",
-                upgrade_settings=azure.containerservice.KubernetesClusterDefaultNodePoolUpgradeSettingsArgs(
-                    max_surge="example-value",
-                ),
-            ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
-                type="example-value",
-            ))
+            default_node_pool={
+                "name": "example-value",
+                "nodeCount": "example-value",
+                "vmSize": "example-value",
+                "upgradeSettings": {
+                    "maxSurge": "example-value",
+                },
+            },
+            identity={
+                "type": "example-value",
+            })
         example_kubernetes_fleet_manager = azure.containerservice.KubernetesFleetManager("example",
             name="example",
             location=example_resource_group.location,

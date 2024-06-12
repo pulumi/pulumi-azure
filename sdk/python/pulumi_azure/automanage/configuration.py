@@ -441,10 +441,10 @@ class Configuration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 antimalware: Optional[pulumi.Input[pulumi.InputType['ConfigurationAntimalwareArgs']]] = None,
+                 antimalware: Optional[pulumi.Input[Union['ConfigurationAntimalwareArgs', 'ConfigurationAntimalwareArgsDict']]] = None,
                  automation_account_enabled: Optional[pulumi.Input[bool]] = None,
-                 azure_security_baseline: Optional[pulumi.Input[pulumi.InputType['ConfigurationAzureSecurityBaselineArgs']]] = None,
-                 backup: Optional[pulumi.Input[pulumi.InputType['ConfigurationBackupArgs']]] = None,
+                 azure_security_baseline: Optional[pulumi.Input[Union['ConfigurationAzureSecurityBaselineArgs', 'ConfigurationAzureSecurityBaselineArgsDict']]] = None,
+                 backup: Optional[pulumi.Input[Union['ConfigurationBackupArgs', 'ConfigurationBackupArgsDict']]] = None,
                  boot_diagnostics_enabled: Optional[pulumi.Input[bool]] = None,
                  defender_for_cloud_enabled: Optional[pulumi.Input[bool]] = None,
                  guest_configuration_enabled: Optional[pulumi.Input[bool]] = None,
@@ -471,53 +471,53 @@ class Configuration(pulumi.CustomResource):
             name="example-acmp",
             resource_group_name=example.name,
             location=example.location,
-            antimalware=azure.automanage.ConfigurationAntimalwareArgs(
-                exclusions=azure.automanage.ConfigurationAntimalwareExclusionsArgs(
-                    extensions="exe;dll",
-                    paths="C:\\\\Windows\\\\Temp;D:\\\\Temp",
-                    processes="svchost.exe;notepad.exe",
-                ),
-                real_time_protection_enabled=True,
-                scheduled_scan_enabled=True,
-                scheduled_scan_type="Quick",
-                scheduled_scan_day=1,
-                scheduled_scan_time_in_minutes=1339,
-            ),
-            azure_security_baseline=azure.automanage.ConfigurationAzureSecurityBaselineArgs(
-                assignment_type="ApplyAndAutoCorrect",
-            ),
+            antimalware={
+                "exclusions": {
+                    "extensions": "exe;dll",
+                    "paths": "C:\\\\Windows\\\\Temp;D:\\\\Temp",
+                    "processes": "svchost.exe;notepad.exe",
+                },
+                "realTimeProtectionEnabled": True,
+                "scheduledScanEnabled": True,
+                "scheduledScanType": "Quick",
+                "scheduledScanDay": 1,
+                "scheduledScanTimeInMinutes": 1339,
+            },
+            azure_security_baseline={
+                "assignmentType": "ApplyAndAutoCorrect",
+            },
             automation_account_enabled=True,
-            backup=azure.automanage.ConfigurationBackupArgs(
-                policy_name="acctest-backup-policy-%d",
-                time_zone="UTC",
-                instant_rp_retention_range_in_days=2,
-                schedule_policy=azure.automanage.ConfigurationBackupSchedulePolicyArgs(
-                    schedule_run_frequency="Daily",
-                    schedule_run_days=[
+            backup={
+                "policyName": "acctest-backup-policy-%d",
+                "timeZone": "UTC",
+                "instantRpRetentionRangeInDays": 2,
+                "schedulePolicy": {
+                    "scheduleRunFrequency": "Daily",
+                    "scheduleRunDays": [
                         "Monday",
                         "Tuesday",
                     ],
-                    schedule_run_times=["12:00"],
-                    schedule_policy_type="SimpleSchedulePolicy",
-                ),
-                retention_policy=azure.automanage.ConfigurationBackupRetentionPolicyArgs(
-                    retention_policy_type="LongTermRetentionPolicy",
-                    daily_schedule=azure.automanage.ConfigurationBackupRetentionPolicyDailyScheduleArgs(
-                        retention_times=["12:00"],
-                        retention_duration=azure.automanage.ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs(
-                            count=7,
-                            duration_type="Days",
-                        ),
-                    ),
-                    weekly_schedule=azure.automanage.ConfigurationBackupRetentionPolicyWeeklyScheduleArgs(
-                        retention_times=["14:00"],
-                        retention_duration=azure.automanage.ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs(
-                            count=4,
-                            duration_type="Weeks",
-                        ),
-                    ),
-                ),
-            ),
+                    "scheduleRunTimes": ["12:00"],
+                    "schedulePolicyType": "SimpleSchedulePolicy",
+                },
+                "retentionPolicy": {
+                    "retentionPolicyType": "LongTermRetentionPolicy",
+                    "dailySchedule": {
+                        "retentionTimes": ["12:00"],
+                        "retentionDuration": {
+                            "count": 7,
+                            "durationType": "Days",
+                        },
+                    },
+                    "weeklySchedule": {
+                        "retentionTimes": ["14:00"],
+                        "retentionDuration": {
+                            "count": 4,
+                            "durationType": "Weeks",
+                        },
+                    },
+                },
+            },
             boot_diagnostics_enabled=True,
             defender_for_cloud_enabled=True,
             guest_configuration_enabled=True,
@@ -538,10 +538,10 @@ class Configuration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ConfigurationAntimalwareArgs']] antimalware: A `antimalware` block as defined below.
+        :param pulumi.Input[Union['ConfigurationAntimalwareArgs', 'ConfigurationAntimalwareArgsDict']] antimalware: A `antimalware` block as defined below.
         :param pulumi.Input[bool] automation_account_enabled: Whether the automation account is enabled. Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['ConfigurationAzureSecurityBaselineArgs']] azure_security_baseline: A `azure_security_baseline` block as defined below.
-        :param pulumi.Input[pulumi.InputType['ConfigurationBackupArgs']] backup: A `backup` block as defined below.
+        :param pulumi.Input[Union['ConfigurationAzureSecurityBaselineArgs', 'ConfigurationAzureSecurityBaselineArgsDict']] azure_security_baseline: A `azure_security_baseline` block as defined below.
+        :param pulumi.Input[Union['ConfigurationBackupArgs', 'ConfigurationBackupArgsDict']] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] boot_diagnostics_enabled: Whether the boot diagnostics are enabled. Defaults to `false`.
         :param pulumi.Input[bool] defender_for_cloud_enabled: Whether the defender for cloud is enabled. Defaults to `false`.
         :param pulumi.Input[bool] guest_configuration_enabled: Whether the guest configuration is enabled. Defaults to `false`.
@@ -573,53 +573,53 @@ class Configuration(pulumi.CustomResource):
             name="example-acmp",
             resource_group_name=example.name,
             location=example.location,
-            antimalware=azure.automanage.ConfigurationAntimalwareArgs(
-                exclusions=azure.automanage.ConfigurationAntimalwareExclusionsArgs(
-                    extensions="exe;dll",
-                    paths="C:\\\\Windows\\\\Temp;D:\\\\Temp",
-                    processes="svchost.exe;notepad.exe",
-                ),
-                real_time_protection_enabled=True,
-                scheduled_scan_enabled=True,
-                scheduled_scan_type="Quick",
-                scheduled_scan_day=1,
-                scheduled_scan_time_in_minutes=1339,
-            ),
-            azure_security_baseline=azure.automanage.ConfigurationAzureSecurityBaselineArgs(
-                assignment_type="ApplyAndAutoCorrect",
-            ),
+            antimalware={
+                "exclusions": {
+                    "extensions": "exe;dll",
+                    "paths": "C:\\\\Windows\\\\Temp;D:\\\\Temp",
+                    "processes": "svchost.exe;notepad.exe",
+                },
+                "realTimeProtectionEnabled": True,
+                "scheduledScanEnabled": True,
+                "scheduledScanType": "Quick",
+                "scheduledScanDay": 1,
+                "scheduledScanTimeInMinutes": 1339,
+            },
+            azure_security_baseline={
+                "assignmentType": "ApplyAndAutoCorrect",
+            },
             automation_account_enabled=True,
-            backup=azure.automanage.ConfigurationBackupArgs(
-                policy_name="acctest-backup-policy-%d",
-                time_zone="UTC",
-                instant_rp_retention_range_in_days=2,
-                schedule_policy=azure.automanage.ConfigurationBackupSchedulePolicyArgs(
-                    schedule_run_frequency="Daily",
-                    schedule_run_days=[
+            backup={
+                "policyName": "acctest-backup-policy-%d",
+                "timeZone": "UTC",
+                "instantRpRetentionRangeInDays": 2,
+                "schedulePolicy": {
+                    "scheduleRunFrequency": "Daily",
+                    "scheduleRunDays": [
                         "Monday",
                         "Tuesday",
                     ],
-                    schedule_run_times=["12:00"],
-                    schedule_policy_type="SimpleSchedulePolicy",
-                ),
-                retention_policy=azure.automanage.ConfigurationBackupRetentionPolicyArgs(
-                    retention_policy_type="LongTermRetentionPolicy",
-                    daily_schedule=azure.automanage.ConfigurationBackupRetentionPolicyDailyScheduleArgs(
-                        retention_times=["12:00"],
-                        retention_duration=azure.automanage.ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs(
-                            count=7,
-                            duration_type="Days",
-                        ),
-                    ),
-                    weekly_schedule=azure.automanage.ConfigurationBackupRetentionPolicyWeeklyScheduleArgs(
-                        retention_times=["14:00"],
-                        retention_duration=azure.automanage.ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs(
-                            count=4,
-                            duration_type="Weeks",
-                        ),
-                    ),
-                ),
-            ),
+                    "scheduleRunTimes": ["12:00"],
+                    "schedulePolicyType": "SimpleSchedulePolicy",
+                },
+                "retentionPolicy": {
+                    "retentionPolicyType": "LongTermRetentionPolicy",
+                    "dailySchedule": {
+                        "retentionTimes": ["12:00"],
+                        "retentionDuration": {
+                            "count": 7,
+                            "durationType": "Days",
+                        },
+                    },
+                    "weeklySchedule": {
+                        "retentionTimes": ["14:00"],
+                        "retentionDuration": {
+                            "count": 4,
+                            "durationType": "Weeks",
+                        },
+                    },
+                },
+            },
             boot_diagnostics_enabled=True,
             defender_for_cloud_enabled=True,
             guest_configuration_enabled=True,
@@ -653,10 +653,10 @@ class Configuration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 antimalware: Optional[pulumi.Input[pulumi.InputType['ConfigurationAntimalwareArgs']]] = None,
+                 antimalware: Optional[pulumi.Input[Union['ConfigurationAntimalwareArgs', 'ConfigurationAntimalwareArgsDict']]] = None,
                  automation_account_enabled: Optional[pulumi.Input[bool]] = None,
-                 azure_security_baseline: Optional[pulumi.Input[pulumi.InputType['ConfigurationAzureSecurityBaselineArgs']]] = None,
-                 backup: Optional[pulumi.Input[pulumi.InputType['ConfigurationBackupArgs']]] = None,
+                 azure_security_baseline: Optional[pulumi.Input[Union['ConfigurationAzureSecurityBaselineArgs', 'ConfigurationAzureSecurityBaselineArgsDict']]] = None,
+                 backup: Optional[pulumi.Input[Union['ConfigurationBackupArgs', 'ConfigurationBackupArgsDict']]] = None,
                  boot_diagnostics_enabled: Optional[pulumi.Input[bool]] = None,
                  defender_for_cloud_enabled: Optional[pulumi.Input[bool]] = None,
                  guest_configuration_enabled: Optional[pulumi.Input[bool]] = None,
@@ -700,10 +700,10 @@ class Configuration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            antimalware: Optional[pulumi.Input[pulumi.InputType['ConfigurationAntimalwareArgs']]] = None,
+            antimalware: Optional[pulumi.Input[Union['ConfigurationAntimalwareArgs', 'ConfigurationAntimalwareArgsDict']]] = None,
             automation_account_enabled: Optional[pulumi.Input[bool]] = None,
-            azure_security_baseline: Optional[pulumi.Input[pulumi.InputType['ConfigurationAzureSecurityBaselineArgs']]] = None,
-            backup: Optional[pulumi.Input[pulumi.InputType['ConfigurationBackupArgs']]] = None,
+            azure_security_baseline: Optional[pulumi.Input[Union['ConfigurationAzureSecurityBaselineArgs', 'ConfigurationAzureSecurityBaselineArgsDict']]] = None,
+            backup: Optional[pulumi.Input[Union['ConfigurationBackupArgs', 'ConfigurationBackupArgsDict']]] = None,
             boot_diagnostics_enabled: Optional[pulumi.Input[bool]] = None,
             defender_for_cloud_enabled: Optional[pulumi.Input[bool]] = None,
             guest_configuration_enabled: Optional[pulumi.Input[bool]] = None,
@@ -720,10 +720,10 @@ class Configuration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ConfigurationAntimalwareArgs']] antimalware: A `antimalware` block as defined below.
+        :param pulumi.Input[Union['ConfigurationAntimalwareArgs', 'ConfigurationAntimalwareArgsDict']] antimalware: A `antimalware` block as defined below.
         :param pulumi.Input[bool] automation_account_enabled: Whether the automation account is enabled. Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['ConfigurationAzureSecurityBaselineArgs']] azure_security_baseline: A `azure_security_baseline` block as defined below.
-        :param pulumi.Input[pulumi.InputType['ConfigurationBackupArgs']] backup: A `backup` block as defined below.
+        :param pulumi.Input[Union['ConfigurationAzureSecurityBaselineArgs', 'ConfigurationAzureSecurityBaselineArgsDict']] azure_security_baseline: A `azure_security_baseline` block as defined below.
+        :param pulumi.Input[Union['ConfigurationBackupArgs', 'ConfigurationBackupArgsDict']] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] boot_diagnostics_enabled: Whether the boot diagnostics are enabled. Defaults to `false`.
         :param pulumi.Input[bool] defender_for_cloud_enabled: Whether the defender for cloud is enabled. Defaults to `false`.
         :param pulumi.Input[bool] guest_configuration_enabled: Whether the guest configuration is enabled. Defaults to `false`.

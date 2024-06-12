@@ -971,17 +971,17 @@ class FlexibleServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_password: Optional[pulumi.Input[str]] = None,
-                 authentication: Optional[pulumi.Input[pulumi.InputType['FlexibleServerAuthenticationArgs']]] = None,
+                 authentication: Optional[pulumi.Input[Union['FlexibleServerAuthenticationArgs', 'FlexibleServerAuthenticationArgsDict']]] = None,
                  auto_grow_enabled: Optional[pulumi.Input[bool]] = None,
                  backup_retention_days: Optional[pulumi.Input[int]] = None,
                  create_mode: Optional[pulumi.Input[str]] = None,
-                 customer_managed_key: Optional[pulumi.Input[pulumi.InputType['FlexibleServerCustomerManagedKeyArgs']]] = None,
+                 customer_managed_key: Optional[pulumi.Input[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict']]] = None,
                  delegated_subnet_id: Optional[pulumi.Input[str]] = None,
                  geo_redundant_backup_enabled: Optional[pulumi.Input[bool]] = None,
-                 high_availability: Optional[pulumi.Input[pulumi.InputType['FlexibleServerHighAvailabilityArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['FlexibleServerIdentityArgs']]] = None,
+                 high_availability: Optional[pulumi.Input[Union['FlexibleServerHighAvailabilityArgs', 'FlexibleServerHighAvailabilityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['FlexibleServerIdentityArgs', 'FlexibleServerIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 maintenance_window: Optional[pulumi.Input[pulumi.InputType['FlexibleServerMaintenanceWindowArgs']]] = None,
+                 maintenance_window: Optional[pulumi.Input[Union['FlexibleServerMaintenanceWindowArgs', 'FlexibleServerMaintenanceWindowArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  point_in_time_restore_time_in_utc: Optional[pulumi.Input[str]] = None,
                  private_dns_zone_id: Optional[pulumi.Input[str]] = None,
@@ -1019,13 +1019,13 @@ class FlexibleServer(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
             service_endpoints=["Microsoft.Storage"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="fs",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.DBforPostgreSQL/flexibleServers",
-                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
-                ),
-            )])
+            delegations=[{
+                "name": "fs",
+                "serviceDelegation": {
+                    "name": "Microsoft.DBforPostgreSQL/flexibleServers",
+                    "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
+                },
+            }])
         example_zone = azure.privatedns.Zone("example",
             name="example.postgres.database.azure.com",
             resource_group_name=example.name)
@@ -1089,7 +1089,7 @@ class FlexibleServer(pulumi.CustomResource):
                
                > **Note:** To create with `administrator_login` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
         :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
-        :param pulumi.Input[pulumi.InputType['FlexibleServerAuthenticationArgs']] authentication: An `authentication` block as defined below.
+        :param pulumi.Input[Union['FlexibleServerAuthenticationArgs', 'FlexibleServerAuthenticationArgsDict']] authentication: An `authentication` block as defined below.
         :param pulumi.Input[bool] auto_grow_enabled: Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
         :param pulumi.Input[int] backup_retention_days: The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
         :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -1097,13 +1097,13 @@ class FlexibleServer(pulumi.CustomResource):
                > **Note:** `create_mode` cannot be changed once it's set since it's a parameter at creation.
                
                > **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
-        :param pulumi.Input[pulumi.InputType['FlexibleServerCustomerManagedKeyArgs']] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict']] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] delegated_subnet_id: The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[bool] geo_redundant_backup_enabled: Is Geo-Redundant backup enabled on the PostgreSQL Flexible Server. Defaults to `false`. Changing this forces a new PostgreSQL Flexible Server to be created.
-        :param pulumi.Input[pulumi.InputType['FlexibleServerHighAvailabilityArgs']] high_availability: A `high_availability` block as defined below.
-        :param pulumi.Input[pulumi.InputType['FlexibleServerIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['FlexibleServerHighAvailabilityArgs', 'FlexibleServerHighAvailabilityArgsDict']] high_availability: A `high_availability` block as defined below.
+        :param pulumi.Input[Union['FlexibleServerIdentityArgs', 'FlexibleServerIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
-        :param pulumi.Input[pulumi.InputType['FlexibleServerMaintenanceWindowArgs']] maintenance_window: A `maintenance_window` block as defined below.
+        :param pulumi.Input[Union['FlexibleServerMaintenanceWindowArgs', 'FlexibleServerMaintenanceWindowArgsDict']] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
                
                > **Note** This must be unique across the entire Azure service, not just within the resource group.
@@ -1162,13 +1162,13 @@ class FlexibleServer(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
             service_endpoints=["Microsoft.Storage"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="fs",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.DBforPostgreSQL/flexibleServers",
-                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
-                ),
-            )])
+            delegations=[{
+                "name": "fs",
+                "serviceDelegation": {
+                    "name": "Microsoft.DBforPostgreSQL/flexibleServers",
+                    "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
+                },
+            }])
         example_zone = azure.privatedns.Zone("example",
             name="example.postgres.database.azure.com",
             resource_group_name=example.name)
@@ -1241,17 +1241,17 @@ class FlexibleServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_password: Optional[pulumi.Input[str]] = None,
-                 authentication: Optional[pulumi.Input[pulumi.InputType['FlexibleServerAuthenticationArgs']]] = None,
+                 authentication: Optional[pulumi.Input[Union['FlexibleServerAuthenticationArgs', 'FlexibleServerAuthenticationArgsDict']]] = None,
                  auto_grow_enabled: Optional[pulumi.Input[bool]] = None,
                  backup_retention_days: Optional[pulumi.Input[int]] = None,
                  create_mode: Optional[pulumi.Input[str]] = None,
-                 customer_managed_key: Optional[pulumi.Input[pulumi.InputType['FlexibleServerCustomerManagedKeyArgs']]] = None,
+                 customer_managed_key: Optional[pulumi.Input[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict']]] = None,
                  delegated_subnet_id: Optional[pulumi.Input[str]] = None,
                  geo_redundant_backup_enabled: Optional[pulumi.Input[bool]] = None,
-                 high_availability: Optional[pulumi.Input[pulumi.InputType['FlexibleServerHighAvailabilityArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['FlexibleServerIdentityArgs']]] = None,
+                 high_availability: Optional[pulumi.Input[Union['FlexibleServerHighAvailabilityArgs', 'FlexibleServerHighAvailabilityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['FlexibleServerIdentityArgs', 'FlexibleServerIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 maintenance_window: Optional[pulumi.Input[pulumi.InputType['FlexibleServerMaintenanceWindowArgs']]] = None,
+                 maintenance_window: Optional[pulumi.Input[Union['FlexibleServerMaintenanceWindowArgs', 'FlexibleServerMaintenanceWindowArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  point_in_time_restore_time_in_utc: Optional[pulumi.Input[str]] = None,
                  private_dns_zone_id: Optional[pulumi.Input[str]] = None,
@@ -1317,18 +1317,18 @@ class FlexibleServer(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             administrator_login: Optional[pulumi.Input[str]] = None,
             administrator_password: Optional[pulumi.Input[str]] = None,
-            authentication: Optional[pulumi.Input[pulumi.InputType['FlexibleServerAuthenticationArgs']]] = None,
+            authentication: Optional[pulumi.Input[Union['FlexibleServerAuthenticationArgs', 'FlexibleServerAuthenticationArgsDict']]] = None,
             auto_grow_enabled: Optional[pulumi.Input[bool]] = None,
             backup_retention_days: Optional[pulumi.Input[int]] = None,
             create_mode: Optional[pulumi.Input[str]] = None,
-            customer_managed_key: Optional[pulumi.Input[pulumi.InputType['FlexibleServerCustomerManagedKeyArgs']]] = None,
+            customer_managed_key: Optional[pulumi.Input[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict']]] = None,
             delegated_subnet_id: Optional[pulumi.Input[str]] = None,
             fqdn: Optional[pulumi.Input[str]] = None,
             geo_redundant_backup_enabled: Optional[pulumi.Input[bool]] = None,
-            high_availability: Optional[pulumi.Input[pulumi.InputType['FlexibleServerHighAvailabilityArgs']]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['FlexibleServerIdentityArgs']]] = None,
+            high_availability: Optional[pulumi.Input[Union['FlexibleServerHighAvailabilityArgs', 'FlexibleServerHighAvailabilityArgsDict']]] = None,
+            identity: Optional[pulumi.Input[Union['FlexibleServerIdentityArgs', 'FlexibleServerIdentityArgsDict']]] = None,
             location: Optional[pulumi.Input[str]] = None,
-            maintenance_window: Optional[pulumi.Input[pulumi.InputType['FlexibleServerMaintenanceWindowArgs']]] = None,
+            maintenance_window: Optional[pulumi.Input[Union['FlexibleServerMaintenanceWindowArgs', 'FlexibleServerMaintenanceWindowArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             point_in_time_restore_time_in_utc: Optional[pulumi.Input[str]] = None,
             private_dns_zone_id: Optional[pulumi.Input[str]] = None,
@@ -1355,7 +1355,7 @@ class FlexibleServer(pulumi.CustomResource):
                
                > **Note:** To create with `administrator_login` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
         :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
-        :param pulumi.Input[pulumi.InputType['FlexibleServerAuthenticationArgs']] authentication: An `authentication` block as defined below.
+        :param pulumi.Input[Union['FlexibleServerAuthenticationArgs', 'FlexibleServerAuthenticationArgsDict']] authentication: An `authentication` block as defined below.
         :param pulumi.Input[bool] auto_grow_enabled: Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
         :param pulumi.Input[int] backup_retention_days: The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
         :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -1363,14 +1363,14 @@ class FlexibleServer(pulumi.CustomResource):
                > **Note:** `create_mode` cannot be changed once it's set since it's a parameter at creation.
                
                > **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
-        :param pulumi.Input[pulumi.InputType['FlexibleServerCustomerManagedKeyArgs']] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict']] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] delegated_subnet_id: The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] fqdn: The FQDN of the PostgreSQL Flexible Server.
         :param pulumi.Input[bool] geo_redundant_backup_enabled: Is Geo-Redundant backup enabled on the PostgreSQL Flexible Server. Defaults to `false`. Changing this forces a new PostgreSQL Flexible Server to be created.
-        :param pulumi.Input[pulumi.InputType['FlexibleServerHighAvailabilityArgs']] high_availability: A `high_availability` block as defined below.
-        :param pulumi.Input[pulumi.InputType['FlexibleServerIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['FlexibleServerHighAvailabilityArgs', 'FlexibleServerHighAvailabilityArgsDict']] high_availability: A `high_availability` block as defined below.
+        :param pulumi.Input[Union['FlexibleServerIdentityArgs', 'FlexibleServerIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
-        :param pulumi.Input[pulumi.InputType['FlexibleServerMaintenanceWindowArgs']] maintenance_window: A `maintenance_window` block as defined below.
+        :param pulumi.Input[Union['FlexibleServerMaintenanceWindowArgs', 'FlexibleServerMaintenanceWindowArgsDict']] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
                
                > **Note** This must be unique across the entire Azure service, not just within the resource group.

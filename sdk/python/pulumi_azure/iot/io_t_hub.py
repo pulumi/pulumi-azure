@@ -692,23 +692,23 @@ class IoTHub(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud_to_device: Optional[pulumi.Input[pulumi.InputType['IoTHubCloudToDeviceArgs']]] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEndpointArgs']]]]] = None,
-                 enrichments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEnrichmentArgs']]]]] = None,
+                 cloud_to_device: Optional[pulumi.Input[Union['IoTHubCloudToDeviceArgs', 'IoTHubCloudToDeviceArgsDict']]] = None,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IoTHubEndpointArgs', 'IoTHubEndpointArgsDict']]]]] = None,
+                 enrichments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IoTHubEnrichmentArgs', 'IoTHubEnrichmentArgsDict']]]]] = None,
                  event_hub_partition_count: Optional[pulumi.Input[int]] = None,
                  event_hub_retention_in_days: Optional[pulumi.Input[int]] = None,
-                 fallback_route: Optional[pulumi.Input[pulumi.InputType['IoTHubFallbackRouteArgs']]] = None,
-                 file_upload: Optional[pulumi.Input[pulumi.InputType['IoTHubFileUploadArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IoTHubIdentityArgs']]] = None,
+                 fallback_route: Optional[pulumi.Input[Union['IoTHubFallbackRouteArgs', 'IoTHubFallbackRouteArgsDict']]] = None,
+                 file_upload: Optional[pulumi.Input[Union['IoTHubFileUploadArgs', 'IoTHubFileUploadArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['IoTHubIdentityArgs', 'IoTHubIdentityArgsDict']]] = None,
                  local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  min_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubNetworkRuleSetArgs']]]]] = None,
+                 network_rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IoTHubNetworkRuleSetArgs', 'IoTHubNetworkRuleSetArgsDict']]]]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubRouteArgs']]]]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['IoTHubSkuArgs']]] = None,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IoTHubRouteArgs', 'IoTHubRouteArgsDict']]]]] = None,
+                 sku: Optional[pulumi.Input[Union['IoTHubSkuArgs', 'IoTHubSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -765,60 +765,60 @@ class IoTHub(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             local_authentication_enabled=False,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ),
+            sku={
+                "name": "S1",
+                "capacity": 1,
+            },
             endpoints=[
-                azure.iot.IoTHubEndpointArgs(
-                    type="AzureIotHub.StorageContainer",
-                    connection_string=example_account.primary_blob_connection_string,
-                    name="export",
-                    batch_frequency_in_seconds=60,
-                    max_chunk_size_in_bytes=10485760,
-                    container_name=example_container.name,
-                    encoding="Avro",
-                    file_name_format="{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}",
-                ),
-                azure.iot.IoTHubEndpointArgs(
-                    type="AzureIotHub.EventHub",
-                    connection_string=example_authorization_rule.primary_connection_string,
-                    name="export2",
-                ),
+                {
+                    "type": "AzureIotHub.StorageContainer",
+                    "connectionString": example_account.primary_blob_connection_string,
+                    "name": "export",
+                    "batchFrequencyInSeconds": 60,
+                    "maxChunkSizeInBytes": 10485760,
+                    "containerName": example_container.name,
+                    "encoding": "Avro",
+                    "fileNameFormat": "{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}",
+                },
+                {
+                    "type": "AzureIotHub.EventHub",
+                    "connectionString": example_authorization_rule.primary_connection_string,
+                    "name": "export2",
+                },
             ],
             routes=[
-                azure.iot.IoTHubRouteArgs(
-                    name="export",
-                    source="DeviceMessages",
-                    condition="true",
-                    endpoint_names=["export"],
-                    enabled=True,
-                ),
-                azure.iot.IoTHubRouteArgs(
-                    name="export2",
-                    source="DeviceMessages",
-                    condition="true",
-                    endpoint_names=["export2"],
-                    enabled=True,
-                ),
+                {
+                    "name": "export",
+                    "source": "DeviceMessages",
+                    "condition": "true",
+                    "endpointNames": ["export"],
+                    "enabled": True,
+                },
+                {
+                    "name": "export2",
+                    "source": "DeviceMessages",
+                    "condition": "true",
+                    "endpointNames": ["export2"],
+                    "enabled": True,
+                },
             ],
-            enrichments=[azure.iot.IoTHubEnrichmentArgs(
-                key="tenant",
-                value="$twin.tags.Tenant",
-                endpoint_names=[
+            enrichments=[{
+                "key": "tenant",
+                "value": "$twin.tags.Tenant",
+                "endpointNames": [
                     "export",
                     "export2",
                 ],
-            )],
-            cloud_to_device=azure.iot.IoTHubCloudToDeviceArgs(
-                max_delivery_count=30,
-                default_ttl="PT1H",
-                feedbacks=[azure.iot.IoTHubCloudToDeviceFeedbackArgs(
-                    time_to_live="PT1H10M",
-                    max_delivery_count=15,
-                    lock_duration="PT30S",
-                )],
-            ),
+            }],
+            cloud_to_device={
+                "maxDeliveryCount": 30,
+                "defaultTtl": "PT1H",
+                "feedbacks": [{
+                    "timeToLive": "PT1H10M",
+                    "maxDeliveryCount": 15,
+                    "lockDuration": "PT30S",
+                }],
+            },
             tags={
                 "purpose": "testing",
             })
@@ -834,20 +834,20 @@ class IoTHub(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEndpointArgs']]]] endpoints: An `endpoint` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IoTHubEndpointArgs', 'IoTHubEndpointArgsDict']]]] endpoints: An `endpoint` block as defined below.
         :param pulumi.Input[int] event_hub_partition_count: The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
         :param pulumi.Input[int] event_hub_retention_in_days: The event hub retention to use in days. Must be between `1` and `7`.
-        :param pulumi.Input[pulumi.InputType['IoTHubFallbackRouteArgs']] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+        :param pulumi.Input[Union['IoTHubFallbackRouteArgs', 'IoTHubFallbackRouteArgsDict']] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
                
                > **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
-        :param pulumi.Input[pulumi.InputType['IoTHubFileUploadArgs']] file_upload: A `file_upload` block as defined below.
-        :param pulumi.Input[pulumi.InputType['IoTHubIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['IoTHubFileUploadArgs', 'IoTHubFileUploadArgsDict']] file_upload: A `file_upload` block as defined below.
+        :param pulumi.Input[Union['IoTHubIdentityArgs', 'IoTHubIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_authentication_enabled: If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubNetworkRuleSetArgs']]]] network_rule_sets: A `network_rule_set` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IoTHubNetworkRuleSetArgs', 'IoTHubNetworkRuleSetArgsDict']]]] network_rule_sets: A `network_rule_set` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['IoTHubSkuArgs']] sku: A `sku` block as defined below.
+        :param pulumi.Input[Union['IoTHubSkuArgs', 'IoTHubSkuArgsDict']] sku: A `sku` block as defined below.
         """
         ...
     @overload
@@ -909,60 +909,60 @@ class IoTHub(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             local_authentication_enabled=False,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ),
+            sku={
+                "name": "S1",
+                "capacity": 1,
+            },
             endpoints=[
-                azure.iot.IoTHubEndpointArgs(
-                    type="AzureIotHub.StorageContainer",
-                    connection_string=example_account.primary_blob_connection_string,
-                    name="export",
-                    batch_frequency_in_seconds=60,
-                    max_chunk_size_in_bytes=10485760,
-                    container_name=example_container.name,
-                    encoding="Avro",
-                    file_name_format="{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}",
-                ),
-                azure.iot.IoTHubEndpointArgs(
-                    type="AzureIotHub.EventHub",
-                    connection_string=example_authorization_rule.primary_connection_string,
-                    name="export2",
-                ),
+                {
+                    "type": "AzureIotHub.StorageContainer",
+                    "connectionString": example_account.primary_blob_connection_string,
+                    "name": "export",
+                    "batchFrequencyInSeconds": 60,
+                    "maxChunkSizeInBytes": 10485760,
+                    "containerName": example_container.name,
+                    "encoding": "Avro",
+                    "fileNameFormat": "{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}",
+                },
+                {
+                    "type": "AzureIotHub.EventHub",
+                    "connectionString": example_authorization_rule.primary_connection_string,
+                    "name": "export2",
+                },
             ],
             routes=[
-                azure.iot.IoTHubRouteArgs(
-                    name="export",
-                    source="DeviceMessages",
-                    condition="true",
-                    endpoint_names=["export"],
-                    enabled=True,
-                ),
-                azure.iot.IoTHubRouteArgs(
-                    name="export2",
-                    source="DeviceMessages",
-                    condition="true",
-                    endpoint_names=["export2"],
-                    enabled=True,
-                ),
+                {
+                    "name": "export",
+                    "source": "DeviceMessages",
+                    "condition": "true",
+                    "endpointNames": ["export"],
+                    "enabled": True,
+                },
+                {
+                    "name": "export2",
+                    "source": "DeviceMessages",
+                    "condition": "true",
+                    "endpointNames": ["export2"],
+                    "enabled": True,
+                },
             ],
-            enrichments=[azure.iot.IoTHubEnrichmentArgs(
-                key="tenant",
-                value="$twin.tags.Tenant",
-                endpoint_names=[
+            enrichments=[{
+                "key": "tenant",
+                "value": "$twin.tags.Tenant",
+                "endpointNames": [
                     "export",
                     "export2",
                 ],
-            )],
-            cloud_to_device=azure.iot.IoTHubCloudToDeviceArgs(
-                max_delivery_count=30,
-                default_ttl="PT1H",
-                feedbacks=[azure.iot.IoTHubCloudToDeviceFeedbackArgs(
-                    time_to_live="PT1H10M",
-                    max_delivery_count=15,
-                    lock_duration="PT30S",
-                )],
-            ),
+            }],
+            cloud_to_device={
+                "maxDeliveryCount": 30,
+                "defaultTtl": "PT1H",
+                "feedbacks": [{
+                    "timeToLive": "PT1H10M",
+                    "maxDeliveryCount": 15,
+                    "lockDuration": "PT30S",
+                }],
+            },
             tags={
                 "purpose": "testing",
             })
@@ -991,23 +991,23 @@ class IoTHub(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud_to_device: Optional[pulumi.Input[pulumi.InputType['IoTHubCloudToDeviceArgs']]] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEndpointArgs']]]]] = None,
-                 enrichments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEnrichmentArgs']]]]] = None,
+                 cloud_to_device: Optional[pulumi.Input[Union['IoTHubCloudToDeviceArgs', 'IoTHubCloudToDeviceArgsDict']]] = None,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IoTHubEndpointArgs', 'IoTHubEndpointArgsDict']]]]] = None,
+                 enrichments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IoTHubEnrichmentArgs', 'IoTHubEnrichmentArgsDict']]]]] = None,
                  event_hub_partition_count: Optional[pulumi.Input[int]] = None,
                  event_hub_retention_in_days: Optional[pulumi.Input[int]] = None,
-                 fallback_route: Optional[pulumi.Input[pulumi.InputType['IoTHubFallbackRouteArgs']]] = None,
-                 file_upload: Optional[pulumi.Input[pulumi.InputType['IoTHubFileUploadArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IoTHubIdentityArgs']]] = None,
+                 fallback_route: Optional[pulumi.Input[Union['IoTHubFallbackRouteArgs', 'IoTHubFallbackRouteArgsDict']]] = None,
+                 file_upload: Optional[pulumi.Input[Union['IoTHubFileUploadArgs', 'IoTHubFileUploadArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['IoTHubIdentityArgs', 'IoTHubIdentityArgsDict']]] = None,
                  local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  min_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubNetworkRuleSetArgs']]]]] = None,
+                 network_rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IoTHubNetworkRuleSetArgs', 'IoTHubNetworkRuleSetArgsDict']]]]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubRouteArgs']]]]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['IoTHubSkuArgs']]] = None,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IoTHubRouteArgs', 'IoTHubRouteArgsDict']]]]] = None,
+                 sku: Optional[pulumi.Input[Union['IoTHubSkuArgs', 'IoTHubSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1058,9 +1058,9 @@ class IoTHub(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cloud_to_device: Optional[pulumi.Input[pulumi.InputType['IoTHubCloudToDeviceArgs']]] = None,
-            endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEndpointArgs']]]]] = None,
-            enrichments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEnrichmentArgs']]]]] = None,
+            cloud_to_device: Optional[pulumi.Input[Union['IoTHubCloudToDeviceArgs', 'IoTHubCloudToDeviceArgsDict']]] = None,
+            endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IoTHubEndpointArgs', 'IoTHubEndpointArgsDict']]]]] = None,
+            enrichments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IoTHubEnrichmentArgs', 'IoTHubEnrichmentArgsDict']]]]] = None,
             event_hub_events_endpoint: Optional[pulumi.Input[str]] = None,
             event_hub_events_namespace: Optional[pulumi.Input[str]] = None,
             event_hub_events_path: Optional[pulumi.Input[str]] = None,
@@ -1068,20 +1068,20 @@ class IoTHub(pulumi.CustomResource):
             event_hub_operations_path: Optional[pulumi.Input[str]] = None,
             event_hub_partition_count: Optional[pulumi.Input[int]] = None,
             event_hub_retention_in_days: Optional[pulumi.Input[int]] = None,
-            fallback_route: Optional[pulumi.Input[pulumi.InputType['IoTHubFallbackRouteArgs']]] = None,
-            file_upload: Optional[pulumi.Input[pulumi.InputType['IoTHubFileUploadArgs']]] = None,
+            fallback_route: Optional[pulumi.Input[Union['IoTHubFallbackRouteArgs', 'IoTHubFallbackRouteArgsDict']]] = None,
+            file_upload: Optional[pulumi.Input[Union['IoTHubFileUploadArgs', 'IoTHubFileUploadArgsDict']]] = None,
             hostname: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['IoTHubIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[Union['IoTHubIdentityArgs', 'IoTHubIdentityArgsDict']]] = None,
             local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             min_tls_version: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            network_rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubNetworkRuleSetArgs']]]]] = None,
+            network_rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IoTHubNetworkRuleSetArgs', 'IoTHubNetworkRuleSetArgsDict']]]]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubRouteArgs']]]]] = None,
-            shared_access_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubSharedAccessPolicyArgs']]]]] = None,
-            sku: Optional[pulumi.Input[pulumi.InputType['IoTHubSkuArgs']]] = None,
+            routes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IoTHubRouteArgs', 'IoTHubRouteArgsDict']]]]] = None,
+            shared_access_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IoTHubSharedAccessPolicyArgs', 'IoTHubSharedAccessPolicyArgsDict']]]]] = None,
+            sku: Optional[pulumi.Input[Union['IoTHubSkuArgs', 'IoTHubSkuArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'IoTHub':
         """
@@ -1091,7 +1091,7 @@ class IoTHub(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEndpointArgs']]]] endpoints: An `endpoint` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IoTHubEndpointArgs', 'IoTHubEndpointArgsDict']]]] endpoints: An `endpoint` block as defined below.
         :param pulumi.Input[str] event_hub_events_endpoint: The EventHub compatible endpoint for events data
         :param pulumi.Input[str] event_hub_events_namespace: The EventHub namespace for events data
         :param pulumi.Input[str] event_hub_events_path: The EventHub compatible path for events data
@@ -1099,19 +1099,19 @@ class IoTHub(pulumi.CustomResource):
         :param pulumi.Input[str] event_hub_operations_path: The EventHub compatible path for operational data
         :param pulumi.Input[int] event_hub_partition_count: The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
         :param pulumi.Input[int] event_hub_retention_in_days: The event hub retention to use in days. Must be between `1` and `7`.
-        :param pulumi.Input[pulumi.InputType['IoTHubFallbackRouteArgs']] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+        :param pulumi.Input[Union['IoTHubFallbackRouteArgs', 'IoTHubFallbackRouteArgsDict']] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
                
                > **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
-        :param pulumi.Input[pulumi.InputType['IoTHubFileUploadArgs']] file_upload: A `file_upload` block as defined below.
+        :param pulumi.Input[Union['IoTHubFileUploadArgs', 'IoTHubFileUploadArgsDict']] file_upload: A `file_upload` block as defined below.
         :param pulumi.Input[str] hostname: The hostname of the IotHub Resource.
-        :param pulumi.Input[pulumi.InputType['IoTHubIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['IoTHubIdentityArgs', 'IoTHubIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_authentication_enabled: If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubNetworkRuleSetArgs']]]] network_rule_sets: A `network_rule_set` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IoTHubNetworkRuleSetArgs', 'IoTHubNetworkRuleSetArgsDict']]]] network_rule_sets: A `network_rule_set` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubSharedAccessPolicyArgs']]]] shared_access_policies: One or more `shared_access_policy` blocks as defined below.
-        :param pulumi.Input[pulumi.InputType['IoTHubSkuArgs']] sku: A `sku` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IoTHubSharedAccessPolicyArgs', 'IoTHubSharedAccessPolicyArgsDict']]]] shared_access_policies: One or more `shared_access_policy` blocks as defined below.
+        :param pulumi.Input[Union['IoTHubSkuArgs', 'IoTHubSkuArgsDict']] sku: A `sku` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

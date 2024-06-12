@@ -139,11 +139,11 @@ class WebAppActiveSlot(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example_service_plan.location,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.WindowsWebAppSiteConfigArgs())
+            site_config={})
         example_windows_web_app_slot = azure.appservice.WindowsWebAppSlot("example",
             name="example-windows-web-app-slot",
             app_service_id=example_windows_web_app.name,
-            site_config=azure.appservice.WindowsWebAppSlotSiteConfigArgs())
+            site_config={})
         example_web_app_active_slot = azure.appservice.WebAppActiveSlot("example", slot_id=example_windows_web_app_slot.id)
         ```
 
@@ -191,11 +191,11 @@ class WebAppActiveSlot(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example_service_plan.location,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.WindowsWebAppSiteConfigArgs())
+            site_config={})
         example_windows_web_app_slot = azure.appservice.WindowsWebAppSlot("example",
             name="example-windows-web-app-slot",
             app_service_id=example_windows_web_app.name,
-            site_config=azure.appservice.WindowsWebAppSlotSiteConfigArgs())
+            site_config={})
         example_web_app_active_slot = azure.appservice.WebAppActiveSlot("example", slot_id=example_windows_web_app_slot.id)
         ```
 

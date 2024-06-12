@@ -259,9 +259,9 @@ class TagRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  activity_log_enabled: Optional[pulumi.Input[bool]] = None,
                  azure_active_directory_log_enabled: Optional[pulumi.Input[bool]] = None,
-                 log_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagRuleLogTagFilterArgs']]]]] = None,
+                 log_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TagRuleLogTagFilterArgs', 'TagRuleLogTagFilterArgsDict']]]]] = None,
                  metric_enabled: Optional[pulumi.Input[bool]] = None,
-                 metric_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagRuleMetricTagFilterArgs']]]]] = None,
+                 metric_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TagRuleMetricTagFilterArgs', 'TagRuleMetricTagFilterArgsDict']]]]] = None,
                  monitor_id: Optional[pulumi.Input[str]] = None,
                  subscription_log_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -281,31 +281,31 @@ class TagRule(pulumi.CustomResource):
             name="example-nrm",
             resource_group_name=example.name,
             location=example.location,
-            plan=azure.newrelic.MonitorPlanArgs(
-                effective_date="2023-06-06T00:00:00Z",
-            ),
-            user=azure.newrelic.MonitorUserArgs(
-                email="user@example.com",
-                first_name="Example",
-                last_name="User",
-                phone_number="+12313803556",
-            ))
+            plan={
+                "effectiveDate": "2023-06-06T00:00:00Z",
+            },
+            user={
+                "email": "user@example.com",
+                "firstName": "Example",
+                "lastName": "User",
+                "phoneNumber": "+12313803556",
+            })
         example_tag_rule = azure.newrelic.TagRule("example",
             monitor_id=example_monitor.id,
             azure_active_directory_log_enabled=True,
             activity_log_enabled=True,
             metric_enabled=True,
             subscription_log_enabled=True,
-            log_tag_filters=[azure.newrelic.TagRuleLogTagFilterArgs(
-                name="key",
-                action="Include",
-                value="value",
-            )],
-            metric_tag_filters=[azure.newrelic.TagRuleMetricTagFilterArgs(
-                name="key",
-                action="Exclude",
-                value="value",
-            )])
+            log_tag_filters=[{
+                "name": "key",
+                "action": "Include",
+                "value": "value",
+            }],
+            metric_tag_filters=[{
+                "name": "key",
+                "action": "Exclude",
+                "value": "value",
+            }])
         ```
 
         ## Import
@@ -320,9 +320,9 @@ class TagRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] activity_log_enabled: Whether activity logs from Azure resources should be sent for the Monitor resource. Defaults to `false`.
         :param pulumi.Input[bool] azure_active_directory_log_enabled: Whether Azure Active Directory logs should be sent for the Monitor resource. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagRuleLogTagFilterArgs']]]] log_tag_filters: A `log_tag_filter` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TagRuleLogTagFilterArgs', 'TagRuleLogTagFilterArgsDict']]]] log_tag_filters: A `log_tag_filter` block as defined below.
         :param pulumi.Input[bool] metric_enabled: Whether metrics should be sent for the Monitor resource. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagRuleMetricTagFilterArgs']]]] metric_tag_filters: A `metric_tag_filter` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TagRuleMetricTagFilterArgs', 'TagRuleMetricTagFilterArgsDict']]]] metric_tag_filters: A `metric_tag_filter` block as defined below.
         :param pulumi.Input[str] monitor_id: Specifies the ID of the New Relic Monitor this Tag Rule should be created within. Changing this forces a new Azure Native New Relic Tag Rule to be created.
         :param pulumi.Input[bool] subscription_log_enabled: Whether subscription logs should be sent for the Monitor resource. Defaults to `false`.
         """
@@ -348,31 +348,31 @@ class TagRule(pulumi.CustomResource):
             name="example-nrm",
             resource_group_name=example.name,
             location=example.location,
-            plan=azure.newrelic.MonitorPlanArgs(
-                effective_date="2023-06-06T00:00:00Z",
-            ),
-            user=azure.newrelic.MonitorUserArgs(
-                email="user@example.com",
-                first_name="Example",
-                last_name="User",
-                phone_number="+12313803556",
-            ))
+            plan={
+                "effectiveDate": "2023-06-06T00:00:00Z",
+            },
+            user={
+                "email": "user@example.com",
+                "firstName": "Example",
+                "lastName": "User",
+                "phoneNumber": "+12313803556",
+            })
         example_tag_rule = azure.newrelic.TagRule("example",
             monitor_id=example_monitor.id,
             azure_active_directory_log_enabled=True,
             activity_log_enabled=True,
             metric_enabled=True,
             subscription_log_enabled=True,
-            log_tag_filters=[azure.newrelic.TagRuleLogTagFilterArgs(
-                name="key",
-                action="Include",
-                value="value",
-            )],
-            metric_tag_filters=[azure.newrelic.TagRuleMetricTagFilterArgs(
-                name="key",
-                action="Exclude",
-                value="value",
-            )])
+            log_tag_filters=[{
+                "name": "key",
+                "action": "Include",
+                "value": "value",
+            }],
+            metric_tag_filters=[{
+                "name": "key",
+                "action": "Exclude",
+                "value": "value",
+            }])
         ```
 
         ## Import
@@ -400,9 +400,9 @@ class TagRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  activity_log_enabled: Optional[pulumi.Input[bool]] = None,
                  azure_active_directory_log_enabled: Optional[pulumi.Input[bool]] = None,
-                 log_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagRuleLogTagFilterArgs']]]]] = None,
+                 log_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TagRuleLogTagFilterArgs', 'TagRuleLogTagFilterArgsDict']]]]] = None,
                  metric_enabled: Optional[pulumi.Input[bool]] = None,
-                 metric_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagRuleMetricTagFilterArgs']]]]] = None,
+                 metric_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TagRuleMetricTagFilterArgs', 'TagRuleMetricTagFilterArgsDict']]]]] = None,
                  monitor_id: Optional[pulumi.Input[str]] = None,
                  subscription_log_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -435,9 +435,9 @@ class TagRule(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             activity_log_enabled: Optional[pulumi.Input[bool]] = None,
             azure_active_directory_log_enabled: Optional[pulumi.Input[bool]] = None,
-            log_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagRuleLogTagFilterArgs']]]]] = None,
+            log_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TagRuleLogTagFilterArgs', 'TagRuleLogTagFilterArgsDict']]]]] = None,
             metric_enabled: Optional[pulumi.Input[bool]] = None,
-            metric_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagRuleMetricTagFilterArgs']]]]] = None,
+            metric_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TagRuleMetricTagFilterArgs', 'TagRuleMetricTagFilterArgsDict']]]]] = None,
             monitor_id: Optional[pulumi.Input[str]] = None,
             subscription_log_enabled: Optional[pulumi.Input[bool]] = None) -> 'TagRule':
         """
@@ -449,9 +449,9 @@ class TagRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] activity_log_enabled: Whether activity logs from Azure resources should be sent for the Monitor resource. Defaults to `false`.
         :param pulumi.Input[bool] azure_active_directory_log_enabled: Whether Azure Active Directory logs should be sent for the Monitor resource. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagRuleLogTagFilterArgs']]]] log_tag_filters: A `log_tag_filter` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TagRuleLogTagFilterArgs', 'TagRuleLogTagFilterArgsDict']]]] log_tag_filters: A `log_tag_filter` block as defined below.
         :param pulumi.Input[bool] metric_enabled: Whether metrics should be sent for the Monitor resource. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagRuleMetricTagFilterArgs']]]] metric_tag_filters: A `metric_tag_filter` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TagRuleMetricTagFilterArgs', 'TagRuleMetricTagFilterArgsDict']]]] metric_tag_filters: A `metric_tag_filter` block as defined below.
         :param pulumi.Input[str] monitor_id: Specifies the ID of the New Relic Monitor this Tag Rule should be created within. Changing this forces a new Azure Native New Relic Tag Rule to be created.
         :param pulumi.Input[bool] subscription_log_enabled: Whether subscription logs should be sent for the Monitor resource. Defaults to `false`.
         """

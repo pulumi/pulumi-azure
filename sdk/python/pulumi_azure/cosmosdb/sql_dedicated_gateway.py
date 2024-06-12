@@ -147,13 +147,13 @@ class SqlDedicatedGateway(pulumi.CustomResource):
             resource_group_name=example.name,
             offer_type="Standard",
             kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="BoundedStaleness",
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example.location,
-                failover_priority=0,
-            )])
+            consistency_policy={
+                "consistencyLevel": "BoundedStaleness",
+            },
+            geo_locations=[{
+                "location": example.location,
+                "failoverPriority": 0,
+            }])
         example_sql_dedicated_gateway = azure.cosmosdb.SqlDedicatedGateway("example",
             cosmosdb_account_id=example_account.id,
             instance_count=1,
@@ -198,13 +198,13 @@ class SqlDedicatedGateway(pulumi.CustomResource):
             resource_group_name=example.name,
             offer_type="Standard",
             kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="BoundedStaleness",
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example.location,
-                failover_priority=0,
-            )])
+            consistency_policy={
+                "consistencyLevel": "BoundedStaleness",
+            },
+            geo_locations=[{
+                "location": example.location,
+                "failoverPriority": 0,
+            }])
         example_sql_dedicated_gateway = azure.cosmosdb.SqlDedicatedGateway("example",
             cosmosdb_account_id=example_account.id,
             instance_count=1,

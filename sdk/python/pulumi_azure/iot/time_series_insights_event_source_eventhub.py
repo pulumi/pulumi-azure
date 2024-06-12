@@ -437,10 +437,10 @@ class TimeSeriesInsightsEventSourceEventhub(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="L1",
             id_properties=["id"],
-            storage=azure.iot.TimeSeriesInsightsGen2EnvironmentStorageArgs(
-                name=example_account.name,
-                key=example_account.primary_access_key,
-            ))
+            storage={
+                "name": example_account.name,
+                "key": example_account.primary_access_key,
+            })
         example_time_series_insights_event_source_eventhub = azure.iot.TimeSeriesInsightsEventSourceEventhub("example",
             name="example",
             location=example.location,
@@ -529,10 +529,10 @@ class TimeSeriesInsightsEventSourceEventhub(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="L1",
             id_properties=["id"],
-            storage=azure.iot.TimeSeriesInsightsGen2EnvironmentStorageArgs(
-                name=example_account.name,
-                key=example_account.primary_access_key,
-            ))
+            storage={
+                "name": example_account.name,
+                "key": example_account.primary_access_key,
+            })
         example_time_series_insights_event_source_eventhub = azure.iot.TimeSeriesInsightsEventSourceEventhub("example",
             name="example",
             location=example.location,

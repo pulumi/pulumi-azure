@@ -279,10 +279,10 @@ class Script(pulumi.CustomResource):
             name="example",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Dev(No SLA)_Standard_D11_v2",
-                capacity=1,
-            ))
+            sku={
+                "name": "Dev(No SLA)_Standard_D11_v2",
+                "capacity": 1,
+            })
         example_database = azure.kusto.Database("example",
             name="example",
             resource_group_name=example_resource_group.name,
@@ -309,14 +309,14 @@ class Script(pulumi.CustomResource):
             https_only=True,
             start="2017-03-21",
             expiry="2022-03-21",
-            permissions=azure.storage.GetAccountBlobContainerSASPermissionsArgs(
-                read=True,
-                add=False,
-                create=False,
-                write=True,
-                delete=False,
-                list=True,
-            ))
+            permissions={
+                "read": True,
+                "add": False,
+                "create": False,
+                "write": True,
+                "delete": False,
+                "list": True,
+            })
         example_script = azure.kusto.Script("example",
             name="example",
             database_id=example_database.id,
@@ -366,10 +366,10 @@ class Script(pulumi.CustomResource):
             name="example",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Dev(No SLA)_Standard_D11_v2",
-                capacity=1,
-            ))
+            sku={
+                "name": "Dev(No SLA)_Standard_D11_v2",
+                "capacity": 1,
+            })
         example_database = azure.kusto.Database("example",
             name="example",
             resource_group_name=example_resource_group.name,
@@ -396,14 +396,14 @@ class Script(pulumi.CustomResource):
             https_only=True,
             start="2017-03-21",
             expiry="2022-03-21",
-            permissions=azure.storage.GetAccountBlobContainerSASPermissionsArgs(
-                read=True,
-                add=False,
-                create=False,
-                write=True,
-                delete=False,
-                list=True,
-            ))
+            permissions={
+                "read": True,
+                "add": False,
+                "create": False,
+                "write": True,
+                "delete": False,
+                "list": True,
+            })
         example_script = azure.kusto.Script("example",
             name="example",
             database_id=example_database.id,

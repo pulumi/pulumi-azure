@@ -312,7 +312,7 @@ class SpringCloudApiPortal(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
-                 sso: Optional[pulumi.Input[pulumi.InputType['SpringCloudApiPortalSsoArgs']]] = None,
+                 sso: Optional[pulumi.Input[Union['SpringCloudApiPortalSsoArgs', 'SpringCloudApiPortalSsoArgsDict']]] = None,
                  __props__=None):
         """
         Manages a Spring Cloud API Portal.
@@ -344,12 +344,12 @@ class SpringCloudApiPortal(pulumi.CustomResource):
             public_network_access_enabled=True,
             instance_count=1,
             api_try_out_enabled=True,
-            sso=azure.appplatform.SpringCloudApiPortalSsoArgs(
-                client_id="test",
-                client_secret="secret",
-                issuer_uri="https://www.example.com/issueToken",
-                scopes=["read"],
-            ))
+            sso={
+                "clientId": "test",
+                "clientSecret": "secret",
+                "issuerUri": "https://www.example.com/issueToken",
+                "scopes": ["read"],
+            })
         ```
 
         ## Import
@@ -369,7 +369,7 @@ class SpringCloudApiPortal(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created. The only possible value is `default`.
         :param pulumi.Input[bool] public_network_access_enabled: Is the public network access enabled?
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud API Portal to be created.
-        :param pulumi.Input[pulumi.InputType['SpringCloudApiPortalSsoArgs']] sso: A `sso` block as defined below.
+        :param pulumi.Input[Union['SpringCloudApiPortalSsoArgs', 'SpringCloudApiPortalSsoArgsDict']] sso: A `sso` block as defined below.
         """
         ...
     @overload
@@ -407,12 +407,12 @@ class SpringCloudApiPortal(pulumi.CustomResource):
             public_network_access_enabled=True,
             instance_count=1,
             api_try_out_enabled=True,
-            sso=azure.appplatform.SpringCloudApiPortalSsoArgs(
-                client_id="test",
-                client_secret="secret",
-                issuer_uri="https://www.example.com/issueToken",
-                scopes=["read"],
-            ))
+            sso={
+                "clientId": "test",
+                "clientSecret": "secret",
+                "issuerUri": "https://www.example.com/issueToken",
+                "scopes": ["read"],
+            })
         ```
 
         ## Import
@@ -445,7 +445,7 @@ class SpringCloudApiPortal(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
-                 sso: Optional[pulumi.Input[pulumi.InputType['SpringCloudApiPortalSsoArgs']]] = None,
+                 sso: Optional[pulumi.Input[Union['SpringCloudApiPortalSsoArgs', 'SpringCloudApiPortalSsoArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -483,7 +483,7 @@ class SpringCloudApiPortal(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
-            sso: Optional[pulumi.Input[pulumi.InputType['SpringCloudApiPortalSsoArgs']]] = None,
+            sso: Optional[pulumi.Input[Union['SpringCloudApiPortalSsoArgs', 'SpringCloudApiPortalSsoArgsDict']]] = None,
             url: Optional[pulumi.Input[str]] = None) -> 'SpringCloudApiPortal':
         """
         Get an existing SpringCloudApiPortal resource's state with the given name, id, and optional extra
@@ -499,7 +499,7 @@ class SpringCloudApiPortal(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created. The only possible value is `default`.
         :param pulumi.Input[bool] public_network_access_enabled: Is the public network access enabled?
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud API Portal to be created.
-        :param pulumi.Input[pulumi.InputType['SpringCloudApiPortalSsoArgs']] sso: A `sso` block as defined below.
+        :param pulumi.Input[Union['SpringCloudApiPortalSsoArgs', 'SpringCloudApiPortalSsoArgsDict']] sso: A `sso` block as defined below.
         :param pulumi.Input[str] url: TODO.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

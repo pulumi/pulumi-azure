@@ -415,16 +415,16 @@ class Backend(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['BackendCredentialsArgs']]] = None,
+                 credentials: Optional[pulumi.Input[Union['BackendCredentialsArgs', 'BackendCredentialsArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
-                 proxy: Optional[pulumi.Input[pulumi.InputType['BackendProxyArgs']]] = None,
+                 proxy: Optional[pulumi.Input[Union['BackendProxyArgs', 'BackendProxyArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
-                 service_fabric_cluster: Optional[pulumi.Input[pulumi.InputType['BackendServiceFabricClusterArgs']]] = None,
+                 service_fabric_cluster: Optional[pulumi.Input[Union['BackendServiceFabricClusterArgs', 'BackendServiceFabricClusterArgsDict']]] = None,
                  title: Optional[pulumi.Input[str]] = None,
-                 tls: Optional[pulumi.Input[pulumi.InputType['BackendTlsArgs']]] = None,
+                 tls: Optional[pulumi.Input[Union['BackendTlsArgs', 'BackendTlsArgsDict']]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -465,16 +465,16 @@ class Backend(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['BackendCredentialsArgs']] credentials: A `credentials` block as documented below.
+        :param pulumi.Input[Union['BackendCredentialsArgs', 'BackendCredentialsArgsDict']] credentials: A `credentials` block as documented below.
         :param pulumi.Input[str] description: The description of the backend.
         :param pulumi.Input[str] name: The name of the API Management backend. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protocol: The protocol used by the backend host. Possible values are `http` or `soap`.
-        :param pulumi.Input[pulumi.InputType['BackendProxyArgs']] proxy: A `proxy` block as documented below.
+        :param pulumi.Input[Union['BackendProxyArgs', 'BackendProxyArgsDict']] proxy: A `proxy` block as documented below.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_id: The management URI of the backend host in an external system. This URI can be the ARM Resource ID of Logic Apps, Function Apps or API Apps, or the management endpoint of a Service Fabric cluster.
-        :param pulumi.Input[pulumi.InputType['BackendServiceFabricClusterArgs']] service_fabric_cluster: A `service_fabric_cluster` block as documented below.
+        :param pulumi.Input[Union['BackendServiceFabricClusterArgs', 'BackendServiceFabricClusterArgsDict']] service_fabric_cluster: A `service_fabric_cluster` block as documented below.
         :param pulumi.Input[str] title: The title of the backend.
-        :param pulumi.Input[pulumi.InputType['BackendTlsArgs']] tls: A `tls` block as documented below.
+        :param pulumi.Input[Union['BackendTlsArgs', 'BackendTlsArgsDict']] tls: A `tls` block as documented below.
         :param pulumi.Input[str] url: The URL of the backend host.
         """
         ...
@@ -534,16 +534,16 @@ class Backend(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['BackendCredentialsArgs']]] = None,
+                 credentials: Optional[pulumi.Input[Union['BackendCredentialsArgs', 'BackendCredentialsArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
-                 proxy: Optional[pulumi.Input[pulumi.InputType['BackendProxyArgs']]] = None,
+                 proxy: Optional[pulumi.Input[Union['BackendProxyArgs', 'BackendProxyArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
-                 service_fabric_cluster: Optional[pulumi.Input[pulumi.InputType['BackendServiceFabricClusterArgs']]] = None,
+                 service_fabric_cluster: Optional[pulumi.Input[Union['BackendServiceFabricClusterArgs', 'BackendServiceFabricClusterArgsDict']]] = None,
                  title: Optional[pulumi.Input[str]] = None,
-                 tls: Optional[pulumi.Input[pulumi.InputType['BackendTlsArgs']]] = None,
+                 tls: Optional[pulumi.Input[Union['BackendTlsArgs', 'BackendTlsArgsDict']]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -585,16 +585,16 @@ class Backend(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             api_management_name: Optional[pulumi.Input[str]] = None,
-            credentials: Optional[pulumi.Input[pulumi.InputType['BackendCredentialsArgs']]] = None,
+            credentials: Optional[pulumi.Input[Union['BackendCredentialsArgs', 'BackendCredentialsArgsDict']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             protocol: Optional[pulumi.Input[str]] = None,
-            proxy: Optional[pulumi.Input[pulumi.InputType['BackendProxyArgs']]] = None,
+            proxy: Optional[pulumi.Input[Union['BackendProxyArgs', 'BackendProxyArgsDict']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             resource_id: Optional[pulumi.Input[str]] = None,
-            service_fabric_cluster: Optional[pulumi.Input[pulumi.InputType['BackendServiceFabricClusterArgs']]] = None,
+            service_fabric_cluster: Optional[pulumi.Input[Union['BackendServiceFabricClusterArgs', 'BackendServiceFabricClusterArgsDict']]] = None,
             title: Optional[pulumi.Input[str]] = None,
-            tls: Optional[pulumi.Input[pulumi.InputType['BackendTlsArgs']]] = None,
+            tls: Optional[pulumi.Input[Union['BackendTlsArgs', 'BackendTlsArgsDict']]] = None,
             url: Optional[pulumi.Input[str]] = None) -> 'Backend':
         """
         Get an existing Backend resource's state with the given name, id, and optional extra
@@ -604,16 +604,16 @@ class Backend(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['BackendCredentialsArgs']] credentials: A `credentials` block as documented below.
+        :param pulumi.Input[Union['BackendCredentialsArgs', 'BackendCredentialsArgsDict']] credentials: A `credentials` block as documented below.
         :param pulumi.Input[str] description: The description of the backend.
         :param pulumi.Input[str] name: The name of the API Management backend. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protocol: The protocol used by the backend host. Possible values are `http` or `soap`.
-        :param pulumi.Input[pulumi.InputType['BackendProxyArgs']] proxy: A `proxy` block as documented below.
+        :param pulumi.Input[Union['BackendProxyArgs', 'BackendProxyArgsDict']] proxy: A `proxy` block as documented below.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_id: The management URI of the backend host in an external system. This URI can be the ARM Resource ID of Logic Apps, Function Apps or API Apps, or the management endpoint of a Service Fabric cluster.
-        :param pulumi.Input[pulumi.InputType['BackendServiceFabricClusterArgs']] service_fabric_cluster: A `service_fabric_cluster` block as documented below.
+        :param pulumi.Input[Union['BackendServiceFabricClusterArgs', 'BackendServiceFabricClusterArgsDict']] service_fabric_cluster: A `service_fabric_cluster` block as documented below.
         :param pulumi.Input[str] title: The title of the backend.
-        :param pulumi.Input[pulumi.InputType['BackendTlsArgs']] tls: A `tls` block as documented below.
+        :param pulumi.Input[Union['BackendTlsArgs', 'BackendTlsArgsDict']] tls: A `tls` block as documented below.
         :param pulumi.Input[str] url: The URL of the backend host.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

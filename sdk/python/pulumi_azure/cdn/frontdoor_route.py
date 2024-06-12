@@ -501,7 +501,7 @@ class FrontdoorRoute(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache: Optional[pulumi.Input[pulumi.InputType['FrontdoorRouteCacheArgs']]] = None,
+                 cache: Optional[pulumi.Input[Union['FrontdoorRouteCacheArgs', 'FrontdoorRouteCacheArgsDict']]] = None,
                  cdn_frontdoor_custom_domain_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cdn_frontdoor_endpoint_id: Optional[pulumi.Input[str]] = None,
                  cdn_frontdoor_origin_group_id: Optional[pulumi.Input[str]] = None,
@@ -539,11 +539,11 @@ class FrontdoorRoute(pulumi.CustomResource):
         example_frontdoor_origin_group = azure.cdn.FrontdoorOriginGroup("example",
             name="example-originGroup",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
-            load_balancing=azure.cdn.FrontdoorOriginGroupLoadBalancingArgs(
-                additional_latency_in_milliseconds=0,
-                sample_size=16,
-                successful_samples_required=3,
-            ))
+            load_balancing={
+                "additionalLatencyInMilliseconds": 0,
+                "sampleSize": 16,
+                "successfulSamplesRequired": 3,
+            })
         example_frontdoor_origin = azure.cdn.FrontdoorOrigin("example",
             name="example-origin",
             cdn_frontdoor_origin_group_id=example_frontdoor_origin_group.id,
@@ -570,10 +570,10 @@ class FrontdoorRoute(pulumi.CustomResource):
                     "contoso",
                     example_zone.name,
                 ]).apply(lambda invoke: invoke.result),
-            tls=azure.cdn.FrontdoorCustomDomainTlsArgs(
-                certificate_type="ManagedCertificate",
-                minimum_tls_version="TLS12",
-            ))
+            tls={
+                "certificateType": "ManagedCertificate",
+                "minimumTlsVersion": "TLS12",
+            })
         fabrikam = azure.cdn.FrontdoorCustomDomain("fabrikam",
             name="fabrikam-custom-domain",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
@@ -583,10 +583,10 @@ class FrontdoorRoute(pulumi.CustomResource):
                     "fabrikam",
                     example_zone.name,
                 ]).apply(lambda invoke: invoke.result),
-            tls=azure.cdn.FrontdoorCustomDomainTlsArgs(
-                certificate_type="ManagedCertificate",
-                minimum_tls_version="TLS12",
-            ))
+            tls={
+                "certificateType": "ManagedCertificate",
+                "minimumTlsVersion": "TLS12",
+            })
         example_frontdoor_route = azure.cdn.FrontdoorRoute("example",
             name="example-route",
             cdn_frontdoor_endpoint_id=example_frontdoor_endpoint.id,
@@ -606,19 +606,19 @@ class FrontdoorRoute(pulumi.CustomResource):
                 fabrikam.id,
             ],
             link_to_default_domain=False,
-            cache=azure.cdn.FrontdoorRouteCacheArgs(
-                query_string_caching_behavior="IgnoreSpecifiedQueryStrings",
-                query_strings=[
+            cache={
+                "queryStringCachingBehavior": "IgnoreSpecifiedQueryStrings",
+                "queryStrings": [
                     "account",
                     "settings",
                 ],
-                compression_enabled=True,
-                content_types_to_compresses=[
+                "compressionEnabled": True,
+                "contentTypesToCompresses": [
                     "text/html",
                     "text/javascript",
                     "text/xml",
                 ],
-            ))
+            })
         contoso_frontdoor_custom_domain_association = azure.cdn.FrontdoorCustomDomainAssociation("contoso",
             cdn_frontdoor_custom_domain_id=contoso.id,
             cdn_frontdoor_route_ids=[example_frontdoor_route.id])
@@ -637,7 +637,7 @@ class FrontdoorRoute(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['FrontdoorRouteCacheArgs']] cache: A `cache` block as defined below.
+        :param pulumi.Input[Union['FrontdoorRouteCacheArgs', 'FrontdoorRouteCacheArgsDict']] cache: A `cache` block as defined below.
                
                > **NOTE:** To disable caching, do not provide the `cache` block in the configuration file.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cdn_frontdoor_custom_domain_ids: The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
@@ -687,11 +687,11 @@ class FrontdoorRoute(pulumi.CustomResource):
         example_frontdoor_origin_group = azure.cdn.FrontdoorOriginGroup("example",
             name="example-originGroup",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
-            load_balancing=azure.cdn.FrontdoorOriginGroupLoadBalancingArgs(
-                additional_latency_in_milliseconds=0,
-                sample_size=16,
-                successful_samples_required=3,
-            ))
+            load_balancing={
+                "additionalLatencyInMilliseconds": 0,
+                "sampleSize": 16,
+                "successfulSamplesRequired": 3,
+            })
         example_frontdoor_origin = azure.cdn.FrontdoorOrigin("example",
             name="example-origin",
             cdn_frontdoor_origin_group_id=example_frontdoor_origin_group.id,
@@ -718,10 +718,10 @@ class FrontdoorRoute(pulumi.CustomResource):
                     "contoso",
                     example_zone.name,
                 ]).apply(lambda invoke: invoke.result),
-            tls=azure.cdn.FrontdoorCustomDomainTlsArgs(
-                certificate_type="ManagedCertificate",
-                minimum_tls_version="TLS12",
-            ))
+            tls={
+                "certificateType": "ManagedCertificate",
+                "minimumTlsVersion": "TLS12",
+            })
         fabrikam = azure.cdn.FrontdoorCustomDomain("fabrikam",
             name="fabrikam-custom-domain",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
@@ -731,10 +731,10 @@ class FrontdoorRoute(pulumi.CustomResource):
                     "fabrikam",
                     example_zone.name,
                 ]).apply(lambda invoke: invoke.result),
-            tls=azure.cdn.FrontdoorCustomDomainTlsArgs(
-                certificate_type="ManagedCertificate",
-                minimum_tls_version="TLS12",
-            ))
+            tls={
+                "certificateType": "ManagedCertificate",
+                "minimumTlsVersion": "TLS12",
+            })
         example_frontdoor_route = azure.cdn.FrontdoorRoute("example",
             name="example-route",
             cdn_frontdoor_endpoint_id=example_frontdoor_endpoint.id,
@@ -754,19 +754,19 @@ class FrontdoorRoute(pulumi.CustomResource):
                 fabrikam.id,
             ],
             link_to_default_domain=False,
-            cache=azure.cdn.FrontdoorRouteCacheArgs(
-                query_string_caching_behavior="IgnoreSpecifiedQueryStrings",
-                query_strings=[
+            cache={
+                "queryStringCachingBehavior": "IgnoreSpecifiedQueryStrings",
+                "queryStrings": [
                     "account",
                     "settings",
                 ],
-                compression_enabled=True,
-                content_types_to_compresses=[
+                "compressionEnabled": True,
+                "contentTypesToCompresses": [
                     "text/html",
                     "text/javascript",
                     "text/xml",
                 ],
-            ))
+            })
         contoso_frontdoor_custom_domain_association = azure.cdn.FrontdoorCustomDomainAssociation("contoso",
             cdn_frontdoor_custom_domain_id=contoso.id,
             cdn_frontdoor_route_ids=[example_frontdoor_route.id])
@@ -798,7 +798,7 @@ class FrontdoorRoute(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache: Optional[pulumi.Input[pulumi.InputType['FrontdoorRouteCacheArgs']]] = None,
+                 cache: Optional[pulumi.Input[Union['FrontdoorRouteCacheArgs', 'FrontdoorRouteCacheArgsDict']]] = None,
                  cdn_frontdoor_custom_domain_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cdn_frontdoor_endpoint_id: Optional[pulumi.Input[str]] = None,
                  cdn_frontdoor_origin_group_id: Optional[pulumi.Input[str]] = None,
@@ -855,7 +855,7 @@ class FrontdoorRoute(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cache: Optional[pulumi.Input[pulumi.InputType['FrontdoorRouteCacheArgs']]] = None,
+            cache: Optional[pulumi.Input[Union['FrontdoorRouteCacheArgs', 'FrontdoorRouteCacheArgsDict']]] = None,
             cdn_frontdoor_custom_domain_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             cdn_frontdoor_endpoint_id: Optional[pulumi.Input[str]] = None,
             cdn_frontdoor_origin_group_id: Optional[pulumi.Input[str]] = None,
@@ -876,7 +876,7 @@ class FrontdoorRoute(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['FrontdoorRouteCacheArgs']] cache: A `cache` block as defined below.
+        :param pulumi.Input[Union['FrontdoorRouteCacheArgs', 'FrontdoorRouteCacheArgsDict']] cache: A `cache` block as defined below.
                
                > **NOTE:** To disable caching, do not provide the `cache` block in the configuration file.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cdn_frontdoor_custom_domain_ids: The IDs of the Front Door Custom Domains which are associated with this Front Door Route.

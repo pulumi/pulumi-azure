@@ -242,9 +242,9 @@ class ActiveRoleAssignment(pulumi.CustomResource):
                  justification: Optional[pulumi.Input[str]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
                  role_definition_id: Optional[pulumi.Input[str]] = None,
-                 schedule: Optional[pulumi.Input[pulumi.InputType['ActiveRoleAssignmentScheduleArgs']]] = None,
+                 schedule: Optional[pulumi.Input[Union['ActiveRoleAssignmentScheduleArgs', 'ActiveRoleAssignmentScheduleArgsDict']]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 ticket: Optional[pulumi.Input[pulumi.InputType['ActiveRoleAssignmentTicketArgs']]] = None,
+                 ticket: Optional[pulumi.Input[Union['ActiveRoleAssignmentTicketArgs', 'ActiveRoleAssignmentTicketArgsDict']]] = None,
                  __props__=None):
         """
         Manages a PIM Active Role Assignment.
@@ -266,17 +266,17 @@ class ActiveRoleAssignment(pulumi.CustomResource):
             scope=primary.id,
             role_definition_id=f"{primary.id}{example_get_role_definition.id}",
             principal_id=example.object_id,
-            schedule=azure.pim.ActiveRoleAssignmentScheduleArgs(
-                start_date_time=example_static.rfc3339,
-                expiration=azure.pim.ActiveRoleAssignmentScheduleExpirationArgs(
-                    duration_hours=8,
-                ),
-            ),
+            schedule={
+                "startDateTime": example_static.rfc3339,
+                "expiration": {
+                    "durationHours": 8,
+                },
+            },
             justification="Expiration Duration Set",
-            ticket=azure.pim.ActiveRoleAssignmentTicketArgs(
-                number="1",
-                system="example ticket system",
-            ))
+            ticket={
+                "number": "1",
+                "system": "example ticket system",
+            })
         ```
 
         ### Management Group)
@@ -294,17 +294,17 @@ class ActiveRoleAssignment(pulumi.CustomResource):
             scope=example_group.id,
             role_definition_id=example_get_role_definition.id,
             principal_id=example.object_id,
-            schedule=azure.pim.ActiveRoleAssignmentScheduleArgs(
-                start_date_time=example_static.rfc3339,
-                expiration=azure.pim.ActiveRoleAssignmentScheduleExpirationArgs(
-                    duration_hours=8,
-                ),
-            ),
+            schedule={
+                "startDateTime": example_static.rfc3339,
+                "expiration": {
+                    "durationHours": 8,
+                },
+            },
             justification="Expiration Duration Set",
-            ticket=azure.pim.ActiveRoleAssignmentTicketArgs(
-                number="1",
-                system="example ticket system",
-            ))
+            ticket={
+                "number": "1",
+                "system": "example ticket system",
+            })
         ```
 
         ## Import
@@ -320,9 +320,9 @@ class ActiveRoleAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] justification: The justification for the role assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] principal_id: Object ID of the principal for this role assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] role_definition_id: The role definition ID for this role assignment. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ActiveRoleAssignmentScheduleArgs']] schedule: A `schedule` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['ActiveRoleAssignmentScheduleArgs', 'ActiveRoleAssignmentScheduleArgsDict']] schedule: A `schedule` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scope: The scope for this role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ActiveRoleAssignmentTicketArgs']] ticket: A `ticket` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['ActiveRoleAssignmentTicketArgs', 'ActiveRoleAssignmentTicketArgsDict']] ticket: A `ticket` block as defined below. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -350,17 +350,17 @@ class ActiveRoleAssignment(pulumi.CustomResource):
             scope=primary.id,
             role_definition_id=f"{primary.id}{example_get_role_definition.id}",
             principal_id=example.object_id,
-            schedule=azure.pim.ActiveRoleAssignmentScheduleArgs(
-                start_date_time=example_static.rfc3339,
-                expiration=azure.pim.ActiveRoleAssignmentScheduleExpirationArgs(
-                    duration_hours=8,
-                ),
-            ),
+            schedule={
+                "startDateTime": example_static.rfc3339,
+                "expiration": {
+                    "durationHours": 8,
+                },
+            },
             justification="Expiration Duration Set",
-            ticket=azure.pim.ActiveRoleAssignmentTicketArgs(
-                number="1",
-                system="example ticket system",
-            ))
+            ticket={
+                "number": "1",
+                "system": "example ticket system",
+            })
         ```
 
         ### Management Group)
@@ -378,17 +378,17 @@ class ActiveRoleAssignment(pulumi.CustomResource):
             scope=example_group.id,
             role_definition_id=example_get_role_definition.id,
             principal_id=example.object_id,
-            schedule=azure.pim.ActiveRoleAssignmentScheduleArgs(
-                start_date_time=example_static.rfc3339,
-                expiration=azure.pim.ActiveRoleAssignmentScheduleExpirationArgs(
-                    duration_hours=8,
-                ),
-            ),
+            schedule={
+                "startDateTime": example_static.rfc3339,
+                "expiration": {
+                    "durationHours": 8,
+                },
+            },
             justification="Expiration Duration Set",
-            ticket=azure.pim.ActiveRoleAssignmentTicketArgs(
-                number="1",
-                system="example ticket system",
-            ))
+            ticket={
+                "number": "1",
+                "system": "example ticket system",
+            })
         ```
 
         ## Import
@@ -417,9 +417,9 @@ class ActiveRoleAssignment(pulumi.CustomResource):
                  justification: Optional[pulumi.Input[str]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
                  role_definition_id: Optional[pulumi.Input[str]] = None,
-                 schedule: Optional[pulumi.Input[pulumi.InputType['ActiveRoleAssignmentScheduleArgs']]] = None,
+                 schedule: Optional[pulumi.Input[Union['ActiveRoleAssignmentScheduleArgs', 'ActiveRoleAssignmentScheduleArgsDict']]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 ticket: Optional[pulumi.Input[pulumi.InputType['ActiveRoleAssignmentTicketArgs']]] = None,
+                 ticket: Optional[pulumi.Input[Union['ActiveRoleAssignmentTicketArgs', 'ActiveRoleAssignmentTicketArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -456,9 +456,9 @@ class ActiveRoleAssignment(pulumi.CustomResource):
             principal_id: Optional[pulumi.Input[str]] = None,
             principal_type: Optional[pulumi.Input[str]] = None,
             role_definition_id: Optional[pulumi.Input[str]] = None,
-            schedule: Optional[pulumi.Input[pulumi.InputType['ActiveRoleAssignmentScheduleArgs']]] = None,
+            schedule: Optional[pulumi.Input[Union['ActiveRoleAssignmentScheduleArgs', 'ActiveRoleAssignmentScheduleArgsDict']]] = None,
             scope: Optional[pulumi.Input[str]] = None,
-            ticket: Optional[pulumi.Input[pulumi.InputType['ActiveRoleAssignmentTicketArgs']]] = None) -> 'ActiveRoleAssignment':
+            ticket: Optional[pulumi.Input[Union['ActiveRoleAssignmentTicketArgs', 'ActiveRoleAssignmentTicketArgsDict']]] = None) -> 'ActiveRoleAssignment':
         """
         Get an existing ActiveRoleAssignment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -470,9 +470,9 @@ class ActiveRoleAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] principal_id: Object ID of the principal for this role assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] principal_type: Type of principal to which the role will be assigned.
         :param pulumi.Input[str] role_definition_id: The role definition ID for this role assignment. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ActiveRoleAssignmentScheduleArgs']] schedule: A `schedule` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['ActiveRoleAssignmentScheduleArgs', 'ActiveRoleAssignmentScheduleArgsDict']] schedule: A `schedule` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scope: The scope for this role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ActiveRoleAssignmentTicketArgs']] ticket: A `ticket` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['ActiveRoleAssignmentTicketArgs', 'ActiveRoleAssignmentTicketArgsDict']] ticket: A `ticket` block as defined below. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

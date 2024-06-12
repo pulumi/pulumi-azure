@@ -494,7 +494,7 @@ class CassandraCluster(pulumi.CustomResource):
                  external_gossip_certificate_pems: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  external_seed_node_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hours_between_backups: Optional[pulumi.Input[int]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['CassandraClusterIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['CassandraClusterIdentityArgs', 'CassandraClusterIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  repair_enabled: Optional[pulumi.Input[bool]] = None,
@@ -560,7 +560,7 @@ class CassandraCluster(pulumi.CustomResource):
         :param pulumi.Input[int] hours_between_backups: The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
                
                > **Note:** To disable this feature, set this property to `0`.
-        :param pulumi.Input[pulumi.InputType['CassandraClusterIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['CassandraClusterIdentityArgs', 'CassandraClusterIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[bool] repair_enabled: Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
@@ -643,7 +643,7 @@ class CassandraCluster(pulumi.CustomResource):
                  external_gossip_certificate_pems: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  external_seed_node_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hours_between_backups: Optional[pulumi.Input[int]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['CassandraClusterIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['CassandraClusterIdentityArgs', 'CassandraClusterIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  repair_enabled: Optional[pulumi.Input[bool]] = None,
@@ -698,7 +698,7 @@ class CassandraCluster(pulumi.CustomResource):
             external_gossip_certificate_pems: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             external_seed_node_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             hours_between_backups: Optional[pulumi.Input[int]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['CassandraClusterIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[Union['CassandraClusterIdentityArgs', 'CassandraClusterIdentityArgsDict']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             repair_enabled: Optional[pulumi.Input[bool]] = None,
@@ -721,7 +721,7 @@ class CassandraCluster(pulumi.CustomResource):
         :param pulumi.Input[int] hours_between_backups: The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
                
                > **Note:** To disable this feature, set this property to `0`.
-        :param pulumi.Input[pulumi.InputType['CassandraClusterIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['CassandraClusterIdentityArgs', 'CassandraClusterIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[bool] repair_enabled: Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.

@@ -322,7 +322,7 @@ class LinkedServiceOdata(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 basic_authentication: Optional[pulumi.Input[pulumi.InputType['LinkedServiceOdataBasicAuthenticationArgs']]] = None,
+                 basic_authentication: Optional[pulumi.Input[Union['LinkedServiceOdataBasicAuthenticationArgs', 'LinkedServiceOdataBasicAuthenticationArgsDict']]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  integration_runtime_name: Optional[pulumi.Input[str]] = None,
@@ -356,10 +356,10 @@ class LinkedServiceOdata(pulumi.CustomResource):
             name="basic_auth",
             data_factory_id=example_factory.id,
             url="https://services.odata.org/v4/TripPinServiceRW/People",
-            basic_authentication=azure.datafactory.LinkedServiceOdataBasicAuthenticationArgs(
-                username="emma",
-                password="Ch4ngeM3!",
-            ))
+            basic_authentication={
+                "username": "emma",
+                "password": "Ch4ngeM3!",
+            })
         ```
 
         ## Import
@@ -374,7 +374,7 @@ class LinkedServiceOdata(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service OData.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service OData.
-        :param pulumi.Input[pulumi.InputType['LinkedServiceOdataBasicAuthenticationArgs']] basic_authentication: A `basic_authentication` block as defined below.
+        :param pulumi.Input[Union['LinkedServiceOdataBasicAuthenticationArgs', 'LinkedServiceOdataBasicAuthenticationArgsDict']] basic_authentication: A `basic_authentication` block as defined below.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service OData.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service OData.
@@ -414,10 +414,10 @@ class LinkedServiceOdata(pulumi.CustomResource):
             name="basic_auth",
             data_factory_id=example_factory.id,
             url="https://services.odata.org/v4/TripPinServiceRW/People",
-            basic_authentication=azure.datafactory.LinkedServiceOdataBasicAuthenticationArgs(
-                username="emma",
-                password="Ch4ngeM3!",
-            ))
+            basic_authentication={
+                "username": "emma",
+                "password": "Ch4ngeM3!",
+            })
         ```
 
         ## Import
@@ -445,7 +445,7 @@ class LinkedServiceOdata(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 basic_authentication: Optional[pulumi.Input[pulumi.InputType['LinkedServiceOdataBasicAuthenticationArgs']]] = None,
+                 basic_authentication: Optional[pulumi.Input[Union['LinkedServiceOdataBasicAuthenticationArgs', 'LinkedServiceOdataBasicAuthenticationArgsDict']]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  integration_runtime_name: Optional[pulumi.Input[str]] = None,
@@ -486,7 +486,7 @@ class LinkedServiceOdata(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            basic_authentication: Optional[pulumi.Input[pulumi.InputType['LinkedServiceOdataBasicAuthenticationArgs']]] = None,
+            basic_authentication: Optional[pulumi.Input[Union['LinkedServiceOdataBasicAuthenticationArgs', 'LinkedServiceOdataBasicAuthenticationArgsDict']]] = None,
             data_factory_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             integration_runtime_name: Optional[pulumi.Input[str]] = None,
@@ -502,7 +502,7 @@ class LinkedServiceOdata(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service OData.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service OData.
-        :param pulumi.Input[pulumi.InputType['LinkedServiceOdataBasicAuthenticationArgs']] basic_authentication: A `basic_authentication` block as defined below.
+        :param pulumi.Input[Union['LinkedServiceOdataBasicAuthenticationArgs', 'LinkedServiceOdataBasicAuthenticationArgsDict']] basic_authentication: A `basic_authentication` block as defined below.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service OData.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service OData.

@@ -358,7 +358,7 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_group_enabled: Optional[pulumi.Input[bool]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPrometheusRuleGroupRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertPrometheusRuleGroupRuleArgs', 'AlertPrometheusRuleGroupRuleArgsDict']]]]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -387,15 +387,15 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             dns_prefix="example-aks",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
-                name="default",
-                node_count=1,
-                vm_size="Standard_DS2_v2",
-                enable_host_encryption=True,
-            ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
-                type="SystemAssigned",
-            ))
+            default_node_pool={
+                "name": "default",
+                "nodeCount": 1,
+                "vmSize": "Standard_DS2_v2",
+                "enableHostEncryption": True,
+            },
+            identity={
+                "type": "SystemAssigned",
+            })
         example_alert_prometheus_rule_group = azure.monitoring.AlertPrometheusRuleGroup("example",
             name="example-amprg",
             location="West Europe",
@@ -406,34 +406,34 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
             interval="PT1M",
             scopes=[example_workspace.id],
             rules=[
-                azure.monitoring.AlertPrometheusRuleGroupRuleArgs(
-                    enabled=False,
-                    expression="histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=\\"billing-processing\\"}[5m])) by (job_type))\\n",
-                    record="job_type:billing_jobs_duration_seconds:99p5m",
-                    labels={
+                {
+                    "enabled": False,
+                    "expression": "histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=\\"billing-processing\\"}[5m])) by (job_type))\\n",
+                    "record": "job_type:billing_jobs_duration_seconds:99p5m",
+                    "labels": {
                         "team": "prod",
                     },
-                ),
-                azure.monitoring.AlertPrometheusRuleGroupRuleArgs(
-                    alert="Billing_Processing_Very_Slow",
-                    enabled=True,
-                    expression="histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=\\"billing-processing\\"}[5m])) by (job_type))\\n",
-                    for_="PT5M",
-                    severity=2,
-                    actions=[azure.monitoring.AlertPrometheusRuleGroupRuleActionArgs(
-                        action_group_id=example_action_group.id,
-                    )],
-                    alert_resolution=azure.monitoring.AlertPrometheusRuleGroupRuleAlertResolutionArgs(
-                        auto_resolved=True,
-                        time_to_resolve="PT10M",
-                    ),
-                    annotations={
+                },
+                {
+                    "alert": "Billing_Processing_Very_Slow",
+                    "enabled": True,
+                    "expression": "histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=\\"billing-processing\\"}[5m])) by (job_type))\\n",
+                    "for": "PT5M",
+                    "severity": 2,
+                    "actions": [{
+                        "actionGroupId": example_action_group.id,
+                    }],
+                    "alertResolution": {
+                        "autoResolved": True,
+                        "timeToResolve": "PT10M",
+                    },
+                    "annotations": {
                         "annotationName": "annotationValue",
                     },
-                    labels={
+                    "labels": {
                         "team": "prod",
                     },
-                ),
+                },
             ],
             tags={
                 "key": "value",
@@ -457,7 +457,7 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name which should be used for this Alert Management Prometheus Rule Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Alert Management Prometheus Rule Group should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] rule_group_enabled: Is this Alert Management Prometheus Rule Group enabled? Possible values are `true` and `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPrometheusRuleGroupRuleArgs']]]] rules: A `rule` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertPrometheusRuleGroupRuleArgs', 'AlertPrometheusRuleGroupRuleArgsDict']]]] rules: A `rule` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Specifies the resource ID of the Azure Monitor Workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Alert Management Prometheus Rule Group.
         """
@@ -492,15 +492,15 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             dns_prefix="example-aks",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
-                name="default",
-                node_count=1,
-                vm_size="Standard_DS2_v2",
-                enable_host_encryption=True,
-            ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
-                type="SystemAssigned",
-            ))
+            default_node_pool={
+                "name": "default",
+                "nodeCount": 1,
+                "vmSize": "Standard_DS2_v2",
+                "enableHostEncryption": True,
+            },
+            identity={
+                "type": "SystemAssigned",
+            })
         example_alert_prometheus_rule_group = azure.monitoring.AlertPrometheusRuleGroup("example",
             name="example-amprg",
             location="West Europe",
@@ -511,34 +511,34 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
             interval="PT1M",
             scopes=[example_workspace.id],
             rules=[
-                azure.monitoring.AlertPrometheusRuleGroupRuleArgs(
-                    enabled=False,
-                    expression="histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=\\"billing-processing\\"}[5m])) by (job_type))\\n",
-                    record="job_type:billing_jobs_duration_seconds:99p5m",
-                    labels={
+                {
+                    "enabled": False,
+                    "expression": "histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=\\"billing-processing\\"}[5m])) by (job_type))\\n",
+                    "record": "job_type:billing_jobs_duration_seconds:99p5m",
+                    "labels": {
                         "team": "prod",
                     },
-                ),
-                azure.monitoring.AlertPrometheusRuleGroupRuleArgs(
-                    alert="Billing_Processing_Very_Slow",
-                    enabled=True,
-                    expression="histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=\\"billing-processing\\"}[5m])) by (job_type))\\n",
-                    for_="PT5M",
-                    severity=2,
-                    actions=[azure.monitoring.AlertPrometheusRuleGroupRuleActionArgs(
-                        action_group_id=example_action_group.id,
-                    )],
-                    alert_resolution=azure.monitoring.AlertPrometheusRuleGroupRuleAlertResolutionArgs(
-                        auto_resolved=True,
-                        time_to_resolve="PT10M",
-                    ),
-                    annotations={
+                },
+                {
+                    "alert": "Billing_Processing_Very_Slow",
+                    "enabled": True,
+                    "expression": "histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=\\"billing-processing\\"}[5m])) by (job_type))\\n",
+                    "for": "PT5M",
+                    "severity": 2,
+                    "actions": [{
+                        "actionGroupId": example_action_group.id,
+                    }],
+                    "alertResolution": {
+                        "autoResolved": True,
+                        "timeToResolve": "PT10M",
+                    },
+                    "annotations": {
                         "annotationName": "annotationValue",
                     },
-                    labels={
+                    "labels": {
                         "team": "prod",
                     },
-                ),
+                },
             ],
             tags={
                 "key": "value",
@@ -575,7 +575,7 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_group_enabled: Optional[pulumi.Input[bool]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPrometheusRuleGroupRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertPrometheusRuleGroupRuleArgs', 'AlertPrometheusRuleGroupRuleArgsDict']]]]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -620,7 +620,7 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             rule_group_enabled: Optional[pulumi.Input[bool]] = None,
-            rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPrometheusRuleGroupRuleArgs']]]]] = None,
+            rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertPrometheusRuleGroupRuleArgs', 'AlertPrometheusRuleGroupRuleArgsDict']]]]] = None,
             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'AlertPrometheusRuleGroup':
         """
@@ -637,7 +637,7 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name which should be used for this Alert Management Prometheus Rule Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Alert Management Prometheus Rule Group should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] rule_group_enabled: Is this Alert Management Prometheus Rule Group enabled? Possible values are `true` and `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPrometheusRuleGroupRuleArgs']]]] rules: A `rule` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertPrometheusRuleGroupRuleArgs', 'AlertPrometheusRuleGroupRuleArgsDict']]]] rules: A `rule` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Specifies the resource ID of the Azure Monitor Workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Alert Management Prometheus Rule Group.
         """

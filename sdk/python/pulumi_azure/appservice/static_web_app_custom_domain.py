@@ -187,9 +187,9 @@ class StaticWebAppCustomDomain(pulumi.CustomResource):
             zone_name="contoso.com",
             resource_group_name=example.name,
             ttl=300,
-            records=[azure.dns.TxtRecordRecordArgs(
-                value=example_static_web_app_custom_domain.validation_token,
-            )])
+            records=[{
+                "value": example_static_web_app_custom_domain.validation_token,
+            }])
         ```
 
         ## Import
@@ -261,9 +261,9 @@ class StaticWebAppCustomDomain(pulumi.CustomResource):
             zone_name="contoso.com",
             resource_group_name=example.name,
             ttl=300,
-            records=[azure.dns.TxtRecordRecordArgs(
-                value=example_static_web_app_custom_domain.validation_token,
-            )])
+            records=[{
+                "value": example_static_web_app_custom_domain.validation_token,
+            }])
         ```
 
         ## Import

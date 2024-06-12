@@ -195,7 +195,7 @@ class VirtualHubConnection(pulumi.CustomResource):
                  internet_security_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  remote_virtual_network_id: Optional[pulumi.Input[str]] = None,
-                 routing: Optional[pulumi.Input[pulumi.InputType['VirtualHubConnectionRoutingArgs']]] = None,
+                 routing: Optional[pulumi.Input[Union['VirtualHubConnectionRoutingArgs', 'VirtualHubConnectionRoutingArgsDict']]] = None,
                  virtual_hub_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -244,7 +244,7 @@ class VirtualHubConnection(pulumi.CustomResource):
         :param pulumi.Input[bool] internet_security_enabled: Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
         :param pulumi.Input[str] name: The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] remote_virtual_network_id: The ID of the Virtual Network which the Virtual Hub should be connected to. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['VirtualHubConnectionRoutingArgs']] routing: A `routing` block as defined below.
+        :param pulumi.Input[Union['VirtualHubConnectionRoutingArgs', 'VirtualHubConnectionRoutingArgsDict']] routing: A `routing` block as defined below.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
         """
         ...
@@ -312,7 +312,7 @@ class VirtualHubConnection(pulumi.CustomResource):
                  internet_security_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  remote_virtual_network_id: Optional[pulumi.Input[str]] = None,
-                 routing: Optional[pulumi.Input[pulumi.InputType['VirtualHubConnectionRoutingArgs']]] = None,
+                 routing: Optional[pulumi.Input[Union['VirtualHubConnectionRoutingArgs', 'VirtualHubConnectionRoutingArgsDict']]] = None,
                  virtual_hub_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -345,7 +345,7 @@ class VirtualHubConnection(pulumi.CustomResource):
             internet_security_enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             remote_virtual_network_id: Optional[pulumi.Input[str]] = None,
-            routing: Optional[pulumi.Input[pulumi.InputType['VirtualHubConnectionRoutingArgs']]] = None,
+            routing: Optional[pulumi.Input[Union['VirtualHubConnectionRoutingArgs', 'VirtualHubConnectionRoutingArgsDict']]] = None,
             virtual_hub_id: Optional[pulumi.Input[str]] = None) -> 'VirtualHubConnection':
         """
         Get an existing VirtualHubConnection resource's state with the given name, id, and optional extra
@@ -357,7 +357,7 @@ class VirtualHubConnection(pulumi.CustomResource):
         :param pulumi.Input[bool] internet_security_enabled: Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
         :param pulumi.Input[str] name: The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] remote_virtual_network_id: The ID of the Virtual Network which the Virtual Hub should be connected to. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['VirtualHubConnectionRoutingArgs']] routing: A `routing` block as defined below.
+        :param pulumi.Input[Union['VirtualHubConnectionRoutingArgs', 'VirtualHubConnectionRoutingArgsDict']] routing: A `routing` block as defined below.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

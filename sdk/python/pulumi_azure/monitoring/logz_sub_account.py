@@ -196,7 +196,7 @@ class LogzSubAccount(pulumi.CustomResource):
                  logz_monitor_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 user: Optional[pulumi.Input[pulumi.InputType['LogzSubAccountUserArgs']]] = None,
+                 user: Optional[pulumi.Input[Union['LogzSubAccountUserArgs', 'LogzSubAccountUserArgsDict']]] = None,
                  __props__=None):
         """
         Manages a logz Sub Account.
@@ -216,26 +216,26 @@ class LogzSubAccount(pulumi.CustomResource):
             name="example-monitor",
             resource_group_name=example.name,
             location=example.location,
-            plan=azure.monitoring.LogzMonitorPlanArgs(
-                billing_cycle="MONTHLY",
-                effective_date="2022-06-06T00:00:00Z",
-                usage_type="COMMITTED",
-            ),
-            user=azure.monitoring.LogzMonitorUserArgs(
-                email="user@example.com",
-                first_name="Example",
-                last_name="User",
-                phone_number="+12313803556",
-            ))
+            plan={
+                "billingCycle": "MONTHLY",
+                "effectiveDate": "2022-06-06T00:00:00Z",
+                "usageType": "COMMITTED",
+            },
+            user={
+                "email": "user@example.com",
+                "firstName": "Example",
+                "lastName": "User",
+                "phoneNumber": "+12313803556",
+            })
         example_logz_sub_account = azure.monitoring.LogzSubAccount("example",
             name="example-subaccount",
             logz_monitor_id=example_logz_monitor.id,
-            user=azure.monitoring.LogzSubAccountUserArgs(
-                email=example_logz_monitor.user.email,
-                first_name=example_logz_monitor.user.first_name,
-                last_name=example_logz_monitor.user.last_name,
-                phone_number=example_logz_monitor.user.phone_number,
-            ))
+            user={
+                "email": example_logz_monitor.user.email,
+                "firstName": example_logz_monitor.user.first_name,
+                "lastName": example_logz_monitor.user.last_name,
+                "phoneNumber": example_logz_monitor.user.phone_number,
+            })
         ```
 
         ## Import
@@ -252,7 +252,7 @@ class LogzSubAccount(pulumi.CustomResource):
         :param pulumi.Input[str] logz_monitor_id: The ID of the Logz Monitor. Changing this forces a new logz Sub Account to be created.
         :param pulumi.Input[str] name: The name which should be used for this logz Sub Account. Possible values must be between 1 and 32 characters in length and may contain only letters, numbers, hyphens and underscores. Changing this forces a new logz Sub Account to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the logz Sub Account.
-        :param pulumi.Input[pulumi.InputType['LogzSubAccountUserArgs']] user: A `user` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['LogzSubAccountUserArgs', 'LogzSubAccountUserArgsDict']] user: A `user` block as defined below. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -278,26 +278,26 @@ class LogzSubAccount(pulumi.CustomResource):
             name="example-monitor",
             resource_group_name=example.name,
             location=example.location,
-            plan=azure.monitoring.LogzMonitorPlanArgs(
-                billing_cycle="MONTHLY",
-                effective_date="2022-06-06T00:00:00Z",
-                usage_type="COMMITTED",
-            ),
-            user=azure.monitoring.LogzMonitorUserArgs(
-                email="user@example.com",
-                first_name="Example",
-                last_name="User",
-                phone_number="+12313803556",
-            ))
+            plan={
+                "billingCycle": "MONTHLY",
+                "effectiveDate": "2022-06-06T00:00:00Z",
+                "usageType": "COMMITTED",
+            },
+            user={
+                "email": "user@example.com",
+                "firstName": "Example",
+                "lastName": "User",
+                "phoneNumber": "+12313803556",
+            })
         example_logz_sub_account = azure.monitoring.LogzSubAccount("example",
             name="example-subaccount",
             logz_monitor_id=example_logz_monitor.id,
-            user=azure.monitoring.LogzSubAccountUserArgs(
-                email=example_logz_monitor.user.email,
-                first_name=example_logz_monitor.user.first_name,
-                last_name=example_logz_monitor.user.last_name,
-                phone_number=example_logz_monitor.user.phone_number,
-            ))
+            user={
+                "email": example_logz_monitor.user.email,
+                "firstName": example_logz_monitor.user.first_name,
+                "lastName": example_logz_monitor.user.last_name,
+                "phoneNumber": example_logz_monitor.user.phone_number,
+            })
         ```
 
         ## Import
@@ -327,7 +327,7 @@ class LogzSubAccount(pulumi.CustomResource):
                  logz_monitor_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 user: Optional[pulumi.Input[pulumi.InputType['LogzSubAccountUserArgs']]] = None,
+                 user: Optional[pulumi.Input[Union['LogzSubAccountUserArgs', 'LogzSubAccountUserArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -360,7 +360,7 @@ class LogzSubAccount(pulumi.CustomResource):
             logz_monitor_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            user: Optional[pulumi.Input[pulumi.InputType['LogzSubAccountUserArgs']]] = None) -> 'LogzSubAccount':
+            user: Optional[pulumi.Input[Union['LogzSubAccountUserArgs', 'LogzSubAccountUserArgsDict']]] = None) -> 'LogzSubAccount':
         """
         Get an existing LogzSubAccount resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -372,7 +372,7 @@ class LogzSubAccount(pulumi.CustomResource):
         :param pulumi.Input[str] logz_monitor_id: The ID of the Logz Monitor. Changing this forces a new logz Sub Account to be created.
         :param pulumi.Input[str] name: The name which should be used for this logz Sub Account. Possible values must be between 1 and 32 characters in length and may contain only letters, numbers, hyphens and underscores. Changing this forces a new logz Sub Account to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the logz Sub Account.
-        :param pulumi.Input[pulumi.InputType['LogzSubAccountUserArgs']] user: A `user` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['LogzSubAccountUserArgs', 'LogzSubAccountUserArgsDict']] user: A `user` block as defined below. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

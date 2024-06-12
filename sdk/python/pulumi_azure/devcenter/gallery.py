@@ -150,10 +150,10 @@ class Gallery(pulumi.CustomResource):
             name="example-devcenter",
             resource_group_name=test_azurerm_resource_group["name"],
             location=test_azurerm_resource_group["location"],
-            identity=azure.devcenter.DevCenterIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[test_user_assigned_identity.id],
-            ))
+            identity={
+                "type": "UserAssigned",
+                "identityIds": [test_user_assigned_identity.id],
+            })
         example_shared_image_gallery = azure.compute.SharedImageGallery("example",
             name="example-image-gallery",
             location=example.location,
@@ -212,10 +212,10 @@ class Gallery(pulumi.CustomResource):
             name="example-devcenter",
             resource_group_name=test_azurerm_resource_group["name"],
             location=test_azurerm_resource_group["location"],
-            identity=azure.devcenter.DevCenterIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[test_user_assigned_identity.id],
-            ))
+            identity={
+                "type": "UserAssigned",
+                "identityIds": [test_user_assigned_identity.id],
+            })
         example_shared_image_gallery = azure.compute.SharedImageGallery("example",
             name="example-image-gallery",
             location=example.location,

@@ -801,9 +801,9 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  extension: Optional[pulumi.Input[str]] = None,
-                 external_references: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceIndicatorExternalReferenceArgs']]]]] = None,
-                 granular_markings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceIndicatorGranularMarkingArgs']]]]] = None,
-                 kill_chain_phases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceIndicatorKillChainPhaseArgs']]]]] = None,
+                 external_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceIndicatorExternalReferenceArgs', 'ThreatIntelligenceIndicatorExternalReferenceArgsDict']]]]] = None,
+                 granular_markings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceIndicatorGranularMarkingArgs', 'ThreatIntelligenceIndicatorGranularMarkingArgsDict']]]]] = None,
+                 kill_chain_phases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceIndicatorKillChainPhaseArgs', 'ThreatIntelligenceIndicatorKillChainPhaseArgsDict']]]]] = None,
                  language: Optional[pulumi.Input[str]] = None,
                  object_marking_refs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  pattern: Optional[pulumi.Input[str]] = None,
@@ -863,9 +863,9 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the Threat Intelligence Indicator.
         :param pulumi.Input[str] display_name: The display name of the Threat Intelligence Indicator.
         :param pulumi.Input[str] extension: The extension config of the Threat Intelligence Indicator in JSON format.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceIndicatorExternalReferenceArgs']]]] external_references: One or more `external_reference` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceIndicatorGranularMarkingArgs']]]] granular_markings: One or more `granular_marking` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceIndicatorKillChainPhaseArgs']]]] kill_chain_phases: One or more `kill_chain_phase` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceIndicatorExternalReferenceArgs', 'ThreatIntelligenceIndicatorExternalReferenceArgsDict']]]] external_references: One or more `external_reference` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceIndicatorGranularMarkingArgs', 'ThreatIntelligenceIndicatorGranularMarkingArgsDict']]]] granular_markings: One or more `granular_marking` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceIndicatorKillChainPhaseArgs', 'ThreatIntelligenceIndicatorKillChainPhaseArgsDict']]]] kill_chain_phases: One or more `kill_chain_phase` blocks as defined below.
         :param pulumi.Input[str] language: The language of the Threat Intelligence Indicator.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] object_marking_refs: Specifies a list of Threat Intelligence marking references.
         :param pulumi.Input[str] pattern: The pattern used by the Threat Intelligence Indicator. When `pattern_type` set to `file`, `pattern` must be specified with `<HashName>:<Value>` format, such as `MD5:78ecc5c05cd8b79af480df2f8fba0b9d`.
@@ -944,9 +944,9 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  extension: Optional[pulumi.Input[str]] = None,
-                 external_references: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceIndicatorExternalReferenceArgs']]]]] = None,
-                 granular_markings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceIndicatorGranularMarkingArgs']]]]] = None,
-                 kill_chain_phases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceIndicatorKillChainPhaseArgs']]]]] = None,
+                 external_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceIndicatorExternalReferenceArgs', 'ThreatIntelligenceIndicatorExternalReferenceArgsDict']]]]] = None,
+                 granular_markings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceIndicatorGranularMarkingArgs', 'ThreatIntelligenceIndicatorGranularMarkingArgsDict']]]]] = None,
+                 kill_chain_phases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceIndicatorKillChainPhaseArgs', 'ThreatIntelligenceIndicatorKillChainPhaseArgsDict']]]]] = None,
                  language: Optional[pulumi.Input[str]] = None,
                  object_marking_refs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  pattern: Optional[pulumi.Input[str]] = None,
@@ -1027,15 +1027,15 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
             extension: Optional[pulumi.Input[str]] = None,
             external_id: Optional[pulumi.Input[str]] = None,
             external_last_updated_time_utc: Optional[pulumi.Input[str]] = None,
-            external_references: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceIndicatorExternalReferenceArgs']]]]] = None,
-            granular_markings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceIndicatorGranularMarkingArgs']]]]] = None,
+            external_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceIndicatorExternalReferenceArgs', 'ThreatIntelligenceIndicatorExternalReferenceArgsDict']]]]] = None,
+            granular_markings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceIndicatorGranularMarkingArgs', 'ThreatIntelligenceIndicatorGranularMarkingArgsDict']]]]] = None,
             guid: Optional[pulumi.Input[str]] = None,
             indicator_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            kill_chain_phases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceIndicatorKillChainPhaseArgs']]]]] = None,
+            kill_chain_phases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceIndicatorKillChainPhaseArgs', 'ThreatIntelligenceIndicatorKillChainPhaseArgsDict']]]]] = None,
             language: Optional[pulumi.Input[str]] = None,
             last_updated_time_utc: Optional[pulumi.Input[str]] = None,
             object_marking_refs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            parsed_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceIndicatorParsedPatternArgs']]]]] = None,
+            parsed_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceIndicatorParsedPatternArgs', 'ThreatIntelligenceIndicatorParsedPatternArgsDict']]]]] = None,
             pattern: Optional[pulumi.Input[str]] = None,
             pattern_type: Optional[pulumi.Input[str]] = None,
             pattern_version: Optional[pulumi.Input[str]] = None,
@@ -1062,15 +1062,15 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         :param pulumi.Input[str] extension: The extension config of the Threat Intelligence Indicator in JSON format.
         :param pulumi.Input[str] external_id: The external ID of the Threat Intelligence Indicator.
         :param pulumi.Input[str] external_last_updated_time_utc: the External last updated time in UTC.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceIndicatorExternalReferenceArgs']]]] external_references: One or more `external_reference` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceIndicatorGranularMarkingArgs']]]] granular_markings: One or more `granular_marking` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceIndicatorExternalReferenceArgs', 'ThreatIntelligenceIndicatorExternalReferenceArgsDict']]]] external_references: One or more `external_reference` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceIndicatorGranularMarkingArgs', 'ThreatIntelligenceIndicatorGranularMarkingArgsDict']]]] granular_markings: One or more `granular_marking` blocks as defined below.
         :param pulumi.Input[str] guid: The guid of this Sentinel Threat Intelligence Indicator.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] indicator_types: A list of indicator types of this Threat Intelligence Indicator.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceIndicatorKillChainPhaseArgs']]]] kill_chain_phases: One or more `kill_chain_phase` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceIndicatorKillChainPhaseArgs', 'ThreatIntelligenceIndicatorKillChainPhaseArgsDict']]]] kill_chain_phases: One or more `kill_chain_phase` blocks as defined below.
         :param pulumi.Input[str] language: The language of the Threat Intelligence Indicator.
         :param pulumi.Input[str] last_updated_time_utc: The last updated time of the Threat Intelligence Indicator in UTC.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] object_marking_refs: Specifies a list of Threat Intelligence marking references.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceIndicatorParsedPatternArgs']]]] parsed_patterns: A `parsed_pattern` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceIndicatorParsedPatternArgs', 'ThreatIntelligenceIndicatorParsedPatternArgsDict']]]] parsed_patterns: A `parsed_pattern` block as defined below.
         :param pulumi.Input[str] pattern: The pattern used by the Threat Intelligence Indicator. When `pattern_type` set to `file`, `pattern` must be specified with `<HashName>:<Value>` format, such as `MD5:78ecc5c05cd8b79af480df2f8fba0b9d`.
         :param pulumi.Input[str] pattern_type: The type of pattern used by the Threat Intelligence Indicator. Possible values are `domain-name`, `file`, `ipv4-addr`, `ipv6-addr` and `url`.
         :param pulumi.Input[str] pattern_version: The version of a Threat Intelligence entity.

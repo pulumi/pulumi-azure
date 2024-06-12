@@ -869,14 +869,14 @@ class Api(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  api_type: Optional[pulumi.Input[str]] = None,
-                 contact: Optional[pulumi.Input[pulumi.InputType['ApiContactArgs']]] = None,
+                 contact: Optional[pulumi.Input[Union['ApiContactArgs', 'ApiContactArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 import_: Optional[pulumi.Input[pulumi.InputType['ApiImportArgs']]] = None,
-                 license: Optional[pulumi.Input[pulumi.InputType['ApiLicenseArgs']]] = None,
+                 import_: Optional[pulumi.Input[Union['ApiImportArgs', 'ApiImportArgsDict']]] = None,
+                 license: Optional[pulumi.Input[Union['ApiLicenseArgs', 'ApiLicenseArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 oauth2_authorization: Optional[pulumi.Input[pulumi.InputType['ApiOauth2AuthorizationArgs']]] = None,
-                 openid_authentication: Optional[pulumi.Input[pulumi.InputType['ApiOpenidAuthenticationArgs']]] = None,
+                 oauth2_authorization: Optional[pulumi.Input[Union['ApiOauth2AuthorizationArgs', 'ApiOauth2AuthorizationArgsDict']]] = None,
+                 openid_authentication: Optional[pulumi.Input[Union['ApiOpenidAuthenticationArgs', 'ApiOpenidAuthenticationArgsDict']]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -885,7 +885,7 @@ class Api(pulumi.CustomResource):
                  service_url: Optional[pulumi.Input[str]] = None,
                  soap_pass_through: Optional[pulumi.Input[bool]] = None,
                  source_api_id: Optional[pulumi.Input[str]] = None,
-                 subscription_key_parameter_names: Optional[pulumi.Input[pulumi.InputType['ApiSubscriptionKeyParameterNamesArgs']]] = None,
+                 subscription_key_parameter_names: Optional[pulumi.Input[Union['ApiSubscriptionKeyParameterNamesArgs', 'ApiSubscriptionKeyParameterNamesArgsDict']]] = None,
                  subscription_required: Optional[pulumi.Input[bool]] = None,
                  terms_of_service_url: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -919,10 +919,10 @@ class Api(pulumi.CustomResource):
             display_name="Example API",
             path="example",
             protocols=["https"],
-            import_=azure.apimanagement.ApiImportArgs(
-                content_format="swagger-link-json",
-                content_value="http://conferenceapi.azurewebsites.net/?format=json",
-            ))
+            import_={
+                "contentFormat": "swagger-link-json",
+                "contentValue": "http://conferenceapi.azurewebsites.net/?format=json",
+            })
         ```
 
         ## Import
@@ -937,14 +937,14 @@ class Api(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] api_type: Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
-        :param pulumi.Input[pulumi.InputType['ApiContactArgs']] contact: A `contact` block as documented below.
+        :param pulumi.Input[Union['ApiContactArgs', 'ApiContactArgsDict']] contact: A `contact` block as documented below.
         :param pulumi.Input[str] description: A description of the API Management API, which may include HTML formatting tags.
         :param pulumi.Input[str] display_name: The display name of the API.
-        :param pulumi.Input[pulumi.InputType['ApiImportArgs']] import_: A `import` block as documented below.
-        :param pulumi.Input[pulumi.InputType['ApiLicenseArgs']] license: A `license` block as documented below.
+        :param pulumi.Input[Union['ApiImportArgs', 'ApiImportArgsDict']] import_: A `import` block as documented below.
+        :param pulumi.Input[Union['ApiLicenseArgs', 'ApiLicenseArgsDict']] license: A `license` block as documented below.
         :param pulumi.Input[str] name: The name of the API Management API. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ApiOauth2AuthorizationArgs']] oauth2_authorization: An `oauth2_authorization` block as documented below.
-        :param pulumi.Input[pulumi.InputType['ApiOpenidAuthenticationArgs']] openid_authentication: An `openid_authentication` block as documented below.
+        :param pulumi.Input[Union['ApiOauth2AuthorizationArgs', 'ApiOauth2AuthorizationArgsDict']] oauth2_authorization: An `oauth2_authorization` block as documented below.
+        :param pulumi.Input[Union['ApiOpenidAuthenticationArgs', 'ApiOpenidAuthenticationArgsDict']] openid_authentication: An `openid_authentication` block as documented below.
         :param pulumi.Input[str] path: The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
                
@@ -957,7 +957,7 @@ class Api(pulumi.CustomResource):
                
                > **NOTE:** This property has been deprecated in favour of the `api_type` property and will be removed in version 4.0 of the provider.
         :param pulumi.Input[str] source_api_id: The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
-        :param pulumi.Input[pulumi.InputType['ApiSubscriptionKeyParameterNamesArgs']] subscription_key_parameter_names: A `subscription_key_parameter_names` block as documented below.
+        :param pulumi.Input[Union['ApiSubscriptionKeyParameterNamesArgs', 'ApiSubscriptionKeyParameterNamesArgsDict']] subscription_key_parameter_names: A `subscription_key_parameter_names` block as documented below.
         :param pulumi.Input[bool] subscription_required: Should this API require a subscription key? Defaults to `true`.
         :param pulumi.Input[str] terms_of_service_url: Absolute URL of the Terms of Service for the API.
         :param pulumi.Input[str] version: The Version number of this API, if this API is versioned.
@@ -999,10 +999,10 @@ class Api(pulumi.CustomResource):
             display_name="Example API",
             path="example",
             protocols=["https"],
-            import_=azure.apimanagement.ApiImportArgs(
-                content_format="swagger-link-json",
-                content_value="http://conferenceapi.azurewebsites.net/?format=json",
-            ))
+            import_={
+                "contentFormat": "swagger-link-json",
+                "contentValue": "http://conferenceapi.azurewebsites.net/?format=json",
+            })
         ```
 
         ## Import
@@ -1030,14 +1030,14 @@ class Api(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  api_type: Optional[pulumi.Input[str]] = None,
-                 contact: Optional[pulumi.Input[pulumi.InputType['ApiContactArgs']]] = None,
+                 contact: Optional[pulumi.Input[Union['ApiContactArgs', 'ApiContactArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 import_: Optional[pulumi.Input[pulumi.InputType['ApiImportArgs']]] = None,
-                 license: Optional[pulumi.Input[pulumi.InputType['ApiLicenseArgs']]] = None,
+                 import_: Optional[pulumi.Input[Union['ApiImportArgs', 'ApiImportArgsDict']]] = None,
+                 license: Optional[pulumi.Input[Union['ApiLicenseArgs', 'ApiLicenseArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 oauth2_authorization: Optional[pulumi.Input[pulumi.InputType['ApiOauth2AuthorizationArgs']]] = None,
-                 openid_authentication: Optional[pulumi.Input[pulumi.InputType['ApiOpenidAuthenticationArgs']]] = None,
+                 oauth2_authorization: Optional[pulumi.Input[Union['ApiOauth2AuthorizationArgs', 'ApiOauth2AuthorizationArgsDict']]] = None,
+                 openid_authentication: Optional[pulumi.Input[Union['ApiOpenidAuthenticationArgs', 'ApiOpenidAuthenticationArgsDict']]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -1046,7 +1046,7 @@ class Api(pulumi.CustomResource):
                  service_url: Optional[pulumi.Input[str]] = None,
                  soap_pass_through: Optional[pulumi.Input[bool]] = None,
                  source_api_id: Optional[pulumi.Input[str]] = None,
-                 subscription_key_parameter_names: Optional[pulumi.Input[pulumi.InputType['ApiSubscriptionKeyParameterNamesArgs']]] = None,
+                 subscription_key_parameter_names: Optional[pulumi.Input[Union['ApiSubscriptionKeyParameterNamesArgs', 'ApiSubscriptionKeyParameterNamesArgsDict']]] = None,
                  subscription_required: Optional[pulumi.Input[bool]] = None,
                  terms_of_service_url: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -1105,16 +1105,16 @@ class Api(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             api_management_name: Optional[pulumi.Input[str]] = None,
             api_type: Optional[pulumi.Input[str]] = None,
-            contact: Optional[pulumi.Input[pulumi.InputType['ApiContactArgs']]] = None,
+            contact: Optional[pulumi.Input[Union['ApiContactArgs', 'ApiContactArgsDict']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
-            import_: Optional[pulumi.Input[pulumi.InputType['ApiImportArgs']]] = None,
+            import_: Optional[pulumi.Input[Union['ApiImportArgs', 'ApiImportArgsDict']]] = None,
             is_current: Optional[pulumi.Input[bool]] = None,
             is_online: Optional[pulumi.Input[bool]] = None,
-            license: Optional[pulumi.Input[pulumi.InputType['ApiLicenseArgs']]] = None,
+            license: Optional[pulumi.Input[Union['ApiLicenseArgs', 'ApiLicenseArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            oauth2_authorization: Optional[pulumi.Input[pulumi.InputType['ApiOauth2AuthorizationArgs']]] = None,
-            openid_authentication: Optional[pulumi.Input[pulumi.InputType['ApiOpenidAuthenticationArgs']]] = None,
+            oauth2_authorization: Optional[pulumi.Input[Union['ApiOauth2AuthorizationArgs', 'ApiOauth2AuthorizationArgsDict']]] = None,
+            openid_authentication: Optional[pulumi.Input[Union['ApiOpenidAuthenticationArgs', 'ApiOpenidAuthenticationArgsDict']]] = None,
             path: Optional[pulumi.Input[str]] = None,
             protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -1123,7 +1123,7 @@ class Api(pulumi.CustomResource):
             service_url: Optional[pulumi.Input[str]] = None,
             soap_pass_through: Optional[pulumi.Input[bool]] = None,
             source_api_id: Optional[pulumi.Input[str]] = None,
-            subscription_key_parameter_names: Optional[pulumi.Input[pulumi.InputType['ApiSubscriptionKeyParameterNamesArgs']]] = None,
+            subscription_key_parameter_names: Optional[pulumi.Input[Union['ApiSubscriptionKeyParameterNamesArgs', 'ApiSubscriptionKeyParameterNamesArgsDict']]] = None,
             subscription_required: Optional[pulumi.Input[bool]] = None,
             terms_of_service_url: Optional[pulumi.Input[str]] = None,
             version: Optional[pulumi.Input[str]] = None,
@@ -1138,16 +1138,16 @@ class Api(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] api_type: Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
-        :param pulumi.Input[pulumi.InputType['ApiContactArgs']] contact: A `contact` block as documented below.
+        :param pulumi.Input[Union['ApiContactArgs', 'ApiContactArgsDict']] contact: A `contact` block as documented below.
         :param pulumi.Input[str] description: A description of the API Management API, which may include HTML formatting tags.
         :param pulumi.Input[str] display_name: The display name of the API.
-        :param pulumi.Input[pulumi.InputType['ApiImportArgs']] import_: A `import` block as documented below.
+        :param pulumi.Input[Union['ApiImportArgs', 'ApiImportArgsDict']] import_: A `import` block as documented below.
         :param pulumi.Input[bool] is_current: Is this the current API Revision?
         :param pulumi.Input[bool] is_online: Is this API Revision online/accessible via the Gateway?
-        :param pulumi.Input[pulumi.InputType['ApiLicenseArgs']] license: A `license` block as documented below.
+        :param pulumi.Input[Union['ApiLicenseArgs', 'ApiLicenseArgsDict']] license: A `license` block as documented below.
         :param pulumi.Input[str] name: The name of the API Management API. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ApiOauth2AuthorizationArgs']] oauth2_authorization: An `oauth2_authorization` block as documented below.
-        :param pulumi.Input[pulumi.InputType['ApiOpenidAuthenticationArgs']] openid_authentication: An `openid_authentication` block as documented below.
+        :param pulumi.Input[Union['ApiOauth2AuthorizationArgs', 'ApiOauth2AuthorizationArgsDict']] oauth2_authorization: An `oauth2_authorization` block as documented below.
+        :param pulumi.Input[Union['ApiOpenidAuthenticationArgs', 'ApiOpenidAuthenticationArgsDict']] openid_authentication: An `openid_authentication` block as documented below.
         :param pulumi.Input[str] path: The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
                
@@ -1160,7 +1160,7 @@ class Api(pulumi.CustomResource):
                
                > **NOTE:** This property has been deprecated in favour of the `api_type` property and will be removed in version 4.0 of the provider.
         :param pulumi.Input[str] source_api_id: The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
-        :param pulumi.Input[pulumi.InputType['ApiSubscriptionKeyParameterNamesArgs']] subscription_key_parameter_names: A `subscription_key_parameter_names` block as documented below.
+        :param pulumi.Input[Union['ApiSubscriptionKeyParameterNamesArgs', 'ApiSubscriptionKeyParameterNamesArgsDict']] subscription_key_parameter_names: A `subscription_key_parameter_names` block as documented below.
         :param pulumi.Input[bool] subscription_required: Should this API require a subscription key? Defaults to `true`.
         :param pulumi.Input[str] terms_of_service_url: Absolute URL of the Terms of Service for the API.
         :param pulumi.Input[str] version: The Version number of this API, if this API is versioned.

@@ -171,13 +171,13 @@ class DiskPoolIscsiTargetLun(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.0.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="diskspool",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    actions=["Microsoft.Network/virtualNetworks/read"],
-                    name="Microsoft.StoragePool/diskPools",
-                ),
-            )])
+            delegations=[{
+                "name": "diskspool",
+                "serviceDelegation": {
+                    "actions": ["Microsoft.Network/virtualNetworks/read"],
+                    "name": "Microsoft.StoragePool/diskPools",
+                },
+            }])
         example_disk_pool = azure.compute.DiskPool("example",
             name="example-pool",
             resource_group_name=example_resource_group.name,
@@ -266,13 +266,13 @@ class DiskPoolIscsiTargetLun(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.0.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="diskspool",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    actions=["Microsoft.Network/virtualNetworks/read"],
-                    name="Microsoft.StoragePool/diskPools",
-                ),
-            )])
+            delegations=[{
+                "name": "diskspool",
+                "serviceDelegation": {
+                    "actions": ["Microsoft.Network/virtualNetworks/read"],
+                    "name": "Microsoft.StoragePool/diskPools",
+                },
+            }])
         example_disk_pool = azure.compute.DiskPool("example",
             name="example-pool",
             resource_group_name=example_resource_group.name,

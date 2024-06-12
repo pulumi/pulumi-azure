@@ -466,10 +466,10 @@ class EndpointCosmosdbAccount(pulumi.CustomResource):
             name="exampleIothub",
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="B1",
-                capacity=1,
-            ),
+            sku={
+                "name": "B1",
+                "capacity": 1,
+            },
             tags={
                 "purpose": "example",
             })
@@ -479,13 +479,13 @@ class EndpointCosmosdbAccount(pulumi.CustomResource):
             resource_group_name=example.name,
             offer_type="Standard",
             kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="Strong",
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example.location,
-                failover_priority=0,
-            )])
+            consistency_policy={
+                "consistencyLevel": "Strong",
+            },
+            geo_locations=[{
+                "location": example.location,
+                "failoverPriority": 0,
+            }])
         example_sql_database = azure.cosmosdb.SqlDatabase("example",
             name="cosmos-sql-db",
             resource_group_name=example_account.resource_group_name,
@@ -560,10 +560,10 @@ class EndpointCosmosdbAccount(pulumi.CustomResource):
             name="exampleIothub",
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="B1",
-                capacity=1,
-            ),
+            sku={
+                "name": "B1",
+                "capacity": 1,
+            },
             tags={
                 "purpose": "example",
             })
@@ -573,13 +573,13 @@ class EndpointCosmosdbAccount(pulumi.CustomResource):
             resource_group_name=example.name,
             offer_type="Standard",
             kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="Strong",
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example.location,
-                failover_priority=0,
-            )])
+            consistency_policy={
+                "consistencyLevel": "Strong",
+            },
+            geo_locations=[{
+                "location": example.location,
+                "failoverPriority": 0,
+            }])
         example_sql_database = azure.cosmosdb.SqlDatabase("example",
             name="cosmos-sql-db",
             resource_group_name=example_account.resource_group_name,

@@ -390,7 +390,7 @@ class TriggerCustomEvent(pulumi.CustomResource):
                  eventgrid_topic_id: Optional[pulumi.Input[str]] = None,
                  events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 pipelines: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerCustomEventPipelineArgs']]]]] = None,
+                 pipelines: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TriggerCustomEventPipelineArgs', 'TriggerCustomEventPipelineArgsDict']]]]] = None,
                  subject_begins_with: Optional[pulumi.Input[str]] = None,
                  subject_ends_with: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -433,12 +433,12 @@ class TriggerCustomEvent(pulumi.CustomResource):
                 "example3",
             ],
             description="example description",
-            pipelines=[azure.datafactory.TriggerCustomEventPipelineArgs(
-                name=example_pipeline.name,
-                parameters={
+            pipelines=[{
+                "name": example_pipeline.name,
+                "parameters": {
                     "Env": "Prod",
                 },
-            )],
+            }],
             additional_properties={
                 "foo": "foo1",
                 "bar": "bar2",
@@ -463,7 +463,7 @@ class TriggerCustomEvent(pulumi.CustomResource):
         :param pulumi.Input[str] eventgrid_topic_id: The ID of Event Grid Topic in which event will be listened. Changing this forces a new resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] events: List of events that will fire this trigger. At least one event must be specified.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Custom Event Trigger. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerCustomEventPipelineArgs']]]] pipelines: One or more `pipeline` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TriggerCustomEventPipelineArgs', 'TriggerCustomEventPipelineArgsDict']]]] pipelines: One or more `pipeline` blocks as defined below.
         :param pulumi.Input[str] subject_begins_with: The pattern that event subject starts with for trigger to fire.
         :param pulumi.Input[str] subject_ends_with: The pattern that event subject ends with for trigger to fire.
         """
@@ -512,12 +512,12 @@ class TriggerCustomEvent(pulumi.CustomResource):
                 "example3",
             ],
             description="example description",
-            pipelines=[azure.datafactory.TriggerCustomEventPipelineArgs(
-                name=example_pipeline.name,
-                parameters={
+            pipelines=[{
+                "name": example_pipeline.name,
+                "parameters": {
                     "Env": "Prod",
                 },
-            )],
+            }],
             additional_properties={
                 "foo": "foo1",
                 "bar": "bar2",
@@ -555,7 +555,7 @@ class TriggerCustomEvent(pulumi.CustomResource):
                  eventgrid_topic_id: Optional[pulumi.Input[str]] = None,
                  events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 pipelines: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerCustomEventPipelineArgs']]]]] = None,
+                 pipelines: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TriggerCustomEventPipelineArgs', 'TriggerCustomEventPipelineArgsDict']]]]] = None,
                  subject_begins_with: Optional[pulumi.Input[str]] = None,
                  subject_ends_with: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -604,7 +604,7 @@ class TriggerCustomEvent(pulumi.CustomResource):
             eventgrid_topic_id: Optional[pulumi.Input[str]] = None,
             events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            pipelines: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerCustomEventPipelineArgs']]]]] = None,
+            pipelines: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TriggerCustomEventPipelineArgs', 'TriggerCustomEventPipelineArgsDict']]]]] = None,
             subject_begins_with: Optional[pulumi.Input[str]] = None,
             subject_ends_with: Optional[pulumi.Input[str]] = None) -> 'TriggerCustomEvent':
         """
@@ -622,7 +622,7 @@ class TriggerCustomEvent(pulumi.CustomResource):
         :param pulumi.Input[str] eventgrid_topic_id: The ID of Event Grid Topic in which event will be listened. Changing this forces a new resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] events: List of events that will fire this trigger. At least one event must be specified.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Custom Event Trigger. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerCustomEventPipelineArgs']]]] pipelines: One or more `pipeline` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TriggerCustomEventPipelineArgs', 'TriggerCustomEventPipelineArgsDict']]]] pipelines: One or more `pipeline` blocks as defined below.
         :param pulumi.Input[str] subject_begins_with: The pattern that event subject starts with for trigger to fire.
         :param pulumi.Input[str] subject_ends_with: The pattern that event subject ends with for trigger to fire.
         """

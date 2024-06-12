@@ -286,10 +286,10 @@ class Job(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 input_asset: Optional[pulumi.Input[pulumi.InputType['JobInputAssetArgs']]] = None,
+                 input_asset: Optional[pulumi.Input[Union['JobInputAssetArgs', 'JobInputAssetArgsDict']]] = None,
                  media_services_account_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 output_assets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobOutputAssetArgs']]]]] = None,
+                 output_assets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobOutputAssetArgs', 'JobOutputAssetArgsDict']]]]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  transform_name: Optional[pulumi.Input[str]] = None,
@@ -316,22 +316,22 @@ class Job(pulumi.CustomResource):
             name="examplemediaacc",
             location=example.location,
             resource_group_name=example.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
-                id=example_account.id,
-                is_primary=True,
-            )])
+            storage_accounts=[{
+                "id": example_account.id,
+                "isPrimary": True,
+            }])
         example_transform = azure.media.Transform("example",
             name="transform1",
             resource_group_name=example.name,
             media_services_account_name=example_service_account.name,
             description="My transform description",
-            outputs=[azure.media.TransformOutputArgs(
-                relative_priority="Normal",
-                on_error_action="ContinueJob",
-                builtin_preset=azure.media.TransformOutputBuiltinPresetArgs(
-                    preset_name="AACGoodQualityAudio",
-                ),
-            )])
+            outputs=[{
+                "relativePriority": "Normal",
+                "onErrorAction": "ContinueJob",
+                "builtinPreset": {
+                    "presetName": "AACGoodQualityAudio",
+                },
+            }])
         input = azure.media.Asset("input",
             name="input",
             resource_group_name=example.name,
@@ -349,12 +349,12 @@ class Job(pulumi.CustomResource):
             transform_name=example_transform.name,
             description="My Job description",
             priority="Normal",
-            input_asset=azure.media.JobInputAssetArgs(
-                name=input.name,
-            ),
-            output_assets=[azure.media.JobOutputAssetArgs(
-                name=output.name,
-            )])
+            input_asset={
+                "name": input.name,
+            },
+            output_assets=[{
+                "name": output.name,
+            }])
         ```
 
         ## Import
@@ -368,10 +368,10 @@ class Job(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Optional customer supplied description of the Job.
-        :param pulumi.Input[pulumi.InputType['JobInputAssetArgs']] input_asset: A `input_asset` block as defined below. Changing this forces a new Media Job to be created.
+        :param pulumi.Input[Union['JobInputAssetArgs', 'JobInputAssetArgsDict']] input_asset: A `input_asset` block as defined below. Changing this forces a new Media Job to be created.
         :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Transform to be created.
         :param pulumi.Input[str] name: The name which should be used for this Media Job. Changing this forces a new Media Job to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobOutputAssetArgs']]]] output_assets: One or more `output_asset` blocks as defined below. Changing this forces a new Media Job to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobOutputAssetArgs', 'JobOutputAssetArgsDict']]]] output_assets: One or more `output_asset` blocks as defined below. Changing this forces a new Media Job to be created.
         :param pulumi.Input[str] priority: Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. Changing this forces a new Media Job to be created. Possible values are `High`, `Normal` and `Low`. Defaults to `Normal`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Media Job should exist. Changing this forces a new Media Job to be created.
         :param pulumi.Input[str] transform_name: The Transform name. Changing this forces a new Media Job to be created.
@@ -404,22 +404,22 @@ class Job(pulumi.CustomResource):
             name="examplemediaacc",
             location=example.location,
             resource_group_name=example.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
-                id=example_account.id,
-                is_primary=True,
-            )])
+            storage_accounts=[{
+                "id": example_account.id,
+                "isPrimary": True,
+            }])
         example_transform = azure.media.Transform("example",
             name="transform1",
             resource_group_name=example.name,
             media_services_account_name=example_service_account.name,
             description="My transform description",
-            outputs=[azure.media.TransformOutputArgs(
-                relative_priority="Normal",
-                on_error_action="ContinueJob",
-                builtin_preset=azure.media.TransformOutputBuiltinPresetArgs(
-                    preset_name="AACGoodQualityAudio",
-                ),
-            )])
+            outputs=[{
+                "relativePriority": "Normal",
+                "onErrorAction": "ContinueJob",
+                "builtinPreset": {
+                    "presetName": "AACGoodQualityAudio",
+                },
+            }])
         input = azure.media.Asset("input",
             name="input",
             resource_group_name=example.name,
@@ -437,12 +437,12 @@ class Job(pulumi.CustomResource):
             transform_name=example_transform.name,
             description="My Job description",
             priority="Normal",
-            input_asset=azure.media.JobInputAssetArgs(
-                name=input.name,
-            ),
-            output_assets=[azure.media.JobOutputAssetArgs(
-                name=output.name,
-            )])
+            input_asset={
+                "name": input.name,
+            },
+            output_assets=[{
+                "name": output.name,
+            }])
         ```
 
         ## Import
@@ -469,10 +469,10 @@ class Job(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 input_asset: Optional[pulumi.Input[pulumi.InputType['JobInputAssetArgs']]] = None,
+                 input_asset: Optional[pulumi.Input[Union['JobInputAssetArgs', 'JobInputAssetArgsDict']]] = None,
                  media_services_account_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 output_assets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobOutputAssetArgs']]]]] = None,
+                 output_assets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobOutputAssetArgs', 'JobOutputAssetArgsDict']]]]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  transform_name: Optional[pulumi.Input[str]] = None,
@@ -514,10 +514,10 @@ class Job(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
-            input_asset: Optional[pulumi.Input[pulumi.InputType['JobInputAssetArgs']]] = None,
+            input_asset: Optional[pulumi.Input[Union['JobInputAssetArgs', 'JobInputAssetArgsDict']]] = None,
             media_services_account_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            output_assets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobOutputAssetArgs']]]]] = None,
+            output_assets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobOutputAssetArgs', 'JobOutputAssetArgsDict']]]]] = None,
             priority: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             transform_name: Optional[pulumi.Input[str]] = None) -> 'Job':
@@ -529,10 +529,10 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Optional customer supplied description of the Job.
-        :param pulumi.Input[pulumi.InputType['JobInputAssetArgs']] input_asset: A `input_asset` block as defined below. Changing this forces a new Media Job to be created.
+        :param pulumi.Input[Union['JobInputAssetArgs', 'JobInputAssetArgsDict']] input_asset: A `input_asset` block as defined below. Changing this forces a new Media Job to be created.
         :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Transform to be created.
         :param pulumi.Input[str] name: The name which should be used for this Media Job. Changing this forces a new Media Job to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobOutputAssetArgs']]]] output_assets: One or more `output_asset` blocks as defined below. Changing this forces a new Media Job to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobOutputAssetArgs', 'JobOutputAssetArgsDict']]]] output_assets: One or more `output_asset` blocks as defined below. Changing this forces a new Media Job to be created.
         :param pulumi.Input[str] priority: Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. Changing this forces a new Media Job to be created. Possible values are `High`, `Normal` and `Low`. Defaults to `Normal`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Media Job should exist. Changing this forces a new Media Job to be created.
         :param pulumi.Input[str] transform_name: The Transform name. Changing this forces a new Media Job to be created.

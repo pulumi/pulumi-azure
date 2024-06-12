@@ -193,10 +193,10 @@ class AccountEncryption(pulumi.CustomResource):
             tenant_id="00000000-0000-0000-0000-000000000000",
             sku_name="standard",
             access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id="00000000-0000-0000-0000-000000000000",
-                    object_id=current.object_id,
-                    key_permissions=[
+                {
+                    "tenantId": "00000000-0000-0000-0000-000000000000",
+                    "objectId": current.object_id,
+                    "keyPermissions": [
                         "Get",
                         "Create",
                         "Delete",
@@ -205,16 +205,16 @@ class AccountEncryption(pulumi.CustomResource):
                         "GetRotationPolicy",
                         "SetRotationPolicy",
                     ],
-                ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id="00000000-0000-0000-0000-000000000000",
-                    object_id=example_user_assigned_identity.principal_id,
-                    key_permissions=[
+                },
+                {
+                    "tenantId": "00000000-0000-0000-0000-000000000000",
+                    "objectId": example_user_assigned_identity.principal_id,
+                    "keyPermissions": [
                         "Get",
                         "Encrypt",
                         "Decrypt",
                     ],
-                ),
+                },
             ])
         example_key = azure.keyvault.Key("example",
             name="anfencryptionkey",
@@ -233,10 +233,10 @@ class AccountEncryption(pulumi.CustomResource):
             name="netappaccount",
             location=example.location,
             resource_group_name=example.name,
-            identity=azure.netapp.AccountIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ))
+            identity={
+                "type": "UserAssigned",
+                "identityIds": [example_user_assigned_identity.id],
+            })
         example_account_encryption = azure.netapp.AccountEncryption("example",
             netapp_account_id=example_account.id,
             user_assigned_identity_id=example_user_assigned_identity.id,
@@ -294,10 +294,10 @@ class AccountEncryption(pulumi.CustomResource):
             tenant_id="00000000-0000-0000-0000-000000000000",
             sku_name="standard",
             access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id="00000000-0000-0000-0000-000000000000",
-                    object_id=current.object_id,
-                    key_permissions=[
+                {
+                    "tenantId": "00000000-0000-0000-0000-000000000000",
+                    "objectId": current.object_id,
+                    "keyPermissions": [
                         "Get",
                         "Create",
                         "Delete",
@@ -306,16 +306,16 @@ class AccountEncryption(pulumi.CustomResource):
                         "GetRotationPolicy",
                         "SetRotationPolicy",
                     ],
-                ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id="00000000-0000-0000-0000-000000000000",
-                    object_id=example_user_assigned_identity.principal_id,
-                    key_permissions=[
+                },
+                {
+                    "tenantId": "00000000-0000-0000-0000-000000000000",
+                    "objectId": example_user_assigned_identity.principal_id,
+                    "keyPermissions": [
                         "Get",
                         "Encrypt",
                         "Decrypt",
                     ],
-                ),
+                },
             ])
         example_key = azure.keyvault.Key("example",
             name="anfencryptionkey",
@@ -334,10 +334,10 @@ class AccountEncryption(pulumi.CustomResource):
             name="netappaccount",
             location=example.location,
             resource_group_name=example.name,
-            identity=azure.netapp.AccountIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ))
+            identity={
+                "type": "UserAssigned",
+                "identityIds": [example_user_assigned_identity.id],
+            })
         example_account_encryption = azure.netapp.AccountEncryption("example",
             netapp_account_id=example_account.id,
             user_assigned_identity_id=example_user_assigned_identity.id,

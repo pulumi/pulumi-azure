@@ -239,7 +239,7 @@ class SrvRecord(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SrvRecordRecordArgs']]]]] = None,
+                 records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SrvRecordRecordArgs', 'SrvRecordRecordArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl: Optional[pulumi.Input[int]] = None,
@@ -263,12 +263,12 @@ class SrvRecord(pulumi.CustomResource):
             zone_name=example_zone.name,
             resource_group_name=example.name,
             ttl=300,
-            records=[azure.dns.SrvRecordRecordArgs(
-                priority=1,
-                weight=5,
-                port=8080,
-                target="target1.contoso.com",
-            )],
+            records=[{
+                "priority": 1,
+                "weight": 5,
+                "port": 8080,
+                "target": "target1.contoso.com",
+            }],
             tags={
                 "Environment": "Production",
             })
@@ -285,7 +285,7 @@ class SrvRecord(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the DNS SRV Record. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SrvRecordRecordArgs']]]] records: A list of values that make up the SRV record. Each `record` block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SrvRecordRecordArgs', 'SrvRecordRecordArgsDict']]]] records: A list of values that make up the SRV record. Each `record` block supports fields documented below.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
@@ -315,12 +315,12 @@ class SrvRecord(pulumi.CustomResource):
             zone_name=example_zone.name,
             resource_group_name=example.name,
             ttl=300,
-            records=[azure.dns.SrvRecordRecordArgs(
-                priority=1,
-                weight=5,
-                port=8080,
-                target="target1.contoso.com",
-            )],
+            records=[{
+                "priority": 1,
+                "weight": 5,
+                "port": 8080,
+                "target": "target1.contoso.com",
+            }],
             tags={
                 "Environment": "Production",
             })
@@ -350,7 +350,7 @@ class SrvRecord(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SrvRecordRecordArgs']]]]] = None,
+                 records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SrvRecordRecordArgs', 'SrvRecordRecordArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl: Optional[pulumi.Input[int]] = None,
@@ -391,7 +391,7 @@ class SrvRecord(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             fqdn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SrvRecordRecordArgs']]]]] = None,
+            records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SrvRecordRecordArgs', 'SrvRecordRecordArgsDict']]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             ttl: Optional[pulumi.Input[int]] = None,
@@ -405,7 +405,7 @@ class SrvRecord(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fqdn: The FQDN of the DNS SRV Record.
         :param pulumi.Input[str] name: The name of the DNS SRV Record. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SrvRecordRecordArgs']]]] records: A list of values that make up the SRV record. Each `record` block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SrvRecordRecordArgs', 'SrvRecordRecordArgsDict']]]] records: A list of values that make up the SRV record. Each `record` block supports fields documented below.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.

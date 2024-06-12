@@ -357,12 +357,12 @@ class InterationServiceEnvironment(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/27"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="integrationServiceEnvironments",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Logic/integrationServiceEnvironments",
-                ),
-            )])
+            delegations=[{
+                "name": "integrationServiceEnvironments",
+                "serviceDelegation": {
+                    "name": "Microsoft.Logic/integrationServiceEnvironments",
+                },
+            }])
         isesubnet2 = azure.network.Subnet("isesubnet2",
             name="isesubnet2",
             resource_group_name=example.name,
@@ -445,12 +445,12 @@ class InterationServiceEnvironment(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/27"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="integrationServiceEnvironments",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Logic/integrationServiceEnvironments",
-                ),
-            )])
+            delegations=[{
+                "name": "integrationServiceEnvironments",
+                "serviceDelegation": {
+                    "name": "Microsoft.Logic/integrationServiceEnvironments",
+                },
+            }])
         isesubnet2 = azure.network.Subnet("isesubnet2",
             name="isesubnet2",
             resource_group_name=example.name,

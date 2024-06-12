@@ -226,13 +226,13 @@ class Certificate(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="delegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="NGINX.NGINXPLUS/nginxDeployments",
-                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
-                ),
-            )])
+            delegations=[{
+                "name": "delegation",
+                "serviceDelegation": {
+                    "name": "NGINX.NGINXPLUS/nginxDeployments",
+                    "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
+                },
+            }])
         example_deployment = azure.nginx.Deployment("example",
             name="example-nginx",
             resource_group_name=example.name,
@@ -240,12 +240,12 @@ class Certificate(pulumi.CustomResource):
             location=example.location,
             managed_resource_group="example",
             diagnose_support_enabled=True,
-            frontend_public=azure.nginx.DeploymentFrontendPublicArgs(
-                ip_addresses=[example_public_ip.id],
-            ),
-            network_interfaces=[azure.nginx.DeploymentNetworkInterfaceArgs(
-                subnet_id=example_subnet.id,
-            )])
+            frontend_public={
+                "ipAddresses": [example_public_ip.id],
+            },
+            network_interfaces=[{
+                "subnetId": example_subnet.id,
+            }])
         current = azure.core.get_client_config()
         example_key_vault = azure.keyvault.KeyVault("example",
             name="examplekeyvault",
@@ -253,10 +253,10 @@ class Certificate(pulumi.CustomResource):
             resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="premium",
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=current.tenant_id,
-                object_id=current.object_id,
-                certificate_permissions=[
+            access_policies=[{
+                "tenantId": current.tenant_id,
+                "objectId": current.object_id,
+                "certificatePermissions": [
                     "Create",
                     "Delete",
                     "DeleteIssuers",
@@ -270,14 +270,14 @@ class Certificate(pulumi.CustomResource):
                     "SetIssuers",
                     "Update",
                 ],
-            )])
+            }])
         example_certificate = azure.keyvault.Certificate("example",
             name="imported-cert",
             key_vault_id=example_key_vault.id,
-            certificate=azure.keyvault.CertificateCertificateArgs(
-                contents=std.filebase64(input="certificate-to-import.pfx").result,
-                password="",
-            ))
+            certificate={
+                "contents": std.filebase64(input="certificate-to-import.pfx").result,
+                "password": "",
+            })
         example_certificate2 = azure.nginx.Certificate("example",
             name="examplecert",
             nginx_deployment_id=example_deployment.id,
@@ -340,13 +340,13 @@ class Certificate(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="delegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="NGINX.NGINXPLUS/nginxDeployments",
-                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
-                ),
-            )])
+            delegations=[{
+                "name": "delegation",
+                "serviceDelegation": {
+                    "name": "NGINX.NGINXPLUS/nginxDeployments",
+                    "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
+                },
+            }])
         example_deployment = azure.nginx.Deployment("example",
             name="example-nginx",
             resource_group_name=example.name,
@@ -354,12 +354,12 @@ class Certificate(pulumi.CustomResource):
             location=example.location,
             managed_resource_group="example",
             diagnose_support_enabled=True,
-            frontend_public=azure.nginx.DeploymentFrontendPublicArgs(
-                ip_addresses=[example_public_ip.id],
-            ),
-            network_interfaces=[azure.nginx.DeploymentNetworkInterfaceArgs(
-                subnet_id=example_subnet.id,
-            )])
+            frontend_public={
+                "ipAddresses": [example_public_ip.id],
+            },
+            network_interfaces=[{
+                "subnetId": example_subnet.id,
+            }])
         current = azure.core.get_client_config()
         example_key_vault = azure.keyvault.KeyVault("example",
             name="examplekeyvault",
@@ -367,10 +367,10 @@ class Certificate(pulumi.CustomResource):
             resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="premium",
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=current.tenant_id,
-                object_id=current.object_id,
-                certificate_permissions=[
+            access_policies=[{
+                "tenantId": current.tenant_id,
+                "objectId": current.object_id,
+                "certificatePermissions": [
                     "Create",
                     "Delete",
                     "DeleteIssuers",
@@ -384,14 +384,14 @@ class Certificate(pulumi.CustomResource):
                     "SetIssuers",
                     "Update",
                 ],
-            )])
+            }])
         example_certificate = azure.keyvault.Certificate("example",
             name="imported-cert",
             key_vault_id=example_key_vault.id,
-            certificate=azure.keyvault.CertificateCertificateArgs(
-                contents=std.filebase64(input="certificate-to-import.pfx").result,
-                password="",
-            ))
+            certificate={
+                "contents": std.filebase64(input="certificate-to-import.pfx").result,
+                "password": "",
+            })
         example_certificate2 = azure.nginx.Certificate("example",
             name="examplecert",
             nginx_deployment_id=example_deployment.id,

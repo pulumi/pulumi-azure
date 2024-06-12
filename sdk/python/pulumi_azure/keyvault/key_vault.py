@@ -619,15 +619,15 @@ class KeyVault(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyVaultAccessPolicyArgs']]]]] = None,
-                 contacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyVaultContactArgs']]]]] = None,
+                 access_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KeyVaultAccessPolicyArgs', 'KeyVaultAccessPolicyArgsDict']]]]] = None,
+                 contacts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KeyVaultContactArgs', 'KeyVaultContactArgsDict']]]]] = None,
                  enable_rbac_authorization: Optional[pulumi.Input[bool]] = None,
                  enabled_for_deployment: Optional[pulumi.Input[bool]] = None,
                  enabled_for_disk_encryption: Optional[pulumi.Input[bool]] = None,
                  enabled_for_template_deployment: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_acls: Optional[pulumi.Input[pulumi.InputType['KeyVaultNetworkAclsArgs']]] = None,
+                 network_acls: Optional[pulumi.Input[Union['KeyVaultNetworkAclsArgs', 'KeyVaultNetworkAclsArgsDict']]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  purge_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -664,13 +664,13 @@ class KeyVault(pulumi.CustomResource):
             soft_delete_retention_days=7,
             purge_protection_enabled=False,
             sku_name="standard",
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=current.tenant_id,
-                object_id=current.object_id,
-                key_permissions=["Get"],
-                secret_permissions=["Get"],
-                storage_permissions=["Get"],
-            )])
+            access_policies=[{
+                "tenantId": current.tenant_id,
+                "objectId": current.object_id,
+                "keyPermissions": ["Get"],
+                "secretPermissions": ["Get"],
+                "storagePermissions": ["Get"],
+            }])
         ```
 
         ## Import
@@ -683,10 +683,10 @@ class KeyVault(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyVaultAccessPolicyArgs']]]] access_policies: A list of up to 1024 objects describing access policies, as described below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['KeyVaultAccessPolicyArgs', 'KeyVaultAccessPolicyArgsDict']]]] access_policies: A list of up to 1024 objects describing access policies, as described below.
                
                > **NOTE** Since `access_policy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyVaultContactArgs']]]] contacts: One or more `contact` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['KeyVaultContactArgs', 'KeyVaultContactArgsDict']]]] contacts: One or more `contact` block as defined below.
                
                > **Note:** This field can only be set once user has `managecontacts` certificate permission.
                
@@ -697,7 +697,7 @@ class KeyVault(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled_for_template_deployment: Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
-        :param pulumi.Input[pulumi.InputType['KeyVaultNetworkAclsArgs']] network_acls: A `network_acls` block as defined below.
+        :param pulumi.Input[Union['KeyVaultNetworkAclsArgs', 'KeyVaultNetworkAclsArgsDict']] network_acls: A `network_acls` block as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Key Vault. Defaults to `true`.
         :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault? 
                
@@ -746,13 +746,13 @@ class KeyVault(pulumi.CustomResource):
             soft_delete_retention_days=7,
             purge_protection_enabled=False,
             sku_name="standard",
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=current.tenant_id,
-                object_id=current.object_id,
-                key_permissions=["Get"],
-                secret_permissions=["Get"],
-                storage_permissions=["Get"],
-            )])
+            access_policies=[{
+                "tenantId": current.tenant_id,
+                "objectId": current.object_id,
+                "keyPermissions": ["Get"],
+                "secretPermissions": ["Get"],
+                "storagePermissions": ["Get"],
+            }])
         ```
 
         ## Import
@@ -778,15 +778,15 @@ class KeyVault(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyVaultAccessPolicyArgs']]]]] = None,
-                 contacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyVaultContactArgs']]]]] = None,
+                 access_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KeyVaultAccessPolicyArgs', 'KeyVaultAccessPolicyArgsDict']]]]] = None,
+                 contacts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KeyVaultContactArgs', 'KeyVaultContactArgsDict']]]]] = None,
                  enable_rbac_authorization: Optional[pulumi.Input[bool]] = None,
                  enabled_for_deployment: Optional[pulumi.Input[bool]] = None,
                  enabled_for_disk_encryption: Optional[pulumi.Input[bool]] = None,
                  enabled_for_template_deployment: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_acls: Optional[pulumi.Input[pulumi.InputType['KeyVaultNetworkAclsArgs']]] = None,
+                 network_acls: Optional[pulumi.Input[Union['KeyVaultNetworkAclsArgs', 'KeyVaultNetworkAclsArgsDict']]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  purge_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -836,15 +836,15 @@ class KeyVault(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyVaultAccessPolicyArgs']]]]] = None,
-            contacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyVaultContactArgs']]]]] = None,
+            access_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KeyVaultAccessPolicyArgs', 'KeyVaultAccessPolicyArgsDict']]]]] = None,
+            contacts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KeyVaultContactArgs', 'KeyVaultContactArgsDict']]]]] = None,
             enable_rbac_authorization: Optional[pulumi.Input[bool]] = None,
             enabled_for_deployment: Optional[pulumi.Input[bool]] = None,
             enabled_for_disk_encryption: Optional[pulumi.Input[bool]] = None,
             enabled_for_template_deployment: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            network_acls: Optional[pulumi.Input[pulumi.InputType['KeyVaultNetworkAclsArgs']]] = None,
+            network_acls: Optional[pulumi.Input[Union['KeyVaultNetworkAclsArgs', 'KeyVaultNetworkAclsArgsDict']]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             purge_protection_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -860,10 +860,10 @@ class KeyVault(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyVaultAccessPolicyArgs']]]] access_policies: A list of up to 1024 objects describing access policies, as described below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['KeyVaultAccessPolicyArgs', 'KeyVaultAccessPolicyArgsDict']]]] access_policies: A list of up to 1024 objects describing access policies, as described below.
                
                > **NOTE** Since `access_policy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyVaultContactArgs']]]] contacts: One or more `contact` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['KeyVaultContactArgs', 'KeyVaultContactArgsDict']]]] contacts: One or more `contact` block as defined below.
                
                > **Note:** This field can only be set once user has `managecontacts` certificate permission.
                
@@ -874,7 +874,7 @@ class KeyVault(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled_for_template_deployment: Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
-        :param pulumi.Input[pulumi.InputType['KeyVaultNetworkAclsArgs']] network_acls: A `network_acls` block as defined below.
+        :param pulumi.Input[Union['KeyVaultNetworkAclsArgs', 'KeyVaultNetworkAclsArgsDict']] network_acls: A `network_acls` block as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Key Vault. Defaults to `true`.
         :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault? 
                

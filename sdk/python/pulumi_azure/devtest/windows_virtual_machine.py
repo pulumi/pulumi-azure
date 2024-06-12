@@ -587,8 +587,8 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_claim: Optional[pulumi.Input[bool]] = None,
                  disallow_public_ip_address: Optional[pulumi.Input[bool]] = None,
-                 gallery_image_reference: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineGalleryImageReferenceArgs']]] = None,
-                 inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineInboundNatRuleArgs']]]]] = None,
+                 gallery_image_reference: Optional[pulumi.Input[Union['WindowsVirtualMachineGalleryImageReferenceArgs', 'WindowsVirtualMachineGalleryImageReferenceArgsDict']]] = None,
+                 inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineInboundNatRuleArgs', 'WindowsVirtualMachineInboundNatRuleArgsDict']]]]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
                  lab_subnet_name: Optional[pulumi.Input[str]] = None,
                  lab_virtual_network_id: Optional[pulumi.Input[str]] = None,
@@ -625,10 +625,10 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             name="example-network",
             lab_name=example_lab.name,
             resource_group_name=example.name,
-            subnet=azure.devtest.VirtualNetworkSubnetArgs(
-                use_public_ip_address="Allow",
-                use_in_virtual_machine_creation="Allow",
-            ))
+            subnet={
+                "usePublicIpAddress": "Allow",
+                "useInVirtualMachineCreation": "Allow",
+            })
         example_windows_virtual_machine = azure.devtest.WindowsVirtualMachine("example",
             name="example-vm03",
             lab_name=example_lab.name,
@@ -641,12 +641,12 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             lab_subnet_name=example_virtual_network.subnet.name,
             storage_type="Premium",
             notes="Some notes about this Virtual Machine.",
-            gallery_image_reference=azure.devtest.WindowsVirtualMachineGalleryImageReferenceArgs(
-                offer="WindowsServer",
-                publisher="MicrosoftWindowsServer",
-                sku="2019-Datacenter",
-                version="latest",
-            ))
+            gallery_image_reference={
+                "offer": "WindowsServer",
+                "publisher": "MicrosoftWindowsServer",
+                "sku": "2019-Datacenter",
+                "version": "latest",
+            })
         ```
 
         ## Import
@@ -661,8 +661,8 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_claim: Can this Virtual Machine be claimed by users? Defaults to `true`.
         :param pulumi.Input[bool] disallow_public_ip_address: Should the Virtual Machine be created without a Public IP Address? Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineGalleryImageReferenceArgs']] gallery_image_reference: A `gallery_image_reference` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineInboundNatRuleArgs']]]] inbound_nat_rules: One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['WindowsVirtualMachineGalleryImageReferenceArgs', 'WindowsVirtualMachineGalleryImageReferenceArgsDict']] gallery_image_reference: A `gallery_image_reference` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineInboundNatRuleArgs', 'WindowsVirtualMachineInboundNatRuleArgsDict']]]] inbound_nat_rules: One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
                
                > **NOTE:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
         :param pulumi.Input[str] lab_name: Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
@@ -709,10 +709,10 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             name="example-network",
             lab_name=example_lab.name,
             resource_group_name=example.name,
-            subnet=azure.devtest.VirtualNetworkSubnetArgs(
-                use_public_ip_address="Allow",
-                use_in_virtual_machine_creation="Allow",
-            ))
+            subnet={
+                "usePublicIpAddress": "Allow",
+                "useInVirtualMachineCreation": "Allow",
+            })
         example_windows_virtual_machine = azure.devtest.WindowsVirtualMachine("example",
             name="example-vm03",
             lab_name=example_lab.name,
@@ -725,12 +725,12 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             lab_subnet_name=example_virtual_network.subnet.name,
             storage_type="Premium",
             notes="Some notes about this Virtual Machine.",
-            gallery_image_reference=azure.devtest.WindowsVirtualMachineGalleryImageReferenceArgs(
-                offer="WindowsServer",
-                publisher="MicrosoftWindowsServer",
-                sku="2019-Datacenter",
-                version="latest",
-            ))
+            gallery_image_reference={
+                "offer": "WindowsServer",
+                "publisher": "MicrosoftWindowsServer",
+                "sku": "2019-Datacenter",
+                "version": "latest",
+            })
         ```
 
         ## Import
@@ -758,8 +758,8 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_claim: Optional[pulumi.Input[bool]] = None,
                  disallow_public_ip_address: Optional[pulumi.Input[bool]] = None,
-                 gallery_image_reference: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineGalleryImageReferenceArgs']]] = None,
-                 inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineInboundNatRuleArgs']]]]] = None,
+                 gallery_image_reference: Optional[pulumi.Input[Union['WindowsVirtualMachineGalleryImageReferenceArgs', 'WindowsVirtualMachineGalleryImageReferenceArgsDict']]] = None,
+                 inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineInboundNatRuleArgs', 'WindowsVirtualMachineInboundNatRuleArgsDict']]]]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
                  lab_subnet_name: Optional[pulumi.Input[str]] = None,
                  lab_virtual_network_id: Optional[pulumi.Input[str]] = None,
@@ -832,8 +832,8 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             allow_claim: Optional[pulumi.Input[bool]] = None,
             disallow_public_ip_address: Optional[pulumi.Input[bool]] = None,
             fqdn: Optional[pulumi.Input[str]] = None,
-            gallery_image_reference: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineGalleryImageReferenceArgs']]] = None,
-            inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineInboundNatRuleArgs']]]]] = None,
+            gallery_image_reference: Optional[pulumi.Input[Union['WindowsVirtualMachineGalleryImageReferenceArgs', 'WindowsVirtualMachineGalleryImageReferenceArgsDict']]] = None,
+            inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineInboundNatRuleArgs', 'WindowsVirtualMachineInboundNatRuleArgsDict']]]]] = None,
             lab_name: Optional[pulumi.Input[str]] = None,
             lab_subnet_name: Optional[pulumi.Input[str]] = None,
             lab_virtual_network_id: Optional[pulumi.Input[str]] = None,
@@ -857,8 +857,8 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_claim: Can this Virtual Machine be claimed by users? Defaults to `true`.
         :param pulumi.Input[bool] disallow_public_ip_address: Should the Virtual Machine be created without a Public IP Address? Changing this forces a new resource to be created.
         :param pulumi.Input[str] fqdn: The FQDN of the Virtual Machine.
-        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineGalleryImageReferenceArgs']] gallery_image_reference: A `gallery_image_reference` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineInboundNatRuleArgs']]]] inbound_nat_rules: One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['WindowsVirtualMachineGalleryImageReferenceArgs', 'WindowsVirtualMachineGalleryImageReferenceArgsDict']] gallery_image_reference: A `gallery_image_reference` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineInboundNatRuleArgs', 'WindowsVirtualMachineInboundNatRuleArgsDict']]]] inbound_nat_rules: One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
                
                > **NOTE:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
         :param pulumi.Input[str] lab_name: Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.

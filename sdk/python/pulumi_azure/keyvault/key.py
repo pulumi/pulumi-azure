@@ -527,7 +527,7 @@ class Key(pulumi.CustomResource):
                  key_vault_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  not_before_date: Optional[pulumi.Input[str]] = None,
-                 rotation_policy: Optional[pulumi.Input[pulumi.InputType['KeyRotationPolicyArgs']]] = None,
+                 rotation_policy: Optional[pulumi.Input[Union['KeyRotationPolicyArgs', 'KeyRotationPolicyArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -556,10 +556,10 @@ class Key(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="premium",
             soft_delete_retention_days=7,
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=current.tenant_id,
-                object_id=current.object_id,
-                key_permissions=[
+            access_policies=[{
+                "tenantId": current.tenant_id,
+                "objectId": current.object_id,
+                "keyPermissions": [
                     "Create",
                     "Delete",
                     "Get",
@@ -569,8 +569,8 @@ class Key(pulumi.CustomResource):
                     "GetRotationPolicy",
                     "SetRotationPolicy",
                 ],
-                secret_permissions=["Set"],
-            )])
+                "secretPermissions": ["Set"],
+            }])
         generated = azure.keyvault.Key("generated",
             name="generated-certificate",
             key_vault_id=example_key_vault.id,
@@ -584,13 +584,13 @@ class Key(pulumi.CustomResource):
                 "verify",
                 "wrapKey",
             ],
-            rotation_policy=azure.keyvault.KeyRotationPolicyArgs(
-                automatic=azure.keyvault.KeyRotationPolicyAutomaticArgs(
-                    time_before_expiry="P30D",
-                ),
-                expire_after="P90D",
-                notify_before_expiry="P29D",
-            ))
+            rotation_policy={
+                "automatic": {
+                    "timeBeforeExpiry": "P30D",
+                },
+                "expireAfter": "P90D",
+                "notifyBeforeExpiry": "P29D",
+            })
         ```
 
         ## Import
@@ -613,7 +613,7 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[str] not_before_date: Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
                
                > **Note:** Once `expiration_date` is set, it's not possible to unset the key even if it is deleted & recreated as underlying Azure API uses the restore of the purged key.
-        :param pulumi.Input[pulumi.InputType['KeyRotationPolicyArgs']] rotation_policy: A `rotation_policy` block as defined below.
+        :param pulumi.Input[Union['KeyRotationPolicyArgs', 'KeyRotationPolicyArgsDict']] rotation_policy: A `rotation_policy` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -648,10 +648,10 @@ class Key(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="premium",
             soft_delete_retention_days=7,
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=current.tenant_id,
-                object_id=current.object_id,
-                key_permissions=[
+            access_policies=[{
+                "tenantId": current.tenant_id,
+                "objectId": current.object_id,
+                "keyPermissions": [
                     "Create",
                     "Delete",
                     "Get",
@@ -661,8 +661,8 @@ class Key(pulumi.CustomResource):
                     "GetRotationPolicy",
                     "SetRotationPolicy",
                 ],
-                secret_permissions=["Set"],
-            )])
+                "secretPermissions": ["Set"],
+            }])
         generated = azure.keyvault.Key("generated",
             name="generated-certificate",
             key_vault_id=example_key_vault.id,
@@ -676,13 +676,13 @@ class Key(pulumi.CustomResource):
                 "verify",
                 "wrapKey",
             ],
-            rotation_policy=azure.keyvault.KeyRotationPolicyArgs(
-                automatic=azure.keyvault.KeyRotationPolicyAutomaticArgs(
-                    time_before_expiry="P30D",
-                ),
-                expire_after="P90D",
-                notify_before_expiry="P29D",
-            ))
+            rotation_policy={
+                "automatic": {
+                    "timeBeforeExpiry": "P30D",
+                },
+                "expireAfter": "P90D",
+                "notifyBeforeExpiry": "P29D",
+            })
         ```
 
         ## Import
@@ -716,7 +716,7 @@ class Key(pulumi.CustomResource):
                  key_vault_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  not_before_date: Optional[pulumi.Input[str]] = None,
-                 rotation_policy: Optional[pulumi.Input[pulumi.InputType['KeyRotationPolicyArgs']]] = None,
+                 rotation_policy: Optional[pulumi.Input[Union['KeyRotationPolicyArgs', 'KeyRotationPolicyArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -777,7 +777,7 @@ class Key(pulumi.CustomResource):
             public_key_pem: Optional[pulumi.Input[str]] = None,
             resource_id: Optional[pulumi.Input[str]] = None,
             resource_versionless_id: Optional[pulumi.Input[str]] = None,
-            rotation_policy: Optional[pulumi.Input[pulumi.InputType['KeyRotationPolicyArgs']]] = None,
+            rotation_policy: Optional[pulumi.Input[Union['KeyRotationPolicyArgs', 'KeyRotationPolicyArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             version: Optional[pulumi.Input[str]] = None,
             versionless_id: Optional[pulumi.Input[str]] = None,
@@ -806,7 +806,7 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[str] public_key_pem: The PEM encoded public key of this Key Vault Key.
         :param pulumi.Input[str] resource_id: The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won't auto-rotate values if used in other Azure Services.
         :param pulumi.Input[str] resource_versionless_id: The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
-        :param pulumi.Input[pulumi.InputType['KeyRotationPolicyArgs']] rotation_policy: A `rotation_policy` block as defined below.
+        :param pulumi.Input[Union['KeyRotationPolicyArgs', 'KeyRotationPolicyArgsDict']] rotation_policy: A `rotation_policy` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The current version of the Key Vault Key.
         :param pulumi.Input[str] versionless_id: The Base ID of the Key Vault Key.

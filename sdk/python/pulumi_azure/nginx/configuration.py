@@ -192,10 +192,10 @@ class Configuration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config_files: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationConfigFileArgs']]]]] = None,
+                 config_files: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationConfigFileArgs', 'ConfigurationConfigFileArgsDict']]]]] = None,
                  nginx_deployment_id: Optional[pulumi.Input[str]] = None,
                  package_data: Optional[pulumi.Input[str]] = None,
-                 protected_files: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationProtectedFileArgs']]]]] = None,
+                 protected_files: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationProtectedFileArgs', 'ConfigurationProtectedFileArgsDict']]]]] = None,
                  root_file: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -230,13 +230,13 @@ class Configuration(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="delegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="NGINX.NGINXPLUS/nginxDeployments",
-                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
-                ),
-            )])
+            delegations=[{
+                "name": "delegation",
+                "serviceDelegation": {
+                    "name": "NGINX.NGINXPLUS/nginxDeployments",
+                    "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
+                },
+            }])
         example_deployment = azure.nginx.Deployment("example",
             name="example-nginx",
             resource_group_name=example.name,
@@ -244,18 +244,18 @@ class Configuration(pulumi.CustomResource):
             location=example.location,
             managed_resource_group="example",
             diagnose_support_enabled=True,
-            frontend_public=azure.nginx.DeploymentFrontendPublicArgs(
-                ip_addresses=[example_public_ip.id],
-            ),
-            network_interfaces=[azure.nginx.DeploymentNetworkInterfaceArgs(
-                subnet_id=example_subnet.id,
-            )])
+            frontend_public={
+                "ipAddresses": [example_public_ip.id],
+            },
+            network_interfaces=[{
+                "subnetId": example_subnet.id,
+            }])
         example_configuration = azure.nginx.Configuration("example",
             nginx_deployment_id=example_deployment.id,
             root_file="/etc/nginx/nginx.conf",
             config_files=[
-                azure.nginx.ConfigurationConfigFileArgs(
-                    content=std.base64encode(input=\"\"\"http {
+                {
+                    "content": std.base64encode(input=\"\"\"http {
             server {
                 listen 80;
                 location / {
@@ -269,10 +269,10 @@ class Configuration(pulumi.CustomResource):
             }
         }
         \"\"\").result,
-                    virtual_path="/etc/nginx/nginx.conf",
-                ),
-                azure.nginx.ConfigurationConfigFileArgs(
-                    content=std.base64encode(input=\"\"\"location /bbb {
+                    "virtualPath": "/etc/nginx/nginx.conf",
+                },
+                {
+                    "content": std.base64encode(input=\"\"\"location /bbb {
          default_type text/html;
          return 200 '<!doctype html><html lang="en"><head></head><body>
           <div>this one will be updated</div>
@@ -280,8 +280,8 @@ class Configuration(pulumi.CustomResource):
          </body></html>';
         }
         \"\"\").result,
-                    virtual_path="/etc/nginx/site/b.conf",
-                ),
+                    "virtualPath": "/etc/nginx/site/b.conf",
+                },
             ])
         ```
 
@@ -295,10 +295,10 @@ class Configuration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationConfigFileArgs']]]] config_files: One or more `config_file` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationConfigFileArgs', 'ConfigurationConfigFileArgsDict']]]] config_files: One or more `config_file` blocks as defined below.
         :param pulumi.Input[str] nginx_deployment_id: The ID of the Nginx Deployment. Changing this forces a new Nginx Configuration to be created.
         :param pulumi.Input[str] package_data: Specifies the package data for this configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationProtectedFileArgs']]]] protected_files: One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationProtectedFileArgs', 'ConfigurationProtectedFileArgsDict']]]] protected_files: One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
         :param pulumi.Input[str] root_file: Specifies the root file path of this Nginx Configuration.
         """
         ...
@@ -339,13 +339,13 @@ class Configuration(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="delegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="NGINX.NGINXPLUS/nginxDeployments",
-                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
-                ),
-            )])
+            delegations=[{
+                "name": "delegation",
+                "serviceDelegation": {
+                    "name": "NGINX.NGINXPLUS/nginxDeployments",
+                    "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
+                },
+            }])
         example_deployment = azure.nginx.Deployment("example",
             name="example-nginx",
             resource_group_name=example.name,
@@ -353,18 +353,18 @@ class Configuration(pulumi.CustomResource):
             location=example.location,
             managed_resource_group="example",
             diagnose_support_enabled=True,
-            frontend_public=azure.nginx.DeploymentFrontendPublicArgs(
-                ip_addresses=[example_public_ip.id],
-            ),
-            network_interfaces=[azure.nginx.DeploymentNetworkInterfaceArgs(
-                subnet_id=example_subnet.id,
-            )])
+            frontend_public={
+                "ipAddresses": [example_public_ip.id],
+            },
+            network_interfaces=[{
+                "subnetId": example_subnet.id,
+            }])
         example_configuration = azure.nginx.Configuration("example",
             nginx_deployment_id=example_deployment.id,
             root_file="/etc/nginx/nginx.conf",
             config_files=[
-                azure.nginx.ConfigurationConfigFileArgs(
-                    content=std.base64encode(input=\"\"\"http {
+                {
+                    "content": std.base64encode(input=\"\"\"http {
             server {
                 listen 80;
                 location / {
@@ -378,10 +378,10 @@ class Configuration(pulumi.CustomResource):
             }
         }
         \"\"\").result,
-                    virtual_path="/etc/nginx/nginx.conf",
-                ),
-                azure.nginx.ConfigurationConfigFileArgs(
-                    content=std.base64encode(input=\"\"\"location /bbb {
+                    "virtualPath": "/etc/nginx/nginx.conf",
+                },
+                {
+                    "content": std.base64encode(input=\"\"\"location /bbb {
          default_type text/html;
          return 200 '<!doctype html><html lang="en"><head></head><body>
           <div>this one will be updated</div>
@@ -389,8 +389,8 @@ class Configuration(pulumi.CustomResource):
          </body></html>';
         }
         \"\"\").result,
-                    virtual_path="/etc/nginx/site/b.conf",
-                ),
+                    "virtualPath": "/etc/nginx/site/b.conf",
+                },
             ])
         ```
 
@@ -417,10 +417,10 @@ class Configuration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config_files: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationConfigFileArgs']]]]] = None,
+                 config_files: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationConfigFileArgs', 'ConfigurationConfigFileArgsDict']]]]] = None,
                  nginx_deployment_id: Optional[pulumi.Input[str]] = None,
                  package_data: Optional[pulumi.Input[str]] = None,
-                 protected_files: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationProtectedFileArgs']]]]] = None,
+                 protected_files: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationProtectedFileArgs', 'ConfigurationProtectedFileArgsDict']]]]] = None,
                  root_file: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -450,10 +450,10 @@ class Configuration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            config_files: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationConfigFileArgs']]]]] = None,
+            config_files: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationConfigFileArgs', 'ConfigurationConfigFileArgsDict']]]]] = None,
             nginx_deployment_id: Optional[pulumi.Input[str]] = None,
             package_data: Optional[pulumi.Input[str]] = None,
-            protected_files: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationProtectedFileArgs']]]]] = None,
+            protected_files: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationProtectedFileArgs', 'ConfigurationProtectedFileArgsDict']]]]] = None,
             root_file: Optional[pulumi.Input[str]] = None) -> 'Configuration':
         """
         Get an existing Configuration resource's state with the given name, id, and optional extra
@@ -462,10 +462,10 @@ class Configuration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationConfigFileArgs']]]] config_files: One or more `config_file` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationConfigFileArgs', 'ConfigurationConfigFileArgsDict']]]] config_files: One or more `config_file` blocks as defined below.
         :param pulumi.Input[str] nginx_deployment_id: The ID of the Nginx Deployment. Changing this forces a new Nginx Configuration to be created.
         :param pulumi.Input[str] package_data: Specifies the package data for this configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationProtectedFileArgs']]]] protected_files: One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationProtectedFileArgs', 'ConfigurationProtectedFileArgsDict']]]] protected_files: One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
         :param pulumi.Input[str] root_file: Specifies the root file path of this Nginx Configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

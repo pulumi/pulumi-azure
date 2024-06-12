@@ -176,7 +176,7 @@ def get_account_blob_container_sas(cache_control: Optional[str] = None,
                                    expiry: Optional[str] = None,
                                    https_only: Optional[bool] = None,
                                    ip_address: Optional[str] = None,
-                                   permissions: Optional[pulumi.InputType['GetAccountBlobContainerSASPermissionsArgs']] = None,
+                                   permissions: Optional[Union['GetAccountBlobContainerSASPermissionsArgs', 'GetAccountBlobContainerSASPermissionsArgsDict']] = None,
                                    start: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountBlobContainerSASResult:
     """
@@ -209,14 +209,14 @@ def get_account_blob_container_sas(cache_control: Optional[str] = None,
         ip_address="168.1.5.65",
         start="2018-03-21",
         expiry="2018-03-21",
-        permissions=azure.storage.GetAccountBlobContainerSASPermissionsArgs(
-            read=True,
-            add=True,
-            create=False,
-            write=False,
-            delete=True,
-            list=True,
-        ),
+        permissions={
+            "read": True,
+            "add": True,
+            "create": False,
+            "write": False,
+            "delete": True,
+            "list": True,
+        },
         cache_control="max-age=5",
         content_disposition="inline",
         content_encoding="deflate",
@@ -238,7 +238,7 @@ def get_account_blob_container_sas(cache_control: Optional[str] = None,
            > **NOTE:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
     :param bool https_only: Only permit `https` access. If `false`, both `http` and `https` are permitted. Defaults to `true`.
     :param str ip_address: Single IPv4 address or range (connected with a dash) of IPv4 addresses.
-    :param pulumi.InputType['GetAccountBlobContainerSASPermissionsArgs'] permissions: A `permissions` block as defined below.
+    :param Union['GetAccountBlobContainerSASPermissionsArgs', 'GetAccountBlobContainerSASPermissionsArgsDict'] permissions: A `permissions` block as defined below.
     :param str start: The starting time and date of validity of this SAS. Must be a valid ISO-8601 format time/date string.
     """
     __args__ = dict()
@@ -285,7 +285,7 @@ def get_account_blob_container_sas_output(cache_control: Optional[pulumi.Input[O
                                           expiry: Optional[pulumi.Input[str]] = None,
                                           https_only: Optional[pulumi.Input[Optional[bool]]] = None,
                                           ip_address: Optional[pulumi.Input[Optional[str]]] = None,
-                                          permissions: Optional[pulumi.Input[pulumi.InputType['GetAccountBlobContainerSASPermissionsArgs']]] = None,
+                                          permissions: Optional[pulumi.Input[Union['GetAccountBlobContainerSASPermissionsArgs', 'GetAccountBlobContainerSASPermissionsArgsDict']]] = None,
                                           start: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountBlobContainerSASResult]:
     """
@@ -318,14 +318,14 @@ def get_account_blob_container_sas_output(cache_control: Optional[pulumi.Input[O
         ip_address="168.1.5.65",
         start="2018-03-21",
         expiry="2018-03-21",
-        permissions=azure.storage.GetAccountBlobContainerSASPermissionsArgs(
-            read=True,
-            add=True,
-            create=False,
-            write=False,
-            delete=True,
-            list=True,
-        ),
+        permissions={
+            "read": True,
+            "add": True,
+            "create": False,
+            "write": False,
+            "delete": True,
+            "list": True,
+        },
         cache_control="max-age=5",
         content_disposition="inline",
         content_encoding="deflate",
@@ -347,7 +347,7 @@ def get_account_blob_container_sas_output(cache_control: Optional[pulumi.Input[O
            > **NOTE:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
     :param bool https_only: Only permit `https` access. If `false`, both `http` and `https` are permitted. Defaults to `true`.
     :param str ip_address: Single IPv4 address or range (connected with a dash) of IPv4 addresses.
-    :param pulumi.InputType['GetAccountBlobContainerSASPermissionsArgs'] permissions: A `permissions` block as defined below.
+    :param Union['GetAccountBlobContainerSASPermissionsArgs', 'GetAccountBlobContainerSASPermissionsArgsDict'] permissions: A `permissions` block as defined below.
     :param str start: The starting time and date of validity of this SAS. Must be a valid ISO-8601 format time/date string.
     """
     ...

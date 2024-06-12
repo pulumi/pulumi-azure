@@ -239,11 +239,11 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
             name="nic",
             location=example.location,
             resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="internal",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
+            ip_configurations=[{
+                "name": "internal",
+                "subnetId": example_subnet.id,
+                "privateIpAddressAllocation": "Dynamic",
+            }])
         example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
             name="machine",
             resource_group_name=example.name,
@@ -253,29 +253,29 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
             network_interface_ids=[example_network_interface.id],
             admin_password="example-Password@7890",
             disable_password_authentication=False,
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
-                caching="ReadWrite",
-                storage_account_type="Standard_LRS",
-            ),
-            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ))
+            os_disk={
+                "caching": "ReadWrite",
+                "storageAccountType": "Standard_LRS",
+            },
+            source_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            })
         example_data_collection_rule = azure.monitoring.DataCollectionRule("example",
             name="example-dcr",
             resource_group_name=example.name,
             location=example.location,
-            destinations=azure.monitoring.DataCollectionRuleDestinationsArgs(
-                azure_monitor_metrics=azure.monitoring.DataCollectionRuleDestinationsAzureMonitorMetricsArgs(
-                    name="example-destination-metrics",
-                ),
-            ),
-            data_flows=[azure.monitoring.DataCollectionRuleDataFlowArgs(
-                streams=["Microsoft-InsightsMetrics"],
-                destinations=["example-destination-metrics"],
-            )])
+            destinations={
+                "azureMonitorMetrics": {
+                    "name": "example-destination-metrics",
+                },
+            },
+            data_flows=[{
+                "streams": ["Microsoft-InsightsMetrics"],
+                "destinations": ["example-destination-metrics"],
+            }])
         example_data_collection_endpoint = azure.monitoring.DataCollectionEndpoint("example",
             name="example-dce",
             resource_group_name=example.name,
@@ -345,11 +345,11 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
             name="nic",
             location=example.location,
             resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="internal",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
+            ip_configurations=[{
+                "name": "internal",
+                "subnetId": example_subnet.id,
+                "privateIpAddressAllocation": "Dynamic",
+            }])
         example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
             name="machine",
             resource_group_name=example.name,
@@ -359,29 +359,29 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
             network_interface_ids=[example_network_interface.id],
             admin_password="example-Password@7890",
             disable_password_authentication=False,
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
-                caching="ReadWrite",
-                storage_account_type="Standard_LRS",
-            ),
-            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ))
+            os_disk={
+                "caching": "ReadWrite",
+                "storageAccountType": "Standard_LRS",
+            },
+            source_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            })
         example_data_collection_rule = azure.monitoring.DataCollectionRule("example",
             name="example-dcr",
             resource_group_name=example.name,
             location=example.location,
-            destinations=azure.monitoring.DataCollectionRuleDestinationsArgs(
-                azure_monitor_metrics=azure.monitoring.DataCollectionRuleDestinationsAzureMonitorMetricsArgs(
-                    name="example-destination-metrics",
-                ),
-            ),
-            data_flows=[azure.monitoring.DataCollectionRuleDataFlowArgs(
-                streams=["Microsoft-InsightsMetrics"],
-                destinations=["example-destination-metrics"],
-            )])
+            destinations={
+                "azureMonitorMetrics": {
+                    "name": "example-destination-metrics",
+                },
+            },
+            data_flows=[{
+                "streams": ["Microsoft-InsightsMetrics"],
+                "destinations": ["example-destination-metrics"],
+            }])
         example_data_collection_endpoint = azure.monitoring.DataCollectionEndpoint("example",
             name="example-dce",
             resource_group_name=example.name,

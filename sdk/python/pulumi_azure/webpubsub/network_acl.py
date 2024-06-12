@@ -161,8 +161,8 @@ class NetworkAcl(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_action: Optional[pulumi.Input[str]] = None,
-                 private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclPrivateEndpointArgs']]]]] = None,
-                 public_network: Optional[pulumi.Input[pulumi.InputType['NetworkAclPublicNetworkArgs']]] = None,
+                 private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkAclPrivateEndpointArgs', 'NetworkAclPrivateEndpointArgsDict']]]]] = None,
+                 public_network: Optional[pulumi.Input[Union['NetworkAclPublicNetworkArgs', 'NetworkAclPublicNetworkArgsDict']]] = None,
                  web_pubsub_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -199,25 +199,25 @@ class NetworkAcl(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             subnet_id=example_subnet.id,
-            private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArgs(
-                name="psc-sig-test",
-                is_manual_connection=False,
-                private_connection_resource_id=example_service.id,
-                subresource_names=["webpubsub"],
-            ))
+            private_service_connection={
+                "name": "psc-sig-test",
+                "isManualConnection": False,
+                "privateConnectionResourceId": example_service.id,
+                "subresourceNames": ["webpubsub"],
+            })
         example_network_acl = azure.webpubsub.NetworkAcl("example",
             web_pubsub_id=example_service.id,
             default_action="Allow",
-            public_network=azure.webpubsub.NetworkAclPublicNetworkArgs(
-                denied_request_types=["ClientConnection"],
-            ),
-            private_endpoints=[azure.webpubsub.NetworkAclPrivateEndpointArgs(
-                id=example_endpoint.id,
-                denied_request_types=[
+            public_network={
+                "deniedRequestTypes": ["ClientConnection"],
+            },
+            private_endpoints=[{
+                "id": example_endpoint.id,
+                "deniedRequestTypes": [
                     "RESTAPI",
                     "ClientConnection",
                 ],
-            )],
+            }],
             opts=pulumi.ResourceOptions(depends_on=[example_endpoint]))
         ```
 
@@ -232,8 +232,8 @@ class NetworkAcl(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_action: The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclPrivateEndpointArgs']]]] private_endpoints: A `private_endpoint` block as defined below.
-        :param pulumi.Input[pulumi.InputType['NetworkAclPublicNetworkArgs']] public_network: A `public_network` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkAclPrivateEndpointArgs', 'NetworkAclPrivateEndpointArgsDict']]]] private_endpoints: A `private_endpoint` block as defined below.
+        :param pulumi.Input[Union['NetworkAclPublicNetworkArgs', 'NetworkAclPublicNetworkArgsDict']] public_network: A `public_network` block as defined below.
         :param pulumi.Input[str] web_pubsub_id: The ID of the Web Pubsub service. Changing this forces a new resource to be created.
         """
         ...
@@ -276,25 +276,25 @@ class NetworkAcl(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             subnet_id=example_subnet.id,
-            private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArgs(
-                name="psc-sig-test",
-                is_manual_connection=False,
-                private_connection_resource_id=example_service.id,
-                subresource_names=["webpubsub"],
-            ))
+            private_service_connection={
+                "name": "psc-sig-test",
+                "isManualConnection": False,
+                "privateConnectionResourceId": example_service.id,
+                "subresourceNames": ["webpubsub"],
+            })
         example_network_acl = azure.webpubsub.NetworkAcl("example",
             web_pubsub_id=example_service.id,
             default_action="Allow",
-            public_network=azure.webpubsub.NetworkAclPublicNetworkArgs(
-                denied_request_types=["ClientConnection"],
-            ),
-            private_endpoints=[azure.webpubsub.NetworkAclPrivateEndpointArgs(
-                id=example_endpoint.id,
-                denied_request_types=[
+            public_network={
+                "deniedRequestTypes": ["ClientConnection"],
+            },
+            private_endpoints=[{
+                "id": example_endpoint.id,
+                "deniedRequestTypes": [
                     "RESTAPI",
                     "ClientConnection",
                 ],
-            )],
+            }],
             opts=pulumi.ResourceOptions(depends_on=[example_endpoint]))
         ```
 
@@ -322,8 +322,8 @@ class NetworkAcl(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_action: Optional[pulumi.Input[str]] = None,
-                 private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclPrivateEndpointArgs']]]]] = None,
-                 public_network: Optional[pulumi.Input[pulumi.InputType['NetworkAclPublicNetworkArgs']]] = None,
+                 private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkAclPrivateEndpointArgs', 'NetworkAclPrivateEndpointArgsDict']]]]] = None,
+                 public_network: Optional[pulumi.Input[Union['NetworkAclPublicNetworkArgs', 'NetworkAclPublicNetworkArgsDict']]] = None,
                  web_pubsub_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -353,8 +353,8 @@ class NetworkAcl(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             default_action: Optional[pulumi.Input[str]] = None,
-            private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclPrivateEndpointArgs']]]]] = None,
-            public_network: Optional[pulumi.Input[pulumi.InputType['NetworkAclPublicNetworkArgs']]] = None,
+            private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkAclPrivateEndpointArgs', 'NetworkAclPrivateEndpointArgsDict']]]]] = None,
+            public_network: Optional[pulumi.Input[Union['NetworkAclPublicNetworkArgs', 'NetworkAclPublicNetworkArgsDict']]] = None,
             web_pubsub_id: Optional[pulumi.Input[str]] = None) -> 'NetworkAcl':
         """
         Get an existing NetworkAcl resource's state with the given name, id, and optional extra
@@ -364,8 +364,8 @@ class NetworkAcl(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_action: The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclPrivateEndpointArgs']]]] private_endpoints: A `private_endpoint` block as defined below.
-        :param pulumi.Input[pulumi.InputType['NetworkAclPublicNetworkArgs']] public_network: A `public_network` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkAclPrivateEndpointArgs', 'NetworkAclPrivateEndpointArgsDict']]]] private_endpoints: A `private_endpoint` block as defined below.
+        :param pulumi.Input[Union['NetworkAclPublicNetworkArgs', 'NetworkAclPublicNetworkArgsDict']] public_network: A `public_network` block as defined below.
         :param pulumi.Input[str] web_pubsub_id: The ID of the Web Pubsub service. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

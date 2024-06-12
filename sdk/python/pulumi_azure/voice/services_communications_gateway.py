@@ -488,7 +488,7 @@ class ServicesCommunicationsGateway(pulumi.CustomResource):
                  on_prem_mcp_enabled: Optional[pulumi.Input[bool]] = None,
                  platforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 service_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServicesCommunicationsGatewayServiceLocationArgs']]]]] = None,
+                 service_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServicesCommunicationsGatewayServiceLocationArgs', 'ServicesCommunicationsGatewayServiceLocationArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -520,20 +520,20 @@ class ServicesCommunicationsGateway(pulumi.CustomResource):
                 "TeamsPhoneMobile",
             ],
             service_locations=[
-                azure.voice.ServicesCommunicationsGatewayServiceLocationArgs(
-                    location="eastus",
-                    allowed_media_source_address_prefixes=["10.1.2.0/24"],
-                    allowed_signaling_source_address_prefixes=["10.1.1.0/24"],
-                    esrp_addresses=["198.51.100.3"],
-                    operator_addresses=["198.51.100.1"],
-                ),
-                azure.voice.ServicesCommunicationsGatewayServiceLocationArgs(
-                    location="eastus2",
-                    allowed_media_source_address_prefixes=["10.2.2.0/24"],
-                    allowed_signaling_source_address_prefixes=["10.2.1.0/24"],
-                    esrp_addresses=["198.51.100.4"],
-                    operator_addresses=["198.51.100.2"],
-                ),
+                {
+                    "location": "eastus",
+                    "allowedMediaSourceAddressPrefixes": ["10.1.2.0/24"],
+                    "allowedSignalingSourceAddressPrefixes": ["10.1.1.0/24"],
+                    "esrpAddresses": ["198.51.100.3"],
+                    "operatorAddresses": ["198.51.100.1"],
+                },
+                {
+                    "location": "eastus2",
+                    "allowedMediaSourceAddressPrefixes": ["10.2.2.0/24"],
+                    "allowedSignalingSourceAddressPrefixes": ["10.2.1.0/24"],
+                    "esrpAddresses": ["198.51.100.4"],
+                    "operatorAddresses": ["198.51.100.2"],
+                },
             ],
             auto_generated_domain_name_label_scope="SubscriptionReuse",
             api_bridge=json.dumps({}),
@@ -570,7 +570,7 @@ class ServicesCommunicationsGateway(pulumi.CustomResource):
         :param pulumi.Input[bool] on_prem_mcp_enabled: Whether an on-premises Mobile Control Point is in use.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] platforms: The Voice Services Communications GatewaysAvailable supports platform types. Possible values are `OperatorConnect`, `TeamsPhoneMobile`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Voice Services Communications Gateways should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServicesCommunicationsGatewayServiceLocationArgs']]]] service_locations: A `service_location` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServicesCommunicationsGatewayServiceLocationArgs', 'ServicesCommunicationsGatewayServiceLocationArgsDict']]]] service_locations: A `service_location` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Voice Services Communications Gateways.
         """
         ...
@@ -608,20 +608,20 @@ class ServicesCommunicationsGateway(pulumi.CustomResource):
                 "TeamsPhoneMobile",
             ],
             service_locations=[
-                azure.voice.ServicesCommunicationsGatewayServiceLocationArgs(
-                    location="eastus",
-                    allowed_media_source_address_prefixes=["10.1.2.0/24"],
-                    allowed_signaling_source_address_prefixes=["10.1.1.0/24"],
-                    esrp_addresses=["198.51.100.3"],
-                    operator_addresses=["198.51.100.1"],
-                ),
-                azure.voice.ServicesCommunicationsGatewayServiceLocationArgs(
-                    location="eastus2",
-                    allowed_media_source_address_prefixes=["10.2.2.0/24"],
-                    allowed_signaling_source_address_prefixes=["10.2.1.0/24"],
-                    esrp_addresses=["198.51.100.4"],
-                    operator_addresses=["198.51.100.2"],
-                ),
+                {
+                    "location": "eastus",
+                    "allowedMediaSourceAddressPrefixes": ["10.1.2.0/24"],
+                    "allowedSignalingSourceAddressPrefixes": ["10.1.1.0/24"],
+                    "esrpAddresses": ["198.51.100.3"],
+                    "operatorAddresses": ["198.51.100.1"],
+                },
+                {
+                    "location": "eastus2",
+                    "allowedMediaSourceAddressPrefixes": ["10.2.2.0/24"],
+                    "allowedSignalingSourceAddressPrefixes": ["10.2.1.0/24"],
+                    "esrpAddresses": ["198.51.100.4"],
+                    "operatorAddresses": ["198.51.100.2"],
+                },
             ],
             auto_generated_domain_name_label_scope="SubscriptionReuse",
             api_bridge=json.dumps({}),
@@ -671,7 +671,7 @@ class ServicesCommunicationsGateway(pulumi.CustomResource):
                  on_prem_mcp_enabled: Optional[pulumi.Input[bool]] = None,
                  platforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 service_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServicesCommunicationsGatewayServiceLocationArgs']]]]] = None,
+                 service_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServicesCommunicationsGatewayServiceLocationArgs', 'ServicesCommunicationsGatewayServiceLocationArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -730,7 +730,7 @@ class ServicesCommunicationsGateway(pulumi.CustomResource):
             on_prem_mcp_enabled: Optional[pulumi.Input[bool]] = None,
             platforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            service_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServicesCommunicationsGatewayServiceLocationArgs']]]]] = None,
+            service_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServicesCommunicationsGatewayServiceLocationArgs', 'ServicesCommunicationsGatewayServiceLocationArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'ServicesCommunicationsGateway':
         """
         Get an existing ServicesCommunicationsGateway resource's state with the given name, id, and optional extra
@@ -751,7 +751,7 @@ class ServicesCommunicationsGateway(pulumi.CustomResource):
         :param pulumi.Input[bool] on_prem_mcp_enabled: Whether an on-premises Mobile Control Point is in use.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] platforms: The Voice Services Communications GatewaysAvailable supports platform types. Possible values are `OperatorConnect`, `TeamsPhoneMobile`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Voice Services Communications Gateways should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServicesCommunicationsGatewayServiceLocationArgs']]]] service_locations: A `service_location` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServicesCommunicationsGatewayServiceLocationArgs', 'ServicesCommunicationsGatewayServiceLocationArgsDict']]]] service_locations: A `service_location` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Voice Services Communications Gateways.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

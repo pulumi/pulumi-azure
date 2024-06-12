@@ -500,10 +500,10 @@ class Rule(pulumi.CustomResource):
             name="TestLoadBalancer",
             location="West US",
             resource_group_name=example.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
-                name="PublicIPAddress",
-                public_ip_address_id=example_public_ip.id,
-            )])
+            frontend_ip_configurations=[{
+                "name": "PublicIPAddress",
+                "publicIpAddressId": example_public_ip.id,
+            }])
         example_rule = azure.lb.Rule("example",
             loadbalancer_id=example_load_balancer.id,
             name="LBRule",
@@ -568,10 +568,10 @@ class Rule(pulumi.CustomResource):
             name="TestLoadBalancer",
             location="West US",
             resource_group_name=example.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
-                name="PublicIPAddress",
-                public_ip_address_id=example_public_ip.id,
-            )])
+            frontend_ip_configurations=[{
+                "name": "PublicIPAddress",
+                "publicIpAddressId": example_public_ip.id,
+            }])
         example_rule = azure.lb.Rule("example",
             loadbalancer_id=example_load_balancer.id,
             name="LBRule",

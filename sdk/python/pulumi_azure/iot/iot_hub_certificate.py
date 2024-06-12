@@ -212,10 +212,10 @@ class IotHubCertificate(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IotHubDpsSkuArgs(
-                name="S1",
-                capacity=1,
-            ))
+            sku={
+                "name": "S1",
+                "capacity": 1,
+            })
         example_iot_hub_certificate = azure.iot.IotHubCertificate("example",
             name="example",
             resource_group_name=example.name,
@@ -262,10 +262,10 @@ class IotHubCertificate(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IotHubDpsSkuArgs(
-                name="S1",
-                capacity=1,
-            ))
+            sku={
+                "name": "S1",
+                "capacity": 1,
+            })
         example_iot_hub_certificate = azure.iot.IotHubCertificate("example",
             name="example",
             resource_group_name=example.name,

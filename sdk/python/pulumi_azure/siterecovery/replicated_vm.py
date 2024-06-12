@@ -761,10 +761,10 @@ class ReplicatedVM(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 managed_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatedVMManagedDiskArgs']]]]] = None,
+                 managed_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMManagedDiskArgs', 'ReplicatedVMManagedDiskArgsDict']]]]] = None,
                  multi_vm_group_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatedVMNetworkInterfaceArgs']]]]] = None,
+                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMNetworkInterfaceArgs', 'ReplicatedVMNetworkInterfaceArgsDict']]]]] = None,
                  recovery_replication_policy_id: Optional[pulumi.Input[str]] = None,
                  recovery_vault_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -783,7 +783,7 @@ class ReplicatedVM(pulumi.CustomResource):
                  target_virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
                  target_zone: Optional[pulumi.Input[str]] = None,
                  test_network_id: Optional[pulumi.Input[str]] = None,
-                 unmanaged_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatedVMUnmanagedDiskArgs']]]]] = None,
+                 unmanaged_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMUnmanagedDiskArgs', 'ReplicatedVMUnmanagedDiskArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a VM replicated using Azure Site Recovery (Azure to Azure only). A replicated VM keeps a copiously updated image of the VM in another region in order to be able to start the VM in that region in case of a disaster.
@@ -820,39 +820,39 @@ class ReplicatedVM(pulumi.CustomResource):
             name="vm-nic",
             location=primary.location,
             resource_group_name=primary.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="vm",
-                subnet_id=primary_subnet.id,
-                private_ip_address_allocation="Dynamic",
-                public_ip_address_id=primary_public_ip.id,
-            )])
+            ip_configurations=[{
+                "name": "vm",
+                "subnetId": primary_subnet.id,
+                "privateIpAddressAllocation": "Dynamic",
+                "publicIpAddressId": primary_public_ip.id,
+            }])
         vm = azure.compute.VirtualMachine("vm",
             name="vm",
             location=primary.location,
             resource_group_name=primary.name,
             vm_size="Standard_B1s",
             network_interface_ids=[vm_network_interface.id],
-            storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ),
-            storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
-                name="vm-os-disk",
-                os_type="Linux",
-                caching="ReadWrite",
-                create_option="FromImage",
-                managed_disk_type="Premium_LRS",
-            ),
-            os_profile=azure.compute.VirtualMachineOsProfileArgs(
-                admin_username="test-admin-123",
-                admin_password="test-pwd-123",
-                computer_name="vm",
-            ),
-            os_profile_linux_config=azure.compute.VirtualMachineOsProfileLinuxConfigArgs(
-                disable_password_authentication=False,
-            ))
+            storage_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            },
+            storage_os_disk={
+                "name": "vm-os-disk",
+                "osType": "Linux",
+                "caching": "ReadWrite",
+                "createOption": "FromImage",
+                "managedDiskType": "Premium_LRS",
+            },
+            os_profile={
+                "adminUsername": "test-admin-123",
+                "adminPassword": "test-pwd-123",
+                "computerName": "vm",
+            },
+            os_profile_linux_config={
+                "disablePasswordAuthentication": False,
+            })
         vault = azure.recoveryservices.Vault("vault",
             name="example-recovery-vault",
             location=secondary.location,
@@ -933,18 +933,18 @@ class ReplicatedVM(pulumi.CustomResource):
             target_resource_group_id=secondary.id,
             target_recovery_fabric_id=secondary_fabric.id,
             target_recovery_protection_container_id=secondary_protection_container.id,
-            managed_disks=[azure.siterecovery.ReplicatedVMManagedDiskArgs(
-                disk_id=vm.storage_os_disk.managed_disk_id,
-                staging_storage_account_id=primary_account.id,
-                target_resource_group_id=secondary.id,
-                target_disk_type="Premium_LRS",
-                target_replica_disk_type="Premium_LRS",
-            )],
-            network_interfaces=[azure.siterecovery.ReplicatedVMNetworkInterfaceArgs(
-                source_network_interface_id=vm_network_interface.id,
-                target_subnet_name=secondary_subnet.name,
-                recovery_public_ip_address_id=secondary_public_ip.id,
-            )],
+            managed_disks=[{
+                "diskId": vm.storage_os_disk.managed_disk_id,
+                "stagingStorageAccountId": primary_account.id,
+                "targetResourceGroupId": secondary.id,
+                "targetDiskType": "Premium_LRS",
+                "targetReplicaDiskType": "Premium_LRS",
+            }],
+            network_interfaces=[{
+                "sourceNetworkInterfaceId": vm_network_interface.id,
+                "targetSubnetName": secondary_subnet.name,
+                "recoveryPublicIpAddressId": secondary_public_ip.id,
+            }],
             opts=pulumi.ResourceOptions(depends_on=[
                     container_mapping,
                     network_mapping,
@@ -961,10 +961,10 @@ class ReplicatedVM(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatedVMManagedDiskArgs']]]] managed_disks: One or more `managed_disk` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMManagedDiskArgs', 'ReplicatedVMManagedDiskArgsDict']]]] managed_disks: One or more `managed_disk` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] multi_vm_group_name: Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
         :param pulumi.Input[str] name: The name of the replication for the replicated VM. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatedVMNetworkInterfaceArgs']]]] network_interfaces: One or more `network_interface` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMNetworkInterfaceArgs', 'ReplicatedVMNetworkInterfaceArgsDict']]]] network_interfaces: One or more `network_interface` block as defined below.
         :param pulumi.Input[str] recovery_replication_policy_id: Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
         :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
@@ -983,7 +983,7 @@ class ReplicatedVM(pulumi.CustomResource):
         :param pulumi.Input[str] target_virtual_machine_scale_set_id: Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
         :param pulumi.Input[str] target_zone: Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] test_network_id: Network to use when a test failover is done.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatedVMUnmanagedDiskArgs']]]] unmanaged_disks: One or more `unmanaged_disk` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMUnmanagedDiskArgs', 'ReplicatedVMUnmanagedDiskArgsDict']]]] unmanaged_disks: One or more `unmanaged_disk` block as defined below. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -1026,39 +1026,39 @@ class ReplicatedVM(pulumi.CustomResource):
             name="vm-nic",
             location=primary.location,
             resource_group_name=primary.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="vm",
-                subnet_id=primary_subnet.id,
-                private_ip_address_allocation="Dynamic",
-                public_ip_address_id=primary_public_ip.id,
-            )])
+            ip_configurations=[{
+                "name": "vm",
+                "subnetId": primary_subnet.id,
+                "privateIpAddressAllocation": "Dynamic",
+                "publicIpAddressId": primary_public_ip.id,
+            }])
         vm = azure.compute.VirtualMachine("vm",
             name="vm",
             location=primary.location,
             resource_group_name=primary.name,
             vm_size="Standard_B1s",
             network_interface_ids=[vm_network_interface.id],
-            storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ),
-            storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
-                name="vm-os-disk",
-                os_type="Linux",
-                caching="ReadWrite",
-                create_option="FromImage",
-                managed_disk_type="Premium_LRS",
-            ),
-            os_profile=azure.compute.VirtualMachineOsProfileArgs(
-                admin_username="test-admin-123",
-                admin_password="test-pwd-123",
-                computer_name="vm",
-            ),
-            os_profile_linux_config=azure.compute.VirtualMachineOsProfileLinuxConfigArgs(
-                disable_password_authentication=False,
-            ))
+            storage_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            },
+            storage_os_disk={
+                "name": "vm-os-disk",
+                "osType": "Linux",
+                "caching": "ReadWrite",
+                "createOption": "FromImage",
+                "managedDiskType": "Premium_LRS",
+            },
+            os_profile={
+                "adminUsername": "test-admin-123",
+                "adminPassword": "test-pwd-123",
+                "computerName": "vm",
+            },
+            os_profile_linux_config={
+                "disablePasswordAuthentication": False,
+            })
         vault = azure.recoveryservices.Vault("vault",
             name="example-recovery-vault",
             location=secondary.location,
@@ -1139,18 +1139,18 @@ class ReplicatedVM(pulumi.CustomResource):
             target_resource_group_id=secondary.id,
             target_recovery_fabric_id=secondary_fabric.id,
             target_recovery_protection_container_id=secondary_protection_container.id,
-            managed_disks=[azure.siterecovery.ReplicatedVMManagedDiskArgs(
-                disk_id=vm.storage_os_disk.managed_disk_id,
-                staging_storage_account_id=primary_account.id,
-                target_resource_group_id=secondary.id,
-                target_disk_type="Premium_LRS",
-                target_replica_disk_type="Premium_LRS",
-            )],
-            network_interfaces=[azure.siterecovery.ReplicatedVMNetworkInterfaceArgs(
-                source_network_interface_id=vm_network_interface.id,
-                target_subnet_name=secondary_subnet.name,
-                recovery_public_ip_address_id=secondary_public_ip.id,
-            )],
+            managed_disks=[{
+                "diskId": vm.storage_os_disk.managed_disk_id,
+                "stagingStorageAccountId": primary_account.id,
+                "targetResourceGroupId": secondary.id,
+                "targetDiskType": "Premium_LRS",
+                "targetReplicaDiskType": "Premium_LRS",
+            }],
+            network_interfaces=[{
+                "sourceNetworkInterfaceId": vm_network_interface.id,
+                "targetSubnetName": secondary_subnet.name,
+                "recoveryPublicIpAddressId": secondary_public_ip.id,
+            }],
             opts=pulumi.ResourceOptions(depends_on=[
                     container_mapping,
                     network_mapping,
@@ -1180,10 +1180,10 @@ class ReplicatedVM(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 managed_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatedVMManagedDiskArgs']]]]] = None,
+                 managed_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMManagedDiskArgs', 'ReplicatedVMManagedDiskArgsDict']]]]] = None,
                  multi_vm_group_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatedVMNetworkInterfaceArgs']]]]] = None,
+                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMNetworkInterfaceArgs', 'ReplicatedVMNetworkInterfaceArgsDict']]]]] = None,
                  recovery_replication_policy_id: Optional[pulumi.Input[str]] = None,
                  recovery_vault_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -1202,7 +1202,7 @@ class ReplicatedVM(pulumi.CustomResource):
                  target_virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
                  target_zone: Optional[pulumi.Input[str]] = None,
                  test_network_id: Optional[pulumi.Input[str]] = None,
-                 unmanaged_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatedVMUnmanagedDiskArgs']]]]] = None,
+                 unmanaged_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMUnmanagedDiskArgs', 'ReplicatedVMUnmanagedDiskArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1263,10 +1263,10 @@ class ReplicatedVM(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            managed_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatedVMManagedDiskArgs']]]]] = None,
+            managed_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMManagedDiskArgs', 'ReplicatedVMManagedDiskArgsDict']]]]] = None,
             multi_vm_group_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatedVMNetworkInterfaceArgs']]]]] = None,
+            network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMNetworkInterfaceArgs', 'ReplicatedVMNetworkInterfaceArgsDict']]]]] = None,
             recovery_replication_policy_id: Optional[pulumi.Input[str]] = None,
             recovery_vault_name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -1285,7 +1285,7 @@ class ReplicatedVM(pulumi.CustomResource):
             target_virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
             target_zone: Optional[pulumi.Input[str]] = None,
             test_network_id: Optional[pulumi.Input[str]] = None,
-            unmanaged_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatedVMUnmanagedDiskArgs']]]]] = None) -> 'ReplicatedVM':
+            unmanaged_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMUnmanagedDiskArgs', 'ReplicatedVMUnmanagedDiskArgsDict']]]]] = None) -> 'ReplicatedVM':
         """
         Get an existing ReplicatedVM resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1293,10 +1293,10 @@ class ReplicatedVM(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatedVMManagedDiskArgs']]]] managed_disks: One or more `managed_disk` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMManagedDiskArgs', 'ReplicatedVMManagedDiskArgsDict']]]] managed_disks: One or more `managed_disk` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] multi_vm_group_name: Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
         :param pulumi.Input[str] name: The name of the replication for the replicated VM. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatedVMNetworkInterfaceArgs']]]] network_interfaces: One or more `network_interface` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMNetworkInterfaceArgs', 'ReplicatedVMNetworkInterfaceArgsDict']]]] network_interfaces: One or more `network_interface` block as defined below.
         :param pulumi.Input[str] recovery_replication_policy_id: Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
         :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
@@ -1315,7 +1315,7 @@ class ReplicatedVM(pulumi.CustomResource):
         :param pulumi.Input[str] target_virtual_machine_scale_set_id: Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
         :param pulumi.Input[str] target_zone: Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] test_network_id: Network to use when a test failover is done.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatedVMUnmanagedDiskArgs']]]] unmanaged_disks: One or more `unmanaged_disk` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMUnmanagedDiskArgs', 'ReplicatedVMUnmanagedDiskArgsDict']]]] unmanaged_disks: One or more `unmanaged_disk` block as defined below. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

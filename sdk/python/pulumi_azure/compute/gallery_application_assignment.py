@@ -240,17 +240,17 @@ class GalleryApplicationAssignment(pulumi.CustomResource):
             name="0.0.1",
             gallery_application_id=example_gallery_application.id,
             location=example_gallery_application.location,
-            manage_action=azure.compute.GalleryApplicationVersionManageActionArgs(
-                install="[install command]",
-                remove="[remove command]",
-            ),
-            source=azure.compute.GalleryApplicationVersionSourceArgs(
-                media_link=example_blob.id,
-            ),
-            target_regions=[azure.compute.GalleryApplicationVersionTargetRegionArgs(
-                name=example_gallery_application.location,
-                regional_replica_count=1,
-            )])
+            manage_action={
+                "install": "[install command]",
+                "remove": "[remove command]",
+            },
+            source={
+                "mediaLink": example_blob.id,
+            },
+            target_regions=[{
+                "name": example_gallery_application.location,
+                "regionalReplicaCount": 1,
+            }])
         example_gallery_application_assignment = azure.compute.GalleryApplicationAssignment("example",
             gallery_application_version_id=example_gallery_application_version.id,
             virtual_machine_id=example.id)
@@ -322,17 +322,17 @@ class GalleryApplicationAssignment(pulumi.CustomResource):
             name="0.0.1",
             gallery_application_id=example_gallery_application.id,
             location=example_gallery_application.location,
-            manage_action=azure.compute.GalleryApplicationVersionManageActionArgs(
-                install="[install command]",
-                remove="[remove command]",
-            ),
-            source=azure.compute.GalleryApplicationVersionSourceArgs(
-                media_link=example_blob.id,
-            ),
-            target_regions=[azure.compute.GalleryApplicationVersionTargetRegionArgs(
-                name=example_gallery_application.location,
-                regional_replica_count=1,
-            )])
+            manage_action={
+                "install": "[install command]",
+                "remove": "[remove command]",
+            },
+            source={
+                "mediaLink": example_blob.id,
+            },
+            target_regions=[{
+                "name": example_gallery_application.location,
+                "regionalReplicaCount": 1,
+            }])
         example_gallery_application_assignment = azure.compute.GalleryApplicationAssignment("example",
             gallery_application_version_id=example_gallery_application_version.id,
             virtual_machine_id=example.id)

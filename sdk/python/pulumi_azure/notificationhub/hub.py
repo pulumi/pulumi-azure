@@ -272,8 +272,8 @@ class Hub(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 apns_credential: Optional[pulumi.Input[pulumi.InputType['HubApnsCredentialArgs']]] = None,
-                 gcm_credential: Optional[pulumi.Input[pulumi.InputType['HubGcmCredentialArgs']]] = None,
+                 apns_credential: Optional[pulumi.Input[Union['HubApnsCredentialArgs', 'HubApnsCredentialArgsDict']]] = None,
+                 gcm_credential: Optional[pulumi.Input[Union['HubGcmCredentialArgs', 'HubGcmCredentialArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
@@ -315,10 +315,10 @@ class Hub(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['HubApnsCredentialArgs']] apns_credential: A `apns_credential` block as defined below.
+        :param pulumi.Input[Union['HubApnsCredentialArgs', 'HubApnsCredentialArgsDict']] apns_credential: A `apns_credential` block as defined below.
                
                > **NOTE:** Removing the `apns_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
-        :param pulumi.Input[pulumi.InputType['HubGcmCredentialArgs']] gcm_credential: A `gcm_credential` block as defined below.
+        :param pulumi.Input[Union['HubGcmCredentialArgs', 'HubGcmCredentialArgsDict']] gcm_credential: A `gcm_credential` block as defined below.
                
                > **NOTE:** Removing the `gcm_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
         :param pulumi.Input[str] location: The Azure Region in which this Notification Hub Namespace exists. Changing this forces a new resource to be created.
@@ -381,8 +381,8 @@ class Hub(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 apns_credential: Optional[pulumi.Input[pulumi.InputType['HubApnsCredentialArgs']]] = None,
-                 gcm_credential: Optional[pulumi.Input[pulumi.InputType['HubGcmCredentialArgs']]] = None,
+                 apns_credential: Optional[pulumi.Input[Union['HubApnsCredentialArgs', 'HubApnsCredentialArgsDict']]] = None,
+                 gcm_credential: Optional[pulumi.Input[Union['HubGcmCredentialArgs', 'HubGcmCredentialArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
@@ -418,8 +418,8 @@ class Hub(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            apns_credential: Optional[pulumi.Input[pulumi.InputType['HubApnsCredentialArgs']]] = None,
-            gcm_credential: Optional[pulumi.Input[pulumi.InputType['HubGcmCredentialArgs']]] = None,
+            apns_credential: Optional[pulumi.Input[Union['HubApnsCredentialArgs', 'HubApnsCredentialArgsDict']]] = None,
+            gcm_credential: Optional[pulumi.Input[Union['HubGcmCredentialArgs', 'HubGcmCredentialArgsDict']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             namespace_name: Optional[pulumi.Input[str]] = None,
@@ -432,10 +432,10 @@ class Hub(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['HubApnsCredentialArgs']] apns_credential: A `apns_credential` block as defined below.
+        :param pulumi.Input[Union['HubApnsCredentialArgs', 'HubApnsCredentialArgsDict']] apns_credential: A `apns_credential` block as defined below.
                
                > **NOTE:** Removing the `apns_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
-        :param pulumi.Input[pulumi.InputType['HubGcmCredentialArgs']] gcm_credential: A `gcm_credential` block as defined below.
+        :param pulumi.Input[Union['HubGcmCredentialArgs', 'HubGcmCredentialArgsDict']] gcm_credential: A `gcm_credential` block as defined below.
                
                > **NOTE:** Removing the `gcm_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
         :param pulumi.Input[str] location: The Azure Region in which this Notification Hub Namespace exists. Changing this forces a new resource to be created.

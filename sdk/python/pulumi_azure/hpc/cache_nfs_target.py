@@ -287,7 +287,7 @@ class CacheNfsTarget(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cache_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 namespace_junctions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CacheNfsTargetNamespaceJunctionArgs']]]]] = None,
+                 namespace_junctions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CacheNfsTargetNamespaceJunctionArgs', 'CacheNfsTargetNamespaceJunctionArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  target_host_name: Optional[pulumi.Input[str]] = None,
                  usage_model: Optional[pulumi.Input[str]] = None,
@@ -335,11 +335,11 @@ class CacheNfsTarget(pulumi.CustomResource):
             name="examplenic",
             location=example.location,
             resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="internal",
-                subnet_id=example_vm.id,
-                private_ip_address_allocation="Dynamic",
-            )])
+            ip_configurations=[{
+                "name": "internal",
+                "subnetId": example_vm.id,
+                "privateIpAddressAllocation": "Dynamic",
+            }])
         custom_data = \"\"\"#!/bin/bash
         sudo -i 
         apt-get install -y nfs-kernel-server
@@ -360,20 +360,20 @@ class CacheNfsTarget(pulumi.CustomResource):
             size="Standard_F2",
             admin_username="adminuser",
             network_interface_ids=[example_network_interface.id],
-            admin_ssh_keys=[azure.compute.LinuxVirtualMachineAdminSshKeyArgs(
-                username="adminuser",
-                public_key=std.file(input="~/.ssh/id_rsa.pub").result,
-            )],
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
-                caching="ReadWrite",
-                storage_account_type="Standard_LRS",
-            ),
-            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ),
+            admin_ssh_keys=[{
+                "username": "adminuser",
+                "publicKey": std.file(input="~/.ssh/id_rsa.pub").result,
+            }],
+            os_disk={
+                "caching": "ReadWrite",
+                "storageAccountType": "Standard_LRS",
+            },
+            source_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            },
             custom_data=std.base64encode(input=custom_data).result)
         example_cache_nfs_target = azure.hpc.CacheNfsTarget("example",
             name="examplehpcnfstarget",
@@ -382,15 +382,15 @@ class CacheNfsTarget(pulumi.CustomResource):
             target_host_name=example_linux_virtual_machine.private_ip_address,
             usage_model="READ_HEAVY_INFREQ",
             namespace_junctions=[
-                azure.hpc.CacheNfsTargetNamespaceJunctionArgs(
-                    namespace_path="/nfs/a1",
-                    nfs_export="/export/a",
-                    target_path="1",
-                ),
-                azure.hpc.CacheNfsTargetNamespaceJunctionArgs(
-                    namespace_path="/nfs/b",
-                    nfs_export="/export/b",
-                ),
+                {
+                    "namespacePath": "/nfs/a1",
+                    "nfsExport": "/export/a",
+                    "targetPath": "1",
+                },
+                {
+                    "namespacePath": "/nfs/b",
+                    "nfsExport": "/export/b",
+                },
             ])
         ```
 
@@ -406,7 +406,7 @@ class CacheNfsTarget(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cache_name: The name HPC Cache, which the HPC Cache NFS Target will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the HPC Cache NFS Target. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CacheNfsTargetNamespaceJunctionArgs']]]] namespace_junctions: Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_junction` block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CacheNfsTargetNamespaceJunctionArgs', 'CacheNfsTargetNamespaceJunctionArgsDict']]]] namespace_junctions: Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_junction` block supports fields documented below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the HPC Cache NFS Target. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_host_name: The IP address or fully qualified domain name (FQDN) of the HPC Cache NFS target. Changing this forces a new resource to be created.
         :param pulumi.Input[str] usage_model: The type of usage of the HPC Cache NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `READ_ONLY`, `READ_WRITE`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
@@ -460,11 +460,11 @@ class CacheNfsTarget(pulumi.CustomResource):
             name="examplenic",
             location=example.location,
             resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="internal",
-                subnet_id=example_vm.id,
-                private_ip_address_allocation="Dynamic",
-            )])
+            ip_configurations=[{
+                "name": "internal",
+                "subnetId": example_vm.id,
+                "privateIpAddressAllocation": "Dynamic",
+            }])
         custom_data = \"\"\"#!/bin/bash
         sudo -i 
         apt-get install -y nfs-kernel-server
@@ -485,20 +485,20 @@ class CacheNfsTarget(pulumi.CustomResource):
             size="Standard_F2",
             admin_username="adminuser",
             network_interface_ids=[example_network_interface.id],
-            admin_ssh_keys=[azure.compute.LinuxVirtualMachineAdminSshKeyArgs(
-                username="adminuser",
-                public_key=std.file(input="~/.ssh/id_rsa.pub").result,
-            )],
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
-                caching="ReadWrite",
-                storage_account_type="Standard_LRS",
-            ),
-            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ),
+            admin_ssh_keys=[{
+                "username": "adminuser",
+                "publicKey": std.file(input="~/.ssh/id_rsa.pub").result,
+            }],
+            os_disk={
+                "caching": "ReadWrite",
+                "storageAccountType": "Standard_LRS",
+            },
+            source_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            },
             custom_data=std.base64encode(input=custom_data).result)
         example_cache_nfs_target = azure.hpc.CacheNfsTarget("example",
             name="examplehpcnfstarget",
@@ -507,15 +507,15 @@ class CacheNfsTarget(pulumi.CustomResource):
             target_host_name=example_linux_virtual_machine.private_ip_address,
             usage_model="READ_HEAVY_INFREQ",
             namespace_junctions=[
-                azure.hpc.CacheNfsTargetNamespaceJunctionArgs(
-                    namespace_path="/nfs/a1",
-                    nfs_export="/export/a",
-                    target_path="1",
-                ),
-                azure.hpc.CacheNfsTargetNamespaceJunctionArgs(
-                    namespace_path="/nfs/b",
-                    nfs_export="/export/b",
-                ),
+                {
+                    "namespacePath": "/nfs/a1",
+                    "nfsExport": "/export/a",
+                    "targetPath": "1",
+                },
+                {
+                    "namespacePath": "/nfs/b",
+                    "nfsExport": "/export/b",
+                },
             ])
         ```
 
@@ -544,7 +544,7 @@ class CacheNfsTarget(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cache_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 namespace_junctions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CacheNfsTargetNamespaceJunctionArgs']]]]] = None,
+                 namespace_junctions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CacheNfsTargetNamespaceJunctionArgs', 'CacheNfsTargetNamespaceJunctionArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  target_host_name: Optional[pulumi.Input[str]] = None,
                  usage_model: Optional[pulumi.Input[str]] = None,
@@ -589,7 +589,7 @@ class CacheNfsTarget(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cache_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            namespace_junctions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CacheNfsTargetNamespaceJunctionArgs']]]]] = None,
+            namespace_junctions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CacheNfsTargetNamespaceJunctionArgs', 'CacheNfsTargetNamespaceJunctionArgsDict']]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             target_host_name: Optional[pulumi.Input[str]] = None,
             usage_model: Optional[pulumi.Input[str]] = None,
@@ -604,7 +604,7 @@ class CacheNfsTarget(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cache_name: The name HPC Cache, which the HPC Cache NFS Target will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the HPC Cache NFS Target. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CacheNfsTargetNamespaceJunctionArgs']]]] namespace_junctions: Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_junction` block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CacheNfsTargetNamespaceJunctionArgs', 'CacheNfsTargetNamespaceJunctionArgsDict']]]] namespace_junctions: Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_junction` block supports fields documented below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the HPC Cache NFS Target. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_host_name: The IP address or fully qualified domain name (FQDN) of the HPC Cache NFS target. Changing this forces a new resource to be created.
         :param pulumi.Input[str] usage_model: The type of usage of the HPC Cache NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `READ_ONLY`, `READ_WRITE`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.

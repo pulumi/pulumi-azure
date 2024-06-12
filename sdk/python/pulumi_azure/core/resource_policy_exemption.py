@@ -350,9 +350,9 @@ class ResourcePolicyExemption(pulumi.CustomResource):
             resource_id=example_virtual_network.id,
             policy_definition_id=example.id,
             location=example_resource_group.location,
-            identity=azure.core.ResourcePolicyAssignmentIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_resource_policy_exemption = azure.core.ResourcePolicyExemption("example",
             name="exemption1",
             resource_id=example_resource_policy_assignment.resource_id,
@@ -409,9 +409,9 @@ class ResourcePolicyExemption(pulumi.CustomResource):
             resource_id=example_virtual_network.id,
             policy_definition_id=example.id,
             location=example_resource_group.location,
-            identity=azure.core.ResourcePolicyAssignmentIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_resource_policy_exemption = azure.core.ResourcePolicyExemption("example",
             name="exemption1",
             resource_id=example_resource_policy_assignment.resource_id,

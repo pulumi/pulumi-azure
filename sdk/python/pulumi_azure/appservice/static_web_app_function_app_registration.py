@@ -150,7 +150,7 @@ class StaticWebAppFunctionAppRegistration(pulumi.CustomResource):
             service_plan_id=example_service_plan.id,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
-            site_config=azure.appservice.LinuxFunctionAppSiteConfigArgs())
+            site_config={})
         example_static_web_app_function_app_registration = azure.appservice.StaticWebAppFunctionAppRegistration("example",
             static_web_app_id=example_static_web_app.id,
             function_app_id=example_linux_function_app.id)
@@ -216,7 +216,7 @@ class StaticWebAppFunctionAppRegistration(pulumi.CustomResource):
             service_plan_id=example_service_plan.id,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
-            site_config=azure.appservice.LinuxFunctionAppSiteConfigArgs())
+            site_config={})
         example_static_web_app_function_app_registration = azure.appservice.StaticWebAppFunctionAppRegistration("example",
             static_web_app_id=example_static_web_app.id,
             function_app_id=example_linux_function_app.id)

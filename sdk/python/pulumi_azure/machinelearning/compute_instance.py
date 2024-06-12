@@ -468,16 +468,16 @@ class ComputeInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assign_to_user: Optional[pulumi.Input[pulumi.InputType['ComputeInstanceAssignToUserArgs']]] = None,
+                 assign_to_user: Optional[pulumi.Input[Union['ComputeInstanceAssignToUserArgs', 'ComputeInstanceAssignToUserArgsDict']]] = None,
                  authorization_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ComputeInstanceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ComputeInstanceIdentityArgs', 'ComputeInstanceIdentityArgsDict']]] = None,
                  local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  machine_learning_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  node_public_ip_enabled: Optional[pulumi.Input[bool]] = None,
-                 ssh: Optional[pulumi.Input[pulumi.InputType['ComputeInstanceSshArgs']]] = None,
+                 ssh: Optional[pulumi.Input[Union['ComputeInstanceSshArgs', 'ComputeInstanceSshArgsDict']]] = None,
                  subnet_resource_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_machine_size: Optional[pulumi.Input[str]] = None,
@@ -523,9 +523,9 @@ class ComputeInstance(pulumi.CustomResource):
             application_insights_id=example_insights.id,
             key_vault_id=example_key_vault.id,
             storage_account_id=example_account.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_virtual_network = azure.network.VirtualNetwork("example",
             name="example-vnet",
             address_spaces=["10.1.0.0/16"],
@@ -545,9 +545,9 @@ class ComputeInstance(pulumi.CustomResource):
             machine_learning_workspace_id=example_workspace.id,
             virtual_machine_size="STANDARD_DS2_V2",
             authorization_type="personal",
-            ssh=azure.machinelearning.ComputeInstanceSshArgs(
-                public_key=ssh_key,
-            ),
+            ssh={
+                "publicKey": ssh_key,
+            },
             subnet_resource_id=example_subnet.id,
             description="foo",
             tags={
@@ -565,10 +565,10 @@ class ComputeInstance(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ComputeInstanceAssignToUserArgs']] assign_to_user: A `assign_to_user` block as defined below. A user explicitly assigned to a personal compute instance. Changing this forces a new Machine Learning Compute Instance to be created.
+        :param pulumi.Input[Union['ComputeInstanceAssignToUserArgs', 'ComputeInstanceAssignToUserArgsDict']] assign_to_user: A `assign_to_user` block as defined below. A user explicitly assigned to a personal compute instance. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] authorization_type: The Compute Instance Authorization type. Possible values include: `personal`. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] description: The description of the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
-        :param pulumi.Input[pulumi.InputType['ComputeInstanceIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
+        :param pulumi.Input[Union['ComputeInstanceIdentityArgs', 'ComputeInstanceIdentityArgsDict']] identity: An `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] location: The Azure Region where the Machine Learning Compute Instance should exist.
                
@@ -576,7 +576,7 @@ class ComputeInstance(pulumi.CustomResource):
         :param pulumi.Input[str] machine_learning_workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] name: The name which should be used for this Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[bool] node_public_ip_enabled: Whether the compute instance will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
-        :param pulumi.Input[pulumi.InputType['ComputeInstanceSshArgs']] ssh: A `ssh` block as defined below. Specifies policy and settings for SSH access. Changing this forces a new Machine Learning Compute Instance to be created.
+        :param pulumi.Input[Union['ComputeInstanceSshArgs', 'ComputeInstanceSshArgsDict']] ssh: A `ssh` block as defined below. Specifies policy and settings for SSH access. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] subnet_resource_id: Virtual network subnet resource ID the compute nodes belong to. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] virtual_machine_size: The Virtual Machine Size. Changing this forces a new Machine Learning Compute Instance to be created.
@@ -628,9 +628,9 @@ class ComputeInstance(pulumi.CustomResource):
             application_insights_id=example_insights.id,
             key_vault_id=example_key_vault.id,
             storage_account_id=example_account.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_virtual_network = azure.network.VirtualNetwork("example",
             name="example-vnet",
             address_spaces=["10.1.0.0/16"],
@@ -650,9 +650,9 @@ class ComputeInstance(pulumi.CustomResource):
             machine_learning_workspace_id=example_workspace.id,
             virtual_machine_size="STANDARD_DS2_V2",
             authorization_type="personal",
-            ssh=azure.machinelearning.ComputeInstanceSshArgs(
-                public_key=ssh_key,
-            ),
+            ssh={
+                "publicKey": ssh_key,
+            },
             subnet_resource_id=example_subnet.id,
             description="foo",
             tags={
@@ -683,16 +683,16 @@ class ComputeInstance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assign_to_user: Optional[pulumi.Input[pulumi.InputType['ComputeInstanceAssignToUserArgs']]] = None,
+                 assign_to_user: Optional[pulumi.Input[Union['ComputeInstanceAssignToUserArgs', 'ComputeInstanceAssignToUserArgsDict']]] = None,
                  authorization_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ComputeInstanceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ComputeInstanceIdentityArgs', 'ComputeInstanceIdentityArgsDict']]] = None,
                  local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  machine_learning_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  node_public_ip_enabled: Optional[pulumi.Input[bool]] = None,
-                 ssh: Optional[pulumi.Input[pulumi.InputType['ComputeInstanceSshArgs']]] = None,
+                 ssh: Optional[pulumi.Input[Union['ComputeInstanceSshArgs', 'ComputeInstanceSshArgsDict']]] = None,
                  subnet_resource_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_machine_size: Optional[pulumi.Input[str]] = None,
@@ -732,16 +732,16 @@ class ComputeInstance(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            assign_to_user: Optional[pulumi.Input[pulumi.InputType['ComputeInstanceAssignToUserArgs']]] = None,
+            assign_to_user: Optional[pulumi.Input[Union['ComputeInstanceAssignToUserArgs', 'ComputeInstanceAssignToUserArgsDict']]] = None,
             authorization_type: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['ComputeInstanceIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[Union['ComputeInstanceIdentityArgs', 'ComputeInstanceIdentityArgsDict']]] = None,
             local_auth_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             machine_learning_workspace_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             node_public_ip_enabled: Optional[pulumi.Input[bool]] = None,
-            ssh: Optional[pulumi.Input[pulumi.InputType['ComputeInstanceSshArgs']]] = None,
+            ssh: Optional[pulumi.Input[Union['ComputeInstanceSshArgs', 'ComputeInstanceSshArgsDict']]] = None,
             subnet_resource_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             virtual_machine_size: Optional[pulumi.Input[str]] = None) -> 'ComputeInstance':
@@ -752,10 +752,10 @@ class ComputeInstance(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ComputeInstanceAssignToUserArgs']] assign_to_user: A `assign_to_user` block as defined below. A user explicitly assigned to a personal compute instance. Changing this forces a new Machine Learning Compute Instance to be created.
+        :param pulumi.Input[Union['ComputeInstanceAssignToUserArgs', 'ComputeInstanceAssignToUserArgsDict']] assign_to_user: A `assign_to_user` block as defined below. A user explicitly assigned to a personal compute instance. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] authorization_type: The Compute Instance Authorization type. Possible values include: `personal`. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] description: The description of the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
-        :param pulumi.Input[pulumi.InputType['ComputeInstanceIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
+        :param pulumi.Input[Union['ComputeInstanceIdentityArgs', 'ComputeInstanceIdentityArgsDict']] identity: An `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] location: The Azure Region where the Machine Learning Compute Instance should exist.
                
@@ -763,7 +763,7 @@ class ComputeInstance(pulumi.CustomResource):
         :param pulumi.Input[str] machine_learning_workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] name: The name which should be used for this Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[bool] node_public_ip_enabled: Whether the compute instance will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
-        :param pulumi.Input[pulumi.InputType['ComputeInstanceSshArgs']] ssh: A `ssh` block as defined below. Specifies policy and settings for SSH access. Changing this forces a new Machine Learning Compute Instance to be created.
+        :param pulumi.Input[Union['ComputeInstanceSshArgs', 'ComputeInstanceSshArgsDict']] ssh: A `ssh` block as defined below. Specifies policy and settings for SSH access. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] subnet_resource_id: Virtual network subnet resource ID the compute nodes belong to. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] virtual_machine_size: The Virtual Machine Size. Changing this forces a new Machine Learning Compute Instance to be created.

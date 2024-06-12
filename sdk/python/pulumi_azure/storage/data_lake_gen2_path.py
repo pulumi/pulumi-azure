@@ -254,7 +254,7 @@ class DataLakeGen2Path(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeGen2PathAceArgs']]]]] = None,
+                 aces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataLakeGen2PathAceArgs', 'DataLakeGen2PathAceArgsDict']]]]] = None,
                  filesystem_name: Optional[pulumi.Input[str]] = None,
                  group: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
@@ -304,7 +304,7 @@ class DataLakeGen2Path(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeGen2PathAceArgs']]]] aces: One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataLakeGen2PathAceArgs', 'DataLakeGen2PathAceArgsDict']]]] aces: One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
         :param pulumi.Input[str] filesystem_name: The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
         :param pulumi.Input[str] group: Specifies the Object ID of the Azure Active Directory Group to make the owning group. Possible values also include `$superuser`.
         :param pulumi.Input[str] owner: Specifies the Object ID of the Azure Active Directory User to make the owning user. Possible values also include `$superuser`.
@@ -373,7 +373,7 @@ class DataLakeGen2Path(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeGen2PathAceArgs']]]]] = None,
+                 aces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataLakeGen2PathAceArgs', 'DataLakeGen2PathAceArgsDict']]]]] = None,
                  filesystem_name: Optional[pulumi.Input[str]] = None,
                  group: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
@@ -414,7 +414,7 @@ class DataLakeGen2Path(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeGen2PathAceArgs']]]]] = None,
+            aces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataLakeGen2PathAceArgs', 'DataLakeGen2PathAceArgsDict']]]]] = None,
             filesystem_name: Optional[pulumi.Input[str]] = None,
             group: Optional[pulumi.Input[str]] = None,
             owner: Optional[pulumi.Input[str]] = None,
@@ -428,7 +428,7 @@ class DataLakeGen2Path(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeGen2PathAceArgs']]]] aces: One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataLakeGen2PathAceArgs', 'DataLakeGen2PathAceArgsDict']]]] aces: One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
         :param pulumi.Input[str] filesystem_name: The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
         :param pulumi.Input[str] group: Specifies the Object ID of the Azure Active Directory Group to make the owning group. Possible values also include `$superuser`.
         :param pulumi.Input[str] owner: Specifies the Object ID of the Azure Active Directory User to make the owning user. Possible values also include `$superuser`.

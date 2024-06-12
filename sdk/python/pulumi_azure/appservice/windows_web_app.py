@@ -1056,28 +1056,28 @@ class WindowsWebApp(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 auth_settings: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppAuthSettingsArgs']]] = None,
-                 auth_settings_v2: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppAuthSettingsV2Args']]] = None,
-                 backup: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppBackupArgs']]] = None,
+                 auth_settings: Optional[pulumi.Input[Union['WindowsWebAppAuthSettingsArgs', 'WindowsWebAppAuthSettingsArgsDict']]] = None,
+                 auth_settings_v2: Optional[pulumi.Input[Union['WindowsWebAppAuthSettingsV2Args', 'WindowsWebAppAuthSettingsV2ArgsDict']]] = None,
+                 backup: Optional[pulumi.Input[Union['WindowsWebAppBackupArgs', 'WindowsWebAppBackupArgsDict']]] = None,
                  client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_exclusion_paths: Optional[pulumi.Input[str]] = None,
                  client_certificate_mode: Optional[pulumi.Input[str]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppConnectionStringArgs']]]]] = None,
+                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsWebAppConnectionStringArgs', 'WindowsWebAppConnectionStringArgsDict']]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  ftp_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['WindowsWebAppIdentityArgs', 'WindowsWebAppIdentityArgsDict']]] = None,
                  key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 logs: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppLogsArgs']]] = None,
+                 logs: Optional[pulumi.Input[Union['WindowsWebAppLogsArgs', 'WindowsWebAppLogsArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_plan_id: Optional[pulumi.Input[str]] = None,
-                 site_config: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppSiteConfigArgs']]] = None,
-                 sticky_settings: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppStickySettingsArgs']]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppStorageAccountArgs']]]]] = None,
+                 site_config: Optional[pulumi.Input[Union['WindowsWebAppSiteConfigArgs', 'WindowsWebAppSiteConfigArgsDict']]] = None,
+                 sticky_settings: Optional[pulumi.Input[Union['WindowsWebAppStickySettingsArgs', 'WindowsWebAppStickySettingsArgsDict']]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsWebAppStorageAccountArgs', 'WindowsWebAppStorageAccountArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
                  webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1106,7 +1106,7 @@ class WindowsWebApp(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example_service_plan.location,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.WindowsWebAppSiteConfigArgs())
+            site_config={})
         ```
 
         ## Import
@@ -1120,28 +1120,28 @@ class WindowsWebApp(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs of App Settings.
-        :param pulumi.Input[pulumi.InputType['WindowsWebAppAuthSettingsArgs']] auth_settings: An `auth_settings` block as defined below.
-        :param pulumi.Input[pulumi.InputType['WindowsWebAppAuthSettingsV2Args']] auth_settings_v2: An `auth_settings_v2` block as defined below.
-        :param pulumi.Input[pulumi.InputType['WindowsWebAppBackupArgs']] backup: A `backup` block as defined below.
+        :param pulumi.Input[Union['WindowsWebAppAuthSettingsArgs', 'WindowsWebAppAuthSettingsArgsDict']] auth_settings: An `auth_settings` block as defined below.
+        :param pulumi.Input[Union['WindowsWebAppAuthSettingsV2Args', 'WindowsWebAppAuthSettingsV2ArgsDict']] auth_settings_v2: An `auth_settings_v2` block as defined below.
+        :param pulumi.Input[Union['WindowsWebAppBackupArgs', 'WindowsWebAppBackupArgsDict']] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[bool] client_certificate_enabled: Should Client Certificates be enabled?
         :param pulumi.Input[str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
         :param pulumi.Input[str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`. Defaults to `Required`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppConnectionStringArgs']]]] connection_strings: One or more `connection_string` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsWebAppConnectionStringArgs', 'WindowsWebAppConnectionStringArgsDict']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[bool] enabled: Should the Windows Web App be enabled? Defaults to `true`.
         :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
         :param pulumi.Input[bool] https_only: Should the Windows Web App require HTTPS connections. Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['WindowsWebAppIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['WindowsWebAppIdentityArgs', 'WindowsWebAppIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] location: The Azure Region where the Windows Web App should exist. Changing this forces a new Windows Web App to be created.
-        :param pulumi.Input[pulumi.InputType['WindowsWebAppLogsArgs']] logs: A `logs` block as defined below.
+        :param pulumi.Input[Union['WindowsWebAppLogsArgs', 'WindowsWebAppLogsArgsDict']] logs: A `logs` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Windows Web App. Changing this forces a new Windows Web App to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Web App. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Windows Web App should exist. Changing this forces a new Windows Web App to be created.
         :param pulumi.Input[str] service_plan_id: The ID of the Service Plan that this Windows App Service will be created in.
-        :param pulumi.Input[pulumi.InputType['WindowsWebAppSiteConfigArgs']] site_config: A `site_config` block as defined below.
-        :param pulumi.Input[pulumi.InputType['WindowsWebAppStickySettingsArgs']] sticky_settings: A `sticky_settings` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
+        :param pulumi.Input[Union['WindowsWebAppSiteConfigArgs', 'WindowsWebAppSiteConfigArgsDict']] site_config: A `site_config` block as defined below.
+        :param pulumi.Input[Union['WindowsWebAppStickySettingsArgs', 'WindowsWebAppStickySettingsArgsDict']] sticky_settings: A `sticky_settings` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsWebAppStorageAccountArgs', 'WindowsWebAppStorageAccountArgsDict']]]] storage_accounts: One or more `storage_account` blocks as defined below.
                
                > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Web App.
@@ -1181,7 +1181,7 @@ class WindowsWebApp(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example_service_plan.location,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.WindowsWebAppSiteConfigArgs())
+            site_config={})
         ```
 
         ## Import
@@ -1208,28 +1208,28 @@ class WindowsWebApp(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 auth_settings: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppAuthSettingsArgs']]] = None,
-                 auth_settings_v2: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppAuthSettingsV2Args']]] = None,
-                 backup: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppBackupArgs']]] = None,
+                 auth_settings: Optional[pulumi.Input[Union['WindowsWebAppAuthSettingsArgs', 'WindowsWebAppAuthSettingsArgsDict']]] = None,
+                 auth_settings_v2: Optional[pulumi.Input[Union['WindowsWebAppAuthSettingsV2Args', 'WindowsWebAppAuthSettingsV2ArgsDict']]] = None,
+                 backup: Optional[pulumi.Input[Union['WindowsWebAppBackupArgs', 'WindowsWebAppBackupArgsDict']]] = None,
                  client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_exclusion_paths: Optional[pulumi.Input[str]] = None,
                  client_certificate_mode: Optional[pulumi.Input[str]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppConnectionStringArgs']]]]] = None,
+                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsWebAppConnectionStringArgs', 'WindowsWebAppConnectionStringArgsDict']]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  ftp_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['WindowsWebAppIdentityArgs', 'WindowsWebAppIdentityArgsDict']]] = None,
                  key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 logs: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppLogsArgs']]] = None,
+                 logs: Optional[pulumi.Input[Union['WindowsWebAppLogsArgs', 'WindowsWebAppLogsArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_plan_id: Optional[pulumi.Input[str]] = None,
-                 site_config: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppSiteConfigArgs']]] = None,
-                 sticky_settings: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppStickySettingsArgs']]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppStorageAccountArgs']]]]] = None,
+                 site_config: Optional[pulumi.Input[Union['WindowsWebAppSiteConfigArgs', 'WindowsWebAppSiteConfigArgsDict']]] = None,
+                 sticky_settings: Optional[pulumi.Input[Union['WindowsWebAppStickySettingsArgs', 'WindowsWebAppStickySettingsArgsDict']]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsWebAppStorageAccountArgs', 'WindowsWebAppStorageAccountArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
                  webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1298,25 +1298,25 @@ class WindowsWebApp(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            auth_settings: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppAuthSettingsArgs']]] = None,
-            auth_settings_v2: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppAuthSettingsV2Args']]] = None,
-            backup: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppBackupArgs']]] = None,
+            auth_settings: Optional[pulumi.Input[Union['WindowsWebAppAuthSettingsArgs', 'WindowsWebAppAuthSettingsArgsDict']]] = None,
+            auth_settings_v2: Optional[pulumi.Input[Union['WindowsWebAppAuthSettingsV2Args', 'WindowsWebAppAuthSettingsV2ArgsDict']]] = None,
+            backup: Optional[pulumi.Input[Union['WindowsWebAppBackupArgs', 'WindowsWebAppBackupArgsDict']]] = None,
             client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
             client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
             client_certificate_exclusion_paths: Optional[pulumi.Input[str]] = None,
             client_certificate_mode: Optional[pulumi.Input[str]] = None,
-            connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppConnectionStringArgs']]]]] = None,
+            connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsWebAppConnectionStringArgs', 'WindowsWebAppConnectionStringArgsDict']]]]] = None,
             custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
             default_hostname: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             ftp_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
             hosting_environment_id: Optional[pulumi.Input[str]] = None,
             https_only: Optional[pulumi.Input[bool]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[Union['WindowsWebAppIdentityArgs', 'WindowsWebAppIdentityArgsDict']]] = None,
             key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
             kind: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
-            logs: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppLogsArgs']]] = None,
+            logs: Optional[pulumi.Input[Union['WindowsWebAppLogsArgs', 'WindowsWebAppLogsArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             outbound_ip_address_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
@@ -1325,10 +1325,10 @@ class WindowsWebApp(pulumi.CustomResource):
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             service_plan_id: Optional[pulumi.Input[str]] = None,
-            site_config: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppSiteConfigArgs']]] = None,
-            site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppSiteCredentialArgs']]]]] = None,
-            sticky_settings: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppStickySettingsArgs']]] = None,
-            storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppStorageAccountArgs']]]]] = None,
+            site_config: Optional[pulumi.Input[Union['WindowsWebAppSiteConfigArgs', 'WindowsWebAppSiteConfigArgsDict']]] = None,
+            site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsWebAppSiteCredentialArgs', 'WindowsWebAppSiteCredentialArgsDict']]]]] = None,
+            sticky_settings: Optional[pulumi.Input[Union['WindowsWebAppStickySettingsArgs', 'WindowsWebAppStickySettingsArgsDict']]] = None,
+            storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsWebAppStorageAccountArgs', 'WindowsWebAppStorageAccountArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
             webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1341,25 +1341,25 @@ class WindowsWebApp(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs of App Settings.
-        :param pulumi.Input[pulumi.InputType['WindowsWebAppAuthSettingsArgs']] auth_settings: An `auth_settings` block as defined below.
-        :param pulumi.Input[pulumi.InputType['WindowsWebAppAuthSettingsV2Args']] auth_settings_v2: An `auth_settings_v2` block as defined below.
-        :param pulumi.Input[pulumi.InputType['WindowsWebAppBackupArgs']] backup: A `backup` block as defined below.
+        :param pulumi.Input[Union['WindowsWebAppAuthSettingsArgs', 'WindowsWebAppAuthSettingsArgsDict']] auth_settings: An `auth_settings` block as defined below.
+        :param pulumi.Input[Union['WindowsWebAppAuthSettingsV2Args', 'WindowsWebAppAuthSettingsV2ArgsDict']] auth_settings_v2: An `auth_settings_v2` block as defined below.
+        :param pulumi.Input[Union['WindowsWebAppBackupArgs', 'WindowsWebAppBackupArgsDict']] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[bool] client_certificate_enabled: Should Client Certificates be enabled?
         :param pulumi.Input[str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
         :param pulumi.Input[str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`. Defaults to `Required`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppConnectionStringArgs']]]] connection_strings: One or more `connection_string` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsWebAppConnectionStringArgs', 'WindowsWebAppConnectionStringArgsDict']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[str] custom_domain_verification_id: The identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[str] default_hostname: The default hostname of the Windows Web App.
         :param pulumi.Input[bool] enabled: Should the Windows Web App be enabled? Defaults to `true`.
         :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
         :param pulumi.Input[str] hosting_environment_id: The ID of the App Service Environment used by App Service.
         :param pulumi.Input[bool] https_only: Should the Windows Web App require HTTPS connections. Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['WindowsWebAppIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['WindowsWebAppIdentityArgs', 'WindowsWebAppIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] kind: The Kind value for this Windows Web App.
         :param pulumi.Input[str] location: The Azure Region where the Windows Web App should exist. Changing this forces a new Windows Web App to be created.
-        :param pulumi.Input[pulumi.InputType['WindowsWebAppLogsArgs']] logs: A `logs` block as defined below.
+        :param pulumi.Input[Union['WindowsWebAppLogsArgs', 'WindowsWebAppLogsArgsDict']] logs: A `logs` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Windows Web App. Changing this forces a new Windows Web App to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_address_lists: A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
@@ -1368,10 +1368,10 @@ class WindowsWebApp(pulumi.CustomResource):
         :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Web App. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Windows Web App should exist. Changing this forces a new Windows Web App to be created.
         :param pulumi.Input[str] service_plan_id: The ID of the Service Plan that this Windows App Service will be created in.
-        :param pulumi.Input[pulumi.InputType['WindowsWebAppSiteConfigArgs']] site_config: A `site_config` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppSiteCredentialArgs']]]] site_credentials: A `site_credential` block as defined below.
-        :param pulumi.Input[pulumi.InputType['WindowsWebAppStickySettingsArgs']] sticky_settings: A `sticky_settings` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
+        :param pulumi.Input[Union['WindowsWebAppSiteConfigArgs', 'WindowsWebAppSiteConfigArgsDict']] site_config: A `site_config` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsWebAppSiteCredentialArgs', 'WindowsWebAppSiteCredentialArgsDict']]]] site_credentials: A `site_credential` block as defined below.
+        :param pulumi.Input[Union['WindowsWebAppStickySettingsArgs', 'WindowsWebAppStickySettingsArgsDict']] sticky_settings: A `sticky_settings` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsWebAppStorageAccountArgs', 'WindowsWebAppStorageAccountArgsDict']]]] storage_accounts: One or more `storage_account` blocks as defined below.
                
                > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Web App.

@@ -130,9 +130,9 @@ class ServerKey(pulumi.CustomResource):
             ssl_minimal_tls_version_enforced="TLS1_1",
             storage_mb=51200,
             version="5.7",
-            identity=azure.mysql.ServerIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         server = azure.keyvault.AccessPolicy("server",
             key_vault_id=example_key_vault.id,
             tenant_id=current.tenant_id,
@@ -238,9 +238,9 @@ class ServerKey(pulumi.CustomResource):
             ssl_minimal_tls_version_enforced="TLS1_1",
             storage_mb=51200,
             version="5.7",
-            identity=azure.mysql.ServerIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         server = azure.keyvault.AccessPolicy("server",
             key_vault_id=example_key_vault.id,
             tenant_id=current.tenant_id,

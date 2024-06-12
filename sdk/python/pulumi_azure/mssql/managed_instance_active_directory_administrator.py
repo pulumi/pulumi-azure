@@ -229,9 +229,9 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
             vcores=4,
             administrator_login="msadministrator",
             administrator_login_password="thisIsDog11",
-            identity=azure.mssql.ManagedInstanceIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         reader = azuread.DirectoryRole("reader", display_name="Directory Readers")
         example_directory_role_member = azuread.DirectoryRoleMember("example",
             role_object_id=reader.object_id,
@@ -305,9 +305,9 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
             vcores=4,
             administrator_login="msadministrator",
             administrator_login_password="thisIsDog11",
-            identity=azure.mssql.ManagedInstanceIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         reader = azuread.DirectoryRole("reader", display_name="Directory Readers")
         example_directory_role_member = azuread.DirectoryRoleMember("example",
             role_object_id=reader.object_id,

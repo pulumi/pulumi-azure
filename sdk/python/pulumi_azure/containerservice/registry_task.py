@@ -594,23 +594,23 @@ class RegistryTask(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_pool_name: Optional[pulumi.Input[str]] = None,
-                 agent_setting: Optional[pulumi.Input[pulumi.InputType['RegistryTaskAgentSettingArgs']]] = None,
-                 base_image_trigger: Optional[pulumi.Input[pulumi.InputType['RegistryTaskBaseImageTriggerArgs']]] = None,
+                 agent_setting: Optional[pulumi.Input[Union['RegistryTaskAgentSettingArgs', 'RegistryTaskAgentSettingArgsDict']]] = None,
+                 base_image_trigger: Optional[pulumi.Input[Union['RegistryTaskBaseImageTriggerArgs', 'RegistryTaskBaseImageTriggerArgsDict']]] = None,
                  container_registry_id: Optional[pulumi.Input[str]] = None,
-                 docker_step: Optional[pulumi.Input[pulumi.InputType['RegistryTaskDockerStepArgs']]] = None,
+                 docker_step: Optional[pulumi.Input[Union['RegistryTaskDockerStepArgs', 'RegistryTaskDockerStepArgsDict']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 encoded_step: Optional[pulumi.Input[pulumi.InputType['RegistryTaskEncodedStepArgs']]] = None,
-                 file_step: Optional[pulumi.Input[pulumi.InputType['RegistryTaskFileStepArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['RegistryTaskIdentityArgs']]] = None,
+                 encoded_step: Optional[pulumi.Input[Union['RegistryTaskEncodedStepArgs', 'RegistryTaskEncodedStepArgsDict']]] = None,
+                 file_step: Optional[pulumi.Input[Union['RegistryTaskFileStepArgs', 'RegistryTaskFileStepArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['RegistryTaskIdentityArgs', 'RegistryTaskIdentityArgsDict']]] = None,
                  is_system_task: Optional[pulumi.Input[bool]] = None,
                  log_template: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 platform: Optional[pulumi.Input[pulumi.InputType['RegistryTaskPlatformArgs']]] = None,
-                 registry_credential: Optional[pulumi.Input[pulumi.InputType['RegistryTaskRegistryCredentialArgs']]] = None,
-                 source_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryTaskSourceTriggerArgs']]]]] = None,
+                 platform: Optional[pulumi.Input[Union['RegistryTaskPlatformArgs', 'RegistryTaskPlatformArgsDict']]] = None,
+                 registry_credential: Optional[pulumi.Input[Union['RegistryTaskRegistryCredentialArgs', 'RegistryTaskRegistryCredentialArgsDict']]] = None,
+                 source_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RegistryTaskSourceTriggerArgs', 'RegistryTaskSourceTriggerArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout_in_seconds: Optional[pulumi.Input[int]] = None,
-                 timer_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryTaskTimerTriggerArgs']]]]] = None,
+                 timer_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RegistryTaskTimerTriggerArgs', 'RegistryTaskTimerTriggerArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a Container Registry Task.
@@ -632,15 +632,15 @@ class RegistryTask(pulumi.CustomResource):
         example_registry_task = azure.containerservice.RegistryTask("example",
             name="example-task",
             container_registry_id=example_registry.id,
-            platform=azure.containerservice.RegistryTaskPlatformArgs(
-                os="Linux",
-            ),
-            docker_step=azure.containerservice.RegistryTaskDockerStepArgs(
-                dockerfile_path="Dockerfile",
-                context_path="https://github.com/<username>/<repository>#<branch>:<folder>",
-                context_access_token="<github personal access token>",
-                image_names=["helloworld:{{.Run.ID}}"],
-            ))
+            platform={
+                "os": "Linux",
+            },
+            docker_step={
+                "dockerfilePath": "Dockerfile",
+                "contextPath": "https://github.com/<username>/<repository>#<branch>:<folder>",
+                "contextAccessToken": "<github personal access token>",
+                "imageNames": ["helloworld:{{.Run.ID}}"],
+            })
         ```
 
         ## Import
@@ -654,23 +654,23 @@ class RegistryTask(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agent_pool_name: The name of the dedicated Container Registry Agent Pool for this Container Registry Task.
-        :param pulumi.Input[pulumi.InputType['RegistryTaskAgentSettingArgs']] agent_setting: A `agent_setting` block as defined below.
-        :param pulumi.Input[pulumi.InputType['RegistryTaskBaseImageTriggerArgs']] base_image_trigger: A `base_image_trigger` block as defined below.
+        :param pulumi.Input[Union['RegistryTaskAgentSettingArgs', 'RegistryTaskAgentSettingArgsDict']] agent_setting: A `agent_setting` block as defined below.
+        :param pulumi.Input[Union['RegistryTaskBaseImageTriggerArgs', 'RegistryTaskBaseImageTriggerArgsDict']] base_image_trigger: A `base_image_trigger` block as defined below.
         :param pulumi.Input[str] container_registry_id: The ID of the Container Registry that this Container Registry Task resides in. Changing this forces a new Container Registry Task to be created.
-        :param pulumi.Input[pulumi.InputType['RegistryTaskDockerStepArgs']] docker_step: A `docker_step` block as defined below.
+        :param pulumi.Input[Union['RegistryTaskDockerStepArgs', 'RegistryTaskDockerStepArgsDict']] docker_step: A `docker_step` block as defined below.
         :param pulumi.Input[bool] enabled: Should this Container Registry Task be enabled? Defaults to `true`.
-        :param pulumi.Input[pulumi.InputType['RegistryTaskEncodedStepArgs']] encoded_step: A `encoded_step` block as defined below.
-        :param pulumi.Input[pulumi.InputType['RegistryTaskFileStepArgs']] file_step: A `file_step` block as defined below.
+        :param pulumi.Input[Union['RegistryTaskEncodedStepArgs', 'RegistryTaskEncodedStepArgsDict']] encoded_step: A `encoded_step` block as defined below.
+        :param pulumi.Input[Union['RegistryTaskFileStepArgs', 'RegistryTaskFileStepArgsDict']] file_step: A `file_step` block as defined below.
                
                > **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
-        :param pulumi.Input[pulumi.InputType['RegistryTaskIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['RegistryTaskIdentityArgs', 'RegistryTaskIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] is_system_task: Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
         :param pulumi.Input[str] name: The name which should be used for this Container Registry Task. Changing this forces a new Container Registry Task to be created.
-        :param pulumi.Input[pulumi.InputType['RegistryTaskPlatformArgs']] platform: A `platform` block as defined below.
+        :param pulumi.Input[Union['RegistryTaskPlatformArgs', 'RegistryTaskPlatformArgsDict']] platform: A `platform` block as defined below.
                
                > **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryTaskSourceTriggerArgs']]]] source_triggers: One or more `source_trigger` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryTaskTimerTriggerArgs']]]] timer_triggers: One or more `timer_trigger` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RegistryTaskSourceTriggerArgs', 'RegistryTaskSourceTriggerArgsDict']]]] source_triggers: One or more `source_trigger` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RegistryTaskTimerTriggerArgs', 'RegistryTaskTimerTriggerArgsDict']]]] timer_triggers: One or more `timer_trigger` blocks as defined below.
         """
         ...
     @overload
@@ -698,15 +698,15 @@ class RegistryTask(pulumi.CustomResource):
         example_registry_task = azure.containerservice.RegistryTask("example",
             name="example-task",
             container_registry_id=example_registry.id,
-            platform=azure.containerservice.RegistryTaskPlatformArgs(
-                os="Linux",
-            ),
-            docker_step=azure.containerservice.RegistryTaskDockerStepArgs(
-                dockerfile_path="Dockerfile",
-                context_path="https://github.com/<username>/<repository>#<branch>:<folder>",
-                context_access_token="<github personal access token>",
-                image_names=["helloworld:{{.Run.ID}}"],
-            ))
+            platform={
+                "os": "Linux",
+            },
+            docker_step={
+                "dockerfilePath": "Dockerfile",
+                "contextPath": "https://github.com/<username>/<repository>#<branch>:<folder>",
+                "contextAccessToken": "<github personal access token>",
+                "imageNames": ["helloworld:{{.Run.ID}}"],
+            })
         ```
 
         ## Import
@@ -733,23 +733,23 @@ class RegistryTask(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_pool_name: Optional[pulumi.Input[str]] = None,
-                 agent_setting: Optional[pulumi.Input[pulumi.InputType['RegistryTaskAgentSettingArgs']]] = None,
-                 base_image_trigger: Optional[pulumi.Input[pulumi.InputType['RegistryTaskBaseImageTriggerArgs']]] = None,
+                 agent_setting: Optional[pulumi.Input[Union['RegistryTaskAgentSettingArgs', 'RegistryTaskAgentSettingArgsDict']]] = None,
+                 base_image_trigger: Optional[pulumi.Input[Union['RegistryTaskBaseImageTriggerArgs', 'RegistryTaskBaseImageTriggerArgsDict']]] = None,
                  container_registry_id: Optional[pulumi.Input[str]] = None,
-                 docker_step: Optional[pulumi.Input[pulumi.InputType['RegistryTaskDockerStepArgs']]] = None,
+                 docker_step: Optional[pulumi.Input[Union['RegistryTaskDockerStepArgs', 'RegistryTaskDockerStepArgsDict']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 encoded_step: Optional[pulumi.Input[pulumi.InputType['RegistryTaskEncodedStepArgs']]] = None,
-                 file_step: Optional[pulumi.Input[pulumi.InputType['RegistryTaskFileStepArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['RegistryTaskIdentityArgs']]] = None,
+                 encoded_step: Optional[pulumi.Input[Union['RegistryTaskEncodedStepArgs', 'RegistryTaskEncodedStepArgsDict']]] = None,
+                 file_step: Optional[pulumi.Input[Union['RegistryTaskFileStepArgs', 'RegistryTaskFileStepArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['RegistryTaskIdentityArgs', 'RegistryTaskIdentityArgsDict']]] = None,
                  is_system_task: Optional[pulumi.Input[bool]] = None,
                  log_template: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 platform: Optional[pulumi.Input[pulumi.InputType['RegistryTaskPlatformArgs']]] = None,
-                 registry_credential: Optional[pulumi.Input[pulumi.InputType['RegistryTaskRegistryCredentialArgs']]] = None,
-                 source_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryTaskSourceTriggerArgs']]]]] = None,
+                 platform: Optional[pulumi.Input[Union['RegistryTaskPlatformArgs', 'RegistryTaskPlatformArgsDict']]] = None,
+                 registry_credential: Optional[pulumi.Input[Union['RegistryTaskRegistryCredentialArgs', 'RegistryTaskRegistryCredentialArgsDict']]] = None,
+                 source_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RegistryTaskSourceTriggerArgs', 'RegistryTaskSourceTriggerArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout_in_seconds: Optional[pulumi.Input[int]] = None,
-                 timer_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryTaskTimerTriggerArgs']]]]] = None,
+                 timer_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RegistryTaskTimerTriggerArgs', 'RegistryTaskTimerTriggerArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -790,23 +790,23 @@ class RegistryTask(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             agent_pool_name: Optional[pulumi.Input[str]] = None,
-            agent_setting: Optional[pulumi.Input[pulumi.InputType['RegistryTaskAgentSettingArgs']]] = None,
-            base_image_trigger: Optional[pulumi.Input[pulumi.InputType['RegistryTaskBaseImageTriggerArgs']]] = None,
+            agent_setting: Optional[pulumi.Input[Union['RegistryTaskAgentSettingArgs', 'RegistryTaskAgentSettingArgsDict']]] = None,
+            base_image_trigger: Optional[pulumi.Input[Union['RegistryTaskBaseImageTriggerArgs', 'RegistryTaskBaseImageTriggerArgsDict']]] = None,
             container_registry_id: Optional[pulumi.Input[str]] = None,
-            docker_step: Optional[pulumi.Input[pulumi.InputType['RegistryTaskDockerStepArgs']]] = None,
+            docker_step: Optional[pulumi.Input[Union['RegistryTaskDockerStepArgs', 'RegistryTaskDockerStepArgsDict']]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
-            encoded_step: Optional[pulumi.Input[pulumi.InputType['RegistryTaskEncodedStepArgs']]] = None,
-            file_step: Optional[pulumi.Input[pulumi.InputType['RegistryTaskFileStepArgs']]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['RegistryTaskIdentityArgs']]] = None,
+            encoded_step: Optional[pulumi.Input[Union['RegistryTaskEncodedStepArgs', 'RegistryTaskEncodedStepArgsDict']]] = None,
+            file_step: Optional[pulumi.Input[Union['RegistryTaskFileStepArgs', 'RegistryTaskFileStepArgsDict']]] = None,
+            identity: Optional[pulumi.Input[Union['RegistryTaskIdentityArgs', 'RegistryTaskIdentityArgsDict']]] = None,
             is_system_task: Optional[pulumi.Input[bool]] = None,
             log_template: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            platform: Optional[pulumi.Input[pulumi.InputType['RegistryTaskPlatformArgs']]] = None,
-            registry_credential: Optional[pulumi.Input[pulumi.InputType['RegistryTaskRegistryCredentialArgs']]] = None,
-            source_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryTaskSourceTriggerArgs']]]]] = None,
+            platform: Optional[pulumi.Input[Union['RegistryTaskPlatformArgs', 'RegistryTaskPlatformArgsDict']]] = None,
+            registry_credential: Optional[pulumi.Input[Union['RegistryTaskRegistryCredentialArgs', 'RegistryTaskRegistryCredentialArgsDict']]] = None,
+            source_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RegistryTaskSourceTriggerArgs', 'RegistryTaskSourceTriggerArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             timeout_in_seconds: Optional[pulumi.Input[int]] = None,
-            timer_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryTaskTimerTriggerArgs']]]]] = None) -> 'RegistryTask':
+            timer_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RegistryTaskTimerTriggerArgs', 'RegistryTaskTimerTriggerArgsDict']]]]] = None) -> 'RegistryTask':
         """
         Get an existing RegistryTask resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -815,23 +815,23 @@ class RegistryTask(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agent_pool_name: The name of the dedicated Container Registry Agent Pool for this Container Registry Task.
-        :param pulumi.Input[pulumi.InputType['RegistryTaskAgentSettingArgs']] agent_setting: A `agent_setting` block as defined below.
-        :param pulumi.Input[pulumi.InputType['RegistryTaskBaseImageTriggerArgs']] base_image_trigger: A `base_image_trigger` block as defined below.
+        :param pulumi.Input[Union['RegistryTaskAgentSettingArgs', 'RegistryTaskAgentSettingArgsDict']] agent_setting: A `agent_setting` block as defined below.
+        :param pulumi.Input[Union['RegistryTaskBaseImageTriggerArgs', 'RegistryTaskBaseImageTriggerArgsDict']] base_image_trigger: A `base_image_trigger` block as defined below.
         :param pulumi.Input[str] container_registry_id: The ID of the Container Registry that this Container Registry Task resides in. Changing this forces a new Container Registry Task to be created.
-        :param pulumi.Input[pulumi.InputType['RegistryTaskDockerStepArgs']] docker_step: A `docker_step` block as defined below.
+        :param pulumi.Input[Union['RegistryTaskDockerStepArgs', 'RegistryTaskDockerStepArgsDict']] docker_step: A `docker_step` block as defined below.
         :param pulumi.Input[bool] enabled: Should this Container Registry Task be enabled? Defaults to `true`.
-        :param pulumi.Input[pulumi.InputType['RegistryTaskEncodedStepArgs']] encoded_step: A `encoded_step` block as defined below.
-        :param pulumi.Input[pulumi.InputType['RegistryTaskFileStepArgs']] file_step: A `file_step` block as defined below.
+        :param pulumi.Input[Union['RegistryTaskEncodedStepArgs', 'RegistryTaskEncodedStepArgsDict']] encoded_step: A `encoded_step` block as defined below.
+        :param pulumi.Input[Union['RegistryTaskFileStepArgs', 'RegistryTaskFileStepArgsDict']] file_step: A `file_step` block as defined below.
                
                > **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
-        :param pulumi.Input[pulumi.InputType['RegistryTaskIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['RegistryTaskIdentityArgs', 'RegistryTaskIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] is_system_task: Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
         :param pulumi.Input[str] name: The name which should be used for this Container Registry Task. Changing this forces a new Container Registry Task to be created.
-        :param pulumi.Input[pulumi.InputType['RegistryTaskPlatformArgs']] platform: A `platform` block as defined below.
+        :param pulumi.Input[Union['RegistryTaskPlatformArgs', 'RegistryTaskPlatformArgsDict']] platform: A `platform` block as defined below.
                
                > **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryTaskSourceTriggerArgs']]]] source_triggers: One or more `source_trigger` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryTaskTimerTriggerArgs']]]] timer_triggers: One or more `timer_trigger` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RegistryTaskSourceTriggerArgs', 'RegistryTaskSourceTriggerArgsDict']]]] source_triggers: One or more `source_trigger` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RegistryTaskTimerTriggerArgs', 'RegistryTaskTimerTriggerArgsDict']]]] timer_triggers: One or more `timer_trigger` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

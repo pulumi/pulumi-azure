@@ -249,10 +249,10 @@ class ManagedCertificate(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             kind="Linux",
             reserved=True,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Basic",
-                size="B1",
-            ))
+            sku={
+                "tier": "Basic",
+                "size": "B1",
+            })
         example_app_service = azure.appservice.AppService("example",
             name="example-app",
             location=example_resource_group.location,
@@ -263,9 +263,9 @@ class ManagedCertificate(pulumi.CustomResource):
             zone_name=example.name,
             resource_group_name=example.resource_group_name,
             ttl=300,
-            records=[azure.dns.TxtRecordRecordArgs(
-                value=example_app_service.custom_domain_verification_id,
-            )])
+            records=[{
+                "value": example_app_service.custom_domain_verification_id,
+            }])
         example_c_name_record = azure.dns.CNameRecord("example",
             name="example-adcr",
             zone_name=example.name,
@@ -329,10 +329,10 @@ class ManagedCertificate(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             kind="Linux",
             reserved=True,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Basic",
-                size="B1",
-            ))
+            sku={
+                "tier": "Basic",
+                "size": "B1",
+            })
         example_app_service = azure.appservice.AppService("example",
             name="example-app",
             location=example_resource_group.location,
@@ -343,9 +343,9 @@ class ManagedCertificate(pulumi.CustomResource):
             zone_name=example.name,
             resource_group_name=example.resource_group_name,
             ttl=300,
-            records=[azure.dns.TxtRecordRecordArgs(
-                value=example_app_service.custom_domain_verification_id,
-            )])
+            records=[{
+                "value": example_app_service.custom_domain_verification_id,
+            }])
         example_c_name_record = azure.dns.CNameRecord("example",
             name="example-adcr",
             zone_name=example.name,

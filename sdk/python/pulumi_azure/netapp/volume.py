@@ -922,10 +922,10 @@ class Volume(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  azure_vmware_data_store_enabled: Optional[pulumi.Input[bool]] = None,
                  create_from_snapshot_resource_id: Optional[pulumi.Input[str]] = None,
-                 data_protection_replication: Optional[pulumi.Input[pulumi.InputType['VolumeDataProtectionReplicationArgs']]] = None,
-                 data_protection_snapshot_policy: Optional[pulumi.Input[pulumi.InputType['VolumeDataProtectionSnapshotPolicyArgs']]] = None,
+                 data_protection_replication: Optional[pulumi.Input[Union['VolumeDataProtectionReplicationArgs', 'VolumeDataProtectionReplicationArgsDict']]] = None,
+                 data_protection_snapshot_policy: Optional[pulumi.Input[Union['VolumeDataProtectionSnapshotPolicyArgs', 'VolumeDataProtectionSnapshotPolicyArgsDict']]] = None,
                  encryption_key_source: Optional[pulumi.Input[str]] = None,
-                 export_policy_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeExportPolicyRuleArgs']]]]] = None,
+                 export_policy_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VolumeExportPolicyRuleArgs', 'VolumeExportPolicyRuleArgsDict']]]]] = None,
                  kerberos_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_private_endpoint_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -961,10 +961,10 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] azure_vmware_data_store_enabled: Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['VolumeDataProtectionReplicationArgs']] data_protection_replication: A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['VolumeDataProtectionSnapshotPolicyArgs']] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
+        :param pulumi.Input[Union['VolumeDataProtectionReplicationArgs', 'VolumeDataProtectionReplicationArgsDict']] data_protection_replication: A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['VolumeDataProtectionSnapshotPolicyArgs', 'VolumeDataProtectionSnapshotPolicyArgsDict']] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
         :param pulumi.Input[str] encryption_key_source: The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeExportPolicyRuleArgs']]]] export_policy_rules: One or more `export_policy_rule` block defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VolumeExportPolicyRuleArgs', 'VolumeExportPolicyRuleArgsDict']]]] export_policy_rules: One or more `export_policy_rule` block defined below.
         :param pulumi.Input[bool] kerberos_enabled: Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account`
                having a defined AD connection.
         :param pulumi.Input[str] key_vault_private_endpoint_id: The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
@@ -1022,10 +1022,10 @@ class Volume(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  azure_vmware_data_store_enabled: Optional[pulumi.Input[bool]] = None,
                  create_from_snapshot_resource_id: Optional[pulumi.Input[str]] = None,
-                 data_protection_replication: Optional[pulumi.Input[pulumi.InputType['VolumeDataProtectionReplicationArgs']]] = None,
-                 data_protection_snapshot_policy: Optional[pulumi.Input[pulumi.InputType['VolumeDataProtectionSnapshotPolicyArgs']]] = None,
+                 data_protection_replication: Optional[pulumi.Input[Union['VolumeDataProtectionReplicationArgs', 'VolumeDataProtectionReplicationArgsDict']]] = None,
+                 data_protection_snapshot_policy: Optional[pulumi.Input[Union['VolumeDataProtectionSnapshotPolicyArgs', 'VolumeDataProtectionSnapshotPolicyArgsDict']]] = None,
                  encryption_key_source: Optional[pulumi.Input[str]] = None,
-                 export_policy_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeExportPolicyRuleArgs']]]]] = None,
+                 export_policy_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VolumeExportPolicyRuleArgs', 'VolumeExportPolicyRuleArgsDict']]]]] = None,
                  kerberos_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_private_endpoint_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -1110,10 +1110,10 @@ class Volume(pulumi.CustomResource):
             account_name: Optional[pulumi.Input[str]] = None,
             azure_vmware_data_store_enabled: Optional[pulumi.Input[bool]] = None,
             create_from_snapshot_resource_id: Optional[pulumi.Input[str]] = None,
-            data_protection_replication: Optional[pulumi.Input[pulumi.InputType['VolumeDataProtectionReplicationArgs']]] = None,
-            data_protection_snapshot_policy: Optional[pulumi.Input[pulumi.InputType['VolumeDataProtectionSnapshotPolicyArgs']]] = None,
+            data_protection_replication: Optional[pulumi.Input[Union['VolumeDataProtectionReplicationArgs', 'VolumeDataProtectionReplicationArgsDict']]] = None,
+            data_protection_snapshot_policy: Optional[pulumi.Input[Union['VolumeDataProtectionSnapshotPolicyArgs', 'VolumeDataProtectionSnapshotPolicyArgsDict']]] = None,
             encryption_key_source: Optional[pulumi.Input[str]] = None,
-            export_policy_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeExportPolicyRuleArgs']]]]] = None,
+            export_policy_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VolumeExportPolicyRuleArgs', 'VolumeExportPolicyRuleArgsDict']]]]] = None,
             kerberos_enabled: Optional[pulumi.Input[bool]] = None,
             key_vault_private_endpoint_id: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -1145,10 +1145,10 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] azure_vmware_data_store_enabled: Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['VolumeDataProtectionReplicationArgs']] data_protection_replication: A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['VolumeDataProtectionSnapshotPolicyArgs']] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
+        :param pulumi.Input[Union['VolumeDataProtectionReplicationArgs', 'VolumeDataProtectionReplicationArgsDict']] data_protection_replication: A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['VolumeDataProtectionSnapshotPolicyArgs', 'VolumeDataProtectionSnapshotPolicyArgsDict']] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
         :param pulumi.Input[str] encryption_key_source: The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeExportPolicyRuleArgs']]]] export_policy_rules: One or more `export_policy_rule` block defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VolumeExportPolicyRuleArgs', 'VolumeExportPolicyRuleArgsDict']]]] export_policy_rules: One or more `export_policy_rule` block defined below.
         :param pulumi.Input[bool] kerberos_enabled: Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account`
                having a defined AD connection.
         :param pulumi.Input[str] key_vault_private_endpoint_id: The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.

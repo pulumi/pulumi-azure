@@ -396,10 +396,10 @@ class FileUpload(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ))
+            sku={
+                "name": "S1",
+                "capacity": 1,
+            })
         example_file_upload = azure.iot.FileUpload("example",
             iothub_id=example_io_t_hub.id,
             connection_string=example_account.primary_blob_connection_string,
@@ -463,10 +463,10 @@ class FileUpload(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ))
+            sku={
+                "name": "S1",
+                "capacity": 1,
+            })
         example_file_upload = azure.iot.FileUpload("example",
             iothub_id=example_io_t_hub.id,
             connection_string=example_account.primary_blob_connection_string,

@@ -349,10 +349,10 @@ class LiveEventOutput(pulumi.CustomResource):
             name="examplemediaacc",
             location=example.location,
             resource_group_name=example.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
-                id=example_account.id,
-                is_primary=True,
-            )])
+            storage_accounts=[{
+                "id": example_account.id,
+                "isPrimary": True,
+            }])
         example_asset = azure.media.Asset("example",
             name="inputAsset",
             resource_group_name=example.name,
@@ -363,15 +363,15 @@ class LiveEventOutput(pulumi.CustomResource):
             location=example.location,
             media_services_account_name=example_service_account.name,
             description="My Event Description",
-            input=azure.media.LiveEventInputArgs(
-                streaming_protocol="RTMP",
-                key_frame_interval_duration="PT6S",
-                ip_access_control_allows=[azure.media.LiveEventInputIpAccessControlAllowArgs(
-                    name="AllowAll",
-                    address="0.0.0.0",
-                    subnet_prefix_length=0,
-                )],
-            ))
+            input={
+                "streamingProtocol": "RTMP",
+                "keyFrameIntervalDuration": "PT6S",
+                "ipAccessControlAllows": [{
+                    "name": "AllowAll",
+                    "address": "0.0.0.0",
+                    "subnetPrefixLength": 0,
+                }],
+            })
         example_live_event_output = azure.media.LiveEventOutput("example",
             name="exampleoutput",
             live_event_id=example_live_event.id,
@@ -432,10 +432,10 @@ class LiveEventOutput(pulumi.CustomResource):
             name="examplemediaacc",
             location=example.location,
             resource_group_name=example.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
-                id=example_account.id,
-                is_primary=True,
-            )])
+            storage_accounts=[{
+                "id": example_account.id,
+                "isPrimary": True,
+            }])
         example_asset = azure.media.Asset("example",
             name="inputAsset",
             resource_group_name=example.name,
@@ -446,15 +446,15 @@ class LiveEventOutput(pulumi.CustomResource):
             location=example.location,
             media_services_account_name=example_service_account.name,
             description="My Event Description",
-            input=azure.media.LiveEventInputArgs(
-                streaming_protocol="RTMP",
-                key_frame_interval_duration="PT6S",
-                ip_access_control_allows=[azure.media.LiveEventInputIpAccessControlAllowArgs(
-                    name="AllowAll",
-                    address="0.0.0.0",
-                    subnet_prefix_length=0,
-                )],
-            ))
+            input={
+                "streamingProtocol": "RTMP",
+                "keyFrameIntervalDuration": "PT6S",
+                "ipAccessControlAllows": [{
+                    "name": "AllowAll",
+                    "address": "0.0.0.0",
+                    "subnetPrefixLength": 0,
+                }],
+            })
         example_live_event_output = azure.media.LiveEventOutput("example",
             name="exampleoutput",
             live_event_id=example_live_event.id,

@@ -321,7 +321,7 @@ class Server(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ServerIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -356,7 +356,7 @@ class Server(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ServerIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
         :param pulumi.Input[str] name: The name which should be used for this Fluid Relay Server. Changing this forces a new Fluid Relay Server to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
@@ -410,7 +410,7 @@ class Server(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ServerIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -452,7 +452,7 @@ class Server(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             frs_tenant_id: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['ServerIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             orderer_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -471,7 +471,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] frs_tenant_id: The Fluid tenantId for this server.
-        :param pulumi.Input[pulumi.InputType['ServerIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
         :param pulumi.Input[str] name: The name which should be used for this Fluid Relay Server. Changing this forces a new Fluid Relay Server to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] orderer_endpoints: An array of the Fluid Relay Orderer endpoints. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).

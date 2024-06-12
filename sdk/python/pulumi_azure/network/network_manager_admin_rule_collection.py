@@ -180,9 +180,9 @@ class NetworkManagerAdminRuleCollection(pulumi.CustomResource):
             name="example-network-manager",
             location=example.location,
             resource_group_name=example.name,
-            scope=azure.network.NetworkManagerScopeArgs(
-                subscription_ids=[current.id],
-            ),
+            scope={
+                "subscriptionIds": [current.id],
+            },
             scope_accesses=[
                 "Connectivity",
                 "SecurityAdmin",
@@ -238,9 +238,9 @@ class NetworkManagerAdminRuleCollection(pulumi.CustomResource):
             name="example-network-manager",
             location=example.location,
             resource_group_name=example.name,
-            scope=azure.network.NetworkManagerScopeArgs(
-                subscription_ids=[current.id],
-            ),
+            scope={
+                "subscriptionIds": [current.id],
+            },
             scope_accesses=[
                 "Connectivity",
                 "SecurityAdmin",

@@ -506,10 +506,10 @@ class EventhubDataConnection(pulumi.CustomResource):
             name="kustocluster",
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Standard_D13_v2",
-                capacity=2,
-            ))
+            sku={
+                "name": "Standard_D13_v2",
+                "capacity": 2,
+            })
         database = azure.kusto.Database("database",
             name="my-kusto-database",
             resource_group_name=example.name,
@@ -593,10 +593,10 @@ class EventhubDataConnection(pulumi.CustomResource):
             name="kustocluster",
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Standard_D13_v2",
-                capacity=2,
-            ))
+            sku={
+                "name": "Standard_D13_v2",
+                "capacity": 2,
+            })
         database = azure.kusto.Database("database",
             name="my-kusto-database",
             resource_group_name=example.name,

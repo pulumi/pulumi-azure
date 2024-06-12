@@ -196,7 +196,7 @@ class RouteFilter(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 rule: Optional[pulumi.Input[pulumi.InputType['RouteFilterRuleArgs']]] = None,
+                 rule: Optional[pulumi.Input[Union['RouteFilterRuleArgs', 'RouteFilterRuleArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -212,12 +212,12 @@ class RouteFilter(pulumi.CustomResource):
             name="example",
             resource_group_name="example",
             location="East US",
-            rule=azure.network.RouteFilterRuleArgs(
-                name="rule",
-                access="Allow",
-                rule_type="Community",
-                communities=["12076:52004"],
-            ))
+            rule={
+                "name": "rule",
+                "access": "Allow",
+                "ruleType": "Community",
+                "communities": ["12076:52004"],
+            })
         ```
 
         ## Import
@@ -233,7 +233,7 @@ class RouteFilter(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the Route Filter should exist. Changing this forces a new Route Filter to be created.
         :param pulumi.Input[str] name: The Name which should be used for this Route Filter.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Route Filter should exist. Changing this forces a new Route Filter to be created.
-        :param pulumi.Input[pulumi.InputType['RouteFilterRuleArgs']] rule: A `rule` block as defined below.
+        :param pulumi.Input[Union['RouteFilterRuleArgs', 'RouteFilterRuleArgsDict']] rule: A `rule` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Route Filter.
         """
         ...
@@ -255,12 +255,12 @@ class RouteFilter(pulumi.CustomResource):
             name="example",
             resource_group_name="example",
             location="East US",
-            rule=azure.network.RouteFilterRuleArgs(
-                name="rule",
-                access="Allow",
-                rule_type="Community",
-                communities=["12076:52004"],
-            ))
+            rule={
+                "name": "rule",
+                "access": "Allow",
+                "ruleType": "Community",
+                "communities": ["12076:52004"],
+            })
         ```
 
         ## Import
@@ -289,7 +289,7 @@ class RouteFilter(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 rule: Optional[pulumi.Input[pulumi.InputType['RouteFilterRuleArgs']]] = None,
+                 rule: Optional[pulumi.Input[Union['RouteFilterRuleArgs', 'RouteFilterRuleArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -320,7 +320,7 @@ class RouteFilter(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            rule: Optional[pulumi.Input[pulumi.InputType['RouteFilterRuleArgs']]] = None,
+            rule: Optional[pulumi.Input[Union['RouteFilterRuleArgs', 'RouteFilterRuleArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'RouteFilter':
         """
         Get an existing RouteFilter resource's state with the given name, id, and optional extra
@@ -332,7 +332,7 @@ class RouteFilter(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the Route Filter should exist. Changing this forces a new Route Filter to be created.
         :param pulumi.Input[str] name: The Name which should be used for this Route Filter.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Route Filter should exist. Changing this forces a new Route Filter to be created.
-        :param pulumi.Input[pulumi.InputType['RouteFilterRuleArgs']] rule: A `rule` block as defined below.
+        :param pulumi.Input[Union['RouteFilterRuleArgs', 'RouteFilterRuleArgsDict']] rule: A `rule` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Route Filter.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

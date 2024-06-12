@@ -312,7 +312,7 @@ class FunctionAppHybridConnection(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.WindowsWebAppSiteConfigArgs())
+            site_config={})
         example_windows_function_app = azure.appservice.WindowsFunctionApp("example",
             name="example-function-app",
             location=example.location,
@@ -320,7 +320,7 @@ class FunctionAppHybridConnection(pulumi.CustomResource):
             service_plan_id=example_service_plan.id,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
-            site_config=azure.appservice.WindowsFunctionAppSiteConfigArgs())
+            site_config={})
         example_function_app_hybrid_connection = azure.appservice.FunctionAppHybridConnection("example",
             function_app_id=example_windows_web_app.id,
             relay_id=example_hybrid_connection.id,
@@ -388,7 +388,7 @@ class FunctionAppHybridConnection(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.WindowsWebAppSiteConfigArgs())
+            site_config={})
         example_windows_function_app = azure.appservice.WindowsFunctionApp("example",
             name="example-function-app",
             location=example.location,
@@ -396,7 +396,7 @@ class FunctionAppHybridConnection(pulumi.CustomResource):
             service_plan_id=example_service_plan.id,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
-            site_config=azure.appservice.WindowsFunctionAppSiteConfigArgs())
+            site_config={})
         example_function_app_hybrid_connection = azure.appservice.FunctionAppHybridConnection("example",
             function_app_id=example_windows_web_app.id,
             relay_id=example_hybrid_connection.id,

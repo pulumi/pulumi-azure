@@ -212,12 +212,12 @@ class RegistryToken(pulumi.CustomResource):
             sku="Premium",
             admin_enabled=False,
             georeplications=[
-                azure.containerservice.RegistryGeoreplicationArgs(
-                    location="East US",
-                ),
-                azure.containerservice.RegistryGeoreplicationArgs(
-                    location="West Europe",
-                ),
+                {
+                    "location": "East US",
+                },
+                {
+                    "location": "West Europe",
+                },
             ])
         example_registry_scope_map = azure.containerservice.RegistryScopeMap("example",
             name="example-scope-map",
@@ -273,12 +273,12 @@ class RegistryToken(pulumi.CustomResource):
             sku="Premium",
             admin_enabled=False,
             georeplications=[
-                azure.containerservice.RegistryGeoreplicationArgs(
-                    location="East US",
-                ),
-                azure.containerservice.RegistryGeoreplicationArgs(
-                    location="West Europe",
-                ),
+                {
+                    "location": "East US",
+                },
+                {
+                    "location": "West Europe",
+                },
             ])
         example_registry_scope_map = azure.containerservice.RegistryScopeMap("example",
             name="example-scope-map",

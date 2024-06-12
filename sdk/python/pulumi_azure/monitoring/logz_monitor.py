@@ -364,10 +364,10 @@ class LogzMonitor(pulumi.CustomResource):
                  enterprise_app_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['LogzMonitorPlanArgs']]] = None,
+                 plan: Optional[pulumi.Input[Union['LogzMonitorPlanArgs', 'LogzMonitorPlanArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 user: Optional[pulumi.Input[pulumi.InputType['LogzMonitorUserArgs']]] = None,
+                 user: Optional[pulumi.Input[Union['LogzMonitorUserArgs', 'LogzMonitorUserArgsDict']]] = None,
                  __props__=None):
         """
         Manages a logz Monitor.
@@ -387,17 +387,17 @@ class LogzMonitor(pulumi.CustomResource):
             name="example-monitor",
             resource_group_name=example.name,
             location=example.location,
-            plan=azure.monitoring.LogzMonitorPlanArgs(
-                billing_cycle="MONTHLY",
-                effective_date="2022-06-06T00:00:00Z",
-                usage_type="COMMITTED",
-            ),
-            user=azure.monitoring.LogzMonitorUserArgs(
-                email="user@example.com",
-                first_name="Example",
-                last_name="User",
-                phone_number="+12313803556",
-            ))
+            plan={
+                "billingCycle": "MONTHLY",
+                "effectiveDate": "2022-06-06T00:00:00Z",
+                "usageType": "COMMITTED",
+            },
+            user={
+                "email": "user@example.com",
+                "firstName": "Example",
+                "lastName": "User",
+                "phoneNumber": "+12313803556",
+            })
         ```
 
         ## Import
@@ -417,10 +417,10 @@ class LogzMonitor(pulumi.CustomResource):
                > **NOTE** Please follow [Set up Logz.io single sign-on](https://docs.microsoft.com/azure/partner-solutions/logzio/setup-sso) to create the ID of the Enterprise App.
         :param pulumi.Input[str] location: The Azure Region where the logz Monitor should exist. Changing this forces a new logz Monitor to be created.
         :param pulumi.Input[str] name: The name which should be used for this logz Monitor. Changing this forces a new logz Monitor to be created.
-        :param pulumi.Input[pulumi.InputType['LogzMonitorPlanArgs']] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['LogzMonitorPlanArgs', 'LogzMonitorPlanArgsDict']] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the logz Monitor should exist. Changing this forces a new logz Monitor to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the logz Monitor.
-        :param pulumi.Input[pulumi.InputType['LogzMonitorUserArgs']] user: A `user` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['LogzMonitorUserArgs', 'LogzMonitorUserArgsDict']] user: A `user` block as defined below. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -446,17 +446,17 @@ class LogzMonitor(pulumi.CustomResource):
             name="example-monitor",
             resource_group_name=example.name,
             location=example.location,
-            plan=azure.monitoring.LogzMonitorPlanArgs(
-                billing_cycle="MONTHLY",
-                effective_date="2022-06-06T00:00:00Z",
-                usage_type="COMMITTED",
-            ),
-            user=azure.monitoring.LogzMonitorUserArgs(
-                email="user@example.com",
-                first_name="Example",
-                last_name="User",
-                phone_number="+12313803556",
-            ))
+            plan={
+                "billingCycle": "MONTHLY",
+                "effectiveDate": "2022-06-06T00:00:00Z",
+                "usageType": "COMMITTED",
+            },
+            user={
+                "email": "user@example.com",
+                "firstName": "Example",
+                "lastName": "User",
+                "phoneNumber": "+12313803556",
+            })
         ```
 
         ## Import
@@ -487,10 +487,10 @@ class LogzMonitor(pulumi.CustomResource):
                  enterprise_app_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['LogzMonitorPlanArgs']]] = None,
+                 plan: Optional[pulumi.Input[Union['LogzMonitorPlanArgs', 'LogzMonitorPlanArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 user: Optional[pulumi.Input[pulumi.InputType['LogzMonitorUserArgs']]] = None,
+                 user: Optional[pulumi.Input[Union['LogzMonitorUserArgs', 'LogzMonitorUserArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -533,11 +533,11 @@ class LogzMonitor(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             logz_organization_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            plan: Optional[pulumi.Input[pulumi.InputType['LogzMonitorPlanArgs']]] = None,
+            plan: Optional[pulumi.Input[Union['LogzMonitorPlanArgs', 'LogzMonitorPlanArgsDict']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             single_sign_on_url: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            user: Optional[pulumi.Input[pulumi.InputType['LogzMonitorUserArgs']]] = None) -> 'LogzMonitor':
+            user: Optional[pulumi.Input[Union['LogzMonitorUserArgs', 'LogzMonitorUserArgsDict']]] = None) -> 'LogzMonitor':
         """
         Get an existing LogzMonitor resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -553,11 +553,11 @@ class LogzMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the logz Monitor should exist. Changing this forces a new logz Monitor to be created.
         :param pulumi.Input[str] logz_organization_id: The ID associated with the logz organization of this logz Monitor.
         :param pulumi.Input[str] name: The name which should be used for this logz Monitor. Changing this forces a new logz Monitor to be created.
-        :param pulumi.Input[pulumi.InputType['LogzMonitorPlanArgs']] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['LogzMonitorPlanArgs', 'LogzMonitorPlanArgsDict']] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the logz Monitor should exist. Changing this forces a new logz Monitor to be created.
         :param pulumi.Input[str] single_sign_on_url: The single sign on url associated with the logz organization of this logz Monitor.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the logz Monitor.
-        :param pulumi.Input[pulumi.InputType['LogzMonitorUserArgs']] user: A `user` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['LogzMonitorUserArgs', 'LogzMonitorUserArgsDict']] user: A `user` block as defined below. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

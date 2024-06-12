@@ -239,11 +239,11 @@ class AppConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication: Optional[pulumi.Input[pulumi.InputType['AppConnectionAuthenticationArgs']]] = None,
+                 authentication: Optional[pulumi.Input[Union['AppConnectionAuthenticationArgs', 'AppConnectionAuthenticationArgsDict']]] = None,
                  client_type: Optional[pulumi.Input[str]] = None,
                  function_app_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 secret_store: Optional[pulumi.Input[pulumi.InputType['AppConnectionSecretStoreArgs']]] = None,
+                 secret_store: Optional[pulumi.Input[Union['AppConnectionSecretStoreArgs', 'AppConnectionSecretStoreArgsDict']]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  vnet_solution: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -265,15 +265,15 @@ class AppConnection(pulumi.CustomResource):
             resource_group_name=example.name,
             offer_type="Standard",
             kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="BoundedStaleness",
-                max_interval_in_seconds=10,
-                max_staleness_prefix=200,
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example.location,
-                failover_priority=0,
-            )])
+            consistency_policy={
+                "consistencyLevel": "BoundedStaleness",
+                "maxIntervalInSeconds": 10,
+                "maxStalenessPrefix": 200,
+            },
+            geo_locations=[{
+                "location": example.location,
+                "failoverPriority": 0,
+            }])
         example_sql_database = azure.cosmosdb.SqlDatabase("example",
             name="cosmos-sql-db",
             resource_group_name=example_account.resource_group_name,
@@ -308,9 +308,9 @@ class AppConnection(pulumi.CustomResource):
             name="example-serviceconnector",
             function_app_id=example_azurerm_function_app["id"],
             target_resource_id=test_azurerm_cosmosdb_account["id"],
-            authentication=azure.appservice.AppConnectionAuthenticationArgs(
-                type="systemAssignedIdentity",
-            ))
+            authentication={
+                "type": "systemAssignedIdentity",
+            })
         ```
 
         ## Import
@@ -323,7 +323,7 @@ class AppConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AppConnectionAuthenticationArgs']] authentication: The authentication info. An `authentication` block as defined below.
+        :param pulumi.Input[Union['AppConnectionAuthenticationArgs', 'AppConnectionAuthenticationArgsDict']] authentication: The authentication info. An `authentication` block as defined below.
                
                > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
         :param pulumi.Input[str] function_app_id: The ID of the data source function app. Changing this forces a new resource to be created.
@@ -354,15 +354,15 @@ class AppConnection(pulumi.CustomResource):
             resource_group_name=example.name,
             offer_type="Standard",
             kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="BoundedStaleness",
-                max_interval_in_seconds=10,
-                max_staleness_prefix=200,
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example.location,
-                failover_priority=0,
-            )])
+            consistency_policy={
+                "consistencyLevel": "BoundedStaleness",
+                "maxIntervalInSeconds": 10,
+                "maxStalenessPrefix": 200,
+            },
+            geo_locations=[{
+                "location": example.location,
+                "failoverPriority": 0,
+            }])
         example_sql_database = azure.cosmosdb.SqlDatabase("example",
             name="cosmos-sql-db",
             resource_group_name=example_account.resource_group_name,
@@ -397,9 +397,9 @@ class AppConnection(pulumi.CustomResource):
             name="example-serviceconnector",
             function_app_id=example_azurerm_function_app["id"],
             target_resource_id=test_azurerm_cosmosdb_account["id"],
-            authentication=azure.appservice.AppConnectionAuthenticationArgs(
-                type="systemAssignedIdentity",
-            ))
+            authentication={
+                "type": "systemAssignedIdentity",
+            })
         ```
 
         ## Import
@@ -425,11 +425,11 @@ class AppConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication: Optional[pulumi.Input[pulumi.InputType['AppConnectionAuthenticationArgs']]] = None,
+                 authentication: Optional[pulumi.Input[Union['AppConnectionAuthenticationArgs', 'AppConnectionAuthenticationArgsDict']]] = None,
                  client_type: Optional[pulumi.Input[str]] = None,
                  function_app_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 secret_store: Optional[pulumi.Input[pulumi.InputType['AppConnectionSecretStoreArgs']]] = None,
+                 secret_store: Optional[pulumi.Input[Union['AppConnectionSecretStoreArgs', 'AppConnectionSecretStoreArgsDict']]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  vnet_solution: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -464,11 +464,11 @@ class AppConnection(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authentication: Optional[pulumi.Input[pulumi.InputType['AppConnectionAuthenticationArgs']]] = None,
+            authentication: Optional[pulumi.Input[Union['AppConnectionAuthenticationArgs', 'AppConnectionAuthenticationArgsDict']]] = None,
             client_type: Optional[pulumi.Input[str]] = None,
             function_app_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            secret_store: Optional[pulumi.Input[pulumi.InputType['AppConnectionSecretStoreArgs']]] = None,
+            secret_store: Optional[pulumi.Input[Union['AppConnectionSecretStoreArgs', 'AppConnectionSecretStoreArgsDict']]] = None,
             target_resource_id: Optional[pulumi.Input[str]] = None,
             vnet_solution: Optional[pulumi.Input[str]] = None) -> 'AppConnection':
         """
@@ -478,7 +478,7 @@ class AppConnection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AppConnectionAuthenticationArgs']] authentication: The authentication info. An `authentication` block as defined below.
+        :param pulumi.Input[Union['AppConnectionAuthenticationArgs', 'AppConnectionAuthenticationArgsDict']] authentication: The authentication info. An `authentication` block as defined below.
                
                > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
         :param pulumi.Input[str] function_app_id: The ID of the data source function app. Changing this forces a new resource to be created.

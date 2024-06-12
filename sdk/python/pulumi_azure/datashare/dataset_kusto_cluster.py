@@ -178,9 +178,9 @@ class DatasetKustoCluster(pulumi.CustomResource):
             name="example-dsa",
             location=example.location,
             resource_group_name=example.name,
-            identity=azure.datashare.AccountIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_share = azure.datashare.Share("example",
             name="example_ds",
             account_id=example_account.id,
@@ -189,10 +189,10 @@ class DatasetKustoCluster(pulumi.CustomResource):
             name="examplekc",
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Dev(No SLA)_Standard_D11_v2",
-                capacity=1,
-            ))
+            sku={
+                "name": "Dev(No SLA)_Standard_D11_v2",
+                "capacity": 1,
+            })
         example_assignment = azure.authorization.Assignment("example",
             scope=example_cluster.id,
             role_definition_name="Contributor",
@@ -240,9 +240,9 @@ class DatasetKustoCluster(pulumi.CustomResource):
             name="example-dsa",
             location=example.location,
             resource_group_name=example.name,
-            identity=azure.datashare.AccountIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_share = azure.datashare.Share("example",
             name="example_ds",
             account_id=example_account.id,
@@ -251,10 +251,10 @@ class DatasetKustoCluster(pulumi.CustomResource):
             name="examplekc",
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Dev(No SLA)_Standard_D11_v2",
-                capacity=1,
-            ))
+            sku={
+                "name": "Dev(No SLA)_Standard_D11_v2",
+                "capacity": 1,
+            })
         example_assignment = azure.authorization.Assignment("example",
             scope=example_cluster.id,
             role_definition_name="Contributor",

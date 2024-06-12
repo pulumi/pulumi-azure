@@ -261,9 +261,9 @@ class DatasetDataLakeGen2(pulumi.CustomResource):
             name="example-dsa",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            identity=azure.datashare.AccountIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_share = azure.datashare.Share("example",
             name="example_ds",
             account_id=example_account.id,
@@ -332,9 +332,9 @@ class DatasetDataLakeGen2(pulumi.CustomResource):
             name="example-dsa",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            identity=azure.datashare.AccountIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_share = azure.datashare.Share("example",
             name="example_ds",
             account_id=example_account.id,

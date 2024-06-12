@@ -395,7 +395,7 @@ class Workbook(pulumi.CustomResource):
                  data_json: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['WorkbookIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['WorkbookIdentityArgs', 'WorkbookIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -452,7 +452,7 @@ class Workbook(pulumi.CustomResource):
         :param pulumi.Input[str] data_json: Configuration of this particular workbook. Configuration data is a string containing valid JSON.
         :param pulumi.Input[str] description: Specifies the description of the workbook.
         :param pulumi.Input[str] display_name: Specifies the user-defined name (display name) of the workbook.
-        :param pulumi.Input[pulumi.InputType['WorkbookIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new Workbook to be created.
+        :param pulumi.Input[Union['WorkbookIdentityArgs', 'WorkbookIdentityArgsDict']] identity: An `identity` block as defined below. Changing this forces a new Workbook to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Workbook should exist. Changing this forces a new Workbook to be created.
         :param pulumi.Input[str] name: Specifies the name of this Workbook as a UUID/GUID. It should not contain any uppercase letters. Changing this forces a new Workbook to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Workbook should exist. Changing this forces a new Workbook to be created.
@@ -530,7 +530,7 @@ class Workbook(pulumi.CustomResource):
                  data_json: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['WorkbookIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['WorkbookIdentityArgs', 'WorkbookIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -577,7 +577,7 @@ class Workbook(pulumi.CustomResource):
             data_json: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['WorkbookIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[Union['WorkbookIdentityArgs', 'WorkbookIdentityArgsDict']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -595,7 +595,7 @@ class Workbook(pulumi.CustomResource):
         :param pulumi.Input[str] data_json: Configuration of this particular workbook. Configuration data is a string containing valid JSON.
         :param pulumi.Input[str] description: Specifies the description of the workbook.
         :param pulumi.Input[str] display_name: Specifies the user-defined name (display name) of the workbook.
-        :param pulumi.Input[pulumi.InputType['WorkbookIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new Workbook to be created.
+        :param pulumi.Input[Union['WorkbookIdentityArgs', 'WorkbookIdentityArgsDict']] identity: An `identity` block as defined below. Changing this forces a new Workbook to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Workbook should exist. Changing this forces a new Workbook to be created.
         :param pulumi.Input[str] name: Specifies the name of this Workbook as a UUID/GUID. It should not contain any uppercase letters. Changing this forces a new Workbook to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Workbook should exist. Changing this forces a new Workbook to be created.

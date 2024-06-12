@@ -427,7 +427,7 @@ class NetworkAttachedDataNetwork(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  mobile_network_data_network_name: Optional[pulumi.Input[str]] = None,
                  mobile_network_packet_core_data_plane_id: Optional[pulumi.Input[str]] = None,
-                 network_address_port_translation: Optional[pulumi.Input[pulumi.InputType['NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs']]] = None,
+                 network_address_port_translation: Optional[pulumi.Input[Union['NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs', 'NetworkAttachedDataNetworkNetworkAddressPortTranslationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_equipment_address_pool_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user_equipment_static_address_pool_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -453,7 +453,7 @@ class NetworkAttachedDataNetwork(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the Azure Region where the Mobile Network Attached Data Network should exist. Changing this forces a new Mobile Network Attached Data Network to be created.
         :param pulumi.Input[str] mobile_network_data_network_name: Specifies the name of the `mobile.NetworkDataNetwork` which the Attached Data Network belongs to, Changing this forces a new Mobile Network Attached Data Network to be created.
         :param pulumi.Input[str] mobile_network_packet_core_data_plane_id: Specifies the ID of the `mobile.NetworkPacketCoreDataPlane` which the Mobile Network Attached Data Network belongs to. Changing this forces a new Mobile Network Attached Data Network to be created.
-        :param pulumi.Input[pulumi.InputType['NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs']] network_address_port_translation: A `network_address_port_translation` block as defined below.
+        :param pulumi.Input[Union['NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs', 'NetworkAttachedDataNetworkNetworkAddressPortTranslationArgsDict']] network_address_port_translation: A `network_address_port_translation` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network Attached Data Network.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_equipment_address_pool_prefixes: Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. At least one of `user_equipment_address_pool_prefixes` and `user_equipment_static_address_pool_prefix`. If you define both, they must be of the same size.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_equipment_static_address_pool_prefixes: Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource. At least one of `user_equipment_address_pool_prefix` and `user_equipment_static_address_pool_prefixes`. If you define both, they must be of the same size.
@@ -500,7 +500,7 @@ class NetworkAttachedDataNetwork(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  mobile_network_data_network_name: Optional[pulumi.Input[str]] = None,
                  mobile_network_packet_core_data_plane_id: Optional[pulumi.Input[str]] = None,
-                 network_address_port_translation: Optional[pulumi.Input[pulumi.InputType['NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs']]] = None,
+                 network_address_port_translation: Optional[pulumi.Input[Union['NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs', 'NetworkAttachedDataNetworkNetworkAddressPortTranslationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_equipment_address_pool_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user_equipment_static_address_pool_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -549,7 +549,7 @@ class NetworkAttachedDataNetwork(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             mobile_network_data_network_name: Optional[pulumi.Input[str]] = None,
             mobile_network_packet_core_data_plane_id: Optional[pulumi.Input[str]] = None,
-            network_address_port_translation: Optional[pulumi.Input[pulumi.InputType['NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs']]] = None,
+            network_address_port_translation: Optional[pulumi.Input[Union['NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs', 'NetworkAttachedDataNetworkNetworkAddressPortTranslationArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             user_equipment_address_pool_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             user_equipment_static_address_pool_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -568,7 +568,7 @@ class NetworkAttachedDataNetwork(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the Azure Region where the Mobile Network Attached Data Network should exist. Changing this forces a new Mobile Network Attached Data Network to be created.
         :param pulumi.Input[str] mobile_network_data_network_name: Specifies the name of the `mobile.NetworkDataNetwork` which the Attached Data Network belongs to, Changing this forces a new Mobile Network Attached Data Network to be created.
         :param pulumi.Input[str] mobile_network_packet_core_data_plane_id: Specifies the ID of the `mobile.NetworkPacketCoreDataPlane` which the Mobile Network Attached Data Network belongs to. Changing this forces a new Mobile Network Attached Data Network to be created.
-        :param pulumi.Input[pulumi.InputType['NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs']] network_address_port_translation: A `network_address_port_translation` block as defined below.
+        :param pulumi.Input[Union['NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs', 'NetworkAttachedDataNetworkNetworkAddressPortTranslationArgsDict']] network_address_port_translation: A `network_address_port_translation` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network Attached Data Network.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_equipment_address_pool_prefixes: Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. At least one of `user_equipment_address_pool_prefixes` and `user_equipment_static_address_pool_prefix`. If you define both, they must be of the same size.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_equipment_static_address_pool_prefixes: Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource. At least one of `user_equipment_address_pool_prefix` and `user_equipment_static_address_pool_prefixes`. If you define both, they must be of the same size.

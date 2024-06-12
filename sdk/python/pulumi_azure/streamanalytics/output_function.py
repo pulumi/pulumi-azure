@@ -316,10 +316,10 @@ class OutputFunction(pulumi.CustomResource):
             resource_group_name=example.name,
             kind="FunctionApp",
             reserved=True,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Dynamic",
-                size="Y1",
-            ))
+            sku={
+                "tier": "Dynamic",
+                "size": "Y1",
+            })
         example_function_app = azure.appservice.FunctionApp("example",
             name="examplefunctionapp",
             location=example.location,
@@ -396,10 +396,10 @@ class OutputFunction(pulumi.CustomResource):
             resource_group_name=example.name,
             kind="FunctionApp",
             reserved=True,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Dynamic",
-                size="Y1",
-            ))
+            sku={
+                "tier": "Dynamic",
+                "size": "Y1",
+            })
         example_function_app = azure.appservice.FunctionApp("example",
             name="examplefunctionapp",
             location=example.location,

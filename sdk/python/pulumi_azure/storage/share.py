@@ -321,7 +321,7 @@ class Share(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_tier: Optional[pulumi.Input[str]] = None,
-                 acls: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ShareAclArgs']]]]] = None,
+                 acls: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ShareAclArgs', 'ShareAclArgsDict']]]]] = None,
                  enabled_protocol: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -354,14 +354,14 @@ class Share(pulumi.CustomResource):
             name="sharename",
             storage_account_name=example_account.name,
             quota=50,
-            acls=[azure.storage.ShareAclArgs(
-                id="MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI",
-                access_policies=[azure.storage.ShareAclAccessPolicyArgs(
-                    permissions="rwdl",
-                    start="2019-07-02T09:38:21.0000000Z",
-                    expiry="2019-07-02T10:38:21.0000000Z",
-                )],
-            )])
+            acls=[{
+                "id": "MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI",
+                "accessPolicies": [{
+                    "permissions": "rwdl",
+                    "start": "2019-07-02T09:38:21.0000000Z",
+                    "expiry": "2019-07-02T10:38:21.0000000Z",
+                }],
+            }])
         ```
 
         ## Import
@@ -377,7 +377,7 @@ class Share(pulumi.CustomResource):
         :param pulumi.Input[str] access_tier: The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
                
                ~>**NOTE:** The `FileStorage` `account_kind` of the `storage.Account` requires `Premium` `access_tier`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ShareAclArgs']]]] acls: One or more `acl` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ShareAclArgs', 'ShareAclArgsDict']]]] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[str] enabled_protocol: The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
                
                ~>**NOTE:** The `FileStorage` `account_kind` of the `storage.Account` is required for the `NFS` protocol.
@@ -422,14 +422,14 @@ class Share(pulumi.CustomResource):
             name="sharename",
             storage_account_name=example_account.name,
             quota=50,
-            acls=[azure.storage.ShareAclArgs(
-                id="MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI",
-                access_policies=[azure.storage.ShareAclAccessPolicyArgs(
-                    permissions="rwdl",
-                    start="2019-07-02T09:38:21.0000000Z",
-                    expiry="2019-07-02T10:38:21.0000000Z",
-                )],
-            )])
+            acls=[{
+                "id": "MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI",
+                "accessPolicies": [{
+                    "permissions": "rwdl",
+                    "start": "2019-07-02T09:38:21.0000000Z",
+                    "expiry": "2019-07-02T10:38:21.0000000Z",
+                }],
+            }])
         ```
 
         ## Import
@@ -456,7 +456,7 @@ class Share(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_tier: Optional[pulumi.Input[str]] = None,
-                 acls: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ShareAclArgs']]]]] = None,
+                 acls: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ShareAclArgs', 'ShareAclArgsDict']]]]] = None,
                  enabled_protocol: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -495,7 +495,7 @@ class Share(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             access_tier: Optional[pulumi.Input[str]] = None,
-            acls: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ShareAclArgs']]]]] = None,
+            acls: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ShareAclArgs', 'ShareAclArgsDict']]]]] = None,
             enabled_protocol: Optional[pulumi.Input[str]] = None,
             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -513,7 +513,7 @@ class Share(pulumi.CustomResource):
         :param pulumi.Input[str] access_tier: The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
                
                ~>**NOTE:** The `FileStorage` `account_kind` of the `storage.Account` requires `Premium` `access_tier`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ShareAclArgs']]]] acls: One or more `acl` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ShareAclArgs', 'ShareAclArgsDict']]]] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[str] enabled_protocol: The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
                
                ~>**NOTE:** The `FileStorage` `account_kind` of the `storage.Account` is required for the `NFS` protocol.

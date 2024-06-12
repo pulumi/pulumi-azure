@@ -210,11 +210,11 @@ class JobSchedule(pulumi.CustomResource):
             path_pattern="",
             date_format="yyyy/MM/dd",
             time_format="HH",
-            serialization=azure.streamanalytics.StreamInputBlobSerializationArgs(
-                type="Csv",
-                encoding="UTF8",
-                field_delimiter=",",
-            ))
+            serialization={
+                "type": "Csv",
+                "encoding": "UTF8",
+                "fieldDelimiter": ",",
+            })
         example_output_blob = azure.streamanalytics.OutputBlob("example",
             name="exampleoutput",
             stream_analytics_job_name=example_job.name,
@@ -225,9 +225,9 @@ class JobSchedule(pulumi.CustomResource):
             path_pattern="example-{date}-{time}",
             date_format="yyyy-MM-dd",
             time_format="HH",
-            serialization=azure.streamanalytics.OutputBlobSerializationArgs(
-                type="Avro",
-            ))
+            serialization={
+                "type": "Avro",
+            })
         example_job_schedule = azure.streamanalytics.JobSchedule("example",
             stream_analytics_job_id=example_job.id,
             start_mode="CustomTime",
@@ -317,11 +317,11 @@ class JobSchedule(pulumi.CustomResource):
             path_pattern="",
             date_format="yyyy/MM/dd",
             time_format="HH",
-            serialization=azure.streamanalytics.StreamInputBlobSerializationArgs(
-                type="Csv",
-                encoding="UTF8",
-                field_delimiter=",",
-            ))
+            serialization={
+                "type": "Csv",
+                "encoding": "UTF8",
+                "fieldDelimiter": ",",
+            })
         example_output_blob = azure.streamanalytics.OutputBlob("example",
             name="exampleoutput",
             stream_analytics_job_name=example_job.name,
@@ -332,9 +332,9 @@ class JobSchedule(pulumi.CustomResource):
             path_pattern="example-{date}-{time}",
             date_format="yyyy-MM-dd",
             time_format="HH",
-            serialization=azure.streamanalytics.OutputBlobSerializationArgs(
-                type="Avro",
-            ))
+            serialization={
+                "type": "Avro",
+            })
         example_job_schedule = azure.streamanalytics.JobSchedule("example",
             stream_analytics_job_id=example_job.id,
             start_mode="CustomTime",

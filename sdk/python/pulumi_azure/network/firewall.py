@@ -522,9 +522,9 @@ class Firewall(pulumi.CustomResource):
                  dns_proxy_enabled: Optional[pulumi.Input[bool]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  firewall_policy_id: Optional[pulumi.Input[str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallIpConfigurationArgs']]]]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallIpConfigurationArgs', 'FirewallIpConfigurationArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 management_ip_configuration: Optional[pulumi.Input[pulumi.InputType['FirewallManagementIpConfigurationArgs']]] = None,
+                 management_ip_configuration: Optional[pulumi.Input[Union['FirewallManagementIpConfigurationArgs', 'FirewallManagementIpConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  private_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -532,7 +532,7 @@ class Firewall(pulumi.CustomResource):
                  sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  threat_intel_mode: Optional[pulumi.Input[str]] = None,
-                 virtual_hub: Optional[pulumi.Input[pulumi.InputType['FirewallVirtualHubArgs']]] = None,
+                 virtual_hub: Optional[pulumi.Input[Union['FirewallVirtualHubArgs', 'FirewallVirtualHubArgsDict']]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -569,11 +569,11 @@ class Firewall(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="AZFW_VNet",
             sku_tier="Standard",
-            ip_configurations=[azure.network.FirewallIpConfigurationArgs(
-                name="configuration",
-                subnet_id=example_subnet.id,
-                public_ip_address_id=example_public_ip.id,
-            )])
+            ip_configurations=[{
+                "name": "configuration",
+                "subnetId": example_subnet.id,
+                "publicIpAddressId": example_public_ip.id,
+            }])
         ```
 
         ## Import
@@ -589,9 +589,9 @@ class Firewall(pulumi.CustomResource):
         :param pulumi.Input[bool] dns_proxy_enabled: Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dns_servers` provided with a not empty list.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
         :param pulumi.Input[str] firewall_policy_id: The ID of the Firewall Policy applied to this Firewall.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallIpConfigurationArgs']]]] ip_configurations: An `ip_configuration` block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallIpConfigurationArgs', 'FirewallIpConfigurationArgsDict']]]] ip_configurations: An `ip_configuration` block as documented below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['FirewallManagementIpConfigurationArgs']] management_ip_configuration: A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['FirewallManagementIpConfigurationArgs', 'FirewallManagementIpConfigurationArgsDict']] management_ip_configuration: A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Firewall. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_ranges: A list of SNAT private CIDR IP ranges, or the special string `IANAPrivateRanges`, which indicates Azure Firewall does not SNAT when the destination IP address is a private range per IANA RFC 1918.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
@@ -599,7 +599,7 @@ class Firewall(pulumi.CustomResource):
         :param pulumi.Input[str] sku_tier: SKU tier of the Firewall. Possible values are `Premium`, `Standard` and `Basic`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] threat_intel_mode: The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`.
-        :param pulumi.Input[pulumi.InputType['FirewallVirtualHubArgs']] virtual_hub: A `virtual_hub` block as documented below.
+        :param pulumi.Input[Union['FirewallVirtualHubArgs', 'FirewallVirtualHubArgsDict']] virtual_hub: A `virtual_hub` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Azure Firewall should be located. Changing this forces a new Azure Firewall to be created.
                
                > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
@@ -644,11 +644,11 @@ class Firewall(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="AZFW_VNet",
             sku_tier="Standard",
-            ip_configurations=[azure.network.FirewallIpConfigurationArgs(
-                name="configuration",
-                subnet_id=example_subnet.id,
-                public_ip_address_id=example_public_ip.id,
-            )])
+            ip_configurations=[{
+                "name": "configuration",
+                "subnetId": example_subnet.id,
+                "publicIpAddressId": example_public_ip.id,
+            }])
         ```
 
         ## Import
@@ -677,9 +677,9 @@ class Firewall(pulumi.CustomResource):
                  dns_proxy_enabled: Optional[pulumi.Input[bool]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  firewall_policy_id: Optional[pulumi.Input[str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallIpConfigurationArgs']]]]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallIpConfigurationArgs', 'FirewallIpConfigurationArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 management_ip_configuration: Optional[pulumi.Input[pulumi.InputType['FirewallManagementIpConfigurationArgs']]] = None,
+                 management_ip_configuration: Optional[pulumi.Input[Union['FirewallManagementIpConfigurationArgs', 'FirewallManagementIpConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  private_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -687,7 +687,7 @@ class Firewall(pulumi.CustomResource):
                  sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  threat_intel_mode: Optional[pulumi.Input[str]] = None,
-                 virtual_hub: Optional[pulumi.Input[pulumi.InputType['FirewallVirtualHubArgs']]] = None,
+                 virtual_hub: Optional[pulumi.Input[Union['FirewallVirtualHubArgs', 'FirewallVirtualHubArgsDict']]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -732,9 +732,9 @@ class Firewall(pulumi.CustomResource):
             dns_proxy_enabled: Optional[pulumi.Input[bool]] = None,
             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             firewall_policy_id: Optional[pulumi.Input[str]] = None,
-            ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallIpConfigurationArgs']]]]] = None,
+            ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallIpConfigurationArgs', 'FirewallIpConfigurationArgsDict']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
-            management_ip_configuration: Optional[pulumi.Input[pulumi.InputType['FirewallManagementIpConfigurationArgs']]] = None,
+            management_ip_configuration: Optional[pulumi.Input[Union['FirewallManagementIpConfigurationArgs', 'FirewallManagementIpConfigurationArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             private_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -742,7 +742,7 @@ class Firewall(pulumi.CustomResource):
             sku_tier: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             threat_intel_mode: Optional[pulumi.Input[str]] = None,
-            virtual_hub: Optional[pulumi.Input[pulumi.InputType['FirewallVirtualHubArgs']]] = None,
+            virtual_hub: Optional[pulumi.Input[Union['FirewallVirtualHubArgs', 'FirewallVirtualHubArgsDict']]] = None,
             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'Firewall':
         """
         Get an existing Firewall resource's state with the given name, id, and optional extra
@@ -754,9 +754,9 @@ class Firewall(pulumi.CustomResource):
         :param pulumi.Input[bool] dns_proxy_enabled: Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dns_servers` provided with a not empty list.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
         :param pulumi.Input[str] firewall_policy_id: The ID of the Firewall Policy applied to this Firewall.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallIpConfigurationArgs']]]] ip_configurations: An `ip_configuration` block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallIpConfigurationArgs', 'FirewallIpConfigurationArgsDict']]]] ip_configurations: An `ip_configuration` block as documented below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['FirewallManagementIpConfigurationArgs']] management_ip_configuration: A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['FirewallManagementIpConfigurationArgs', 'FirewallManagementIpConfigurationArgsDict']] management_ip_configuration: A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Firewall. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_ranges: A list of SNAT private CIDR IP ranges, or the special string `IANAPrivateRanges`, which indicates Azure Firewall does not SNAT when the destination IP address is a private range per IANA RFC 1918.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
@@ -764,7 +764,7 @@ class Firewall(pulumi.CustomResource):
         :param pulumi.Input[str] sku_tier: SKU tier of the Firewall. Possible values are `Premium`, `Standard` and `Basic`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] threat_intel_mode: The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`.
-        :param pulumi.Input[pulumi.InputType['FirewallVirtualHubArgs']] virtual_hub: A `virtual_hub` block as documented below.
+        :param pulumi.Input[Union['FirewallVirtualHubArgs', 'FirewallVirtualHubArgsDict']] virtual_hub: A `virtual_hub` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Azure Firewall should be located. Changing this forces a new Azure Firewall to be created.
                
                > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).

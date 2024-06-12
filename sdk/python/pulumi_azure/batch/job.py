@@ -252,15 +252,15 @@ class Job(pulumi.CustomResource):
             account_name=example_account.name,
             node_agent_sku_id="batch.node.ubuntu 16.04",
             vm_size="Standard_A1",
-            fixed_scale=azure.batch.PoolFixedScaleArgs(
-                target_dedicated_nodes=1,
-            ),
-            storage_image_reference=azure.batch.PoolStorageImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ))
+            fixed_scale={
+                "targetDedicatedNodes": 1,
+            },
+            storage_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            })
         example_job = azure.batch.Job("example",
             name="examplejob",
             batch_pool_id=example_pool.id)
@@ -311,15 +311,15 @@ class Job(pulumi.CustomResource):
             account_name=example_account.name,
             node_agent_sku_id="batch.node.ubuntu 16.04",
             vm_size="Standard_A1",
-            fixed_scale=azure.batch.PoolFixedScaleArgs(
-                target_dedicated_nodes=1,
-            ),
-            storage_image_reference=azure.batch.PoolStorageImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ))
+            fixed_scale={
+                "targetDedicatedNodes": 1,
+            },
+            storage_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            })
         example_job = azure.batch.Job("example",
             name="examplejob",
             batch_pool_id=example_pool.id)

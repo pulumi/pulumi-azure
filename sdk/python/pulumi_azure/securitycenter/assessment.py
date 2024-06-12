@@ -161,7 +161,7 @@ class Assessment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  assessment_policy_id: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[pulumi.InputType['AssessmentStatusArgs']]] = None,
+                 status: Optional[pulumi.Input[Union['AssessmentStatusArgs', 'AssessmentStatusArgsDict']]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -194,29 +194,29 @@ class Assessment(pulumi.CustomResource):
             sku="Standard_F2",
             instances=1,
             admin_username="adminuser",
-            admin_ssh_keys=[azure.compute.LinuxVirtualMachineScaleSetAdminSshKeyArgs(
-                username="adminuser",
-                public_key=std.file(input="~/.ssh/id_rsa.pub").result,
-            )],
-            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ),
-            os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(
-                storage_account_type="Standard_LRS",
-                caching="ReadWrite",
-            ),
-            network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
-                name="example",
-                primary=True,
-                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
-                    name="internal",
-                    primary=True,
-                    subnet_id=internal.id,
-                )],
-            )])
+            admin_ssh_keys=[{
+                "username": "adminuser",
+                "publicKey": std.file(input="~/.ssh/id_rsa.pub").result,
+            }],
+            source_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            },
+            os_disk={
+                "storageAccountType": "Standard_LRS",
+                "caching": "ReadWrite",
+            },
+            network_interfaces=[{
+                "name": "example",
+                "primary": True,
+                "ipConfigurations": [{
+                    "name": "internal",
+                    "primary": True,
+                    "subnetId": internal.id,
+                }],
+            }])
         example_assessment_policy = azure.securitycenter.AssessmentPolicy("example",
             display_name="Test Display Name",
             severity="Medium",
@@ -224,9 +224,9 @@ class Assessment(pulumi.CustomResource):
         example_assessment = azure.securitycenter.Assessment("example",
             assessment_policy_id=example_assessment_policy.id,
             target_resource_id=example_linux_virtual_machine_scale_set.id,
-            status=azure.securitycenter.AssessmentStatusArgs(
-                code="Healthy",
-            ))
+            status={
+                "code": "Healthy",
+            })
         ```
 
         ## Import
@@ -241,7 +241,7 @@ class Assessment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_data: A map of additional data to associate with the assessment.
         :param pulumi.Input[str] assessment_policy_id: The ID of the security Assessment policy to apply to this resource. Changing this forces a new security Assessment to be created.
-        :param pulumi.Input[pulumi.InputType['AssessmentStatusArgs']] status: A `status` block as defined below.
+        :param pulumi.Input[Union['AssessmentStatusArgs', 'AssessmentStatusArgsDict']] status: A `status` block as defined below.
         :param pulumi.Input[str] target_resource_id: The ID of the target resource. Changing this forces a new security Assessment to be created.
         """
         ...
@@ -280,29 +280,29 @@ class Assessment(pulumi.CustomResource):
             sku="Standard_F2",
             instances=1,
             admin_username="adminuser",
-            admin_ssh_keys=[azure.compute.LinuxVirtualMachineScaleSetAdminSshKeyArgs(
-                username="adminuser",
-                public_key=std.file(input="~/.ssh/id_rsa.pub").result,
-            )],
-            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ),
-            os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(
-                storage_account_type="Standard_LRS",
-                caching="ReadWrite",
-            ),
-            network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
-                name="example",
-                primary=True,
-                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
-                    name="internal",
-                    primary=True,
-                    subnet_id=internal.id,
-                )],
-            )])
+            admin_ssh_keys=[{
+                "username": "adminuser",
+                "publicKey": std.file(input="~/.ssh/id_rsa.pub").result,
+            }],
+            source_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            },
+            os_disk={
+                "storageAccountType": "Standard_LRS",
+                "caching": "ReadWrite",
+            },
+            network_interfaces=[{
+                "name": "example",
+                "primary": True,
+                "ipConfigurations": [{
+                    "name": "internal",
+                    "primary": True,
+                    "subnetId": internal.id,
+                }],
+            }])
         example_assessment_policy = azure.securitycenter.AssessmentPolicy("example",
             display_name="Test Display Name",
             severity="Medium",
@@ -310,9 +310,9 @@ class Assessment(pulumi.CustomResource):
         example_assessment = azure.securitycenter.Assessment("example",
             assessment_policy_id=example_assessment_policy.id,
             target_resource_id=example_linux_virtual_machine_scale_set.id,
-            status=azure.securitycenter.AssessmentStatusArgs(
-                code="Healthy",
-            ))
+            status={
+                "code": "Healthy",
+            })
         ```
 
         ## Import
@@ -340,7 +340,7 @@ class Assessment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  assessment_policy_id: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[pulumi.InputType['AssessmentStatusArgs']]] = None,
+                 status: Optional[pulumi.Input[Union['AssessmentStatusArgs', 'AssessmentStatusArgsDict']]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -373,7 +373,7 @@ class Assessment(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             additional_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             assessment_policy_id: Optional[pulumi.Input[str]] = None,
-            status: Optional[pulumi.Input[pulumi.InputType['AssessmentStatusArgs']]] = None,
+            status: Optional[pulumi.Input[Union['AssessmentStatusArgs', 'AssessmentStatusArgsDict']]] = None,
             target_resource_id: Optional[pulumi.Input[str]] = None) -> 'Assessment':
         """
         Get an existing Assessment resource's state with the given name, id, and optional extra
@@ -384,7 +384,7 @@ class Assessment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_data: A map of additional data to associate with the assessment.
         :param pulumi.Input[str] assessment_policy_id: The ID of the security Assessment policy to apply to this resource. Changing this forces a new security Assessment to be created.
-        :param pulumi.Input[pulumi.InputType['AssessmentStatusArgs']] status: A `status` block as defined below.
+        :param pulumi.Input[Union['AssessmentStatusArgs', 'AssessmentStatusArgsDict']] status: A `status` block as defined below.
         :param pulumi.Input[str] target_resource_id: The ID of the target resource. Changing this forces a new security Assessment to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

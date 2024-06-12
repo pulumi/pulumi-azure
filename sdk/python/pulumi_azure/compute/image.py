@@ -329,11 +329,11 @@ class Image(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageDataDiskArgs']]]]] = None,
+                 data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageDataDiskArgs', 'ImageDataDiskArgsDict']]]]] = None,
                  hyper_v_generation: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 os_disk: Optional[pulumi.Input[pulumi.InputType['ImageOsDiskArgs']]] = None,
+                 os_disk: Optional[pulumi.Input[Union['ImageOsDiskArgs', 'ImageOsDiskArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_virtual_machine_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -369,13 +369,13 @@ class Image(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageDataDiskArgs']]]] data_disks: One or more `data_disk` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ImageDataDiskArgs', 'ImageDataDiskArgsDict']]]] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[str] hyper_v_generation: The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
                
                > **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the image. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ImageOsDiskArgs']] os_disk: One or more `os_disk` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['ImageOsDiskArgs', 'ImageOsDiskArgsDict']] os_disk: One or more `os_disk` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_virtual_machine_id: The Virtual Machine ID from which to create the image.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -430,11 +430,11 @@ class Image(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageDataDiskArgs']]]]] = None,
+                 data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageDataDiskArgs', 'ImageDataDiskArgsDict']]]]] = None,
                  hyper_v_generation: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 os_disk: Optional[pulumi.Input[pulumi.InputType['ImageOsDiskArgs']]] = None,
+                 os_disk: Optional[pulumi.Input[Union['ImageOsDiskArgs', 'ImageOsDiskArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_virtual_machine_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -469,11 +469,11 @@ class Image(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageDataDiskArgs']]]]] = None,
+            data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageDataDiskArgs', 'ImageDataDiskArgsDict']]]]] = None,
             hyper_v_generation: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            os_disk: Optional[pulumi.Input[pulumi.InputType['ImageOsDiskArgs']]] = None,
+            os_disk: Optional[pulumi.Input[Union['ImageOsDiskArgs', 'ImageOsDiskArgsDict']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             source_virtual_machine_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -485,13 +485,13 @@ class Image(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageDataDiskArgs']]]] data_disks: One or more `data_disk` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ImageDataDiskArgs', 'ImageDataDiskArgsDict']]]] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[str] hyper_v_generation: The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
                
                > **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the image. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ImageOsDiskArgs']] os_disk: One or more `os_disk` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['ImageOsDiskArgs', 'ImageOsDiskArgsDict']] os_disk: One or more `os_disk` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_virtual_machine_id: The Virtual Machine ID from which to create the image.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.

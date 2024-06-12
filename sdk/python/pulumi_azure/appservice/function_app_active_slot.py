@@ -146,12 +146,12 @@ class FunctionAppActiveSlot(pulumi.CustomResource):
             location=example.location,
             storage_account_name=example_account.name,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.WindowsFunctionAppSiteConfigArgs())
+            site_config={})
         example_windows_function_app_slot = azure.appservice.WindowsFunctionAppSlot("example",
             name="example-windows-function-app-slot",
             function_app_id=example_windows_function_app.id,
             storage_account_name=example_account.name,
-            site_config=azure.appservice.WindowsFunctionAppSlotSiteConfigArgs())
+            site_config={})
         example_function_app_active_slot = azure.appservice.FunctionAppActiveSlot("example", slot_id=example_windows_function_app_slot.id)
         ```
 
@@ -182,12 +182,12 @@ class FunctionAppActiveSlot(pulumi.CustomResource):
             location=example.location,
             service_plan_id=example_service_plan.id,
             storage_account_name=example_account.name,
-            site_config=azure.appservice.LinuxFunctionAppSiteConfigArgs())
+            site_config={})
         example_linux_function_app_slot = azure.appservice.LinuxFunctionAppSlot("example",
             name="example-linux-function-app-slot",
             function_app_id=example_linux_function_app.name,
             storage_account_name=example_account.name,
-            site_config=azure.appservice.LinuxFunctionAppSlotSiteConfigArgs())
+            site_config={})
         example_function_app_active_slot = azure.appservice.FunctionAppActiveSlot("example", slot_id=example_linux_function_app_slot.id)
         ```
 
@@ -242,12 +242,12 @@ class FunctionAppActiveSlot(pulumi.CustomResource):
             location=example.location,
             storage_account_name=example_account.name,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.WindowsFunctionAppSiteConfigArgs())
+            site_config={})
         example_windows_function_app_slot = azure.appservice.WindowsFunctionAppSlot("example",
             name="example-windows-function-app-slot",
             function_app_id=example_windows_function_app.id,
             storage_account_name=example_account.name,
-            site_config=azure.appservice.WindowsFunctionAppSlotSiteConfigArgs())
+            site_config={})
         example_function_app_active_slot = azure.appservice.FunctionAppActiveSlot("example", slot_id=example_windows_function_app_slot.id)
         ```
 
@@ -278,12 +278,12 @@ class FunctionAppActiveSlot(pulumi.CustomResource):
             location=example.location,
             service_plan_id=example_service_plan.id,
             storage_account_name=example_account.name,
-            site_config=azure.appservice.LinuxFunctionAppSiteConfigArgs())
+            site_config={})
         example_linux_function_app_slot = azure.appservice.LinuxFunctionAppSlot("example",
             name="example-linux-function-app-slot",
             function_app_id=example_linux_function_app.name,
             storage_account_name=example_account.name,
-            site_config=azure.appservice.LinuxFunctionAppSlotSiteConfigArgs())
+            site_config={})
         example_function_app_active_slot = azure.appservice.FunctionAppActiveSlot("example", slot_id=example_linux_function_app_slot.id)
         ```
 

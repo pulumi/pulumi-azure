@@ -218,13 +218,13 @@ class ResolverOutboundEndpoint(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.0.64/28"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="Microsoft.Network.dnsResolvers",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
-                    name="Microsoft.Network/dnsResolvers",
-                ),
-            )])
+            delegations=[{
+                "name": "Microsoft.Network.dnsResolvers",
+                "serviceDelegation": {
+                    "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
+                    "name": "Microsoft.Network/dnsResolvers",
+                },
+            }])
         example_resolver = azure.privatedns.Resolver("example",
             name="example-resolver",
             resource_group_name=example.name,
@@ -284,13 +284,13 @@ class ResolverOutboundEndpoint(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.0.64/28"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="Microsoft.Network.dnsResolvers",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
-                    name="Microsoft.Network/dnsResolvers",
-                ),
-            )])
+            delegations=[{
+                "name": "Microsoft.Network.dnsResolvers",
+                "serviceDelegation": {
+                    "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
+                    "name": "Microsoft.Network/dnsResolvers",
+                },
+            }])
         example_resolver = azure.privatedns.Resolver("example",
             name="example-resolver",
             resource_group_name=example.name,

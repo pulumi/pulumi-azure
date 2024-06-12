@@ -371,9 +371,9 @@ class Profile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dns_config: Optional[pulumi.Input[pulumi.InputType['ProfileDnsConfigArgs']]] = None,
+                 dns_config: Optional[pulumi.Input[Union['ProfileDnsConfigArgs', 'ProfileDnsConfigArgsDict']]] = None,
                  max_return: Optional[pulumi.Input[int]] = None,
-                 monitor_config: Optional[pulumi.Input[pulumi.InputType['ProfileMonitorConfigArgs']]] = None,
+                 monitor_config: Optional[pulumi.Input[Union['ProfileMonitorConfigArgs', 'ProfileMonitorConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  profile_status: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -403,18 +403,18 @@ class Profile(pulumi.CustomResource):
             name=server.hex,
             resource_group_name=example.name,
             traffic_routing_method="Weighted",
-            dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
-                relative_name=server.hex,
-                ttl=100,
-            ),
-            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
-                protocol="HTTP",
-                port=80,
-                path="/",
-                interval_in_seconds=30,
-                timeout_in_seconds=9,
-                tolerated_number_of_failures=3,
-            ),
+            dns_config={
+                "relativeName": server.hex,
+                "ttl": 100,
+            },
+            monitor_config={
+                "protocol": "HTTP",
+                "port": 80,
+                "path": "/",
+                "intervalInSeconds": 30,
+                "timeoutInSeconds": 9,
+                "toleratedNumberOfFailures": 3,
+            },
             tags={
                 "environment": "Production",
             })
@@ -430,11 +430,11 @@ class Profile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ProfileDnsConfigArgs']] dns_config: This block specifies the DNS configuration of the Profile. One `dns_config` block as defined below.
+        :param pulumi.Input[Union['ProfileDnsConfigArgs', 'ProfileDnsConfigArgsDict']] dns_config: This block specifies the DNS configuration of the Profile. One `dns_config` block as defined below.
         :param pulumi.Input[int] max_return: The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
                
                > **NOTE:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
-        :param pulumi.Input[pulumi.InputType['ProfileMonitorConfigArgs']] monitor_config: This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block as defined below.
+        :param pulumi.Input[Union['ProfileMonitorConfigArgs', 'ProfileMonitorConfigArgsDict']] monitor_config: This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block as defined below.
         :param pulumi.Input[str] name: The name of the Traffic Manager profile. Changing this forces a new resource to be created.
         :param pulumi.Input[str] profile_status: The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.
@@ -476,18 +476,18 @@ class Profile(pulumi.CustomResource):
             name=server.hex,
             resource_group_name=example.name,
             traffic_routing_method="Weighted",
-            dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
-                relative_name=server.hex,
-                ttl=100,
-            ),
-            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
-                protocol="HTTP",
-                port=80,
-                path="/",
-                interval_in_seconds=30,
-                timeout_in_seconds=9,
-                tolerated_number_of_failures=3,
-            ),
+            dns_config={
+                "relativeName": server.hex,
+                "ttl": 100,
+            },
+            monitor_config={
+                "protocol": "HTTP",
+                "port": 80,
+                "path": "/",
+                "intervalInSeconds": 30,
+                "timeoutInSeconds": 9,
+                "toleratedNumberOfFailures": 3,
+            },
             tags={
                 "environment": "Production",
             })
@@ -516,9 +516,9 @@ class Profile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dns_config: Optional[pulumi.Input[pulumi.InputType['ProfileDnsConfigArgs']]] = None,
+                 dns_config: Optional[pulumi.Input[Union['ProfileDnsConfigArgs', 'ProfileDnsConfigArgsDict']]] = None,
                  max_return: Optional[pulumi.Input[int]] = None,
-                 monitor_config: Optional[pulumi.Input[pulumi.InputType['ProfileMonitorConfigArgs']]] = None,
+                 monitor_config: Optional[pulumi.Input[Union['ProfileMonitorConfigArgs', 'ProfileMonitorConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  profile_status: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -563,10 +563,10 @@ class Profile(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            dns_config: Optional[pulumi.Input[pulumi.InputType['ProfileDnsConfigArgs']]] = None,
+            dns_config: Optional[pulumi.Input[Union['ProfileDnsConfigArgs', 'ProfileDnsConfigArgsDict']]] = None,
             fqdn: Optional[pulumi.Input[str]] = None,
             max_return: Optional[pulumi.Input[int]] = None,
-            monitor_config: Optional[pulumi.Input[pulumi.InputType['ProfileMonitorConfigArgs']]] = None,
+            monitor_config: Optional[pulumi.Input[Union['ProfileMonitorConfigArgs', 'ProfileMonitorConfigArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             profile_status: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -580,12 +580,12 @@ class Profile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ProfileDnsConfigArgs']] dns_config: This block specifies the DNS configuration of the Profile. One `dns_config` block as defined below.
+        :param pulumi.Input[Union['ProfileDnsConfigArgs', 'ProfileDnsConfigArgsDict']] dns_config: This block specifies the DNS configuration of the Profile. One `dns_config` block as defined below.
         :param pulumi.Input[str] fqdn: The FQDN of the created Profile.
         :param pulumi.Input[int] max_return: The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
                
                > **NOTE:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
-        :param pulumi.Input[pulumi.InputType['ProfileMonitorConfigArgs']] monitor_config: This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block as defined below.
+        :param pulumi.Input[Union['ProfileMonitorConfigArgs', 'ProfileMonitorConfigArgsDict']] monitor_config: This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block as defined below.
         :param pulumi.Input[str] name: The name of the Traffic Manager profile. Changing this forces a new resource to be created.
         :param pulumi.Input[str] profile_status: The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.

@@ -570,12 +570,12 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allowed_authentication_modes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 encryption: Optional[pulumi.Input[pulumi.InputType['AccountEncryptionArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
-                 key_vault_reference: Optional[pulumi.Input[pulumi.InputType['AccountKeyVaultReferenceArgs']]] = None,
+                 encryption: Optional[pulumi.Input[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+                 key_vault_reference: Optional[pulumi.Input[Union['AccountKeyVaultReferenceArgs', 'AccountKeyVaultReferenceArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_profile: Optional[pulumi.Input[pulumi.InputType['AccountNetworkProfileArgs']]] = None,
+                 network_profile: Optional[pulumi.Input[Union['AccountNetworkProfileArgs', 'AccountNetworkProfileArgsDict']]] = None,
                  pool_allocation_mode: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -625,12 +625,12 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_authentication_modes: Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
-        :param pulumi.Input[pulumi.InputType['AccountEncryptionArgs']] encryption: Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
-        :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[pulumi.InputType['AccountKeyVaultReferenceArgs']] key_vault_reference: A `key_vault_reference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
+        :param pulumi.Input[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict']] encryption: Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
+        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['AccountKeyVaultReferenceArgs', 'AccountKeyVaultReferenceArgsDict']] key_vault_reference: A `key_vault_reference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Batch account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['AccountNetworkProfileArgs']] network_profile: A `network_profile` block as defined below.
+        :param pulumi.Input[Union['AccountNetworkProfileArgs', 'AccountNetworkProfileArgsDict']] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] pool_allocation_mode: Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this server. Defaults to `true`.
                
@@ -709,12 +709,12 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allowed_authentication_modes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 encryption: Optional[pulumi.Input[pulumi.InputType['AccountEncryptionArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
-                 key_vault_reference: Optional[pulumi.Input[pulumi.InputType['AccountKeyVaultReferenceArgs']]] = None,
+                 encryption: Optional[pulumi.Input[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+                 key_vault_reference: Optional[pulumi.Input[Union['AccountKeyVaultReferenceArgs', 'AccountKeyVaultReferenceArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_profile: Optional[pulumi.Input[pulumi.InputType['AccountNetworkProfileArgs']]] = None,
+                 network_profile: Optional[pulumi.Input[Union['AccountNetworkProfileArgs', 'AccountNetworkProfileArgsDict']]] = None,
                  pool_allocation_mode: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -764,12 +764,12 @@ class Account(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             account_endpoint: Optional[pulumi.Input[str]] = None,
             allowed_authentication_modes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            encryption: Optional[pulumi.Input[pulumi.InputType['AccountEncryptionArgs']]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
-            key_vault_reference: Optional[pulumi.Input[pulumi.InputType['AccountKeyVaultReferenceArgs']]] = None,
+            encryption: Optional[pulumi.Input[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict']]] = None,
+            identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+            key_vault_reference: Optional[pulumi.Input[Union['AccountKeyVaultReferenceArgs', 'AccountKeyVaultReferenceArgsDict']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            network_profile: Optional[pulumi.Input[pulumi.InputType['AccountNetworkProfileArgs']]] = None,
+            network_profile: Optional[pulumi.Input[Union['AccountNetworkProfileArgs', 'AccountNetworkProfileArgsDict']]] = None,
             pool_allocation_mode: Optional[pulumi.Input[str]] = None,
             primary_access_key: Optional[pulumi.Input[str]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
@@ -788,12 +788,12 @@ class Account(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_endpoint: The account endpoint used to interact with the Batch service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_authentication_modes: Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
-        :param pulumi.Input[pulumi.InputType['AccountEncryptionArgs']] encryption: Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
-        :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[pulumi.InputType['AccountKeyVaultReferenceArgs']] key_vault_reference: A `key_vault_reference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
+        :param pulumi.Input[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict']] encryption: Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
+        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['AccountKeyVaultReferenceArgs', 'AccountKeyVaultReferenceArgsDict']] key_vault_reference: A `key_vault_reference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Batch account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['AccountNetworkProfileArgs']] network_profile: A `network_profile` block as defined below.
+        :param pulumi.Input[Union['AccountNetworkProfileArgs', 'AccountNetworkProfileArgsDict']] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] pool_allocation_mode: Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
         :param pulumi.Input[str] primary_access_key: The Batch account primary access key.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this server. Defaults to `true`.

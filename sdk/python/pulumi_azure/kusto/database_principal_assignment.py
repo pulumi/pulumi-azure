@@ -339,10 +339,10 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
             name="kustocluster",
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Standard_D13_v2",
-                capacity=2,
-            ))
+            sku={
+                "name": "Standard_D13_v2",
+                "capacity": 2,
+            })
         example_database = azure.kusto.Database("example",
             name="KustoDatabase",
             resource_group_name=example.name,
@@ -403,10 +403,10 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
             name="kustocluster",
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Standard_D13_v2",
-                capacity=2,
-            ))
+            sku={
+                "name": "Standard_D13_v2",
+                "capacity": 2,
+            })
         example_database = azure.kusto.Database("example",
             name="KustoDatabase",
             resource_group_name=example.name,

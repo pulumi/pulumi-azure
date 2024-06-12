@@ -458,12 +458,12 @@ class Service(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_policy_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 authentication_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceAuthenticationConfigurationArgs']]] = None,
+                 authentication_configuration: Optional[pulumi.Input[Union['ServiceAuthenticationConfigurationArgs', 'ServiceAuthenticationConfigurationArgsDict']]] = None,
                  configuration_export_storage_account_name: Optional[pulumi.Input[str]] = None,
-                 cors_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceCorsConfigurationArgs']]] = None,
+                 cors_configuration: Optional[pulumi.Input[Union['ServiceCorsConfigurationArgs', 'ServiceCorsConfigurationArgsDict']]] = None,
                  cosmosdb_key_vault_key_versionless_id: Optional[pulumi.Input[str]] = None,
                  cosmosdb_throughput: Optional[pulumi.Input[int]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -487,36 +487,36 @@ class Service(pulumi.CustomResource):
             location="westus2",
             kind="fhir-R4",
             cosmosdb_throughput=2000,
-            identity=azure.healthcare.ServiceIdentityArgs(
-                type="SystemAssigned",
-            ),
+            identity={
+                "type": "SystemAssigned",
+            },
             access_policy_object_ids=current.object_id,
             configuration_export_storage_account_name="teststorage",
             tags={
                 "environment": "testenv",
                 "purpose": "AcceptanceTests",
             },
-            authentication_configuration=azure.healthcare.ServiceAuthenticationConfigurationArgs(
-                authority="https://login.microsoftonline.com/$%7Bdata.azurerm_client_config.current.tenant_id%7D",
-                audience="https://azurehealthcareapis.com/",
-                smart_proxy_enabled=True,
-            ),
-            cors_configuration=azure.healthcare.ServiceCorsConfigurationArgs(
-                allowed_origins=[
+            authentication_configuration={
+                "authority": "https://login.microsoftonline.com/$%7Bdata.azurerm_client_config.current.tenant_id%7D",
+                "audience": "https://azurehealthcareapis.com/",
+                "smartProxyEnabled": True,
+            },
+            cors_configuration={
+                "allowedOrigins": [
                     "http://www.example.com",
                     "http://www.example2.com",
                 ],
-                allowed_headers=[
+                "allowedHeaders": [
                     "x-tempo-*",
                     "x-tempo2-*",
                 ],
-                allowed_methods=[
+                "allowedMethods": [
                     "GET",
                     "PUT",
                 ],
-                max_age_in_seconds=500,
-                allow_credentials=True,
-            ))
+                "maxAgeInSeconds": 500,
+                "allowCredentials": True,
+            })
         ```
 
         ## Import
@@ -529,14 +529,14 @@ class Service(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ServiceAuthenticationConfigurationArgs']] authentication_configuration: An `authentication_configuration` block as defined below.
+        :param pulumi.Input[Union['ServiceAuthenticationConfigurationArgs', 'ServiceAuthenticationConfigurationArgsDict']] authentication_configuration: An `authentication_configuration` block as defined below.
         :param pulumi.Input[str] configuration_export_storage_account_name: Specifies the name of the storage account which the operation configuration information is exported to.
-        :param pulumi.Input[pulumi.InputType['ServiceCorsConfigurationArgs']] cors_configuration: A `cors_configuration` block as defined below.
+        :param pulumi.Input[Union['ServiceCorsConfigurationArgs', 'ServiceCorsConfigurationArgsDict']] cors_configuration: A `cors_configuration` block as defined below.
         :param pulumi.Input[str] cosmosdb_key_vault_key_versionless_id: A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
                
                > **Please Note** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
         :param pulumi.Input[int] cosmosdb_throughput: The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
-        :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] kind: The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
                
@@ -568,36 +568,36 @@ class Service(pulumi.CustomResource):
             location="westus2",
             kind="fhir-R4",
             cosmosdb_throughput=2000,
-            identity=azure.healthcare.ServiceIdentityArgs(
-                type="SystemAssigned",
-            ),
+            identity={
+                "type": "SystemAssigned",
+            },
             access_policy_object_ids=current.object_id,
             configuration_export_storage_account_name="teststorage",
             tags={
                 "environment": "testenv",
                 "purpose": "AcceptanceTests",
             },
-            authentication_configuration=azure.healthcare.ServiceAuthenticationConfigurationArgs(
-                authority="https://login.microsoftonline.com/$%7Bdata.azurerm_client_config.current.tenant_id%7D",
-                audience="https://azurehealthcareapis.com/",
-                smart_proxy_enabled=True,
-            ),
-            cors_configuration=azure.healthcare.ServiceCorsConfigurationArgs(
-                allowed_origins=[
+            authentication_configuration={
+                "authority": "https://login.microsoftonline.com/$%7Bdata.azurerm_client_config.current.tenant_id%7D",
+                "audience": "https://azurehealthcareapis.com/",
+                "smartProxyEnabled": True,
+            },
+            cors_configuration={
+                "allowedOrigins": [
                     "http://www.example.com",
                     "http://www.example2.com",
                 ],
-                allowed_headers=[
+                "allowedHeaders": [
                     "x-tempo-*",
                     "x-tempo2-*",
                 ],
-                allowed_methods=[
+                "allowedMethods": [
                     "GET",
                     "PUT",
                 ],
-                max_age_in_seconds=500,
-                allow_credentials=True,
-            ))
+                "maxAgeInSeconds": 500,
+                "allowCredentials": True,
+            })
         ```
 
         ## Import
@@ -624,12 +624,12 @@ class Service(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_policy_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 authentication_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceAuthenticationConfigurationArgs']]] = None,
+                 authentication_configuration: Optional[pulumi.Input[Union['ServiceAuthenticationConfigurationArgs', 'ServiceAuthenticationConfigurationArgsDict']]] = None,
                  configuration_export_storage_account_name: Optional[pulumi.Input[str]] = None,
-                 cors_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceCorsConfigurationArgs']]] = None,
+                 cors_configuration: Optional[pulumi.Input[Union['ServiceCorsConfigurationArgs', 'ServiceCorsConfigurationArgsDict']]] = None,
                  cosmosdb_key_vault_key_versionless_id: Optional[pulumi.Input[str]] = None,
                  cosmosdb_throughput: Optional[pulumi.Input[int]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -671,12 +671,12 @@ class Service(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             access_policy_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            authentication_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceAuthenticationConfigurationArgs']]] = None,
+            authentication_configuration: Optional[pulumi.Input[Union['ServiceAuthenticationConfigurationArgs', 'ServiceAuthenticationConfigurationArgsDict']]] = None,
             configuration_export_storage_account_name: Optional[pulumi.Input[str]] = None,
-            cors_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceCorsConfigurationArgs']]] = None,
+            cors_configuration: Optional[pulumi.Input[Union['ServiceCorsConfigurationArgs', 'ServiceCorsConfigurationArgsDict']]] = None,
             cosmosdb_key_vault_key_versionless_id: Optional[pulumi.Input[str]] = None,
             cosmosdb_throughput: Optional[pulumi.Input[int]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['ServiceIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']]] = None,
             kind: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -690,14 +690,14 @@ class Service(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ServiceAuthenticationConfigurationArgs']] authentication_configuration: An `authentication_configuration` block as defined below.
+        :param pulumi.Input[Union['ServiceAuthenticationConfigurationArgs', 'ServiceAuthenticationConfigurationArgsDict']] authentication_configuration: An `authentication_configuration` block as defined below.
         :param pulumi.Input[str] configuration_export_storage_account_name: Specifies the name of the storage account which the operation configuration information is exported to.
-        :param pulumi.Input[pulumi.InputType['ServiceCorsConfigurationArgs']] cors_configuration: A `cors_configuration` block as defined below.
+        :param pulumi.Input[Union['ServiceCorsConfigurationArgs', 'ServiceCorsConfigurationArgsDict']] cors_configuration: A `cors_configuration` block as defined below.
         :param pulumi.Input[str] cosmosdb_key_vault_key_versionless_id: A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
                
                > **Please Note** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
         :param pulumi.Input[int] cosmosdb_throughput: The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
-        :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] kind: The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
                

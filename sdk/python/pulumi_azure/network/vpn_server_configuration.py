@@ -352,13 +352,13 @@ class VpnServerConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_active_directory_authentications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs']]]]] = None,
-                 client_revoked_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnServerConfigurationClientRevokedCertificateArgs']]]]] = None,
-                 client_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnServerConfigurationClientRootCertificateArgs']]]]] = None,
-                 ipsec_policy: Optional[pulumi.Input[pulumi.InputType['VpnServerConfigurationIpsecPolicyArgs']]] = None,
+                 azure_active_directory_authentications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs', 'VpnServerConfigurationAzureActiveDirectoryAuthenticationArgsDict']]]]] = None,
+                 client_revoked_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnServerConfigurationClientRevokedCertificateArgs', 'VpnServerConfigurationClientRevokedCertificateArgsDict']]]]] = None,
+                 client_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnServerConfigurationClientRootCertificateArgs', 'VpnServerConfigurationClientRootCertificateArgsDict']]]]] = None,
+                 ipsec_policy: Optional[pulumi.Input[Union['VpnServerConfigurationIpsecPolicyArgs', 'VpnServerConfigurationIpsecPolicyArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 radius: Optional[pulumi.Input[pulumi.InputType['VpnServerConfigurationRadiusArgs']]] = None,
+                 radius: Optional[pulumi.Input[Union['VpnServerConfigurationRadiusArgs', 'VpnServerConfigurationRadiusArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpn_authentication_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -381,9 +381,9 @@ class VpnServerConfiguration(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             vpn_authentication_types=["Certificate"],
-            client_root_certificates=[azure.network.VpnServerConfigurationClientRootCertificateArgs(
-                name="DigiCert-Federated-ID-Root-CA",
-                public_cert_data=\"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
+            client_root_certificates=[{
+                "name": "DigiCert-Federated-ID-Root-CA",
+                "publicCertData": \"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
         MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
         d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
         Um9vdCBDQTAeFw0xMzAxMTUxMjAwMDBaFw0zMzAxMTUxMjAwMDBaMGcxCzAJBgNV
@@ -404,7 +404,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
         WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
         M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
         \"\"\",
-            )])
+            }])
         ```
 
         ## Import
@@ -417,7 +417,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['VpnServerConfigurationIpsecPolicyArgs']] ipsec_policy: A `ipsec_policy` block as defined below.
+        :param pulumi.Input[Union['VpnServerConfigurationIpsecPolicyArgs', 'VpnServerConfigurationIpsecPolicyArgsDict']] ipsec_policy: A `ipsec_policy` block as defined below.
         :param pulumi.Input[str] location: The Azure location where this VPN Server Configuration should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
@@ -448,9 +448,9 @@ class VpnServerConfiguration(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             vpn_authentication_types=["Certificate"],
-            client_root_certificates=[azure.network.VpnServerConfigurationClientRootCertificateArgs(
-                name="DigiCert-Federated-ID-Root-CA",
-                public_cert_data=\"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
+            client_root_certificates=[{
+                "name": "DigiCert-Federated-ID-Root-CA",
+                "publicCertData": \"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
         MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
         d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
         Um9vdCBDQTAeFw0xMzAxMTUxMjAwMDBaFw0zMzAxMTUxMjAwMDBaMGcxCzAJBgNV
@@ -471,7 +471,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
         WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
         M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
         \"\"\",
-            )])
+            }])
         ```
 
         ## Import
@@ -497,13 +497,13 @@ class VpnServerConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_active_directory_authentications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs']]]]] = None,
-                 client_revoked_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnServerConfigurationClientRevokedCertificateArgs']]]]] = None,
-                 client_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnServerConfigurationClientRootCertificateArgs']]]]] = None,
-                 ipsec_policy: Optional[pulumi.Input[pulumi.InputType['VpnServerConfigurationIpsecPolicyArgs']]] = None,
+                 azure_active_directory_authentications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs', 'VpnServerConfigurationAzureActiveDirectoryAuthenticationArgsDict']]]]] = None,
+                 client_revoked_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnServerConfigurationClientRevokedCertificateArgs', 'VpnServerConfigurationClientRevokedCertificateArgsDict']]]]] = None,
+                 client_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnServerConfigurationClientRootCertificateArgs', 'VpnServerConfigurationClientRootCertificateArgsDict']]]]] = None,
+                 ipsec_policy: Optional[pulumi.Input[Union['VpnServerConfigurationIpsecPolicyArgs', 'VpnServerConfigurationIpsecPolicyArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 radius: Optional[pulumi.Input[pulumi.InputType['VpnServerConfigurationRadiusArgs']]] = None,
+                 radius: Optional[pulumi.Input[Union['VpnServerConfigurationRadiusArgs', 'VpnServerConfigurationRadiusArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpn_authentication_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -542,13 +542,13 @@ class VpnServerConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            azure_active_directory_authentications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs']]]]] = None,
-            client_revoked_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnServerConfigurationClientRevokedCertificateArgs']]]]] = None,
-            client_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnServerConfigurationClientRootCertificateArgs']]]]] = None,
-            ipsec_policy: Optional[pulumi.Input[pulumi.InputType['VpnServerConfigurationIpsecPolicyArgs']]] = None,
+            azure_active_directory_authentications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs', 'VpnServerConfigurationAzureActiveDirectoryAuthenticationArgsDict']]]]] = None,
+            client_revoked_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnServerConfigurationClientRevokedCertificateArgs', 'VpnServerConfigurationClientRevokedCertificateArgsDict']]]]] = None,
+            client_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnServerConfigurationClientRootCertificateArgs', 'VpnServerConfigurationClientRootCertificateArgsDict']]]]] = None,
+            ipsec_policy: Optional[pulumi.Input[Union['VpnServerConfigurationIpsecPolicyArgs', 'VpnServerConfigurationIpsecPolicyArgsDict']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            radius: Optional[pulumi.Input[pulumi.InputType['VpnServerConfigurationRadiusArgs']]] = None,
+            radius: Optional[pulumi.Input[Union['VpnServerConfigurationRadiusArgs', 'VpnServerConfigurationRadiusArgsDict']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             vpn_authentication_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -560,7 +560,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['VpnServerConfigurationIpsecPolicyArgs']] ipsec_policy: A `ipsec_policy` block as defined below.
+        :param pulumi.Input[Union['VpnServerConfigurationIpsecPolicyArgs', 'VpnServerConfigurationIpsecPolicyArgsDict']] ipsec_policy: A `ipsec_policy` block as defined below.
         :param pulumi.Input[str] location: The Azure location where this VPN Server Configuration should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.

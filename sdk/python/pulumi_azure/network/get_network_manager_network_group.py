@@ -94,9 +94,9 @@ def get_network_manager_network_group(name: Optional[str] = None,
         name="example-network-manager",
         location=example_resource_group.location,
         resource_group_name=example_resource_group.name,
-        scope=azure.network.NetworkManagerScopeArgs(
-            subscription_ids=[current.id],
-        ),
+        scope={
+            "subscriptionIds": [current.id],
+        },
         scope_accesses=[
             "Connectivity",
             "SecurityAdmin",
@@ -147,9 +147,9 @@ def get_network_manager_network_group_output(name: Optional[pulumi.Input[str]] =
         name="example-network-manager",
         location=example_resource_group.location,
         resource_group_name=example_resource_group.name,
-        scope=azure.network.NetworkManagerScopeArgs(
-            subscription_ids=[current.id],
-        ),
+        scope={
+            "subscriptionIds": [current.id],
+        },
         scope_accesses=[
             "Connectivity",
             "SecurityAdmin",

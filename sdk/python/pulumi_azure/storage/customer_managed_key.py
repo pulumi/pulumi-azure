@@ -315,9 +315,9 @@ class CustomerManagedKey(pulumi.CustomResource):
             location=example.location,
             account_tier="Standard",
             account_replication_type="GRS",
-            identity=azure.storage.AccountIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         storage = azure.keyvault.AccessPolicy("storage",
             key_vault_id=example_key_vault.id,
             tenant_id=current.tenant_id,
@@ -425,9 +425,9 @@ class CustomerManagedKey(pulumi.CustomResource):
             location=example.location,
             account_tier="Standard",
             account_replication_type="GRS",
-            identity=azure.storage.AccountIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         storage = azure.keyvault.AccessPolicy("storage",
             key_vault_id=example_key_vault.id,
             tenant_id=current.tenant_id,

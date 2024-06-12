@@ -240,10 +240,10 @@ class Connection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_service_id: Optional[pulumi.Input[str]] = None,
-                 authentication: Optional[pulumi.Input[pulumi.InputType['ConnectionAuthenticationArgs']]] = None,
+                 authentication: Optional[pulumi.Input[Union['ConnectionAuthenticationArgs', 'ConnectionAuthenticationArgsDict']]] = None,
                  client_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 secret_store: Optional[pulumi.Input[pulumi.InputType['ConnectionSecretStoreArgs']]] = None,
+                 secret_store: Optional[pulumi.Input[Union['ConnectionSecretStoreArgs', 'ConnectionSecretStoreArgsDict']]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  vnet_solution: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -265,15 +265,15 @@ class Connection(pulumi.CustomResource):
             resource_group_name=example.name,
             offer_type="Standard",
             kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="BoundedStaleness",
-                max_interval_in_seconds=10,
-                max_staleness_prefix=200,
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example.location,
-                failover_priority=0,
-            )])
+            consistency_policy={
+                "consistencyLevel": "BoundedStaleness",
+                "maxIntervalInSeconds": 10,
+                "maxStalenessPrefix": 200,
+            },
+            geo_locations=[{
+                "location": example.location,
+                "failoverPriority": 0,
+            }])
         example_sql_database = azure.cosmosdb.SqlDatabase("example",
             name="cosmos-sql-db",
             resource_group_name=example_account.resource_group_name,
@@ -296,14 +296,14 @@ class Connection(pulumi.CustomResource):
             name="example-linuxwebapp",
             resource_group_name=example.name,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.LinuxWebAppSiteConfigArgs())
+            site_config={})
         example_connection = azure.appservice.Connection("example",
             name="example-serviceconnector",
             app_service_id=example_linux_web_app.id,
             target_resource_id=example_sql_database.id,
-            authentication=azure.appservice.ConnectionAuthenticationArgs(
-                type="systemAssignedIdentity",
-            ))
+            authentication={
+                "type": "systemAssignedIdentity",
+            })
         ```
 
         ## Import
@@ -317,7 +317,7 @@ class Connection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_id: The ID of the data source web app. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ConnectionAuthenticationArgs']] authentication: The authentication info. An `authentication` block as defined below.
+        :param pulumi.Input[Union['ConnectionAuthenticationArgs', 'ConnectionAuthenticationArgsDict']] authentication: The authentication info. An `authentication` block as defined below.
                
                > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
         :param pulumi.Input[str] name: The name of the service connection. Changing this forces a new resource to be created.
@@ -347,15 +347,15 @@ class Connection(pulumi.CustomResource):
             resource_group_name=example.name,
             offer_type="Standard",
             kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="BoundedStaleness",
-                max_interval_in_seconds=10,
-                max_staleness_prefix=200,
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example.location,
-                failover_priority=0,
-            )])
+            consistency_policy={
+                "consistencyLevel": "BoundedStaleness",
+                "maxIntervalInSeconds": 10,
+                "maxStalenessPrefix": 200,
+            },
+            geo_locations=[{
+                "location": example.location,
+                "failoverPriority": 0,
+            }])
         example_sql_database = azure.cosmosdb.SqlDatabase("example",
             name="cosmos-sql-db",
             resource_group_name=example_account.resource_group_name,
@@ -378,14 +378,14 @@ class Connection(pulumi.CustomResource):
             name="example-linuxwebapp",
             resource_group_name=example.name,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.LinuxWebAppSiteConfigArgs())
+            site_config={})
         example_connection = azure.appservice.Connection("example",
             name="example-serviceconnector",
             app_service_id=example_linux_web_app.id,
             target_resource_id=example_sql_database.id,
-            authentication=azure.appservice.ConnectionAuthenticationArgs(
-                type="systemAssignedIdentity",
-            ))
+            authentication={
+                "type": "systemAssignedIdentity",
+            })
         ```
 
         ## Import
@@ -412,10 +412,10 @@ class Connection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_service_id: Optional[pulumi.Input[str]] = None,
-                 authentication: Optional[pulumi.Input[pulumi.InputType['ConnectionAuthenticationArgs']]] = None,
+                 authentication: Optional[pulumi.Input[Union['ConnectionAuthenticationArgs', 'ConnectionAuthenticationArgsDict']]] = None,
                  client_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 secret_store: Optional[pulumi.Input[pulumi.InputType['ConnectionSecretStoreArgs']]] = None,
+                 secret_store: Optional[pulumi.Input[Union['ConnectionSecretStoreArgs', 'ConnectionSecretStoreArgsDict']]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  vnet_solution: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -451,10 +451,10 @@ class Connection(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             app_service_id: Optional[pulumi.Input[str]] = None,
-            authentication: Optional[pulumi.Input[pulumi.InputType['ConnectionAuthenticationArgs']]] = None,
+            authentication: Optional[pulumi.Input[Union['ConnectionAuthenticationArgs', 'ConnectionAuthenticationArgsDict']]] = None,
             client_type: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            secret_store: Optional[pulumi.Input[pulumi.InputType['ConnectionSecretStoreArgs']]] = None,
+            secret_store: Optional[pulumi.Input[Union['ConnectionSecretStoreArgs', 'ConnectionSecretStoreArgsDict']]] = None,
             target_resource_id: Optional[pulumi.Input[str]] = None,
             vnet_solution: Optional[pulumi.Input[str]] = None) -> 'Connection':
         """
@@ -465,7 +465,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_id: The ID of the data source web app. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ConnectionAuthenticationArgs']] authentication: The authentication info. An `authentication` block as defined below.
+        :param pulumi.Input[Union['ConnectionAuthenticationArgs', 'ConnectionAuthenticationArgsDict']] authentication: The authentication info. An `authentication` block as defined below.
                
                > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
         :param pulumi.Input[str] name: The name of the service connection. Changing this forces a new resource to be created.

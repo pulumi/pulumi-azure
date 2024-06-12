@@ -195,18 +195,18 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
             name="example-monitor",
             resource_group_name=example.name,
             location=example.location,
-            datadog_organization=azure.datadog.MonitorDatadogOrganizationArgs(
-                api_key="XXXX",
-                application_key="XXXX",
-            ),
-            user=azure.datadog.MonitorUserArgs(
-                name="Example",
-                email="abc@xyz.com",
-            ),
+            datadog_organization={
+                "apiKey": "XXXX",
+                "applicationKey": "XXXX",
+            },
+            user={
+                "name": "Example",
+                "email": "abc@xyz.com",
+            },
             sku_name="Linked",
-            identity=azure.datadog.MonitorIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_monitor_sso_configuration = azure.datadog.MonitorSsoConfiguration("example",
             datadog_monitor_id=example_monitor.id,
             single_sign_on_enabled="Enable",
@@ -251,18 +251,18 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
             name="example-monitor",
             resource_group_name=example.name,
             location=example.location,
-            datadog_organization=azure.datadog.MonitorDatadogOrganizationArgs(
-                api_key="XXXX",
-                application_key="XXXX",
-            ),
-            user=azure.datadog.MonitorUserArgs(
-                name="Example",
-                email="abc@xyz.com",
-            ),
+            datadog_organization={
+                "apiKey": "XXXX",
+                "applicationKey": "XXXX",
+            },
+            user={
+                "name": "Example",
+                "email": "abc@xyz.com",
+            },
             sku_name="Linked",
-            identity=azure.datadog.MonitorIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_monitor_sso_configuration = azure.datadog.MonitorSsoConfiguration("example",
             datadog_monitor_id=example_monitor.id,
             single_sign_on_enabled="Enable",

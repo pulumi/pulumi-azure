@@ -232,7 +232,7 @@ class Volume(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 create_source: Optional[pulumi.Input[pulumi.InputType['VolumeCreateSourceArgs']]] = None,
+                 create_source: Optional[pulumi.Input[Union['VolumeCreateSourceArgs', 'VolumeCreateSourceArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  size_in_gib: Optional[pulumi.Input[int]] = None,
                  volume_group_id: Optional[pulumi.Input[str]] = None,
@@ -254,9 +254,9 @@ class Volume(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             base_size_in_tib=1,
-            sku=azure.elasticsan.ElasticSanSkuArgs(
-                name="Premium_LRS",
-            ))
+            sku={
+                "name": "Premium_LRS",
+            })
         example_volume_group = azure.elasticsan.VolumeGroup("example",
             name="example-esvg",
             elastic_san_id=example_elastic_san.id)
@@ -281,9 +281,9 @@ class Volume(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             base_size_in_tib=1,
-            sku=azure.elasticsan.ElasticSanSkuArgs(
-                name="Premium_LRS",
-            ))
+            sku={
+                "name": "Premium_LRS",
+            })
         example_volume_group = azure.elasticsan.VolumeGroup("example",
             name="example-esvg",
             elastic_san_id=example_elastic_san.id)
@@ -304,10 +304,10 @@ class Volume(pulumi.CustomResource):
             name="example-esv2",
             volume_group_id=example_volume_group.id,
             size_in_gib=2,
-            create_source=azure.elasticsan.VolumeCreateSourceArgs(
-                source_type="DiskSnapshot",
-                source_id=example_snapshot.id,
-            ))
+            create_source={
+                "sourceType": "DiskSnapshot",
+                "sourceId": example_snapshot.id,
+            })
         ```
 
         ## Import
@@ -320,7 +320,7 @@ class Volume(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['VolumeCreateSourceArgs']] create_source: A `create_source` block as defined below.
+        :param pulumi.Input[Union['VolumeCreateSourceArgs', 'VolumeCreateSourceArgsDict']] create_source: A `create_source` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of this Elastic SAN Volume. Changing this forces a new resource to be created.
         :param pulumi.Input[int] size_in_gib: Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
                
@@ -350,9 +350,9 @@ class Volume(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             base_size_in_tib=1,
-            sku=azure.elasticsan.ElasticSanSkuArgs(
-                name="Premium_LRS",
-            ))
+            sku={
+                "name": "Premium_LRS",
+            })
         example_volume_group = azure.elasticsan.VolumeGroup("example",
             name="example-esvg",
             elastic_san_id=example_elastic_san.id)
@@ -377,9 +377,9 @@ class Volume(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             base_size_in_tib=1,
-            sku=azure.elasticsan.ElasticSanSkuArgs(
-                name="Premium_LRS",
-            ))
+            sku={
+                "name": "Premium_LRS",
+            })
         example_volume_group = azure.elasticsan.VolumeGroup("example",
             name="example-esvg",
             elastic_san_id=example_elastic_san.id)
@@ -400,10 +400,10 @@ class Volume(pulumi.CustomResource):
             name="example-esv2",
             volume_group_id=example_volume_group.id,
             size_in_gib=2,
-            create_source=azure.elasticsan.VolumeCreateSourceArgs(
-                source_type="DiskSnapshot",
-                source_id=example_snapshot.id,
-            ))
+            create_source={
+                "sourceType": "DiskSnapshot",
+                "sourceId": example_snapshot.id,
+            })
         ```
 
         ## Import
@@ -429,7 +429,7 @@ class Volume(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 create_source: Optional[pulumi.Input[pulumi.InputType['VolumeCreateSourceArgs']]] = None,
+                 create_source: Optional[pulumi.Input[Union['VolumeCreateSourceArgs', 'VolumeCreateSourceArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  size_in_gib: Optional[pulumi.Input[int]] = None,
                  volume_group_id: Optional[pulumi.Input[str]] = None,
@@ -464,7 +464,7 @@ class Volume(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            create_source: Optional[pulumi.Input[pulumi.InputType['VolumeCreateSourceArgs']]] = None,
+            create_source: Optional[pulumi.Input[Union['VolumeCreateSourceArgs', 'VolumeCreateSourceArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             size_in_gib: Optional[pulumi.Input[int]] = None,
             target_iqn: Optional[pulumi.Input[str]] = None,
@@ -479,7 +479,7 @@ class Volume(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['VolumeCreateSourceArgs']] create_source: A `create_source` block as defined below.
+        :param pulumi.Input[Union['VolumeCreateSourceArgs', 'VolumeCreateSourceArgsDict']] create_source: A `create_source` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of this Elastic SAN Volume. Changing this forces a new resource to be created.
         :param pulumi.Input[int] size_in_gib: Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
                

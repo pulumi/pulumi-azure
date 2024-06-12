@@ -427,7 +427,7 @@ class Assignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['AssignmentIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['AssignmentIdentityArgs', 'AssignmentIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  lock_exclude_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  lock_exclude_principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -483,10 +483,10 @@ class Assignment(pulumi.CustomResource):
             location=example_resource_group.location,
             lock_mode="AllResourcesDoNotDelete",
             lock_exclude_principals=[current.object_id],
-            identity=azure.blueprint.AssignmentIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
+            identity={
+                "type": "UserAssigned",
+                "identityIds": [example_user_assigned_identity.id],
+            },
             resource_groups=\"\"\"    {
               "ResourceGroup": {
                 "name": "exampleRG-bp"
@@ -515,7 +515,7 @@ class Assignment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AssignmentIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['AssignmentIdentityArgs', 'AssignmentIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure location of the Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lock_exclude_actions: a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lock_exclude_principals: a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
@@ -581,10 +581,10 @@ class Assignment(pulumi.CustomResource):
             location=example_resource_group.location,
             lock_mode="AllResourcesDoNotDelete",
             lock_exclude_principals=[current.object_id],
-            identity=azure.blueprint.AssignmentIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
+            identity={
+                "type": "UserAssigned",
+                "identityIds": [example_user_assigned_identity.id],
+            },
             resource_groups=\"\"\"    {
               "ResourceGroup": {
                 "name": "exampleRG-bp"
@@ -626,7 +626,7 @@ class Assignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['AssignmentIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['AssignmentIdentityArgs', 'AssignmentIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  lock_exclude_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  lock_exclude_principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -678,7 +678,7 @@ class Assignment(pulumi.CustomResource):
             blueprint_name: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['AssignmentIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[Union['AssignmentIdentityArgs', 'AssignmentIdentityArgsDict']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             lock_exclude_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             lock_exclude_principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -699,7 +699,7 @@ class Assignment(pulumi.CustomResource):
         :param pulumi.Input[str] blueprint_name: The name of the blueprint assigned
         :param pulumi.Input[str] description: The Description on the Blueprint
         :param pulumi.Input[str] display_name: The display name of the blueprint
-        :param pulumi.Input[pulumi.InputType['AssignmentIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['AssignmentIdentityArgs', 'AssignmentIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure location of the Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lock_exclude_actions: a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lock_exclude_principals: a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.

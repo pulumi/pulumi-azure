@@ -192,7 +192,7 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResolverInboundEndpointIpConfigurationArgs']]]]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResolverInboundEndpointIpConfigurationArgs', 'ResolverInboundEndpointIpConfigurationArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  private_dns_resolver_id: Optional[pulumi.Input[str]] = None,
@@ -225,21 +225,21 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.0.0/28"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="Microsoft.Network.dnsResolvers",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
-                    name="Microsoft.Network/dnsResolvers",
-                ),
-            )])
+            delegations=[{
+                "name": "Microsoft.Network.dnsResolvers",
+                "serviceDelegation": {
+                    "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
+                    "name": "Microsoft.Network/dnsResolvers",
+                },
+            }])
         example_resolver_inbound_endpoint = azure.privatedns.ResolverInboundEndpoint("example",
             name="example-drie",
             private_dns_resolver_id=example_resolver.id,
             location=example_resolver.location,
-            ip_configurations=[azure.privatedns.ResolverInboundEndpointIpConfigurationArgs(
-                private_ip_allocation_method="Dynamic",
-                subnet_id=example_subnet.id,
-            )],
+            ip_configurations=[{
+                "privateIpAllocationMethod": "Dynamic",
+                "subnetId": example_subnet.id,
+            }],
             tags={
                 "key": "value",
             })
@@ -255,7 +255,7 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResolverInboundEndpointIpConfigurationArgs']]]] ip_configurations: Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResolverInboundEndpointIpConfigurationArgs', 'ResolverInboundEndpointIpConfigurationArgsDict']]]] ip_configurations: Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
         :param pulumi.Input[str] private_dns_resolver_id: Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
@@ -294,21 +294,21 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.0.0/28"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="Microsoft.Network.dnsResolvers",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
-                    name="Microsoft.Network/dnsResolvers",
-                ),
-            )])
+            delegations=[{
+                "name": "Microsoft.Network.dnsResolvers",
+                "serviceDelegation": {
+                    "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
+                    "name": "Microsoft.Network/dnsResolvers",
+                },
+            }])
         example_resolver_inbound_endpoint = azure.privatedns.ResolverInboundEndpoint("example",
             name="example-drie",
             private_dns_resolver_id=example_resolver.id,
             location=example_resolver.location,
-            ip_configurations=[azure.privatedns.ResolverInboundEndpointIpConfigurationArgs(
-                private_ip_allocation_method="Dynamic",
-                subnet_id=example_subnet.id,
-            )],
+            ip_configurations=[{
+                "privateIpAllocationMethod": "Dynamic",
+                "subnetId": example_subnet.id,
+            }],
             tags={
                 "key": "value",
             })
@@ -337,7 +337,7 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResolverInboundEndpointIpConfigurationArgs']]]]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResolverInboundEndpointIpConfigurationArgs', 'ResolverInboundEndpointIpConfigurationArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  private_dns_resolver_id: Optional[pulumi.Input[str]] = None,
@@ -370,7 +370,7 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResolverInboundEndpointIpConfigurationArgs']]]]] = None,
+            ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResolverInboundEndpointIpConfigurationArgs', 'ResolverInboundEndpointIpConfigurationArgsDict']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             private_dns_resolver_id: Optional[pulumi.Input[str]] = None,
@@ -382,7 +382,7 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResolverInboundEndpointIpConfigurationArgs']]]] ip_configurations: Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResolverInboundEndpointIpConfigurationArgs', 'ResolverInboundEndpointIpConfigurationArgsDict']]]] ip_configurations: Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
         :param pulumi.Input[str] private_dns_resolver_id: Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.

@@ -117,19 +117,19 @@ class SpringCloudActiveDeployment(pulumi.CustomResource):
             name="example-springcloudapp",
             resource_group_name=example.name,
             service_name=example_spring_cloud_service.name,
-            identity=azure.appplatform.SpringCloudAppIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_spring_cloud_java_deployment = azure.appplatform.SpringCloudJavaDeployment("example",
             name="deploy1",
             spring_cloud_app_id=example_spring_cloud_app.id,
             instance_count=2,
             jvm_options="-XX:+PrintGC",
             runtime_version="Java_11",
-            quota=azure.appplatform.SpringCloudJavaDeploymentQuotaArgs(
-                cpu="2",
-                memory="4Gi",
-            ),
+            quota={
+                "cpu": "2",
+                "memory": "4Gi",
+            },
             environment_variables={
                 "Env": "Staging",
             })
@@ -177,19 +177,19 @@ class SpringCloudActiveDeployment(pulumi.CustomResource):
             name="example-springcloudapp",
             resource_group_name=example.name,
             service_name=example_spring_cloud_service.name,
-            identity=azure.appplatform.SpringCloudAppIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_spring_cloud_java_deployment = azure.appplatform.SpringCloudJavaDeployment("example",
             name="deploy1",
             spring_cloud_app_id=example_spring_cloud_app.id,
             instance_count=2,
             jvm_options="-XX:+PrintGC",
             runtime_version="Java_11",
-            quota=azure.appplatform.SpringCloudJavaDeploymentQuotaArgs(
-                cpu="2",
-                memory="4Gi",
-            ),
+            quota={
+                "cpu": "2",
+                "memory": "4Gi",
+            },
             environment_variables={
                 "Env": "Staging",
             })

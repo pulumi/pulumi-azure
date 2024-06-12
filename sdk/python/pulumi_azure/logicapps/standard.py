@@ -771,14 +771,14 @@ class Standard(pulumi.CustomResource):
                  bundle_version: Optional[pulumi.Input[str]] = None,
                  client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_mode: Optional[pulumi.Input[str]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StandardConnectionStringArgs']]]]] = None,
+                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StandardConnectionStringArgs', 'StandardConnectionStringArgsDict']]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['StandardIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['StandardIdentityArgs', 'StandardIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 site_config: Optional[pulumi.Input[pulumi.InputType['StandardSiteConfigArgs']]] = None,
+                 site_config: Optional[pulumi.Input[Union['StandardSiteConfigArgs', 'StandardSiteConfigArgsDict']]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  storage_account_share_name: Optional[pulumi.Input[str]] = None,
@@ -812,10 +812,10 @@ class Standard(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             kind="elastic",
-            sku=azure.appservice.PlanSkuArgs(
-                tier="WorkflowStandard",
-                size="WS1",
-            ))
+            sku={
+                "tier": "WorkflowStandard",
+                "size": "WS1",
+            })
         example_standard = azure.logicapps.Standard("example",
             name="test-azure-functions",
             location=example.location,
@@ -852,10 +852,10 @@ class Standard(pulumi.CustomResource):
             resource_group_name=example.name,
             kind="Linux",
             reserved=True,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="WorkflowStandard",
-                size="WS1",
-            ))
+            sku={
+                "tier": "WorkflowStandard",
+                "size": "WS1",
+            })
         example_standard = azure.logicapps.Standard("example",
             name="test-azure-functions",
             location=example.location,
@@ -863,9 +863,9 @@ class Standard(pulumi.CustomResource):
             app_service_plan_id=example_plan.id,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
-            site_config=azure.logicapps.StandardSiteConfigArgs(
-                linux_fx_version="DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice",
-            ),
+            site_config={
+                "linuxFxVersion": "DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice",
+            },
             app_settings={
                 "DOCKER_REGISTRY_SERVER_URL": "https://<server-name>.azurecr.io",
                 "DOCKER_REGISTRY_SERVER_USERNAME": "username",
@@ -890,14 +890,14 @@ class Standard(pulumi.CustomResource):
         :param pulumi.Input[str] bundle_version: If `use_extension_bundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
         :param pulumi.Input[bool] client_affinity_enabled: Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[str] client_certificate_mode: The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StandardConnectionStringArgs']]]] connection_strings: An `connection_string` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StandardConnectionStringArgs', 'StandardConnectionStringArgsDict']]]] connection_strings: An `connection_string` block as defined below.
         :param pulumi.Input[bool] enabled: Is the Logic App enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Can the Logic App only be accessed via HTTPS? Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['StandardIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['StandardIdentityArgs', 'StandardIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Logic App Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['StandardSiteConfigArgs']] site_config: A `site_config` object as defined below.
+        :param pulumi.Input[Union['StandardSiteConfigArgs', 'StandardSiteConfigArgsDict']] site_config: A `site_config` object as defined below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Logic App
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -937,10 +937,10 @@ class Standard(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             kind="elastic",
-            sku=azure.appservice.PlanSkuArgs(
-                tier="WorkflowStandard",
-                size="WS1",
-            ))
+            sku={
+                "tier": "WorkflowStandard",
+                "size": "WS1",
+            })
         example_standard = azure.logicapps.Standard("example",
             name="test-azure-functions",
             location=example.location,
@@ -977,10 +977,10 @@ class Standard(pulumi.CustomResource):
             resource_group_name=example.name,
             kind="Linux",
             reserved=True,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="WorkflowStandard",
-                size="WS1",
-            ))
+            sku={
+                "tier": "WorkflowStandard",
+                "size": "WS1",
+            })
         example_standard = azure.logicapps.Standard("example",
             name="test-azure-functions",
             location=example.location,
@@ -988,9 +988,9 @@ class Standard(pulumi.CustomResource):
             app_service_plan_id=example_plan.id,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
-            site_config=azure.logicapps.StandardSiteConfigArgs(
-                linux_fx_version="DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice",
-            ),
+            site_config={
+                "linuxFxVersion": "DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice",
+            },
             app_settings={
                 "DOCKER_REGISTRY_SERVER_URL": "https://<server-name>.azurecr.io",
                 "DOCKER_REGISTRY_SERVER_USERNAME": "username",
@@ -1026,14 +1026,14 @@ class Standard(pulumi.CustomResource):
                  bundle_version: Optional[pulumi.Input[str]] = None,
                  client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_mode: Optional[pulumi.Input[str]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StandardConnectionStringArgs']]]]] = None,
+                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StandardConnectionStringArgs', 'StandardConnectionStringArgsDict']]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['StandardIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['StandardIdentityArgs', 'StandardIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 site_config: Optional[pulumi.Input[pulumi.InputType['StandardSiteConfigArgs']]] = None,
+                 site_config: Optional[pulumi.Input[Union['StandardSiteConfigArgs', 'StandardSiteConfigArgsDict']]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  storage_account_share_name: Optional[pulumi.Input[str]] = None,
@@ -1101,20 +1101,20 @@ class Standard(pulumi.CustomResource):
             bundle_version: Optional[pulumi.Input[str]] = None,
             client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
             client_certificate_mode: Optional[pulumi.Input[str]] = None,
-            connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StandardConnectionStringArgs']]]]] = None,
+            connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StandardConnectionStringArgs', 'StandardConnectionStringArgsDict']]]]] = None,
             custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
             default_hostname: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             https_only: Optional[pulumi.Input[bool]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['StandardIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[Union['StandardIdentityArgs', 'StandardIdentityArgsDict']]] = None,
             kind: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
             possible_outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            site_config: Optional[pulumi.Input[pulumi.InputType['StandardSiteConfigArgs']]] = None,
-            site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StandardSiteCredentialArgs']]]]] = None,
+            site_config: Optional[pulumi.Input[Union['StandardSiteConfigArgs', 'StandardSiteConfigArgsDict']]] = None,
+            site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StandardSiteCredentialArgs', 'StandardSiteCredentialArgsDict']]]]] = None,
             storage_account_access_key: Optional[pulumi.Input[str]] = None,
             storage_account_name: Optional[pulumi.Input[str]] = None,
             storage_account_share_name: Optional[pulumi.Input[str]] = None,
@@ -1136,20 +1136,20 @@ class Standard(pulumi.CustomResource):
         :param pulumi.Input[str] bundle_version: If `use_extension_bundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
         :param pulumi.Input[bool] client_affinity_enabled: Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[str] client_certificate_mode: The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StandardConnectionStringArgs']]]] connection_strings: An `connection_string` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StandardConnectionStringArgs', 'StandardConnectionStringArgsDict']]]] connection_strings: An `connection_string` block as defined below.
         :param pulumi.Input[str] custom_domain_verification_id: An identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[str] default_hostname: The default hostname associated with the Logic App - such as `mysite.azurewebsites.net`
         :param pulumi.Input[bool] enabled: Is the Logic App enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Can the Logic App only be accessed via HTTPS? Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['StandardIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['StandardIdentityArgs', 'StandardIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] kind: The Logic App kind - will be `functionapp,workflowapp`
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Logic App Changing this forces a new resource to be created.
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['StandardSiteConfigArgs']] site_config: A `site_config` object as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StandardSiteCredentialArgs']]]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+        :param pulumi.Input[Union['StandardSiteConfigArgs', 'StandardSiteConfigArgsDict']] site_config: A `site_config` object as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StandardSiteCredentialArgs', 'StandardSiteCredentialArgsDict']]]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Logic App
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.

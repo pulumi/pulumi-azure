@@ -224,9 +224,9 @@ class BackupPolicyPostgresqlFlexibleServer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_repeating_time_intervals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 default_retention_rule: Optional[pulumi.Input[pulumi.InputType['BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs']]] = None,
+                 default_retention_rule: Optional[pulumi.Input[Union['BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs', 'BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs']]]]] = None,
+                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs', 'BackupPolicyPostgresqlFlexibleServerRetentionRuleArgsDict']]]]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
                  vault_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -244,9 +244,9 @@ class BackupPolicyPostgresqlFlexibleServer(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] backup_repeating_time_intervals: Specifies a list of repeating time interval. It supports weekly back. It should follow `ISO 8601` repeating time interval format. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs']] default_retention_rule: A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs', 'BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgsDict']] default_retention_rule: A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Backup Policy for the PostgreSQL Flexible Server. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs']]]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs', 'BackupPolicyPostgresqlFlexibleServerRetentionRuleArgsDict']]]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] time_zone: Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vault_id: The ID of the Backup Vault where the Backup Policy PostgreSQL Flexible Server should exist. Changing this forces a new resource to be created.
         """
@@ -283,9 +283,9 @@ class BackupPolicyPostgresqlFlexibleServer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_repeating_time_intervals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 default_retention_rule: Optional[pulumi.Input[pulumi.InputType['BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs']]] = None,
+                 default_retention_rule: Optional[pulumi.Input[Union['BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs', 'BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs']]]]] = None,
+                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs', 'BackupPolicyPostgresqlFlexibleServerRetentionRuleArgsDict']]]]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
                  vault_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -320,9 +320,9 @@ class BackupPolicyPostgresqlFlexibleServer(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             backup_repeating_time_intervals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            default_retention_rule: Optional[pulumi.Input[pulumi.InputType['BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs']]] = None,
+            default_retention_rule: Optional[pulumi.Input[Union['BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs', 'BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs']]]]] = None,
+            retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs', 'BackupPolicyPostgresqlFlexibleServerRetentionRuleArgsDict']]]]] = None,
             time_zone: Optional[pulumi.Input[str]] = None,
             vault_id: Optional[pulumi.Input[str]] = None) -> 'BackupPolicyPostgresqlFlexibleServer':
         """
@@ -333,9 +333,9 @@ class BackupPolicyPostgresqlFlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] backup_repeating_time_intervals: Specifies a list of repeating time interval. It supports weekly back. It should follow `ISO 8601` repeating time interval format. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs']] default_retention_rule: A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs', 'BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgsDict']] default_retention_rule: A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Backup Policy for the PostgreSQL Flexible Server. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs']]]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs', 'BackupPolicyPostgresqlFlexibleServerRetentionRuleArgsDict']]]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] time_zone: Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vault_id: The ID of the Backup Vault where the Backup Policy PostgreSQL Flexible Server should exist. Changing this forces a new resource to be created.
         """

@@ -219,9 +219,9 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
             location=example.location,
             datastore_type="VaultStore",
             redundancy="LocallyRedundant",
-            identity=azure.dataprotection.BackupVaultIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_assignment = azure.authorization.Assignment("example",
             scope=example_account.id,
             role_definition_name="Storage Account Backup Contributor",
@@ -285,9 +285,9 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
             location=example.location,
             datastore_type="VaultStore",
             redundancy="LocallyRedundant",
-            identity=azure.dataprotection.BackupVaultIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_assignment = azure.authorization.Assignment("example",
             scope=example_account.id,
             role_definition_name="Storage Account Backup Contributor",

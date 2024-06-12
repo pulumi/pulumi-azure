@@ -209,7 +209,7 @@ class Instance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['InstanceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['InstanceIdentityArgs', 'InstanceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -246,7 +246,7 @@ class Instance(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['InstanceIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['InstanceIdentityArgs', 'InstanceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
         :param pulumi.Input[str] name: The name which should be used for this Digital Twins instance. Changing this forces a new Digital Twins instance to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
@@ -302,7 +302,7 @@ class Instance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['InstanceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['InstanceIdentityArgs', 'InstanceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -335,7 +335,7 @@ class Instance(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             host_name: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['InstanceIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[Union['InstanceIdentityArgs', 'InstanceIdentityArgsDict']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -348,7 +348,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] host_name: The API endpoint to work with this Digital Twins instance.
-        :param pulumi.Input[pulumi.InputType['InstanceIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['InstanceIdentityArgs', 'InstanceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
         :param pulumi.Input[str] name: The name which should be used for this Digital Twins instance. Changing this forces a new Digital Twins instance to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.

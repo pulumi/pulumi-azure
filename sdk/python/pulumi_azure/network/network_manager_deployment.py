@@ -214,9 +214,9 @@ class NetworkManagerDeployment(pulumi.CustomResource):
             name="example-network-manager",
             location=example.location,
             resource_group_name=example.name,
-            scope=azure.network.NetworkManagerScopeArgs(
-                subscription_ids=[current.id],
-            ),
+            scope={
+                "subscriptionIds": [current.id],
+            },
             scope_accesses=[
                 "Connectivity",
                 "SecurityAdmin",
@@ -235,14 +235,14 @@ class NetworkManagerDeployment(pulumi.CustomResource):
             name="example-connectivity-conf",
             network_manager_id=example_network_manager.id,
             connectivity_topology="HubAndSpoke",
-            applies_to_groups=[azure.network.NetworkManagerConnectivityConfigurationAppliesToGroupArgs(
-                group_connectivity="None",
-                network_group_id=example_network_manager_network_group.id,
-            )],
-            hub=azure.network.NetworkManagerConnectivityConfigurationHubArgs(
-                resource_id=example_virtual_network.id,
-                resource_type="Microsoft.Network/virtualNetworks",
-            ))
+            applies_to_groups=[{
+                "groupConnectivity": "None",
+                "networkGroupId": example_network_manager_network_group.id,
+            }],
+            hub={
+                "resourceId": example_virtual_network.id,
+                "resourceType": "Microsoft.Network/virtualNetworks",
+            })
         example_network_manager_deployment = azure.network.NetworkManagerDeployment("example",
             network_manager_id=example_network_manager.id,
             location="eastus",
@@ -265,9 +265,9 @@ class NetworkManagerDeployment(pulumi.CustomResource):
             name="example-network-manager",
             location=example.location,
             resource_group_name=example.name,
-            scope=azure.network.NetworkManagerScopeArgs(
-                subscription_ids=[current.id],
-            ),
+            scope={
+                "subscriptionIds": [current.id],
+            },
             scope_accesses=[
                 "Connectivity",
                 "SecurityAdmin",
@@ -299,14 +299,14 @@ class NetworkManagerDeployment(pulumi.CustomResource):
             protocol="Tcp",
             source_port_ranges=["80"],
             destination_port_ranges=["80"],
-            sources=[azure.network.NetworkManagerAdminRuleSourceArgs(
-                address_prefix_type="ServiceTag",
-                address_prefix="Internet",
-            )],
-            destinations=[azure.network.NetworkManagerAdminRuleDestinationArgs(
-                address_prefix_type="IPPrefix",
-                address_prefix="*",
-            )])
+            sources=[{
+                "addressPrefixType": "ServiceTag",
+                "addressPrefix": "Internet",
+            }],
+            destinations=[{
+                "addressPrefixType": "IPPrefix",
+                "addressPrefix": "*",
+            }])
         example_network_manager_deployment = azure.network.NetworkManagerDeployment("example",
             network_manager_id=example_network_manager.id,
             location="eastus",
@@ -360,9 +360,9 @@ class NetworkManagerDeployment(pulumi.CustomResource):
             name="example-network-manager",
             location=example.location,
             resource_group_name=example.name,
-            scope=azure.network.NetworkManagerScopeArgs(
-                subscription_ids=[current.id],
-            ),
+            scope={
+                "subscriptionIds": [current.id],
+            },
             scope_accesses=[
                 "Connectivity",
                 "SecurityAdmin",
@@ -381,14 +381,14 @@ class NetworkManagerDeployment(pulumi.CustomResource):
             name="example-connectivity-conf",
             network_manager_id=example_network_manager.id,
             connectivity_topology="HubAndSpoke",
-            applies_to_groups=[azure.network.NetworkManagerConnectivityConfigurationAppliesToGroupArgs(
-                group_connectivity="None",
-                network_group_id=example_network_manager_network_group.id,
-            )],
-            hub=azure.network.NetworkManagerConnectivityConfigurationHubArgs(
-                resource_id=example_virtual_network.id,
-                resource_type="Microsoft.Network/virtualNetworks",
-            ))
+            applies_to_groups=[{
+                "groupConnectivity": "None",
+                "networkGroupId": example_network_manager_network_group.id,
+            }],
+            hub={
+                "resourceId": example_virtual_network.id,
+                "resourceType": "Microsoft.Network/virtualNetworks",
+            })
         example_network_manager_deployment = azure.network.NetworkManagerDeployment("example",
             network_manager_id=example_network_manager.id,
             location="eastus",
@@ -411,9 +411,9 @@ class NetworkManagerDeployment(pulumi.CustomResource):
             name="example-network-manager",
             location=example.location,
             resource_group_name=example.name,
-            scope=azure.network.NetworkManagerScopeArgs(
-                subscription_ids=[current.id],
-            ),
+            scope={
+                "subscriptionIds": [current.id],
+            },
             scope_accesses=[
                 "Connectivity",
                 "SecurityAdmin",
@@ -445,14 +445,14 @@ class NetworkManagerDeployment(pulumi.CustomResource):
             protocol="Tcp",
             source_port_ranges=["80"],
             destination_port_ranges=["80"],
-            sources=[azure.network.NetworkManagerAdminRuleSourceArgs(
-                address_prefix_type="ServiceTag",
-                address_prefix="Internet",
-            )],
-            destinations=[azure.network.NetworkManagerAdminRuleDestinationArgs(
-                address_prefix_type="IPPrefix",
-                address_prefix="*",
-            )])
+            sources=[{
+                "addressPrefixType": "ServiceTag",
+                "addressPrefix": "Internet",
+            }],
+            destinations=[{
+                "addressPrefixType": "IPPrefix",
+                "addressPrefix": "*",
+            }])
         example_network_manager_deployment = azure.network.NetworkManagerDeployment("example",
             network_manager_id=example_network_manager.id,
             location="eastus",

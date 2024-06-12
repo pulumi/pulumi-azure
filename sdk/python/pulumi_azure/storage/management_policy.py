@@ -97,7 +97,7 @@ class ManagementPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagementPolicyRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagementPolicyRuleArgs', 'ManagementPolicyRuleArgsDict']]]]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -122,57 +122,57 @@ class ManagementPolicy(pulumi.CustomResource):
         example_management_policy = azure.storage.ManagementPolicy("example",
             storage_account_id=example_account.id,
             rules=[
-                azure.storage.ManagementPolicyRuleArgs(
-                    name="rule1",
-                    enabled=True,
-                    filters=azure.storage.ManagementPolicyRuleFiltersArgs(
-                        prefix_matches=["container1/prefix1"],
-                        blob_types=["blockBlob"],
-                        match_blob_index_tags=[azure.storage.ManagementPolicyRuleFiltersMatchBlobIndexTagArgs(
-                            name="tag1",
-                            operation="==",
-                            value="val1",
-                        )],
-                    ),
-                    actions=azure.storage.ManagementPolicyRuleActionsArgs(
-                        base_blob=azure.storage.ManagementPolicyRuleActionsBaseBlobArgs(
-                            tier_to_cool_after_days_since_modification_greater_than=10,
-                            tier_to_archive_after_days_since_modification_greater_than=50,
-                            delete_after_days_since_modification_greater_than=100,
-                        ),
-                        snapshot=azure.storage.ManagementPolicyRuleActionsSnapshotArgs(
-                            delete_after_days_since_creation_greater_than=30,
-                        ),
-                    ),
-                ),
-                azure.storage.ManagementPolicyRuleArgs(
-                    name="rule2",
-                    enabled=False,
-                    filters=azure.storage.ManagementPolicyRuleFiltersArgs(
-                        prefix_matches=[
+                {
+                    "name": "rule1",
+                    "enabled": True,
+                    "filters": {
+                        "prefixMatches": ["container1/prefix1"],
+                        "blobTypes": ["blockBlob"],
+                        "matchBlobIndexTags": [{
+                            "name": "tag1",
+                            "operation": "==",
+                            "value": "val1",
+                        }],
+                    },
+                    "actions": {
+                        "baseBlob": {
+                            "tierToCoolAfterDaysSinceModificationGreaterThan": 10,
+                            "tierToArchiveAfterDaysSinceModificationGreaterThan": 50,
+                            "deleteAfterDaysSinceModificationGreaterThan": 100,
+                        },
+                        "snapshot": {
+                            "deleteAfterDaysSinceCreationGreaterThan": 30,
+                        },
+                    },
+                },
+                {
+                    "name": "rule2",
+                    "enabled": False,
+                    "filters": {
+                        "prefixMatches": [
                             "container2/prefix1",
                             "container2/prefix2",
                         ],
-                        blob_types=["blockBlob"],
-                    ),
-                    actions=azure.storage.ManagementPolicyRuleActionsArgs(
-                        base_blob=azure.storage.ManagementPolicyRuleActionsBaseBlobArgs(
-                            tier_to_cool_after_days_since_modification_greater_than=11,
-                            tier_to_archive_after_days_since_modification_greater_than=51,
-                            delete_after_days_since_modification_greater_than=101,
-                        ),
-                        snapshot=azure.storage.ManagementPolicyRuleActionsSnapshotArgs(
-                            change_tier_to_archive_after_days_since_creation=90,
-                            change_tier_to_cool_after_days_since_creation=23,
-                            delete_after_days_since_creation_greater_than=31,
-                        ),
-                        version=azure.storage.ManagementPolicyRuleActionsVersionArgs(
-                            change_tier_to_archive_after_days_since_creation=9,
-                            change_tier_to_cool_after_days_since_creation=90,
-                            delete_after_days_since_creation=3,
-                        ),
-                    ),
-                ),
+                        "blobTypes": ["blockBlob"],
+                    },
+                    "actions": {
+                        "baseBlob": {
+                            "tierToCoolAfterDaysSinceModificationGreaterThan": 11,
+                            "tierToArchiveAfterDaysSinceModificationGreaterThan": 51,
+                            "deleteAfterDaysSinceModificationGreaterThan": 101,
+                        },
+                        "snapshot": {
+                            "changeTierToArchiveAfterDaysSinceCreation": 90,
+                            "changeTierToCoolAfterDaysSinceCreation": 23,
+                            "deleteAfterDaysSinceCreationGreaterThan": 31,
+                        },
+                        "version": {
+                            "changeTierToArchiveAfterDaysSinceCreation": 9,
+                            "changeTierToCoolAfterDaysSinceCreation": 90,
+                            "deleteAfterDaysSinceCreation": 3,
+                        },
+                    },
+                },
             ])
         ```
 
@@ -186,7 +186,7 @@ class ManagementPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagementPolicyRuleArgs']]]] rules: A `rule` block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagementPolicyRuleArgs', 'ManagementPolicyRuleArgsDict']]]] rules: A `rule` block as documented below.
         :param pulumi.Input[str] storage_account_id: Specifies the id of the storage account to apply the management policy to. Changing this forces a new resource to be created.
         """
         ...
@@ -217,57 +217,57 @@ class ManagementPolicy(pulumi.CustomResource):
         example_management_policy = azure.storage.ManagementPolicy("example",
             storage_account_id=example_account.id,
             rules=[
-                azure.storage.ManagementPolicyRuleArgs(
-                    name="rule1",
-                    enabled=True,
-                    filters=azure.storage.ManagementPolicyRuleFiltersArgs(
-                        prefix_matches=["container1/prefix1"],
-                        blob_types=["blockBlob"],
-                        match_blob_index_tags=[azure.storage.ManagementPolicyRuleFiltersMatchBlobIndexTagArgs(
-                            name="tag1",
-                            operation="==",
-                            value="val1",
-                        )],
-                    ),
-                    actions=azure.storage.ManagementPolicyRuleActionsArgs(
-                        base_blob=azure.storage.ManagementPolicyRuleActionsBaseBlobArgs(
-                            tier_to_cool_after_days_since_modification_greater_than=10,
-                            tier_to_archive_after_days_since_modification_greater_than=50,
-                            delete_after_days_since_modification_greater_than=100,
-                        ),
-                        snapshot=azure.storage.ManagementPolicyRuleActionsSnapshotArgs(
-                            delete_after_days_since_creation_greater_than=30,
-                        ),
-                    ),
-                ),
-                azure.storage.ManagementPolicyRuleArgs(
-                    name="rule2",
-                    enabled=False,
-                    filters=azure.storage.ManagementPolicyRuleFiltersArgs(
-                        prefix_matches=[
+                {
+                    "name": "rule1",
+                    "enabled": True,
+                    "filters": {
+                        "prefixMatches": ["container1/prefix1"],
+                        "blobTypes": ["blockBlob"],
+                        "matchBlobIndexTags": [{
+                            "name": "tag1",
+                            "operation": "==",
+                            "value": "val1",
+                        }],
+                    },
+                    "actions": {
+                        "baseBlob": {
+                            "tierToCoolAfterDaysSinceModificationGreaterThan": 10,
+                            "tierToArchiveAfterDaysSinceModificationGreaterThan": 50,
+                            "deleteAfterDaysSinceModificationGreaterThan": 100,
+                        },
+                        "snapshot": {
+                            "deleteAfterDaysSinceCreationGreaterThan": 30,
+                        },
+                    },
+                },
+                {
+                    "name": "rule2",
+                    "enabled": False,
+                    "filters": {
+                        "prefixMatches": [
                             "container2/prefix1",
                             "container2/prefix2",
                         ],
-                        blob_types=["blockBlob"],
-                    ),
-                    actions=azure.storage.ManagementPolicyRuleActionsArgs(
-                        base_blob=azure.storage.ManagementPolicyRuleActionsBaseBlobArgs(
-                            tier_to_cool_after_days_since_modification_greater_than=11,
-                            tier_to_archive_after_days_since_modification_greater_than=51,
-                            delete_after_days_since_modification_greater_than=101,
-                        ),
-                        snapshot=azure.storage.ManagementPolicyRuleActionsSnapshotArgs(
-                            change_tier_to_archive_after_days_since_creation=90,
-                            change_tier_to_cool_after_days_since_creation=23,
-                            delete_after_days_since_creation_greater_than=31,
-                        ),
-                        version=azure.storage.ManagementPolicyRuleActionsVersionArgs(
-                            change_tier_to_archive_after_days_since_creation=9,
-                            change_tier_to_cool_after_days_since_creation=90,
-                            delete_after_days_since_creation=3,
-                        ),
-                    ),
-                ),
+                        "blobTypes": ["blockBlob"],
+                    },
+                    "actions": {
+                        "baseBlob": {
+                            "tierToCoolAfterDaysSinceModificationGreaterThan": 11,
+                            "tierToArchiveAfterDaysSinceModificationGreaterThan": 51,
+                            "deleteAfterDaysSinceModificationGreaterThan": 101,
+                        },
+                        "snapshot": {
+                            "changeTierToArchiveAfterDaysSinceCreation": 90,
+                            "changeTierToCoolAfterDaysSinceCreation": 23,
+                            "deleteAfterDaysSinceCreationGreaterThan": 31,
+                        },
+                        "version": {
+                            "changeTierToArchiveAfterDaysSinceCreation": 9,
+                            "changeTierToCoolAfterDaysSinceCreation": 90,
+                            "deleteAfterDaysSinceCreation": 3,
+                        },
+                    },
+                },
             ])
         ```
 
@@ -294,7 +294,7 @@ class ManagementPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagementPolicyRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagementPolicyRuleArgs', 'ManagementPolicyRuleArgsDict']]]]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -319,7 +319,7 @@ class ManagementPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagementPolicyRuleArgs']]]]] = None,
+            rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagementPolicyRuleArgs', 'ManagementPolicyRuleArgsDict']]]]] = None,
             storage_account_id: Optional[pulumi.Input[str]] = None) -> 'ManagementPolicy':
         """
         Get an existing ManagementPolicy resource's state with the given name, id, and optional extra
@@ -328,7 +328,7 @@ class ManagementPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagementPolicyRuleArgs']]]] rules: A `rule` block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagementPolicyRuleArgs', 'ManagementPolicyRuleArgsDict']]]] rules: A `rule` block as documented below.
         :param pulumi.Input[str] storage_account_id: Specifies the id of the storage account to apply the management policy to. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

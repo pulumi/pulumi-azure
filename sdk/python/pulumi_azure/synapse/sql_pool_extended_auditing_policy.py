@@ -259,9 +259,9 @@ class SqlPoolExtendedAuditingPolicy(pulumi.CustomResource):
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_sql_pool = azure.synapse.SqlPool("example",
             name="examplesqlpool",
             synapse_workspace_id=example_workspace.id,
@@ -333,9 +333,9 @@ class SqlPoolExtendedAuditingPolicy(pulumi.CustomResource):
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_sql_pool = azure.synapse.SqlPool("example",
             name="examplesqlpool",
             synapse_workspace_id=example_workspace.id,

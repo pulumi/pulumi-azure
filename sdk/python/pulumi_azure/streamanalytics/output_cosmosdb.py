@@ -280,15 +280,15 @@ class OutputCosmosdb(pulumi.CustomResource):
             location=example_resource_group.location,
             offer_type="Standard",
             kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="BoundedStaleness",
-                max_interval_in_seconds=10,
-                max_staleness_prefix=200,
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example_resource_group.location,
-                failover_priority=0,
-            )])
+            consistency_policy={
+                "consistencyLevel": "BoundedStaleness",
+                "maxIntervalInSeconds": 10,
+                "maxStalenessPrefix": 200,
+            },
+            geo_locations=[{
+                "location": example_resource_group.location,
+                "failoverPriority": 0,
+            }])
         example_sql_database = azure.cosmosdb.SqlDatabase("example",
             name="cosmos-sql-db",
             resource_group_name=example_account.resource_group_name,
@@ -353,15 +353,15 @@ class OutputCosmosdb(pulumi.CustomResource):
             location=example_resource_group.location,
             offer_type="Standard",
             kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="BoundedStaleness",
-                max_interval_in_seconds=10,
-                max_staleness_prefix=200,
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example_resource_group.location,
-                failover_priority=0,
-            )])
+            consistency_policy={
+                "consistencyLevel": "BoundedStaleness",
+                "maxIntervalInSeconds": 10,
+                "maxStalenessPrefix": 200,
+            },
+            geo_locations=[{
+                "location": example_resource_group.location,
+                "failoverPriority": 0,
+            }])
         example_sql_database = azure.cosmosdb.SqlDatabase("example",
             name="cosmos-sql-db",
             resource_group_name=example_account.resource_group_name,

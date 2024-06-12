@@ -555,7 +555,7 @@ class BastionHost(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  copy_paste_enabled: Optional[pulumi.Input[bool]] = None,
                  file_copy_enabled: Optional[pulumi.Input[bool]] = None,
-                 ip_configuration: Optional[pulumi.Input[pulumi.InputType['BastionHostIpConfigurationArgs']]] = None,
+                 ip_configuration: Optional[pulumi.Input[Union['BastionHostIpConfigurationArgs', 'BastionHostIpConfigurationArgsDict']]] = None,
                  ip_connect_enabled: Optional[pulumi.Input[bool]] = None,
                  kerberos_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -602,11 +602,11 @@ class BastionHost(pulumi.CustomResource):
             name="examplebastion",
             location=example.location,
             resource_group_name=example.name,
-            ip_configuration=azure.compute.BastionHostIpConfigurationArgs(
-                name="configuration",
-                subnet_id=example_subnet.id,
-                public_ip_address_id=example_public_ip.id,
-            ))
+            ip_configuration={
+                "name": "configuration",
+                "subnetId": example_subnet.id,
+                "publicIpAddressId": example_public_ip.id,
+            })
         ```
 
         ## Import
@@ -623,7 +623,7 @@ class BastionHost(pulumi.CustomResource):
         :param pulumi.Input[bool] file_copy_enabled: Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
                
                > **Note:** `file_copy_enabled` is only supported when `sku` is `Standard`.
-        :param pulumi.Input[pulumi.InputType['BastionHostIpConfigurationArgs']] ip_configuration: A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['BastionHostIpConfigurationArgs', 'BastionHostIpConfigurationArgsDict']] ip_configuration: A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ip_connect_enabled: Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
                
                > **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard`.
@@ -688,11 +688,11 @@ class BastionHost(pulumi.CustomResource):
             name="examplebastion",
             location=example.location,
             resource_group_name=example.name,
-            ip_configuration=azure.compute.BastionHostIpConfigurationArgs(
-                name="configuration",
-                subnet_id=example_subnet.id,
-                public_ip_address_id=example_public_ip.id,
-            ))
+            ip_configuration={
+                "name": "configuration",
+                "subnetId": example_subnet.id,
+                "publicIpAddressId": example_public_ip.id,
+            })
         ```
 
         ## Import
@@ -720,7 +720,7 @@ class BastionHost(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  copy_paste_enabled: Optional[pulumi.Input[bool]] = None,
                  file_copy_enabled: Optional[pulumi.Input[bool]] = None,
-                 ip_configuration: Optional[pulumi.Input[pulumi.InputType['BastionHostIpConfigurationArgs']]] = None,
+                 ip_configuration: Optional[pulumi.Input[Union['BastionHostIpConfigurationArgs', 'BastionHostIpConfigurationArgsDict']]] = None,
                  ip_connect_enabled: Optional[pulumi.Input[bool]] = None,
                  kerberos_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -771,7 +771,7 @@ class BastionHost(pulumi.CustomResource):
             copy_paste_enabled: Optional[pulumi.Input[bool]] = None,
             dns_name: Optional[pulumi.Input[str]] = None,
             file_copy_enabled: Optional[pulumi.Input[bool]] = None,
-            ip_configuration: Optional[pulumi.Input[pulumi.InputType['BastionHostIpConfigurationArgs']]] = None,
+            ip_configuration: Optional[pulumi.Input[Union['BastionHostIpConfigurationArgs', 'BastionHostIpConfigurationArgsDict']]] = None,
             ip_connect_enabled: Optional[pulumi.Input[bool]] = None,
             kerberos_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -795,7 +795,7 @@ class BastionHost(pulumi.CustomResource):
         :param pulumi.Input[bool] file_copy_enabled: Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
                
                > **Note:** `file_copy_enabled` is only supported when `sku` is `Standard`.
-        :param pulumi.Input[pulumi.InputType['BastionHostIpConfigurationArgs']] ip_configuration: A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['BastionHostIpConfigurationArgs', 'BastionHostIpConfigurationArgsDict']] ip_configuration: A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ip_connect_enabled: Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
                
                > **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard`.

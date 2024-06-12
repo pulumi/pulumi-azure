@@ -383,9 +383,9 @@ class DatastoreBlobstorage(pulumi.CustomResource):
             application_insights_id=example_insights.id,
             key_vault_id=example_key_vault.id,
             storage_account_id=example_account.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_container = azure.storage.Container("example",
             name="example-container",
             storage_account_name=example_account.name,
@@ -466,9 +466,9 @@ class DatastoreBlobstorage(pulumi.CustomResource):
             application_insights_id=example_insights.id,
             key_vault_id=example_key_vault.id,
             storage_account_id=example_account.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_container = azure.storage.Container("example",
             name="example-container",
             storage_account_name=example_account.name,

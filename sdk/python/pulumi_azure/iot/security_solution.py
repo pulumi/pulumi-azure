@@ -511,7 +511,7 @@ class SecuritySolution(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_workspaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecuritySolutionAdditionalWorkspaceArgs']]]]] = None,
+                 additional_workspaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecuritySolutionAdditionalWorkspaceArgs', 'SecuritySolutionAdditionalWorkspaceArgsDict']]]]] = None,
                  disabled_data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -523,7 +523,7 @@ class SecuritySolution(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  query_for_resources: Optional[pulumi.Input[str]] = None,
                  query_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 recommendations_enabled: Optional[pulumi.Input[pulumi.InputType['SecuritySolutionRecommendationsEnabledArgs']]] = None,
+                 recommendations_enabled: Optional[pulumi.Input[Union['SecuritySolutionRecommendationsEnabledArgs', 'SecuritySolutionRecommendationsEnabledArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -543,10 +543,10 @@ class SecuritySolution(pulumi.CustomResource):
             name="example-IoTHub",
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ))
+            sku={
+                "name": "S1",
+                "capacity": 1,
+            })
         example_security_solution = azure.iot.SecuritySolution("example",
             name="example-Iot-Security-Solution",
             resource_group_name=example.name,
@@ -565,7 +565,7 @@ class SecuritySolution(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecuritySolutionAdditionalWorkspaceArgs']]]] additional_workspaces: A `additional_workspace` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecuritySolutionAdditionalWorkspaceArgs', 'SecuritySolutionAdditionalWorkspaceArgsDict']]]] additional_workspaces: A `additional_workspace` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disabled_data_sources: A list of disabled data sources for the Iot Security Solution. Possible value is `TwinData`.
         :param pulumi.Input[str] display_name: Specifies the Display Name for this Iot Security Solution.
         :param pulumi.Input[bool] enabled: Is the Iot Security Solution enabled? Defaults to `true`.
@@ -577,7 +577,7 @@ class SecuritySolution(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Iot Security Solution. Changing this forces a new resource to be created.
         :param pulumi.Input[str] query_for_resources: An Azure Resource Graph query used to set the resources monitored.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] query_subscription_ids: A list of subscription Ids on which the user defined resources query should be executed.
-        :param pulumi.Input[pulumi.InputType['SecuritySolutionRecommendationsEnabledArgs']] recommendations_enabled: A `recommendations_enabled` block of options to enable or disable as defined below.
+        :param pulumi.Input[Union['SecuritySolutionRecommendationsEnabledArgs', 'SecuritySolutionRecommendationsEnabledArgsDict']] recommendations_enabled: A `recommendations_enabled` block of options to enable or disable as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which to create the Iot Security Solution. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -603,10 +603,10 @@ class SecuritySolution(pulumi.CustomResource):
             name="example-IoTHub",
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ))
+            sku={
+                "name": "S1",
+                "capacity": 1,
+            })
         example_security_solution = azure.iot.SecuritySolution("example",
             name="example-Iot-Security-Solution",
             resource_group_name=example.name,
@@ -638,7 +638,7 @@ class SecuritySolution(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_workspaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecuritySolutionAdditionalWorkspaceArgs']]]]] = None,
+                 additional_workspaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecuritySolutionAdditionalWorkspaceArgs', 'SecuritySolutionAdditionalWorkspaceArgsDict']]]]] = None,
                  disabled_data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -650,7 +650,7 @@ class SecuritySolution(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  query_for_resources: Optional[pulumi.Input[str]] = None,
                  query_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 recommendations_enabled: Optional[pulumi.Input[pulumi.InputType['SecuritySolutionRecommendationsEnabledArgs']]] = None,
+                 recommendations_enabled: Optional[pulumi.Input[Union['SecuritySolutionRecommendationsEnabledArgs', 'SecuritySolutionRecommendationsEnabledArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -693,7 +693,7 @@ class SecuritySolution(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            additional_workspaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecuritySolutionAdditionalWorkspaceArgs']]]]] = None,
+            additional_workspaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecuritySolutionAdditionalWorkspaceArgs', 'SecuritySolutionAdditionalWorkspaceArgsDict']]]]] = None,
             disabled_data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
@@ -705,7 +705,7 @@ class SecuritySolution(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             query_for_resources: Optional[pulumi.Input[str]] = None,
             query_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            recommendations_enabled: Optional[pulumi.Input[pulumi.InputType['SecuritySolutionRecommendationsEnabledArgs']]] = None,
+            recommendations_enabled: Optional[pulumi.Input[Union['SecuritySolutionRecommendationsEnabledArgs', 'SecuritySolutionRecommendationsEnabledArgsDict']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'SecuritySolution':
         """
@@ -715,7 +715,7 @@ class SecuritySolution(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecuritySolutionAdditionalWorkspaceArgs']]]] additional_workspaces: A `additional_workspace` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecuritySolutionAdditionalWorkspaceArgs', 'SecuritySolutionAdditionalWorkspaceArgsDict']]]] additional_workspaces: A `additional_workspace` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disabled_data_sources: A list of disabled data sources for the Iot Security Solution. Possible value is `TwinData`.
         :param pulumi.Input[str] display_name: Specifies the Display Name for this Iot Security Solution.
         :param pulumi.Input[bool] enabled: Is the Iot Security Solution enabled? Defaults to `true`.
@@ -727,7 +727,7 @@ class SecuritySolution(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Iot Security Solution. Changing this forces a new resource to be created.
         :param pulumi.Input[str] query_for_resources: An Azure Resource Graph query used to set the resources monitored.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] query_subscription_ids: A list of subscription Ids on which the user defined resources query should be executed.
-        :param pulumi.Input[pulumi.InputType['SecuritySolutionRecommendationsEnabledArgs']] recommendations_enabled: A `recommendations_enabled` block of options to enable or disable as defined below.
+        :param pulumi.Input[Union['SecuritySolutionRecommendationsEnabledArgs', 'SecuritySolutionRecommendationsEnabledArgsDict']] recommendations_enabled: A `recommendations_enabled` block of options to enable or disable as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which to create the Iot Security Solution. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """

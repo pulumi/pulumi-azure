@@ -493,7 +493,7 @@ class Subnet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_outbound_access_enabled: Optional[pulumi.Input[bool]] = None,
-                 delegations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetDelegationArgs']]]]] = None,
+                 delegations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubnetDelegationArgs', 'SubnetDelegationArgsDict']]]]] = None,
                  enforce_private_link_endpoint_network_policies: Optional[pulumi.Input[bool]] = None,
                  enforce_private_link_service_network_policies: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -531,16 +531,16 @@ class Subnet(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="delegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.ContainerInstance/containerGroups",
-                    actions=[
+            delegations=[{
+                "name": "delegation",
+                "serviceDelegation": {
+                    "name": "Microsoft.ContainerInstance/containerGroups",
+                    "actions": [
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                         "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
                     ],
-                ),
-            )])
+                },
+            }])
         ```
 
         ## Import
@@ -557,7 +557,7 @@ class Subnet(pulumi.CustomResource):
                
                > **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
         :param pulumi.Input[bool] default_outbound_access_enabled: Enable default outbound access to the internet for the subnet. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetDelegationArgs']]]] delegations: One or more `delegation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SubnetDelegationArgs', 'SubnetDelegationArgsDict']]]] delegations: One or more `delegation` blocks as defined below.
         :param pulumi.Input[str] name: The name of the subnet. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_endpoint_network_policies: Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
                
@@ -604,16 +604,16 @@ class Subnet(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="delegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.ContainerInstance/containerGroups",
-                    actions=[
+            delegations=[{
+                "name": "delegation",
+                "serviceDelegation": {
+                    "name": "Microsoft.ContainerInstance/containerGroups",
+                    "actions": [
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                         "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
                     ],
-                ),
-            )])
+                },
+            }])
         ```
 
         ## Import
@@ -641,7 +641,7 @@ class Subnet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_outbound_access_enabled: Optional[pulumi.Input[bool]] = None,
-                 delegations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetDelegationArgs']]]]] = None,
+                 delegations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubnetDelegationArgs', 'SubnetDelegationArgsDict']]]]] = None,
                  enforce_private_link_endpoint_network_policies: Optional[pulumi.Input[bool]] = None,
                  enforce_private_link_service_network_policies: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -692,7 +692,7 @@ class Subnet(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             default_outbound_access_enabled: Optional[pulumi.Input[bool]] = None,
-            delegations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetDelegationArgs']]]]] = None,
+            delegations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubnetDelegationArgs', 'SubnetDelegationArgsDict']]]]] = None,
             enforce_private_link_endpoint_network_policies: Optional[pulumi.Input[bool]] = None,
             enforce_private_link_service_network_policies: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -714,7 +714,7 @@ class Subnet(pulumi.CustomResource):
                
                > **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
         :param pulumi.Input[bool] default_outbound_access_enabled: Enable default outbound access to the internet for the subnet. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetDelegationArgs']]]] delegations: One or more `delegation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SubnetDelegationArgs', 'SubnetDelegationArgsDict']]]] delegations: One or more `delegation` blocks as defined below.
         :param pulumi.Input[str] name: The name of the subnet. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_endpoint_network_policies: Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
                

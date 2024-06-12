@@ -526,7 +526,7 @@ class Subscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
-                 client_scoped_subscription: Optional[pulumi.Input[pulumi.InputType['SubscriptionClientScopedSubscriptionArgs']]] = None,
+                 client_scoped_subscription: Optional[pulumi.Input[Union['SubscriptionClientScopedSubscriptionArgs', 'SubscriptionClientScopedSubscriptionArgsDict']]] = None,
                  client_scoped_subscription_enabled: Optional[pulumi.Input[bool]] = None,
                  dead_lettering_on_filter_evaluation_error: Optional[pulumi.Input[bool]] = None,
                  dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
@@ -582,7 +582,7 @@ class Subscription(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_delete_on_idle: The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
-        :param pulumi.Input[pulumi.InputType['SubscriptionClientScopedSubscriptionArgs']] client_scoped_subscription: A `client_scoped_subscription` block as defined below.
+        :param pulumi.Input[Union['SubscriptionClientScopedSubscriptionArgs', 'SubscriptionClientScopedSubscriptionArgsDict']] client_scoped_subscription: A `client_scoped_subscription` block as defined below.
         :param pulumi.Input[bool] client_scoped_subscription_enabled: whether the subscription is scoped to a client id. Defaults to `false`.
                
                > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
@@ -659,7 +659,7 @@ class Subscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
-                 client_scoped_subscription: Optional[pulumi.Input[pulumi.InputType['SubscriptionClientScopedSubscriptionArgs']]] = None,
+                 client_scoped_subscription: Optional[pulumi.Input[Union['SubscriptionClientScopedSubscriptionArgs', 'SubscriptionClientScopedSubscriptionArgsDict']]] = None,
                  client_scoped_subscription_enabled: Optional[pulumi.Input[bool]] = None,
                  dead_lettering_on_filter_evaluation_error: Optional[pulumi.Input[bool]] = None,
                  dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
@@ -713,7 +713,7 @@ class Subscription(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
-            client_scoped_subscription: Optional[pulumi.Input[pulumi.InputType['SubscriptionClientScopedSubscriptionArgs']]] = None,
+            client_scoped_subscription: Optional[pulumi.Input[Union['SubscriptionClientScopedSubscriptionArgs', 'SubscriptionClientScopedSubscriptionArgsDict']]] = None,
             client_scoped_subscription_enabled: Optional[pulumi.Input[bool]] = None,
             dead_lettering_on_filter_evaluation_error: Optional[pulumi.Input[bool]] = None,
             dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
@@ -735,7 +735,7 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_delete_on_idle: The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
-        :param pulumi.Input[pulumi.InputType['SubscriptionClientScopedSubscriptionArgs']] client_scoped_subscription: A `client_scoped_subscription` block as defined below.
+        :param pulumi.Input[Union['SubscriptionClientScopedSubscriptionArgs', 'SubscriptionClientScopedSubscriptionArgsDict']] client_scoped_subscription: A `client_scoped_subscription` block as defined below.
         :param pulumi.Input[bool] client_scoped_subscription_enabled: whether the subscription is scoped to a client id. Defaults to `false`.
                
                > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).

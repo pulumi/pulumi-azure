@@ -492,8 +492,8 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  express_route_circuit_name: Optional[pulumi.Input[str]] = None,
                  ipv4_enabled: Optional[pulumi.Input[bool]] = None,
-                 ipv6: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringIpv6Args']]] = None,
-                 microsoft_peering_config: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs']]] = None,
+                 ipv6: Optional[pulumi.Input[Union['ExpressRouteCircuitPeeringIpv6Args', 'ExpressRouteCircuitPeeringIpv6ArgsDict']]] = None,
+                 microsoft_peering_config: Optional[pulumi.Input[Union['ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs', 'ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgsDict']]] = None,
                  peer_asn: Optional[pulumi.Input[int]] = None,
                  peering_type: Optional[pulumi.Input[str]] = None,
                  primary_peer_address_prefix: Optional[pulumi.Input[str]] = None,
@@ -524,10 +524,10 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             service_provider_name="Equinix",
             peering_location="Silicon Valley",
             bandwidth_in_mbps=50,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
-                tier="Standard",
-                family="MeteredData",
-            ),
+            sku={
+                "tier": "Standard",
+                "family": "MeteredData",
+            },
             allow_classic_operations=False,
             tags={
                 "environment": "Production",
@@ -541,17 +541,17 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             secondary_peer_address_prefix="123.0.0.4/30",
             ipv4_enabled=True,
             vlan_id=300,
-            microsoft_peering_config=azure.network.ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs(
-                advertised_public_prefixes=["123.1.0.0/24"],
-            ),
-            ipv6=azure.network.ExpressRouteCircuitPeeringIpv6Args(
-                primary_peer_address_prefix="2002:db01::/126",
-                secondary_peer_address_prefix="2003:db01::/126",
-                enabled=True,
-                microsoft_peering=azure.network.ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs(
-                    advertised_public_prefixes=["2002:db01::/126"],
-                ),
-            ))
+            microsoft_peering_config={
+                "advertisedPublicPrefixes": ["123.1.0.0/24"],
+            },
+            ipv6={
+                "primaryPeerAddressPrefix": "2002:db01::/126",
+                "secondaryPeerAddressPrefix": "2003:db01::/126",
+                "enabled": True,
+                "microsoftPeering": {
+                    "advertisedPublicPrefixes": ["2002:db01::/126"],
+                },
+            })
         ```
 
         ### Creating Azure Private Peering)
@@ -570,10 +570,10 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             service_provider_name="Equinix",
             peering_location="Silicon Valley",
             bandwidth_in_mbps=50,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
-                tier="Standard",
-                family="MeteredData",
-            ),
+            sku={
+                "tier": "Standard",
+                "family": "MeteredData",
+            },
             allow_classic_operations=False,
             tags={
                 "environment": "Production",
@@ -587,11 +587,11 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             secondary_peer_address_prefix="123.0.0.4/30",
             ipv4_enabled=True,
             vlan_id=300,
-            ipv6=azure.network.ExpressRouteCircuitPeeringIpv6Args(
-                primary_peer_address_prefix="2002:db01::/126",
-                secondary_peer_address_prefix="2003:db01::/126",
-                enabled=True,
-            ))
+            ipv6={
+                "primaryPeerAddressPrefix": "2002:db01::/126",
+                "secondaryPeerAddressPrefix": "2003:db01::/126",
+                "enabled": True,
+            })
         ```
 
         ## Import
@@ -606,8 +606,8 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] express_route_circuit_name: The name of the ExpressRoute Circuit in which to create the Peering. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ipv4_enabled: A boolean value indicating whether the IPv4 peering is enabled. Defaults to `true`.
-        :param pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringIpv6Args']] ipv6: A `ipv6` block as defined below.
-        :param pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs']] microsoft_peering_config: A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering` and config for IPv4.
+        :param pulumi.Input[Union['ExpressRouteCircuitPeeringIpv6Args', 'ExpressRouteCircuitPeeringIpv6ArgsDict']] ipv6: A `ipv6` block as defined below.
+        :param pulumi.Input[Union['ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs', 'ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgsDict']] microsoft_peering_config: A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering` and config for IPv4.
         :param pulumi.Input[int] peer_asn: The Either a 16-bit or a 32-bit ASN. Can either be public or private.
         :param pulumi.Input[str] peering_type: The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. 
                
@@ -648,10 +648,10 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             service_provider_name="Equinix",
             peering_location="Silicon Valley",
             bandwidth_in_mbps=50,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
-                tier="Standard",
-                family="MeteredData",
-            ),
+            sku={
+                "tier": "Standard",
+                "family": "MeteredData",
+            },
             allow_classic_operations=False,
             tags={
                 "environment": "Production",
@@ -665,17 +665,17 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             secondary_peer_address_prefix="123.0.0.4/30",
             ipv4_enabled=True,
             vlan_id=300,
-            microsoft_peering_config=azure.network.ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs(
-                advertised_public_prefixes=["123.1.0.0/24"],
-            ),
-            ipv6=azure.network.ExpressRouteCircuitPeeringIpv6Args(
-                primary_peer_address_prefix="2002:db01::/126",
-                secondary_peer_address_prefix="2003:db01::/126",
-                enabled=True,
-                microsoft_peering=azure.network.ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs(
-                    advertised_public_prefixes=["2002:db01::/126"],
-                ),
-            ))
+            microsoft_peering_config={
+                "advertisedPublicPrefixes": ["123.1.0.0/24"],
+            },
+            ipv6={
+                "primaryPeerAddressPrefix": "2002:db01::/126",
+                "secondaryPeerAddressPrefix": "2003:db01::/126",
+                "enabled": True,
+                "microsoftPeering": {
+                    "advertisedPublicPrefixes": ["2002:db01::/126"],
+                },
+            })
         ```
 
         ### Creating Azure Private Peering)
@@ -694,10 +694,10 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             service_provider_name="Equinix",
             peering_location="Silicon Valley",
             bandwidth_in_mbps=50,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
-                tier="Standard",
-                family="MeteredData",
-            ),
+            sku={
+                "tier": "Standard",
+                "family": "MeteredData",
+            },
             allow_classic_operations=False,
             tags={
                 "environment": "Production",
@@ -711,11 +711,11 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             secondary_peer_address_prefix="123.0.0.4/30",
             ipv4_enabled=True,
             vlan_id=300,
-            ipv6=azure.network.ExpressRouteCircuitPeeringIpv6Args(
-                primary_peer_address_prefix="2002:db01::/126",
-                secondary_peer_address_prefix="2003:db01::/126",
-                enabled=True,
-            ))
+            ipv6={
+                "primaryPeerAddressPrefix": "2002:db01::/126",
+                "secondaryPeerAddressPrefix": "2003:db01::/126",
+                "enabled": True,
+            })
         ```
 
         ## Import
@@ -743,8 +743,8 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  express_route_circuit_name: Optional[pulumi.Input[str]] = None,
                  ipv4_enabled: Optional[pulumi.Input[bool]] = None,
-                 ipv6: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringIpv6Args']]] = None,
-                 microsoft_peering_config: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs']]] = None,
+                 ipv6: Optional[pulumi.Input[Union['ExpressRouteCircuitPeeringIpv6Args', 'ExpressRouteCircuitPeeringIpv6ArgsDict']]] = None,
+                 microsoft_peering_config: Optional[pulumi.Input[Union['ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs', 'ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgsDict']]] = None,
                  peer_asn: Optional[pulumi.Input[int]] = None,
                  peering_type: Optional[pulumi.Input[str]] = None,
                  primary_peer_address_prefix: Optional[pulumi.Input[str]] = None,
@@ -802,8 +802,8 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             express_route_circuit_name: Optional[pulumi.Input[str]] = None,
             gateway_manager_etag: Optional[pulumi.Input[str]] = None,
             ipv4_enabled: Optional[pulumi.Input[bool]] = None,
-            ipv6: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringIpv6Args']]] = None,
-            microsoft_peering_config: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs']]] = None,
+            ipv6: Optional[pulumi.Input[Union['ExpressRouteCircuitPeeringIpv6Args', 'ExpressRouteCircuitPeeringIpv6ArgsDict']]] = None,
+            microsoft_peering_config: Optional[pulumi.Input[Union['ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs', 'ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgsDict']]] = None,
             peer_asn: Optional[pulumi.Input[int]] = None,
             peering_type: Optional[pulumi.Input[str]] = None,
             primary_azure_port: Optional[pulumi.Input[str]] = None,
@@ -824,8 +824,8 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         :param pulumi.Input[int] azure_asn: The ASN used by Azure.
         :param pulumi.Input[str] express_route_circuit_name: The name of the ExpressRoute Circuit in which to create the Peering. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ipv4_enabled: A boolean value indicating whether the IPv4 peering is enabled. Defaults to `true`.
-        :param pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringIpv6Args']] ipv6: A `ipv6` block as defined below.
-        :param pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs']] microsoft_peering_config: A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering` and config for IPv4.
+        :param pulumi.Input[Union['ExpressRouteCircuitPeeringIpv6Args', 'ExpressRouteCircuitPeeringIpv6ArgsDict']] ipv6: A `ipv6` block as defined below.
+        :param pulumi.Input[Union['ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs', 'ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgsDict']] microsoft_peering_config: A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering` and config for IPv4.
         :param pulumi.Input[int] peer_asn: The Either a 16-bit or a 32-bit ASN. Can either be public or private.
         :param pulumi.Input[str] peering_type: The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. 
                

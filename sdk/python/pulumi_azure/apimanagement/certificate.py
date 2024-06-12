@@ -381,9 +381,9 @@ class Certificate(pulumi.CustomResource):
             publisher_name="My Company",
             publisher_email="company@terraform.io",
             sku_name="Developer_1",
-            identity=azure.apimanagement.ServiceIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_key_vault = azure.keyvault.KeyVault("example",
             name="examplekeyvault",
             location=example.location,
@@ -399,24 +399,24 @@ class Certificate(pulumi.CustomResource):
         example_certificate = azure.keyvault.Certificate("example",
             name="example-cert",
             key_vault_id=example_key_vault.id,
-            certificate=azure.keyvault.CertificateCertificateArgs(
-                contents=std.filebase64(input="example_cert.pfx").result,
-                password="terraform",
-            ),
-            certificate_policy=azure.keyvault.CertificateCertificatePolicyArgs(
-                issuer_parameters=azure.keyvault.CertificateCertificatePolicyIssuerParametersArgs(
-                    name="Self",
-                ),
-                key_properties=azure.keyvault.CertificateCertificatePolicyKeyPropertiesArgs(
-                    exportable=True,
-                    key_size=2048,
-                    key_type="RSA",
-                    reuse_key=False,
-                ),
-                secret_properties=azure.keyvault.CertificateCertificatePolicySecretPropertiesArgs(
-                    content_type="application/x-pkcs12",
-                ),
-            ))
+            certificate={
+                "contents": std.filebase64(input="example_cert.pfx").result,
+                "password": "terraform",
+            },
+            certificate_policy={
+                "issuerParameters": {
+                    "name": "Self",
+                },
+                "keyProperties": {
+                    "exportable": True,
+                    "keySize": 2048,
+                    "keyType": "RSA",
+                    "reuseKey": False,
+                },
+                "secretProperties": {
+                    "contentType": "application/x-pkcs12",
+                },
+            })
         example_certificate2 = azure.apimanagement.Certificate("example",
             name="example-cert",
             api_management_name=example_service.name,
@@ -501,9 +501,9 @@ class Certificate(pulumi.CustomResource):
             publisher_name="My Company",
             publisher_email="company@terraform.io",
             sku_name="Developer_1",
-            identity=azure.apimanagement.ServiceIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_key_vault = azure.keyvault.KeyVault("example",
             name="examplekeyvault",
             location=example.location,
@@ -519,24 +519,24 @@ class Certificate(pulumi.CustomResource):
         example_certificate = azure.keyvault.Certificate("example",
             name="example-cert",
             key_vault_id=example_key_vault.id,
-            certificate=azure.keyvault.CertificateCertificateArgs(
-                contents=std.filebase64(input="example_cert.pfx").result,
-                password="terraform",
-            ),
-            certificate_policy=azure.keyvault.CertificateCertificatePolicyArgs(
-                issuer_parameters=azure.keyvault.CertificateCertificatePolicyIssuerParametersArgs(
-                    name="Self",
-                ),
-                key_properties=azure.keyvault.CertificateCertificatePolicyKeyPropertiesArgs(
-                    exportable=True,
-                    key_size=2048,
-                    key_type="RSA",
-                    reuse_key=False,
-                ),
-                secret_properties=azure.keyvault.CertificateCertificatePolicySecretPropertiesArgs(
-                    content_type="application/x-pkcs12",
-                ),
-            ))
+            certificate={
+                "contents": std.filebase64(input="example_cert.pfx").result,
+                "password": "terraform",
+            },
+            certificate_policy={
+                "issuerParameters": {
+                    "name": "Self",
+                },
+                "keyProperties": {
+                    "exportable": True,
+                    "keySize": 2048,
+                    "keyType": "RSA",
+                    "reuseKey": False,
+                },
+                "secretProperties": {
+                    "contentType": "application/x-pkcs12",
+                },
+            })
         example_certificate2 = azure.apimanagement.Certificate("example",
             name="example-cert",
             api_management_name=example_service.name,

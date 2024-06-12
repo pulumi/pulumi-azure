@@ -282,13 +282,13 @@ def get_public_ip(name: Optional[str] = None,
         name="test-nic",
         location=example_resource_group.location,
         resource_group_name=example_resource_group.name,
-        ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-            name="testconfiguration1",
-            subnet_id=example_subnet.id,
-            private_ip_address_allocation="Static",
-            private_ip_address="10.0.2.5",
-            public_ip_address_id=example_public_ip.id,
-        )])
+        ip_configurations=[{
+            "name": "testconfiguration1",
+            "subnetId": example_subnet.id,
+            "privateIpAddressAllocation": "Static",
+            "privateIpAddress": "10.0.2.5",
+            "publicIpAddressId": example_public_ip.id,
+        }])
     example_virtual_machine = azure.compute.VirtualMachine("example",
         name="test-vm",
         location=example_resource_group.location,
@@ -382,13 +382,13 @@ def get_public_ip_output(name: Optional[pulumi.Input[str]] = None,
         name="test-nic",
         location=example_resource_group.location,
         resource_group_name=example_resource_group.name,
-        ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-            name="testconfiguration1",
-            subnet_id=example_subnet.id,
-            private_ip_address_allocation="Static",
-            private_ip_address="10.0.2.5",
-            public_ip_address_id=example_public_ip.id,
-        )])
+        ip_configurations=[{
+            "name": "testconfiguration1",
+            "subnetId": example_subnet.id,
+            "privateIpAddressAllocation": "Static",
+            "privateIpAddress": "10.0.2.5",
+            "publicIpAddressId": example_public_ip.id,
+        }])
     example_virtual_machine = azure.compute.VirtualMachine("example",
         name="test-vm",
         location=example_resource_group.location,

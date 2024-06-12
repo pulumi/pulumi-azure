@@ -702,8 +702,8 @@ class Metadata(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 author: Optional[pulumi.Input[pulumi.InputType['MetadataAuthorArgs']]] = None,
-                 category: Optional[pulumi.Input[pulumi.InputType['MetadataCategoryArgs']]] = None,
+                 author: Optional[pulumi.Input[Union['MetadataAuthorArgs', 'MetadataAuthorArgsDict']]] = None,
+                 category: Optional[pulumi.Input[Union['MetadataCategoryArgs', 'MetadataCategoryArgsDict']]] = None,
                  content_id: Optional[pulumi.Input[str]] = None,
                  content_schema_version: Optional[pulumi.Input[str]] = None,
                  custom_version: Optional[pulumi.Input[str]] = None,
@@ -717,8 +717,8 @@ class Metadata(pulumi.CustomResource):
                  preview_images: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  preview_images_darks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['MetadataSourceArgs']]] = None,
-                 support: Optional[pulumi.Input[pulumi.InputType['MetadataSupportArgs']]] = None,
+                 source: Optional[pulumi.Input[Union['MetadataSourceArgs', 'MetadataSourceArgsDict']]] = None,
+                 support: Optional[pulumi.Input[Union['MetadataSupportArgs', 'MetadataSupportArgsDict']]] = None,
                  threat_analysis_tactics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  threat_analysis_techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -747,10 +747,10 @@ class Metadata(pulumi.CustomResource):
             resource_group_name=example.name,
             workspace_resource_id=example_analytics_workspace.id,
             workspace_name=example_analytics_workspace.name,
-            plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
-                publisher="Microsoft",
-                product="OMSGallery/SecurityInsights",
-            ))
+            plan={
+                "publisher": "Microsoft",
+                "product": "OMSGallery/SecurityInsights",
+            })
         example_alert_rule_nrt = azure.sentinel.AlertRuleNrt("example",
             name="example",
             log_analytics_workspace_id=example_analytics_solution.workspace_resource_id,
@@ -779,8 +779,8 @@ class Metadata(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['MetadataAuthorArgs']] author: An `author` blocks as defined below.
-        :param pulumi.Input[pulumi.InputType['MetadataCategoryArgs']] category: A `category` block as defined below.
+        :param pulumi.Input[Union['MetadataAuthorArgs', 'MetadataAuthorArgsDict']] author: An `author` blocks as defined below.
+        :param pulumi.Input[Union['MetadataCategoryArgs', 'MetadataCategoryArgsDict']] category: A `category` block as defined below.
         :param pulumi.Input[str] content_id: The ID of the content. Used to identify dependencies and content from solutions or community.
         :param pulumi.Input[str] content_schema_version: Schema version of the content. Can be used to distinguish between flow based on the schema version.
         :param pulumi.Input[str] custom_version: The Custom version of the content.
@@ -794,8 +794,8 @@ class Metadata(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] preview_images: Specifies a list of preview image file names. These will be taken from solution artifacts.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] preview_images_darks: Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] providers: Specifies a list of providers for the solution content item.
-        :param pulumi.Input[pulumi.InputType['MetadataSourceArgs']] source: A `source` block as defined below.
-        :param pulumi.Input[pulumi.InputType['MetadataSupportArgs']] support: A `support` block as defined below.
+        :param pulumi.Input[Union['MetadataSourceArgs', 'MetadataSourceArgsDict']] source: A `source` block as defined below.
+        :param pulumi.Input[Union['MetadataSupportArgs', 'MetadataSupportArgsDict']] support: A `support` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_analysis_tactics: Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_analysis_techniques: Specifies a list of techniques the resource covers.
         :param pulumi.Input[str] version: Version of the content.
@@ -830,10 +830,10 @@ class Metadata(pulumi.CustomResource):
             resource_group_name=example.name,
             workspace_resource_id=example_analytics_workspace.id,
             workspace_name=example_analytics_workspace.name,
-            plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
-                publisher="Microsoft",
-                product="OMSGallery/SecurityInsights",
-            ))
+            plan={
+                "publisher": "Microsoft",
+                "product": "OMSGallery/SecurityInsights",
+            })
         example_alert_rule_nrt = azure.sentinel.AlertRuleNrt("example",
             name="example",
             log_analytics_workspace_id=example_analytics_solution.workspace_resource_id,
@@ -875,8 +875,8 @@ class Metadata(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 author: Optional[pulumi.Input[pulumi.InputType['MetadataAuthorArgs']]] = None,
-                 category: Optional[pulumi.Input[pulumi.InputType['MetadataCategoryArgs']]] = None,
+                 author: Optional[pulumi.Input[Union['MetadataAuthorArgs', 'MetadataAuthorArgsDict']]] = None,
+                 category: Optional[pulumi.Input[Union['MetadataCategoryArgs', 'MetadataCategoryArgsDict']]] = None,
                  content_id: Optional[pulumi.Input[str]] = None,
                  content_schema_version: Optional[pulumi.Input[str]] = None,
                  custom_version: Optional[pulumi.Input[str]] = None,
@@ -890,8 +890,8 @@ class Metadata(pulumi.CustomResource):
                  preview_images: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  preview_images_darks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['MetadataSourceArgs']]] = None,
-                 support: Optional[pulumi.Input[pulumi.InputType['MetadataSupportArgs']]] = None,
+                 source: Optional[pulumi.Input[Union['MetadataSourceArgs', 'MetadataSourceArgsDict']]] = None,
+                 support: Optional[pulumi.Input[Union['MetadataSupportArgs', 'MetadataSupportArgsDict']]] = None,
                  threat_analysis_tactics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  threat_analysis_techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -944,8 +944,8 @@ class Metadata(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            author: Optional[pulumi.Input[pulumi.InputType['MetadataAuthorArgs']]] = None,
-            category: Optional[pulumi.Input[pulumi.InputType['MetadataCategoryArgs']]] = None,
+            author: Optional[pulumi.Input[Union['MetadataAuthorArgs', 'MetadataAuthorArgsDict']]] = None,
+            category: Optional[pulumi.Input[Union['MetadataCategoryArgs', 'MetadataCategoryArgsDict']]] = None,
             content_id: Optional[pulumi.Input[str]] = None,
             content_schema_version: Optional[pulumi.Input[str]] = None,
             custom_version: Optional[pulumi.Input[str]] = None,
@@ -959,8 +959,8 @@ class Metadata(pulumi.CustomResource):
             preview_images: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             preview_images_darks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            source: Optional[pulumi.Input[pulumi.InputType['MetadataSourceArgs']]] = None,
-            support: Optional[pulumi.Input[pulumi.InputType['MetadataSupportArgs']]] = None,
+            source: Optional[pulumi.Input[Union['MetadataSourceArgs', 'MetadataSourceArgsDict']]] = None,
+            support: Optional[pulumi.Input[Union['MetadataSupportArgs', 'MetadataSupportArgsDict']]] = None,
             threat_analysis_tactics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             threat_analysis_techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             version: Optional[pulumi.Input[str]] = None,
@@ -972,8 +972,8 @@ class Metadata(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['MetadataAuthorArgs']] author: An `author` blocks as defined below.
-        :param pulumi.Input[pulumi.InputType['MetadataCategoryArgs']] category: A `category` block as defined below.
+        :param pulumi.Input[Union['MetadataAuthorArgs', 'MetadataAuthorArgsDict']] author: An `author` blocks as defined below.
+        :param pulumi.Input[Union['MetadataCategoryArgs', 'MetadataCategoryArgsDict']] category: A `category` block as defined below.
         :param pulumi.Input[str] content_id: The ID of the content. Used to identify dependencies and content from solutions or community.
         :param pulumi.Input[str] content_schema_version: Schema version of the content. Can be used to distinguish between flow based on the schema version.
         :param pulumi.Input[str] custom_version: The Custom version of the content.
@@ -987,8 +987,8 @@ class Metadata(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] preview_images: Specifies a list of preview image file names. These will be taken from solution artifacts.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] preview_images_darks: Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] providers: Specifies a list of providers for the solution content item.
-        :param pulumi.Input[pulumi.InputType['MetadataSourceArgs']] source: A `source` block as defined below.
-        :param pulumi.Input[pulumi.InputType['MetadataSupportArgs']] support: A `support` block as defined below.
+        :param pulumi.Input[Union['MetadataSourceArgs', 'MetadataSourceArgsDict']] source: A `source` block as defined below.
+        :param pulumi.Input[Union['MetadataSupportArgs', 'MetadataSupportArgsDict']] support: A `support` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_analysis_tactics: Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_analysis_techniques: Specifies a list of techniques the resource covers.
         :param pulumi.Input[str] version: Version of the content.

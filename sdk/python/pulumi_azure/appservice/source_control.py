@@ -339,7 +339,7 @@ class SourceControl(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_id: Optional[pulumi.Input[str]] = None,
                  branch: Optional[pulumi.Input[str]] = None,
-                 github_action_configuration: Optional[pulumi.Input[pulumi.InputType['SourceControlGithubActionConfigurationArgs']]] = None,
+                 github_action_configuration: Optional[pulumi.Input[Union['SourceControlGithubActionConfigurationArgs', 'SourceControlGithubActionConfigurationArgsDict']]] = None,
                  repo_url: Optional[pulumi.Input[str]] = None,
                  rollback_enabled: Optional[pulumi.Input[bool]] = None,
                  use_local_git: Optional[pulumi.Input[bool]] = None,
@@ -369,7 +369,7 @@ class SourceControl(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example_service_plan.location,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.LinuxWebAppSiteConfigArgs())
+            site_config={})
         example_source_control = azure.appservice.SourceControl("example",
             app_id=example_linux_web_app.id,
             repo_url="https://github.com/Azure-Samples/python-docs-hello-world",
@@ -390,7 +390,7 @@ class SourceControl(pulumi.CustomResource):
                
                > **NOTE:** Function apps are not supported at this time.
         :param pulumi.Input[str] branch: The branch name to use for deployments. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['SourceControlGithubActionConfigurationArgs']] github_action_configuration: A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['SourceControlGithubActionConfigurationArgs', 'SourceControlGithubActionConfigurationArgsDict']] github_action_configuration: A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] repo_url: The URL for the repository. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] rollback_enabled: Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
                
@@ -428,7 +428,7 @@ class SourceControl(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example_service_plan.location,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.LinuxWebAppSiteConfigArgs())
+            site_config={})
         example_source_control = azure.appservice.SourceControl("example",
             app_id=example_linux_web_app.id,
             repo_url="https://github.com/Azure-Samples/python-docs-hello-world",
@@ -460,7 +460,7 @@ class SourceControl(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_id: Optional[pulumi.Input[str]] = None,
                  branch: Optional[pulumi.Input[str]] = None,
-                 github_action_configuration: Optional[pulumi.Input[pulumi.InputType['SourceControlGithubActionConfigurationArgs']]] = None,
+                 github_action_configuration: Optional[pulumi.Input[Union['SourceControlGithubActionConfigurationArgs', 'SourceControlGithubActionConfigurationArgsDict']]] = None,
                  repo_url: Optional[pulumi.Input[str]] = None,
                  rollback_enabled: Optional[pulumi.Input[bool]] = None,
                  use_local_git: Optional[pulumi.Input[bool]] = None,
@@ -499,7 +499,7 @@ class SourceControl(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             app_id: Optional[pulumi.Input[str]] = None,
             branch: Optional[pulumi.Input[str]] = None,
-            github_action_configuration: Optional[pulumi.Input[pulumi.InputType['SourceControlGithubActionConfigurationArgs']]] = None,
+            github_action_configuration: Optional[pulumi.Input[Union['SourceControlGithubActionConfigurationArgs', 'SourceControlGithubActionConfigurationArgsDict']]] = None,
             repo_url: Optional[pulumi.Input[str]] = None,
             rollback_enabled: Optional[pulumi.Input[bool]] = None,
             scm_type: Optional[pulumi.Input[str]] = None,
@@ -518,7 +518,7 @@ class SourceControl(pulumi.CustomResource):
                
                > **NOTE:** Function apps are not supported at this time.
         :param pulumi.Input[str] branch: The branch name to use for deployments. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['SourceControlGithubActionConfigurationArgs']] github_action_configuration: A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['SourceControlGithubActionConfigurationArgs', 'SourceControlGithubActionConfigurationArgsDict']] github_action_configuration: A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] repo_url: The URL for the repository. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] rollback_enabled: Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
                

@@ -128,7 +128,7 @@ class CacheAccessPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CacheAccessPolicyAccessRuleArgs']]]]] = None,
+                 access_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CacheAccessPolicyAccessRuleArgs', 'CacheAccessPolicyAccessRuleArgsDict']]]]] = None,
                  hpc_cache_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -164,10 +164,10 @@ class CacheAccessPolicy(pulumi.CustomResource):
         example_cache_access_policy = azure.hpc.CacheAccessPolicy("example",
             name="example",
             hpc_cache_id=example_cache.id,
-            access_rules=[azure.hpc.CacheAccessPolicyAccessRuleArgs(
-                scope="default",
-                access="rw",
-            )])
+            access_rules=[{
+                "scope": "default",
+                "access": "rw",
+            }])
         ```
 
         ## Import
@@ -180,7 +180,7 @@ class CacheAccessPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CacheAccessPolicyAccessRuleArgs']]]] access_rules: One or more `access_rule` blocks (up to three) as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CacheAccessPolicyAccessRuleArgs', 'CacheAccessPolicyAccessRuleArgsDict']]]] access_rules: One or more `access_rule` blocks (up to three) as defined below.
         :param pulumi.Input[str] hpc_cache_id: The ID of the HPC Cache that this HPC Cache Access Policy resides in. Changing this forces a new HPC Cache Access Policy to be created.
         :param pulumi.Input[str] name: The name which should be used for this HPC Cache Access Policy. Changing this forces a new HPC Cache Access Policy to be created.
         """
@@ -222,10 +222,10 @@ class CacheAccessPolicy(pulumi.CustomResource):
         example_cache_access_policy = azure.hpc.CacheAccessPolicy("example",
             name="example",
             hpc_cache_id=example_cache.id,
-            access_rules=[azure.hpc.CacheAccessPolicyAccessRuleArgs(
-                scope="default",
-                access="rw",
-            )])
+            access_rules=[{
+                "scope": "default",
+                "access": "rw",
+            }])
         ```
 
         ## Import
@@ -251,7 +251,7 @@ class CacheAccessPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CacheAccessPolicyAccessRuleArgs']]]]] = None,
+                 access_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CacheAccessPolicyAccessRuleArgs', 'CacheAccessPolicyAccessRuleArgsDict']]]]] = None,
                  hpc_cache_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -280,7 +280,7 @@ class CacheAccessPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CacheAccessPolicyAccessRuleArgs']]]]] = None,
+            access_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CacheAccessPolicyAccessRuleArgs', 'CacheAccessPolicyAccessRuleArgsDict']]]]] = None,
             hpc_cache_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'CacheAccessPolicy':
         """
@@ -290,7 +290,7 @@ class CacheAccessPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CacheAccessPolicyAccessRuleArgs']]]] access_rules: One or more `access_rule` blocks (up to three) as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CacheAccessPolicyAccessRuleArgs', 'CacheAccessPolicyAccessRuleArgsDict']]]] access_rules: One or more `access_rule` blocks (up to three) as defined below.
         :param pulumi.Input[str] hpc_cache_id: The ID of the HPC Cache that this HPC Cache Access Policy resides in. Changing this forces a new HPC Cache Access Policy to be created.
         :param pulumi.Input[str] name: The name which should be used for this HPC Cache Access Policy. Changing this forces a new HPC Cache Access Policy to be created.
         """

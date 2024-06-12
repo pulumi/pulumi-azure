@@ -352,9 +352,9 @@ class Webhook(pulumi.CustomResource):
             log_progress=True,
             description="This is an example runbook",
             runbook_type="PowerShellWorkflow",
-            publish_content_link=azure.automation.RunBookPublishContentLinkArgs(
-                uri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
-            ))
+            publish_content_link={
+                "uri": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
+            })
         example_webhook = azure.automation.Webhook("example",
             name="TestRunbook_webhook",
             resource_group_name=example.name,
@@ -419,9 +419,9 @@ class Webhook(pulumi.CustomResource):
             log_progress=True,
             description="This is an example runbook",
             runbook_type="PowerShellWorkflow",
-            publish_content_link=azure.automation.RunBookPublishContentLinkArgs(
-                uri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
-            ))
+            publish_content_link={
+                "uri": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
+            })
         example_webhook = azure.automation.Webhook("example",
             name="TestRunbook_webhook",
             resource_group_name=example.name,

@@ -152,14 +152,14 @@ class ApiOperationTag(pulumi.CustomResource):
             method="DELETE",
             url_template="/users/{id}/delete",
             description="This can only be done by the logged in user.",
-            template_parameters=[azure.apimanagement.ApiOperationTemplateParameterArgs(
-                name="id",
-                type="number",
-                required=True,
-            )],
-            responses=[azure.apimanagement.ApiOperationResponseArgs(
-                status_code=200,
-            )])
+            template_parameters=[{
+                "name": "id",
+                "type": "number",
+                "required": True,
+            }],
+            responses=[{
+                "statusCode": 200,
+            }])
         example_api_operation_tag = azure.apimanagement.ApiOperationTag("example",
             name="example-Tag",
             api_operation_id=example_api_operation.id,
@@ -208,14 +208,14 @@ class ApiOperationTag(pulumi.CustomResource):
             method="DELETE",
             url_template="/users/{id}/delete",
             description="This can only be done by the logged in user.",
-            template_parameters=[azure.apimanagement.ApiOperationTemplateParameterArgs(
-                name="id",
-                type="number",
-                required=True,
-            )],
-            responses=[azure.apimanagement.ApiOperationResponseArgs(
-                status_code=200,
-            )])
+            template_parameters=[{
+                "name": "id",
+                "type": "number",
+                "required": True,
+            }],
+            responses=[{
+                "statusCode": 200,
+            }])
         example_api_operation_tag = azure.apimanagement.ApiOperationTag("example",
             name="example-Tag",
             api_operation_id=example_api_operation.id,

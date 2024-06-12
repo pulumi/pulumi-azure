@@ -215,11 +215,11 @@ class CacheAccessPolicyAssignment(pulumi.CustomResource):
             family="P",
             sku_name="Premium",
             enable_non_ssl_port=False,
-            redis_configuration=azure.redis.CacheRedisConfigurationArgs(
-                maxmemory_reserved=2,
-                maxmemory_delta=2,
-                maxmemory_policy="allkeys-lru",
-            ))
+            redis_configuration={
+                "maxmemoryReserved": 2,
+                "maxmemoryDelta": 2,
+                "maxmemoryPolicy": "allkeys-lru",
+            })
         example_cache_access_policy_assignment = azure.redis.CacheAccessPolicyAssignment("example",
             name="example",
             redis_cache_id=example_cache.id,
@@ -271,11 +271,11 @@ class CacheAccessPolicyAssignment(pulumi.CustomResource):
             family="P",
             sku_name="Premium",
             enable_non_ssl_port=False,
-            redis_configuration=azure.redis.CacheRedisConfigurationArgs(
-                maxmemory_reserved=2,
-                maxmemory_delta=2,
-                maxmemory_policy="allkeys-lru",
-            ))
+            redis_configuration={
+                "maxmemoryReserved": 2,
+                "maxmemoryDelta": 2,
+                "maxmemoryPolicy": "allkeys-lru",
+            })
         example_cache_access_policy_assignment = azure.redis.CacheAccessPolicyAssignment("example",
             name="example",
             redis_cache_id=example_cache.id,

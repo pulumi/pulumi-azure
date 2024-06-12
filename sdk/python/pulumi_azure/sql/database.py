@@ -716,7 +716,7 @@ class Database(pulumi.CustomResource):
                  create_mode: Optional[pulumi.Input[str]] = None,
                  edition: Optional[pulumi.Input[str]] = None,
                  elastic_pool_name: Optional[pulumi.Input[str]] = None,
-                 import_: Optional[pulumi.Input[pulumi.InputType['DatabaseImportArgs']]] = None,
+                 import_: Optional[pulumi.Input[Union['DatabaseImportArgs', 'DatabaseImportArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_size_bytes: Optional[pulumi.Input[str]] = None,
                  max_size_gb: Optional[pulumi.Input[str]] = None,
@@ -730,7 +730,7 @@ class Database(pulumi.CustomResource):
                  source_database_deletion_date: Optional[pulumi.Input[str]] = None,
                  source_database_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArgs']]] = None,
+                 threat_detection_policy: Optional[pulumi.Input[Union['DatabaseThreatDetectionPolicyArgs', 'DatabaseThreatDetectionPolicyArgsDict']]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -783,7 +783,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] create_mode: Specifies how to create the database. Valid values are: `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`, `PointInTimeRestore`, `Recovery`, `Restore` or `RestoreLongTermRetentionBackup`. Must be `Default` to create a new database. Defaults to `Default`. Please see [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate#createmode)
         :param pulumi.Input[str] edition: The edition of the database to be created. Applies only if `create_mode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
         :param pulumi.Input[str] elastic_pool_name: The name of the elastic database pool.
-        :param pulumi.Input[pulumi.InputType['DatabaseImportArgs']] import_: A `import` block as documented below. `create_mode` must be set to `Default`.
+        :param pulumi.Input[Union['DatabaseImportArgs', 'DatabaseImportArgsDict']] import_: A `import` block as documented below. `create_mode` must be set to `Default`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] max_size_bytes: The maximum size that the database can grow to. Applies only if `create_mode` is `Default`. Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
         :param pulumi.Input[str] name: The name of the database. Changing this forces a new resource to be created.
@@ -797,7 +797,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] source_database_deletion_date: The deletion date time of the source database. Only applies to deleted databases where `create_mode` is `PointInTimeRestore`.
         :param pulumi.Input[str] source_database_id: The URI of the source database if `create_mode` value is not `Default`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArgs']] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+        :param pulumi.Input[Union['DatabaseThreatDetectionPolicyArgs', 'DatabaseThreatDetectionPolicyArgsDict']] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
         """
         ...
@@ -869,7 +869,7 @@ class Database(pulumi.CustomResource):
                  create_mode: Optional[pulumi.Input[str]] = None,
                  edition: Optional[pulumi.Input[str]] = None,
                  elastic_pool_name: Optional[pulumi.Input[str]] = None,
-                 import_: Optional[pulumi.Input[pulumi.InputType['DatabaseImportArgs']]] = None,
+                 import_: Optional[pulumi.Input[Union['DatabaseImportArgs', 'DatabaseImportArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_size_bytes: Optional[pulumi.Input[str]] = None,
                  max_size_gb: Optional[pulumi.Input[str]] = None,
@@ -883,7 +883,7 @@ class Database(pulumi.CustomResource):
                  source_database_deletion_date: Optional[pulumi.Input[str]] = None,
                  source_database_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArgs']]] = None,
+                 threat_detection_policy: Optional[pulumi.Input[Union['DatabaseThreatDetectionPolicyArgs', 'DatabaseThreatDetectionPolicyArgsDict']]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -938,7 +938,7 @@ class Database(pulumi.CustomResource):
             edition: Optional[pulumi.Input[str]] = None,
             elastic_pool_name: Optional[pulumi.Input[str]] = None,
             encryption: Optional[pulumi.Input[str]] = None,
-            import_: Optional[pulumi.Input[pulumi.InputType['DatabaseImportArgs']]] = None,
+            import_: Optional[pulumi.Input[Union['DatabaseImportArgs', 'DatabaseImportArgsDict']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             max_size_bytes: Optional[pulumi.Input[str]] = None,
             max_size_gb: Optional[pulumi.Input[str]] = None,
@@ -952,7 +952,7 @@ class Database(pulumi.CustomResource):
             source_database_deletion_date: Optional[pulumi.Input[str]] = None,
             source_database_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArgs']]] = None,
+            threat_detection_policy: Optional[pulumi.Input[Union['DatabaseThreatDetectionPolicyArgs', 'DatabaseThreatDetectionPolicyArgsDict']]] = None,
             zone_redundant: Optional[pulumi.Input[bool]] = None) -> 'Database':
         """
         Get an existing Database resource's state with the given name, id, and optional extra
@@ -967,7 +967,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] default_secondary_location: The default secondary location of the SQL Database.
         :param pulumi.Input[str] edition: The edition of the database to be created. Applies only if `create_mode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
         :param pulumi.Input[str] elastic_pool_name: The name of the elastic database pool.
-        :param pulumi.Input[pulumi.InputType['DatabaseImportArgs']] import_: A `import` block as documented below. `create_mode` must be set to `Default`.
+        :param pulumi.Input[Union['DatabaseImportArgs', 'DatabaseImportArgsDict']] import_: A `import` block as documented below. `create_mode` must be set to `Default`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] max_size_bytes: The maximum size that the database can grow to. Applies only if `create_mode` is `Default`. Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
         :param pulumi.Input[str] name: The name of the database. Changing this forces a new resource to be created.
@@ -981,7 +981,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] source_database_deletion_date: The deletion date time of the source database. Only applies to deleted databases where `create_mode` is `PointInTimeRestore`.
         :param pulumi.Input[str] source_database_id: The URI of the source database if `create_mode` value is not `Default`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArgs']] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+        :param pulumi.Input[Union['DatabaseThreatDetectionPolicyArgs', 'DatabaseThreatDetectionPolicyArgsDict']] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

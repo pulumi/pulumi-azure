@@ -360,7 +360,7 @@ class Account(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -384,9 +384,9 @@ class Account(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name,
             location=example.location,
-            identity=azure.purview.AccountIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         ```
 
         ## Import
@@ -399,7 +399,7 @@ class Account(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
         :param pulumi.Input[str] managed_resource_group_name: The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
                
@@ -431,9 +431,9 @@ class Account(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name,
             location=example.location,
-            identity=azure.purview.AccountIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         ```
 
         ## Import
@@ -459,7 +459,7 @@ class Account(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -508,10 +508,10 @@ class Account(pulumi.CustomResource):
             atlas_kafka_endpoint_secondary_connection_string: Optional[pulumi.Input[str]] = None,
             catalog_endpoint: Optional[pulumi.Input[str]] = None,
             guardian_endpoint: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             managed_resource_group_name: Optional[pulumi.Input[str]] = None,
-            managed_resources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountManagedResourceArgs']]]]] = None,
+            managed_resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountManagedResourceArgs', 'AccountManagedResourceArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             public_network_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -528,12 +528,12 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] atlas_kafka_endpoint_secondary_connection_string: Atlas Kafka endpoint secondary connection string.
         :param pulumi.Input[str] catalog_endpoint: Catalog endpoint.
         :param pulumi.Input[str] guardian_endpoint: Guardian endpoint.
-        :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
         :param pulumi.Input[str] managed_resource_group_name: The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
                
                > **Note:** `managed_resource_group_name` must be a new Resource Group
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountManagedResourceArgs']]]] managed_resources: A `managed_resources` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AccountManagedResourceArgs', 'AccountManagedResourceArgsDict']]]] managed_resources: A `managed_resources` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
         :param pulumi.Input[bool] public_network_enabled: Should the Purview Account be visible to the public network? Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Purview Account should exist. Changing this forces a new Purview Account to be created.

@@ -222,10 +222,10 @@ class PolicyVMWorkload(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 protection_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyVMWorkloadProtectionPolicyArgs']]]]] = None,
+                 protection_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyVMWorkloadProtectionPolicyArgs', 'PolicyVMWorkloadProtectionPolicyArgsDict']]]]] = None,
                  recovery_vault_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input[pulumi.InputType['PolicyVMWorkloadSettingsArgs']]] = None,
+                 settings: Optional[pulumi.Input[Union['PolicyVMWorkloadSettingsArgs', 'PolicyVMWorkloadSettingsArgsDict']]] = None,
                  workload_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -251,30 +251,30 @@ class PolicyVMWorkload(pulumi.CustomResource):
             resource_group_name=example.name,
             recovery_vault_name=example_vault.name,
             workload_type="SQLDataBase",
-            settings=azure.backup.PolicyVMWorkloadSettingsArgs(
-                time_zone="UTC",
-                compression_enabled=False,
-            ),
+            settings={
+                "timeZone": "UTC",
+                "compressionEnabled": False,
+            },
             protection_policies=[
-                azure.backup.PolicyVMWorkloadProtectionPolicyArgs(
-                    policy_type="Full",
-                    backup=azure.backup.PolicyVMWorkloadProtectionPolicyBackupArgs(
-                        frequency="Daily",
-                        time="15:00",
-                    ),
-                    retention_daily=azure.backup.PolicyVMWorkloadProtectionPolicyRetentionDailyArgs(
-                        count=8,
-                    ),
-                ),
-                azure.backup.PolicyVMWorkloadProtectionPolicyArgs(
-                    policy_type="Log",
-                    backup=azure.backup.PolicyVMWorkloadProtectionPolicyBackupArgs(
-                        frequency_in_minutes=15,
-                    ),
-                    simple_retention=azure.backup.PolicyVMWorkloadProtectionPolicySimpleRetentionArgs(
-                        count=8,
-                    ),
-                ),
+                {
+                    "policyType": "Full",
+                    "backup": {
+                        "frequency": "Daily",
+                        "time": "15:00",
+                    },
+                    "retentionDaily": {
+                        "count": 8,
+                    },
+                },
+                {
+                    "policyType": "Log",
+                    "backup": {
+                        "frequencyInMinutes": 15,
+                    },
+                    "simpleRetention": {
+                        "count": 8,
+                    },
+                },
             ])
         ```
 
@@ -289,10 +289,10 @@ class PolicyVMWorkload(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the VM Workload Backup Policy. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyVMWorkloadProtectionPolicyArgs']]]] protection_policies: One or more `protection_policy` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PolicyVMWorkloadProtectionPolicyArgs', 'PolicyVMWorkloadProtectionPolicyArgsDict']]]] protection_policies: One or more `protection_policy` blocks as defined below.
         :param pulumi.Input[str] recovery_vault_name: The name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the VM Workload Backup Policy. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['PolicyVMWorkloadSettingsArgs']] settings: A `settings` block as defined below.
+        :param pulumi.Input[Union['PolicyVMWorkloadSettingsArgs', 'PolicyVMWorkloadSettingsArgsDict']] settings: A `settings` block as defined below.
         :param pulumi.Input[str] workload_type: The VM Workload type for the Backup Policy. Possible values are `SQLDataBase` and `SAPHanaDatabase`. Changing this forces a new resource to be created.
         """
         ...
@@ -324,30 +324,30 @@ class PolicyVMWorkload(pulumi.CustomResource):
             resource_group_name=example.name,
             recovery_vault_name=example_vault.name,
             workload_type="SQLDataBase",
-            settings=azure.backup.PolicyVMWorkloadSettingsArgs(
-                time_zone="UTC",
-                compression_enabled=False,
-            ),
+            settings={
+                "timeZone": "UTC",
+                "compressionEnabled": False,
+            },
             protection_policies=[
-                azure.backup.PolicyVMWorkloadProtectionPolicyArgs(
-                    policy_type="Full",
-                    backup=azure.backup.PolicyVMWorkloadProtectionPolicyBackupArgs(
-                        frequency="Daily",
-                        time="15:00",
-                    ),
-                    retention_daily=azure.backup.PolicyVMWorkloadProtectionPolicyRetentionDailyArgs(
-                        count=8,
-                    ),
-                ),
-                azure.backup.PolicyVMWorkloadProtectionPolicyArgs(
-                    policy_type="Log",
-                    backup=azure.backup.PolicyVMWorkloadProtectionPolicyBackupArgs(
-                        frequency_in_minutes=15,
-                    ),
-                    simple_retention=azure.backup.PolicyVMWorkloadProtectionPolicySimpleRetentionArgs(
-                        count=8,
-                    ),
-                ),
+                {
+                    "policyType": "Full",
+                    "backup": {
+                        "frequency": "Daily",
+                        "time": "15:00",
+                    },
+                    "retentionDaily": {
+                        "count": 8,
+                    },
+                },
+                {
+                    "policyType": "Log",
+                    "backup": {
+                        "frequencyInMinutes": 15,
+                    },
+                    "simpleRetention": {
+                        "count": 8,
+                    },
+                },
             ])
         ```
 
@@ -375,10 +375,10 @@ class PolicyVMWorkload(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 protection_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyVMWorkloadProtectionPolicyArgs']]]]] = None,
+                 protection_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyVMWorkloadProtectionPolicyArgs', 'PolicyVMWorkloadProtectionPolicyArgsDict']]]]] = None,
                  recovery_vault_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input[pulumi.InputType['PolicyVMWorkloadSettingsArgs']]] = None,
+                 settings: Optional[pulumi.Input[Union['PolicyVMWorkloadSettingsArgs', 'PolicyVMWorkloadSettingsArgsDict']]] = None,
                  workload_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -416,10 +416,10 @@ class PolicyVMWorkload(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             name: Optional[pulumi.Input[str]] = None,
-            protection_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyVMWorkloadProtectionPolicyArgs']]]]] = None,
+            protection_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyVMWorkloadProtectionPolicyArgs', 'PolicyVMWorkloadProtectionPolicyArgsDict']]]]] = None,
             recovery_vault_name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            settings: Optional[pulumi.Input[pulumi.InputType['PolicyVMWorkloadSettingsArgs']]] = None,
+            settings: Optional[pulumi.Input[Union['PolicyVMWorkloadSettingsArgs', 'PolicyVMWorkloadSettingsArgsDict']]] = None,
             workload_type: Optional[pulumi.Input[str]] = None) -> 'PolicyVMWorkload':
         """
         Get an existing PolicyVMWorkload resource's state with the given name, id, and optional extra
@@ -429,10 +429,10 @@ class PolicyVMWorkload(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the VM Workload Backup Policy. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyVMWorkloadProtectionPolicyArgs']]]] protection_policies: One or more `protection_policy` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PolicyVMWorkloadProtectionPolicyArgs', 'PolicyVMWorkloadProtectionPolicyArgsDict']]]] protection_policies: One or more `protection_policy` blocks as defined below.
         :param pulumi.Input[str] recovery_vault_name: The name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the VM Workload Backup Policy. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['PolicyVMWorkloadSettingsArgs']] settings: A `settings` block as defined below.
+        :param pulumi.Input[Union['PolicyVMWorkloadSettingsArgs', 'PolicyVMWorkloadSettingsArgsDict']] settings: A `settings` block as defined below.
         :param pulumi.Input[str] workload_type: The VM Workload type for the Backup Policy. Possible values are `SQLDataBase` and `SAPHanaDatabase`. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

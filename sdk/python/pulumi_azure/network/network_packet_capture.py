@@ -326,14 +326,14 @@ class NetworkPacketCapture(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkPacketCaptureFilterArgs']]]]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkPacketCaptureFilterArgs', 'NetworkPacketCaptureFilterArgsDict']]]]] = None,
                  maximum_bytes_per_packet: Optional[pulumi.Input[int]] = None,
                  maximum_bytes_per_session: Optional[pulumi.Input[int]] = None,
                  maximum_capture_duration: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_watcher_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_location: Optional[pulumi.Input[pulumi.InputType['NetworkPacketCaptureStorageLocationArgs']]] = None,
+                 storage_location: Optional[pulumi.Input[Union['NetworkPacketCaptureStorageLocationArgs', 'NetworkPacketCaptureStorageLocationArgsDict']]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -368,37 +368,37 @@ class NetworkPacketCapture(pulumi.CustomResource):
             name="pctest-nic",
             location=example.location,
             resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="testconfiguration1",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
+            ip_configurations=[{
+                "name": "testconfiguration1",
+                "subnetId": example_subnet.id,
+                "privateIpAddressAllocation": "Dynamic",
+            }])
         example_virtual_machine = azure.compute.VirtualMachine("example",
             name="pctest-vm",
             location=example.location,
             resource_group_name=example.name,
             network_interface_ids=[example_network_interface.id],
             vm_size="Standard_F2",
-            storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ),
-            storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
-                name="osdisk",
-                caching="ReadWrite",
-                create_option="FromImage",
-                managed_disk_type="Standard_LRS",
-            ),
-            os_profile=azure.compute.VirtualMachineOsProfileArgs(
-                computer_name="pctest-vm",
-                admin_username="testadmin",
-                admin_password="Password1234!",
-            ),
-            os_profile_linux_config=azure.compute.VirtualMachineOsProfileLinuxConfigArgs(
-                disable_password_authentication=False,
-            ))
+            storage_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            },
+            storage_os_disk={
+                "name": "osdisk",
+                "caching": "ReadWrite",
+                "createOption": "FromImage",
+                "managedDiskType": "Standard_LRS",
+            },
+            os_profile={
+                "computerName": "pctest-vm",
+                "adminUsername": "testadmin",
+                "adminPassword": "Password1234!",
+            },
+            os_profile_linux_config={
+                "disablePasswordAuthentication": False,
+            })
         example_extension = azure.compute.Extension("example",
             name="network-watcher",
             virtual_machine_id=example_virtual_machine.id,
@@ -417,9 +417,9 @@ class NetworkPacketCapture(pulumi.CustomResource):
             network_watcher_name=example_network_watcher.name,
             resource_group_name=example.name,
             target_resource_id=example_virtual_machine.id,
-            storage_location=azure.network.NetworkPacketCaptureStorageLocationArgs(
-                storage_account_id=example_account.id,
-            ),
+            storage_location={
+                "storageAccountId": example_account.id,
+            },
             opts=pulumi.ResourceOptions(depends_on=[example_extension]))
         ```
 
@@ -435,14 +435,14 @@ class NetworkPacketCapture(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkPacketCaptureFilterArgs']]]] filters: One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkPacketCaptureFilterArgs', 'NetworkPacketCaptureFilterArgsDict']]]] filters: One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_bytes_per_packet: The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_bytes_per_session: Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_capture_duration: The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name to use for this Network Packet Capture. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_watcher_name: The name of the Network Watcher. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Network Watcher exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['NetworkPacketCaptureStorageLocationArgs']] storage_location: A `storage_location` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['NetworkPacketCaptureStorageLocationArgs', 'NetworkPacketCaptureStorageLocationArgsDict']] storage_location: A `storage_location` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
                
                > **NOTE:** Currently only Virtual Machines IDs are supported.
@@ -485,37 +485,37 @@ class NetworkPacketCapture(pulumi.CustomResource):
             name="pctest-nic",
             location=example.location,
             resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="testconfiguration1",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
+            ip_configurations=[{
+                "name": "testconfiguration1",
+                "subnetId": example_subnet.id,
+                "privateIpAddressAllocation": "Dynamic",
+            }])
         example_virtual_machine = azure.compute.VirtualMachine("example",
             name="pctest-vm",
             location=example.location,
             resource_group_name=example.name,
             network_interface_ids=[example_network_interface.id],
             vm_size="Standard_F2",
-            storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ),
-            storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
-                name="osdisk",
-                caching="ReadWrite",
-                create_option="FromImage",
-                managed_disk_type="Standard_LRS",
-            ),
-            os_profile=azure.compute.VirtualMachineOsProfileArgs(
-                computer_name="pctest-vm",
-                admin_username="testadmin",
-                admin_password="Password1234!",
-            ),
-            os_profile_linux_config=azure.compute.VirtualMachineOsProfileLinuxConfigArgs(
-                disable_password_authentication=False,
-            ))
+            storage_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            },
+            storage_os_disk={
+                "name": "osdisk",
+                "caching": "ReadWrite",
+                "createOption": "FromImage",
+                "managedDiskType": "Standard_LRS",
+            },
+            os_profile={
+                "computerName": "pctest-vm",
+                "adminUsername": "testadmin",
+                "adminPassword": "Password1234!",
+            },
+            os_profile_linux_config={
+                "disablePasswordAuthentication": False,
+            })
         example_extension = azure.compute.Extension("example",
             name="network-watcher",
             virtual_machine_id=example_virtual_machine.id,
@@ -534,9 +534,9 @@ class NetworkPacketCapture(pulumi.CustomResource):
             network_watcher_name=example_network_watcher.name,
             resource_group_name=example.name,
             target_resource_id=example_virtual_machine.id,
-            storage_location=azure.network.NetworkPacketCaptureStorageLocationArgs(
-                storage_account_id=example_account.id,
-            ),
+            storage_location={
+                "storageAccountId": example_account.id,
+            },
             opts=pulumi.ResourceOptions(depends_on=[example_extension]))
         ```
 
@@ -565,14 +565,14 @@ class NetworkPacketCapture(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkPacketCaptureFilterArgs']]]]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkPacketCaptureFilterArgs', 'NetworkPacketCaptureFilterArgsDict']]]]] = None,
                  maximum_bytes_per_packet: Optional[pulumi.Input[int]] = None,
                  maximum_bytes_per_session: Optional[pulumi.Input[int]] = None,
                  maximum_capture_duration: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_watcher_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_location: Optional[pulumi.Input[pulumi.InputType['NetworkPacketCaptureStorageLocationArgs']]] = None,
+                 storage_location: Optional[pulumi.Input[Union['NetworkPacketCaptureStorageLocationArgs', 'NetworkPacketCaptureStorageLocationArgsDict']]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -610,14 +610,14 @@ class NetworkPacketCapture(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkPacketCaptureFilterArgs']]]]] = None,
+            filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkPacketCaptureFilterArgs', 'NetworkPacketCaptureFilterArgsDict']]]]] = None,
             maximum_bytes_per_packet: Optional[pulumi.Input[int]] = None,
             maximum_bytes_per_session: Optional[pulumi.Input[int]] = None,
             maximum_capture_duration: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network_watcher_name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            storage_location: Optional[pulumi.Input[pulumi.InputType['NetworkPacketCaptureStorageLocationArgs']]] = None,
+            storage_location: Optional[pulumi.Input[Union['NetworkPacketCaptureStorageLocationArgs', 'NetworkPacketCaptureStorageLocationArgsDict']]] = None,
             target_resource_id: Optional[pulumi.Input[str]] = None) -> 'NetworkPacketCapture':
         """
         Get an existing NetworkPacketCapture resource's state with the given name, id, and optional extra
@@ -626,14 +626,14 @@ class NetworkPacketCapture(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkPacketCaptureFilterArgs']]]] filters: One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkPacketCaptureFilterArgs', 'NetworkPacketCaptureFilterArgsDict']]]] filters: One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_bytes_per_packet: The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_bytes_per_session: Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_capture_duration: The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name to use for this Network Packet Capture. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_watcher_name: The name of the Network Watcher. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Network Watcher exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['NetworkPacketCaptureStorageLocationArgs']] storage_location: A `storage_location` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['NetworkPacketCaptureStorageLocationArgs', 'NetworkPacketCaptureStorageLocationArgsDict']] storage_location: A `storage_location` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
                
                > **NOTE:** Currently only Virtual Machines IDs are supported.

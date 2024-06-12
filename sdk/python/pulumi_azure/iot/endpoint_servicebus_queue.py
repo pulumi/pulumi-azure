@@ -336,10 +336,10 @@ class EndpointServicebusQueue(pulumi.CustomResource):
             name="exampleIothub",
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="B1",
-                capacity=1,
-            ),
+            sku={
+                "name": "B1",
+                "capacity": 1,
+            },
             tags={
                 "purpose": "example",
             })
@@ -412,10 +412,10 @@ class EndpointServicebusQueue(pulumi.CustomResource):
             name="exampleIothub",
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="B1",
-                capacity=1,
-            ),
+            sku={
+                "name": "B1",
+                "capacity": 1,
+            },
             tags={
                 "purpose": "example",
             })

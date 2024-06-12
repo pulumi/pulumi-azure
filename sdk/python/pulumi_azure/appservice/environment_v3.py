@@ -513,7 +513,7 @@ class EnvironmentV3(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_new_private_endpoint_connections: Optional[pulumi.Input[bool]] = None,
-                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentV3ClusterSettingArgs']]]]] = None,
+                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentV3ClusterSettingArgs', 'EnvironmentV3ClusterSettingArgsDict']]]]] = None,
                  dedicated_host_count: Optional[pulumi.Input[int]] = None,
                  internal_load_balancing_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -547,31 +547,31 @@ class EnvironmentV3(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="Microsoft.Web.hostingEnvironments",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Web/hostingEnvironments",
-                    actions=["Microsoft.Network/virtualNetworks/subnets/action"],
-                ),
-            )])
+            delegations=[{
+                "name": "Microsoft.Web.hostingEnvironments",
+                "serviceDelegation": {
+                    "name": "Microsoft.Web/hostingEnvironments",
+                    "actions": ["Microsoft.Network/virtualNetworks/subnets/action"],
+                },
+            }])
         example_environment_v3 = azure.appservice.EnvironmentV3("example",
             name="example-asev3",
             resource_group_name=example.name,
             subnet_id=example_subnet.id,
             internal_load_balancing_mode="Web, Publishing",
             cluster_settings=[
-                azure.appservice.EnvironmentV3ClusterSettingArgs(
-                    name="DisableTls1.0",
-                    value="1",
-                ),
-                azure.appservice.EnvironmentV3ClusterSettingArgs(
-                    name="InternalEncryption",
-                    value="true",
-                ),
-                azure.appservice.EnvironmentV3ClusterSettingArgs(
-                    name="FrontEndSSLCipherSuiteOrder",
-                    value="TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
-                ),
+                {
+                    "name": "DisableTls1.0",
+                    "value": "1",
+                },
+                {
+                    "name": "InternalEncryption",
+                    "value": "true",
+                },
+                {
+                    "name": "FrontEndSSLCipherSuiteOrder",
+                    "value": "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+                },
             ],
             tags={
                 "env": "production",
@@ -597,7 +597,7 @@ class EnvironmentV3(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_new_private_endpoint_connections: Should new Private Endpoint Connections be allowed. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentV3ClusterSettingArgs']]]] cluster_settings: Zero or more `cluster_setting` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentV3ClusterSettingArgs', 'EnvironmentV3ClusterSettingArgsDict']]]] cluster_settings: Zero or more `cluster_setting` blocks as defined below.
         :param pulumi.Input[int] dedicated_host_count: This ASEv3 should use dedicated Hosts. Possible values are `2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the App Service Environment. Changing this forces a new resource to be created.
@@ -642,31 +642,31 @@ class EnvironmentV3(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="Microsoft.Web.hostingEnvironments",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Web/hostingEnvironments",
-                    actions=["Microsoft.Network/virtualNetworks/subnets/action"],
-                ),
-            )])
+            delegations=[{
+                "name": "Microsoft.Web.hostingEnvironments",
+                "serviceDelegation": {
+                    "name": "Microsoft.Web/hostingEnvironments",
+                    "actions": ["Microsoft.Network/virtualNetworks/subnets/action"],
+                },
+            }])
         example_environment_v3 = azure.appservice.EnvironmentV3("example",
             name="example-asev3",
             resource_group_name=example.name,
             subnet_id=example_subnet.id,
             internal_load_balancing_mode="Web, Publishing",
             cluster_settings=[
-                azure.appservice.EnvironmentV3ClusterSettingArgs(
-                    name="DisableTls1.0",
-                    value="1",
-                ),
-                azure.appservice.EnvironmentV3ClusterSettingArgs(
-                    name="InternalEncryption",
-                    value="true",
-                ),
-                azure.appservice.EnvironmentV3ClusterSettingArgs(
-                    name="FrontEndSSLCipherSuiteOrder",
-                    value="TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
-                ),
+                {
+                    "name": "DisableTls1.0",
+                    "value": "1",
+                },
+                {
+                    "name": "InternalEncryption",
+                    "value": "true",
+                },
+                {
+                    "name": "FrontEndSSLCipherSuiteOrder",
+                    "value": "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+                },
             ],
             tags={
                 "env": "production",
@@ -705,7 +705,7 @@ class EnvironmentV3(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_new_private_endpoint_connections: Optional[pulumi.Input[bool]] = None,
-                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentV3ClusterSettingArgs']]]]] = None,
+                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentV3ClusterSettingArgs', 'EnvironmentV3ClusterSettingArgsDict']]]]] = None,
                  dedicated_host_count: Optional[pulumi.Input[int]] = None,
                  internal_load_balancing_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -757,11 +757,11 @@ class EnvironmentV3(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             allow_new_private_endpoint_connections: Optional[pulumi.Input[bool]] = None,
-            cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentV3ClusterSettingArgs']]]]] = None,
+            cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentV3ClusterSettingArgs', 'EnvironmentV3ClusterSettingArgsDict']]]]] = None,
             dedicated_host_count: Optional[pulumi.Input[int]] = None,
             dns_suffix: Optional[pulumi.Input[str]] = None,
             external_inbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            inbound_network_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentV3InboundNetworkDependencyArgs']]]]] = None,
+            inbound_network_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentV3InboundNetworkDependencyArgs', 'EnvironmentV3InboundNetworkDependencyArgsDict']]]]] = None,
             internal_inbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             internal_load_balancing_mode: Optional[pulumi.Input[str]] = None,
             ip_ssl_address_count: Optional[pulumi.Input[int]] = None,
@@ -783,11 +783,11 @@ class EnvironmentV3(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_new_private_endpoint_connections: Should new Private Endpoint Connections be allowed. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentV3ClusterSettingArgs']]]] cluster_settings: Zero or more `cluster_setting` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentV3ClusterSettingArgs', 'EnvironmentV3ClusterSettingArgsDict']]]] cluster_settings: Zero or more `cluster_setting` blocks as defined below.
         :param pulumi.Input[int] dedicated_host_count: This ASEv3 should use dedicated Hosts. Possible values are `2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_suffix: the DNS suffix for this App Service Environment V3.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_inbound_ip_addresses: The external inbound IP addresses of the App Service Environment V3.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentV3InboundNetworkDependencyArgs']]]] inbound_network_dependencies: An `inbound_network_dependencies` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentV3InboundNetworkDependencyArgs', 'EnvironmentV3InboundNetworkDependencyArgsDict']]]] inbound_network_dependencies: An `inbound_network_dependencies` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] internal_inbound_ip_addresses: The internal inbound IP addresses of the App Service Environment V3.
         :param pulumi.Input[str] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] ip_ssl_address_count: The number of IP SSL addresses reserved for the App Service Environment V3.

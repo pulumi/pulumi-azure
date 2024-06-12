@@ -319,8 +319,8 @@ class ActivityLogAlert(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActivityLogAlertActionArgs']]]]] = None,
-                 criteria: Optional[pulumi.Input[pulumi.InputType['ActivityLogAlertCriteriaArgs']]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ActivityLogAlertActionArgs', 'ActivityLogAlertActionArgsDict']]]]] = None,
+                 criteria: Optional[pulumi.Input[Union['ActivityLogAlertCriteriaArgs', 'ActivityLogAlertCriteriaArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -345,10 +345,10 @@ class ActivityLogAlert(pulumi.CustomResource):
             name="example-actiongroup",
             resource_group_name=example.name,
             short_name="p0action",
-            webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArgs(
-                name="callmyapi",
-                service_uri="http://example.com/alert",
-            )])
+            webhook_receivers=[{
+                "name": "callmyapi",
+                "serviceUri": "http://example.com/alert",
+            }])
         to_monitor = azure.storage.Account("to_monitor",
             name="examplesa",
             resource_group_name=example.name,
@@ -360,17 +360,17 @@ class ActivityLogAlert(pulumi.CustomResource):
             resource_group_name=example.name,
             scopes=[example.id],
             description="This alert will monitor a specific storage account updates.",
-            criteria=azure.monitoring.ActivityLogAlertCriteriaArgs(
-                resource_id=to_monitor.id,
-                operation_name="Microsoft.Storage/storageAccounts/write",
-                category="Recommendation",
-            ),
-            actions=[azure.monitoring.ActivityLogAlertActionArgs(
-                action_group_id=main.id,
-                webhook_properties={
+            criteria={
+                "resourceId": to_monitor.id,
+                "operationName": "Microsoft.Storage/storageAccounts/write",
+                "category": "Recommendation",
+            },
+            actions=[{
+                "actionGroupId": main.id,
+                "webhookProperties": {
                     "from": "source",
                 },
-            )])
+            }])
         ```
 
         ## Import
@@ -383,8 +383,8 @@ class ActivityLogAlert(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActivityLogAlertActionArgs']]]] actions: One or more `action` blocks as defined below.
-        :param pulumi.Input[pulumi.InputType['ActivityLogAlertCriteriaArgs']] criteria: A `criteria` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ActivityLogAlertActionArgs', 'ActivityLogAlertActionArgsDict']]]] actions: One or more `action` blocks as defined below.
+        :param pulumi.Input[Union['ActivityLogAlertCriteriaArgs', 'ActivityLogAlertCriteriaArgsDict']] criteria: A `criteria` block as defined below.
         :param pulumi.Input[str] description: The description of this activity log alert.
         :param pulumi.Input[bool] enabled: Should this Activity Log Alert be enabled? Defaults to `true`.
         :param pulumi.Input[str] location: The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created. Defaults to `global`.
@@ -415,10 +415,10 @@ class ActivityLogAlert(pulumi.CustomResource):
             name="example-actiongroup",
             resource_group_name=example.name,
             short_name="p0action",
-            webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArgs(
-                name="callmyapi",
-                service_uri="http://example.com/alert",
-            )])
+            webhook_receivers=[{
+                "name": "callmyapi",
+                "serviceUri": "http://example.com/alert",
+            }])
         to_monitor = azure.storage.Account("to_monitor",
             name="examplesa",
             resource_group_name=example.name,
@@ -430,17 +430,17 @@ class ActivityLogAlert(pulumi.CustomResource):
             resource_group_name=example.name,
             scopes=[example.id],
             description="This alert will monitor a specific storage account updates.",
-            criteria=azure.monitoring.ActivityLogAlertCriteriaArgs(
-                resource_id=to_monitor.id,
-                operation_name="Microsoft.Storage/storageAccounts/write",
-                category="Recommendation",
-            ),
-            actions=[azure.monitoring.ActivityLogAlertActionArgs(
-                action_group_id=main.id,
-                webhook_properties={
+            criteria={
+                "resourceId": to_monitor.id,
+                "operationName": "Microsoft.Storage/storageAccounts/write",
+                "category": "Recommendation",
+            },
+            actions=[{
+                "actionGroupId": main.id,
+                "webhookProperties": {
                     "from": "source",
                 },
-            )])
+            }])
         ```
 
         ## Import
@@ -466,8 +466,8 @@ class ActivityLogAlert(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActivityLogAlertActionArgs']]]]] = None,
-                 criteria: Optional[pulumi.Input[pulumi.InputType['ActivityLogAlertCriteriaArgs']]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ActivityLogAlertActionArgs', 'ActivityLogAlertActionArgsDict']]]]] = None,
+                 criteria: Optional[pulumi.Input[Union['ActivityLogAlertCriteriaArgs', 'ActivityLogAlertCriteriaArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -509,8 +509,8 @@ class ActivityLogAlert(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActivityLogAlertActionArgs']]]]] = None,
-            criteria: Optional[pulumi.Input[pulumi.InputType['ActivityLogAlertCriteriaArgs']]] = None,
+            actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ActivityLogAlertActionArgs', 'ActivityLogAlertActionArgsDict']]]]] = None,
+            criteria: Optional[pulumi.Input[Union['ActivityLogAlertCriteriaArgs', 'ActivityLogAlertCriteriaArgsDict']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -525,8 +525,8 @@ class ActivityLogAlert(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActivityLogAlertActionArgs']]]] actions: One or more `action` blocks as defined below.
-        :param pulumi.Input[pulumi.InputType['ActivityLogAlertCriteriaArgs']] criteria: A `criteria` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ActivityLogAlertActionArgs', 'ActivityLogAlertActionArgsDict']]]] actions: One or more `action` blocks as defined below.
+        :param pulumi.Input[Union['ActivityLogAlertCriteriaArgs', 'ActivityLogAlertCriteriaArgsDict']] criteria: A `criteria` block as defined below.
         :param pulumi.Input[str] description: The description of this activity log alert.
         :param pulumi.Input[bool] enabled: Should this Activity Log Alert be enabled? Defaults to `true`.
         :param pulumi.Input[str] location: The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created. Defaults to `global`.

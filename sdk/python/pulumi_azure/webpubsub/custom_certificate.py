@@ -195,40 +195,40 @@ class CustomCertificate(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="premium",
             access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=current.object_id,
-                    certificate_permissions=[
+                {
+                    "tenantId": current.tenant_id,
+                    "objectId": current.object_id,
+                    "certificatePermissions": [
                         "Create",
                         "Get",
                         "List",
                     ],
-                    secret_permissions=[
+                    "secretPermissions": [
                         "Get",
                         "List",
                     ],
-                ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=test_azurerm_web_pubsub_service["identity"][0]["principalId"],
-                    certificate_permissions=[
+                },
+                {
+                    "tenantId": current.tenant_id,
+                    "objectId": test_azurerm_web_pubsub_service["identity"][0]["principalId"],
+                    "certificatePermissions": [
                         "Create",
                         "Get",
                         "List",
                     ],
-                    secret_permissions=[
+                    "secretPermissions": [
                         "Get",
                         "List",
                     ],
-                ),
+                },
             ])
         example_certificate = azure.keyvault.Certificate("example",
             name="imported-cert",
             key_vault_id=example_key_vault.id,
-            certificate=azure.keyvault.CertificateCertificateArgs(
-                contents=std.filebase64(input="certificate-to-import.pfx").result,
-                password="",
-            ))
+            certificate={
+                "contents": std.filebase64(input="certificate-to-import.pfx").result,
+                "password": "",
+            })
         test = azure.webpubsub.CustomCertificate("test",
             name="example-cert",
             web_pubsub_id=example_web_pubsub_service["id"],
@@ -293,40 +293,40 @@ class CustomCertificate(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="premium",
             access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=current.object_id,
-                    certificate_permissions=[
+                {
+                    "tenantId": current.tenant_id,
+                    "objectId": current.object_id,
+                    "certificatePermissions": [
                         "Create",
                         "Get",
                         "List",
                     ],
-                    secret_permissions=[
+                    "secretPermissions": [
                         "Get",
                         "List",
                     ],
-                ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=test_azurerm_web_pubsub_service["identity"][0]["principalId"],
-                    certificate_permissions=[
+                },
+                {
+                    "tenantId": current.tenant_id,
+                    "objectId": test_azurerm_web_pubsub_service["identity"][0]["principalId"],
+                    "certificatePermissions": [
                         "Create",
                         "Get",
                         "List",
                     ],
-                    secret_permissions=[
+                    "secretPermissions": [
                         "Get",
                         "List",
                     ],
-                ),
+                },
             ])
         example_certificate = azure.keyvault.Certificate("example",
             name="imported-cert",
             key_vault_id=example_key_vault.id,
-            certificate=azure.keyvault.CertificateCertificateArgs(
-                contents=std.filebase64(input="certificate-to-import.pfx").result,
-                password="",
-            ))
+            certificate={
+                "contents": std.filebase64(input="certificate-to-import.pfx").result,
+                "password": "",
+            })
         test = azure.webpubsub.CustomCertificate("test",
             name="example-cert",
             web_pubsub_id=example_web_pubsub_service["id"],

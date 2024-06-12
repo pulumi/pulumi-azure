@@ -223,12 +223,12 @@ class Experiment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ExperimentIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ExperimentIdentityArgs', 'ExperimentIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentSelectorArgs']]]]] = None,
-                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentStepArgs']]]]] = None,
+                 selectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExperimentSelectorArgs', 'ExperimentSelectorArgsDict']]]]] = None,
+                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExperimentStepArgs', 'ExperimentStepArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a Chaos Studio Experiment.
@@ -260,11 +260,11 @@ class Experiment(pulumi.CustomResource):
             name="example",
             location=example.location,
             resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="example",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
+            ip_configurations=[{
+                "name": "example",
+                "subnetId": example_subnet.id,
+                "privateIpAddressAllocation": "Dynamic",
+            }])
         example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
             name="example",
             resource_group_name=example.name,
@@ -274,16 +274,16 @@ class Experiment(pulumi.CustomResource):
             admin_password="example",
             disable_password_authentication=False,
             network_interface_ids=[example_network_interface.id],
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
-                caching="ReadWrite",
-                storage_account_type="Standard_LRS",
-            ),
-            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ))
+            os_disk={
+                "caching": "ReadWrite",
+                "storageAccountType": "Standard_LRS",
+            },
+            source_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            })
         example_target = azure.chaosstudio.Target("example",
             location=example.location,
             target_resource_id=example_linux_virtual_machine.id,
@@ -295,28 +295,28 @@ class Experiment(pulumi.CustomResource):
             location=example.location,
             name="example",
             resource_group_name=example.name,
-            identity=azure.chaosstudio.ExperimentIdentityArgs(
-                type="SystemAssigned",
-            ),
-            selectors=[azure.chaosstudio.ExperimentSelectorArgs(
-                name="Selector1",
-                chaos_studio_target_ids=[example_target.id],
-            )],
-            steps=[azure.chaosstudio.ExperimentStepArgs(
-                name="example",
-                branches=[azure.chaosstudio.ExperimentStepBranchArgs(
-                    name="example",
-                    actions=[azure.chaosstudio.ExperimentStepBranchActionArgs(
-                        urn=example_capability.capability_urn,
-                        selector_name="Selector1",
-                        parameters={
+            identity={
+                "type": "SystemAssigned",
+            },
+            selectors=[{
+                "name": "Selector1",
+                "chaosStudioTargetIds": [example_target.id],
+            }],
+            steps=[{
+                "name": "example",
+                "branches": [{
+                    "name": "example",
+                    "actions": [{
+                        "urn": example_capability.capability_urn,
+                        "selectorName": "Selector1",
+                        "parameters": {
                             "abruptShutdown": "false",
                         },
-                        action_type="continuous",
-                        duration="PT10M",
-                    )],
-                )],
-            )])
+                        "actionType": "continuous",
+                        "duration": "PT10M",
+                    }],
+                }],
+            }])
         ```
 
         ## Import
@@ -329,12 +329,12 @@ class Experiment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ExperimentIdentityArgs']] identity: A `identity` block as defined below.
+        :param pulumi.Input[Union['ExperimentIdentityArgs', 'ExperimentIdentityArgsDict']] identity: A `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Chaos Studio Experiment should exist. Changing this forces a new Chaos Studio Experiment to be created.
         :param pulumi.Input[str] name: The name which should be used for this Chaos Studio Experiment. Changing this forces a new Chaos Studio Experiment to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Chaos Studio Experiment should exist. Changing this forces a new Chaos Studio Experiment to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentSelectorArgs']]]] selectors: One or more `selectors` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentStepArgs']]]] steps: One or more `steps` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentSelectorArgs', 'ExperimentSelectorArgsDict']]]] selectors: One or more `selectors` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentStepArgs', 'ExperimentStepArgsDict']]]] steps: One or more `steps` blocks as defined below.
         """
         ...
     @overload
@@ -372,11 +372,11 @@ class Experiment(pulumi.CustomResource):
             name="example",
             location=example.location,
             resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="example",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
+            ip_configurations=[{
+                "name": "example",
+                "subnetId": example_subnet.id,
+                "privateIpAddressAllocation": "Dynamic",
+            }])
         example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
             name="example",
             resource_group_name=example.name,
@@ -386,16 +386,16 @@ class Experiment(pulumi.CustomResource):
             admin_password="example",
             disable_password_authentication=False,
             network_interface_ids=[example_network_interface.id],
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
-                caching="ReadWrite",
-                storage_account_type="Standard_LRS",
-            ),
-            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ))
+            os_disk={
+                "caching": "ReadWrite",
+                "storageAccountType": "Standard_LRS",
+            },
+            source_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            })
         example_target = azure.chaosstudio.Target("example",
             location=example.location,
             target_resource_id=example_linux_virtual_machine.id,
@@ -407,28 +407,28 @@ class Experiment(pulumi.CustomResource):
             location=example.location,
             name="example",
             resource_group_name=example.name,
-            identity=azure.chaosstudio.ExperimentIdentityArgs(
-                type="SystemAssigned",
-            ),
-            selectors=[azure.chaosstudio.ExperimentSelectorArgs(
-                name="Selector1",
-                chaos_studio_target_ids=[example_target.id],
-            )],
-            steps=[azure.chaosstudio.ExperimentStepArgs(
-                name="example",
-                branches=[azure.chaosstudio.ExperimentStepBranchArgs(
-                    name="example",
-                    actions=[azure.chaosstudio.ExperimentStepBranchActionArgs(
-                        urn=example_capability.capability_urn,
-                        selector_name="Selector1",
-                        parameters={
+            identity={
+                "type": "SystemAssigned",
+            },
+            selectors=[{
+                "name": "Selector1",
+                "chaosStudioTargetIds": [example_target.id],
+            }],
+            steps=[{
+                "name": "example",
+                "branches": [{
+                    "name": "example",
+                    "actions": [{
+                        "urn": example_capability.capability_urn,
+                        "selectorName": "Selector1",
+                        "parameters": {
                             "abruptShutdown": "false",
                         },
-                        action_type="continuous",
-                        duration="PT10M",
-                    )],
-                )],
-            )])
+                        "actionType": "continuous",
+                        "duration": "PT10M",
+                    }],
+                }],
+            }])
         ```
 
         ## Import
@@ -454,12 +454,12 @@ class Experiment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ExperimentIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ExperimentIdentityArgs', 'ExperimentIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentSelectorArgs']]]]] = None,
-                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentStepArgs']]]]] = None,
+                 selectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExperimentSelectorArgs', 'ExperimentSelectorArgsDict']]]]] = None,
+                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExperimentStepArgs', 'ExperimentStepArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -491,12 +491,12 @@ class Experiment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['ExperimentIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[Union['ExperimentIdentityArgs', 'ExperimentIdentityArgsDict']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentSelectorArgs']]]]] = None,
-            steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentStepArgs']]]]] = None) -> 'Experiment':
+            selectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExperimentSelectorArgs', 'ExperimentSelectorArgsDict']]]]] = None,
+            steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExperimentStepArgs', 'ExperimentStepArgsDict']]]]] = None) -> 'Experiment':
         """
         Get an existing Experiment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -504,12 +504,12 @@ class Experiment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ExperimentIdentityArgs']] identity: A `identity` block as defined below.
+        :param pulumi.Input[Union['ExperimentIdentityArgs', 'ExperimentIdentityArgsDict']] identity: A `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Chaos Studio Experiment should exist. Changing this forces a new Chaos Studio Experiment to be created.
         :param pulumi.Input[str] name: The name which should be used for this Chaos Studio Experiment. Changing this forces a new Chaos Studio Experiment to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Chaos Studio Experiment should exist. Changing this forces a new Chaos Studio Experiment to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentSelectorArgs']]]] selectors: One or more `selectors` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentStepArgs']]]] steps: One or more `steps` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentSelectorArgs', 'ExperimentSelectorArgsDict']]]] selectors: One or more `selectors` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentStepArgs', 'ExperimentStepArgsDict']]]] steps: One or more `steps` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

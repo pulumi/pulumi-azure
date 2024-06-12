@@ -645,7 +645,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
                  cmk_for_query_forced: Optional[pulumi.Input[bool]] = None,
                  daily_quota_gb: Optional[pulumi.Input[float]] = None,
                  data_collection_rule_id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['AnalyticsWorkspaceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['AnalyticsWorkspaceIdentityArgs', 'AnalyticsWorkspaceIdentityArgsDict']]] = None,
                  immediate_data_purge_on30_days_enabled: Optional[pulumi.Input[bool]] = None,
                  internet_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
                  internet_query_enabled: Optional[pulumi.Input[bool]] = None,
@@ -694,7 +694,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
                
                > **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
         :param pulumi.Input[str] data_collection_rule_id: The ID of the Data Collection Rule to use for this workspace.
-        :param pulumi.Input[pulumi.InputType['AnalyticsWorkspaceIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['AnalyticsWorkspaceIdentityArgs', 'AnalyticsWorkspaceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] immediate_data_purge_on30_days_enabled: Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
         :param pulumi.Input[bool] internet_ingestion_enabled: Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] internet_query_enabled: Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
@@ -770,7 +770,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
                  cmk_for_query_forced: Optional[pulumi.Input[bool]] = None,
                  daily_quota_gb: Optional[pulumi.Input[float]] = None,
                  data_collection_rule_id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['AnalyticsWorkspaceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['AnalyticsWorkspaceIdentityArgs', 'AnalyticsWorkspaceIdentityArgsDict']]] = None,
                  immediate_data_purge_on30_days_enabled: Optional[pulumi.Input[bool]] = None,
                  internet_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
                  internet_query_enabled: Optional[pulumi.Input[bool]] = None,
@@ -828,7 +828,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
             cmk_for_query_forced: Optional[pulumi.Input[bool]] = None,
             daily_quota_gb: Optional[pulumi.Input[float]] = None,
             data_collection_rule_id: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['AnalyticsWorkspaceIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[Union['AnalyticsWorkspaceIdentityArgs', 'AnalyticsWorkspaceIdentityArgsDict']]] = None,
             immediate_data_purge_on30_days_enabled: Optional[pulumi.Input[bool]] = None,
             internet_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
             internet_query_enabled: Optional[pulumi.Input[bool]] = None,
@@ -856,7 +856,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
                
                > **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
         :param pulumi.Input[str] data_collection_rule_id: The ID of the Data Collection Rule to use for this workspace.
-        :param pulumi.Input[pulumi.InputType['AnalyticsWorkspaceIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['AnalyticsWorkspaceIdentityArgs', 'AnalyticsWorkspaceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] immediate_data_purge_on30_days_enabled: Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
         :param pulumi.Input[bool] internet_ingestion_enabled: Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] internet_query_enabled: Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.

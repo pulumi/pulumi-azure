@@ -151,21 +151,21 @@ class SlotVirtualNetworkSwiftConnection(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="example-delegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Web/serverFarms",
-                    actions=["Microsoft.Network/virtualNetworks/subnets/action"],
-                ),
-            )])
+            delegations=[{
+                "name": "example-delegation",
+                "serviceDelegation": {
+                    "name": "Microsoft.Web/serverFarms",
+                    "actions": ["Microsoft.Network/virtualNetworks/subnets/action"],
+                },
+            }])
         example_plan = azure.appservice.Plan("example",
             name="example-service-plan",
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
+            sku={
+                "tier": "Standard",
+                "size": "S1",
+            })
         example_app_service = azure.appservice.AppService("example",
             name="example-app-service",
             location=example.location,
@@ -225,21 +225,21 @@ class SlotVirtualNetworkSwiftConnection(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="example-delegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Web/serverFarms",
-                    actions=["Microsoft.Network/virtualNetworks/subnets/action"],
-                ),
-            )])
+            delegations=[{
+                "name": "example-delegation",
+                "serviceDelegation": {
+                    "name": "Microsoft.Web/serverFarms",
+                    "actions": ["Microsoft.Network/virtualNetworks/subnets/action"],
+                },
+            }])
         example_plan = azure.appservice.Plan("example",
             name="example-service-plan",
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
+            sku={
+                "tier": "Standard",
+                "size": "S1",
+            })
         example_app_service = azure.appservice.AppService("example",
             name="example-app-service",
             location=example.location,

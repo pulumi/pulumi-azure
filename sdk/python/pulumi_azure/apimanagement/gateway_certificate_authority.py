@@ -186,12 +186,12 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
             name="example-gateway",
             api_management_id=example_service.id,
             description="Example API Management gateway",
-            location_data=azure.apimanagement.GatewayLocationDataArgs(
-                name="example name",
-                city="example city",
-                district="example district",
-                region="example region",
-            ))
+            location_data={
+                "name": "example name",
+                "city": "example city",
+                "district": "example district",
+                "region": "example region",
+            })
         example_certificate = azure.apimanagement.Certificate("example",
             name="example-cert",
             api_management_name=example_service.name,
@@ -249,12 +249,12 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
             name="example-gateway",
             api_management_id=example_service.id,
             description="Example API Management gateway",
-            location_data=azure.apimanagement.GatewayLocationDataArgs(
-                name="example name",
-                city="example city",
-                district="example district",
-                region="example region",
-            ))
+            location_data={
+                "name": "example name",
+                "city": "example city",
+                "district": "example district",
+                "region": "example region",
+            })
         example_certificate = azure.apimanagement.Certificate("example",
             name="example-cert",
             api_management_name=example_service.name,

@@ -226,7 +226,7 @@ class IotHubDeviceUpdateInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  device_update_account_id: Optional[pulumi.Input[str]] = None,
                  diagnostic_enabled: Optional[pulumi.Input[bool]] = None,
-                 diagnostic_storage_account: Optional[pulumi.Input[pulumi.InputType['IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs']]] = None,
+                 diagnostic_storage_account: Optional[pulumi.Input[Union['IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs', 'IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgsDict']]] = None,
                  iothub_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -251,10 +251,10 @@ class IotHubDeviceUpdateInstance(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ))
+            sku={
+                "name": "S1",
+                "capacity": 1,
+            })
         example_account = azure.storage.Account("example",
             name="example",
             resource_group_name=example.name,
@@ -266,10 +266,10 @@ class IotHubDeviceUpdateInstance(pulumi.CustomResource):
             device_update_account_id=example_iot_hub_device_update_account.id,
             iothub_id=example_io_t_hub.id,
             diagnostic_enabled=True,
-            diagnostic_storage_account=azure.iot.IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs(
-                connection_string=example_account.primary_connection_string,
-                id=example_account.id,
-            ),
+            diagnostic_storage_account={
+                "connectionString": example_account.primary_connection_string,
+                "id": example_account.id,
+            },
             tags={
                 "key": "value",
             })
@@ -287,7 +287,7 @@ class IotHubDeviceUpdateInstance(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] device_update_account_id: Specifies the ID of the IoT Hub Device Update Account where the IoT Hub Device Update Instance exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] diagnostic_enabled: Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs']] diagnostic_storage_account: A `diagnostic_storage_account` block as defined below.
+        :param pulumi.Input[Union['IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs', 'IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgsDict']] diagnostic_storage_account: A `diagnostic_storage_account` block as defined below.
         :param pulumi.Input[str] iothub_id: Specifies the ID of the IoT Hub associated with the IoT Hub Device Update Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this IoT Hub Device Update Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the IoT Hub Device Update Instance.
@@ -318,10 +318,10 @@ class IotHubDeviceUpdateInstance(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ))
+            sku={
+                "name": "S1",
+                "capacity": 1,
+            })
         example_account = azure.storage.Account("example",
             name="example",
             resource_group_name=example.name,
@@ -333,10 +333,10 @@ class IotHubDeviceUpdateInstance(pulumi.CustomResource):
             device_update_account_id=example_iot_hub_device_update_account.id,
             iothub_id=example_io_t_hub.id,
             diagnostic_enabled=True,
-            diagnostic_storage_account=azure.iot.IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs(
-                connection_string=example_account.primary_connection_string,
-                id=example_account.id,
-            ),
+            diagnostic_storage_account={
+                "connectionString": example_account.primary_connection_string,
+                "id": example_account.id,
+            },
             tags={
                 "key": "value",
             })
@@ -367,7 +367,7 @@ class IotHubDeviceUpdateInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  device_update_account_id: Optional[pulumi.Input[str]] = None,
                  diagnostic_enabled: Optional[pulumi.Input[bool]] = None,
-                 diagnostic_storage_account: Optional[pulumi.Input[pulumi.InputType['IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs']]] = None,
+                 diagnostic_storage_account: Optional[pulumi.Input[Union['IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs', 'IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgsDict']]] = None,
                  iothub_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -402,7 +402,7 @@ class IotHubDeviceUpdateInstance(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             device_update_account_id: Optional[pulumi.Input[str]] = None,
             diagnostic_enabled: Optional[pulumi.Input[bool]] = None,
-            diagnostic_storage_account: Optional[pulumi.Input[pulumi.InputType['IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs']]] = None,
+            diagnostic_storage_account: Optional[pulumi.Input[Union['IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs', 'IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgsDict']]] = None,
             iothub_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'IotHubDeviceUpdateInstance':
@@ -415,7 +415,7 @@ class IotHubDeviceUpdateInstance(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] device_update_account_id: Specifies the ID of the IoT Hub Device Update Account where the IoT Hub Device Update Instance exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] diagnostic_enabled: Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs']] diagnostic_storage_account: A `diagnostic_storage_account` block as defined below.
+        :param pulumi.Input[Union['IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs', 'IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgsDict']] diagnostic_storage_account: A `diagnostic_storage_account` block as defined below.
         :param pulumi.Input[str] iothub_id: Specifies the ID of the IoT Hub associated with the IoT Hub Device Update Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this IoT Hub Device Update Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the IoT Hub Device Update Instance.

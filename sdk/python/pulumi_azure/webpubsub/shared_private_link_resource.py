@@ -247,13 +247,13 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="standard",
             soft_delete_retention_days=7,
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=current.tenant_id,
-                object_id=current.object_id,
-                certificate_permissions=["managecontacts"],
-                key_permissions=["create"],
-                secret_permissions=["set"],
-            )])
+            access_policies=[{
+                "tenantId": current.tenant_id,
+                "objectId": current.object_id,
+                "certificatePermissions": ["managecontacts"],
+                "keyPermissions": ["create"],
+                "secretPermissions": ["set"],
+            }])
         example_service = azure.webpubsub.Service("example",
             name="tfex-webpubsub",
             location=example.location,
@@ -313,13 +313,13 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="standard",
             soft_delete_retention_days=7,
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=current.tenant_id,
-                object_id=current.object_id,
-                certificate_permissions=["managecontacts"],
-                key_permissions=["create"],
-                secret_permissions=["set"],
-            )])
+            access_policies=[{
+                "tenantId": current.tenant_id,
+                "objectId": current.object_id,
+                "certificatePermissions": ["managecontacts"],
+                "keyPermissions": ["create"],
+                "secretPermissions": ["set"],
+            }])
         example_service = azure.webpubsub.Service("example",
             name="tfex-webpubsub",
             location=example.location,

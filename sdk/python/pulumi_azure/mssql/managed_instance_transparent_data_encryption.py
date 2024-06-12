@@ -175,17 +175,17 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.0.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="managedinstancedelegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Sql/managedInstances",
-                    actions=[
+            delegations=[{
+                "name": "managedinstancedelegation",
+                "serviceDelegation": {
+                    "name": "Microsoft.Sql/managedInstances",
+                    "actions": [
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                         "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
                         "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
                     ],
-                ),
-            )])
+                },
+            }])
         example_managed_instance = azure.mssql.ManagedInstance("example",
             name="mssqlinstance",
             resource_group_name=example.name,
@@ -197,9 +197,9 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
             vcores=4,
             administrator_login="missadministrator",
             administrator_login_password="NCC-1701-D",
-            identity=azure.mssql.ManagedInstanceIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_managed_instance_transparent_data_encryption = azure.mssql.ManagedInstanceTransparentDataEncryption("example", managed_instance_id=example_managed_instance.id)
         ```
 
@@ -223,17 +223,17 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.0.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="managedinstancedelegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Sql/managedInstances",
-                    actions=[
+            delegations=[{
+                "name": "managedinstancedelegation",
+                "serviceDelegation": {
+                    "name": "Microsoft.Sql/managedInstances",
+                    "actions": [
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                         "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
                         "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
                     ],
-                ),
-            )])
+                },
+            }])
         example_managed_instance = azure.mssql.ManagedInstance("example",
             name="mssqlinstance",
             resource_group_name=example.name,
@@ -245,9 +245,9 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
             vcores=4,
             administrator_login="missadministrator",
             administrator_login_password="NCC-1701-D",
-            identity=azure.mssql.ManagedInstanceIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         # Create a key vault with policies for the deployer to create a key & SQL Managed Instance to wrap/unwrap/get key
         example_key_vault = azure.keyvault.KeyVault("example",
             name="example",
@@ -259,10 +259,10 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
             purge_protection_enabled=False,
             sku_name="standard",
             access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=current.object_id,
-                    key_permissions=[
+                {
+                    "tenantId": current.tenant_id,
+                    "objectId": current.object_id,
+                    "keyPermissions": [
                         "Get",
                         "List",
                         "Create",
@@ -272,16 +272,16 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
                         "Purge",
                         "GetRotationPolicy",
                     ],
-                ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=example_managed_instance.identity.tenant_id,
-                    object_id=example_managed_instance.identity.principal_id,
-                    key_permissions=[
+                },
+                {
+                    "tenantId": example_managed_instance.identity.tenant_id,
+                    "objectId": example_managed_instance.identity.principal_id,
+                    "keyPermissions": [
                         "Get",
                         "WrapKey",
                         "UnwrapKey",
                     ],
-                ),
+                },
             ])
         example_key = azure.keyvault.Key("example",
             name="byok",
@@ -350,17 +350,17 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.0.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="managedinstancedelegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Sql/managedInstances",
-                    actions=[
+            delegations=[{
+                "name": "managedinstancedelegation",
+                "serviceDelegation": {
+                    "name": "Microsoft.Sql/managedInstances",
+                    "actions": [
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                         "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
                         "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
                     ],
-                ),
-            )])
+                },
+            }])
         example_managed_instance = azure.mssql.ManagedInstance("example",
             name="mssqlinstance",
             resource_group_name=example.name,
@@ -372,9 +372,9 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
             vcores=4,
             administrator_login="missadministrator",
             administrator_login_password="NCC-1701-D",
-            identity=azure.mssql.ManagedInstanceIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_managed_instance_transparent_data_encryption = azure.mssql.ManagedInstanceTransparentDataEncryption("example", managed_instance_id=example_managed_instance.id)
         ```
 
@@ -398,17 +398,17 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.0.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="managedinstancedelegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Sql/managedInstances",
-                    actions=[
+            delegations=[{
+                "name": "managedinstancedelegation",
+                "serviceDelegation": {
+                    "name": "Microsoft.Sql/managedInstances",
+                    "actions": [
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                         "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
                         "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
                     ],
-                ),
-            )])
+                },
+            }])
         example_managed_instance = azure.mssql.ManagedInstance("example",
             name="mssqlinstance",
             resource_group_name=example.name,
@@ -420,9 +420,9 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
             vcores=4,
             administrator_login="missadministrator",
             administrator_login_password="NCC-1701-D",
-            identity=azure.mssql.ManagedInstanceIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         # Create a key vault with policies for the deployer to create a key & SQL Managed Instance to wrap/unwrap/get key
         example_key_vault = azure.keyvault.KeyVault("example",
             name="example",
@@ -434,10 +434,10 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
             purge_protection_enabled=False,
             sku_name="standard",
             access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=current.object_id,
-                    key_permissions=[
+                {
+                    "tenantId": current.tenant_id,
+                    "objectId": current.object_id,
+                    "keyPermissions": [
                         "Get",
                         "List",
                         "Create",
@@ -447,16 +447,16 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
                         "Purge",
                         "GetRotationPolicy",
                     ],
-                ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=example_managed_instance.identity.tenant_id,
-                    object_id=example_managed_instance.identity.principal_id,
-                    key_permissions=[
+                },
+                {
+                    "tenantId": example_managed_instance.identity.tenant_id,
+                    "objectId": example_managed_instance.identity.principal_id,
+                    "keyPermissions": [
                         "Get",
                         "WrapKey",
                         "UnwrapKey",
                     ],
-                ),
+                },
             ])
         example_key = azure.keyvault.Key("example",
             name="byok",

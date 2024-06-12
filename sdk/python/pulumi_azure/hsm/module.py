@@ -328,9 +328,9 @@ class Module(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 management_network_profile: Optional[pulumi.Input[pulumi.InputType['ModuleManagementNetworkProfileArgs']]] = None,
+                 management_network_profile: Optional[pulumi.Input[Union['ModuleManagementNetworkProfileArgs', 'ModuleManagementNetworkProfileArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_profile: Optional[pulumi.Input[pulumi.InputType['ModuleNetworkProfileArgs']]] = None,
+                 network_profile: Optional[pulumi.Input[Union['ModuleNetworkProfileArgs', 'ModuleNetworkProfileArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  stamp_id: Optional[pulumi.Input[str]] = None,
@@ -368,16 +368,16 @@ class Module(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.2.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="first",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.HardwareSecurityModules/dedicatedHSMs",
-                    actions=[
+            delegations=[{
+                "name": "first",
+                "serviceDelegation": {
+                    "name": "Microsoft.HardwareSecurityModules/dedicatedHSMs",
+                    "actions": [
                         "Microsoft.Network/networkinterfaces/*",
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                     ],
-                ),
-            )])
+                },
+            }])
         example3 = azure.network.Subnet("example3",
             name="gatewaysubnet",
             resource_group_name=example.name,
@@ -395,24 +395,24 @@ class Module(pulumi.CustomResource):
             type="ExpressRoute",
             vpn_type="PolicyBased",
             sku="Standard",
-            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
-                public_ip_address_id=example_public_ip.id,
-                private_ip_address_allocation="Dynamic",
-                subnet_id=example3.id,
-            )])
+            ip_configurations=[{
+                "publicIpAddressId": example_public_ip.id,
+                "privateIpAddressAllocation": "Dynamic",
+                "subnetId": example3.id,
+            }])
         example_module = azure.hsm.Module("example",
             name="example-hsm",
             location=example.location,
             resource_group_name=example.name,
             sku_name="payShield10K_LMK1_CPS60",
-            management_network_profile=azure.hsm.ModuleManagementNetworkProfileArgs(
-                network_interface_private_ip_addresses=["10.2.1.7"],
-                subnet_id=example2.id,
-            ),
-            network_profile=azure.hsm.ModuleNetworkProfileArgs(
-                network_interface_private_ip_addresses=["10.2.1.8"],
-                subnet_id=example2.id,
-            ),
+            management_network_profile={
+                "networkInterfacePrivateIpAddresses": ["10.2.1.7"],
+                "subnetId": example2.id,
+            },
+            network_profile={
+                "networkInterfacePrivateIpAddresses": ["10.2.1.8"],
+                "subnetId": example2.id,
+            },
             stamp_id="stamp2",
             tags={
                 "env": "Test",
@@ -431,11 +431,11 @@ class Module(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
-        :param pulumi.Input[pulumi.InputType['ModuleManagementNetworkProfileArgs']] management_network_profile: A `management_network_profile` block as defined below.
+        :param pulumi.Input[Union['ModuleManagementNetworkProfileArgs', 'ModuleManagementNetworkProfileArgsDict']] management_network_profile: A `management_network_profile` block as defined below.
                
                ->**NOTE:**  The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
         :param pulumi.Input[str] name: The name which should be used for this Dedicated Hardware Security Module. Changing this forces a new Dedicated Hardware Security Module to be created.
-        :param pulumi.Input[pulumi.InputType['ModuleNetworkProfileArgs']] network_profile: A `network_profile` block as defined below.
+        :param pulumi.Input[Union['ModuleNetworkProfileArgs', 'ModuleNetworkProfileArgsDict']] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[str] sku_name: The SKU name of the dedicated hardware security module. Possible values are `payShield10K_LMK1_CPS60`,`payShield10K_LMK1_CPS250`,`payShield10K_LMK1_CPS2500`,`payShield10K_LMK2_CPS60`,`payShield10K_LMK2_CPS250`,`payShield10K_LMK2_CPS2500` and `SafeNet Luna Network HSM A790`. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[str] stamp_id: The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
@@ -479,16 +479,16 @@ class Module(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.2.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="first",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.HardwareSecurityModules/dedicatedHSMs",
-                    actions=[
+            delegations=[{
+                "name": "first",
+                "serviceDelegation": {
+                    "name": "Microsoft.HardwareSecurityModules/dedicatedHSMs",
+                    "actions": [
                         "Microsoft.Network/networkinterfaces/*",
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                     ],
-                ),
-            )])
+                },
+            }])
         example3 = azure.network.Subnet("example3",
             name="gatewaysubnet",
             resource_group_name=example.name,
@@ -506,24 +506,24 @@ class Module(pulumi.CustomResource):
             type="ExpressRoute",
             vpn_type="PolicyBased",
             sku="Standard",
-            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
-                public_ip_address_id=example_public_ip.id,
-                private_ip_address_allocation="Dynamic",
-                subnet_id=example3.id,
-            )])
+            ip_configurations=[{
+                "publicIpAddressId": example_public_ip.id,
+                "privateIpAddressAllocation": "Dynamic",
+                "subnetId": example3.id,
+            }])
         example_module = azure.hsm.Module("example",
             name="example-hsm",
             location=example.location,
             resource_group_name=example.name,
             sku_name="payShield10K_LMK1_CPS60",
-            management_network_profile=azure.hsm.ModuleManagementNetworkProfileArgs(
-                network_interface_private_ip_addresses=["10.2.1.7"],
-                subnet_id=example2.id,
-            ),
-            network_profile=azure.hsm.ModuleNetworkProfileArgs(
-                network_interface_private_ip_addresses=["10.2.1.8"],
-                subnet_id=example2.id,
-            ),
+            management_network_profile={
+                "networkInterfacePrivateIpAddresses": ["10.2.1.7"],
+                "subnetId": example2.id,
+            },
+            network_profile={
+                "networkInterfacePrivateIpAddresses": ["10.2.1.8"],
+                "subnetId": example2.id,
+            },
             stamp_id="stamp2",
             tags={
                 "env": "Test",
@@ -555,9 +555,9 @@ class Module(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 management_network_profile: Optional[pulumi.Input[pulumi.InputType['ModuleManagementNetworkProfileArgs']]] = None,
+                 management_network_profile: Optional[pulumi.Input[Union['ModuleManagementNetworkProfileArgs', 'ModuleManagementNetworkProfileArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_profile: Optional[pulumi.Input[pulumi.InputType['ModuleNetworkProfileArgs']]] = None,
+                 network_profile: Optional[pulumi.Input[Union['ModuleNetworkProfileArgs', 'ModuleNetworkProfileArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  stamp_id: Optional[pulumi.Input[str]] = None,
@@ -598,9 +598,9 @@ class Module(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             location: Optional[pulumi.Input[str]] = None,
-            management_network_profile: Optional[pulumi.Input[pulumi.InputType['ModuleManagementNetworkProfileArgs']]] = None,
+            management_network_profile: Optional[pulumi.Input[Union['ModuleManagementNetworkProfileArgs', 'ModuleManagementNetworkProfileArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            network_profile: Optional[pulumi.Input[pulumi.InputType['ModuleNetworkProfileArgs']]] = None,
+            network_profile: Optional[pulumi.Input[Union['ModuleNetworkProfileArgs', 'ModuleNetworkProfileArgsDict']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
             stamp_id: Optional[pulumi.Input[str]] = None,
@@ -614,11 +614,11 @@ class Module(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
-        :param pulumi.Input[pulumi.InputType['ModuleManagementNetworkProfileArgs']] management_network_profile: A `management_network_profile` block as defined below.
+        :param pulumi.Input[Union['ModuleManagementNetworkProfileArgs', 'ModuleManagementNetworkProfileArgsDict']] management_network_profile: A `management_network_profile` block as defined below.
                
                ->**NOTE:**  The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
         :param pulumi.Input[str] name: The name which should be used for this Dedicated Hardware Security Module. Changing this forces a new Dedicated Hardware Security Module to be created.
-        :param pulumi.Input[pulumi.InputType['ModuleNetworkProfileArgs']] network_profile: A `network_profile` block as defined below.
+        :param pulumi.Input[Union['ModuleNetworkProfileArgs', 'ModuleNetworkProfileArgsDict']] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[str] sku_name: The SKU name of the dedicated hardware security module. Possible values are `payShield10K_LMK1_CPS60`,`payShield10K_LMK1_CPS250`,`payShield10K_LMK1_CPS2500`,`payShield10K_LMK2_CPS60`,`payShield10K_LMK2_CPS250`,`payShield10K_LMK2_CPS2500` and `SafeNet Luna Network HSM A790`. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[str] stamp_id: The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.

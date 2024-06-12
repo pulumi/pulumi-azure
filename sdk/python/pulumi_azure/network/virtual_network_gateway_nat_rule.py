@@ -286,8 +286,8 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayNatRuleExternalMappingArgs']]]]] = None,
-                 internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayNatRuleInternalMappingArgs']]]]] = None,
+                 external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkGatewayNatRuleExternalMappingArgs', 'VirtualNetworkGatewayNatRuleExternalMappingArgsDict']]]]] = None,
+                 internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkGatewayNatRuleInternalMappingArgs', 'VirtualNetworkGatewayNatRuleInternalMappingArgsDict']]]]] = None,
                  ip_configuration_id: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -329,11 +329,11 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
             type="Vpn",
             vpn_type="RouteBased",
             sku="Basic",
-            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
-                public_ip_address_id=example_public_ip.id,
-                private_ip_address_allocation="Dynamic",
-                subnet_id=example_subnet.id,
-            )])
+            ip_configurations=[{
+                "publicIpAddressId": example_public_ip.id,
+                "privateIpAddressAllocation": "Dynamic",
+                "subnetId": example_subnet.id,
+            }])
         example = azure.network.get_virtual_network_gateway_output(name=example_virtual_network_gateway.name,
             resource_group_name=example_virtual_network_gateway.resource_group_name)
         example_virtual_network_gateway_nat_rule = azure.network.VirtualNetworkGatewayNatRule("example",
@@ -343,14 +343,14 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
             mode="EgressSnat",
             type="Dynamic",
             ip_configuration_id=example.ip_configurations[0].id,
-            external_mappings=[azure.network.VirtualNetworkGatewayNatRuleExternalMappingArgs(
-                address_space="10.2.0.0/26",
-                port_range="200",
-            )],
-            internal_mappings=[azure.network.VirtualNetworkGatewayNatRuleInternalMappingArgs(
-                address_space="10.4.0.0/26",
-                port_range="400",
-            )])
+            external_mappings=[{
+                "addressSpace": "10.2.0.0/26",
+                "portRange": "200",
+            }],
+            internal_mappings=[{
+                "addressSpace": "10.4.0.0/26",
+                "portRange": "400",
+            }])
         ```
 
         ## Import
@@ -363,8 +363,8 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayNatRuleExternalMappingArgs']]]] external_mappings: One or more `external_mapping` blocks as documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayNatRuleInternalMappingArgs']]]] internal_mappings: One or more `internal_mapping` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkGatewayNatRuleExternalMappingArgs', 'VirtualNetworkGatewayNatRuleExternalMappingArgsDict']]]] external_mappings: One or more `external_mapping` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkGatewayNatRuleInternalMappingArgs', 'VirtualNetworkGatewayNatRuleInternalMappingArgsDict']]]] internal_mappings: One or more `internal_mapping` blocks as documented below.
         :param pulumi.Input[str] ip_configuration_id: The ID of the IP Configuration this Virtual Network Gateway Nat Rule applies to.
         :param pulumi.Input[str] mode: The source Nat direction of the Virtual Network Gateway Nat. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Virtual Network Gateway Nat Rule. Changing this forces a new resource to be created.
@@ -412,11 +412,11 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
             type="Vpn",
             vpn_type="RouteBased",
             sku="Basic",
-            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
-                public_ip_address_id=example_public_ip.id,
-                private_ip_address_allocation="Dynamic",
-                subnet_id=example_subnet.id,
-            )])
+            ip_configurations=[{
+                "publicIpAddressId": example_public_ip.id,
+                "privateIpAddressAllocation": "Dynamic",
+                "subnetId": example_subnet.id,
+            }])
         example = azure.network.get_virtual_network_gateway_output(name=example_virtual_network_gateway.name,
             resource_group_name=example_virtual_network_gateway.resource_group_name)
         example_virtual_network_gateway_nat_rule = azure.network.VirtualNetworkGatewayNatRule("example",
@@ -426,14 +426,14 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
             mode="EgressSnat",
             type="Dynamic",
             ip_configuration_id=example.ip_configurations[0].id,
-            external_mappings=[azure.network.VirtualNetworkGatewayNatRuleExternalMappingArgs(
-                address_space="10.2.0.0/26",
-                port_range="200",
-            )],
-            internal_mappings=[azure.network.VirtualNetworkGatewayNatRuleInternalMappingArgs(
-                address_space="10.4.0.0/26",
-                port_range="400",
-            )])
+            external_mappings=[{
+                "addressSpace": "10.2.0.0/26",
+                "portRange": "200",
+            }],
+            internal_mappings=[{
+                "addressSpace": "10.4.0.0/26",
+                "portRange": "400",
+            }])
         ```
 
         ## Import
@@ -459,8 +459,8 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayNatRuleExternalMappingArgs']]]]] = None,
-                 internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayNatRuleInternalMappingArgs']]]]] = None,
+                 external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkGatewayNatRuleExternalMappingArgs', 'VirtualNetworkGatewayNatRuleExternalMappingArgsDict']]]]] = None,
+                 internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkGatewayNatRuleInternalMappingArgs', 'VirtualNetworkGatewayNatRuleInternalMappingArgsDict']]]]] = None,
                  ip_configuration_id: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -502,8 +502,8 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayNatRuleExternalMappingArgs']]]]] = None,
-            internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayNatRuleInternalMappingArgs']]]]] = None,
+            external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkGatewayNatRuleExternalMappingArgs', 'VirtualNetworkGatewayNatRuleExternalMappingArgsDict']]]]] = None,
+            internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkGatewayNatRuleInternalMappingArgs', 'VirtualNetworkGatewayNatRuleInternalMappingArgsDict']]]]] = None,
             ip_configuration_id: Optional[pulumi.Input[str]] = None,
             mode: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -517,8 +517,8 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayNatRuleExternalMappingArgs']]]] external_mappings: One or more `external_mapping` blocks as documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayNatRuleInternalMappingArgs']]]] internal_mappings: One or more `internal_mapping` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkGatewayNatRuleExternalMappingArgs', 'VirtualNetworkGatewayNatRuleExternalMappingArgsDict']]]] external_mappings: One or more `external_mapping` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkGatewayNatRuleInternalMappingArgs', 'VirtualNetworkGatewayNatRuleInternalMappingArgsDict']]]] internal_mappings: One or more `internal_mapping` blocks as documented below.
         :param pulumi.Input[str] ip_configuration_id: The ID of the IP Configuration this Virtual Network Gateway Nat Rule applies to.
         :param pulumi.Input[str] mode: The source Nat direction of the Virtual Network Gateway Nat. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Virtual Network Gateway Nat Rule. Changing this forces a new resource to be created.
