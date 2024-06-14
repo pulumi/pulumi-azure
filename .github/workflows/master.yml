@@ -67,7 +67,7 @@ jobs:
     - name: Install Pulumi CLI
       uses: pulumi/actions@v5
       with:
-        pulumi-version: "^3"
+        pulumi-version: "dev"
     - if: github.event_name == 'pull_request'
       name: Install Schema Tools
       uses: jaxxstorm/action-install-gh-release@v1.11.0
@@ -132,7 +132,7 @@ jobs:
     - name: Install Pulumi CLI
       uses: pulumi/actions@v5
       with:
-        pulumi-version: "^3"
+        pulumi-version: "dev"
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
@@ -233,7 +233,7 @@ jobs:
     - name: Install Pulumi CLI
       uses: pulumi/actions@v5
       with:
-        pulumi-version: "^3"
+        pulumi-version: "dev"
     - name: Setup Node
       uses: actions/setup-node@v4
       with:
