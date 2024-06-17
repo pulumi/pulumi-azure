@@ -35,6 +35,7 @@ func test(t *testing.T, dir string, opts ...providertest.Option) {
 		providertest.WithBaselineVersion("5.60.0"),
 		providertest.WithResourceProviderServer(providerServer()),
 		providertest.WithSkippedUpgradeTestMode(providertest.UpgradeTestMode_Quick, "Using PreviewOnly mode instead"),
+		providertest.WithDiffValidation(providertest.NoReplacements()),
 	)
 	ptest := providertest.NewProviderTest(dir, opts...)
 	ptest.Run(t)
