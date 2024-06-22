@@ -591,10 +591,8 @@ class LinuxVirtualMachineScaleSetArgs:
 
     @property
     @pulumi.getter(name="galleryApplications")
+    @_utilities.deprecated("""`gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""")
     def gallery_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]]:
-        warnings.warn("""`gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""", DeprecationWarning)
-        pulumi.log.warn("""gallery_applications is deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""")
-
         return pulumi.get(self, "gallery_applications")
 
     @gallery_applications.setter
@@ -791,10 +789,8 @@ class LinuxVirtualMachineScaleSetArgs:
 
     @property
     @pulumi.getter(name="scaleInPolicy")
+    @_utilities.deprecated("""`scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.""")
     def scale_in_policy(self) -> Optional[pulumi.Input[str]]:
-        warnings.warn("""`scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""scale_in_policy is deprecated: `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "scale_in_policy")
 
     @scale_in_policy.setter
@@ -891,15 +887,13 @@ class LinuxVirtualMachineScaleSetArgs:
 
     @property
     @pulumi.getter(name="terminateNotification")
+    @_utilities.deprecated("""`terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.""")
     def terminate_notification(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetTerminateNotificationArgs']]:
         """
         A `terminate_notification` block as defined below.
 
         > **Note:** This property has been deprecated in favour of the `termination_notification` property and will be removed in version 4.0 of the provider.
         """
-        warnings.warn("""`terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.""", DeprecationWarning)
-        pulumi.log.warn("""terminate_notification is deprecated: `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.""")
-
         return pulumi.get(self, "terminate_notification")
 
     @terminate_notification.setter
@@ -1517,10 +1511,8 @@ class _LinuxVirtualMachineScaleSetState:
 
     @property
     @pulumi.getter(name="galleryApplications")
+    @_utilities.deprecated("""`gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""")
     def gallery_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]]:
-        warnings.warn("""`gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""", DeprecationWarning)
-        pulumi.log.warn("""gallery_applications is deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""")
-
         return pulumi.get(self, "gallery_applications")
 
     @gallery_applications.setter
@@ -1753,10 +1745,8 @@ class _LinuxVirtualMachineScaleSetState:
 
     @property
     @pulumi.getter(name="scaleInPolicy")
+    @_utilities.deprecated("""`scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.""")
     def scale_in_policy(self) -> Optional[pulumi.Input[str]]:
-        warnings.warn("""`scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""scale_in_policy is deprecated: `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "scale_in_policy")
 
     @scale_in_policy.setter
@@ -1865,15 +1855,13 @@ class _LinuxVirtualMachineScaleSetState:
 
     @property
     @pulumi.getter(name="terminateNotification")
+    @_utilities.deprecated("""`terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.""")
     def terminate_notification(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetTerminateNotificationArgs']]:
         """
         A `terminate_notification` block as defined below.
 
         > **Note:** This property has been deprecated in favour of the `termination_notification` property and will be removed in version 4.0 of the provider.
         """
-        warnings.warn("""`terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.""", DeprecationWarning)
-        pulumi.log.warn("""terminate_notification is deprecated: `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.""")
-
         return pulumi.get(self, "terminate_notification")
 
     @terminate_notification.setter
@@ -2820,10 +2808,8 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="galleryApplications")
+    @_utilities.deprecated("""`gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""")
     def gallery_applications(self) -> pulumi.Output[Sequence['outputs.LinuxVirtualMachineScaleSetGalleryApplication']]:
-        warnings.warn("""`gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""", DeprecationWarning)
-        pulumi.log.warn("""gallery_applications is deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""")
-
         return pulumi.get(self, "gallery_applications")
 
     @property
@@ -2980,10 +2966,8 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scaleInPolicy")
+    @_utilities.deprecated("""`scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.""")
     def scale_in_policy(self) -> pulumi.Output[str]:
-        warnings.warn("""`scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""scale_in_policy is deprecated: `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "scale_in_policy")
 
     @property
@@ -3056,15 +3040,13 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="terminateNotification")
+    @_utilities.deprecated("""`terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.""")
     def terminate_notification(self) -> pulumi.Output['outputs.LinuxVirtualMachineScaleSetTerminateNotification']:
         """
         A `terminate_notification` block as defined below.
 
         > **Note:** This property has been deprecated in favour of the `termination_notification` property and will be removed in version 4.0 of the provider.
         """
-        warnings.warn("""`terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.""", DeprecationWarning)
-        pulumi.log.warn("""terminate_notification is deprecated: `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.""")
-
         return pulumi.get(self, "terminate_notification")
 
     @property

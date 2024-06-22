@@ -105,10 +105,8 @@ class ManagedHardwareSecurityModuleRoleAssignmentArgs:
 
     @property
     @pulumi.getter(name="vaultBaseUrl")
+    @_utilities.deprecated("""The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider""")
     def vault_base_url(self) -> Optional[pulumi.Input[str]]:
-        warnings.warn("""The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider""", DeprecationWarning)
-        pulumi.log.warn("""vault_base_url is deprecated: The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider""")
-
         return pulumi.get(self, "vault_base_url")
 
     @vault_base_url.setter
@@ -229,10 +227,8 @@ class _ManagedHardwareSecurityModuleRoleAssignmentState:
 
     @property
     @pulumi.getter(name="vaultBaseUrl")
+    @_utilities.deprecated("""The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider""")
     def vault_base_url(self) -> Optional[pulumi.Input[str]]:
-        warnings.warn("""The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider""", DeprecationWarning)
-        pulumi.log.warn("""vault_base_url is deprecated: The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider""")
-
         return pulumi.get(self, "vault_base_url")
 
     @vault_base_url.setter
@@ -428,9 +424,7 @@ class ManagedHardwareSecurityModuleRoleAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vaultBaseUrl")
+    @_utilities.deprecated("""The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider""")
     def vault_base_url(self) -> pulumi.Output[str]:
-        warnings.warn("""The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider""", DeprecationWarning)
-        pulumi.log.warn("""vault_base_url is deprecated: The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider""")
-
         return pulumi.get(self, "vault_base_url")
 

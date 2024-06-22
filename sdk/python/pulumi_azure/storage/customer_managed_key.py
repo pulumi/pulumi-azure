@@ -363,7 +363,7 @@ class CustomerManagedKey(pulumi.CustomResource):
                 "verify",
                 "wrapKey",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     client,
                     storage,
                 ]))
@@ -473,7 +473,7 @@ class CustomerManagedKey(pulumi.CustomResource):
                 "verify",
                 "wrapKey",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     client,
                     storage,
                 ]))

@@ -224,7 +224,7 @@ class CertificateBinding(pulumi.CustomResource):
                 cutset=".").apply(lambda invoke: invoke.result),
             app_service_name=example_app_service.name,
             resource_group_name=example_resource_group.name,
-            opts=pulumi.ResourceOptions(depends_on=[example_txt_record]))
+            opts = pulumi.ResourceOptions(depends_on=[example_txt_record]))
         example_managed_certificate = azure.appservice.ManagedCertificate("example", custom_hostname_binding_id=example_custom_hostname_binding.id)
         example_certificate_binding = azure.appservice.CertificateBinding("example",
             hostname_binding_id=example_custom_hostname_binding.id,
@@ -299,7 +299,7 @@ class CertificateBinding(pulumi.CustomResource):
                 cutset=".").apply(lambda invoke: invoke.result),
             app_service_name=example_app_service.name,
             resource_group_name=example_resource_group.name,
-            opts=pulumi.ResourceOptions(depends_on=[example_txt_record]))
+            opts = pulumi.ResourceOptions(depends_on=[example_txt_record]))
         example_managed_certificate = azure.appservice.ManagedCertificate("example", custom_hostname_binding_id=example_custom_hostname_binding.id)
         example_certificate_binding = azure.appservice.CertificateBinding("example",
             hostname_binding_id=example_custom_hostname_binding.id,

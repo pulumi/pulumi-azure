@@ -866,7 +866,7 @@ class Workspace(pulumi.CustomResource):
                 "unwrapKey",
                 "wrapKey",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[deployer]))
+            opts = pulumi.ResourceOptions(depends_on=[deployer]))
         example_workspace = azure.synapse.Workspace("example",
             name="example",
             resource_group_name=example.name,
@@ -898,13 +898,13 @@ class Workspace(pulumi.CustomResource):
             synapse_workspace_id=example_workspace.id,
             active=True,
             customer_managed_key_name="enckey",
-            opts=pulumi.ResourceOptions(depends_on=[workspace_policy]))
+            opts = pulumi.ResourceOptions(depends_on=[workspace_policy]))
         example_workspace_aad_admin = azure.synapse.WorkspaceAadAdmin("example",
             synapse_workspace_id=example_workspace.id,
             login="AzureAD Admin",
             object_id="00000000-0000-0000-0000-000000000000",
             tenant_id="00000000-0000-0000-0000-000000000000",
-            opts=pulumi.ResourceOptions(depends_on=[example_workspace_key]))
+            opts = pulumi.ResourceOptions(depends_on=[example_workspace_key]))
         ```
 
         ## Import
@@ -1037,7 +1037,7 @@ class Workspace(pulumi.CustomResource):
                 "unwrapKey",
                 "wrapKey",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[deployer]))
+            opts = pulumi.ResourceOptions(depends_on=[deployer]))
         example_workspace = azure.synapse.Workspace("example",
             name="example",
             resource_group_name=example.name,
@@ -1069,13 +1069,13 @@ class Workspace(pulumi.CustomResource):
             synapse_workspace_id=example_workspace.id,
             active=True,
             customer_managed_key_name="enckey",
-            opts=pulumi.ResourceOptions(depends_on=[workspace_policy]))
+            opts = pulumi.ResourceOptions(depends_on=[workspace_policy]))
         example_workspace_aad_admin = azure.synapse.WorkspaceAadAdmin("example",
             synapse_workspace_id=example_workspace.id,
             login="AzureAD Admin",
             object_id="00000000-0000-0000-0000-000000000000",
             tenant_id="00000000-0000-0000-0000-000000000000",
-            opts=pulumi.ResourceOptions(depends_on=[example_workspace_key]))
+            opts = pulumi.ResourceOptions(depends_on=[example_workspace_key]))
         ```
 
         ## Import

@@ -414,7 +414,7 @@ class LinkedService(pulumi.CustomResource):
             integration_runtime=azure.synapse.LinkedServiceIntegrationRuntimeArgs(
                 name=example_integration_runtime_azure.name,
             ),
-            opts=pulumi.ResourceOptions(depends_on=[example_firewall_rule]))
+            opts = pulumi.ResourceOptions(depends_on=[example_firewall_rule]))
         ```
 
         ## Import
@@ -504,7 +504,7 @@ class LinkedService(pulumi.CustomResource):
             integration_runtime=azure.synapse.LinkedServiceIntegrationRuntimeArgs(
                 name=example_integration_runtime_azure.name,
             ),
-            opts=pulumi.ResourceOptions(depends_on=[example_firewall_rule]))
+            opts = pulumi.ResourceOptions(depends_on=[example_firewall_rule]))
         ```
 
         ## Import

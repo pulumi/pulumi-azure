@@ -404,7 +404,7 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
                 include_instance_ids=["0"],
                 exclude_instance_ids=["1"],
             ),
-            opts=pulumi.ResourceOptions(depends_on=[example_virtual_machine_scale_set_extension]))
+            opts = pulumi.ResourceOptions(depends_on=[example_virtual_machine_scale_set_extension]))
         ```
 
         > **NOTE:** This Resource requires that [the Network Watcher Extension](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal#before-you-begin) is installed on the Virtual Machine Scale Set before capturing can be enabled which can be installed via the `compute.VirtualMachineScaleSetExtension` resource.
@@ -510,7 +510,7 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
                 include_instance_ids=["0"],
                 exclude_instance_ids=["1"],
             ),
-            opts=pulumi.ResourceOptions(depends_on=[example_virtual_machine_scale_set_extension]))
+            opts = pulumi.ResourceOptions(depends_on=[example_virtual_machine_scale_set_extension]))
         ```
 
         > **NOTE:** This Resource requires that [the Network Watcher Extension](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal#before-you-begin) is installed on the Virtual Machine Scale Set before capturing can be enabled which can be installed via the `compute.VirtualMachineScaleSetExtension` resource.

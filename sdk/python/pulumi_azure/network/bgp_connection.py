@@ -240,7 +240,7 @@ class BgpConnection(pulumi.CustomResource):
             virtual_hub_id=example_virtual_hub.id,
             peer_asn=65514,
             peer_ip="169.254.21.5",
-            opts=pulumi.ResourceOptions(depends_on=[example_virtual_hub_ip]))
+            opts = pulumi.ResourceOptions(depends_on=[example_virtual_hub_ip]))
         ```
 
         ## Import
@@ -310,7 +310,7 @@ class BgpConnection(pulumi.CustomResource):
             virtual_hub_id=example_virtual_hub.id,
             peer_asn=65514,
             peer_ip="169.254.21.5",
-            opts=pulumi.ResourceOptions(depends_on=[example_virtual_hub_ip]))
+            opts = pulumi.ResourceOptions(depends_on=[example_virtual_hub_ip]))
         ```
 
         ## Import

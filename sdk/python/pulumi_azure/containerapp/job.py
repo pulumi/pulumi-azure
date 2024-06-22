@@ -200,10 +200,8 @@ class JobArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""`registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider.""")
     def registries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobRegistryArgs']]]]:
-        warnings.warn("""`registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""registries is deprecated: `registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "registries")
 
     @registries.setter
@@ -262,10 +260,8 @@ class JobArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""`secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider.""")
     def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobSecretArgs']]]]:
-        warnings.warn("""`secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""secrets is deprecated: `secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "secrets")
 
     @secrets.setter
@@ -484,10 +480,8 @@ class _JobState:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""`registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider.""")
     def registries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobRegistryArgs']]]]:
-        warnings.warn("""`registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""registries is deprecated: `registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "registries")
 
     @registries.setter
@@ -570,10 +564,8 @@ class _JobState:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""`secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider.""")
     def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobSecretArgs']]]]:
-        warnings.warn("""`secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""secrets is deprecated: `secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "secrets")
 
     @secrets.setter
@@ -1029,10 +1021,8 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""`registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider.""")
     def registries(self) -> pulumi.Output[Sequence['outputs.JobRegistry']]:
-        warnings.warn("""`registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""registries is deprecated: `registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "registries")
 
     @property
@@ -1087,10 +1077,8 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""`secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider.""")
     def secrets(self) -> pulumi.Output[Sequence['outputs.JobSecret']]:
-        warnings.warn("""`secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""secrets is deprecated: `secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "secrets")
 
     @property

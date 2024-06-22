@@ -59,15 +59,13 @@ class VaultResourceGuardAssociationArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""The `name` field will be removed in v4.0 of the AzureRM Provider.""")
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
 
         > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
         """
-        warnings.warn("""The `name` field will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""name is deprecated: The `name` field will be removed in v4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "name")
 
     @name.setter
@@ -101,15 +99,13 @@ class _VaultResourceGuardAssociationState:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""The `name` field will be removed in v4.0 of the AzureRM Provider.""")
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
 
         > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
         """
-        warnings.warn("""The `name` field will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""name is deprecated: The `name` field will be removed in v4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "name")
 
     @name.setter
@@ -307,15 +303,13 @@ class VaultResourceGuardAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""The `name` field will be removed in v4.0 of the AzureRM Provider.""")
     def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
 
         > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
         """
-        warnings.warn("""The `name` field will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""name is deprecated: The `name` field will be removed in v4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "name")
 
     @property

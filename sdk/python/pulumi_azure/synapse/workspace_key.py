@@ -223,7 +223,7 @@ class WorkspaceKey(pulumi.CustomResource):
                 "unwrapKey",
                 "wrapKey",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[deployer]))
+            opts = pulumi.ResourceOptions(depends_on=[deployer]))
         example_workspace = azure.synapse.Workspace("example",
             name="example",
             resource_group_name=example.name,
@@ -255,7 +255,7 @@ class WorkspaceKey(pulumi.CustomResource):
             synapse_workspace_id=example_workspace.id,
             active=True,
             customer_managed_key_name="enckey",
-            opts=pulumi.ResourceOptions(depends_on=[workspace_policy]))
+            opts = pulumi.ResourceOptions(depends_on=[workspace_policy]))
         ```
 
         ## Import
@@ -334,7 +334,7 @@ class WorkspaceKey(pulumi.CustomResource):
                 "unwrapKey",
                 "wrapKey",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[deployer]))
+            opts = pulumi.ResourceOptions(depends_on=[deployer]))
         example_workspace = azure.synapse.Workspace("example",
             name="example",
             resource_group_name=example.name,
@@ -366,7 +366,7 @@ class WorkspaceKey(pulumi.CustomResource):
             synapse_workspace_id=example_workspace.id,
             active=True,
             customer_managed_key_name="enckey",
-            opts=pulumi.ResourceOptions(depends_on=[workspace_policy]))
+            opts = pulumi.ResourceOptions(depends_on=[workspace_policy]))
         ```
 
         ## Import

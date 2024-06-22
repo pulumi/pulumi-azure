@@ -254,7 +254,7 @@ class NetappVolumeAttachment(pulumi.CustomResource):
             name="example-vmwareattachment",
             netapp_volume_id=test_volume.id,
             vmware_cluster_id=test_cluster.id,
-            opts=pulumi.ResourceOptions(depends_on=[test_virtual_network_gateway_connection]))
+            opts = pulumi.ResourceOptions(depends_on=[test_virtual_network_gateway_connection]))
         ```
 
         ## Import
@@ -395,7 +395,7 @@ class NetappVolumeAttachment(pulumi.CustomResource):
             name="example-vmwareattachment",
             netapp_volume_id=test_volume.id,
             vmware_cluster_id=test_cluster.id,
-            opts=pulumi.ResourceOptions(depends_on=[test_virtual_network_gateway_connection]))
+            opts = pulumi.ResourceOptions(depends_on=[test_virtual_network_gateway_connection]))
         ```
 
         ## Import

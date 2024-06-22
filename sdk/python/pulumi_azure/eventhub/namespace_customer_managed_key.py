@@ -252,7 +252,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
                 "verify",
                 "wrapKey",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example_access_policy,
                     example2,
                 ]))
@@ -332,7 +332,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
                 "verify",
                 "wrapKey",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example_access_policy,
                     example2,
                 ]))
@@ -440,7 +440,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
                 "verify",
                 "wrapKey",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example_access_policy,
                     example2,
                 ]))
@@ -520,7 +520,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
                 "verify",
                 "wrapKey",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example_access_policy,
                     example2,
                 ]))

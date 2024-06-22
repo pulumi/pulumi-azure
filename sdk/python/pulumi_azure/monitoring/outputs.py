@@ -807,13 +807,11 @@ class ActionGroupEventHubReceiver(dict):
 
     @property
     @pulumi.getter(name="eventHubId")
+    @_utilities.deprecated("""This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead.""")
     def event_hub_id(self) -> Optional[str]:
         """
         The resource ID of the respective Event Hub.
         """
-        warnings.warn("""This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead.""", DeprecationWarning)
-        pulumi.log.warn("""event_hub_id is deprecated: This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead.""")
-
         return pulumi.get(self, "event_hub_id")
 
     @property
@@ -6844,15 +6842,13 @@ class DiagnosticSettingEnabledLog(dict):
 
     @property
     @pulumi.getter(name="retentionPolicy")
+    @_utilities.deprecated("""`retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""")
     def retention_policy(self) -> Optional['outputs.DiagnosticSettingEnabledLogRetentionPolicy']:
         """
         A `retention_policy` block as defined below.
 
         !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
         """
-        warnings.warn("""`retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""", DeprecationWarning)
-        pulumi.log.warn("""retention_policy is deprecated: `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""")
-
         return pulumi.get(self, "retention_policy")
 
 
@@ -6973,15 +6969,13 @@ class DiagnosticSettingLog(dict):
 
     @property
     @pulumi.getter(name="retentionPolicy")
+    @_utilities.deprecated("""`retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""")
     def retention_policy(self) -> Optional['outputs.DiagnosticSettingLogRetentionPolicy']:
         """
         A `retention_policy` block as defined below.
 
         !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
         """
-        warnings.warn("""`retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""", DeprecationWarning)
-        pulumi.log.warn("""retention_policy is deprecated: `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""")
-
         return pulumi.get(self, "retention_policy")
 
 
@@ -7079,15 +7073,13 @@ class DiagnosticSettingMetric(dict):
 
     @property
     @pulumi.getter(name="retentionPolicy")
+    @_utilities.deprecated("""`retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""")
     def retention_policy(self) -> Optional['outputs.DiagnosticSettingMetricRetentionPolicy']:
         """
         A `retention_policy` block as defined below.
 
         !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
         """
-        warnings.warn("""`retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""", DeprecationWarning)
-        pulumi.log.warn("""retention_policy is deprecated: `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""")
-
         return pulumi.get(self, "retention_policy")
 
 
@@ -8890,13 +8882,11 @@ class GetActionGroupEventHubReceiverResult(dict):
 
     @property
     @pulumi.getter(name="eventHubId")
+    @_utilities.deprecated("""This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead.""")
     def event_hub_id(self) -> str:
         """
         The resource ID of the respective Event Hub.
         """
-        warnings.warn("""This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead.""", DeprecationWarning)
-        pulumi.log.warn("""event_hub_id is deprecated: This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead.""")
-
         return pulumi.get(self, "event_hub_id")
 
     @property

@@ -208,13 +208,13 @@ class DiskPoolIscsiTargetLun(pulumi.CustomResource):
         example_disk_pool_managed_disk_attachment = azure.compute.DiskPoolManagedDiskAttachment("example",
             disk_pool_id=example_disk_pool.id,
             managed_disk_id=example_managed_disk.id,
-            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
+            opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
         example_disk_pool_iscsi_target = azure.compute.DiskPoolIscsiTarget("example",
             name="example",
             acl_mode="Dynamic",
             disks_pool_id=example_disk_pool.id,
             target_iqn="iqn.2021-11.com.microsoft:test",
-            opts=pulumi.ResourceOptions(depends_on=[example_disk_pool_managed_disk_attachment]))
+            opts = pulumi.ResourceOptions(depends_on=[example_disk_pool_managed_disk_attachment]))
         example_disk_pool_iscsi_target_lun = azure.compute.DiskPoolIscsiTargetLun("example",
             iscsi_target_id=example_disk_pool_iscsi_target.id,
             disk_pool_managed_disk_attachment_id=example_disk_pool_managed_disk_attachment.id,
@@ -303,13 +303,13 @@ class DiskPoolIscsiTargetLun(pulumi.CustomResource):
         example_disk_pool_managed_disk_attachment = azure.compute.DiskPoolManagedDiskAttachment("example",
             disk_pool_id=example_disk_pool.id,
             managed_disk_id=example_managed_disk.id,
-            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
+            opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
         example_disk_pool_iscsi_target = azure.compute.DiskPoolIscsiTarget("example",
             name="example",
             acl_mode="Dynamic",
             disks_pool_id=example_disk_pool.id,
             target_iqn="iqn.2021-11.com.microsoft:test",
-            opts=pulumi.ResourceOptions(depends_on=[example_disk_pool_managed_disk_attachment]))
+            opts = pulumi.ResourceOptions(depends_on=[example_disk_pool_managed_disk_attachment]))
         example_disk_pool_iscsi_target_lun = azure.compute.DiskPoolIscsiTargetLun("example",
             iscsi_target_id=example_disk_pool_iscsi_target.id,
             disk_pool_managed_disk_attachment_id=example_disk_pool_managed_disk_attachment.id,

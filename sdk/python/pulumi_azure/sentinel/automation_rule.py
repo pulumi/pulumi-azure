@@ -148,15 +148,13 @@ class AutomationRuleArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""This is deprecated in favor of `condition_json`""")
     def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleConditionArgs']]]]:
         """
         One or more `condition` blocks as defined below.
 
         > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `condition_json` if you want other condition types.
         """
-        warnings.warn("""This is deprecated in favor of `condition_json`""", DeprecationWarning)
-        pulumi.log.warn("""conditions is deprecated: This is deprecated in favor of `condition_json`""")
-
         return pulumi.get(self, "conditions")
 
     @conditions.setter
@@ -326,15 +324,13 @@ class _AutomationRuleState:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""This is deprecated in favor of `condition_json`""")
     def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleConditionArgs']]]]:
         """
         One or more `condition` blocks as defined below.
 
         > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `condition_json` if you want other condition types.
         """
-        warnings.warn("""This is deprecated in favor of `condition_json`""", DeprecationWarning)
-        pulumi.log.warn("""conditions is deprecated: This is deprecated in favor of `condition_json`""")
-
         return pulumi.get(self, "conditions")
 
     @conditions.setter
@@ -703,15 +699,13 @@ class AutomationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""This is deprecated in favor of `condition_json`""")
     def conditions(self) -> pulumi.Output[Sequence['outputs.AutomationRuleCondition']]:
         """
         One or more `condition` blocks as defined below.
 
         > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `condition_json` if you want other condition types.
         """
-        warnings.warn("""This is deprecated in favor of `condition_json`""", DeprecationWarning)
-        pulumi.log.warn("""conditions is deprecated: This is deprecated in favor of `condition_json`""")
-
         return pulumi.get(self, "conditions")
 
     @property

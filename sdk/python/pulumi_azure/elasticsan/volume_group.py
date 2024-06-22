@@ -362,7 +362,7 @@ class VolumeGroup(pulumi.CustomResource):
                 "verify",
                 "wrapKey",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     user_assigned_identity,
                     client,
                 ]))
@@ -499,7 +499,7 @@ class VolumeGroup(pulumi.CustomResource):
                 "verify",
                 "wrapKey",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     user_assigned_identity,
                     client,
                 ]))

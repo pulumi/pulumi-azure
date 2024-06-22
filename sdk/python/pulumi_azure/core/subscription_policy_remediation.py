@@ -135,15 +135,13 @@ class SubscriptionPolicyRemediationArgs:
 
     @property
     @pulumi.getter(name="policyDefinitionId")
+    @_utilities.deprecated("""`policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""")
     def policy_definition_id(self) -> Optional[pulumi.Input[str]]:
         """
         The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 
         > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
         """
-        warnings.warn("""`policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""", DeprecationWarning)
-        pulumi.log.warn("""policy_definition_id is deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""")
-
         return pulumi.get(self, "policy_definition_id")
 
     @policy_definition_id.setter
@@ -301,15 +299,13 @@ class _SubscriptionPolicyRemediationState:
 
     @property
     @pulumi.getter(name="policyDefinitionId")
+    @_utilities.deprecated("""`policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""")
     def policy_definition_id(self) -> Optional[pulumi.Input[str]]:
         """
         The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 
         > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
         """
-        warnings.warn("""`policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""", DeprecationWarning)
-        pulumi.log.warn("""policy_definition_id is deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""")
-
         return pulumi.get(self, "policy_definition_id")
 
     @policy_definition_id.setter
@@ -624,15 +620,13 @@ class SubscriptionPolicyRemediation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyDefinitionId")
+    @_utilities.deprecated("""`policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""")
     def policy_definition_id(self) -> pulumi.Output[Optional[str]]:
         """
         The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 
         > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
         """
-        warnings.warn("""`policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""", DeprecationWarning)
-        pulumi.log.warn("""policy_definition_id is deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""")
-
         return pulumi.get(self, "policy_definition_id")
 
     @property

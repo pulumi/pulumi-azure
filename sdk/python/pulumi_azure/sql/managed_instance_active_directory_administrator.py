@@ -251,7 +251,7 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
             sku_name="GP_Gen5",
             vcores=4,
             storage_size_in_gb=32,
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example_azurerm_subnet_network_security_group_association,
                     example_azurerm_subnet_route_table_association,
                 ]))
@@ -312,7 +312,7 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
             sku_name="GP_Gen5",
             vcores=4,
             storage_size_in_gb=32,
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example_azurerm_subnet_network_security_group_association,
                     example_azurerm_subnet_route_table_association,
                 ]))

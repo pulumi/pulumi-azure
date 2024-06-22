@@ -1327,18 +1327,14 @@ class GroupContainer(dict):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""The `gpu` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.""")
     def gpu(self) -> Optional['outputs.GroupContainerGpu']:
-        warnings.warn("""The `gpu` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.""", DeprecationWarning)
-        pulumi.log.warn("""gpu is deprecated: The `gpu` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.""")
-
         return pulumi.get(self, "gpu")
 
     @property
     @pulumi.getter(name="gpuLimit")
+    @_utilities.deprecated("""The `gpu_limit` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.""")
     def gpu_limit(self) -> Optional['outputs.GroupContainerGpuLimit']:
-        warnings.warn("""The `gpu_limit` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.""", DeprecationWarning)
-        pulumi.log.warn("""gpu_limit is deprecated: The `gpu_limit` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.""")
-
         return pulumi.get(self, "gpu_limit")
 
     @property
@@ -3349,39 +3345,31 @@ class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl(dict):
 
     @property
     @pulumi.getter(name="clientAppId")
+    @_utilities.deprecated("""Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.""")
     def client_app_id(self) -> Optional[str]:
-        warnings.warn("""Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""client_app_id is deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "client_app_id")
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field must be supplied with the value `true` for AKS-managed Entra Integration, but will be removed and defaulted to `true` for the user in v4.0 of the AzureRM Provider.""")
     def managed(self) -> Optional[bool]:
         """
         Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration. Defaults to `false`.
 
         > **Note:** The property `managed` is deprecated and will be defaulted to `true` in v4.0 of the AzureRM provider. Until the property is removed it must be specified with `true` for AKS-managed Entra Integration.
         """
-        warnings.warn("""Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field must be supplied with the value `true` for AKS-managed Entra Integration, but will be removed and defaulted to `true` for the user in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""managed is deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field must be supplied with the value `true` for AKS-managed Entra Integration, but will be removed and defaulted to `true` for the user in v4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "managed")
 
     @property
     @pulumi.getter(name="serverAppId")
+    @_utilities.deprecated("""Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.""")
     def server_app_id(self) -> Optional[str]:
-        warnings.warn("""Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""server_app_id is deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "server_app_id")
 
     @property
     @pulumi.getter(name="serverAppSecret")
+    @_utilities.deprecated("""Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.""")
     def server_app_secret(self) -> Optional[str]:
-        warnings.warn("""Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""server_app_secret is deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "server_app_secret")
 
     @property
@@ -3858,10 +3846,8 @@ class KubernetesClusterDefaultNodePool(dict):
 
     @property
     @pulumi.getter(name="nodeTaints")
+    @_utilities.deprecated("""This field will be removed in v4.0 of the Azure Provider since the AKS API doesn't allow arbitrary node taints on the default node pool""")
     def node_taints(self) -> Optional[Sequence[str]]:
-        warnings.warn("""This field will be removed in v4.0 of the Azure Provider since the AKS API doesn't allow arbitrary node taints on the default node pool""", DeprecationWarning)
-        pulumi.log.warn("""node_taints is deprecated: This field will be removed in v4.0 of the Azure Provider since the AKS API doesn't allow arbitrary node taints on the default node pool""")
-
         return pulumi.get(self, "node_taints")
 
     @property
@@ -6617,15 +6603,13 @@ class KubernetesClusterNetworkProfile(dict):
 
     @property
     @pulumi.getter(name="dockerBridgeCidr")
+    @_utilities.deprecated("""`docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.""")
     def docker_bridge_cidr(self) -> Optional[str]:
         """
         IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
 
         > **Note:** `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         """
-        warnings.warn("""`docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.""", DeprecationWarning)
-        pulumi.log.warn("""docker_bridge_cidr is deprecated: `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.""")
-
         return pulumi.get(self, "docker_bridge_cidr")
 
     @property
@@ -8238,10 +8222,8 @@ class KubernetesClusterWebAppRouting(dict):
 
     @property
     @pulumi.getter(name="dnsZoneId")
+    @_utilities.deprecated("""`dns_zone_id` has been deprecated in favor of `dns_zone_ids` and will be removed in v4.0 of the AzureRM Provider.""")
     def dns_zone_id(self) -> Optional[str]:
-        warnings.warn("""`dns_zone_id` has been deprecated in favor of `dns_zone_ids` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""dns_zone_id is deprecated: `dns_zone_id` has been deprecated in favor of `dns_zone_ids` and will be removed in v4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "dns_zone_id")
 
     @property
@@ -8505,10 +8487,8 @@ class KubernetesClusterWorkloadAutoscalerProfile(dict):
 
     @property
     @pulumi.getter(name="verticalPodAutoscalerControlledValues")
+    @_utilities.deprecated("""The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.""")
     def vertical_pod_autoscaler_controlled_values(self) -> Optional[str]:
-        warnings.warn("""The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.""", DeprecationWarning)
-        pulumi.log.warn("""vertical_pod_autoscaler_controlled_values is deprecated: The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.""")
-
         return pulumi.get(self, "vertical_pod_autoscaler_controlled_values")
 
     @property
@@ -8523,10 +8503,8 @@ class KubernetesClusterWorkloadAutoscalerProfile(dict):
 
     @property
     @pulumi.getter(name="verticalPodAutoscalerUpdateMode")
+    @_utilities.deprecated("""The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.""")
     def vertical_pod_autoscaler_update_mode(self) -> Optional[str]:
-        warnings.warn("""The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.""", DeprecationWarning)
-        pulumi.log.warn("""vertical_pod_autoscaler_update_mode is deprecated: The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.""")
-
         return pulumi.get(self, "vertical_pod_autoscaler_update_mode")
 
 
@@ -8629,10 +8607,8 @@ class RegistryEncryption(dict):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider.""")
     def enabled(self) -> Optional[bool]:
-        warnings.warn("""The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider.""", DeprecationWarning)
-        pulumi.log.warn("""enabled is deprecated: The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider.""")
-
         return pulumi.get(self, "enabled")
 
 
@@ -8856,10 +8832,8 @@ class RegistryNetworkRuleSet(dict):
 
     @property
     @pulumi.getter(name="virtualNetworks")
+    @_utilities.deprecated("""The property `virtual_network` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider.""")
     def virtual_networks(self) -> Optional[Sequence['outputs.RegistryNetworkRuleSetVirtualNetwork']]:
-        warnings.warn("""The property `virtual_network` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""virtual_networks is deprecated: The property `virtual_network` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "virtual_networks")
 
 

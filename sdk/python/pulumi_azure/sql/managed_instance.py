@@ -825,7 +825,7 @@ class ManagedInstance(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             disable_bgp_route_propagation=False,
-            opts=pulumi.ResourceOptions(depends_on=[example_subnet]))
+            opts = pulumi.ResourceOptions(depends_on=[example_subnet]))
         example_subnet_route_table_association = azure.network.SubnetRouteTableAssociation("example",
             subnet_id=example_subnet.id,
             route_table_id=example_route_table.id)
@@ -840,7 +840,7 @@ class ManagedInstance(pulumi.CustomResource):
             sku_name="GP_Gen5",
             vcores=4,
             storage_size_in_gb=32,
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example_subnet_network_security_group_association,
                     example_subnet_route_table_association,
                 ]))
@@ -1037,7 +1037,7 @@ class ManagedInstance(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             disable_bgp_route_propagation=False,
-            opts=pulumi.ResourceOptions(depends_on=[example_subnet]))
+            opts = pulumi.ResourceOptions(depends_on=[example_subnet]))
         example_subnet_route_table_association = azure.network.SubnetRouteTableAssociation("example",
             subnet_id=example_subnet.id,
             route_table_id=example_route_table.id)
@@ -1052,7 +1052,7 @@ class ManagedInstance(pulumi.CustomResource):
             sku_name="GP_Gen5",
             vcores=4,
             storage_size_in_gb=32,
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example_subnet_network_security_group_association,
                     example_subnet_route_table_association,
                 ]))

@@ -176,7 +176,7 @@ class KubernetesClusterArgs:
                    dns_prefix="aksexamplednsprefix1",
                    private_cluster_enabled=True,
                    private_dns_zone_id=example_zone.id,
-                   opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
+                   opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
                ```
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`.
@@ -377,10 +377,8 @@ class KubernetesClusterArgs:
 
     @property
     @pulumi.getter(name="apiServerAuthorizedIpRanges")
+    @_utilities.deprecated("""This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider""")
     def api_server_authorized_ip_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        warnings.warn("""This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider""", DeprecationWarning)
-        pulumi.log.warn("""api_server_authorized_ip_ranges is deprecated: This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider""")
-
         return pulumi.get(self, "api_server_authorized_ip_ranges")
 
     @api_server_authorized_ip_ranges.setter
@@ -531,10 +529,8 @@ class KubernetesClusterArgs:
 
     @property
     @pulumi.getter(name="enablePodSecurityPolicy")
+    @_utilities.deprecated("""The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.""")
     def enable_pod_security_policy(self) -> Optional[pulumi.Input[bool]]:
-        warnings.warn("""The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.""", DeprecationWarning)
-        pulumi.log.warn("""enable_pod_security_policy is deprecated: The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.""")
-
         return pulumi.get(self, "enable_pod_security_policy")
 
     @enable_pod_security_policy.setter
@@ -906,7 +902,7 @@ class KubernetesClusterArgs:
             dns_prefix="aksexamplednsprefix1",
             private_cluster_enabled=True,
             private_dns_zone_id=example_zone.id,
-            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
+            opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
         """
         return pulumi.get(self, "private_cluster_public_fqdn_enabled")
@@ -929,15 +925,13 @@ class KubernetesClusterArgs:
 
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
+    @_utilities.deprecated("""`public_network_access_enabled` is currently not functional and is not be passed to the API""")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`.
 
         !> **Note:** `public_network_access_enabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `private_cluster_enabled` and `api_server_access_profile`.
         """
-        warnings.warn("""`public_network_access_enabled` is currently not functional and is not be passed to the API""", DeprecationWarning)
-        pulumi.log.warn("""public_network_access_enabled is deprecated: `public_network_access_enabled` is currently not functional and is not be passed to the API""")
-
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
@@ -1280,7 +1274,7 @@ class _KubernetesClusterState:
                    dns_prefix="aksexamplednsprefix1",
                    private_cluster_enabled=True,
                    private_dns_zone_id=example_zone.id,
-                   opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
+                   opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
                ```
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_fqdn: The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
@@ -1483,10 +1477,8 @@ class _KubernetesClusterState:
 
     @property
     @pulumi.getter(name="apiServerAuthorizedIpRanges")
+    @_utilities.deprecated("""This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider""")
     def api_server_authorized_ip_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        warnings.warn("""This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider""", DeprecationWarning)
-        pulumi.log.warn("""api_server_authorized_ip_ranges is deprecated: This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider""")
-
         return pulumi.get(self, "api_server_authorized_ip_ranges")
 
     @api_server_authorized_ip_ranges.setter
@@ -1661,10 +1653,8 @@ class _KubernetesClusterState:
 
     @property
     @pulumi.getter(name="enablePodSecurityPolicy")
+    @_utilities.deprecated("""The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.""")
     def enable_pod_security_policy(self) -> Optional[pulumi.Input[bool]]:
-        warnings.warn("""The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.""", DeprecationWarning)
-        pulumi.log.warn("""enable_pod_security_policy is deprecated: The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.""")
-
         return pulumi.get(self, "enable_pod_security_policy")
 
     @enable_pod_security_policy.setter
@@ -2144,7 +2134,7 @@ class _KubernetesClusterState:
             dns_prefix="aksexamplednsprefix1",
             private_cluster_enabled=True,
             private_dns_zone_id=example_zone.id,
-            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
+            opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
         """
         return pulumi.get(self, "private_cluster_public_fqdn_enabled")
@@ -2179,15 +2169,13 @@ class _KubernetesClusterState:
 
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
+    @_utilities.deprecated("""`public_network_access_enabled` is currently not functional and is not be passed to the API""")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`.
 
         !> **Note:** `public_network_access_enabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `private_cluster_enabled` and `api_server_access_profile`.
         """
-        warnings.warn("""`public_network_access_enabled` is currently not functional and is not be passed to the API""", DeprecationWarning)
-        pulumi.log.warn("""public_network_access_enabled is deprecated: `public_network_access_enabled` is currently not functional and is not be passed to the API""")
-
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
@@ -2566,7 +2554,7 @@ class KubernetesCluster(pulumi.CustomResource):
                    dns_prefix="aksexamplednsprefix1",
                    private_cluster_enabled=True,
                    private_dns_zone_id=example_zone.id,
-                   opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
+                   opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
                ```
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`.
@@ -2994,7 +2982,7 @@ class KubernetesCluster(pulumi.CustomResource):
                    dns_prefix="aksexamplednsprefix1",
                    private_cluster_enabled=True,
                    private_dns_zone_id=example_zone.id,
-                   opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
+                   opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
                ```
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_fqdn: The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
@@ -3116,10 +3104,8 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiServerAuthorizedIpRanges")
+    @_utilities.deprecated("""This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider""")
     def api_server_authorized_ip_ranges(self) -> pulumi.Output[Sequence[str]]:
-        warnings.warn("""This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider""", DeprecationWarning)
-        pulumi.log.warn("""api_server_authorized_ip_ranges is deprecated: This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider""")
-
         return pulumi.get(self, "api_server_authorized_ip_ranges")
 
     @property
@@ -3238,10 +3224,8 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enablePodSecurityPolicy")
+    @_utilities.deprecated("""The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.""")
     def enable_pod_security_policy(self) -> pulumi.Output[Optional[bool]]:
-        warnings.warn("""The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.""", DeprecationWarning)
-        pulumi.log.warn("""enable_pod_security_policy is deprecated: The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.""")
-
         return pulumi.get(self, "enable_pod_security_policy")
 
     @property
@@ -3577,7 +3561,7 @@ class KubernetesCluster(pulumi.CustomResource):
             dns_prefix="aksexamplednsprefix1",
             private_cluster_enabled=True,
             private_dns_zone_id=example_zone.id,
-            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
+            opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
         """
         return pulumi.get(self, "private_cluster_public_fqdn_enabled")
@@ -3600,15 +3584,13 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
+    @_utilities.deprecated("""`public_network_access_enabled` is currently not functional and is not be passed to the API""")
     def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`.
 
         !> **Note:** `public_network_access_enabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `private_cluster_enabled` and `api_server_access_profile`.
         """
-        warnings.warn("""`public_network_access_enabled` is currently not functional and is not be passed to the API""", DeprecationWarning)
-        pulumi.log.warn("""public_network_access_enabled is deprecated: `public_network_access_enabled` is currently not functional and is not be passed to the API""")
-
         return pulumi.get(self, "public_network_access_enabled")
 
     @property

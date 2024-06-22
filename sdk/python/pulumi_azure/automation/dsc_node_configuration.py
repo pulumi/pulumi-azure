@@ -223,7 +223,7 @@ class DscNodeConfiguration(pulumi.CustomResource):
           Name="test";
         };
         \"\"\",
-            opts=pulumi.ResourceOptions(depends_on=[example_dsc_configuration]))
+            opts = pulumi.ResourceOptions(depends_on=[example_dsc_configuration]))
         ```
 
         ## Import
@@ -296,7 +296,7 @@ class DscNodeConfiguration(pulumi.CustomResource):
           Name="test";
         };
         \"\"\",
-            opts=pulumi.ResourceOptions(depends_on=[example_dsc_configuration]))
+            opts = pulumi.ResourceOptions(depends_on=[example_dsc_configuration]))
         ```
 
         ## Import

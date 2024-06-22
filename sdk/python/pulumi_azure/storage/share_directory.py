@@ -68,10 +68,8 @@ class ShareDirectoryArgs:
 
     @property
     @pulumi.getter(name="shareName")
+    @_utilities.deprecated("""the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""")
     def share_name(self) -> Optional[pulumi.Input[str]]:
-        warnings.warn("""the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""", DeprecationWarning)
-        pulumi.log.warn("""share_name is deprecated: the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""")
-
         return pulumi.get(self, "share_name")
 
     @share_name.setter
@@ -80,10 +78,8 @@ class ShareDirectoryArgs:
 
     @property
     @pulumi.getter(name="storageAccountName")
+    @_utilities.deprecated("""the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""")
     def storage_account_name(self) -> Optional[pulumi.Input[str]]:
-        warnings.warn("""the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""", DeprecationWarning)
-        pulumi.log.warn("""storage_account_name is deprecated: the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""")
-
         return pulumi.get(self, "storage_account_name")
 
     @storage_account_name.setter
@@ -160,10 +156,8 @@ class _ShareDirectoryState:
 
     @property
     @pulumi.getter(name="shareName")
+    @_utilities.deprecated("""the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""")
     def share_name(self) -> Optional[pulumi.Input[str]]:
-        warnings.warn("""the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""", DeprecationWarning)
-        pulumi.log.warn("""share_name is deprecated: the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""")
-
         return pulumi.get(self, "share_name")
 
     @share_name.setter
@@ -172,10 +166,8 @@ class _ShareDirectoryState:
 
     @property
     @pulumi.getter(name="storageAccountName")
+    @_utilities.deprecated("""the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""")
     def storage_account_name(self) -> Optional[pulumi.Input[str]]:
-        warnings.warn("""the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""", DeprecationWarning)
-        pulumi.log.warn("""storage_account_name is deprecated: the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""")
-
         return pulumi.get(self, "storage_account_name")
 
     @storage_account_name.setter
@@ -373,18 +365,14 @@ class ShareDirectory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shareName")
+    @_utilities.deprecated("""the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""")
     def share_name(self) -> pulumi.Output[str]:
-        warnings.warn("""the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""", DeprecationWarning)
-        pulumi.log.warn("""share_name is deprecated: the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""")
-
         return pulumi.get(self, "share_name")
 
     @property
     @pulumi.getter(name="storageAccountName")
+    @_utilities.deprecated("""the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""")
     def storage_account_name(self) -> pulumi.Output[str]:
-        warnings.warn("""the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""", DeprecationWarning)
-        pulumi.log.warn("""storage_account_name is deprecated: the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""")
-
         return pulumi.get(self, "storage_account_name")
 
     @property

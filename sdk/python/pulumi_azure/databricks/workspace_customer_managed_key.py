@@ -41,13 +41,11 @@ class WorkspaceCustomerManagedKeyArgs:
 
     @property
     @pulumi.getter(name="workspaceId")
+    @_utilities.deprecated("""this resource has been deprecated in favour of the `databricks.WorkspaceRootDbfsCustomerManagedKey` resource and will be removed from the v4.0 azurerm provider.""")
     def workspace_id(self) -> pulumi.Input[str]:
         """
         The ID of the Databricks Workspace..
         """
-        warnings.warn("""this resource has been deprecated in favour of the `databricks.WorkspaceRootDbfsCustomerManagedKey` resource and will be removed from the v4.0 azurerm provider.""", DeprecationWarning)
-        pulumi.log.warn("""workspace_id is deprecated: this resource has been deprecated in favour of the `databricks.WorkspaceRootDbfsCustomerManagedKey` resource and will be removed from the v4.0 azurerm provider.""")
-
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
@@ -87,13 +85,11 @@ class _WorkspaceCustomerManagedKeyState:
 
     @property
     @pulumi.getter(name="workspaceId")
+    @_utilities.deprecated("""this resource has been deprecated in favour of the `databricks.WorkspaceRootDbfsCustomerManagedKey` resource and will be removed from the v4.0 azurerm provider.""")
     def workspace_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Databricks Workspace..
         """
-        warnings.warn("""this resource has been deprecated in favour of the `databricks.WorkspaceRootDbfsCustomerManagedKey` resource and will be removed from the v4.0 azurerm provider.""", DeprecationWarning)
-        pulumi.log.warn("""workspace_id is deprecated: this resource has been deprecated in favour of the `databricks.WorkspaceRootDbfsCustomerManagedKey` resource and will be removed from the v4.0 azurerm provider.""")
-
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
@@ -170,7 +166,7 @@ class WorkspaceCustomerManagedKey(pulumi.CustomResource):
                 "verify",
                 "wrapKey",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[terraform]))
+            opts = pulumi.ResourceOptions(depends_on=[terraform]))
         databricks = azure.keyvault.AccessPolicy("databricks",
             key_vault_id=example_key_vault.id,
             tenant_id=example_workspace.storage_account_identities[0].tenant_id,
@@ -186,11 +182,11 @@ class WorkspaceCustomerManagedKey(pulumi.CustomResource):
                 "Decrypt",
                 "Sign",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[example_workspace]))
+            opts = pulumi.ResourceOptions(depends_on=[example_workspace]))
         example_workspace_root_dbfs_customer_managed_key = azure.databricks.WorkspaceRootDbfsCustomerManagedKey("example",
             workspace_id=example_workspace.id,
             key_vault_key_id=example_key.id,
-            opts=pulumi.ResourceOptions(depends_on=[databricks]))
+            opts = pulumi.ResourceOptions(depends_on=[databricks]))
         ```
 
         ## Example HCL Configurations
@@ -279,7 +275,7 @@ class WorkspaceCustomerManagedKey(pulumi.CustomResource):
                 "verify",
                 "wrapKey",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[terraform]))
+            opts = pulumi.ResourceOptions(depends_on=[terraform]))
         databricks = azure.keyvault.AccessPolicy("databricks",
             key_vault_id=example_key_vault.id,
             tenant_id=example_workspace.storage_account_identities[0].tenant_id,
@@ -295,11 +291,11 @@ class WorkspaceCustomerManagedKey(pulumi.CustomResource):
                 "Decrypt",
                 "Sign",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[example_workspace]))
+            opts = pulumi.ResourceOptions(depends_on=[example_workspace]))
         example_workspace_root_dbfs_customer_managed_key = azure.databricks.WorkspaceRootDbfsCustomerManagedKey("example",
             workspace_id=example_workspace.id,
             key_vault_key_id=example_key.id,
-            opts=pulumi.ResourceOptions(depends_on=[databricks]))
+            opts = pulumi.ResourceOptions(depends_on=[databricks]))
         ```
 
         ## Example HCL Configurations
@@ -388,12 +384,10 @@ class WorkspaceCustomerManagedKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workspaceId")
+    @_utilities.deprecated("""this resource has been deprecated in favour of the `databricks.WorkspaceRootDbfsCustomerManagedKey` resource and will be removed from the v4.0 azurerm provider.""")
     def workspace_id(self) -> pulumi.Output[str]:
         """
         The ID of the Databricks Workspace..
         """
-        warnings.warn("""this resource has been deprecated in favour of the `databricks.WorkspaceRootDbfsCustomerManagedKey` resource and will be removed from the v4.0 azurerm provider.""", DeprecationWarning)
-        pulumi.log.warn("""workspace_id is deprecated: this resource has been deprecated in favour of the `databricks.WorkspaceRootDbfsCustomerManagedKey` resource and will be removed from the v4.0 azurerm provider.""")
-
         return pulumi.get(self, "workspace_id")
 

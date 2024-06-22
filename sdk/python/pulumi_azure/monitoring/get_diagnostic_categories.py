@@ -67,13 +67,11 @@ class GetDiagnosticCategoriesResult:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""`logs` will be removed in favour of the property `log_category_types` in version 4.0 of the AzureRM Provider.""")
     def logs(self) -> Sequence[str]:
         """
         A list of the Log Categories supported for this Resource.
         """
-        warnings.warn("""`logs` will be removed in favour of the property `log_category_types` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""logs is deprecated: `logs` will be removed in favour of the property `log_category_types` in version 4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "logs")
 
     @property

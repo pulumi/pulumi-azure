@@ -232,7 +232,7 @@ class ServiceCustomCertificate(pulumi.CustomResource):
             name="example-cert",
             signalr_service_id=example_service.id,
             custom_certificate_id=example_certificate.id,
-            opts=pulumi.ResourceOptions(depends_on=[example_azurerm_key_vault_access_policy]))
+            opts = pulumi.ResourceOptions(depends_on=[example_azurerm_key_vault_access_policy]))
         ```
 
         ## Import
@@ -329,7 +329,7 @@ class ServiceCustomCertificate(pulumi.CustomResource):
             name="example-cert",
             signalr_service_id=example_service.id,
             custom_certificate_id=example_certificate.id,
-            opts=pulumi.ResourceOptions(depends_on=[example_azurerm_key_vault_access_policy]))
+            opts = pulumi.ResourceOptions(depends_on=[example_azurerm_key_vault_access_policy]))
         ```
 
         ## Import

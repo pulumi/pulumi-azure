@@ -848,7 +848,7 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
                 "key": "value",
                 "key2": "value2",
             },
-            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
+            opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
 
         ## Import
@@ -974,7 +974,7 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
                 "key": "value",
                 "key2": "value2",
             },
-            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
+            opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
 
         ## Import

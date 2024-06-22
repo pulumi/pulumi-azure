@@ -421,7 +421,7 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
             authority="myb2ctenant.b2clogin.com",
             signin_policy="B2C_1_Login",
             signup_policy="B2C_1_Signup",
-            opts=pulumi.ResourceOptions(depends_on=[example_application_password]))
+            opts = pulumi.ResourceOptions(depends_on=[example_application_password]))
         ```
 
         ## Import
@@ -486,7 +486,7 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
             authority="myb2ctenant.b2clogin.com",
             signin_policy="B2C_1_Login",
             signup_policy="B2C_1_Signup",
-            opts=pulumi.ResourceOptions(depends_on=[example_application_password]))
+            opts = pulumi.ResourceOptions(depends_on=[example_application_password]))
         ```
 
         ## Import

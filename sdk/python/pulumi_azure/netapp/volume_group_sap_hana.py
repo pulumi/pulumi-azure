@@ -345,7 +345,7 @@ class VolumeGroupSapHana(pulumi.CustomResource):
             name=f"{prefix}-netapp-account",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example_subnet,
                     example1,
                 ]))
@@ -441,7 +441,7 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                     )],
                 ),
             ],
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example_linux_virtual_machine,
                     example_placement_group,
                 ]))
@@ -555,7 +555,7 @@ class VolumeGroupSapHana(pulumi.CustomResource):
             name=f"{prefix}-netapp-account",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example_subnet,
                     example1,
                 ]))
@@ -651,7 +651,7 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                     )],
                 ),
             ],
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example_linux_virtual_machine,
                     example_placement_group,
                 ]))

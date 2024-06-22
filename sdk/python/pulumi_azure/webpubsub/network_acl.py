@@ -218,7 +218,7 @@ class NetworkAcl(pulumi.CustomResource):
                     "ClientConnection",
                 ],
             )],
-            opts=pulumi.ResourceOptions(depends_on=[example_endpoint]))
+            opts = pulumi.ResourceOptions(depends_on=[example_endpoint]))
         ```
 
         ## Import
@@ -295,7 +295,7 @@ class NetworkAcl(pulumi.CustomResource):
                     "ClientConnection",
                 ],
             )],
-            opts=pulumi.ResourceOptions(depends_on=[example_endpoint]))
+            opts = pulumi.ResourceOptions(depends_on=[example_endpoint]))
         ```
 
         ## Import
