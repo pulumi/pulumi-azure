@@ -163,14 +163,14 @@ public class CassandraTable extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="defaultTtl", refs={Integer.class}, tree="[0]")
-    private Output<Integer> defaultTtl;
+    private Output</* @Nullable */ Integer> defaultTtl;
 
     /**
      * @return Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
      * 
      */
-    public Output<Integer> defaultTtl() {
-        return this.defaultTtl;
+    public Output<Optional<Integer>> defaultTtl() {
+        return Codegen.optional(this.defaultTtl);
     }
     /**
      * Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.

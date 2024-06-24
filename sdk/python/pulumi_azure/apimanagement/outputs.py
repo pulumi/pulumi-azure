@@ -6386,10 +6386,6 @@ class ServicePolicy(dict):
     def __init__(__self__, *,
                  xml_content: Optional[str] = None,
                  xml_link: Optional[str] = None):
-        """
-        :param str xml_content: The XML Content for this Policy.
-        :param str xml_link: A link to an API Management Policy XML Document, which must be publicly available.
-        """
         if xml_content is not None:
             pulumi.set(__self__, "xml_content", xml_content)
         if xml_link is not None:
@@ -6398,17 +6394,11 @@ class ServicePolicy(dict):
     @property
     @pulumi.getter(name="xmlContent")
     def xml_content(self) -> Optional[str]:
-        """
-        The XML Content for this Policy.
-        """
         return pulumi.get(self, "xml_content")
 
     @property
     @pulumi.getter(name="xmlLink")
     def xml_link(self) -> Optional[str]:
-        """
-        A link to an API Management Policy XML Document, which must be publicly available.
-        """
         return pulumi.get(self, "xml_link")
 
 

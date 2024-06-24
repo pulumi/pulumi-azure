@@ -32,14 +32,14 @@ public final class JobScheduleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Optional) The UUID identifying the Automation Job Schedule.
+     * The UUID identifying the Automation Job Schedule.
      * 
      */
     @Import(name="jobScheduleId")
     private @Nullable Output<String> jobScheduleId;
 
     /**
-     * @return (Optional) The UUID identifying the Automation Job Schedule.
+     * @return The UUID identifying the Automation Job Schedule.
      * 
      */
     public Optional<Output<String>> jobScheduleId() {
@@ -78,6 +78,21 @@ public final class JobScheduleState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> resourceGroupName() {
         return Optional.ofNullable(this.resourceGroupName);
+    }
+
+    /**
+     * The Resource Manager ID of the Automation Job Schedule.
+     * 
+     */
+    @Import(name="resourceManagerId")
+    private @Nullable Output<String> resourceManagerId;
+
+    /**
+     * @return The Resource Manager ID of the Automation Job Schedule.
+     * 
+     */
+    public Optional<Output<String>> resourceManagerId() {
+        return Optional.ofNullable(this.resourceManagerId);
     }
 
     /**
@@ -132,6 +147,7 @@ public final class JobScheduleState extends com.pulumi.resources.ResourceArgs {
         this.jobScheduleId = $.jobScheduleId;
         this.parameters = $.parameters;
         this.resourceGroupName = $.resourceGroupName;
+        this.resourceManagerId = $.resourceManagerId;
         this.runOn = $.runOn;
         this.runbookName = $.runbookName;
         this.scheduleName = $.scheduleName;
@@ -177,7 +193,7 @@ public final class JobScheduleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jobScheduleId (Optional) The UUID identifying the Automation Job Schedule.
+         * @param jobScheduleId The UUID identifying the Automation Job Schedule.
          * 
          * @return builder
          * 
@@ -188,7 +204,7 @@ public final class JobScheduleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jobScheduleId (Optional) The UUID identifying the Automation Job Schedule.
+         * @param jobScheduleId The UUID identifying the Automation Job Schedule.
          * 
          * @return builder
          * 
@@ -241,6 +257,27 @@ public final class JobScheduleState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
+        }
+
+        /**
+         * @param resourceManagerId The Resource Manager ID of the Automation Job Schedule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceManagerId(@Nullable Output<String> resourceManagerId) {
+            $.resourceManagerId = resourceManagerId;
+            return this;
+        }
+
+        /**
+         * @param resourceManagerId The Resource Manager ID of the Automation Job Schedule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceManagerId(String resourceManagerId) {
+            return resourceManagerId(Output.of(resourceManagerId));
         }
 
         /**

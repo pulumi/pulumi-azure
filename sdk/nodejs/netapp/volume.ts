@@ -54,7 +54,7 @@ export class Volume extends pulumi.CustomResource {
     /**
      * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
      */
-    public readonly createFromSnapshotResourceId!: pulumi.Output<string>;
+    public readonly createFromSnapshotResourceId!: pulumi.Output<string | undefined>;
     /**
      * A `dataProtectionReplication` block as defined below. Changing this forces a new resource to be created.
      */

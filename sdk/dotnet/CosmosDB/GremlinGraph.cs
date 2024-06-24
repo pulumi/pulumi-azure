@@ -123,7 +123,7 @@ namespace Pulumi.Azure.CosmosDB
         /// The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
         /// </summary>
         [Output("defaultTtl")]
-        public Output<int> DefaultTtl { get; private set; } = null!;
+        public Output<int?> DefaultTtl { get; private set; } = null!;
 
         /// <summary>
         /// The configuration of the indexing policy. One or more `index_policy` blocks as defined below.

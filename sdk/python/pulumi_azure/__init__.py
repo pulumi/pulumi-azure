@@ -2259,6 +2259,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "communication/emailServiceDomain",
+  "fqn": "pulumi_azure.communication",
+  "classes": {
+   "azure:communication/emailServiceDomain:EmailServiceDomain": "EmailServiceDomain"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "communication/service",
   "fqn": "pulumi_azure.communication",
   "classes": {
@@ -3807,6 +3815,14 @@ _utilities.register(
   "fqn": "pulumi_azure.dataprotection",
   "classes": {
    "azure:dataprotection/backupInstancePostgresql:BackupInstancePostgresql": "BackupInstancePostgresql"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "dataprotection/backupInstancePostgresqlFlexibleServer",
+  "fqn": "pulumi_azure.dataprotection",
+  "classes": {
+   "azure:dataprotection/backupInstancePostgresqlFlexibleServer:BackupInstancePostgresqlFlexibleServer": "BackupInstancePostgresqlFlexibleServer"
   }
  },
  {
@@ -7451,6 +7467,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "pim/roleManagementPolicy",
+  "fqn": "pulumi_azure.pim",
+  "classes": {
+   "azure:pim/roleManagementPolicy:RoleManagementPolicy": "RoleManagementPolicy"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "policy/definition",
   "fqn": "pulumi_azure.policy",
   "classes": {
@@ -9211,10 +9235,34 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "systemcenter/virtualMachineManagerCloud",
+  "fqn": "pulumi_azure.systemcenter",
+  "classes": {
+   "azure:systemcenter/virtualMachineManagerCloud:VirtualMachineManagerCloud": "VirtualMachineManagerCloud"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "systemcenter/virtualMachineManagerServer",
   "fqn": "pulumi_azure.systemcenter",
   "classes": {
    "azure:systemcenter/virtualMachineManagerServer:VirtualMachineManagerServer": "VirtualMachineManagerServer"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "systemcenter/virtualMachineManagerVirtualMachineTemplate",
+  "fqn": "pulumi_azure.systemcenter",
+  "classes": {
+   "azure:systemcenter/virtualMachineManagerVirtualMachineTemplate:VirtualMachineManagerVirtualMachineTemplate": "VirtualMachineManagerVirtualMachineTemplate"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "systemcenter/virtualMachineManagerVirtualNetwork",
+  "fqn": "pulumi_azure.systemcenter",
+  "classes": {
+   "azure:systemcenter/virtualMachineManagerVirtualNetwork:VirtualMachineManagerVirtualNetwork": "VirtualMachineManagerVirtualNetwork"
   }
  },
  {

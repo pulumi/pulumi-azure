@@ -17,6 +17,21 @@ public final class PrivateLinkScopeState extends com.pulumi.resources.ResourceAr
     public static final PrivateLinkScopeState Empty = new PrivateLinkScopeState();
 
     /**
+     * The default ingestion access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+     * 
+     */
+    @Import(name="ingestionAccessMode")
+    private @Nullable Output<String> ingestionAccessMode;
+
+    /**
+     * @return The default ingestion access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+     * 
+     */
+    public Optional<Output<String>> ingestionAccessMode() {
+        return Optional.ofNullable(this.ingestionAccessMode);
+    }
+
+    /**
      * The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
      * 
      */
@@ -29,6 +44,21 @@ public final class PrivateLinkScopeState extends com.pulumi.resources.ResourceAr
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+     * 
+     */
+    @Import(name="queryAccessMode")
+    private @Nullable Output<String> queryAccessMode;
+
+    /**
+     * @return The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+     * 
+     */
+    public Optional<Output<String>> queryAccessMode() {
+        return Optional.ofNullable(this.queryAccessMode);
     }
 
     /**
@@ -64,7 +94,9 @@ public final class PrivateLinkScopeState extends com.pulumi.resources.ResourceAr
     private PrivateLinkScopeState() {}
 
     private PrivateLinkScopeState(PrivateLinkScopeState $) {
+        this.ingestionAccessMode = $.ingestionAccessMode;
         this.name = $.name;
+        this.queryAccessMode = $.queryAccessMode;
         this.resourceGroupName = $.resourceGroupName;
         this.tags = $.tags;
     }
@@ -88,6 +120,27 @@ public final class PrivateLinkScopeState extends com.pulumi.resources.ResourceAr
         }
 
         /**
+         * @param ingestionAccessMode The default ingestion access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ingestionAccessMode(@Nullable Output<String> ingestionAccessMode) {
+            $.ingestionAccessMode = ingestionAccessMode;
+            return this;
+        }
+
+        /**
+         * @param ingestionAccessMode The default ingestion access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ingestionAccessMode(String ingestionAccessMode) {
+            return ingestionAccessMode(Output.of(ingestionAccessMode));
+        }
+
+        /**
          * @param name The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -106,6 +159,27 @@ public final class PrivateLinkScopeState extends com.pulumi.resources.ResourceAr
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param queryAccessMode The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder queryAccessMode(@Nullable Output<String> queryAccessMode) {
+            $.queryAccessMode = queryAccessMode;
+            return this;
+        }
+
+        /**
+         * @param queryAccessMode The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder queryAccessMode(String queryAccessMode) {
+            return queryAccessMode(Output.of(queryAccessMode));
         }
 
         /**

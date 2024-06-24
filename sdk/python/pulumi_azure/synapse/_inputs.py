@@ -319,9 +319,7 @@ class WorkspaceAadAdminArgs:
                  object_id: pulumi.Input[str],
                  tenant_id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] login: The login name of the Azure AD Administrator of this Synapse Workspace.
-        :param pulumi.Input[str] object_id: The object id of the Azure AD Administrator of this Synapse Workspace.
-        :param pulumi.Input[str] tenant_id: The tenant id of the Azure AD Administrator of this Synapse Workspace.
+        :param pulumi.Input[str] tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
         """
         pulumi.set(__self__, "login", login)
         pulumi.set(__self__, "object_id", object_id)
@@ -330,9 +328,6 @@ class WorkspaceAadAdminArgs:
     @property
     @pulumi.getter
     def login(self) -> pulumi.Input[str]:
-        """
-        The login name of the Azure AD Administrator of this Synapse Workspace.
-        """
         return pulumi.get(self, "login")
 
     @login.setter
@@ -342,9 +337,6 @@ class WorkspaceAadAdminArgs:
     @property
     @pulumi.getter(name="objectId")
     def object_id(self) -> pulumi.Input[str]:
-        """
-        The object id of the Azure AD Administrator of this Synapse Workspace.
-        """
         return pulumi.get(self, "object_id")
 
     @object_id.setter
@@ -355,7 +347,7 @@ class WorkspaceAadAdminArgs:
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> pulumi.Input[str]:
         """
-        The tenant id of the Azure AD Administrator of this Synapse Workspace.
+        The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -716,9 +708,7 @@ class WorkspaceSqlAadAdminArgs:
                  object_id: pulumi.Input[str],
                  tenant_id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] login: The login name of the Azure AD Administrator of this Synapse Workspace SQL.
-        :param pulumi.Input[str] object_id: The object id of the Azure AD Administrator of this Synapse Workspace SQL.
-        :param pulumi.Input[str] tenant_id: The tenant id of the Azure AD Administrator of this Synapse Workspace SQL.
+        :param pulumi.Input[str] tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
         """
         pulumi.set(__self__, "login", login)
         pulumi.set(__self__, "object_id", object_id)
@@ -727,9 +717,6 @@ class WorkspaceSqlAadAdminArgs:
     @property
     @pulumi.getter
     def login(self) -> pulumi.Input[str]:
-        """
-        The login name of the Azure AD Administrator of this Synapse Workspace SQL.
-        """
         return pulumi.get(self, "login")
 
     @login.setter
@@ -739,9 +726,6 @@ class WorkspaceSqlAadAdminArgs:
     @property
     @pulumi.getter(name="objectId")
     def object_id(self) -> pulumi.Input[str]:
-        """
-        The object id of the Azure AD Administrator of this Synapse Workspace SQL.
-        """
         return pulumi.get(self, "object_id")
 
     @object_id.setter
@@ -752,7 +736,7 @@ class WorkspaceSqlAadAdminArgs:
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> pulumi.Input[str]:
         """
-        The tenant id of the Azure AD Administrator of this Synapse Workspace SQL.
+        The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
         """
         return pulumi.get(self, "tenant_id")
 

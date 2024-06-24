@@ -35,6 +35,7 @@ import (
 //				return err
 //			}
 //			ctx.Export("httpsEndpoint", example.HttpsEndpoint)
+//			ctx.Export("clusterId", example.ClusterId)
 //			return nil
 //		})
 //	}
@@ -60,6 +61,8 @@ type GetClusterArgs struct {
 
 // A collection of values returned by getCluster.
 type GetClusterResult struct {
+	// The HDInsight Cluster ID.
+	ClusterId string `pulumi:"clusterId"`
 	// The version of HDInsights which is used on this HDInsight Cluster.
 	ClusterVersion string `pulumi:"clusterVersion"`
 	// A map of versions of software used on this HDInsights Cluster.
@@ -77,7 +80,8 @@ type GetClusterResult struct {
 	// The kind of HDInsight Cluster this is, such as a Spark or Storm cluster.
 	Kind string `pulumi:"kind"`
 	// The Azure Region in which this HDInsight Cluster exists.
-	Location          string `pulumi:"location"`
+	Location string `pulumi:"location"`
+	// The HDInsight Cluster name.
 	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SSH Endpoint for this HDInsight Cluster.
@@ -130,6 +134,11 @@ func (o GetClusterResultOutput) ToGetClusterResultOutputWithContext(ctx context.
 	return o
 }
 
+// The HDInsight Cluster ID.
+func (o GetClusterResultOutput) ClusterId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterResult) string { return v.ClusterId }).(pulumi.StringOutput)
+}
+
 // The version of HDInsights which is used on this HDInsight Cluster.
 func (o GetClusterResultOutput) ClusterVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterResult) string { return v.ClusterVersion }).(pulumi.StringOutput)
@@ -175,6 +184,7 @@ func (o GetClusterResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
+// The HDInsight Cluster name.
 func (o GetClusterResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterResult) string { return v.Name }).(pulumi.StringOutput)
 }

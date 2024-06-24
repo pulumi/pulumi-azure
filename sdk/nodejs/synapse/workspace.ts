@@ -39,11 +39,6 @@ import * as utilities from "../utilities";
  *     storageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.id,
  *     sqlAdministratorLogin: "sqladminuser",
  *     sqlAdministratorLoginPassword: "H@Sh1CoR3!",
- *     aadAdmin: {
- *         login: "AzureAD Admin",
- *         objectId: "00000000-0000-0000-0000-000000000000",
- *         tenantId: "00000000-0000-0000-0000-000000000000",
- *     },
  *     identity: {
  *         type: "SystemAssigned",
  *     },
@@ -192,7 +187,7 @@ export class Workspace extends pulumi.CustomResource {
     }
 
     /**
-     * An `aadAdmin` block as defined below.
+     * @deprecated The `aadAdmin` block has been superseded by the `azure.synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
      */
     public readonly aadAdmin!: pulumi.Output<outputs.synapse.WorkspaceAadAdmin>;
     /**
@@ -260,7 +255,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * An `sqlAadAdmin` block as defined below.
+     * @deprecated The `sqlAadAdmin` block has been superseded by the `azure.synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
      */
     public readonly sqlAadAdmin!: pulumi.Output<outputs.synapse.WorkspaceSqlAadAdmin>;
     /**
@@ -364,7 +359,7 @@ export class Workspace extends pulumi.CustomResource {
  */
 export interface WorkspaceState {
     /**
-     * An `aadAdmin` block as defined below.
+     * @deprecated The `aadAdmin` block has been superseded by the `azure.synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
      */
     aadAdmin?: pulumi.Input<inputs.synapse.WorkspaceAadAdmin>;
     /**
@@ -432,7 +427,7 @@ export interface WorkspaceState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * An `sqlAadAdmin` block as defined below.
+     * @deprecated The `sqlAadAdmin` block has been superseded by the `azure.synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
      */
     sqlAadAdmin?: pulumi.Input<inputs.synapse.WorkspaceSqlAadAdmin>;
     /**
@@ -462,7 +457,7 @@ export interface WorkspaceState {
  */
 export interface WorkspaceArgs {
     /**
-     * An `aadAdmin` block as defined below.
+     * @deprecated The `aadAdmin` block has been superseded by the `azure.synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
      */
     aadAdmin?: pulumi.Input<inputs.synapse.WorkspaceAadAdmin>;
     /**
@@ -526,7 +521,7 @@ export interface WorkspaceArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * An `sqlAadAdmin` block as defined below.
+     * @deprecated The `sqlAadAdmin` block has been superseded by the `azure.synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
      */
     sqlAadAdmin?: pulumi.Input<inputs.synapse.WorkspaceSqlAadAdmin>;
     /**

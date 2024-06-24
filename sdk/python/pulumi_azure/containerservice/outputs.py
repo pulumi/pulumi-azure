@@ -6466,6 +6466,8 @@ class KubernetesClusterNetworkProfile(dict):
             suggest = "load_balancer_sku"
         elif key == "natGatewayProfile":
             suggest = "nat_gateway_profile"
+        elif key == "networkDataPlane":
+            suggest = "network_data_plane"
         elif key == "networkMode":
             suggest = "network_mode"
         elif key == "networkPluginMode":
@@ -6507,6 +6509,7 @@ class KubernetesClusterNetworkProfile(dict):
                  load_balancer_profile: Optional['outputs.KubernetesClusterNetworkProfileLoadBalancerProfile'] = None,
                  load_balancer_sku: Optional[str] = None,
                  nat_gateway_profile: Optional['outputs.KubernetesClusterNetworkProfileNatGatewayProfile'] = None,
+                 network_data_plane: Optional[str] = None,
                  network_mode: Optional[str] = None,
                  network_plugin_mode: Optional[str] = None,
                  network_policy: Optional[str] = None,
@@ -6525,13 +6528,6 @@ class KubernetesClusterNetworkProfile(dict):
         :param str docker_bridge_cidr: IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
                
                > **Note:** `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-        :param str ebpf_data_plane: Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Disabling this forces a new resource to be created.
-               
-               > **Note:** When `ebpf_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
-               
-               > **Note:** When `ebpf_data_plane` is set to `cilium`, one of either `network_plugin_mode = "overlay"` or `pod_subnet_id` must be specified.
-               
-               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
         :param Sequence[str] ip_versions: Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
                
                ->**Note:** To configure dual-stack networking `ip_versions` should be set to `["IPv4", "IPv6"]`.
@@ -6540,6 +6536,13 @@ class KubernetesClusterNetworkProfile(dict):
         :param 'KubernetesClusterNetworkProfileLoadBalancerProfileArgs' load_balancer_profile: A `load_balancer_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard`. Changing this forces a new resource to be created.
         :param str load_balancer_sku: Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`. Changing this forces a new resource to be created.
         :param 'KubernetesClusterNetworkProfileNatGatewayProfileArgs' nat_gateway_profile: A `nat_gateway_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`. Changing this forces a new resource to be created.
+        :param str network_data_plane: Specifies the data plane used for building the Kubernetes network. Possible values are `azure` and `cilium`. Defaults to `azure`. Disabling this forces a new resource to be created.
+               
+               > **Note:** When `network_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
+               
+               > **Note:** When `network_data_plane` is set to `cilium`, one of either `network_plugin_mode = "overlay"` or `pod_subnet_id` must be specified.
+               
+               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
         :param str network_mode: Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
                
                > **Note:** `network_mode` can only be set to `bridge` for existing Kubernetes Clusters and cannot be used to provision new Clusters - this will be removed by Azure in the future.
@@ -6552,7 +6555,7 @@ class KubernetesClusterNetworkProfile(dict):
                
                > **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
                
-               > **Note:** When `network_policy` is set to `cilium`, the `ebpf_data_plane` field must be set to `cilium`.
+               > **Note:** When `network_policy` is set to `cilium`, the `network_data_plane` field must be set to `cilium`.
         :param str outbound_type: The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outbound_type` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
         :param str pod_cidr: The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet` or `network_plugin_mode` is set to `overlay`. Changing this forces a new resource to be created.
         :param Sequence[str] pod_cidrs: A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
@@ -6576,6 +6579,8 @@ class KubernetesClusterNetworkProfile(dict):
             pulumi.set(__self__, "load_balancer_sku", load_balancer_sku)
         if nat_gateway_profile is not None:
             pulumi.set(__self__, "nat_gateway_profile", nat_gateway_profile)
+        if network_data_plane is not None:
+            pulumi.set(__self__, "network_data_plane", network_data_plane)
         if network_mode is not None:
             pulumi.set(__self__, "network_mode", network_mode)
         if network_plugin_mode is not None:
@@ -6631,15 +6636,9 @@ class KubernetesClusterNetworkProfile(dict):
     @property
     @pulumi.getter(name="ebpfDataPlane")
     def ebpf_data_plane(self) -> Optional[str]:
-        """
-        Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Disabling this forces a new resource to be created.
+        warnings.warn("""This property has been superseded by the property `network_data_plane` and will be removed in v4.0 of the AzureRM provider.""", DeprecationWarning)
+        pulumi.log.warn("""ebpf_data_plane is deprecated: This property has been superseded by the property `network_data_plane` and will be removed in v4.0 of the AzureRM provider.""")
 
-        > **Note:** When `ebpf_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
-
-        > **Note:** When `ebpf_data_plane` is set to `cilium`, one of either `network_plugin_mode = "overlay"` or `pod_subnet_id` must be specified.
-
-        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
-        """
         return pulumi.get(self, "ebpf_data_plane")
 
     @property
@@ -6679,6 +6678,20 @@ class KubernetesClusterNetworkProfile(dict):
         return pulumi.get(self, "nat_gateway_profile")
 
     @property
+    @pulumi.getter(name="networkDataPlane")
+    def network_data_plane(self) -> Optional[str]:
+        """
+        Specifies the data plane used for building the Kubernetes network. Possible values are `azure` and `cilium`. Defaults to `azure`. Disabling this forces a new resource to be created.
+
+        > **Note:** When `network_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
+
+        > **Note:** When `network_data_plane` is set to `cilium`, one of either `network_plugin_mode = "overlay"` or `pod_subnet_id` must be specified.
+
+        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
+        """
+        return pulumi.get(self, "network_data_plane")
+
+    @property
     @pulumi.getter(name="networkMode")
     def network_mode(self) -> Optional[str]:
         """
@@ -6708,7 +6721,7 @@ class KubernetesClusterNetworkProfile(dict):
 
         > **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
 
-        > **Note:** When `network_policy` is set to `cilium`, the `ebpf_data_plane` field must be set to `cilium`.
+        > **Note:** When `network_policy` is set to `cilium`, the `network_data_plane` field must be set to `cilium`.
         """
         return pulumi.get(self, "network_policy")
 

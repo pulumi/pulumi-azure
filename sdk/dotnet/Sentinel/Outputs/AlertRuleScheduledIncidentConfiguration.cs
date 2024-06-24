@@ -13,13 +13,7 @@ namespace Pulumi.Azure.Sentinel.Outputs
     [OutputType]
     public sealed class AlertRuleScheduledIncidentConfiguration
     {
-        /// <summary>
-        /// Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule?
-        /// </summary>
         public readonly bool CreateIncident;
-        /// <summary>
-        /// A `grouping` block as defined below.
-        /// </summary>
         public readonly Outputs.AlertRuleScheduledIncidentConfigurationGrouping Grouping;
 
         [OutputConstructor]

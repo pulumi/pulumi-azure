@@ -18,7 +18,6 @@ class SqlContainerArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
                  database_name: pulumi.Input[str],
-                 partition_key_path: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
                  autoscale_settings: Optional[pulumi.Input['SqlContainerAutoscaleSettingsArgs']] = None,
@@ -26,6 +25,9 @@ class SqlContainerArgs:
                  default_ttl: Optional[pulumi.Input[int]] = None,
                  indexing_policy: Optional[pulumi.Input['SqlContainerIndexingPolicyArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 partition_key_kind: Optional[pulumi.Input[str]] = None,
+                 partition_key_path: Optional[pulumi.Input[str]] = None,
+                 partition_key_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  partition_key_version: Optional[pulumi.Input[int]] = None,
                  throughput: Optional[pulumi.Input[int]] = None,
                  unique_keys: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerUniqueKeyArgs']]]] = None):
@@ -33,7 +35,6 @@ class SqlContainerArgs:
         The set of arguments for constructing a SqlContainer resource.
         :param pulumi.Input[str] account_name: The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] partition_key_path: Define a partition key. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] analytical_storage_ttl: The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         :param pulumi.Input['SqlContainerAutoscaleSettingsArgs'] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partition_key_path` to be set.
@@ -43,13 +44,14 @@ class SqlContainerArgs:
         :param pulumi.Input[int] default_ttl: The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         :param pulumi.Input['SqlContainerIndexingPolicyArgs'] indexing_policy: An `indexing_policy` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] partition_key_kind: Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] partition_key_paths: A list of partition key paths. Changing this forces a new resource to be created.
         :param pulumi.Input[int] partition_key_version: Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
         :param pulumi.Input[int] throughput: The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
         :param pulumi.Input[Sequence[pulumi.Input['SqlContainerUniqueKeyArgs']]] unique_keys: One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "partition_key_path", partition_key_path)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if analytical_storage_ttl is not None:
             pulumi.set(__self__, "analytical_storage_ttl", analytical_storage_ttl)
@@ -63,6 +65,15 @@ class SqlContainerArgs:
             pulumi.set(__self__, "indexing_policy", indexing_policy)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if partition_key_kind is not None:
+            pulumi.set(__self__, "partition_key_kind", partition_key_kind)
+        if partition_key_path is not None:
+            warnings.warn("""`partition_key_path` will be removed in favour of the property `partition_key_paths` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""partition_key_path is deprecated: `partition_key_path` will be removed in favour of the property `partition_key_paths` in version 4.0 of the AzureRM Provider.""")
+        if partition_key_path is not None:
+            pulumi.set(__self__, "partition_key_path", partition_key_path)
+        if partition_key_paths is not None:
+            pulumi.set(__self__, "partition_key_paths", partition_key_paths)
         if partition_key_version is not None:
             pulumi.set(__self__, "partition_key_version", partition_key_version)
         if throughput is not None:
@@ -93,18 +104,6 @@ class SqlContainerArgs:
     @database_name.setter
     def database_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "database_name", value)
-
-    @property
-    @pulumi.getter(name="partitionKeyPath")
-    def partition_key_path(self) -> pulumi.Input[str]:
-        """
-        Define a partition key. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "partition_key_path")
-
-    @partition_key_path.setter
-    def partition_key_path(self, value: pulumi.Input[str]):
-        pulumi.set(self, "partition_key_path", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -193,6 +192,42 @@ class SqlContainerArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="partitionKeyKind")
+    def partition_key_kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "partition_key_kind")
+
+    @partition_key_kind.setter
+    def partition_key_kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "partition_key_kind", value)
+
+    @property
+    @pulumi.getter(name="partitionKeyPath")
+    def partition_key_path(self) -> Optional[pulumi.Input[str]]:
+        warnings.warn("""`partition_key_path` will be removed in favour of the property `partition_key_paths` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""partition_key_path is deprecated: `partition_key_path` will be removed in favour of the property `partition_key_paths` in version 4.0 of the AzureRM Provider.""")
+
+        return pulumi.get(self, "partition_key_path")
+
+    @partition_key_path.setter
+    def partition_key_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "partition_key_path", value)
+
+    @property
+    @pulumi.getter(name="partitionKeyPaths")
+    def partition_key_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of partition key paths. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "partition_key_paths")
+
+    @partition_key_paths.setter
+    def partition_key_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "partition_key_paths", value)
+
+    @property
     @pulumi.getter(name="partitionKeyVersion")
     def partition_key_version(self) -> Optional[pulumi.Input[int]]:
         """
@@ -240,7 +275,9 @@ class _SqlContainerState:
                  default_ttl: Optional[pulumi.Input[int]] = None,
                  indexing_policy: Optional[pulumi.Input['SqlContainerIndexingPolicyArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 partition_key_kind: Optional[pulumi.Input[str]] = None,
                  partition_key_path: Optional[pulumi.Input[str]] = None,
+                 partition_key_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  partition_key_version: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  throughput: Optional[pulumi.Input[int]] = None,
@@ -257,7 +294,8 @@ class _SqlContainerState:
         :param pulumi.Input[int] default_ttl: The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         :param pulumi.Input['SqlContainerIndexingPolicyArgs'] indexing_policy: An `indexing_policy` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] partition_key_path: Define a partition key. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] partition_key_kind: Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] partition_key_paths: A list of partition key paths. Changing this forces a new resource to be created.
         :param pulumi.Input[int] partition_key_version: Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] throughput: The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
@@ -279,8 +317,15 @@ class _SqlContainerState:
             pulumi.set(__self__, "indexing_policy", indexing_policy)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if partition_key_kind is not None:
+            pulumi.set(__self__, "partition_key_kind", partition_key_kind)
+        if partition_key_path is not None:
+            warnings.warn("""`partition_key_path` will be removed in favour of the property `partition_key_paths` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""partition_key_path is deprecated: `partition_key_path` will be removed in favour of the property `partition_key_paths` in version 4.0 of the AzureRM Provider.""")
         if partition_key_path is not None:
             pulumi.set(__self__, "partition_key_path", partition_key_path)
+        if partition_key_paths is not None:
+            pulumi.set(__self__, "partition_key_paths", partition_key_paths)
         if partition_key_version is not None:
             pulumi.set(__self__, "partition_key_version", partition_key_version)
         if resource_group_name is not None:
@@ -389,16 +434,40 @@ class _SqlContainerState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="partitionKeyKind")
+    def partition_key_kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "partition_key_kind")
+
+    @partition_key_kind.setter
+    def partition_key_kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "partition_key_kind", value)
+
+    @property
     @pulumi.getter(name="partitionKeyPath")
     def partition_key_path(self) -> Optional[pulumi.Input[str]]:
-        """
-        Define a partition key. Changing this forces a new resource to be created.
-        """
+        warnings.warn("""`partition_key_path` will be removed in favour of the property `partition_key_paths` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""partition_key_path is deprecated: `partition_key_path` will be removed in favour of the property `partition_key_paths` in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "partition_key_path")
 
     @partition_key_path.setter
     def partition_key_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "partition_key_path", value)
+
+    @property
+    @pulumi.getter(name="partitionKeyPaths")
+    def partition_key_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of partition key paths. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "partition_key_paths")
+
+    @partition_key_paths.setter
+    def partition_key_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "partition_key_paths", value)
 
     @property
     @pulumi.getter(name="partitionKeyVersion")
@@ -462,7 +531,9 @@ class SqlContainer(pulumi.CustomResource):
                  default_ttl: Optional[pulumi.Input[int]] = None,
                  indexing_policy: Optional[pulumi.Input[pulumi.InputType['SqlContainerIndexingPolicyArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 partition_key_kind: Optional[pulumi.Input[str]] = None,
                  partition_key_path: Optional[pulumi.Input[str]] = None,
+                 partition_key_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  partition_key_version: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  throughput: Optional[pulumi.Input[int]] = None,
@@ -533,7 +604,8 @@ class SqlContainer(pulumi.CustomResource):
         :param pulumi.Input[int] default_ttl: The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         :param pulumi.Input[pulumi.InputType['SqlContainerIndexingPolicyArgs']] indexing_policy: An `indexing_policy` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] partition_key_path: Define a partition key. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] partition_key_kind: Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] partition_key_paths: A list of partition key paths. Changing this forces a new resource to be created.
         :param pulumi.Input[int] partition_key_version: Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] throughput: The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
@@ -621,7 +693,9 @@ class SqlContainer(pulumi.CustomResource):
                  default_ttl: Optional[pulumi.Input[int]] = None,
                  indexing_policy: Optional[pulumi.Input[pulumi.InputType['SqlContainerIndexingPolicyArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 partition_key_kind: Optional[pulumi.Input[str]] = None,
                  partition_key_path: Optional[pulumi.Input[str]] = None,
+                 partition_key_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  partition_key_version: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  throughput: Optional[pulumi.Input[int]] = None,
@@ -647,9 +721,9 @@ class SqlContainer(pulumi.CustomResource):
             __props__.__dict__["default_ttl"] = default_ttl
             __props__.__dict__["indexing_policy"] = indexing_policy
             __props__.__dict__["name"] = name
-            if partition_key_path is None and not opts.urn:
-                raise TypeError("Missing required property 'partition_key_path'")
+            __props__.__dict__["partition_key_kind"] = partition_key_kind
             __props__.__dict__["partition_key_path"] = partition_key_path
+            __props__.__dict__["partition_key_paths"] = partition_key_paths
             __props__.__dict__["partition_key_version"] = partition_key_version
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -674,7 +748,9 @@ class SqlContainer(pulumi.CustomResource):
             default_ttl: Optional[pulumi.Input[int]] = None,
             indexing_policy: Optional[pulumi.Input[pulumi.InputType['SqlContainerIndexingPolicyArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            partition_key_kind: Optional[pulumi.Input[str]] = None,
             partition_key_path: Optional[pulumi.Input[str]] = None,
+            partition_key_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             partition_key_version: Optional[pulumi.Input[int]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             throughput: Optional[pulumi.Input[int]] = None,
@@ -696,7 +772,8 @@ class SqlContainer(pulumi.CustomResource):
         :param pulumi.Input[int] default_ttl: The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         :param pulumi.Input[pulumi.InputType['SqlContainerIndexingPolicyArgs']] indexing_policy: An `indexing_policy` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] partition_key_path: Define a partition key. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] partition_key_kind: Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] partition_key_paths: A list of partition key paths. Changing this forces a new resource to be created.
         :param pulumi.Input[int] partition_key_version: Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] throughput: The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
@@ -714,7 +791,9 @@ class SqlContainer(pulumi.CustomResource):
         __props__.__dict__["default_ttl"] = default_ttl
         __props__.__dict__["indexing_policy"] = indexing_policy
         __props__.__dict__["name"] = name
+        __props__.__dict__["partition_key_kind"] = partition_key_kind
         __props__.__dict__["partition_key_path"] = partition_key_path
+        __props__.__dict__["partition_key_paths"] = partition_key_paths
         __props__.__dict__["partition_key_version"] = partition_key_version
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["throughput"] = throughput
@@ -765,7 +844,7 @@ class SqlContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultTtl")
-    def default_ttl(self) -> pulumi.Output[int]:
+    def default_ttl(self) -> pulumi.Output[Optional[int]]:
         """
         The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         """
@@ -788,12 +867,28 @@ class SqlContainer(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="partitionKeyKind")
+    def partition_key_kind(self) -> pulumi.Output[Optional[str]]:
+        """
+        Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "partition_key_kind")
+
+    @property
     @pulumi.getter(name="partitionKeyPath")
     def partition_key_path(self) -> pulumi.Output[str]:
-        """
-        Define a partition key. Changing this forces a new resource to be created.
-        """
+        warnings.warn("""`partition_key_path` will be removed in favour of the property `partition_key_paths` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""partition_key_path is deprecated: `partition_key_path` will be removed in favour of the property `partition_key_paths` in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "partition_key_path")
+
+    @property
+    @pulumi.getter(name="partitionKeyPaths")
+    def partition_key_paths(self) -> pulumi.Output[Sequence[str]]:
+        """
+        A list of partition key paths. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "partition_key_paths")
 
     @property
     @pulumi.getter(name="partitionKeyVersion")

@@ -364,10 +364,10 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
     }
     /**
      * @deprecated
-     * The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.
+     * The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.
      * 
      */
-    @Deprecated /* The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy. */
+    @Deprecated /* The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider. */
     @Export(name="enablePodSecurityPolicy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enablePodSecurityPolicy;
 

@@ -18,7 +18,8 @@ class BackupInstanceBlogStorageArgs:
                  storage_account_id: pulumi.Input[str],
                  vault_id: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 storage_account_container_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a BackupInstanceBlogStorage resource.
         :param pulumi.Input[str] backup_policy_id: The ID of the Backup Policy.
@@ -26,6 +27,9 @@ class BackupInstanceBlogStorageArgs:
         :param pulumi.Input[str] vault_id: The ID of the Backup Vault within which the Backup Instance Blob Storage should exist. Changing this forces a new Backup Instance Blob Storage to be created.
         :param pulumi.Input[str] location: The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
         :param pulumi.Input[str] name: The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_account_container_names: The list of the container names of the source Storage Account.
+               
+               > **Note:** The `storage_account_container_names` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storage_account_container_names` will force a new resource to be created since it can't be removed once specified.
         """
         pulumi.set(__self__, "backup_policy_id", backup_policy_id)
         pulumi.set(__self__, "storage_account_id", storage_account_id)
@@ -34,6 +38,8 @@ class BackupInstanceBlogStorageArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if storage_account_container_names is not None:
+            pulumi.set(__self__, "storage_account_container_names", storage_account_container_names)
 
     @property
     @pulumi.getter(name="backupPolicyId")
@@ -95,6 +101,20 @@ class BackupInstanceBlogStorageArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter(name="storageAccountContainerNames")
+    def storage_account_container_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of the container names of the source Storage Account.
+
+        > **Note:** The `storage_account_container_names` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storage_account_container_names` will force a new resource to be created since it can't be removed once specified.
+        """
+        return pulumi.get(self, "storage_account_container_names")
+
+    @storage_account_container_names.setter
+    def storage_account_container_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "storage_account_container_names", value)
+
 
 @pulumi.input_type
 class _BackupInstanceBlogStorageState:
@@ -102,6 +122,7 @@ class _BackupInstanceBlogStorageState:
                  backup_policy_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 storage_account_container_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  vault_id: Optional[pulumi.Input[str]] = None):
         """
@@ -109,6 +130,9 @@ class _BackupInstanceBlogStorageState:
         :param pulumi.Input[str] backup_policy_id: The ID of the Backup Policy.
         :param pulumi.Input[str] location: The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
         :param pulumi.Input[str] name: The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_account_container_names: The list of the container names of the source Storage Account.
+               
+               > **Note:** The `storage_account_container_names` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storage_account_container_names` will force a new resource to be created since it can't be removed once specified.
         :param pulumi.Input[str] storage_account_id: The ID of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
         :param pulumi.Input[str] vault_id: The ID of the Backup Vault within which the Backup Instance Blob Storage should exist. Changing this forces a new Backup Instance Blob Storage to be created.
         """
@@ -118,6 +142,8 @@ class _BackupInstanceBlogStorageState:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if storage_account_container_names is not None:
+            pulumi.set(__self__, "storage_account_container_names", storage_account_container_names)
         if storage_account_id is not None:
             pulumi.set(__self__, "storage_account_id", storage_account_id)
         if vault_id is not None:
@@ -160,6 +186,20 @@ class _BackupInstanceBlogStorageState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="storageAccountContainerNames")
+    def storage_account_container_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of the container names of the source Storage Account.
+
+        > **Note:** The `storage_account_container_names` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storage_account_container_names` will force a new resource to be created since it can't be removed once specified.
+        """
+        return pulumi.get(self, "storage_account_container_names")
+
+    @storage_account_container_names.setter
+    def storage_account_container_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "storage_account_container_names", value)
+
+    @property
     @pulumi.getter(name="storageAccountId")
     def storage_account_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -192,6 +232,7 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
                  backup_policy_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 storage_account_container_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  vault_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -252,6 +293,9 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
         :param pulumi.Input[str] backup_policy_id: The ID of the Backup Policy.
         :param pulumi.Input[str] location: The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
         :param pulumi.Input[str] name: The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_account_container_names: The list of the container names of the source Storage Account.
+               
+               > **Note:** The `storage_account_container_names` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storage_account_container_names` will force a new resource to be created since it can't be removed once specified.
         :param pulumi.Input[str] storage_account_id: The ID of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
         :param pulumi.Input[str] vault_id: The ID of the Backup Vault within which the Backup Instance Blob Storage should exist. Changing this forces a new Backup Instance Blob Storage to be created.
         """
@@ -331,6 +375,7 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
                  backup_policy_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 storage_account_container_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  vault_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -347,6 +392,7 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
             __props__.__dict__["backup_policy_id"] = backup_policy_id
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            __props__.__dict__["storage_account_container_names"] = storage_account_container_names
             if storage_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_id'")
             __props__.__dict__["storage_account_id"] = storage_account_id
@@ -366,6 +412,7 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
             backup_policy_id: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            storage_account_container_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             storage_account_id: Optional[pulumi.Input[str]] = None,
             vault_id: Optional[pulumi.Input[str]] = None) -> 'BackupInstanceBlogStorage':
         """
@@ -378,6 +425,9 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
         :param pulumi.Input[str] backup_policy_id: The ID of the Backup Policy.
         :param pulumi.Input[str] location: The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
         :param pulumi.Input[str] name: The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_account_container_names: The list of the container names of the source Storage Account.
+               
+               > **Note:** The `storage_account_container_names` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storage_account_container_names` will force a new resource to be created since it can't be removed once specified.
         :param pulumi.Input[str] storage_account_id: The ID of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
         :param pulumi.Input[str] vault_id: The ID of the Backup Vault within which the Backup Instance Blob Storage should exist. Changing this forces a new Backup Instance Blob Storage to be created.
         """
@@ -388,6 +438,7 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
         __props__.__dict__["backup_policy_id"] = backup_policy_id
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
+        __props__.__dict__["storage_account_container_names"] = storage_account_container_names
         __props__.__dict__["storage_account_id"] = storage_account_id
         __props__.__dict__["vault_id"] = vault_id
         return BackupInstanceBlogStorage(resource_name, opts=opts, __props__=__props__)
@@ -415,6 +466,16 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
         The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="storageAccountContainerNames")
+    def storage_account_container_names(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The list of the container names of the source Storage Account.
+
+        > **Note:** The `storage_account_container_names` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storage_account_container_names` will force a new resource to be created since it can't be removed once specified.
+        """
+        return pulumi.get(self, "storage_account_container_names")
 
     @property
     @pulumi.getter(name="storageAccountId")

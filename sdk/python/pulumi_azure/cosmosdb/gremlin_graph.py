@@ -746,7 +746,7 @@ class GremlinGraph(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultTtl")
-    def default_ttl(self) -> pulumi.Output[int]:
+    def default_ttl(self) -> pulumi.Output[Optional[int]]:
         """
         The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
         """

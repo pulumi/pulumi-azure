@@ -54,7 +54,7 @@ import * as utilities from "../utilities";
  *     assignableScopes: [exampleResourceGroup.id],
  * });
  * const example = azuread.getServicePrincipal({
- *     displayName: "Windows Virtual Desktop",
+ *     displayName: "Azure Virtual Desktop",
  * });
  * const exampleAssignment = new azure.authorization.Assignment("example", {
  *     name: exampleRandomUuid.result,

@@ -407,7 +407,7 @@ class ScalingPlan(pulumi.CustomResource):
                 not_actions=[],
             )],
             assignable_scopes=[example_resource_group.id])
-        example = azuread.get_service_principal(display_name="Windows Virtual Desktop")
+        example = azuread.get_service_principal(display_name="Azure Virtual Desktop")
         example_assignment = azure.authorization.Assignment("example",
             name=example_random_uuid.result,
             scope=example_resource_group.id,
@@ -532,7 +532,7 @@ class ScalingPlan(pulumi.CustomResource):
                 not_actions=[],
             )],
             assignable_scopes=[example_resource_group.id])
-        example = azuread.get_service_principal(display_name="Windows Virtual Desktop")
+        example = azuread.get_service_principal(display_name="Azure Virtual Desktop")
         example_assignment = azure.authorization.Assignment("example",
             name=example_random_uuid.result,
             scope=example_resource_group.id,

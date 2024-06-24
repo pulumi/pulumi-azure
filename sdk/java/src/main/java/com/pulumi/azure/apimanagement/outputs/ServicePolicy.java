@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServicePolicy {
-    /**
-     * @return The XML Content for this Policy.
-     * 
-     */
     private @Nullable String xmlContent;
-    /**
-     * @return A link to an API Management Policy XML Document, which must be publicly available.
-     * 
-     */
     private @Nullable String xmlLink;
 
     private ServicePolicy() {}
-    /**
-     * @return The XML Content for this Policy.
-     * 
-     */
     public Optional<String> xmlContent() {
         return Optional.ofNullable(this.xmlContent);
     }
-    /**
-     * @return A link to an API Management Policy XML Document, which must be publicly available.
-     * 
-     */
     public Optional<String> xmlLink() {
         return Optional.ofNullable(this.xmlLink);
     }

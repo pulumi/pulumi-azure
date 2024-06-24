@@ -18,6 +18,7 @@ class NetworkInterfaceArgs:
     def __init__(__self__, *,
                  ip_configurations: pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIpConfigurationArgs']]],
                  resource_group_name: pulumi.Input[str],
+                 accelerated_networking_enabled: Optional[pulumi.Input[bool]] = None,
                  auxiliary_mode: Optional[pulumi.Input[str]] = None,
                  auxiliary_sku: Optional[pulumi.Input[str]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -25,6 +26,7 @@ class NetworkInterfaceArgs:
                  enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
                  enable_ip_forwarding: Optional[pulumi.Input[bool]] = None,
                  internal_dns_name_label: Optional[pulumi.Input[str]] = None,
+                 ip_forwarding_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -32,6 +34,11 @@ class NetworkInterfaceArgs:
         The set of arguments for constructing a NetworkInterface resource.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIpConfigurationArgs']]] ip_configurations: One or more `ip_configuration` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Network Interface. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] accelerated_networking_enabled: Should Accelerated Networking be enabled? Defaults to `false`.
+               
+               > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+               
+               > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
         :param pulumi.Input[str] auxiliary_mode: Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, `MaxConnections` and `None`.
                
                > **Note:** `auxiliary_mode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
@@ -42,19 +49,16 @@ class NetworkInterfaceArgs:
                
                > **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
-        :param pulumi.Input[bool] enable_accelerated_networking: Should Accelerated Networking be enabled? Defaults to `false`.
-               
-               > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
-               
-               > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
-        :param pulumi.Input[bool] enable_ip_forwarding: Should IP Forwarding be enabled? Defaults to `false`.
         :param pulumi.Input[str] internal_dns_name_label: The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
+        :param pulumi.Input[bool] ip_forwarding_enabled: Should IP Forwarding be enabled? Defaults to `false`.
         :param pulumi.Input[str] location: The location where the Network Interface should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Network Interface. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "ip_configurations", ip_configurations)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if accelerated_networking_enabled is not None:
+            pulumi.set(__self__, "accelerated_networking_enabled", accelerated_networking_enabled)
         if auxiliary_mode is not None:
             pulumi.set(__self__, "auxiliary_mode", auxiliary_mode)
         if auxiliary_sku is not None:
@@ -64,11 +68,19 @@ class NetworkInterfaceArgs:
         if edge_zone is not None:
             pulumi.set(__self__, "edge_zone", edge_zone)
         if enable_accelerated_networking is not None:
+            warnings.warn("""The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""enable_accelerated_networking is deprecated: The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
+        if enable_accelerated_networking is not None:
             pulumi.set(__self__, "enable_accelerated_networking", enable_accelerated_networking)
+        if enable_ip_forwarding is not None:
+            warnings.warn("""The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""enable_ip_forwarding is deprecated: The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
         if enable_ip_forwarding is not None:
             pulumi.set(__self__, "enable_ip_forwarding", enable_ip_forwarding)
         if internal_dns_name_label is not None:
             pulumi.set(__self__, "internal_dns_name_label", internal_dns_name_label)
+        if ip_forwarding_enabled is not None:
+            pulumi.set(__self__, "ip_forwarding_enabled", ip_forwarding_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -99,6 +111,22 @@ class NetworkInterfaceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="acceleratedNetworkingEnabled")
+    def accelerated_networking_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Accelerated Networking be enabled? Defaults to `false`.
+
+        > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+
+        > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
+        """
+        return pulumi.get(self, "accelerated_networking_enabled")
+
+    @accelerated_networking_enabled.setter
+    def accelerated_networking_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "accelerated_networking_enabled", value)
 
     @property
     @pulumi.getter(name="auxiliaryMode")
@@ -157,13 +185,9 @@ class NetworkInterfaceArgs:
     @property
     @pulumi.getter(name="enableAcceleratedNetworking")
     def enable_accelerated_networking(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Should Accelerated Networking be enabled? Defaults to `false`.
+        warnings.warn("""The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""enable_accelerated_networking is deprecated: The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
 
-        > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
-
-        > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
-        """
         return pulumi.get(self, "enable_accelerated_networking")
 
     @enable_accelerated_networking.setter
@@ -173,9 +197,9 @@ class NetworkInterfaceArgs:
     @property
     @pulumi.getter(name="enableIpForwarding")
     def enable_ip_forwarding(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Should IP Forwarding be enabled? Defaults to `false`.
-        """
+        warnings.warn("""The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""enable_ip_forwarding is deprecated: The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "enable_ip_forwarding")
 
     @enable_ip_forwarding.setter
@@ -193,6 +217,18 @@ class NetworkInterfaceArgs:
     @internal_dns_name_label.setter
     def internal_dns_name_label(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "internal_dns_name_label", value)
+
+    @property
+    @pulumi.getter(name="ipForwardingEnabled")
+    def ip_forwarding_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should IP Forwarding be enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "ip_forwarding_enabled")
+
+    @ip_forwarding_enabled.setter
+    def ip_forwarding_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ip_forwarding_enabled", value)
 
     @property
     @pulumi.getter
@@ -234,6 +270,7 @@ class NetworkInterfaceArgs:
 @pulumi.input_type
 class _NetworkInterfaceState:
     def __init__(__self__, *,
+                 accelerated_networking_enabled: Optional[pulumi.Input[bool]] = None,
                  applied_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auxiliary_mode: Optional[pulumi.Input[str]] = None,
                  auxiliary_sku: Optional[pulumi.Input[str]] = None,
@@ -244,6 +281,7 @@ class _NetworkInterfaceState:
                  internal_dns_name_label: Optional[pulumi.Input[str]] = None,
                  internal_domain_name_suffix: Optional[pulumi.Input[str]] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIpConfigurationArgs']]]] = None,
+                 ip_forwarding_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mac_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -254,6 +292,11 @@ class _NetworkInterfaceState:
                  virtual_machine_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering NetworkInterface resources.
+        :param pulumi.Input[bool] accelerated_networking_enabled: Should Accelerated Networking be enabled? Defaults to `false`.
+               
+               > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+               
+               > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] applied_dns_servers: If the Virtual Machine using this Network Interface is part of an Availability Set, then this list will have the union of all DNS servers from all Network Interfaces that are part of the Availability Set.
         :param pulumi.Input[str] auxiliary_mode: Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, `MaxConnections` and `None`.
                
@@ -265,15 +308,10 @@ class _NetworkInterfaceState:
                
                > **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
-        :param pulumi.Input[bool] enable_accelerated_networking: Should Accelerated Networking be enabled? Defaults to `false`.
-               
-               > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
-               
-               > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
-        :param pulumi.Input[bool] enable_ip_forwarding: Should IP Forwarding be enabled? Defaults to `false`.
         :param pulumi.Input[str] internal_dns_name_label: The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
         :param pulumi.Input[str] internal_domain_name_suffix: Even if `internal_dns_name_label` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `internal_domain_name_suffix`.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIpConfigurationArgs']]] ip_configurations: One or more `ip_configuration` blocks as defined below.
+        :param pulumi.Input[bool] ip_forwarding_enabled: Should IP Forwarding be enabled? Defaults to `false`.
         :param pulumi.Input[str] location: The location where the Network Interface should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mac_address: The Media Access Control (MAC) Address of the Network Interface.
         :param pulumi.Input[str] name: The name of the Network Interface. Changing this forces a new resource to be created.
@@ -283,6 +321,8 @@ class _NetworkInterfaceState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine which this Network Interface is connected to.
         """
+        if accelerated_networking_enabled is not None:
+            pulumi.set(__self__, "accelerated_networking_enabled", accelerated_networking_enabled)
         if applied_dns_servers is not None:
             pulumi.set(__self__, "applied_dns_servers", applied_dns_servers)
         if auxiliary_mode is not None:
@@ -294,7 +334,13 @@ class _NetworkInterfaceState:
         if edge_zone is not None:
             pulumi.set(__self__, "edge_zone", edge_zone)
         if enable_accelerated_networking is not None:
+            warnings.warn("""The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""enable_accelerated_networking is deprecated: The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
+        if enable_accelerated_networking is not None:
             pulumi.set(__self__, "enable_accelerated_networking", enable_accelerated_networking)
+        if enable_ip_forwarding is not None:
+            warnings.warn("""The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""enable_ip_forwarding is deprecated: The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
         if enable_ip_forwarding is not None:
             pulumi.set(__self__, "enable_ip_forwarding", enable_ip_forwarding)
         if internal_dns_name_label is not None:
@@ -303,6 +349,8 @@ class _NetworkInterfaceState:
             pulumi.set(__self__, "internal_domain_name_suffix", internal_domain_name_suffix)
         if ip_configurations is not None:
             pulumi.set(__self__, "ip_configurations", ip_configurations)
+        if ip_forwarding_enabled is not None:
+            pulumi.set(__self__, "ip_forwarding_enabled", ip_forwarding_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if mac_address is not None:
@@ -319,6 +367,22 @@ class _NetworkInterfaceState:
             pulumi.set(__self__, "tags", tags)
         if virtual_machine_id is not None:
             pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
+
+    @property
+    @pulumi.getter(name="acceleratedNetworkingEnabled")
+    def accelerated_networking_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Accelerated Networking be enabled? Defaults to `false`.
+
+        > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+
+        > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
+        """
+        return pulumi.get(self, "accelerated_networking_enabled")
+
+    @accelerated_networking_enabled.setter
+    def accelerated_networking_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "accelerated_networking_enabled", value)
 
     @property
     @pulumi.getter(name="appliedDnsServers")
@@ -389,13 +453,9 @@ class _NetworkInterfaceState:
     @property
     @pulumi.getter(name="enableAcceleratedNetworking")
     def enable_accelerated_networking(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Should Accelerated Networking be enabled? Defaults to `false`.
+        warnings.warn("""The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""enable_accelerated_networking is deprecated: The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
 
-        > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
-
-        > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
-        """
         return pulumi.get(self, "enable_accelerated_networking")
 
     @enable_accelerated_networking.setter
@@ -405,9 +465,9 @@ class _NetworkInterfaceState:
     @property
     @pulumi.getter(name="enableIpForwarding")
     def enable_ip_forwarding(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Should IP Forwarding be enabled? Defaults to `false`.
-        """
+        warnings.warn("""The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""enable_ip_forwarding is deprecated: The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "enable_ip_forwarding")
 
     @enable_ip_forwarding.setter
@@ -449,6 +509,18 @@ class _NetworkInterfaceState:
     @ip_configurations.setter
     def ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIpConfigurationArgs']]]]):
         pulumi.set(self, "ip_configurations", value)
+
+    @property
+    @pulumi.getter(name="ipForwardingEnabled")
+    def ip_forwarding_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should IP Forwarding be enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "ip_forwarding_enabled")
+
+    @ip_forwarding_enabled.setter
+    def ip_forwarding_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ip_forwarding_enabled", value)
 
     @property
     @pulumi.getter
@@ -552,6 +624,7 @@ class NetworkInterface(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 accelerated_networking_enabled: Optional[pulumi.Input[bool]] = None,
                  auxiliary_mode: Optional[pulumi.Input[str]] = None,
                  auxiliary_sku: Optional[pulumi.Input[str]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -560,6 +633,7 @@ class NetworkInterface(pulumi.CustomResource):
                  enable_ip_forwarding: Optional[pulumi.Input[bool]] = None,
                  internal_dns_name_label: Optional[pulumi.Input[str]] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceIpConfigurationArgs']]]]] = None,
+                 ip_forwarding_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -608,6 +682,11 @@ class NetworkInterface(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] accelerated_networking_enabled: Should Accelerated Networking be enabled? Defaults to `false`.
+               
+               > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+               
+               > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
         :param pulumi.Input[str] auxiliary_mode: Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, `MaxConnections` and `None`.
                
                > **Note:** `auxiliary_mode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
@@ -618,14 +697,9 @@ class NetworkInterface(pulumi.CustomResource):
                
                > **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
-        :param pulumi.Input[bool] enable_accelerated_networking: Should Accelerated Networking be enabled? Defaults to `false`.
-               
-               > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
-               
-               > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
-        :param pulumi.Input[bool] enable_ip_forwarding: Should IP Forwarding be enabled? Defaults to `false`.
         :param pulumi.Input[str] internal_dns_name_label: The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceIpConfigurationArgs']]]] ip_configurations: One or more `ip_configuration` blocks as defined below.
+        :param pulumi.Input[bool] ip_forwarding_enabled: Should IP Forwarding be enabled? Defaults to `false`.
         :param pulumi.Input[str] location: The location where the Network Interface should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Network Interface. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Network Interface. Changing this forces a new resource to be created.
@@ -693,6 +767,7 @@ class NetworkInterface(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 accelerated_networking_enabled: Optional[pulumi.Input[bool]] = None,
                  auxiliary_mode: Optional[pulumi.Input[str]] = None,
                  auxiliary_sku: Optional[pulumi.Input[str]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -701,6 +776,7 @@ class NetworkInterface(pulumi.CustomResource):
                  enable_ip_forwarding: Optional[pulumi.Input[bool]] = None,
                  internal_dns_name_label: Optional[pulumi.Input[str]] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceIpConfigurationArgs']]]]] = None,
+                 ip_forwarding_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -714,6 +790,7 @@ class NetworkInterface(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NetworkInterfaceArgs.__new__(NetworkInterfaceArgs)
 
+            __props__.__dict__["accelerated_networking_enabled"] = accelerated_networking_enabled
             __props__.__dict__["auxiliary_mode"] = auxiliary_mode
             __props__.__dict__["auxiliary_sku"] = auxiliary_sku
             __props__.__dict__["dns_servers"] = dns_servers
@@ -724,6 +801,7 @@ class NetworkInterface(pulumi.CustomResource):
             if ip_configurations is None and not opts.urn:
                 raise TypeError("Missing required property 'ip_configurations'")
             __props__.__dict__["ip_configurations"] = ip_configurations
+            __props__.__dict__["ip_forwarding_enabled"] = ip_forwarding_enabled
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
@@ -746,6 +824,7 @@ class NetworkInterface(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            accelerated_networking_enabled: Optional[pulumi.Input[bool]] = None,
             applied_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             auxiliary_mode: Optional[pulumi.Input[str]] = None,
             auxiliary_sku: Optional[pulumi.Input[str]] = None,
@@ -756,6 +835,7 @@ class NetworkInterface(pulumi.CustomResource):
             internal_dns_name_label: Optional[pulumi.Input[str]] = None,
             internal_domain_name_suffix: Optional[pulumi.Input[str]] = None,
             ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceIpConfigurationArgs']]]]] = None,
+            ip_forwarding_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             mac_address: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -771,6 +851,11 @@ class NetworkInterface(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] accelerated_networking_enabled: Should Accelerated Networking be enabled? Defaults to `false`.
+               
+               > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+               
+               > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] applied_dns_servers: If the Virtual Machine using this Network Interface is part of an Availability Set, then this list will have the union of all DNS servers from all Network Interfaces that are part of the Availability Set.
         :param pulumi.Input[str] auxiliary_mode: Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, `MaxConnections` and `None`.
                
@@ -782,15 +867,10 @@ class NetworkInterface(pulumi.CustomResource):
                
                > **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
-        :param pulumi.Input[bool] enable_accelerated_networking: Should Accelerated Networking be enabled? Defaults to `false`.
-               
-               > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
-               
-               > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
-        :param pulumi.Input[bool] enable_ip_forwarding: Should IP Forwarding be enabled? Defaults to `false`.
         :param pulumi.Input[str] internal_dns_name_label: The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
         :param pulumi.Input[str] internal_domain_name_suffix: Even if `internal_dns_name_label` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `internal_domain_name_suffix`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceIpConfigurationArgs']]]] ip_configurations: One or more `ip_configuration` blocks as defined below.
+        :param pulumi.Input[bool] ip_forwarding_enabled: Should IP Forwarding be enabled? Defaults to `false`.
         :param pulumi.Input[str] location: The location where the Network Interface should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mac_address: The Media Access Control (MAC) Address of the Network Interface.
         :param pulumi.Input[str] name: The name of the Network Interface. Changing this forces a new resource to be created.
@@ -804,6 +884,7 @@ class NetworkInterface(pulumi.CustomResource):
 
         __props__ = _NetworkInterfaceState.__new__(_NetworkInterfaceState)
 
+        __props__.__dict__["accelerated_networking_enabled"] = accelerated_networking_enabled
         __props__.__dict__["applied_dns_servers"] = applied_dns_servers
         __props__.__dict__["auxiliary_mode"] = auxiliary_mode
         __props__.__dict__["auxiliary_sku"] = auxiliary_sku
@@ -814,6 +895,7 @@ class NetworkInterface(pulumi.CustomResource):
         __props__.__dict__["internal_dns_name_label"] = internal_dns_name_label
         __props__.__dict__["internal_domain_name_suffix"] = internal_domain_name_suffix
         __props__.__dict__["ip_configurations"] = ip_configurations
+        __props__.__dict__["ip_forwarding_enabled"] = ip_forwarding_enabled
         __props__.__dict__["location"] = location
         __props__.__dict__["mac_address"] = mac_address
         __props__.__dict__["name"] = name
@@ -823,6 +905,18 @@ class NetworkInterface(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["virtual_machine_id"] = virtual_machine_id
         return NetworkInterface(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="acceleratedNetworkingEnabled")
+    def accelerated_networking_enabled(self) -> pulumi.Output[bool]:
+        """
+        Should Accelerated Networking be enabled? Defaults to `false`.
+
+        > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+
+        > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
+        """
+        return pulumi.get(self, "accelerated_networking_enabled")
 
     @property
     @pulumi.getter(name="appliedDnsServers")
@@ -872,22 +966,18 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableAcceleratedNetworking")
-    def enable_accelerated_networking(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Should Accelerated Networking be enabled? Defaults to `false`.
+    def enable_accelerated_networking(self) -> pulumi.Output[bool]:
+        warnings.warn("""The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""enable_accelerated_networking is deprecated: The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
 
-        > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
-
-        > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
-        """
         return pulumi.get(self, "enable_accelerated_networking")
 
     @property
     @pulumi.getter(name="enableIpForwarding")
-    def enable_ip_forwarding(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Should IP Forwarding be enabled? Defaults to `false`.
-        """
+    def enable_ip_forwarding(self) -> pulumi.Output[bool]:
+        warnings.warn("""The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""enable_ip_forwarding is deprecated: The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "enable_ip_forwarding")
 
     @property
@@ -913,6 +1003,14 @@ class NetworkInterface(pulumi.CustomResource):
         One or more `ip_configuration` blocks as defined below.
         """
         return pulumi.get(self, "ip_configurations")
+
+    @property
+    @pulumi.getter(name="ipForwardingEnabled")
+    def ip_forwarding_enabled(self) -> pulumi.Output[bool]:
+        """
+        Should IP Forwarding be enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "ip_forwarding_enabled")
 
     @property
     @pulumi.getter

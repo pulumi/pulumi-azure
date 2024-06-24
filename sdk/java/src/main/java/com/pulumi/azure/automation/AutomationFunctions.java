@@ -12,6 +12,8 @@ import com.pulumi.azure.automation.inputs.GetDateTimeVariableArgs;
 import com.pulumi.azure.automation.inputs.GetDateTimeVariablePlainArgs;
 import com.pulumi.azure.automation.inputs.GetIntVariableArgs;
 import com.pulumi.azure.automation.inputs.GetIntVariablePlainArgs;
+import com.pulumi.azure.automation.inputs.GetRunbookArgs;
+import com.pulumi.azure.automation.inputs.GetRunbookPlainArgs;
 import com.pulumi.azure.automation.inputs.GetStringVariableArgs;
 import com.pulumi.azure.automation.inputs.GetStringVariablePlainArgs;
 import com.pulumi.azure.automation.inputs.GetVariableObjectArgs;
@@ -22,6 +24,7 @@ import com.pulumi.azure.automation.outputs.GetAccountResult;
 import com.pulumi.azure.automation.outputs.GetBoolVariableResult;
 import com.pulumi.azure.automation.outputs.GetDateTimeVariableResult;
 import com.pulumi.azure.automation.outputs.GetIntVariableResult;
+import com.pulumi.azure.automation.outputs.GetRunbookResult;
 import com.pulumi.azure.automation.outputs.GetStringVariableResult;
 import com.pulumi.azure.automation.outputs.GetVariableObjectResult;
 import com.pulumi.azure.automation.outputs.GetVariablesResult;
@@ -747,6 +750,186 @@ public final class AutomationFunctions {
      */
     public static CompletableFuture<GetIntVariableResult> getIntVariablePlain(GetIntVariablePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:automation/getIntVariable:getIntVariable", TypeShape.of(GetIntVariableResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Automation Runbook.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetRunbookArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AutomationFunctions.getRunbook(GetRunbookArgs.builder()
+     *             .name("existing-runbook")
+     *             .resourceGroupName("existing")
+     *             .automationAccountName("existing-automation")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getRunbookResult -> getRunbookResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetRunbookResult> getRunbook(GetRunbookArgs args) {
+        return getRunbook(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Automation Runbook.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetRunbookArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AutomationFunctions.getRunbook(GetRunbookArgs.builder()
+     *             .name("existing-runbook")
+     *             .resourceGroupName("existing")
+     *             .automationAccountName("existing-automation")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getRunbookResult -> getRunbookResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetRunbookResult> getRunbookPlain(GetRunbookPlainArgs args) {
+        return getRunbookPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Automation Runbook.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetRunbookArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AutomationFunctions.getRunbook(GetRunbookArgs.builder()
+     *             .name("existing-runbook")
+     *             .resourceGroupName("existing")
+     *             .automationAccountName("existing-automation")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getRunbookResult -> getRunbookResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetRunbookResult> getRunbook(GetRunbookArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:automation/getRunbook:getRunbook", TypeShape.of(GetRunbookResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Automation Runbook.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetRunbookArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AutomationFunctions.getRunbook(GetRunbookArgs.builder()
+     *             .name("existing-runbook")
+     *             .resourceGroupName("existing")
+     *             .automationAccountName("existing-automation")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getRunbookResult -> getRunbookResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetRunbookResult> getRunbookPlain(GetRunbookPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:automation/getRunbook:getRunbook", TypeShape.of(GetRunbookResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Automation String Variable.

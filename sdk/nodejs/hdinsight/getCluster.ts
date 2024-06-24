@@ -20,6 +20,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "example-resources",
  * });
  * export const httpsEndpoint = example.then(example => example.httpsEndpoint);
+ * export const clusterId = example.then(example => example.clusterId);
  * ```
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
@@ -49,6 +50,10 @@ export interface GetClusterArgs {
  * A collection of values returned by getCluster.
  */
 export interface GetClusterResult {
+    /**
+     * The HDInsight Cluster ID.
+     */
+    readonly clusterId: string;
     /**
      * The version of HDInsights which is used on this HDInsight Cluster.
      */
@@ -85,6 +90,9 @@ export interface GetClusterResult {
      * The Azure Region in which this HDInsight Cluster exists.
      */
     readonly location: string;
+    /**
+     * The HDInsight Cluster name.
+     */
     readonly name: string;
     readonly resourceGroupName: string;
     /**
@@ -118,6 +126,7 @@ export interface GetClusterResult {
  *     resourceGroupName: "example-resources",
  * });
  * export const httpsEndpoint = example.then(example => example.httpsEndpoint);
+ * export const clusterId = example.then(example => example.clusterId);
  * ```
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {

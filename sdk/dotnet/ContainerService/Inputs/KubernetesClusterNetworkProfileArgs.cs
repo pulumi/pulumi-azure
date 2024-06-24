@@ -26,15 +26,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("dockerBridgeCidr")]
         public Input<string>? DockerBridgeCidr { get; set; }
 
-        /// <summary>
-        /// Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Disabling this forces a new resource to be created.
-        /// 
-        /// &gt; **Note:** When `ebpf_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
-        /// 
-        /// &gt; **Note:** When `ebpf_data_plane` is set to `cilium`, one of either `network_plugin_mode = "overlay"` or `pod_subnet_id` must be specified.
-        /// 
-        /// &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
-        /// </summary>
         [Input("ebpfDataPlane")]
         public Input<string>? EbpfDataPlane { get; set; }
 
@@ -73,6 +64,18 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<Inputs.KubernetesClusterNetworkProfileNatGatewayProfileArgs>? NatGatewayProfile { get; set; }
 
         /// <summary>
+        /// Specifies the data plane used for building the Kubernetes network. Possible values are `azure` and `cilium`. Defaults to `azure`. Disabling this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** When `network_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
+        /// 
+        /// &gt; **Note:** When `network_data_plane` is set to `cilium`, one of either `network_plugin_mode = "overlay"` or `pod_subnet_id` must be specified.
+        /// 
+        /// &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
+        /// </summary>
+        [Input("networkDataPlane")]
+        public Input<string>? NetworkDataPlane { get; set; }
+
+        /// <summary>
         /// Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** `network_mode` can only be set to `bridge` for existing Kubernetes Clusters and cannot be used to provision new Clusters - this will be removed by Azure in the future.
@@ -103,7 +106,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         /// 
         /// &gt; **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
         /// 
-        /// &gt; **Note:** When `network_policy` is set to `cilium`, the `ebpf_data_plane` field must be set to `cilium`.
+        /// &gt; **Note:** When `network_policy` is set to `cilium`, the `network_data_plane` field must be set to `cilium`.
         /// </summary>
         [Input("networkPolicy")]
         public Input<string>? NetworkPolicy { get; set; }

@@ -100,7 +100,7 @@ type HostPool struct {
 	//
 	// > **NOTE:** `personalDesktopAssignmentType` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
 	PersonalDesktopAssignmentType pulumi.StringPtrOutput `pulumi:"personalDesktopAssignmentType"`
-	// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`. Changing this forces a new resource to be created.
+	// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`.
 	PreferredAppGroupType pulumi.StringPtrOutput `pulumi:"preferredAppGroupType"`
 	// Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
 	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
@@ -180,7 +180,7 @@ type hostPoolState struct {
 	//
 	// > **NOTE:** `personalDesktopAssignmentType` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
 	PersonalDesktopAssignmentType *string `pulumi:"personalDesktopAssignmentType"`
-	// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`. Changing this forces a new resource to be created.
+	// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`.
 	PreferredAppGroupType *string `pulumi:"preferredAppGroupType"`
 	// Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
@@ -222,7 +222,7 @@ type HostPoolState struct {
 	//
 	// > **NOTE:** `personalDesktopAssignmentType` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
 	PersonalDesktopAssignmentType pulumi.StringPtrInput
-	// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`. Changing this forces a new resource to be created.
+	// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`.
 	PreferredAppGroupType pulumi.StringPtrInput
 	// Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
 	PublicNetworkAccess pulumi.StringPtrInput
@@ -268,7 +268,7 @@ type hostPoolArgs struct {
 	//
 	// > **NOTE:** `personalDesktopAssignmentType` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
 	PersonalDesktopAssignmentType *string `pulumi:"personalDesktopAssignmentType"`
-	// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`. Changing this forces a new resource to be created.
+	// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`.
 	PreferredAppGroupType *string `pulumi:"preferredAppGroupType"`
 	// Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
@@ -311,7 +311,7 @@ type HostPoolArgs struct {
 	//
 	// > **NOTE:** `personalDesktopAssignmentType` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
 	PersonalDesktopAssignmentType pulumi.StringPtrInput
-	// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`. Changing this forces a new resource to be created.
+	// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`.
 	PreferredAppGroupType pulumi.StringPtrInput
 	// Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
 	PublicNetworkAccess pulumi.StringPtrInput
@@ -463,7 +463,7 @@ func (o HostPoolOutput) PersonalDesktopAssignmentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HostPool) pulumi.StringPtrOutput { return v.PersonalDesktopAssignmentType }).(pulumi.StringPtrOutput)
 }
 
-// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`. Changing this forces a new resource to be created.
+// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`.
 func (o HostPoolOutput) PreferredAppGroupType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HostPool) pulumi.StringPtrOutput { return v.PreferredAppGroupType }).(pulumi.StringPtrOutput)
 }

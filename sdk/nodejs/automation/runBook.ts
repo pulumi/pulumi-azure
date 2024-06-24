@@ -91,9 +91,14 @@ export class RunBook extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * A `draft` block as defined below .
+     * A `draft` block as defined below.
      */
     public readonly draft!: pulumi.Output<outputs.automation.RunBookDraft | undefined>;
+    /**
+     * One or more `jobSchedule` block as defined below.
+     *
+     * > **NOTE** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `jobSchdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+     */
     public readonly jobSchedules!: pulumi.Output<outputs.automation.RunBookJobSchedule[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -215,9 +220,14 @@ export interface RunBookState {
      */
     description?: pulumi.Input<string>;
     /**
-     * A `draft` block as defined below .
+     * A `draft` block as defined below.
      */
     draft?: pulumi.Input<inputs.automation.RunBookDraft>;
+    /**
+     * One or more `jobSchedule` block as defined below.
+     *
+     * > **NOTE** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `jobSchdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+     */
     jobSchedules?: pulumi.Input<pulumi.Input<inputs.automation.RunBookJobSchedule>[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -276,9 +286,14 @@ export interface RunBookArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * A `draft` block as defined below .
+     * A `draft` block as defined below.
      */
     draft?: pulumi.Input<inputs.automation.RunBookDraft>;
+    /**
+     * One or more `jobSchedule` block as defined below.
+     *
+     * > **NOTE** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `jobSchdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+     */
     jobSchedules?: pulumi.Input<pulumi.Input<inputs.automation.RunBookJobSchedule>[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

@@ -1226,7 +1226,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createFromSnapshotResourceId")
-    def create_from_snapshot_resource_id(self) -> pulumi.Output[str]:
+    def create_from_snapshot_resource_id(self) -> pulumi.Output[Optional[str]]:
         """
         Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
         """

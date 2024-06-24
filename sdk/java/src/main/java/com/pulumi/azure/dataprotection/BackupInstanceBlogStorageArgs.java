@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -62,6 +63,25 @@ public final class BackupInstanceBlogStorageArgs extends com.pulumi.resources.Re
     }
 
     /**
+     * The list of the container names of the source Storage Account.
+     * 
+     * &gt; **Note:** The `storage_account_container_names` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storage_account_container_names` will force a new resource to be created since it can&#39;t be removed once specified.
+     * 
+     */
+    @Import(name="storageAccountContainerNames")
+    private @Nullable Output<List<String>> storageAccountContainerNames;
+
+    /**
+     * @return The list of the container names of the source Storage Account.
+     * 
+     * &gt; **Note:** The `storage_account_container_names` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storage_account_container_names` will force a new resource to be created since it can&#39;t be removed once specified.
+     * 
+     */
+    public Optional<Output<List<String>>> storageAccountContainerNames() {
+        return Optional.ofNullable(this.storageAccountContainerNames);
+    }
+
+    /**
      * The ID of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
      * 
      */
@@ -97,6 +117,7 @@ public final class BackupInstanceBlogStorageArgs extends com.pulumi.resources.Re
         this.backupPolicyId = $.backupPolicyId;
         this.location = $.location;
         this.name = $.name;
+        this.storageAccountContainerNames = $.storageAccountContainerNames;
         this.storageAccountId = $.storageAccountId;
         this.vaultId = $.vaultId;
     }
@@ -180,6 +201,43 @@ public final class BackupInstanceBlogStorageArgs extends com.pulumi.resources.Re
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param storageAccountContainerNames The list of the container names of the source Storage Account.
+         * 
+         * &gt; **Note:** The `storage_account_container_names` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storage_account_container_names` will force a new resource to be created since it can&#39;t be removed once specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAccountContainerNames(@Nullable Output<List<String>> storageAccountContainerNames) {
+            $.storageAccountContainerNames = storageAccountContainerNames;
+            return this;
+        }
+
+        /**
+         * @param storageAccountContainerNames The list of the container names of the source Storage Account.
+         * 
+         * &gt; **Note:** The `storage_account_container_names` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storage_account_container_names` will force a new resource to be created since it can&#39;t be removed once specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAccountContainerNames(List<String> storageAccountContainerNames) {
+            return storageAccountContainerNames(Output.of(storageAccountContainerNames));
+        }
+
+        /**
+         * @param storageAccountContainerNames The list of the container names of the source Storage Account.
+         * 
+         * &gt; **Note:** The `storage_account_container_names` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storage_account_container_names` will force a new resource to be created since it can&#39;t be removed once specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAccountContainerNames(String... storageAccountContainerNames) {
+            return storageAccountContainerNames(List.of(storageAccountContainerNames));
         }
 
         /**

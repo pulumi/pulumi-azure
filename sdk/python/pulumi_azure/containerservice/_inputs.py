@@ -6516,6 +6516,7 @@ class KubernetesClusterNetworkProfileArgs:
                  load_balancer_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileLoadBalancerProfileArgs']] = None,
                  load_balancer_sku: Optional[pulumi.Input[str]] = None,
                  nat_gateway_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileNatGatewayProfileArgs']] = None,
+                 network_data_plane: Optional[pulumi.Input[str]] = None,
                  network_mode: Optional[pulumi.Input[str]] = None,
                  network_plugin_mode: Optional[pulumi.Input[str]] = None,
                  network_policy: Optional[pulumi.Input[str]] = None,
@@ -6534,13 +6535,6 @@ class KubernetesClusterNetworkProfileArgs:
         :param pulumi.Input[str] docker_bridge_cidr: IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
                
                > **Note:** `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-        :param pulumi.Input[str] ebpf_data_plane: Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Disabling this forces a new resource to be created.
-               
-               > **Note:** When `ebpf_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
-               
-               > **Note:** When `ebpf_data_plane` is set to `cilium`, one of either `network_plugin_mode = "overlay"` or `pod_subnet_id` must be specified.
-               
-               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_versions: Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
                
                ->**Note:** To configure dual-stack networking `ip_versions` should be set to `["IPv4", "IPv6"]`.
@@ -6549,6 +6543,13 @@ class KubernetesClusterNetworkProfileArgs:
         :param pulumi.Input['KubernetesClusterNetworkProfileLoadBalancerProfileArgs'] load_balancer_profile: A `load_balancer_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] load_balancer_sku: Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterNetworkProfileNatGatewayProfileArgs'] nat_gateway_profile: A `nat_gateway_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_data_plane: Specifies the data plane used for building the Kubernetes network. Possible values are `azure` and `cilium`. Defaults to `azure`. Disabling this forces a new resource to be created.
+               
+               > **Note:** When `network_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
+               
+               > **Note:** When `network_data_plane` is set to `cilium`, one of either `network_plugin_mode = "overlay"` or `pod_subnet_id` must be specified.
+               
+               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
         :param pulumi.Input[str] network_mode: Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
                
                > **Note:** `network_mode` can only be set to `bridge` for existing Kubernetes Clusters and cannot be used to provision new Clusters - this will be removed by Azure in the future.
@@ -6561,7 +6562,7 @@ class KubernetesClusterNetworkProfileArgs:
                
                > **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
                
-               > **Note:** When `network_policy` is set to `cilium`, the `ebpf_data_plane` field must be set to `cilium`.
+               > **Note:** When `network_policy` is set to `cilium`, the `network_data_plane` field must be set to `cilium`.
         :param pulumi.Input[str] outbound_type: The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outbound_type` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
         :param pulumi.Input[str] pod_cidr: The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet` or `network_plugin_mode` is set to `overlay`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] pod_cidrs: A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
@@ -6579,6 +6580,9 @@ class KubernetesClusterNetworkProfileArgs:
         if docker_bridge_cidr is not None:
             pulumi.set(__self__, "docker_bridge_cidr", docker_bridge_cidr)
         if ebpf_data_plane is not None:
+            warnings.warn("""This property has been superseded by the property `network_data_plane` and will be removed in v4.0 of the AzureRM provider.""", DeprecationWarning)
+            pulumi.log.warn("""ebpf_data_plane is deprecated: This property has been superseded by the property `network_data_plane` and will be removed in v4.0 of the AzureRM provider.""")
+        if ebpf_data_plane is not None:
             pulumi.set(__self__, "ebpf_data_plane", ebpf_data_plane)
         if ip_versions is not None:
             pulumi.set(__self__, "ip_versions", ip_versions)
@@ -6588,6 +6592,8 @@ class KubernetesClusterNetworkProfileArgs:
             pulumi.set(__self__, "load_balancer_sku", load_balancer_sku)
         if nat_gateway_profile is not None:
             pulumi.set(__self__, "nat_gateway_profile", nat_gateway_profile)
+        if network_data_plane is not None:
+            pulumi.set(__self__, "network_data_plane", network_data_plane)
         if network_mode is not None:
             pulumi.set(__self__, "network_mode", network_mode)
         if network_plugin_mode is not None:
@@ -6655,15 +6661,9 @@ class KubernetesClusterNetworkProfileArgs:
     @property
     @pulumi.getter(name="ebpfDataPlane")
     def ebpf_data_plane(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Disabling this forces a new resource to be created.
+        warnings.warn("""This property has been superseded by the property `network_data_plane` and will be removed in v4.0 of the AzureRM provider.""", DeprecationWarning)
+        pulumi.log.warn("""ebpf_data_plane is deprecated: This property has been superseded by the property `network_data_plane` and will be removed in v4.0 of the AzureRM provider.""")
 
-        > **Note:** When `ebpf_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
-
-        > **Note:** When `ebpf_data_plane` is set to `cilium`, one of either `network_plugin_mode = "overlay"` or `pod_subnet_id` must be specified.
-
-        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
-        """
         return pulumi.get(self, "ebpf_data_plane")
 
     @ebpf_data_plane.setter
@@ -6723,6 +6723,24 @@ class KubernetesClusterNetworkProfileArgs:
         pulumi.set(self, "nat_gateway_profile", value)
 
     @property
+    @pulumi.getter(name="networkDataPlane")
+    def network_data_plane(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the data plane used for building the Kubernetes network. Possible values are `azure` and `cilium`. Defaults to `azure`. Disabling this forces a new resource to be created.
+
+        > **Note:** When `network_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
+
+        > **Note:** When `network_data_plane` is set to `cilium`, one of either `network_plugin_mode = "overlay"` or `pod_subnet_id` must be specified.
+
+        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
+        """
+        return pulumi.get(self, "network_data_plane")
+
+    @network_data_plane.setter
+    def network_data_plane(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_data_plane", value)
+
+    @property
     @pulumi.getter(name="networkMode")
     def network_mode(self) -> Optional[pulumi.Input[str]]:
         """
@@ -6760,7 +6778,7 @@ class KubernetesClusterNetworkProfileArgs:
 
         > **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
 
-        > **Note:** When `network_policy` is set to `cilium`, the `ebpf_data_plane` field must be set to `cilium`.
+        > **Note:** When `network_policy` is set to `cilium`, the `network_data_plane` field must be set to `cilium`.
         """
         return pulumi.get(self, "network_policy")
 

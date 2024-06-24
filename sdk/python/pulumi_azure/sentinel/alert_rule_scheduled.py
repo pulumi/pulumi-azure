@@ -28,6 +28,7 @@ class AlertRuleScheduledArgs:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingArgs']]]] = None,
                  event_grouping: Optional[pulumi.Input['AlertRuleScheduledEventGroupingArgs']] = None,
+                 incident: Optional[pulumi.Input['AlertRuleScheduledIncidentArgs']] = None,
                  incident_configuration: Optional[pulumi.Input['AlertRuleScheduledIncidentConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  query_frequency: Optional[pulumi.Input[str]] = None,
@@ -53,7 +54,7 @@ class AlertRuleScheduledArgs:
         :param pulumi.Input[bool] enabled: Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingArgs']]] entity_mappings: A list of `entity_mapping` blocks as defined below.
         :param pulumi.Input['AlertRuleScheduledEventGroupingArgs'] event_grouping: A `event_grouping` block as defined below.
-        :param pulumi.Input['AlertRuleScheduledIncidentConfigurationArgs'] incident_configuration: A `incident_configuration` block as defined below.
+        :param pulumi.Input['AlertRuleScheduledIncidentArgs'] incident: A `incident` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
         :param pulumi.Input[str] query_frequency: The ISO 8601 timespan duration between two consecutive queries. Defaults to `PT5H`.
         :param pulumi.Input[str] query_period: The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
@@ -91,6 +92,11 @@ class AlertRuleScheduledArgs:
             pulumi.set(__self__, "entity_mappings", entity_mappings)
         if event_grouping is not None:
             pulumi.set(__self__, "event_grouping", event_grouping)
+        if incident is not None:
+            pulumi.set(__self__, "incident", incident)
+        if incident_configuration is not None:
+            warnings.warn("""The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""incident_configuration is deprecated: The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider""")
         if incident_configuration is not None:
             pulumi.set(__self__, "incident_configuration", incident_configuration)
         if name is not None:
@@ -259,11 +265,23 @@ class AlertRuleScheduledArgs:
         pulumi.set(self, "event_grouping", value)
 
     @property
+    @pulumi.getter
+    def incident(self) -> Optional[pulumi.Input['AlertRuleScheduledIncidentArgs']]:
+        """
+        A `incident` block as defined below.
+        """
+        return pulumi.get(self, "incident")
+
+    @incident.setter
+    def incident(self, value: Optional[pulumi.Input['AlertRuleScheduledIncidentArgs']]):
+        pulumi.set(self, "incident", value)
+
+    @property
     @pulumi.getter(name="incidentConfiguration")
     def incident_configuration(self) -> Optional[pulumi.Input['AlertRuleScheduledIncidentConfigurationArgs']]:
-        """
-        A `incident_configuration` block as defined below.
-        """
+        warnings.warn("""The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
+        pulumi.log.warn("""incident_configuration is deprecated: The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider""")
+
         return pulumi.get(self, "incident_configuration")
 
     @incident_configuration.setter
@@ -409,6 +427,7 @@ class _AlertRuleScheduledState:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingArgs']]]] = None,
                  event_grouping: Optional[pulumi.Input['AlertRuleScheduledEventGroupingArgs']] = None,
+                 incident: Optional[pulumi.Input['AlertRuleScheduledIncidentArgs']] = None,
                  incident_configuration: Optional[pulumi.Input['AlertRuleScheduledIncidentConfigurationArgs']] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -434,7 +453,7 @@ class _AlertRuleScheduledState:
         :param pulumi.Input[bool] enabled: Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingArgs']]] entity_mappings: A list of `entity_mapping` blocks as defined below.
         :param pulumi.Input['AlertRuleScheduledEventGroupingArgs'] event_grouping: A `event_grouping` block as defined below.
-        :param pulumi.Input['AlertRuleScheduledIncidentConfigurationArgs'] incident_configuration: A `incident_configuration` block as defined below.
+        :param pulumi.Input['AlertRuleScheduledIncidentArgs'] incident: A `incident` block as defined below.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
         :param pulumi.Input[str] name: The name which should be used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
         :param pulumi.Input[str] query: The query of this Sentinel Scheduled Alert Rule.
@@ -473,6 +492,11 @@ class _AlertRuleScheduledState:
             pulumi.set(__self__, "entity_mappings", entity_mappings)
         if event_grouping is not None:
             pulumi.set(__self__, "event_grouping", event_grouping)
+        if incident is not None:
+            pulumi.set(__self__, "incident", incident)
+        if incident_configuration is not None:
+            warnings.warn("""The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""incident_configuration is deprecated: The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider""")
         if incident_configuration is not None:
             pulumi.set(__self__, "incident_configuration", incident_configuration)
         if log_analytics_workspace_id is not None:
@@ -611,11 +635,23 @@ class _AlertRuleScheduledState:
         pulumi.set(self, "event_grouping", value)
 
     @property
+    @pulumi.getter
+    def incident(self) -> Optional[pulumi.Input['AlertRuleScheduledIncidentArgs']]:
+        """
+        A `incident` block as defined below.
+        """
+        return pulumi.get(self, "incident")
+
+    @incident.setter
+    def incident(self, value: Optional[pulumi.Input['AlertRuleScheduledIncidentArgs']]):
+        pulumi.set(self, "incident", value)
+
+    @property
     @pulumi.getter(name="incidentConfiguration")
     def incident_configuration(self) -> Optional[pulumi.Input['AlertRuleScheduledIncidentConfigurationArgs']]:
-        """
-        A `incident_configuration` block as defined below.
-        """
+        warnings.warn("""The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
+        pulumi.log.warn("""incident_configuration is deprecated: The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider""")
+
         return pulumi.get(self, "incident_configuration")
 
     @incident_configuration.setter
@@ -799,6 +835,7 @@ class AlertRuleScheduled(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleScheduledEntityMappingArgs']]]]] = None,
                  event_grouping: Optional[pulumi.Input[pulumi.InputType['AlertRuleScheduledEventGroupingArgs']]] = None,
+                 incident: Optional[pulumi.Input[pulumi.InputType['AlertRuleScheduledIncidentArgs']]] = None,
                  incident_configuration: Optional[pulumi.Input[pulumi.InputType['AlertRuleScheduledIncidentConfigurationArgs']]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -863,7 +900,7 @@ class AlertRuleScheduled(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleScheduledEntityMappingArgs']]]] entity_mappings: A list of `entity_mapping` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['AlertRuleScheduledEventGroupingArgs']] event_grouping: A `event_grouping` block as defined below.
-        :param pulumi.Input[pulumi.InputType['AlertRuleScheduledIncidentConfigurationArgs']] incident_configuration: A `incident_configuration` block as defined below.
+        :param pulumi.Input[pulumi.InputType['AlertRuleScheduledIncidentArgs']] incident: A `incident` block as defined below.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
         :param pulumi.Input[str] name: The name which should be used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
         :param pulumi.Input[str] query: The query of this Sentinel Scheduled Alert Rule.
@@ -952,6 +989,7 @@ class AlertRuleScheduled(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleScheduledEntityMappingArgs']]]]] = None,
                  event_grouping: Optional[pulumi.Input[pulumi.InputType['AlertRuleScheduledEventGroupingArgs']]] = None,
+                 incident: Optional[pulumi.Input[pulumi.InputType['AlertRuleScheduledIncidentArgs']]] = None,
                  incident_configuration: Optional[pulumi.Input[pulumi.InputType['AlertRuleScheduledIncidentConfigurationArgs']]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -986,6 +1024,7 @@ class AlertRuleScheduled(pulumi.CustomResource):
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["entity_mappings"] = entity_mappings
             __props__.__dict__["event_grouping"] = event_grouping
+            __props__.__dict__["incident"] = incident
             __props__.__dict__["incident_configuration"] = incident_configuration
             if log_analytics_workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'log_analytics_workspace_id'")
@@ -1025,6 +1064,7 @@ class AlertRuleScheduled(pulumi.CustomResource):
             enabled: Optional[pulumi.Input[bool]] = None,
             entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleScheduledEntityMappingArgs']]]]] = None,
             event_grouping: Optional[pulumi.Input[pulumi.InputType['AlertRuleScheduledEventGroupingArgs']]] = None,
+            incident: Optional[pulumi.Input[pulumi.InputType['AlertRuleScheduledIncidentArgs']]] = None,
             incident_configuration: Optional[pulumi.Input[pulumi.InputType['AlertRuleScheduledIncidentConfigurationArgs']]] = None,
             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -1055,7 +1095,7 @@ class AlertRuleScheduled(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleScheduledEntityMappingArgs']]]] entity_mappings: A list of `entity_mapping` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['AlertRuleScheduledEventGroupingArgs']] event_grouping: A `event_grouping` block as defined below.
-        :param pulumi.Input[pulumi.InputType['AlertRuleScheduledIncidentConfigurationArgs']] incident_configuration: A `incident_configuration` block as defined below.
+        :param pulumi.Input[pulumi.InputType['AlertRuleScheduledIncidentArgs']] incident: A `incident` block as defined below.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
         :param pulumi.Input[str] name: The name which should be used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
         :param pulumi.Input[str] query: The query of this Sentinel Scheduled Alert Rule.
@@ -1089,6 +1129,7 @@ class AlertRuleScheduled(pulumi.CustomResource):
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["entity_mappings"] = entity_mappings
         __props__.__dict__["event_grouping"] = event_grouping
+        __props__.__dict__["incident"] = incident
         __props__.__dict__["incident_configuration"] = incident_configuration
         __props__.__dict__["log_analytics_workspace_id"] = log_analytics_workspace_id
         __props__.__dict__["name"] = name
@@ -1178,11 +1219,19 @@ class AlertRuleScheduled(pulumi.CustomResource):
         return pulumi.get(self, "event_grouping")
 
     @property
+    @pulumi.getter
+    def incident(self) -> pulumi.Output['outputs.AlertRuleScheduledIncident']:
+        """
+        A `incident` block as defined below.
+        """
+        return pulumi.get(self, "incident")
+
+    @property
     @pulumi.getter(name="incidentConfiguration")
     def incident_configuration(self) -> pulumi.Output['outputs.AlertRuleScheduledIncidentConfiguration']:
-        """
-        A `incident_configuration` block as defined below.
-        """
+        warnings.warn("""The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
+        pulumi.log.warn("""incident_configuration is deprecated: The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider""")
+
         return pulumi.get(self, "incident_configuration")
 
     @property

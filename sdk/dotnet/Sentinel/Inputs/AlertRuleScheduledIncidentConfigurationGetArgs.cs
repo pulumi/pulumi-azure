@@ -12,15 +12,9 @@ namespace Pulumi.Azure.Sentinel.Inputs
 
     public sealed class AlertRuleScheduledIncidentConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule?
-        /// </summary>
         [Input("createIncident", required: true)]
         public Input<bool> CreateIncident { get; set; } = null!;
 
-        /// <summary>
-        /// A `grouping` block as defined below.
-        /// </summary>
         [Input("grouping", required: true)]
         public Input<Inputs.AlertRuleScheduledIncidentConfigurationGroupingGetArgs> Grouping { get; set; } = null!;
 

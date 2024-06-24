@@ -188,8 +188,16 @@ type VirtualNetworkPeering struct {
 	AllowGatewayTransit pulumi.BoolPtrOutput `pulumi:"allowGatewayTransit"`
 	// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
 	AllowVirtualNetworkAccess pulumi.BoolPtrOutput `pulumi:"allowVirtualNetworkAccess"`
+	// A list of local Subnet names that are Subnet peered with remote Virtual Network.
+	LocalSubnetNames pulumi.StringArrayOutput `pulumi:"localSubnetNames"`
 	// The name of the virtual network peering. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Specifies whether only IPv6 address space is peered for Subnet peering. Changing this forces a new resource to be created.
+	OnlyIpv6PeeringEnabled pulumi.BoolPtrOutput `pulumi:"onlyIpv6PeeringEnabled"`
+	// Specifies whether complete Virtual Network address space is peered. Defaults to `true`. Changing this forces a new resource to be created.
+	PeerCompleteVirtualNetworksEnabled pulumi.BoolPtrOutput `pulumi:"peerCompleteVirtualNetworksEnabled"`
+	// A list of remote Subnet names from remote Virtual Network that are Subnet peered.
+	RemoteSubnetNames pulumi.StringArrayOutput `pulumi:"remoteSubnetNames"`
 	// The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
 	RemoteVirtualNetworkId pulumi.StringOutput `pulumi:"remoteVirtualNetworkId"`
 	// The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
@@ -249,8 +257,16 @@ type virtualNetworkPeeringState struct {
 	AllowGatewayTransit *bool `pulumi:"allowGatewayTransit"`
 	// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
 	AllowVirtualNetworkAccess *bool `pulumi:"allowVirtualNetworkAccess"`
+	// A list of local Subnet names that are Subnet peered with remote Virtual Network.
+	LocalSubnetNames []string `pulumi:"localSubnetNames"`
 	// The name of the virtual network peering. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Specifies whether only IPv6 address space is peered for Subnet peering. Changing this forces a new resource to be created.
+	OnlyIpv6PeeringEnabled *bool `pulumi:"onlyIpv6PeeringEnabled"`
+	// Specifies whether complete Virtual Network address space is peered. Defaults to `true`. Changing this forces a new resource to be created.
+	PeerCompleteVirtualNetworksEnabled *bool `pulumi:"peerCompleteVirtualNetworksEnabled"`
+	// A list of remote Subnet names from remote Virtual Network that are Subnet peered.
+	RemoteSubnetNames []string `pulumi:"remoteSubnetNames"`
 	// The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
 	RemoteVirtualNetworkId *string `pulumi:"remoteVirtualNetworkId"`
 	// The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
@@ -272,8 +288,16 @@ type VirtualNetworkPeeringState struct {
 	AllowGatewayTransit pulumi.BoolPtrInput
 	// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
 	AllowVirtualNetworkAccess pulumi.BoolPtrInput
+	// A list of local Subnet names that are Subnet peered with remote Virtual Network.
+	LocalSubnetNames pulumi.StringArrayInput
 	// The name of the virtual network peering. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Specifies whether only IPv6 address space is peered for Subnet peering. Changing this forces a new resource to be created.
+	OnlyIpv6PeeringEnabled pulumi.BoolPtrInput
+	// Specifies whether complete Virtual Network address space is peered. Defaults to `true`. Changing this forces a new resource to be created.
+	PeerCompleteVirtualNetworksEnabled pulumi.BoolPtrInput
+	// A list of remote Subnet names from remote Virtual Network that are Subnet peered.
+	RemoteSubnetNames pulumi.StringArrayInput
 	// The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
 	RemoteVirtualNetworkId pulumi.StringPtrInput
 	// The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
@@ -299,8 +323,16 @@ type virtualNetworkPeeringArgs struct {
 	AllowGatewayTransit *bool `pulumi:"allowGatewayTransit"`
 	// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
 	AllowVirtualNetworkAccess *bool `pulumi:"allowVirtualNetworkAccess"`
+	// A list of local Subnet names that are Subnet peered with remote Virtual Network.
+	LocalSubnetNames []string `pulumi:"localSubnetNames"`
 	// The name of the virtual network peering. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Specifies whether only IPv6 address space is peered for Subnet peering. Changing this forces a new resource to be created.
+	OnlyIpv6PeeringEnabled *bool `pulumi:"onlyIpv6PeeringEnabled"`
+	// Specifies whether complete Virtual Network address space is peered. Defaults to `true`. Changing this forces a new resource to be created.
+	PeerCompleteVirtualNetworksEnabled *bool `pulumi:"peerCompleteVirtualNetworksEnabled"`
+	// A list of remote Subnet names from remote Virtual Network that are Subnet peered.
+	RemoteSubnetNames []string `pulumi:"remoteSubnetNames"`
 	// The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
 	RemoteVirtualNetworkId string `pulumi:"remoteVirtualNetworkId"`
 	// The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
@@ -323,8 +355,16 @@ type VirtualNetworkPeeringArgs struct {
 	AllowGatewayTransit pulumi.BoolPtrInput
 	// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
 	AllowVirtualNetworkAccess pulumi.BoolPtrInput
+	// A list of local Subnet names that are Subnet peered with remote Virtual Network.
+	LocalSubnetNames pulumi.StringArrayInput
 	// The name of the virtual network peering. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Specifies whether only IPv6 address space is peered for Subnet peering. Changing this forces a new resource to be created.
+	OnlyIpv6PeeringEnabled pulumi.BoolPtrInput
+	// Specifies whether complete Virtual Network address space is peered. Defaults to `true`. Changing this forces a new resource to be created.
+	PeerCompleteVirtualNetworksEnabled pulumi.BoolPtrInput
+	// A list of remote Subnet names from remote Virtual Network that are Subnet peered.
+	RemoteSubnetNames pulumi.StringArrayInput
 	// The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
 	RemoteVirtualNetworkId pulumi.StringInput
 	// The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
@@ -441,9 +481,29 @@ func (o VirtualNetworkPeeringOutput) AllowVirtualNetworkAccess() pulumi.BoolPtrO
 	return o.ApplyT(func(v *VirtualNetworkPeering) pulumi.BoolPtrOutput { return v.AllowVirtualNetworkAccess }).(pulumi.BoolPtrOutput)
 }
 
+// A list of local Subnet names that are Subnet peered with remote Virtual Network.
+func (o VirtualNetworkPeeringOutput) LocalSubnetNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VirtualNetworkPeering) pulumi.StringArrayOutput { return v.LocalSubnetNames }).(pulumi.StringArrayOutput)
+}
+
 // The name of the virtual network peering. Changing this forces a new resource to be created.
 func (o VirtualNetworkPeeringOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetworkPeering) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies whether only IPv6 address space is peered for Subnet peering. Changing this forces a new resource to be created.
+func (o VirtualNetworkPeeringOutput) OnlyIpv6PeeringEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkPeering) pulumi.BoolPtrOutput { return v.OnlyIpv6PeeringEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether complete Virtual Network address space is peered. Defaults to `true`. Changing this forces a new resource to be created.
+func (o VirtualNetworkPeeringOutput) PeerCompleteVirtualNetworksEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkPeering) pulumi.BoolPtrOutput { return v.PeerCompleteVirtualNetworksEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// A list of remote Subnet names from remote Virtual Network that are Subnet peered.
+func (o VirtualNetworkPeeringOutput) RemoteSubnetNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VirtualNetworkPeering) pulumi.StringArrayOutput { return v.RemoteSubnetNames }).(pulumi.StringArrayOutput)
 }
 
 // The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.

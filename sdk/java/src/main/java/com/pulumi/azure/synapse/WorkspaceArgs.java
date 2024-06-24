@@ -26,16 +26,20 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     public static final WorkspaceArgs Empty = new WorkspaceArgs();
 
     /**
-     * An `aad_admin` block as defined below.
+     * @deprecated
+     * The `aad_admin` block has been superseded by the `azure.synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* The `aad_admin` block has been superseded by the `azure.synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider. */
     @Import(name="aadAdmin")
     private @Nullable Output<WorkspaceAadAdminArgs> aadAdmin;
 
     /**
-     * @return An `aad_admin` block as defined below.
+     * @deprecated
+     * The `aad_admin` block has been superseded by the `azure.synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* The `aad_admin` block has been superseded by the `azure.synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider. */
     public Optional<Output<WorkspaceAadAdminArgs>> aadAdmin() {
         return Optional.ofNullable(this.aadAdmin);
     }
@@ -266,16 +270,20 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `sql_aad_admin` block as defined below.
+     * @deprecated
+     * The `sql_aad_admin` block has been superseded by the `azure.synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* The `sql_aad_admin` block has been superseded by the `azure.synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider. */
     @Import(name="sqlAadAdmin")
     private @Nullable Output<WorkspaceSqlAadAdminArgs> sqlAadAdmin;
 
     /**
-     * @return An `sql_aad_admin` block as defined below.
+     * @deprecated
+     * The `sql_aad_admin` block has been superseded by the `azure.synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* The `sql_aad_admin` block has been superseded by the `azure.synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider. */
     public Optional<Output<WorkspaceSqlAadAdminArgs>> sqlAadAdmin() {
         return Optional.ofNullable(this.sqlAadAdmin);
     }
@@ -401,22 +409,26 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param aadAdmin An `aad_admin` block as defined below.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The `aad_admin` block has been superseded by the `azure.synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* The `aad_admin` block has been superseded by the `azure.synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider. */
         public Builder aadAdmin(@Nullable Output<WorkspaceAadAdminArgs> aadAdmin) {
             $.aadAdmin = aadAdmin;
             return this;
         }
 
         /**
-         * @param aadAdmin An `aad_admin` block as defined below.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The `aad_admin` block has been superseded by the `azure.synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* The `aad_admin` block has been superseded by the `azure.synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider. */
         public Builder aadAdmin(WorkspaceAadAdminArgs aadAdmin) {
             return aadAdmin(Output.of(aadAdmin));
         }
@@ -747,22 +759,26 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sqlAadAdmin An `sql_aad_admin` block as defined below.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The `sql_aad_admin` block has been superseded by the `azure.synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* The `sql_aad_admin` block has been superseded by the `azure.synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider. */
         public Builder sqlAadAdmin(@Nullable Output<WorkspaceSqlAadAdminArgs> sqlAadAdmin) {
             $.sqlAadAdmin = sqlAadAdmin;
             return this;
         }
 
         /**
-         * @param sqlAadAdmin An `sql_aad_admin` block as defined below.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The `sql_aad_admin` block has been superseded by the `azure.synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* The `sql_aad_admin` block has been superseded by the `azure.synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider. */
         public Builder sqlAadAdmin(WorkspaceSqlAadAdminArgs sqlAadAdmin) {
             return sqlAadAdmin(Output.of(sqlAadAdmin));
         }

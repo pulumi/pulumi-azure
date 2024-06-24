@@ -4911,6 +4911,9 @@
                             }
                         }
                     },
+                    "partition_key_paths": {
+                        "maxItemsOne": false
+                    },
                     "unique_key": {
                         "maxItemsOne": false,
                         "elem": {
@@ -5887,7 +5890,12 @@
             },
             "azurerm_data_protection_backup_instance_blob_storage": {
                 "current": "azure:dataprotection/backupInstanceBlogStorage:BackupInstanceBlogStorage",
-                "majorVersion": 5
+                "majorVersion": 5,
+                "fields": {
+                    "storage_account_container_names": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "azurerm_data_protection_backup_instance_disk": {
                 "current": "azure:dataprotection/backupInstanceDisk:BackupInstanceDisk",
@@ -5923,6 +5931,10 @@
             },
             "azurerm_data_protection_backup_instance_postgresql": {
                 "current": "azure:dataprotection/backupInstancePostgresql:BackupInstancePostgresql",
+                "majorVersion": 5
+            },
+            "azurerm_data_protection_backup_instance_postgresql_flexible_server": {
+                "current": "azure:dataprotection/backupInstancePostgresqlFlexibleServer:BackupInstancePostgresqlFlexibleServer",
                 "majorVersion": 5
             },
             "azurerm_data_protection_backup_policy_blob_storage": {
@@ -6707,6 +6719,34 @@
             "azurerm_email_communication_service": {
                 "current": "azure:communication/emailService:EmailService",
                 "majorVersion": 5
+            },
+            "azurerm_email_communication_service_domain": {
+                "current": "azure:communication/emailServiceDomain:EmailServiceDomain",
+                "majorVersion": 5,
+                "fields": {
+                    "verification_records": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "dkim": {
+                                    "maxItemsOne": false
+                                },
+                                "dkim2": {
+                                    "maxItemsOne": false
+                                },
+                                "dmarc": {
+                                    "maxItemsOne": false
+                                },
+                                "domain": {
+                                    "maxItemsOne": false
+                                },
+                                "spf": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "azurerm_eventgrid_domain": {
                 "current": "azure:eventgrid/domain:Domain",
@@ -13385,7 +13425,32 @@
             },
             "azurerm_maps_account": {
                 "current": "azure:maps/account:Account",
-                "majorVersion": 5
+                "majorVersion": 5,
+                "fields": {
+                    "cors": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "allowed_origins": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "data_store": {
+                        "maxItemsOne": false
+                    },
+                    "identity": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "azurerm_maps_creator": {
                 "current": "azure:maps/creator:Creator",
@@ -17988,6 +18053,153 @@
                     }
                 }
             },
+            "azurerm_role_management_policy": {
+                "current": "azure:pim/roleManagementPolicy:RoleManagementPolicy",
+                "majorVersion": 5,
+                "fields": {
+                    "activation_rules": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "approval_stage": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "primary_approver": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "active_assignment_rules": {
+                        "maxItemsOne": true
+                    },
+                    "eligible_assignment_rules": {
+                        "maxItemsOne": true
+                    },
+                    "notification_rules": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "active_assignments": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "admin_notifications": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "additional_recipients": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "approver_notifications": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "additional_recipients": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "assignee_notifications": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "additional_recipients": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "eligible_activations": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "admin_notifications": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "additional_recipients": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "approver_notifications": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "additional_recipients": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "assignee_notifications": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "additional_recipients": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "eligible_assignments": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "admin_notifications": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "additional_recipients": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "approver_notifications": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "additional_recipients": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "assignee_notifications": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "additional_recipients": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "azurerm_route": {
                 "current": "azure:network/route:Route",
                 "majorVersion": 5
@@ -18426,6 +18638,29 @@
                     },
                     "event_grouping": {
                         "maxItemsOne": true
+                    },
+                    "incident": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "grouping": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "by_alert_details": {
+                                                "maxItemsOne": false
+                                            },
+                                            "by_custom_details": {
+                                                "maxItemsOne": false
+                                            },
+                                            "by_entities": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "incident_configuration": {
                         "maxItemsOne": true,
@@ -20993,8 +21228,20 @@
                 "current": "azure:systemcenter/virtualMachineManagerAvailabilitySet:VirtualMachineManagerAvailabilitySet",
                 "majorVersion": 5
             },
+            "azurerm_system_center_virtual_machine_manager_cloud": {
+                "current": "azure:systemcenter/virtualMachineManagerCloud:VirtualMachineManagerCloud",
+                "majorVersion": 5
+            },
             "azurerm_system_center_virtual_machine_manager_server": {
                 "current": "azure:systemcenter/virtualMachineManagerServer:VirtualMachineManagerServer",
+                "majorVersion": 5
+            },
+            "azurerm_system_center_virtual_machine_manager_virtual_machine_template": {
+                "current": "azure:systemcenter/virtualMachineManagerVirtualMachineTemplate:VirtualMachineManagerVirtualMachineTemplate",
+                "majorVersion": 5
+            },
+            "azurerm_system_center_virtual_machine_manager_virtual_network": {
+                "current": "azure:systemcenter/virtualMachineManagerVirtualNetwork:VirtualMachineManagerVirtualNetwork",
                 "majorVersion": 5
             },
             "azurerm_template_deployment": {
@@ -21775,7 +22022,15 @@
             },
             "azurerm_virtual_network_peering": {
                 "current": "azure:network/virtualNetworkPeering:VirtualNetworkPeering",
-                "majorVersion": 5
+                "majorVersion": 5,
+                "fields": {
+                    "local_subnet_names": {
+                        "maxItemsOne": false
+                    },
+                    "remote_subnet_names": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "azurerm_virtual_wan": {
                 "current": "azure:network/virtualWan:VirtualWan",
@@ -24851,6 +25106,10 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "azurerm_automation_runbook": {
+                "current": "azure:automation/getRunbook:getRunbook",
+                "majorVersion": 5
             },
             "azurerm_automation_variable_bool": {
                 "current": "azure:automation/getBoolVariable:getBoolVariable",
@@ -29452,6 +29711,153 @@
                                 },
                                 "not_data_actions": {
                                     "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "azurerm_role_management_policy": {
+                "current": "azure:pim/getRoleManagementPolicy:getRoleManagementPolicy",
+                "majorVersion": 5,
+                "fields": {
+                    "activation_rules": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "approval_stage": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "primary_approver": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "active_assignment_rules": {
+                        "maxItemsOne": false
+                    },
+                    "eligible_assignment_rules": {
+                        "maxItemsOne": false
+                    },
+                    "notification_rules": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "active_assignments": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "admin_notifications": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "additional_recipients": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "approver_notifications": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "additional_recipients": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "assignee_notifications": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "additional_recipients": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "eligible_activations": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "admin_notifications": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "additional_recipients": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "approver_notifications": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "additional_recipients": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "assignee_notifications": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "additional_recipients": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "eligible_assignments": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "admin_notifications": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "additional_recipients": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "approver_notifications": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "additional_recipients": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "assignee_notifications": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "additional_recipients": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }

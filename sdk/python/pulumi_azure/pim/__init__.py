@@ -7,5 +7,7 @@ import typing
 # Export this package's modules as members:
 from .active_role_assignment import *
 from .eligible_role_assignment import *
+from .get_role_management_policy import *
+from .role_management_policy import *
 from ._inputs import *
 from . import outputs

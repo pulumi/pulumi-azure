@@ -32,6 +32,8 @@ namespace Pulumi.Azure.Monitoring
     ///     {
     ///         Name = "example-ampls",
     ///         ResourceGroupName = example.Name,
+    ///         IngestionAccessMode = "PrivateOnly",
+    ///         QueryAccessMode = "Open",
     ///     });
     /// 
     /// });
@@ -49,10 +51,22 @@ namespace Pulumi.Azure.Monitoring
     public partial class PrivateLinkScope : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The default ingestion access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+        /// </summary>
+        [Output("ingestionAccessMode")]
+        public Output<string?> IngestionAccessMode { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+        /// </summary>
+        [Output("queryAccessMode")]
+        public Output<string?> QueryAccessMode { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Resource Group where the Azure Monitor Private Link Scope should exist. Changing this forces a new resource to be created.
@@ -113,10 +127,22 @@ namespace Pulumi.Azure.Monitoring
     public sealed class PrivateLinkScopeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The default ingestion access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+        /// </summary>
+        [Input("ingestionAccessMode")]
+        public Input<string>? IngestionAccessMode { get; set; }
+
+        /// <summary>
         /// The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+        /// </summary>
+        [Input("queryAccessMode")]
+        public Input<string>? QueryAccessMode { get; set; }
 
         /// <summary>
         /// The name of the Resource Group where the Azure Monitor Private Link Scope should exist. Changing this forces a new resource to be created.
@@ -145,10 +171,22 @@ namespace Pulumi.Azure.Monitoring
     public sealed class PrivateLinkScopeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The default ingestion access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+        /// </summary>
+        [Input("ingestionAccessMode")]
+        public Input<string>? IngestionAccessMode { get; set; }
+
+        /// <summary>
         /// The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+        /// </summary>
+        [Input("queryAccessMode")]
+        public Input<string>? QueryAccessMode { get; set; }
 
         /// <summary>
         /// The name of the Resource Group where the Azure Monitor Private Link Scope should exist. Changing this forces a new resource to be created.

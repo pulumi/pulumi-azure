@@ -180,14 +180,14 @@ public class GremlinGraph extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="defaultTtl", refs={Integer.class}, tree="[0]")
-    private Output<Integer> defaultTtl;
+    private Output</* @Nullable */ Integer> defaultTtl;
 
     /**
      * @return The default time to live (TTL) of the Gremlin graph. If the value is missing or set to &#34;-1&#34;, items don’t expire.
      * 
      */
-    public Output<Integer> defaultTtl() {
-        return this.defaultTtl;
+    public Output<Optional<Integer>> defaultTtl() {
+        return Codegen.optional(this.defaultTtl);
     }
     /**
      * The configuration of the indexing policy. One or more `index_policy` blocks as defined below.

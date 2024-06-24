@@ -50,6 +50,10 @@ export interface GetNetworkInterfaceArgs {
  */
 export interface GetNetworkInterfaceResult {
     /**
+     * Indicates if accelerated networking is set on the specified Network Interface.
+     */
+    readonly acceleratedNetworkingEnabled: boolean;
+    /**
      * List of DNS servers applied to the specified Network Interface.
      */
     readonly appliedDnsServers: string[];
@@ -58,11 +62,11 @@ export interface GetNetworkInterfaceResult {
      */
     readonly dnsServers: string[];
     /**
-     * Indicates if accelerated networking is set on the specified Network Interface.
+     * @deprecated The property `enableAcceleratedNetworking` has been superseded by `acceleratedNetworkingEnabled` and will be removed in v4.0 of the AzureRM Provider.
      */
     readonly enableAcceleratedNetworking: boolean;
     /**
-     * Indicate if IP forwarding is set on the specified Network Interface.
+     * @deprecated The property `enableIpForwarding` has been superseded by `ipForwardingEnabled` and will be removed in v4.0 of the AzureRM Provider.
      */
     readonly enableIpForwarding: boolean;
     /**
@@ -77,6 +81,10 @@ export interface GetNetworkInterfaceResult {
      * One or more `ipConfiguration` blocks as defined below.
      */
     readonly ipConfigurations: outputs.network.GetNetworkInterfaceIpConfiguration[];
+    /**
+     * Indicate if IP forwarding is set on the specified Network Interface.
+     */
+    readonly ipForwardingEnabled: boolean;
     /**
      * The location of the specified Network Interface.
      */

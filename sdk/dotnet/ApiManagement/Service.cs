@@ -140,9 +140,6 @@ namespace Pulumi.Azure.ApiManagement
         [Output("notificationSenderEmail")]
         public Output<string> NotificationSenderEmail { get; private set; } = null!;
 
-        /// <summary>
-        /// A `policy` block as defined below.
-        /// </summary>
         [Output("policy")]
         public Output<Outputs.ServicePolicy> Policy { get; private set; } = null!;
 
@@ -396,9 +393,6 @@ namespace Pulumi.Azure.ApiManagement
         [Input("notificationSenderEmail")]
         public Input<string>? NotificationSenderEmail { get; set; }
 
-        /// <summary>
-        /// A `policy` block as defined below.
-        /// </summary>
         [Input("policy")]
         public Input<Inputs.ServicePolicyArgs>? Policy { get; set; }
 
@@ -626,9 +620,6 @@ namespace Pulumi.Azure.ApiManagement
         [Input("notificationSenderEmail")]
         public Input<string>? NotificationSenderEmail { get; set; }
 
-        /// <summary>
-        /// A `policy` block as defined below.
-        /// </summary>
         [Input("policy")]
         public Input<Inputs.ServicePolicyGetArgs>? Policy { get; set; }
 

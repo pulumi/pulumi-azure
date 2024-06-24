@@ -117,7 +117,7 @@ export class HostPool extends pulumi.CustomResource {
      */
     public readonly personalDesktopAssignmentType!: pulumi.Output<string | undefined>;
     /**
-     * Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`. Changing this forces a new resource to be created.
+     * Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`.
      */
     public readonly preferredAppGroupType!: pulumi.Output<string | undefined>;
     /**
@@ -259,7 +259,7 @@ export interface HostPoolState {
      */
     personalDesktopAssignmentType?: pulumi.Input<string>;
     /**
-     * Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`. Changing this forces a new resource to be created.
+     * Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`.
      */
     preferredAppGroupType?: pulumi.Input<string>;
     /**
@@ -338,7 +338,7 @@ export interface HostPoolArgs {
      */
     personalDesktopAssignmentType?: pulumi.Input<string>;
     /**
-     * Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`. Changing this forces a new resource to be created.
+     * Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`.
      */
     preferredAppGroupType?: pulumi.Input<string>;
     /**

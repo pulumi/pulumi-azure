@@ -17,30 +17,66 @@ public final class RunBookJobScheduleArgs extends com.pulumi.resources.ResourceA
 
     public static final RunBookJobScheduleArgs Empty = new RunBookJobScheduleArgs();
 
+    /**
+     * The UUID of automation runbook job schedule ID.
+     * 
+     */
     @Import(name="jobScheduleId")
     private @Nullable Output<String> jobScheduleId;
 
+    /**
+     * @return The UUID of automation runbook job schedule ID.
+     * 
+     */
     public Optional<Output<String>> jobScheduleId() {
         return Optional.ofNullable(this.jobScheduleId);
     }
 
+    /**
+     * A map of key/value pairs corresponding to the arguments that can be passed to the Runbook.
+     * 
+     * &gt; **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don&#39;t have this limitation.
+     * 
+     */
     @Import(name="parameters")
     private @Nullable Output<Map<String,String>> parameters;
 
+    /**
+     * @return A map of key/value pairs corresponding to the arguments that can be passed to the Runbook.
+     * 
+     * &gt; **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don&#39;t have this limitation.
+     * 
+     */
     public Optional<Output<Map<String,String>>> parameters() {
         return Optional.ofNullable(this.parameters);
     }
 
+    /**
+     * Name of a Hybrid Worker Group the Runbook will be executed on.
+     * 
+     */
     @Import(name="runOn")
     private @Nullable Output<String> runOn;
 
+    /**
+     * @return Name of a Hybrid Worker Group the Runbook will be executed on.
+     * 
+     */
     public Optional<Output<String>> runOn() {
         return Optional.ofNullable(this.runOn);
     }
 
+    /**
+     * The name of the Schedule.
+     * 
+     */
     @Import(name="scheduleName", required=true)
     private Output<String> scheduleName;
 
+    /**
+     * @return The name of the Schedule.
+     * 
+     */
     public Output<String> scheduleName() {
         return this.scheduleName;
     }
@@ -72,38 +108,90 @@ public final class RunBookJobScheduleArgs extends com.pulumi.resources.ResourceA
             $ = new RunBookJobScheduleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param jobScheduleId The UUID of automation runbook job schedule ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder jobScheduleId(@Nullable Output<String> jobScheduleId) {
             $.jobScheduleId = jobScheduleId;
             return this;
         }
 
+        /**
+         * @param jobScheduleId The UUID of automation runbook job schedule ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder jobScheduleId(String jobScheduleId) {
             return jobScheduleId(Output.of(jobScheduleId));
         }
 
+        /**
+         * @param parameters A map of key/value pairs corresponding to the arguments that can be passed to the Runbook.
+         * 
+         * &gt; **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don&#39;t have this limitation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder parameters(@Nullable Output<Map<String,String>> parameters) {
             $.parameters = parameters;
             return this;
         }
 
+        /**
+         * @param parameters A map of key/value pairs corresponding to the arguments that can be passed to the Runbook.
+         * 
+         * &gt; **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don&#39;t have this limitation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder parameters(Map<String,String> parameters) {
             return parameters(Output.of(parameters));
         }
 
+        /**
+         * @param runOn Name of a Hybrid Worker Group the Runbook will be executed on.
+         * 
+         * @return builder
+         * 
+         */
         public Builder runOn(@Nullable Output<String> runOn) {
             $.runOn = runOn;
             return this;
         }
 
+        /**
+         * @param runOn Name of a Hybrid Worker Group the Runbook will be executed on.
+         * 
+         * @return builder
+         * 
+         */
         public Builder runOn(String runOn) {
             return runOn(Output.of(runOn));
         }
 
+        /**
+         * @param scheduleName The name of the Schedule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scheduleName(Output<String> scheduleName) {
             $.scheduleName = scheduleName;
             return this;
         }
 
+        /**
+         * @param scheduleName The name of the Schedule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scheduleName(String scheduleName) {
             return scheduleName(Output.of(scheduleName));
         }

@@ -82,7 +82,7 @@ import (
 //				return err
 //			}
 //			example, err := azuread.LookupServicePrincipal(ctx, &azuread.LookupServicePrincipalArgs{
-//				DisplayName: pulumi.StringRef("Windows Virtual Desktop"),
+//				DisplayName: pulumi.StringRef("Azure Virtual Desktop"),
 //			}, nil)
 //			if err != nil {
 //				return err

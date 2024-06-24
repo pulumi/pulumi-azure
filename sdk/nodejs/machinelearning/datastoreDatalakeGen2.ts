@@ -100,7 +100,7 @@ export class DatastoreDatalakeGen2 extends pulumi.CustomResource {
     /**
      * An URL used for authentication.
      */
-    public readonly authorityUrl!: pulumi.Output<string>;
+    public readonly authorityUrl!: pulumi.Output<string | undefined>;
     /**
      * The object ID of the Service Principal.
      */

@@ -99,7 +99,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         final var example = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
- *             .displayName("Windows Virtual Desktop")
+ *             .displayName("Azure Virtual Desktop")
  *             .build());
  * 
  *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()

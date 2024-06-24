@@ -53,6 +53,8 @@ import javax.annotation.Nullable;
  *         var examplePrivateLinkScope = new PrivateLinkScope("examplePrivateLinkScope", PrivateLinkScopeArgs.builder()
  *             .name("example-ampls")
  *             .resourceGroupName(example.name())
+ *             .ingestionAccessMode("PrivateOnly")
+ *             .queryAccessMode("Open")
  *             .build());
  * 
  *     }
@@ -73,6 +75,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:monitoring/privateLinkScope:PrivateLinkScope")
 public class PrivateLinkScope extends com.pulumi.resources.CustomResource {
     /**
+     * The default ingestion access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+     * 
+     */
+    @Export(name="ingestionAccessMode", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> ingestionAccessMode;
+
+    /**
+     * @return The default ingestion access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+     * 
+     */
+    public Output<Optional<String>> ingestionAccessMode() {
+        return Codegen.optional(this.ingestionAccessMode);
+    }
+    /**
      * The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
      * 
      */
@@ -85,6 +101,20 @@ public class PrivateLinkScope extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+     * 
+     */
+    @Export(name="queryAccessMode", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> queryAccessMode;
+
+    /**
+     * @return The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+     * 
+     */
+    public Output<Optional<String>> queryAccessMode() {
+        return Codegen.optional(this.queryAccessMode);
     }
     /**
      * The name of the Resource Group where the Azure Monitor Private Link Scope should exist. Changing this forces a new resource to be created.

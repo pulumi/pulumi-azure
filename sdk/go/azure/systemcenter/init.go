@@ -23,8 +23,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:systemcenter/virtualMachineManagerAvailabilitySet:VirtualMachineManagerAvailabilitySet":
 		r = &VirtualMachineManagerAvailabilitySet{}
+	case "azure:systemcenter/virtualMachineManagerCloud:VirtualMachineManagerCloud":
+		r = &VirtualMachineManagerCloud{}
 	case "azure:systemcenter/virtualMachineManagerServer:VirtualMachineManagerServer":
 		r = &VirtualMachineManagerServer{}
+	case "azure:systemcenter/virtualMachineManagerVirtualMachineTemplate:VirtualMachineManagerVirtualMachineTemplate":
+		r = &VirtualMachineManagerVirtualMachineTemplate{}
+	case "azure:systemcenter/virtualMachineManagerVirtualNetwork:VirtualMachineManagerVirtualNetwork":
+		r = &VirtualMachineManagerVirtualNetwork{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -45,7 +51,22 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"systemcenter/virtualMachineManagerCloud",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"systemcenter/virtualMachineManagerServer",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"systemcenter/virtualMachineManagerVirtualMachineTemplate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"systemcenter/virtualMachineManagerVirtualNetwork",
 		&module{version},
 	)
 }

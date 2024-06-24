@@ -116,6 +116,10 @@ namespace Pulumi.Azure.Network
     public sealed class GetNetworkInterfaceResult
     {
         /// <summary>
+        /// Indicates if accelerated networking is set on the specified Network Interface.
+        /// </summary>
+        public readonly bool AcceleratedNetworkingEnabled;
+        /// <summary>
         /// List of DNS servers applied to the specified Network Interface.
         /// </summary>
         public readonly ImmutableArray<string> AppliedDnsServers;
@@ -123,13 +127,7 @@ namespace Pulumi.Azure.Network
         /// The list of DNS servers used by the specified Network Interface.
         /// </summary>
         public readonly ImmutableArray<string> DnsServers;
-        /// <summary>
-        /// Indicates if accelerated networking is set on the specified Network Interface.
-        /// </summary>
         public readonly bool EnableAcceleratedNetworking;
-        /// <summary>
-        /// Indicate if IP forwarding is set on the specified Network Interface.
-        /// </summary>
         public readonly bool EnableIpForwarding;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -143,6 +141,10 @@ namespace Pulumi.Azure.Network
         /// One or more `ip_configuration` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkInterfaceIpConfigurationResult> IpConfigurations;
+        /// <summary>
+        /// Indicate if IP forwarding is set on the specified Network Interface.
+        /// </summary>
+        public readonly bool IpForwardingEnabled;
         /// <summary>
         /// The location of the specified Network Interface.
         /// </summary>
@@ -179,6 +181,8 @@ namespace Pulumi.Azure.Network
 
         [OutputConstructor]
         private GetNetworkInterfaceResult(
+            bool acceleratedNetworkingEnabled,
+
             ImmutableArray<string> appliedDnsServers,
 
             ImmutableArray<string> dnsServers,
@@ -192,6 +196,8 @@ namespace Pulumi.Azure.Network
             string internalDnsNameLabel,
 
             ImmutableArray<Outputs.GetNetworkInterfaceIpConfigurationResult> ipConfigurations,
+
+            bool ipForwardingEnabled,
 
             string location,
 
@@ -211,6 +217,7 @@ namespace Pulumi.Azure.Network
 
             string virtualMachineId)
         {
+            AcceleratedNetworkingEnabled = acceleratedNetworkingEnabled;
             AppliedDnsServers = appliedDnsServers;
             DnsServers = dnsServers;
             EnableAcceleratedNetworking = enableAcceleratedNetworking;
@@ -218,6 +225,7 @@ namespace Pulumi.Azure.Network
             Id = id;
             InternalDnsNameLabel = internalDnsNameLabel;
             IpConfigurations = ipConfigurations;
+            IpForwardingEnabled = ipForwardingEnabled;
             Location = location;
             MacAddress = macAddress;
             Name = name;

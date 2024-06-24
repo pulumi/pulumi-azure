@@ -135,14 +135,14 @@ public class DatastoreDatalakeGen2 extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="authorityUrl", refs={String.class}, tree="[0]")
-    private Output<String> authorityUrl;
+    private Output</* @Nullable */ String> authorityUrl;
 
     /**
      * @return An URL used for authentication.
      * 
      */
-    public Output<String> authorityUrl() {
-        return this.authorityUrl;
+    public Output<Optional<String>> authorityUrl() {
+        return Codegen.optional(this.authorityUrl);
     }
     /**
      * The object ID of the Service Principal.

@@ -1993,13 +1993,7 @@ export namespace apimanagement {
     }
 
     export interface ServicePolicy {
-        /**
-         * The XML Content for this Policy.
-         */
         xmlContent: string;
-        /**
-         * A link to an API Management Policy XML Document, which must be publicly available.
-         */
         xmlLink?: string;
     }
 
@@ -20555,9 +20549,23 @@ export namespace automation {
     }
 
     export interface RunBookJobSchedule {
+        /**
+         * The UUID of automation runbook job schedule ID.
+         */
         jobScheduleId: string;
+        /**
+         * A map of key/value pairs corresponding to the arguments that can be passed to the Runbook.
+         *
+         * > **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
+         */
         parameters?: {[key: string]: string};
+        /**
+         * Name of a Hybrid Worker Group the Runbook will be executed on.
+         */
         runOn?: string;
+        /**
+         * The name of the Schedule.
+         */
         scheduleName: string;
     }
 
@@ -24357,6 +24365,127 @@ export namespace cognitive {
          * The type of Managed Service Identity that is configured on this Cognitive Account.
          */
         type: string;
+    }
+
+}
+
+export namespace communication {
+    export interface EmailServiceDomainVerificationRecord {
+        /**
+         * (Optional) An `dkim2` block as defined below.
+         */
+        dkim2s: outputs.communication.EmailServiceDomainVerificationRecordDkim2[];
+        /**
+         * (Optional) An `dkim` block as defined below.
+         */
+        dkims: outputs.communication.EmailServiceDomainVerificationRecordDkim[];
+        /**
+         * (Optional) An `dmarc` block as defined below.
+         */
+        dmarcs: outputs.communication.EmailServiceDomainVerificationRecordDmarc[];
+        /**
+         * (Optional) An `domain` block as defined below.
+         */
+        domains: outputs.communication.EmailServiceDomainVerificationRecordDomain[];
+        /**
+         * (Optional) An `spf` block as defined below.
+         */
+        spfs: outputs.communication.EmailServiceDomainVerificationRecordSpf[];
+    }
+
+    export interface EmailServiceDomainVerificationRecordDkim {
+        /**
+         * The name of the Email Communication Service resource. If `domainManagement` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
+         */
+        name: string;
+        /**
+         * Represents an expiry time in seconds to represent how long this entry can be cached by the resolver, default = 3600sec.
+         */
+        ttl: number;
+        /**
+         * Type of the DNS record. Example: TXT
+         */
+        type: string;
+        /**
+         * Value of the DNS record.
+         */
+        value: string;
+    }
+
+    export interface EmailServiceDomainVerificationRecordDkim2 {
+        /**
+         * The name of the Email Communication Service resource. If `domainManagement` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
+         */
+        name: string;
+        /**
+         * Represents an expiry time in seconds to represent how long this entry can be cached by the resolver, default = 3600sec.
+         */
+        ttl: number;
+        /**
+         * Type of the DNS record. Example: TXT
+         */
+        type: string;
+        /**
+         * Value of the DNS record.
+         */
+        value: string;
+    }
+
+    export interface EmailServiceDomainVerificationRecordDmarc {
+        /**
+         * The name of the Email Communication Service resource. If `domainManagement` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
+         */
+        name: string;
+        /**
+         * Represents an expiry time in seconds to represent how long this entry can be cached by the resolver, default = 3600sec.
+         */
+        ttl: number;
+        /**
+         * Type of the DNS record. Example: TXT
+         */
+        type: string;
+        /**
+         * Value of the DNS record.
+         */
+        value: string;
+    }
+
+    export interface EmailServiceDomainVerificationRecordDomain {
+        /**
+         * The name of the Email Communication Service resource. If `domainManagement` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
+         */
+        name: string;
+        /**
+         * Represents an expiry time in seconds to represent how long this entry can be cached by the resolver, default = 3600sec.
+         */
+        ttl: number;
+        /**
+         * Type of the DNS record. Example: TXT
+         */
+        type: string;
+        /**
+         * Value of the DNS record.
+         */
+        value: string;
+    }
+
+    export interface EmailServiceDomainVerificationRecordSpf {
+        /**
+         * The name of the Email Communication Service resource. If `domainManagement` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
+         */
+        name: string;
+        /**
+         * Represents an expiry time in seconds to represent how long this entry can be cached by the resolver, default = 3600sec.
+         */
+        ttl: number;
+        /**
+         * Type of the DNS record. Example: TXT
+         */
+        type: string;
+        /**
+         * Value of the DNS record.
+         */
+        value: string;
     }
 
 }
@@ -33079,15 +33208,9 @@ export namespace containerservice {
          */
         dockerBridgeCidr: string;
         /**
-         * Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Disabling this forces a new resource to be created.
-         *
-         * > **Note:** When `ebpfDataPlane` is set to `cilium`, the `networkPlugin` field can only be set to `azure`.
-         *
-         * > **Note:** When `ebpfDataPlane` is set to `cilium`, one of either `networkPluginMode = "overlay"` or `podSubnetId` must be specified.
-         *
-         * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
+         * @deprecated This property has been superseded by the property `networkDataPlane` and will be removed in v4.0 of the AzureRM provider.
          */
-        ebpfDataPlane?: string;
+        ebpfDataPlane: string;
         /**
          * Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
          *
@@ -33108,6 +33231,16 @@ export namespace containerservice {
          * A `natGatewayProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`. Changing this forces a new resource to be created.
          */
         natGatewayProfile: outputs.containerservice.KubernetesClusterNetworkProfileNatGatewayProfile;
+        /**
+         * Specifies the data plane used for building the Kubernetes network. Possible values are `azure` and `cilium`. Defaults to `azure`. Disabling this forces a new resource to be created.
+         *
+         * > **Note:** When `networkDataPlane` is set to `cilium`, the `networkPlugin` field can only be set to `azure`.
+         *
+         * > **Note:** When `networkDataPlane` is set to `cilium`, one of either `networkPluginMode = "overlay"` or `podSubnetId` must be specified.
+         *
+         * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
+         */
+        networkDataPlane: string;
         /**
          * Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
          *
@@ -33133,7 +33266,7 @@ export namespace containerservice {
          *
          * > **Note:** When `networkPolicy` is set to `azure`, the `networkPlugin` field can only be set to `azure`.
          *
-         * > **Note:** When `networkPolicy` is set to `cilium`, the `ebpfDataPlane` field must be set to `cilium`.
+         * > **Note:** When `networkPolicy` is set to `cilium`, the `networkDataPlane` field must be set to `cilium`.
          */
         networkPolicy: string;
         outboundIpAddressIds: string[];
@@ -47663,6 +47796,48 @@ export namespace management {
 
 }
 
+export namespace maps {
+    export interface AccountCors {
+        /**
+         * A list of origins that should be allowed to make cross-origin calls.
+         */
+        allowedOrigins: string[];
+    }
+
+    export interface AccountDataStore {
+        /**
+         * The ID of the Storage Account that should be linked to this Azure Maps Account.
+         */
+        storageAccountId?: string;
+        /**
+         * The name given to the linked Storage Account.
+         */
+        uniqueName: string;
+    }
+
+    export interface AccountIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this Azure Maps Account.
+         *
+         * > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         */
+        identityIds?: string[];
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId: string;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Azure Maps Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         */
+        type: string;
+    }
+
+}
+
 export namespace mariadb {
     export interface GetMariaDbServerStorageProfile {
         /**
@@ -54771,7 +54946,7 @@ export namespace netapp {
         /**
          * A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifsEnabled`, `nfsv3Enabled` and `nfsv4Enabled`.
          */
-        protocolsEnabled: string;
+        protocolsEnabled?: string;
         /**
          * Is root access permitted to this volume?
          */
@@ -60879,6 +61054,568 @@ export namespace pim {
         system?: string;
     }
 
+    export interface GetRoleManagementPolicyActivationRule {
+        /**
+         * An `approvalStage` block as defined below.
+         */
+        approvalStages: outputs.pim.GetRoleManagementPolicyActivationRuleApprovalStage[];
+        /**
+         * (String) The maximum length of time an activated role can be valid, in an ISO8601 Duration format.
+         */
+        maximumDuration: string;
+        /**
+         * (Boolean) Is approval required for activation.
+         */
+        requireApproval: boolean;
+        /**
+         * (Boolean) Is a justification required to create new assignments.
+         */
+        requireJustification: boolean;
+        /**
+         * (Boolean) Is multi-factor authentication required to create new assignments.
+         */
+        requireMultifactorAuthentication: boolean;
+        /**
+         * (Boolean) Is ticket information required to create new assignments.
+         */
+        requireTicketInfo: boolean;
+        /**
+         * (String) The Entra ID Conditional Access context that must be present for activation.
+         */
+        requiredConditionalAccessAuthenticationContext: string;
+    }
+
+    export interface GetRoleManagementPolicyActivationRuleApprovalStage {
+        /**
+         * The IDs of the users or groups who can approve the activation
+         */
+        primaryApprovers: outputs.pim.GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApprover[];
+    }
+
+    export interface GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApprover {
+        /**
+         * (String) The ID of the object which will act as an approver.
+         */
+        objectId: string;
+        /**
+         * (String) The type of object acting as an approver. Either `User` or `Group`.
+         */
+        type: string;
+    }
+
+    export interface GetRoleManagementPolicyActiveAssignmentRule {
+        /**
+         * (Boolean) Must an assignment have an expiry date.
+         */
+        expirationRequired: boolean;
+        /**
+         * (String) The maximum length of time an assignment can be valid, as an ISO8601 duration.
+         */
+        expireAfter: string;
+        /**
+         * (Boolean) Is a justification required to create new assignments.
+         */
+        requireJustification: boolean;
+        /**
+         * (Boolean) Is multi-factor authentication required to create new assignments.
+         */
+        requireMultifactorAuthentication: boolean;
+        /**
+         * (Boolean) Is ticket information required to create new assignments.
+         */
+        requireTicketInfo: boolean;
+    }
+
+    export interface GetRoleManagementPolicyEligibleAssignmentRule {
+        /**
+         * (Boolean) Must an assignment have an expiry date.
+         */
+        expirationRequired: boolean;
+        /**
+         * (String) The maximum length of time an assignment can be valid, as an ISO8601 duration.
+         */
+        expireAfter: string;
+    }
+
+    export interface GetRoleManagementPolicyNotificationRule {
+        /**
+         * A `notificationTarget` block as defined below with the details of notfications on active role assignments.
+         */
+        activeAssignments: outputs.pim.GetRoleManagementPolicyNotificationRuleActiveAssignment[];
+        /**
+         * A `notificationTarget` block as defined below with the details of notifications on activation of eligible role.
+         */
+        eligibleActivations: outputs.pim.GetRoleManagementPolicyNotificationRuleEligibleActivation[];
+        /**
+         * A `notificationTarget` block as defined below with the details of notifications on eligible role assignments.
+         */
+        eligibleAssignments: outputs.pim.GetRoleManagementPolicyNotificationRuleEligibleAssignment[];
+    }
+
+    export interface GetRoleManagementPolicyNotificationRuleActiveAssignment {
+        /**
+         * A `notificationSettings` block as defined above.
+         */
+        adminNotifications: outputs.pim.GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotification[];
+        /**
+         * A `notificationSettings` block as defined above.
+         */
+        approverNotifications: outputs.pim.GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotification[];
+        /**
+         * A `notificationSettings` block as defined above.
+         */
+        assigneeNotifications: outputs.pim.GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotification[];
+    }
+
+    export interface GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotification {
+        /**
+         * A list of additional email addresses that will receive these notifications.
+         */
+        additionalRecipients: string[];
+        /**
+         * (Boolean) Should the default recipients receive these notifications.
+         */
+        defaultRecipients: boolean;
+        /**
+         * (String) What level of notifications should be sent. Either `All` or `Critical`.
+         */
+        notificationLevel: string;
+    }
+
+    export interface GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotification {
+        /**
+         * A list of additional email addresses that will receive these notifications.
+         */
+        additionalRecipients: string[];
+        /**
+         * (Boolean) Should the default recipients receive these notifications.
+         */
+        defaultRecipients: boolean;
+        /**
+         * (String) What level of notifications should be sent. Either `All` or `Critical`.
+         */
+        notificationLevel: string;
+    }
+
+    export interface GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotification {
+        /**
+         * A list of additional email addresses that will receive these notifications.
+         */
+        additionalRecipients: string[];
+        /**
+         * (Boolean) Should the default recipients receive these notifications.
+         */
+        defaultRecipients: boolean;
+        /**
+         * (String) What level of notifications should be sent. Either `All` or `Critical`.
+         */
+        notificationLevel: string;
+    }
+
+    export interface GetRoleManagementPolicyNotificationRuleEligibleActivation {
+        /**
+         * A `notificationSettings` block as defined above.
+         */
+        adminNotifications: outputs.pim.GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotification[];
+        /**
+         * A `notificationSettings` block as defined above.
+         */
+        approverNotifications: outputs.pim.GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotification[];
+        /**
+         * A `notificationSettings` block as defined above.
+         */
+        assigneeNotifications: outputs.pim.GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotification[];
+    }
+
+    export interface GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotification {
+        /**
+         * A list of additional email addresses that will receive these notifications.
+         */
+        additionalRecipients: string[];
+        /**
+         * (Boolean) Should the default recipients receive these notifications.
+         */
+        defaultRecipients: boolean;
+        /**
+         * (String) What level of notifications should be sent. Either `All` or `Critical`.
+         */
+        notificationLevel: string;
+    }
+
+    export interface GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotification {
+        /**
+         * A list of additional email addresses that will receive these notifications.
+         */
+        additionalRecipients: string[];
+        /**
+         * (Boolean) Should the default recipients receive these notifications.
+         */
+        defaultRecipients: boolean;
+        /**
+         * (String) What level of notifications should be sent. Either `All` or `Critical`.
+         */
+        notificationLevel: string;
+    }
+
+    export interface GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotification {
+        /**
+         * A list of additional email addresses that will receive these notifications.
+         */
+        additionalRecipients: string[];
+        /**
+         * (Boolean) Should the default recipients receive these notifications.
+         */
+        defaultRecipients: boolean;
+        /**
+         * (String) What level of notifications should be sent. Either `All` or `Critical`.
+         */
+        notificationLevel: string;
+    }
+
+    export interface GetRoleManagementPolicyNotificationRuleEligibleAssignment {
+        /**
+         * A `notificationSettings` block as defined above.
+         */
+        adminNotifications: outputs.pim.GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotification[];
+        /**
+         * A `notificationSettings` block as defined above.
+         */
+        approverNotifications: outputs.pim.GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotification[];
+        /**
+         * A `notificationSettings` block as defined above.
+         */
+        assigneeNotifications: outputs.pim.GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotification[];
+    }
+
+    export interface GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotification {
+        /**
+         * A list of additional email addresses that will receive these notifications.
+         */
+        additionalRecipients: string[];
+        /**
+         * (Boolean) Should the default recipients receive these notifications.
+         */
+        defaultRecipients: boolean;
+        /**
+         * (String) What level of notifications should be sent. Either `All` or `Critical`.
+         */
+        notificationLevel: string;
+    }
+
+    export interface GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotification {
+        /**
+         * A list of additional email addresses that will receive these notifications.
+         */
+        additionalRecipients: string[];
+        /**
+         * (Boolean) Should the default recipients receive these notifications.
+         */
+        defaultRecipients: boolean;
+        /**
+         * (String) What level of notifications should be sent. Either `All` or `Critical`.
+         */
+        notificationLevel: string;
+    }
+
+    export interface GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotification {
+        /**
+         * A list of additional email addresses that will receive these notifications.
+         */
+        additionalRecipients: string[];
+        /**
+         * (Boolean) Should the default recipients receive these notifications.
+         */
+        defaultRecipients: boolean;
+        /**
+         * (String) What level of notifications should be sent. Either `All` or `Critical`.
+         */
+        notificationLevel: string;
+    }
+
+    export interface RoleManagementPolicyActivationRules {
+        /**
+         * An `approvalStage` block as defined below.
+         */
+        approvalStage?: outputs.pim.RoleManagementPolicyActivationRulesApprovalStage;
+        /**
+         * The maximum length of time an activated role can be valid, in an ISO8601 Duration format (e.g. `PT8H`). Valid range is `PT30M` to `PT23H30M`, in 30 minute increments, or `PT1D`.
+         */
+        maximumDuration: string;
+        /**
+         * Is approval required for activation. If `true` an `approvalStage` block must be provided.
+         */
+        requireApproval: boolean;
+        /**
+         * Is a justification required during activation of the role.
+         */
+        requireJustification: boolean;
+        /**
+         * Is multi-factor authentication required to activate the role. Conflicts with `requiredConditionalAccessAuthenticationContext`.
+         */
+        requireMultifactorAuthentication: boolean;
+        /**
+         * Is ticket information requrired during activation of the role.
+         */
+        requireTicketInfo: boolean;
+        /**
+         * The Entra ID Conditional Access context that must be present for activation. Conflicts with `requireMultifactorAuthentication`.
+         */
+        requiredConditionalAccessAuthenticationContext: string;
+    }
+
+    export interface RoleManagementPolicyActivationRulesApprovalStage {
+        /**
+         * The IDs of the users or groups who can approve the activation
+         */
+        primaryApprovers: outputs.pim.RoleManagementPolicyActivationRulesApprovalStagePrimaryApprover[];
+    }
+
+    export interface RoleManagementPolicyActivationRulesApprovalStagePrimaryApprover {
+        /**
+         * The ID of the object which will act as an approver.
+         */
+        objectId: string;
+        /**
+         * The type of object acting as an approver. Possible options are `User` and `Group`.
+         */
+        type: string;
+    }
+
+    export interface RoleManagementPolicyActiveAssignmentRules {
+        /**
+         * Must an assignment have an expiry date. `false` allows permanent assignment.
+         */
+        expirationRequired: boolean;
+        /**
+         * The maximum length of time an assignment can be valid, as an ISO8601 duration. Permitted values: `P15D`, `P30D`, `P90D`, `P180D`, or `P365D`.
+         */
+        expireAfter: string;
+        /**
+         * Is a justification required to create new assignments.
+         */
+        requireJustification: boolean;
+        /**
+         * Is multi-factor authentication required to create new assignments.
+         */
+        requireMultifactorAuthentication: boolean;
+        /**
+         * Is ticket information required to create new assignments.
+         *
+         * One of `expirationRequired` or `expireAfter` must be provided.
+         */
+        requireTicketInfo: boolean;
+    }
+
+    export interface RoleManagementPolicyEligibleAssignmentRules {
+        /**
+         * Must an assignment have an expiry date. `false` allows permanent assignment.
+         */
+        expirationRequired: boolean;
+        /**
+         * The maximum length of time an assignment can be valid, as an ISO8601 duration. Permitted values: `P15D`, `P30D`, `P90D`, `P180D`, or `P365D`.
+         *
+         * One of `expirationRequired` or `expireAfter` must be provided.
+         */
+        expireAfter: string;
+    }
+
+    export interface RoleManagementPolicyNotificationRules {
+        /**
+         * A `notificationTarget` block as defined below to configure notfications on active role assignments.
+         */
+        activeAssignments: outputs.pim.RoleManagementPolicyNotificationRulesActiveAssignments;
+        /**
+         * A `notificationTarget` block as defined below for configuring notifications on activation of eligible role.
+         */
+        eligibleActivations: outputs.pim.RoleManagementPolicyNotificationRulesEligibleActivations;
+        /**
+         * A `notificationTarget` block as defined below to configure notification on eligible role assignments.
+         *
+         * At least one `notificationTarget` block must be provided.
+         */
+        eligibleAssignments: outputs.pim.RoleManagementPolicyNotificationRulesEligibleAssignments;
+    }
+
+    export interface RoleManagementPolicyNotificationRulesActiveAssignments {
+        /**
+         * Admin notification settings
+         */
+        adminNotifications: outputs.pim.RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications;
+        /**
+         * Approver notification settings
+         */
+        approverNotifications: outputs.pim.RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications;
+        /**
+         * Assignee notification settings
+         */
+        assigneeNotifications: outputs.pim.RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications;
+    }
+
+    export interface RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications {
+        /**
+         * The additional recipients to notify
+         */
+        additionalRecipients: string[];
+        /**
+         * Whether the default recipients are notified
+         */
+        defaultRecipients: boolean;
+        /**
+         * What level of notifications are sent
+         */
+        notificationLevel: string;
+    }
+
+    export interface RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications {
+        /**
+         * The additional recipients to notify
+         */
+        additionalRecipients: string[];
+        /**
+         * Whether the default recipients are notified
+         */
+        defaultRecipients: boolean;
+        /**
+         * What level of notifications are sent
+         */
+        notificationLevel: string;
+    }
+
+    export interface RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications {
+        /**
+         * The additional recipients to notify
+         */
+        additionalRecipients: string[];
+        /**
+         * Whether the default recipients are notified
+         */
+        defaultRecipients: boolean;
+        /**
+         * What level of notifications are sent
+         */
+        notificationLevel: string;
+    }
+
+    export interface RoleManagementPolicyNotificationRulesEligibleActivations {
+        /**
+         * Admin notification settings
+         */
+        adminNotifications: outputs.pim.RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications;
+        /**
+         * Approver notification settings
+         */
+        approverNotifications: outputs.pim.RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications;
+        /**
+         * Assignee notification settings
+         */
+        assigneeNotifications: outputs.pim.RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications;
+    }
+
+    export interface RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications {
+        /**
+         * The additional recipients to notify
+         */
+        additionalRecipients: string[];
+        /**
+         * Whether the default recipients are notified
+         */
+        defaultRecipients: boolean;
+        /**
+         * What level of notifications are sent
+         */
+        notificationLevel: string;
+    }
+
+    export interface RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications {
+        /**
+         * The additional recipients to notify
+         */
+        additionalRecipients: string[];
+        /**
+         * Whether the default recipients are notified
+         */
+        defaultRecipients: boolean;
+        /**
+         * What level of notifications are sent
+         */
+        notificationLevel: string;
+    }
+
+    export interface RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications {
+        /**
+         * The additional recipients to notify
+         */
+        additionalRecipients: string[];
+        /**
+         * Whether the default recipients are notified
+         */
+        defaultRecipients: boolean;
+        /**
+         * What level of notifications are sent
+         */
+        notificationLevel: string;
+    }
+
+    export interface RoleManagementPolicyNotificationRulesEligibleAssignments {
+        /**
+         * Admin notification settings
+         */
+        adminNotifications: outputs.pim.RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications;
+        /**
+         * Approver notification settings
+         */
+        approverNotifications: outputs.pim.RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications;
+        /**
+         * Assignee notification settings
+         */
+        assigneeNotifications: outputs.pim.RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications;
+    }
+
+    export interface RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications {
+        /**
+         * The additional recipients to notify
+         */
+        additionalRecipients: string[];
+        /**
+         * Whether the default recipients are notified
+         */
+        defaultRecipients: boolean;
+        /**
+         * What level of notifications are sent
+         */
+        notificationLevel: string;
+    }
+
+    export interface RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications {
+        /**
+         * The additional recipients to notify
+         */
+        additionalRecipients: string[];
+        /**
+         * Whether the default recipients are notified
+         */
+        defaultRecipients: boolean;
+        /**
+         * What level of notifications are sent
+         */
+        notificationLevel: string;
+    }
+
+    export interface RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications {
+        /**
+         * The additional recipients to notify
+         */
+        additionalRecipients: string[];
+        /**
+         * Whether the default recipients are notified
+         */
+        defaultRecipients: boolean;
+        /**
+         * What level of notifications are sent
+         */
+        notificationLevel: string;
+    }
+
 }
 
 export namespace policy {
@@ -62618,14 +63355,22 @@ export namespace sentinel {
         aggregationMethod: string;
     }
 
-    export interface AlertRuleScheduledIncidentConfiguration {
+    export interface AlertRuleScheduledIncident {
         /**
          * Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule?
          */
-        createIncident: boolean;
+        createIncidentEnabled: boolean;
         /**
          * A `grouping` block as defined below.
          */
+        grouping: outputs.sentinel.AlertRuleScheduledIncidentGrouping;
+    }
+
+    export interface AlertRuleScheduledIncidentConfiguration {
+        /**
+         * @deprecated The `createIncident` property has been superseded by the `createIncidentEnabled` property and will be removed in v4.0 of the AzureRM Provider
+         */
+        createIncident: boolean;
         grouping: outputs.sentinel.AlertRuleScheduledIncidentConfigurationGrouping;
     }
 
@@ -62639,17 +63384,48 @@ export namespace sentinel {
          */
         entityMatchingMethod?: string;
         /**
-         * A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `DisplayName` and `Severity`.
+         * @deprecated The `groupByAlertDetails` property has been superseded by the `byAlertDetails` property and will be removed in v4.0 of the AzureRM Provider
          */
         groupByAlertDetails?: string[];
         /**
-         * A list of custom details keys to group by, only when the `entityMatchingMethod` is `Selected`. Only keys defined in the `customDetails` may be used.
+         * @deprecated The `groupByCustomDetails` property has been superseded by the `byCustomDetails` property and will be removed in v4.0 of the AzureRM Provider
          */
         groupByCustomDetails?: string[];
         /**
-         * A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+         * @deprecated The `groupByEntities` property has been superseded by the `byEntities` property and will be removed in v4.0 of the AzureRM Provider
          */
         groupByEntities?: string[];
+        /**
+         * Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
+         */
+        lookbackDuration?: string;
+        /**
+         * Whether to re-open closed matching incidents? Defaults to `false`.
+         */
+        reopenClosedIncidents?: boolean;
+    }
+
+    export interface AlertRuleScheduledIncidentGrouping {
+        /**
+         * A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `DisplayName` and `Severity`.
+         */
+        byAlertDetails?: string[];
+        /**
+         * A list of custom details keys to group by, only when the `entityMatchingMethod` is `Selected`. Only keys defined in the `customDetails` may be used.
+         */
+        byCustomDetails?: string[];
+        /**
+         * A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+         */
+        byEntities?: string[];
+        /**
+         * Enable grouping incidents created from alerts triggered by this Sentinel Scheduled Alert Rule. Defaults to `true`.
+         */
+        enabled?: boolean;
+        /**
+         * The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
+         */
+        entityMatchingMethod?: string;
         /**
          * Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
          */
@@ -66212,16 +66988,10 @@ export namespace synapse {
     }
 
     export interface WorkspaceAadAdmin {
-        /**
-         * The login name of the Azure AD Administrator of this Synapse Workspace.
-         */
         login: string;
-        /**
-         * The object id of the Azure AD Administrator of this Synapse Workspace.
-         */
         objectId: string;
         /**
-         * The tenant id of the Azure AD Administrator of this Synapse Workspace.
+         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
          */
         tenantId: string;
     }
@@ -66323,16 +67093,10 @@ export namespace synapse {
     }
 
     export interface WorkspaceSqlAadAdmin {
-        /**
-         * The login name of the Azure AD Administrator of this Synapse Workspace SQL.
-         */
         login: string;
-        /**
-         * The object id of the Azure AD Administrator of this Synapse Workspace SQL.
-         */
         objectId: string;
         /**
-         * The tenant id of the Azure AD Administrator of this Synapse Workspace SQL.
+         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
          */
         tenantId: string;
     }

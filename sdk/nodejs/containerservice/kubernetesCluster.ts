@@ -153,7 +153,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly edgeZone!: pulumi.Output<string | undefined>;
     /**
-     * @deprecated The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.
+     * @deprecated The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.
      */
     public readonly enablePodSecurityPolicy!: pulumi.Output<boolean | undefined>;
     /**
@@ -679,7 +679,7 @@ export interface KubernetesClusterState {
      */
     edgeZone?: pulumi.Input<string>;
     /**
-     * @deprecated The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.
+     * @deprecated The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.
      */
     enablePodSecurityPolicy?: pulumi.Input<boolean>;
     /**
@@ -1035,7 +1035,7 @@ export interface KubernetesClusterArgs {
      */
     edgeZone?: pulumi.Input<string>;
     /**
-     * @deprecated The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.
+     * @deprecated The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.
      */
     enablePodSecurityPolicy?: pulumi.Input<boolean>;
     /**

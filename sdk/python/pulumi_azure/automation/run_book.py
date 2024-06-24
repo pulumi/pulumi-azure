@@ -41,7 +41,10 @@ class RunBookArgs:
                
                > **NOTE** The Azure API requires a `publish_content_link` to be supplied even when specifying your own `content`.
         :param pulumi.Input[str] description: A description for this credential.
-        :param pulumi.Input['RunBookDraftArgs'] draft: A `draft` block as defined below .
+        :param pulumi.Input['RunBookDraftArgs'] draft: A `draft` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['RunBookJobScheduleArgs']]] job_schedules: One or more `job_schedule` block as defined below.
+               
+               > **NOTE** AzureRM provides a stand-alone automation.JobSchedule and this inlined `job_schdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] log_activity_trace_level: Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
         :param pulumi.Input[str] name: Specifies the name of the Runbook. Changing this forces a new resource to be created.
@@ -162,7 +165,7 @@ class RunBookArgs:
     @pulumi.getter
     def draft(self) -> Optional[pulumi.Input['RunBookDraftArgs']]:
         """
-        A `draft` block as defined below .
+        A `draft` block as defined below.
         """
         return pulumi.get(self, "draft")
 
@@ -173,6 +176,11 @@ class RunBookArgs:
     @property
     @pulumi.getter(name="jobSchedules")
     def job_schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RunBookJobScheduleArgs']]]]:
+        """
+        One or more `job_schedule` block as defined below.
+
+        > **NOTE** AzureRM provides a stand-alone automation.JobSchedule and this inlined `job_schdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+        """
         return pulumi.get(self, "job_schedules")
 
     @job_schedules.setter
@@ -264,7 +272,10 @@ class _RunBookState:
                
                > **NOTE** The Azure API requires a `publish_content_link` to be supplied even when specifying your own `content`.
         :param pulumi.Input[str] description: A description for this credential.
-        :param pulumi.Input['RunBookDraftArgs'] draft: A `draft` block as defined below .
+        :param pulumi.Input['RunBookDraftArgs'] draft: A `draft` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['RunBookJobScheduleArgs']]] job_schedules: One or more `job_schedule` block as defined below.
+               
+               > **NOTE** AzureRM provides a stand-alone automation.JobSchedule and this inlined `job_schdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] log_activity_trace_level: Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
         :param pulumi.Input[bool] log_progress: Progress log option.
@@ -346,7 +357,7 @@ class _RunBookState:
     @pulumi.getter
     def draft(self) -> Optional[pulumi.Input['RunBookDraftArgs']]:
         """
-        A `draft` block as defined below .
+        A `draft` block as defined below.
         """
         return pulumi.get(self, "draft")
 
@@ -357,6 +368,11 @@ class _RunBookState:
     @property
     @pulumi.getter(name="jobSchedules")
     def job_schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RunBookJobScheduleArgs']]]]:
+        """
+        One or more `job_schedule` block as defined below.
+
+        > **NOTE** AzureRM provides a stand-alone automation.JobSchedule and this inlined `job_schdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+        """
         return pulumi.get(self, "job_schedules")
 
     @job_schedules.setter
@@ -538,7 +554,10 @@ class RunBook(pulumi.CustomResource):
                
                > **NOTE** The Azure API requires a `publish_content_link` to be supplied even when specifying your own `content`.
         :param pulumi.Input[str] description: A description for this credential.
-        :param pulumi.Input[pulumi.InputType['RunBookDraftArgs']] draft: A `draft` block as defined below .
+        :param pulumi.Input[pulumi.InputType['RunBookDraftArgs']] draft: A `draft` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RunBookJobScheduleArgs']]]] job_schedules: One or more `job_schedule` block as defined below.
+               
+               > **NOTE** AzureRM provides a stand-alone automation.JobSchedule and this inlined `job_schdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] log_activity_trace_level: Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
         :param pulumi.Input[bool] log_progress: Progress log option.
@@ -692,7 +711,10 @@ class RunBook(pulumi.CustomResource):
                
                > **NOTE** The Azure API requires a `publish_content_link` to be supplied even when specifying your own `content`.
         :param pulumi.Input[str] description: A description for this credential.
-        :param pulumi.Input[pulumi.InputType['RunBookDraftArgs']] draft: A `draft` block as defined below .
+        :param pulumi.Input[pulumi.InputType['RunBookDraftArgs']] draft: A `draft` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RunBookJobScheduleArgs']]]] job_schedules: One or more `job_schedule` block as defined below.
+               
+               > **NOTE** AzureRM provides a stand-alone automation.JobSchedule and this inlined `job_schdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] log_activity_trace_level: Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
         :param pulumi.Input[bool] log_progress: Progress log option.
@@ -753,13 +775,18 @@ class RunBook(pulumi.CustomResource):
     @pulumi.getter
     def draft(self) -> pulumi.Output[Optional['outputs.RunBookDraft']]:
         """
-        A `draft` block as defined below .
+        A `draft` block as defined below.
         """
         return pulumi.get(self, "draft")
 
     @property
     @pulumi.getter(name="jobSchedules")
     def job_schedules(self) -> pulumi.Output[Sequence['outputs.RunBookJobSchedule']]:
+        """
+        One or more `job_schedule` block as defined below.
+
+        > **NOTE** AzureRM provides a stand-alone automation.JobSchedule and this inlined `job_schdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+        """
         return pulumi.get(self, "job_schedules")
 
     @property

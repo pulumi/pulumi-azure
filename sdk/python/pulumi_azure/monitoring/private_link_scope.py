@@ -15,17 +15,25 @@ __all__ = ['PrivateLinkScopeArgs', 'PrivateLinkScope']
 class PrivateLinkScopeArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 ingestion_access_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 query_access_mode: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a PrivateLinkScope resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Monitor Private Link Scope should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] ingestion_access_mode: The default ingestion access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
         :param pulumi.Input[str] name: The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] query_access_mode: The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Azure Monitor Private Link Scope.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if ingestion_access_mode is not None:
+            pulumi.set(__self__, "ingestion_access_mode", ingestion_access_mode)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if query_access_mode is not None:
+            pulumi.set(__self__, "query_access_mode", query_access_mode)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -42,6 +50,18 @@ class PrivateLinkScopeArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="ingestionAccessMode")
+    def ingestion_access_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default ingestion access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+        """
+        return pulumi.get(self, "ingestion_access_mode")
+
+    @ingestion_access_mode.setter
+    def ingestion_access_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ingestion_access_mode", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -52,6 +72,18 @@ class PrivateLinkScopeArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="queryAccessMode")
+    def query_access_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+        """
+        return pulumi.get(self, "query_access_mode")
+
+    @query_access_mode.setter
+    def query_access_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "query_access_mode", value)
 
     @property
     @pulumi.getter
@@ -69,21 +101,41 @@ class PrivateLinkScopeArgs:
 @pulumi.input_type
 class _PrivateLinkScopeState:
     def __init__(__self__, *,
+                 ingestion_access_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 query_access_mode: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering PrivateLinkScope resources.
+        :param pulumi.Input[str] ingestion_access_mode: The default ingestion access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
         :param pulumi.Input[str] name: The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] query_access_mode: The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Monitor Private Link Scope should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Azure Monitor Private Link Scope.
         """
+        if ingestion_access_mode is not None:
+            pulumi.set(__self__, "ingestion_access_mode", ingestion_access_mode)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if query_access_mode is not None:
+            pulumi.set(__self__, "query_access_mode", query_access_mode)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="ingestionAccessMode")
+    def ingestion_access_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default ingestion access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+        """
+        return pulumi.get(self, "ingestion_access_mode")
+
+    @ingestion_access_mode.setter
+    def ingestion_access_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ingestion_access_mode", value)
 
     @property
     @pulumi.getter
@@ -96,6 +148,18 @@ class _PrivateLinkScopeState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="queryAccessMode")
+    def query_access_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+        """
+        return pulumi.get(self, "query_access_mode")
+
+    @query_access_mode.setter
+    def query_access_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "query_access_mode", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -127,7 +191,9 @@ class PrivateLinkScope(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 ingestion_access_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 query_access_mode: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -145,7 +211,9 @@ class PrivateLinkScope(pulumi.CustomResource):
             location="West Europe")
         example_private_link_scope = azure.monitoring.PrivateLinkScope("example",
             name="example-ampls",
-            resource_group_name=example.name)
+            resource_group_name=example.name,
+            ingestion_access_mode="PrivateOnly",
+            query_access_mode="Open")
         ```
 
         ## Import
@@ -158,7 +226,9 @@ class PrivateLinkScope(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] ingestion_access_mode: The default ingestion access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
         :param pulumi.Input[str] name: The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] query_access_mode: The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Monitor Private Link Scope should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Azure Monitor Private Link Scope.
         """
@@ -182,7 +252,9 @@ class PrivateLinkScope(pulumi.CustomResource):
             location="West Europe")
         example_private_link_scope = azure.monitoring.PrivateLinkScope("example",
             name="example-ampls",
-            resource_group_name=example.name)
+            resource_group_name=example.name,
+            ingestion_access_mode="PrivateOnly",
+            query_access_mode="Open")
         ```
 
         ## Import
@@ -208,7 +280,9 @@ class PrivateLinkScope(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 ingestion_access_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 query_access_mode: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -220,7 +294,9 @@ class PrivateLinkScope(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PrivateLinkScopeArgs.__new__(PrivateLinkScopeArgs)
 
+            __props__.__dict__["ingestion_access_mode"] = ingestion_access_mode
             __props__.__dict__["name"] = name
+            __props__.__dict__["query_access_mode"] = query_access_mode
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -235,7 +311,9 @@ class PrivateLinkScope(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            ingestion_access_mode: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            query_access_mode: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'PrivateLinkScope':
         """
@@ -245,7 +323,9 @@ class PrivateLinkScope(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] ingestion_access_mode: The default ingestion access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
         :param pulumi.Input[str] name: The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] query_access_mode: The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Monitor Private Link Scope should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Azure Monitor Private Link Scope.
         """
@@ -253,10 +333,20 @@ class PrivateLinkScope(pulumi.CustomResource):
 
         __props__ = _PrivateLinkScopeState.__new__(_PrivateLinkScopeState)
 
+        __props__.__dict__["ingestion_access_mode"] = ingestion_access_mode
         __props__.__dict__["name"] = name
+        __props__.__dict__["query_access_mode"] = query_access_mode
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["tags"] = tags
         return PrivateLinkScope(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="ingestionAccessMode")
+    def ingestion_access_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        The default ingestion access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+        """
+        return pulumi.get(self, "ingestion_access_mode")
 
     @property
     @pulumi.getter
@@ -265,6 +355,14 @@ class PrivateLinkScope(pulumi.CustomResource):
         The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="queryAccessMode")
+    def query_access_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+        """
+        return pulumi.get(self, "query_access_mode")
 
     @property
     @pulumi.getter(name="resourceGroupName")

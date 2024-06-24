@@ -674,6 +674,14 @@ class RunBookJobSchedule(dict):
                  job_schedule_id: Optional[str] = None,
                  parameters: Optional[Mapping[str, str]] = None,
                  run_on: Optional[str] = None):
+        """
+        :param str schedule_name: The name of the Schedule.
+        :param str job_schedule_id: The UUID of automation runbook job schedule ID.
+        :param Mapping[str, str] parameters: A map of key/value pairs corresponding to the arguments that can be passed to the Runbook.
+               
+               > **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
+        :param str run_on: Name of a Hybrid Worker Group the Runbook will be executed on.
+        """
         pulumi.set(__self__, "schedule_name", schedule_name)
         if job_schedule_id is not None:
             pulumi.set(__self__, "job_schedule_id", job_schedule_id)
@@ -685,21 +693,35 @@ class RunBookJobSchedule(dict):
     @property
     @pulumi.getter(name="scheduleName")
     def schedule_name(self) -> str:
+        """
+        The name of the Schedule.
+        """
         return pulumi.get(self, "schedule_name")
 
     @property
     @pulumi.getter(name="jobScheduleId")
     def job_schedule_id(self) -> Optional[str]:
+        """
+        The UUID of automation runbook job schedule ID.
+        """
         return pulumi.get(self, "job_schedule_id")
 
     @property
     @pulumi.getter
     def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of key/value pairs corresponding to the arguments that can be passed to the Runbook.
+
+        > **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
+        """
         return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter(name="runOn")
     def run_on(self) -> Optional[str]:
+        """
+        Name of a Hybrid Worker Group the Runbook will be executed on.
+        """
         return pulumi.get(self, "run_on")
 
 

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -65,9 +67,25 @@ export class Account extends pulumi.CustomResource {
     }
 
     /**
+     * A `cors` block as defined below
+     */
+    public readonly cors!: pulumi.Output<outputs.maps.AccountCors | undefined>;
+    /**
+     * One or more `dataStore` blocks as defined below.
+     */
+    public readonly dataStores!: pulumi.Output<outputs.maps.AccountDataStore[] | undefined>;
+    /**
+     * An `identity` block as defined below.
+     */
+    public readonly identity!: pulumi.Output<outputs.maps.AccountIdentity | undefined>;
+    /**
      * Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
      */
     public readonly localAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created. Defaults to `global`.
+     */
+    public readonly location!: pulumi.Output<string>;
     /**
      * The name of the Azure Maps Account. Changing this forces a new resource to be created.
      */
@@ -112,7 +130,11 @@ export class Account extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountState | undefined;
+            resourceInputs["cors"] = state ? state.cors : undefined;
+            resourceInputs["dataStores"] = state ? state.dataStores : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["localAuthenticationEnabled"] = state ? state.localAuthenticationEnabled : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -128,7 +150,11 @@ export class Account extends pulumi.CustomResource {
             if ((!args || args.skuName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
+            resourceInputs["cors"] = args ? args.cors : undefined;
+            resourceInputs["dataStores"] = args ? args.dataStores : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["localAuthenticationEnabled"] = args ? args.localAuthenticationEnabled : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["skuName"] = args ? args.skuName : undefined;
@@ -149,9 +175,25 @@ export class Account extends pulumi.CustomResource {
  */
 export interface AccountState {
     /**
+     * A `cors` block as defined below
+     */
+    cors?: pulumi.Input<inputs.maps.AccountCors>;
+    /**
+     * One or more `dataStore` blocks as defined below.
+     */
+    dataStores?: pulumi.Input<pulumi.Input<inputs.maps.AccountDataStore>[]>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.maps.AccountIdentity>;
+    /**
      * Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
      */
     localAuthenticationEnabled?: pulumi.Input<boolean>;
+    /**
+     * The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created. Defaults to `global`.
+     */
+    location?: pulumi.Input<string>;
     /**
      * The name of the Azure Maps Account. Changing this forces a new resource to be created.
      */
@@ -189,9 +231,25 @@ export interface AccountState {
  */
 export interface AccountArgs {
     /**
+     * A `cors` block as defined below
+     */
+    cors?: pulumi.Input<inputs.maps.AccountCors>;
+    /**
+     * One or more `dataStore` blocks as defined below.
+     */
+    dataStores?: pulumi.Input<pulumi.Input<inputs.maps.AccountDataStore>[]>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.maps.AccountIdentity>;
+    /**
      * Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
      */
     localAuthenticationEnabled?: pulumi.Input<boolean>;
+    /**
+     * The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created. Defaults to `global`.
+     */
+    location?: pulumi.Input<string>;
     /**
      * The name of the Azure Maps Account. Changing this forces a new resource to be created.
      */

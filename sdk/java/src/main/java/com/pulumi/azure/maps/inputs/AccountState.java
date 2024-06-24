@@ -3,10 +3,14 @@
 
 package com.pulumi.azure.maps.inputs;
 
+import com.pulumi.azure.maps.inputs.AccountCorsArgs;
+import com.pulumi.azure.maps.inputs.AccountDataStoreArgs;
+import com.pulumi.azure.maps.inputs.AccountIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,6 +20,51 @@ import javax.annotation.Nullable;
 public final class AccountState extends com.pulumi.resources.ResourceArgs {
 
     public static final AccountState Empty = new AccountState();
+
+    /**
+     * A `cors` block as defined below
+     * 
+     */
+    @Import(name="cors")
+    private @Nullable Output<AccountCorsArgs> cors;
+
+    /**
+     * @return A `cors` block as defined below
+     * 
+     */
+    public Optional<Output<AccountCorsArgs>> cors() {
+        return Optional.ofNullable(this.cors);
+    }
+
+    /**
+     * One or more `data_store` blocks as defined below.
+     * 
+     */
+    @Import(name="dataStores")
+    private @Nullable Output<List<AccountDataStoreArgs>> dataStores;
+
+    /**
+     * @return One or more `data_store` blocks as defined below.
+     * 
+     */
+    public Optional<Output<List<AccountDataStoreArgs>>> dataStores() {
+        return Optional.ofNullable(this.dataStores);
+    }
+
+    /**
+     * An `identity` block as defined below.
+     * 
+     */
+    @Import(name="identity")
+    private @Nullable Output<AccountIdentityArgs> identity;
+
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public Optional<Output<AccountIdentityArgs>> identity() {
+        return Optional.ofNullable(this.identity);
+    }
 
     /**
      * Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
@@ -30,6 +79,21 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> localAuthenticationEnabled() {
         return Optional.ofNullable(this.localAuthenticationEnabled);
+    }
+
+    /**
+     * The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created. Defaults to `global`.
+     * 
+     */
+    @Import(name="location")
+    private @Nullable Output<String> location;
+
+    /**
+     * @return The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created. Defaults to `global`.
+     * 
+     */
+    public Optional<Output<String>> location() {
+        return Optional.ofNullable(this.location);
     }
 
     /**
@@ -144,7 +208,11 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     private AccountState() {}
 
     private AccountState(AccountState $) {
+        this.cors = $.cors;
+        this.dataStores = $.dataStores;
+        this.identity = $.identity;
         this.localAuthenticationEnabled = $.localAuthenticationEnabled;
+        this.location = $.location;
         this.name = $.name;
         this.primaryAccessKey = $.primaryAccessKey;
         this.resourceGroupName = $.resourceGroupName;
@@ -173,6 +241,79 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param cors A `cors` block as defined below
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cors(@Nullable Output<AccountCorsArgs> cors) {
+            $.cors = cors;
+            return this;
+        }
+
+        /**
+         * @param cors A `cors` block as defined below
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cors(AccountCorsArgs cors) {
+            return cors(Output.of(cors));
+        }
+
+        /**
+         * @param dataStores One or more `data_store` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataStores(@Nullable Output<List<AccountDataStoreArgs>> dataStores) {
+            $.dataStores = dataStores;
+            return this;
+        }
+
+        /**
+         * @param dataStores One or more `data_store` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataStores(List<AccountDataStoreArgs> dataStores) {
+            return dataStores(Output.of(dataStores));
+        }
+
+        /**
+         * @param dataStores One or more `data_store` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataStores(AccountDataStoreArgs... dataStores) {
+            return dataStores(List.of(dataStores));
+        }
+
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(@Nullable Output<AccountIdentityArgs> identity) {
+            $.identity = identity;
+            return this;
+        }
+
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(AccountIdentityArgs identity) {
+            return identity(Output.of(identity));
+        }
+
+        /**
          * @param localAuthenticationEnabled Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
          * 
          * @return builder
@@ -191,6 +332,27 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder localAuthenticationEnabled(Boolean localAuthenticationEnabled) {
             return localAuthenticationEnabled(Output.of(localAuthenticationEnabled));
+        }
+
+        /**
+         * @param location The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created. Defaults to `global`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder location(@Nullable Output<String> location) {
+            $.location = location;
+            return this;
+        }
+
+        /**
+         * @param location The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created. Defaults to `global`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder location(String location) {
+            return location(Output.of(location));
         }
 
         /**

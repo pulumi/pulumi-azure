@@ -691,6 +691,14 @@ class RunBookJobScheduleArgs:
                  job_schedule_id: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  run_on: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] schedule_name: The name of the Schedule.
+        :param pulumi.Input[str] job_schedule_id: The UUID of automation runbook job schedule ID.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of key/value pairs corresponding to the arguments that can be passed to the Runbook.
+               
+               > **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
+        :param pulumi.Input[str] run_on: Name of a Hybrid Worker Group the Runbook will be executed on.
+        """
         pulumi.set(__self__, "schedule_name", schedule_name)
         if job_schedule_id is not None:
             pulumi.set(__self__, "job_schedule_id", job_schedule_id)
@@ -702,6 +710,9 @@ class RunBookJobScheduleArgs:
     @property
     @pulumi.getter(name="scheduleName")
     def schedule_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Schedule.
+        """
         return pulumi.get(self, "schedule_name")
 
     @schedule_name.setter
@@ -711,6 +722,9 @@ class RunBookJobScheduleArgs:
     @property
     @pulumi.getter(name="jobScheduleId")
     def job_schedule_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The UUID of automation runbook job schedule ID.
+        """
         return pulumi.get(self, "job_schedule_id")
 
     @job_schedule_id.setter
@@ -720,6 +734,11 @@ class RunBookJobScheduleArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of key/value pairs corresponding to the arguments that can be passed to the Runbook.
+
+        > **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
+        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -729,6 +748,9 @@ class RunBookJobScheduleArgs:
     @property
     @pulumi.getter(name="runOn")
     def run_on(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of a Hybrid Worker Group the Runbook will be executed on.
+        """
         return pulumi.get(self, "run_on")
 
     @run_on.setter

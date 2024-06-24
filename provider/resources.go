@@ -150,7 +150,8 @@ const (
 	azureOperationalInsights   = "OperationalInsights"   // Operational Insights
 	azureOrbital               = "Orbital"               // Orbital
 	azurePaloAlto              = "PaloAlto"              // PaloAlto
-	azurePostgresql            = "PostgreSql"            // Postgress SQL
+	azurePim                   = "Pim"                   // Privileged Identity Management
+	azurePostgresql            = "PostgreSql"            // Postgres SQL
 	azurePolicy                = "Policy"                // Policy
 	azurePortal                = "Portal"                // Portal
 	azurePowerBi               = "PowerBI"               // PowerBI
@@ -1707,6 +1708,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_private_dns_resolver_outbound_endpoint":      {Tok: azureResource(azurePrivateDNS, "ResolverOutboundEndpoint")},
 			"azurerm_private_dns_resolver_virtual_network_link":   {Tok: azureResource(azurePrivateDNS, "ResolverVirtualNetworkLink")},
 
+			"azurerm_role_management_policy": {Tok: azureResource(azurePim, "RoleManagementPolicy")},
+
 			// SQL
 			"azurerm_sql_elasticpool":    {Tok: azureResource(azureSQL, "ElasticPool")},
 			"azurerm_sql_database":       {Tok: azureResource(azureSQL, "Database")},
@@ -2577,8 +2580,9 @@ func Provider() tfbridge.ProviderInfo {
 			},
 
 			// communication
-			"azurerm_communication_service":       {Tok: azureResource(azureCommunication, "Service")},
-			"azurerm_email_communication_service": {Tok: azureResource(azureCommunication, "EmailService")},
+			"azurerm_communication_service":              {Tok: azureResource(azureCommunication, "Service")},
+			"azurerm_email_communication_service":        {Tok: azureResource(azureCommunication, "EmailService")},
+			"azurerm_email_communication_service_domain": {Tok: azureResource(azureCommunication, "EmailServiceDomain")},
 
 			// confidential ledger
 			"azurerm_confidential_ledger": {Tok: azureResource(azureConfidentialLedger, "Ledger")},
@@ -3094,6 +3098,8 @@ func Provider() tfbridge.ProviderInfo {
 			// Dashboard
 			// TODO: This resource is in the "Portal" module in the upstream provider. Move to a new namespace when terraform-provider-azurerm hits v3.0.
 			"azurerm_portal_dashboard": {Tok: azureDataSource(azureDashboard, "azurerm_portal_dashboard")},
+
+			"azurerm_role_management_policy": {Tok: azureDataSource(azurePim, "getRoleManagementPolicy")},
 
 			// Site Recovery
 			"azurerm_site_recovery_fabric":                    {Tok: azureDataSource(azureSiteRecovery, "getFabric")},

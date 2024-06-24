@@ -87,11 +87,16 @@ namespace Pulumi.Azure.Automation
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A `draft` block as defined below .
+        /// A `draft` block as defined below.
         /// </summary>
         [Output("draft")]
         public Output<Outputs.RunBookDraft?> Draft { get; private set; } = null!;
 
+        /// <summary>
+        /// One or more `job_schedule` block as defined below.
+        /// 
+        /// &gt; **NOTE** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `job_schdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+        /// </summary>
         [Output("jobSchedules")]
         public Output<ImmutableArray<Outputs.RunBookJobSchedule>> JobSchedules { get; private set; } = null!;
 
@@ -216,13 +221,19 @@ namespace Pulumi.Azure.Automation
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A `draft` block as defined below .
+        /// A `draft` block as defined below.
         /// </summary>
         [Input("draft")]
         public Input<Inputs.RunBookDraftArgs>? Draft { get; set; }
 
         [Input("jobSchedules")]
         private InputList<Inputs.RunBookJobScheduleArgs>? _jobSchedules;
+
+        /// <summary>
+        /// One or more `job_schedule` block as defined below.
+        /// 
+        /// &gt; **NOTE** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `job_schdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+        /// </summary>
         public InputList<Inputs.RunBookJobScheduleArgs> JobSchedules
         {
             get => _jobSchedules ?? (_jobSchedules = new InputList<Inputs.RunBookJobScheduleArgs>());
@@ -318,13 +329,19 @@ namespace Pulumi.Azure.Automation
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A `draft` block as defined below .
+        /// A `draft` block as defined below.
         /// </summary>
         [Input("draft")]
         public Input<Inputs.RunBookDraftGetArgs>? Draft { get; set; }
 
         [Input("jobSchedules")]
         private InputList<Inputs.RunBookJobScheduleGetArgs>? _jobSchedules;
+
+        /// <summary>
+        /// One or more `job_schedule` block as defined below.
+        /// 
+        /// &gt; **NOTE** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `job_schdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+        /// </summary>
         public InputList<Inputs.RunBookJobScheduleGetArgs> JobSchedules
         {
             get => _jobSchedules ?? (_jobSchedules = new InputList<Inputs.RunBookJobScheduleGetArgs>());

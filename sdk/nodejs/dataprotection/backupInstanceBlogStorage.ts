@@ -104,6 +104,12 @@ export class BackupInstanceBlogStorage extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The list of the container names of the source Storage Account.
+     *
+     * > **Note:** The `storageAccountContainerNames` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storageAccountContainerNames` will force a new resource to be created since it can't be removed once specified.
+     */
+    public readonly storageAccountContainerNames!: pulumi.Output<string[] | undefined>;
+    /**
      * The ID of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
      */
     public readonly storageAccountId!: pulumi.Output<string>;
@@ -128,6 +134,7 @@ export class BackupInstanceBlogStorage extends pulumi.CustomResource {
             resourceInputs["backupPolicyId"] = state ? state.backupPolicyId : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["storageAccountContainerNames"] = state ? state.storageAccountContainerNames : undefined;
             resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
             resourceInputs["vaultId"] = state ? state.vaultId : undefined;
         } else {
@@ -144,6 +151,7 @@ export class BackupInstanceBlogStorage extends pulumi.CustomResource {
             resourceInputs["backupPolicyId"] = args ? args.backupPolicyId : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["storageAccountContainerNames"] = args ? args.storageAccountContainerNames : undefined;
             resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             resourceInputs["vaultId"] = args ? args.vaultId : undefined;
         }
@@ -168,6 +176,12 @@ export interface BackupInstanceBlogStorageState {
      * The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The list of the container names of the source Storage Account.
+     *
+     * > **Note:** The `storageAccountContainerNames` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storageAccountContainerNames` will force a new resource to be created since it can't be removed once specified.
+     */
+    storageAccountContainerNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
      */
@@ -194,6 +208,12 @@ export interface BackupInstanceBlogStorageArgs {
      * The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The list of the container names of the source Storage Account.
+     *
+     * > **Note:** The `storageAccountContainerNames` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storageAccountContainerNames` will force a new resource to be created since it can't be removed once specified.
+     */
+    storageAccountContainerNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
      */

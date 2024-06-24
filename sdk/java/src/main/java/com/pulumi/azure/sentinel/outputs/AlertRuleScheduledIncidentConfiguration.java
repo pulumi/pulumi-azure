@@ -12,28 +12,24 @@ import java.util.Objects;
 @CustomType
 public final class AlertRuleScheduledIncidentConfiguration {
     /**
-     * @return Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule?
+     * @deprecated
+     * The `create_incident` property has been superseded by the `create_incident_enabled` property and will be removed in v4.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* The `create_incident` property has been superseded by the `create_incident_enabled` property and will be removed in v4.0 of the AzureRM Provider */
     private Boolean createIncident;
-    /**
-     * @return A `grouping` block as defined below.
-     * 
-     */
     private AlertRuleScheduledIncidentConfigurationGrouping grouping;
 
     private AlertRuleScheduledIncidentConfiguration() {}
     /**
-     * @return Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule?
+     * @deprecated
+     * The `create_incident` property has been superseded by the `create_incident_enabled` property and will be removed in v4.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* The `create_incident` property has been superseded by the `create_incident_enabled` property and will be removed in v4.0 of the AzureRM Provider */
     public Boolean createIncident() {
         return this.createIncident;
     }
-    /**
-     * @return A `grouping` block as defined below.
-     * 
-     */
     public AlertRuleScheduledIncidentConfigurationGrouping grouping() {
         return this.grouping;
     }

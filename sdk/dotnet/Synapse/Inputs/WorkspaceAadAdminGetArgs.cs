@@ -12,20 +12,14 @@ namespace Pulumi.Azure.Synapse.Inputs
 
     public sealed class WorkspaceAadAdminGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The login name of the Azure AD Administrator of this Synapse Workspace.
-        /// </summary>
         [Input("login", required: true)]
         public Input<string> Login { get; set; } = null!;
 
-        /// <summary>
-        /// The object id of the Azure AD Administrator of this Synapse Workspace.
-        /// </summary>
         [Input("objectId", required: true)]
         public Input<string> ObjectId { get; set; } = null!;
 
         /// <summary>
-        /// The tenant id of the Azure AD Administrator of this Synapse Workspace.
+        /// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
         /// </summary>
         [Input("tenantId", required: true)]
         public Input<string> TenantId { get; set; } = null!;

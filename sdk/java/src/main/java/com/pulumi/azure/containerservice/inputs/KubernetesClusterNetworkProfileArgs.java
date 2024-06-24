@@ -62,28 +62,20 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
     }
 
     /**
-     * Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Disabling this forces a new resource to be created.
-     * 
-     * &gt; **Note:** When `ebpf_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
-     * 
-     * &gt; **Note:** When `ebpf_data_plane` is set to `cilium`, one of either `network_plugin_mode = &#34;overlay&#34;` or `pod_subnet_id` must be specified.
-     * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
+     * @deprecated
+     * This property has been superseded by the property `network_data_plane` and will be removed in v4.0 of the AzureRM provider.
      * 
      */
+    @Deprecated /* This property has been superseded by the property `network_data_plane` and will be removed in v4.0 of the AzureRM provider. */
     @Import(name="ebpfDataPlane")
     private @Nullable Output<String> ebpfDataPlane;
 
     /**
-     * @return Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Disabling this forces a new resource to be created.
-     * 
-     * &gt; **Note:** When `ebpf_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
-     * 
-     * &gt; **Note:** When `ebpf_data_plane` is set to `cilium`, one of either `network_plugin_mode = &#34;overlay&#34;` or `pod_subnet_id` must be specified.
-     * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
+     * @deprecated
+     * This property has been superseded by the property `network_data_plane` and will be removed in v4.0 of the AzureRM provider.
      * 
      */
+    @Deprecated /* This property has been superseded by the property `network_data_plane` and will be removed in v4.0 of the AzureRM provider. */
     public Optional<Output<String>> ebpfDataPlane() {
         return Optional.ofNullable(this.ebpfDataPlane);
     }
@@ -157,6 +149,33 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
     }
 
     /**
+     * Specifies the data plane used for building the Kubernetes network. Possible values are `azure` and `cilium`. Defaults to `azure`. Disabling this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `network_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
+     * 
+     * &gt; **Note:** When `network_data_plane` is set to `cilium`, one of either `network_plugin_mode = &#34;overlay&#34;` or `pod_subnet_id` must be specified.
+     * 
+     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
+     * 
+     */
+    @Import(name="networkDataPlane")
+    private @Nullable Output<String> networkDataPlane;
+
+    /**
+     * @return Specifies the data plane used for building the Kubernetes network. Possible values are `azure` and `cilium`. Defaults to `azure`. Disabling this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `network_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
+     * 
+     * &gt; **Note:** When `network_data_plane` is set to `cilium`, one of either `network_plugin_mode = &#34;overlay&#34;` or `pod_subnet_id` must be specified.
+     * 
+     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
+     * 
+     */
+    public Optional<Output<String>> networkDataPlane() {
+        return Optional.ofNullable(this.networkDataPlane);
+    }
+
+    /**
      * Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** `network_mode` can only be set to `bridge` for existing Kubernetes Clusters and cannot be used to provision new Clusters - this will be removed by Azure in the future.
@@ -222,7 +241,7 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
      * 
      * &gt; **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
      * 
-     * &gt; **Note:** When `network_policy` is set to `cilium`, the `ebpf_data_plane` field must be set to `cilium`.
+     * &gt; **Note:** When `network_policy` is set to `cilium`, the `network_data_plane` field must be set to `cilium`.
      * 
      */
     @Import(name="networkPolicy")
@@ -233,7 +252,7 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
      * 
      * &gt; **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
      * 
-     * &gt; **Note:** When `network_policy` is set to `cilium`, the `ebpf_data_plane` field must be set to `cilium`.
+     * &gt; **Note:** When `network_policy` is set to `cilium`, the `network_data_plane` field must be set to `cilium`.
      * 
      */
     public Optional<Output<String>> networkPolicy() {
@@ -343,6 +362,7 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         this.loadBalancerProfile = $.loadBalancerProfile;
         this.loadBalancerSku = $.loadBalancerSku;
         this.natGatewayProfile = $.natGatewayProfile;
+        this.networkDataPlane = $.networkDataPlane;
         this.networkMode = $.networkMode;
         this.networkPlugin = $.networkPlugin;
         this.networkPluginMode = $.networkPluginMode;
@@ -429,34 +449,26 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         }
 
         /**
-         * @param ebpfDataPlane Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Disabling this forces a new resource to be created.
-         * 
-         * &gt; **Note:** When `ebpf_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
-         * 
-         * &gt; **Note:** When `ebpf_data_plane` is set to `cilium`, one of either `network_plugin_mode = &#34;overlay&#34;` or `pod_subnet_id` must be specified.
-         * 
-         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This property has been superseded by the property `network_data_plane` and will be removed in v4.0 of the AzureRM provider.
+         * 
          */
+        @Deprecated /* This property has been superseded by the property `network_data_plane` and will be removed in v4.0 of the AzureRM provider. */
         public Builder ebpfDataPlane(@Nullable Output<String> ebpfDataPlane) {
             $.ebpfDataPlane = ebpfDataPlane;
             return this;
         }
 
         /**
-         * @param ebpfDataPlane Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Disabling this forces a new resource to be created.
-         * 
-         * &gt; **Note:** When `ebpf_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
-         * 
-         * &gt; **Note:** When `ebpf_data_plane` is set to `cilium`, one of either `network_plugin_mode = &#34;overlay&#34;` or `pod_subnet_id` must be specified.
-         * 
-         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This property has been superseded by the property `network_data_plane` and will be removed in v4.0 of the AzureRM provider.
+         * 
          */
+        @Deprecated /* This property has been superseded by the property `network_data_plane` and will be removed in v4.0 of the AzureRM provider. */
         public Builder ebpfDataPlane(String ebpfDataPlane) {
             return ebpfDataPlane(Output.of(ebpfDataPlane));
         }
@@ -568,6 +580,39 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         }
 
         /**
+         * @param networkDataPlane Specifies the data plane used for building the Kubernetes network. Possible values are `azure` and `cilium`. Defaults to `azure`. Disabling this forces a new resource to be created.
+         * 
+         * &gt; **Note:** When `network_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
+         * 
+         * &gt; **Note:** When `network_data_plane` is set to `cilium`, one of either `network_plugin_mode = &#34;overlay&#34;` or `pod_subnet_id` must be specified.
+         * 
+         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkDataPlane(@Nullable Output<String> networkDataPlane) {
+            $.networkDataPlane = networkDataPlane;
+            return this;
+        }
+
+        /**
+         * @param networkDataPlane Specifies the data plane used for building the Kubernetes network. Possible values are `azure` and `cilium`. Defaults to `azure`. Disabling this forces a new resource to be created.
+         * 
+         * &gt; **Note:** When `network_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
+         * 
+         * &gt; **Note:** When `network_data_plane` is set to `cilium`, one of either `network_plugin_mode = &#34;overlay&#34;` or `pod_subnet_id` must be specified.
+         * 
+         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkDataPlane(String networkDataPlane) {
+            return networkDataPlane(Output.of(networkDataPlane));
+        }
+
+        /**
          * @param networkMode Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
          * 
          * &gt; **Note:** `network_mode` can only be set to `bridge` for existing Kubernetes Clusters and cannot be used to provision new Clusters - this will be removed by Azure in the future.
@@ -651,7 +696,7 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
          * 
          * &gt; **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
          * 
-         * &gt; **Note:** When `network_policy` is set to `cilium`, the `ebpf_data_plane` field must be set to `cilium`.
+         * &gt; **Note:** When `network_policy` is set to `cilium`, the `network_data_plane` field must be set to `cilium`.
          * 
          * @return builder
          * 
@@ -666,7 +711,7 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
          * 
          * &gt; **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
          * 
-         * &gt; **Note:** When `network_policy` is set to `cilium`, the `ebpf_data_plane` field must be set to `cilium`.
+         * &gt; **Note:** When `network_policy` is set to `cilium`, the `network_data_plane` field must be set to `cilium`.
          * 
          * @return builder
          * 

@@ -127,7 +127,7 @@ namespace Pulumi.Azure.CosmosDB
         /// Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
         /// </summary>
         [Output("defaultTtl")]
-        public Output<int> DefaultTtl { get; private set; } = null!;
+        public Output<int?> DefaultTtl { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.

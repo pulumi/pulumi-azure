@@ -48,6 +48,7 @@ public final class HdinsightFunctions {
      *             .build());
      * 
      *         ctx.export("httpsEndpoint", example.applyValue(getClusterResult -> getClusterResult.httpsEndpoint()));
+     *         ctx.export("clusterId", example.applyValue(getClusterResult -> getClusterResult.clusterId()));
      *     }
      * }
      * }
@@ -92,6 +93,7 @@ public final class HdinsightFunctions {
      *             .build());
      * 
      *         ctx.export("httpsEndpoint", example.applyValue(getClusterResult -> getClusterResult.httpsEndpoint()));
+     *         ctx.export("clusterId", example.applyValue(getClusterResult -> getClusterResult.clusterId()));
      *     }
      * }
      * }
@@ -136,6 +138,7 @@ public final class HdinsightFunctions {
      *             .build());
      * 
      *         ctx.export("httpsEndpoint", example.applyValue(getClusterResult -> getClusterResult.httpsEndpoint()));
+     *         ctx.export("clusterId", example.applyValue(getClusterResult -> getClusterResult.clusterId()));
      *     }
      * }
      * }
@@ -180,6 +183,7 @@ public final class HdinsightFunctions {
      *             .build());
      * 
      *         ctx.export("httpsEndpoint", example.applyValue(getClusterResult -> getClusterResult.httpsEndpoint()));
+     *         ctx.export("clusterId", example.applyValue(getClusterResult -> getClusterResult.clusterId()));
      *     }
      * }
      * }

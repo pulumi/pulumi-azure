@@ -1861,10 +1861,16 @@ func (o RunBookDraftParameterArrayOutput) Index(i pulumi.IntInput) RunBookDraftP
 }
 
 type RunBookJobSchedule struct {
-	JobScheduleId *string           `pulumi:"jobScheduleId"`
-	Parameters    map[string]string `pulumi:"parameters"`
-	RunOn         *string           `pulumi:"runOn"`
-	ScheduleName  string            `pulumi:"scheduleName"`
+	// The UUID of automation runbook job schedule ID.
+	JobScheduleId *string `pulumi:"jobScheduleId"`
+	// A map of key/value pairs corresponding to the arguments that can be passed to the Runbook.
+	//
+	// > **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
+	Parameters map[string]string `pulumi:"parameters"`
+	// Name of a Hybrid Worker Group the Runbook will be executed on.
+	RunOn *string `pulumi:"runOn"`
+	// The name of the Schedule.
+	ScheduleName string `pulumi:"scheduleName"`
 }
 
 // RunBookJobScheduleInput is an input type that accepts RunBookJobScheduleArgs and RunBookJobScheduleOutput values.
@@ -1879,10 +1885,16 @@ type RunBookJobScheduleInput interface {
 }
 
 type RunBookJobScheduleArgs struct {
+	// The UUID of automation runbook job schedule ID.
 	JobScheduleId pulumi.StringPtrInput `pulumi:"jobScheduleId"`
-	Parameters    pulumi.StringMapInput `pulumi:"parameters"`
-	RunOn         pulumi.StringPtrInput `pulumi:"runOn"`
-	ScheduleName  pulumi.StringInput    `pulumi:"scheduleName"`
+	// A map of key/value pairs corresponding to the arguments that can be passed to the Runbook.
+	//
+	// > **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	// Name of a Hybrid Worker Group the Runbook will be executed on.
+	RunOn pulumi.StringPtrInput `pulumi:"runOn"`
+	// The name of the Schedule.
+	ScheduleName pulumi.StringInput `pulumi:"scheduleName"`
 }
 
 func (RunBookJobScheduleArgs) ElementType() reflect.Type {
@@ -1936,18 +1948,24 @@ func (o RunBookJobScheduleOutput) ToRunBookJobScheduleOutputWithContext(ctx cont
 	return o
 }
 
+// The UUID of automation runbook job schedule ID.
 func (o RunBookJobScheduleOutput) JobScheduleId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunBookJobSchedule) *string { return v.JobScheduleId }).(pulumi.StringPtrOutput)
 }
 
+// A map of key/value pairs corresponding to the arguments that can be passed to the Runbook.
+//
+// > **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
 func (o RunBookJobScheduleOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v RunBookJobSchedule) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
+// Name of a Hybrid Worker Group the Runbook will be executed on.
 func (o RunBookJobScheduleOutput) RunOn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunBookJobSchedule) *string { return v.RunOn }).(pulumi.StringPtrOutput)
 }
 
+// The name of the Schedule.
 func (o RunBookJobScheduleOutput) ScheduleName() pulumi.StringOutput {
 	return o.ApplyT(func(v RunBookJobSchedule) string { return v.ScheduleName }).(pulumi.StringOutput)
 }

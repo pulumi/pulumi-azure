@@ -102,7 +102,7 @@ namespace Pulumi.Azure.MachineLearning
         /// An URL used for authentication.
         /// </summary>
         [Output("authorityUrl")]
-        public Output<string> AuthorityUrl { get; private set; } = null!;
+        public Output<string?> AuthorityUrl { get; private set; } = null!;
 
         /// <summary>
         /// The object ID of the Service Principal.

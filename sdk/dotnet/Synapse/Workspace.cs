@@ -53,12 +53,6 @@ namespace Pulumi.Azure.Synapse
     ///         StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
     ///         SqlAdministratorLogin = "sqladminuser",
     ///         SqlAdministratorLoginPassword = "H@Sh1CoR3!",
-    ///         AadAdmin = new Azure.Synapse.Inputs.WorkspaceAadAdminArgs
-    ///         {
-    ///             Login = "AzureAD Admin",
-    ///             ObjectId = "00000000-0000-0000-0000-000000000000",
-    ///             TenantId = "00000000-0000-0000-0000-000000000000",
-    ///         },
     ///         Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
@@ -229,9 +223,6 @@ namespace Pulumi.Azure.Synapse
     [AzureResourceType("azure:synapse/workspace:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// An `aad_admin` block as defined below.
-        /// </summary>
         [Output("aadAdmin")]
         public Output<Outputs.WorkspaceAadAdmin> AadAdmin { get; private set; } = null!;
 
@@ -331,9 +322,6 @@ namespace Pulumi.Azure.Synapse
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// An `sql_aad_admin` block as defined below.
-        /// </summary>
         [Output("sqlAadAdmin")]
         public Output<Outputs.WorkspaceSqlAadAdmin> SqlAadAdmin { get; private set; } = null!;
 
@@ -417,9 +405,6 @@ namespace Pulumi.Azure.Synapse
 
     public sealed class WorkspaceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An `aad_admin` block as defined below.
-        /// </summary>
         [Input("aadAdmin")]
         public Input<Inputs.WorkspaceAadAdminArgs>? AadAdmin { get; set; }
 
@@ -519,9 +504,6 @@ namespace Pulumi.Azure.Synapse
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        /// <summary>
-        /// An `sql_aad_admin` block as defined below.
-        /// </summary>
         [Input("sqlAadAdmin")]
         public Input<Inputs.WorkspaceSqlAadAdminArgs>? SqlAadAdmin { get; set; }
 
@@ -579,9 +561,6 @@ namespace Pulumi.Azure.Synapse
 
     public sealed class WorkspaceState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An `aad_admin` block as defined below.
-        /// </summary>
         [Input("aadAdmin")]
         public Input<Inputs.WorkspaceAadAdminGetArgs>? AadAdmin { get; set; }
 
@@ -693,9 +672,6 @@ namespace Pulumi.Azure.Synapse
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
-        /// <summary>
-        /// An `sql_aad_admin` block as defined below.
-        /// </summary>
         [Input("sqlAadAdmin")]
         public Input<Inputs.WorkspaceSqlAadAdminGetArgs>? SqlAadAdmin { get; set; }
 

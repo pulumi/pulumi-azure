@@ -124,7 +124,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly notificationSenderEmail!: pulumi.Output<string>;
     /**
-     * A `policy` block as defined below.
+     * @deprecated The `policy` block has been superseded by the resource `azure.apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider
      */
     public readonly policy!: pulumi.Output<outputs.apimanagement.ServicePolicy>;
     /**
@@ -384,7 +384,7 @@ export interface ServiceState {
      */
     notificationSenderEmail?: pulumi.Input<string>;
     /**
-     * A `policy` block as defined below.
+     * @deprecated The `policy` block has been superseded by the resource `azure.apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider
      */
     policy?: pulumi.Input<inputs.apimanagement.ServicePolicy>;
     /**
@@ -526,7 +526,7 @@ export interface ServiceArgs {
      */
     notificationSenderEmail?: pulumi.Input<string>;
     /**
-     * A `policy` block as defined below.
+     * @deprecated The `policy` block has been superseded by the resource `azure.apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider
      */
     policy?: pulumi.Input<inputs.apimanagement.ServicePolicy>;
     /**

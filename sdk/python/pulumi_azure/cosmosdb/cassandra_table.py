@@ -504,7 +504,7 @@ class CassandraTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultTtl")
-    def default_ttl(self) -> pulumi.Output[int]:
+    def default_ttl(self) -> pulumi.Output[Optional[int]]:
         """
         Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
         """

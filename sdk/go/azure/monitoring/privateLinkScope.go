@@ -37,8 +37,10 @@ import (
 //				return err
 //			}
 //			_, err = monitoring.NewPrivateLinkScope(ctx, "example", &monitoring.PrivateLinkScopeArgs{
-//				Name:              pulumi.String("example-ampls"),
-//				ResourceGroupName: example.Name,
+//				Name:                pulumi.String("example-ampls"),
+//				ResourceGroupName:   example.Name,
+//				IngestionAccessMode: pulumi.String("PrivateOnly"),
+//				QueryAccessMode:     pulumi.String("Open"),
 //			})
 //			if err != nil {
 //				return err
@@ -59,8 +61,12 @@ import (
 type PrivateLinkScope struct {
 	pulumi.CustomResourceState
 
+	// The default ingestion access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+	IngestionAccessMode pulumi.StringPtrOutput `pulumi:"ingestionAccessMode"`
 	// The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+	QueryAccessMode pulumi.StringPtrOutput `pulumi:"queryAccessMode"`
 	// The name of the Resource Group where the Azure Monitor Private Link Scope should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags which should be assigned to the Azure Monitor Private Link Scope.
@@ -100,8 +106,12 @@ func GetPrivateLinkScope(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PrivateLinkScope resources.
 type privateLinkScopeState struct {
+	// The default ingestion access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+	IngestionAccessMode *string `pulumi:"ingestionAccessMode"`
 	// The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+	QueryAccessMode *string `pulumi:"queryAccessMode"`
 	// The name of the Resource Group where the Azure Monitor Private Link Scope should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags which should be assigned to the Azure Monitor Private Link Scope.
@@ -109,8 +119,12 @@ type privateLinkScopeState struct {
 }
 
 type PrivateLinkScopeState struct {
+	// The default ingestion access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+	IngestionAccessMode pulumi.StringPtrInput
 	// The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+	QueryAccessMode pulumi.StringPtrInput
 	// The name of the Resource Group where the Azure Monitor Private Link Scope should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Azure Monitor Private Link Scope.
@@ -122,8 +136,12 @@ func (PrivateLinkScopeState) ElementType() reflect.Type {
 }
 
 type privateLinkScopeArgs struct {
+	// The default ingestion access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+	IngestionAccessMode *string `pulumi:"ingestionAccessMode"`
 	// The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+	QueryAccessMode *string `pulumi:"queryAccessMode"`
 	// The name of the Resource Group where the Azure Monitor Private Link Scope should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags which should be assigned to the Azure Monitor Private Link Scope.
@@ -132,8 +150,12 @@ type privateLinkScopeArgs struct {
 
 // The set of arguments for constructing a PrivateLinkScope resource.
 type PrivateLinkScopeArgs struct {
+	// The default ingestion access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+	IngestionAccessMode pulumi.StringPtrInput
 	// The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+	QueryAccessMode pulumi.StringPtrInput
 	// The name of the Resource Group where the Azure Monitor Private Link Scope should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags which should be assigned to the Azure Monitor Private Link Scope.
@@ -227,9 +249,19 @@ func (o PrivateLinkScopeOutput) ToPrivateLinkScopeOutputWithContext(ctx context.
 	return o
 }
 
+// The default ingestion access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+func (o PrivateLinkScopeOutput) IngestionAccessMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkScope) pulumi.StringPtrOutput { return v.IngestionAccessMode }).(pulumi.StringPtrOutput)
+}
+
 // The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
 func (o PrivateLinkScopeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateLinkScope) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+func (o PrivateLinkScopeOutput) QueryAccessMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkScope) pulumi.StringPtrOutput { return v.QueryAccessMode }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Resource Group where the Azure Monitor Private Link Scope should exist. Changing this forces a new resource to be created.

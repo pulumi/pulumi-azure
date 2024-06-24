@@ -23,15 +23,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// &gt; **Note:** `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         /// </summary>
         public readonly string? DockerBridgeCidr;
-        /// <summary>
-        /// Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Disabling this forces a new resource to be created.
-        /// 
-        /// &gt; **Note:** When `ebpf_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
-        /// 
-        /// &gt; **Note:** When `ebpf_data_plane` is set to `cilium`, one of either `network_plugin_mode = "overlay"` or `pod_subnet_id` must be specified.
-        /// 
-        /// &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
-        /// </summary>
         public readonly string? EbpfDataPlane;
         /// <summary>
         /// Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
@@ -53,6 +44,16 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// A `nat_gateway_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly Outputs.KubernetesClusterNetworkProfileNatGatewayProfile? NatGatewayProfile;
+        /// <summary>
+        /// Specifies the data plane used for building the Kubernetes network. Possible values are `azure` and `cilium`. Defaults to `azure`. Disabling this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** When `network_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
+        /// 
+        /// &gt; **Note:** When `network_data_plane` is set to `cilium`, one of either `network_plugin_mode = "overlay"` or `pod_subnet_id` must be specified.
+        /// 
+        /// &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
+        /// </summary>
+        public readonly string? NetworkDataPlane;
         /// <summary>
         /// Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
         /// 
@@ -78,7 +79,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// 
         /// &gt; **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
         /// 
-        /// &gt; **Note:** When `network_policy` is set to `cilium`, the `ebpf_data_plane` field must be set to `cilium`.
+        /// &gt; **Note:** When `network_policy` is set to `cilium`, the `network_data_plane` field must be set to `cilium`.
         /// </summary>
         public readonly string? NetworkPolicy;
         public readonly ImmutableArray<string> OutboundIpAddressIds;
@@ -122,6 +123,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             Outputs.KubernetesClusterNetworkProfileNatGatewayProfile? natGatewayProfile,
 
+            string? networkDataPlane,
+
             string? networkMode,
 
             string networkPlugin,
@@ -151,6 +154,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             LoadBalancerProfile = loadBalancerProfile;
             LoadBalancerSku = loadBalancerSku;
             NatGatewayProfile = natGatewayProfile;
+            NetworkDataPlane = networkDataPlane;
             NetworkMode = networkMode;
             NetworkPlugin = networkPlugin;
             NetworkPluginMode = networkPluginMode;

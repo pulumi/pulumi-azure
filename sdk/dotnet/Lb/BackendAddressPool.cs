@@ -110,6 +110,14 @@ namespace Pulumi.Azure.Lb
         public Output<ImmutableArray<string>> OutboundRules { get; private set; } = null!;
 
         /// <summary>
+        /// The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtual_network_id`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
+        /// </summary>
+        [Output("synchronousMode")]
+        public Output<string?> SynchronousMode { get; private set; } = null!;
+
+        /// <summary>
         /// One or more `tunnel_interface` blocks as defined below.
         /// </summary>
         [Output("tunnelInterfaces")]
@@ -178,6 +186,14 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtual_network_id`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
+        /// </summary>
+        [Input("synchronousMode")]
+        public Input<string>? SynchronousMode { get; set; }
 
         [Input("tunnelInterfaces")]
         private InputList<Inputs.BackendAddressPoolTunnelInterfaceArgs>? _tunnelInterfaces;
@@ -264,6 +280,14 @@ namespace Pulumi.Azure.Lb
             get => _outboundRules ?? (_outboundRules = new InputList<string>());
             set => _outboundRules = value;
         }
+
+        /// <summary>
+        /// The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtual_network_id`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
+        /// </summary>
+        [Input("synchronousMode")]
+        public Input<string>? SynchronousMode { get; set; }
 
         [Input("tunnelInterfaces")]
         private InputList<Inputs.BackendAddressPoolTunnelInterfaceGetArgs>? _tunnelInterfaces;
