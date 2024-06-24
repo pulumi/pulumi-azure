@@ -249,7 +249,7 @@ index a6e28af30a..d1804e780b 100644
  
  The deprecated field `start_task.environment` will be removed in favour of the `start_task.common_environment_properties` properties.
 diff --git a/website/docs/r/api_management.html.markdown b/website/docs/r/api_management.html.markdown
-index 0a17990cdc..83a563279f 100644
+index 3028d8fdb7..ad73383d68 100644
 --- a/website/docs/r/api_management.html.markdown
 +++ b/website/docs/r/api_management.html.markdown
 @@ -31,7 +31,7 @@ resource "azurerm_api_management" "example" {
@@ -638,10 +638,10 @@ index e9013a8f1a..f3f07aa79a 100644
  To find the Analytics Item ID you can query the REST API using the [`az rest` CLI command](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-rest), e.g.
  
 diff --git a/website/docs/r/automation_job_schedule.html.markdown b/website/docs/r/automation_job_schedule.html.markdown
-index db8146c418..5ede0b01b2 100644
+index cf1fbfa577..42f3ef7f89 100644
 --- a/website/docs/r/automation_job_schedule.html.markdown
 +++ b/website/docs/r/automation_job_schedule.html.markdown
-@@ -12,7 +12,7 @@ Links an Automation Runbook and Schedule.
+@@ -14,7 +14,7 @@ Links an Automation Runbook and Schedule.
  
  ## Example Usage
  
@@ -1140,10 +1140,10 @@ index b10dc1693a..bfc5dfcfd7 100644
  ---
  
 diff --git a/website/docs/r/cosmosdb_sql_container.html.markdown b/website/docs/r/cosmosdb_sql_container.html.markdown
-index d1745321f5..8cf56b2a69 100644
+index be6866ba9d..42950fef06 100644
 --- a/website/docs/r/cosmosdb_sql_container.html.markdown
 +++ b/website/docs/r/cosmosdb_sql_container.html.markdown
-@@ -73,11 +73,11 @@ The following arguments are supported:
+@@ -75,11 +75,11 @@ The following arguments are supported:
  
  * `unique_key` - (Optional) One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
  
@@ -1794,7 +1794,7 @@ index c6387f8e37..ab11365777 100644
  
  ```hcl
 diff --git a/website/docs/r/kubernetes_cluster.html.markdown b/website/docs/r/kubernetes_cluster.html.markdown
-index d61a413f62..5dea5933b9 100644
+index 521522ff20..39c9ea274b 100644
 --- a/website/docs/r/kubernetes_cluster.html.markdown
 +++ b/website/docs/r/kubernetes_cluster.html.markdown
 @@ -10,15 +10,9 @@ description: |-
