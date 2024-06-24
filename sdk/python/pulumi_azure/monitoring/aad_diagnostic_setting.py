@@ -113,15 +113,13 @@ class AadDiagnosticSettingArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""`log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.""")
     def logs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AadDiagnosticSettingLogArgs']]]]:
         """
         One or more `log` blocks as defined below.
 
         > **NOTE:** `log` is deprecated in favour of the `enabled_log` property and will be removed in version 4.0 of the AzureRM Provider.
         """
-        warnings.warn("""`log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""logs is deprecated: `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "logs")
 
     @logs.setter
@@ -255,15 +253,13 @@ class _AadDiagnosticSettingState:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""`log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.""")
     def logs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AadDiagnosticSettingLogArgs']]]]:
         """
         One or more `log` blocks as defined below.
 
         > **NOTE:** `log` is deprecated in favour of the `enabled_log` property and will be removed in version 4.0 of the AzureRM Provider.
         """
-        warnings.warn("""`log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""logs is deprecated: `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "logs")
 
     @logs.setter
@@ -591,15 +587,13 @@ class AadDiagnosticSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""`log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.""")
     def logs(self) -> pulumi.Output[Sequence['outputs.AadDiagnosticSettingLog']]:
         """
         One or more `log` blocks as defined below.
 
         > **NOTE:** `log` is deprecated in favour of the `enabled_log` property and will be removed in version 4.0 of the AzureRM Provider.
         """
-        warnings.warn("""`log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""logs is deprecated: `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "logs")
 
     @property

@@ -148,6 +148,7 @@ class KeyVaultArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.""")
     def contacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultContactArgs']]]]:
         """
         One or more `contact` block as defined below.
@@ -156,9 +157,6 @@ class KeyVaultArgs:
 
         > **Note:** This field can only be set when `public_network_access_enabled` is set to `true`. To manage the `contact` with `public_network_access_enabled` set to `false`, please use the `keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `keyvault.KeyVault`, this means you'll need to import the `keyvault.CertificateContacts` manually.
         """
-        warnings.warn("""As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.""", DeprecationWarning)
-        pulumi.log.warn("""contacts is deprecated: As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.""")
-
         return pulumi.get(self, "contacts")
 
     @contacts.setter
@@ -410,6 +408,7 @@ class _KeyVaultState:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.""")
     def contacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultContactArgs']]]]:
         """
         One or more `contact` block as defined below.
@@ -418,9 +417,6 @@ class _KeyVaultState:
 
         > **Note:** This field can only be set when `public_network_access_enabled` is set to `true`. To manage the `contact` with `public_network_access_enabled` set to `false`, please use the `keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `keyvault.KeyVault`, this means you'll need to import the `keyvault.CertificateContacts` manually.
         """
-        warnings.warn("""As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.""", DeprecationWarning)
-        pulumi.log.warn("""contacts is deprecated: As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.""")
-
         return pulumi.get(self, "contacts")
 
     @contacts.setter
@@ -925,6 +921,7 @@ class KeyVault(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.""")
     def contacts(self) -> pulumi.Output[Sequence['outputs.KeyVaultContact']]:
         """
         One or more `contact` block as defined below.
@@ -933,9 +930,6 @@ class KeyVault(pulumi.CustomResource):
 
         > **Note:** This field can only be set when `public_network_access_enabled` is set to `true`. To manage the `contact` with `public_network_access_enabled` set to `false`, please use the `keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `keyvault.KeyVault`, this means you'll need to import the `keyvault.CertificateContacts` manually.
         """
-        warnings.warn("""As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.""", DeprecationWarning)
-        pulumi.log.warn("""contacts is deprecated: As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.""")
-
         return pulumi.get(self, "contacts")
 
     @property

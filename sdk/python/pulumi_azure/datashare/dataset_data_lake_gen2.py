@@ -289,7 +289,7 @@ class DatasetDataLakeGen2(pulumi.CustomResource):
             storage_account_id=example_account2.id,
             file_system_name=example_data_lake_gen2_filesystem.name,
             file_path="myfile.txt",
-            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
+            opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
 
         ## Import
@@ -360,7 +360,7 @@ class DatasetDataLakeGen2(pulumi.CustomResource):
             storage_account_id=example_account2.id,
             file_system_name=example_data_lake_gen2_filesystem.name,
             file_path="myfile.txt",
-            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
+            opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
 
         ## Import

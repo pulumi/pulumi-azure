@@ -538,7 +538,7 @@ class CassandraCluster(pulumi.CustomResource):
             location=example_resource_group.location,
             delegated_management_subnet_id=example_subnet.id,
             default_admin_password="Password1234",
-            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
+            opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
 
         ## Import
@@ -610,7 +610,7 @@ class CassandraCluster(pulumi.CustomResource):
             location=example_resource_group.location,
             delegated_management_subnet_id=example_subnet.id,
             default_admin_password="Password1234",
-            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
+            opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
 
         ## Import

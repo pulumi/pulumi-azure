@@ -478,7 +478,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             retention_in_days=6,
             log_monitoring_enabled=False,
             storage_account_subscription_id=primary_azurerm_subscription["subscriptionId"],
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example_assignment,
                     example_account,
                 ]))
@@ -621,7 +621,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             retention_in_days=6,
             log_monitoring_enabled=False,
             storage_account_subscription_id=primary_azurerm_subscription["subscriptionId"],
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example_assignment,
                     example_account,
                 ]))

@@ -16982,10 +16982,8 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
 
     @property
     @pulumi.getter(name="dockerImage")
+    @_utilities.deprecated("""This property has been deprecated and will be removed in 4.0 of the provider.""")
     def docker_image(self) -> Optional[pulumi.Input[str]]:
-        warnings.warn("""This property has been deprecated and will be removed in 4.0 of the provider.""", DeprecationWarning)
-        pulumi.log.warn("""docker_image is deprecated: This property has been deprecated and will be removed in 4.0 of the provider.""")
-
         return pulumi.get(self, "docker_image")
 
     @docker_image.setter
@@ -17006,10 +17004,8 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
 
     @property
     @pulumi.getter(name="dockerImageTag")
+    @_utilities.deprecated("""This property has been deprecated and will be removed in 4.0 of the provider.""")
     def docker_image_tag(self) -> Optional[pulumi.Input[str]]:
-        warnings.warn("""This property has been deprecated and will be removed in 4.0 of the provider.""", DeprecationWarning)
-        pulumi.log.warn("""docker_image_tag is deprecated: This property has been deprecated and will be removed in 4.0 of the provider.""")
-
         return pulumi.get(self, "docker_image_tag")
 
     @docker_image_tag.setter
@@ -17420,15 +17416,13 @@ class LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""`path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.""")
     def path(self) -> Optional[pulumi.Input[str]]:
         """
         The path for which this slow request rule applies.
 
         > **NOTE:** `path` in `slow_request` block will be deprecated in 4.0 provider. Please use `slow_request_with_path` to set a slow request trigger with path specified.
         """
-        warnings.warn("""`path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""path is deprecated: `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "path")
 
     @path.setter
@@ -21325,10 +21319,8 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgs:
 
     @property
     @pulumi.getter(name="dockerImage")
+    @_utilities.deprecated("""This property has been deprecated and will be removed in 4.0 of the provider.""")
     def docker_image(self) -> Optional[pulumi.Input[str]]:
-        warnings.warn("""This property has been deprecated and will be removed in 4.0 of the provider.""", DeprecationWarning)
-        pulumi.log.warn("""docker_image is deprecated: This property has been deprecated and will be removed in 4.0 of the provider.""")
-
         return pulumi.get(self, "docker_image")
 
     @docker_image.setter
@@ -21349,10 +21341,8 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgs:
 
     @property
     @pulumi.getter(name="dockerImageTag")
+    @_utilities.deprecated("""This property has been deprecated and will be removed in 4.0 of the provider.""")
     def docker_image_tag(self) -> Optional[pulumi.Input[str]]:
-        warnings.warn("""This property has been deprecated and will be removed in 4.0 of the provider.""", DeprecationWarning)
-        pulumi.log.warn("""docker_image_tag is deprecated: This property has been deprecated and will be removed in 4.0 of the provider.""")
-
         return pulumi.get(self, "docker_image_tag")
 
     @docker_image_tag.setter
@@ -21761,15 +21751,13 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""`path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.""")
     def path(self) -> Optional[pulumi.Input[str]]:
         """
         The path for which this slow request rule applies.
 
         > **NOTE:** `path` in `slow_request` block will be deprecated in 4.0 provider. Please use `slow_request_with_path` to set a slow request trigger with path specified.
         """
-        warnings.warn("""`path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""path is deprecated: `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "path")
 
     @path.setter
@@ -35892,10 +35880,8 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
 
     @property
     @pulumi.getter(name="dockerContainerRegistry")
+    @_utilities.deprecated("""This property has been deprecated and will be removed in a future release of the provider.""")
     def docker_container_registry(self) -> Optional[pulumi.Input[str]]:
-        warnings.warn("""This property has been deprecated and will be removed in a future release of the provider.""", DeprecationWarning)
-        pulumi.log.warn("""docker_container_registry is deprecated: This property has been deprecated and will be removed in a future release of the provider.""")
-
         return pulumi.get(self, "docker_container_registry")
 
     @docker_container_registry.setter
@@ -35999,10 +35985,8 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
 
     @property
     @pulumi.getter(name="javaContainer")
+    @_utilities.deprecated("""this property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled`""")
     def java_container(self) -> Optional[pulumi.Input[str]]:
-        warnings.warn("""this property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled`""", DeprecationWarning)
-        pulumi.log.warn("""java_container is deprecated: this property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled`""")
-
         return pulumi.get(self, "java_container")
 
     @java_container.setter
@@ -36011,10 +35995,8 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
 
     @property
     @pulumi.getter(name="javaContainerVersion")
+    @_utilities.deprecated("""This property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled`""")
     def java_container_version(self) -> Optional[pulumi.Input[str]]:
-        warnings.warn("""This property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled`""", DeprecationWarning)
-        pulumi.log.warn("""java_container_version is deprecated: This property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled`""")
-
         return pulumi.get(self, "java_container_version")
 
     @java_container_version.setter
@@ -36089,10 +36071,8 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
 
     @property
     @pulumi.getter(name="pythonVersion")
+    @_utilities.deprecated("""This property is deprecated. Values set are not used by the service.""")
     def python_version(self) -> Optional[pulumi.Input[str]]:
-        warnings.warn("""This property is deprecated. Values set are not used by the service.""", DeprecationWarning)
-        pulumi.log.warn("""python_version is deprecated: This property is deprecated. Values set are not used by the service.""")
-
         return pulumi.get(self, "python_version")
 
     @python_version.setter
@@ -36427,13 +36407,11 @@ class WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""`path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.""")
     def path(self) -> Optional[pulumi.Input[str]]:
         """
         The path for which this slow request rule applies.
         """
-        warnings.warn("""`path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""path is deprecated: `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "path")
 
     @path.setter
@@ -40570,10 +40548,8 @@ class WindowsWebAppSlotSiteConfigApplicationStackArgs:
 
     @property
     @pulumi.getter(name="dockerContainerRegistry")
+    @_utilities.deprecated("""This property has been deprecated and will be removed in a future release of the provider.""")
     def docker_container_registry(self) -> Optional[pulumi.Input[str]]:
-        warnings.warn("""This property has been deprecated and will be removed in a future release of the provider.""", DeprecationWarning)
-        pulumi.log.warn("""docker_container_registry is deprecated: This property has been deprecated and will be removed in a future release of the provider.""")
-
         return pulumi.get(self, "docker_container_registry")
 
     @docker_container_registry.setter
@@ -40668,10 +40644,8 @@ class WindowsWebAppSlotSiteConfigApplicationStackArgs:
 
     @property
     @pulumi.getter(name="javaContainer")
+    @_utilities.deprecated("""this property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled`""")
     def java_container(self) -> Optional[pulumi.Input[str]]:
-        warnings.warn("""this property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled`""", DeprecationWarning)
-        pulumi.log.warn("""java_container is deprecated: this property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled`""")
-
         return pulumi.get(self, "java_container")
 
     @java_container.setter
@@ -40680,10 +40654,8 @@ class WindowsWebAppSlotSiteConfigApplicationStackArgs:
 
     @property
     @pulumi.getter(name="javaContainerVersion")
+    @_utilities.deprecated("""This property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled`""")
     def java_container_version(self) -> Optional[pulumi.Input[str]]:
-        warnings.warn("""This property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled`""", DeprecationWarning)
-        pulumi.log.warn("""java_container_version is deprecated: This property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled`""")
-
         return pulumi.get(self, "java_container_version")
 
     @java_container_version.setter
@@ -40758,10 +40730,8 @@ class WindowsWebAppSlotSiteConfigApplicationStackArgs:
 
     @property
     @pulumi.getter(name="pythonVersion")
+    @_utilities.deprecated("""This property is deprecated. Values set are not used by the service.""")
     def python_version(self) -> Optional[pulumi.Input[str]]:
-        warnings.warn("""This property is deprecated. Values set are not used by the service.""", DeprecationWarning)
-        pulumi.log.warn("""python_version is deprecated: This property is deprecated. Values set are not used by the service.""")
-
         return pulumi.get(self, "python_version")
 
     @python_version.setter
@@ -41096,13 +41066,11 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""`path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.""")
     def path(self) -> Optional[pulumi.Input[str]]:
         """
         The path for which this slow request rule applies.
         """
-        warnings.warn("""`path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""path is deprecated: `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "path")
 
     @path.setter

@@ -292,7 +292,7 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
                 "unwrapKey",
                 "wrapKey",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[example_key_vault]))
+            opts = pulumi.ResourceOptions(depends_on=[example_key_vault]))
         example_managed_instance_transparent_data_encryption = azure.mssql.ManagedInstanceTransparentDataEncryption("example",
             managed_instance_id=example_managed_instance.id,
             key_vault_key_id=example_key.id)
@@ -467,7 +467,7 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
                 "unwrapKey",
                 "wrapKey",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[example_key_vault]))
+            opts = pulumi.ResourceOptions(depends_on=[example_key_vault]))
         example_managed_instance_transparent_data_encryption = azure.mssql.ManagedInstanceTransparentDataEncryption("example",
             managed_instance_id=example_managed_instance.id,
             key_vault_key_id=example_key.id)

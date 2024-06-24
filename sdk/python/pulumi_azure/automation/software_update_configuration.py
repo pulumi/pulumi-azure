@@ -144,10 +144,8 @@ class SoftwareUpdateConfigurationArgs:
 
     @property
     @pulumi.getter(name="operatingSystem")
+    @_utilities.deprecated("""This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider.""")
     def operating_system(self) -> Optional[pulumi.Input[str]]:
-        warnings.warn("""This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider.""", DeprecationWarning)
-        pulumi.log.warn("""operating_system is deprecated: This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider.""")
-
         return pulumi.get(self, "operating_system")
 
     @operating_system.setter
@@ -328,13 +326,11 @@ class _SoftwareUpdateConfigurationState:
 
     @property
     @pulumi.getter(name="errorMeesage")
+    @_utilities.deprecated("""`error_meesage` will be removed in favour of `error_message` in version 4.0 of the AzureRM Provider""")
     def error_meesage(self) -> Optional[pulumi.Input[str]]:
         """
         The Error message indicating why the operation failed.
         """
-        warnings.warn("""`error_meesage` will be removed in favour of `error_message` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
-        pulumi.log.warn("""error_meesage is deprecated: `error_meesage` will be removed in favour of `error_message` in version 4.0 of the AzureRM Provider""")
-
         return pulumi.get(self, "error_meesage")
 
     @error_meesage.setter
@@ -388,10 +384,8 @@ class _SoftwareUpdateConfigurationState:
 
     @property
     @pulumi.getter(name="operatingSystem")
+    @_utilities.deprecated("""This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider.""")
     def operating_system(self) -> Optional[pulumi.Input[str]]:
-        warnings.warn("""This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider.""", DeprecationWarning)
-        pulumi.log.warn("""operating_system is deprecated: This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider.""")
-
         return pulumi.get(self, "operating_system")
 
     @operating_system.setter
@@ -781,13 +775,11 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="errorMeesage")
+    @_utilities.deprecated("""`error_meesage` will be removed in favour of `error_message` in version 4.0 of the AzureRM Provider""")
     def error_meesage(self) -> pulumi.Output[str]:
         """
         The Error message indicating why the operation failed.
         """
-        warnings.warn("""`error_meesage` will be removed in favour of `error_message` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
-        pulumi.log.warn("""error_meesage is deprecated: `error_meesage` will be removed in favour of `error_message` in version 4.0 of the AzureRM Provider""")
-
         return pulumi.get(self, "error_meesage")
 
     @property
@@ -821,10 +813,8 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="operatingSystem")
+    @_utilities.deprecated("""This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider.""")
     def operating_system(self) -> pulumi.Output[str]:
-        warnings.warn("""This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider.""", DeprecationWarning)
-        pulumi.log.warn("""operating_system is deprecated: This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider.""")
-
         return pulumi.get(self, "operating_system")
 
     @property

@@ -415,7 +415,7 @@ class ConfigurationKey(pulumi.CustomResource):
             key="appConfKey1",
             label="somelabel",
             value="a test",
-            opts=pulumi.ResourceOptions(depends_on=[appconf_dataowner]))
+            opts = pulumi.ResourceOptions(depends_on=[appconf_dataowner]))
         ```
 
         ### `Vault` Type
@@ -468,7 +468,7 @@ class ConfigurationKey(pulumi.CustomResource):
             type="vault",
             label="label1",
             vault_key_reference=kvs.versionless_id,
-            opts=pulumi.ResourceOptions(depends_on=[appconf_dataowner]))
+            opts = pulumi.ResourceOptions(depends_on=[appconf_dataowner]))
         ```
 
         ## Import
@@ -540,7 +540,7 @@ class ConfigurationKey(pulumi.CustomResource):
             key="appConfKey1",
             label="somelabel",
             value="a test",
-            opts=pulumi.ResourceOptions(depends_on=[appconf_dataowner]))
+            opts = pulumi.ResourceOptions(depends_on=[appconf_dataowner]))
         ```
 
         ### `Vault` Type
@@ -593,7 +593,7 @@ class ConfigurationKey(pulumi.CustomResource):
             type="vault",
             label="label1",
             vault_key_reference=kvs.versionless_id,
-            opts=pulumi.ResourceOptions(depends_on=[appconf_dataowner]))
+            opts = pulumi.ResourceOptions(depends_on=[appconf_dataowner]))
         ```
 
         ## Import

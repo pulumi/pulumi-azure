@@ -398,7 +398,7 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
                 label_selectors=["kubernetes.io/metadata.name:test"],
                 volume_snapshot_enabled=True,
             ),
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     test_extension_and_storage_account_permission,
                     test_vault_msi_read_on_cluster,
                     test_vault_msi_read_on_snap_rg,
@@ -569,7 +569,7 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
                 label_selectors=["kubernetes.io/metadata.name:test"],
                 volume_snapshot_enabled=True,
             ),
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     test_extension_and_storage_account_permission,
                     test_vault_msi_read_on_cluster,
                     test_vault_msi_read_on_snap_rg,

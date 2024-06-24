@@ -278,10 +278,8 @@ class AlertRuleScheduledArgs:
 
     @property
     @pulumi.getter(name="incidentConfiguration")
+    @_utilities.deprecated("""The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider""")
     def incident_configuration(self) -> Optional[pulumi.Input['AlertRuleScheduledIncidentConfigurationArgs']]:
-        warnings.warn("""The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
-        pulumi.log.warn("""incident_configuration is deprecated: The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider""")
-
         return pulumi.get(self, "incident_configuration")
 
     @incident_configuration.setter
@@ -648,10 +646,8 @@ class _AlertRuleScheduledState:
 
     @property
     @pulumi.getter(name="incidentConfiguration")
+    @_utilities.deprecated("""The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider""")
     def incident_configuration(self) -> Optional[pulumi.Input['AlertRuleScheduledIncidentConfigurationArgs']]:
-        warnings.warn("""The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
-        pulumi.log.warn("""incident_configuration is deprecated: The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider""")
-
         return pulumi.get(self, "incident_configuration")
 
     @incident_configuration.setter
@@ -1228,10 +1224,8 @@ class AlertRuleScheduled(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="incidentConfiguration")
+    @_utilities.deprecated("""The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider""")
     def incident_configuration(self) -> pulumi.Output['outputs.AlertRuleScheduledIncidentConfiguration']:
-        warnings.warn("""The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
-        pulumi.log.warn("""incident_configuration is deprecated: The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider""")
-
         return pulumi.get(self, "incident_configuration")
 
     @property

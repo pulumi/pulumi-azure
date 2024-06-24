@@ -318,15 +318,13 @@ class ApiArgs:
 
     @property
     @pulumi.getter(name="soapPassThrough")
+    @_utilities.deprecated("""`soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider""")
     def soap_pass_through(self) -> Optional[pulumi.Input[bool]]:
         """
         Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
 
         > **NOTE:** This property has been deprecated in favour of the `api_type` property and will be removed in version 4.0 of the provider.
         """
-        warnings.warn("""`soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
-        pulumi.log.warn("""soap_pass_through is deprecated: `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider""")
-
         return pulumi.get(self, "soap_pass_through")
 
     @soap_pass_through.setter
@@ -760,15 +758,13 @@ class _ApiState:
 
     @property
     @pulumi.getter(name="soapPassThrough")
+    @_utilities.deprecated("""`soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider""")
     def soap_pass_through(self) -> Optional[pulumi.Input[bool]]:
         """
         Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
 
         > **NOTE:** This property has been deprecated in favour of the `api_type` property and will be removed in version 4.0 of the provider.
         """
-        warnings.warn("""`soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
-        pulumi.log.warn("""soap_pass_through is deprecated: `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider""")
-
         return pulumi.get(self, "soap_pass_through")
 
     @soap_pass_through.setter
@@ -1349,15 +1345,13 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="soapPassThrough")
+    @_utilities.deprecated("""`soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider""")
     def soap_pass_through(self) -> pulumi.Output[bool]:
         """
         Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
 
         > **NOTE:** This property has been deprecated in favour of the `api_type` property and will be removed in version 4.0 of the provider.
         """
-        warnings.warn("""`soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
-        pulumi.log.warn("""soap_pass_through is deprecated: `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider""")
-
         return pulumi.get(self, "soap_pass_through")
 
     @property

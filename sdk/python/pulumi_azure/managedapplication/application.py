@@ -148,15 +148,13 @@ class ApplicationArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""This property has been deprecated in favour of `parameter_values`""")
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A mapping of name and value pairs to pass to the managed application as parameters.
 
         > **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameter_values` instead which supports more parameter types.
         """
-        warnings.warn("""This property has been deprecated in favour of `parameter_values`""", DeprecationWarning)
-        pulumi.log.warn("""parameters is deprecated: This property has been deprecated in favour of `parameter_values`""")
-
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -330,15 +328,13 @@ class _ApplicationState:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""This property has been deprecated in favour of `parameter_values`""")
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A mapping of name and value pairs to pass to the managed application as parameters.
 
         > **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameter_values` instead which supports more parameter types.
         """
-        warnings.warn("""This property has been deprecated in favour of `parameter_values`""", DeprecationWarning)
-        pulumi.log.warn("""parameters is deprecated: This property has been deprecated in favour of `parameter_values`""")
-
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -703,15 +699,13 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""This property has been deprecated in favour of `parameter_values`""")
     def parameters(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A mapping of name and value pairs to pass to the managed application as parameters.
 
         > **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameter_values` instead which supports more parameter types.
         """
-        warnings.warn("""This property has been deprecated in favour of `parameter_values`""", DeprecationWarning)
-        pulumi.log.warn("""parameters is deprecated: This property has been deprecated in favour of `parameter_values`""")
-
         return pulumi.get(self, "parameters")
 
     @property

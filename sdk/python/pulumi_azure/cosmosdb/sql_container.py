@@ -205,10 +205,8 @@ class SqlContainerArgs:
 
     @property
     @pulumi.getter(name="partitionKeyPath")
+    @_utilities.deprecated("""`partition_key_path` will be removed in favour of the property `partition_key_paths` in version 4.0 of the AzureRM Provider.""")
     def partition_key_path(self) -> Optional[pulumi.Input[str]]:
-        warnings.warn("""`partition_key_path` will be removed in favour of the property `partition_key_paths` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""partition_key_path is deprecated: `partition_key_path` will be removed in favour of the property `partition_key_paths` in version 4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "partition_key_path")
 
     @partition_key_path.setter
@@ -447,10 +445,8 @@ class _SqlContainerState:
 
     @property
     @pulumi.getter(name="partitionKeyPath")
+    @_utilities.deprecated("""`partition_key_path` will be removed in favour of the property `partition_key_paths` in version 4.0 of the AzureRM Provider.""")
     def partition_key_path(self) -> Optional[pulumi.Input[str]]:
-        warnings.warn("""`partition_key_path` will be removed in favour of the property `partition_key_paths` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""partition_key_path is deprecated: `partition_key_path` will be removed in favour of the property `partition_key_paths` in version 4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "partition_key_path")
 
     @partition_key_path.setter
@@ -876,10 +872,8 @@ class SqlContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partitionKeyPath")
+    @_utilities.deprecated("""`partition_key_path` will be removed in favour of the property `partition_key_paths` in version 4.0 of the AzureRM Provider.""")
     def partition_key_path(self) -> pulumi.Output[str]:
-        warnings.warn("""`partition_key_path` will be removed in favour of the property `partition_key_paths` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""partition_key_path is deprecated: `partition_key_path` will be removed in favour of the property `partition_key_paths` in version 4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "partition_key_path")
 
     @property

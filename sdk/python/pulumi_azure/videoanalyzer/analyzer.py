@@ -277,7 +277,7 @@ class Analyzer(pulumi.CustomResource):
             tags={
                 "environment": "staging",
             },
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     contributor,
                     reader,
                 ]))
@@ -353,7 +353,7 @@ class Analyzer(pulumi.CustomResource):
             tags={
                 "environment": "staging",
             },
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     contributor,
                     reader,
                 ]))

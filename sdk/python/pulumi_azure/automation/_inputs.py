@@ -72,10 +72,8 @@ class AccountEncryptionArgs:
 
     @property
     @pulumi.getter(name="keySource")
+    @_utilities.deprecated("""This field is now ignored and will be removed in the next major version of the Azure Provider, the `encryption` block can be omitted to disable encryption""")
     def key_source(self) -> Optional[pulumi.Input[str]]:
-        warnings.warn("""This field is now ignored and will be removed in the next major version of the Azure Provider, the `encryption` block can be omitted to disable encryption""", DeprecationWarning)
-        pulumi.log.warn("""key_source is deprecated: This field is now ignored and will be removed in the next major version of the Azure Provider, the `encryption` block can be omitted to disable encryption""")
-
         return pulumi.get(self, "key_source")
 
     @key_source.setter
@@ -1538,10 +1536,8 @@ class SoftwareUpdateConfigurationWindowsArgs:
 
     @property
     @pulumi.getter(name="classificationIncluded")
+    @_utilities.deprecated("""windows classification can be set as a list, use `classifications_included` instead.""")
     def classification_included(self) -> Optional[pulumi.Input[str]]:
-        warnings.warn("""windows classification can be set as a list, use `classifications_included` instead.""", DeprecationWarning)
-        pulumi.log.warn("""classification_included is deprecated: windows classification can be set as a list, use `classifications_included` instead.""")
-
         return pulumi.get(self, "classification_included")
 
     @classification_included.setter

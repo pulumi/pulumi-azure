@@ -240,7 +240,7 @@ class ServiceCustomDomain(pulumi.CustomResource):
             name="example-cert",
             signalr_service_id=example_service.id,
             custom_certificate_id=example_certificate.id,
-            opts=pulumi.ResourceOptions(depends_on=[example_azurerm_key_vault_access_policy]))
+            opts = pulumi.ResourceOptions(depends_on=[example_azurerm_key_vault_access_policy]))
         test_service_custom_domain = azure.signalr.ServiceCustomDomain("test",
             name="example-domain",
             signalr_service_id=test_azurerm_signalr_service["id"],
@@ -341,7 +341,7 @@ class ServiceCustomDomain(pulumi.CustomResource):
             name="example-cert",
             signalr_service_id=example_service.id,
             custom_certificate_id=example_certificate.id,
-            opts=pulumi.ResourceOptions(depends_on=[example_azurerm_key_vault_access_policy]))
+            opts = pulumi.ResourceOptions(depends_on=[example_azurerm_key_vault_access_policy]))
         test_service_custom_domain = azure.signalr.ServiceCustomDomain("test",
             name="example-domain",
             signalr_service_id=test_azurerm_signalr_service["id"],

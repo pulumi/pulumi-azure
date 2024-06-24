@@ -200,10 +200,8 @@ class ClusterArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.""")
     def engine(self) -> Optional[pulumi.Input[str]]:
-        warnings.warn("""This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.""", DeprecationWarning)
-        pulumi.log.warn("""engine is deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.""")
-
         return pulumi.get(self, "engine")
 
     @engine.setter
@@ -570,10 +568,8 @@ class _ClusterState:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.""")
     def engine(self) -> Optional[pulumi.Input[str]]:
-        warnings.warn("""This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.""", DeprecationWarning)
-        pulumi.log.warn("""engine is deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.""")
-
         return pulumi.get(self, "engine")
 
     @engine.setter
@@ -1146,10 +1142,8 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.""")
     def engine(self) -> pulumi.Output[Optional[str]]:
-        warnings.warn("""This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.""", DeprecationWarning)
-        pulumi.log.warn("""engine is deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.""")
-
         return pulumi.get(self, "engine")
 
     @property

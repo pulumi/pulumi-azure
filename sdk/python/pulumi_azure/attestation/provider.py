@@ -115,10 +115,8 @@ class ProviderArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.""")
     def policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProviderPolicyArgs']]]]:
-        warnings.warn("""This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.""", DeprecationWarning)
-        pulumi.log.warn("""policies is deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.""")
-
         return pulumi.get(self, "policies")
 
     @policies.setter
@@ -301,10 +299,8 @@ class _ProviderState:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.""")
     def policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProviderPolicyArgs']]]]:
-        warnings.warn("""This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.""", DeprecationWarning)
-        pulumi.log.warn("""policies is deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.""")
-
         return pulumi.get(self, "policies")
 
     @policies.setter
@@ -639,10 +635,8 @@ class Provider(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.""")
     def policies(self) -> pulumi.Output[Optional[Sequence['outputs.ProviderPolicy']]]:
-        warnings.warn("""This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.""", DeprecationWarning)
-        pulumi.log.warn("""policies is deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.""")
-
         return pulumi.get(self, "policies")
 
     @property

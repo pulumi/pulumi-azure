@@ -110,15 +110,13 @@ class BackupPolicyBlobStorageArgs:
 
     @property
     @pulumi.getter(name="retentionDuration")
+    @_utilities.deprecated("""This property has been renamed to `operational_default_retention_duration` and will be removed in v4.0 of the AzureRM provider""")
     def retention_duration(self) -> Optional[pulumi.Input[str]]:
         """
         Duration of deletion after given timespan. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
 
         > **Note:** > `retention_duration` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use the `operational_default_retention_duration` instead.
         """
-        warnings.warn("""This property has been renamed to `operational_default_retention_duration` and will be removed in v4.0 of the AzureRM provider""", DeprecationWarning)
-        pulumi.log.warn("""retention_duration is deprecated: This property has been renamed to `operational_default_retention_duration` and will be removed in v4.0 of the AzureRM provider""")
-
         return pulumi.get(self, "retention_duration")
 
     @retention_duration.setter
@@ -252,15 +250,13 @@ class _BackupPolicyBlobStorageState:
 
     @property
     @pulumi.getter(name="retentionDuration")
+    @_utilities.deprecated("""This property has been renamed to `operational_default_retention_duration` and will be removed in v4.0 of the AzureRM provider""")
     def retention_duration(self) -> Optional[pulumi.Input[str]]:
         """
         Duration of deletion after given timespan. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
 
         > **Note:** > `retention_duration` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use the `operational_default_retention_duration` instead.
         """
-        warnings.warn("""This property has been renamed to `operational_default_retention_duration` and will be removed in v4.0 of the AzureRM provider""", DeprecationWarning)
-        pulumi.log.warn("""retention_duration is deprecated: This property has been renamed to `operational_default_retention_duration` and will be removed in v4.0 of the AzureRM provider""")
-
         return pulumi.get(self, "retention_duration")
 
     @retention_duration.setter
@@ -543,15 +539,13 @@ class BackupPolicyBlobStorage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="retentionDuration")
+    @_utilities.deprecated("""This property has been renamed to `operational_default_retention_duration` and will be removed in v4.0 of the AzureRM provider""")
     def retention_duration(self) -> pulumi.Output[str]:
         """
         Duration of deletion after given timespan. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
 
         > **Note:** > `retention_duration` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use the `operational_default_retention_duration` instead.
         """
-        warnings.warn("""This property has been renamed to `operational_default_retention_duration` and will be removed in v4.0 of the AzureRM provider""", DeprecationWarning)
-        pulumi.log.warn("""retention_duration is deprecated: This property has been renamed to `operational_default_retention_duration` and will be removed in v4.0 of the AzureRM provider""")
-
         return pulumi.get(self, "retention_duration")
 
     @property

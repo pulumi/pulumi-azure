@@ -66,10 +66,8 @@ class VnpGatewayNatRuleArgs:
 
     @property
     @pulumi.getter(name="resourceGroupName")
+    @_utilities.deprecated("""The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider""")
     def resource_group_name(self) -> pulumi.Input[str]:
-        warnings.warn("""The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider""", DeprecationWarning)
-        pulumi.log.warn("""resource_group_name is deprecated: The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider""")
-
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
@@ -90,10 +88,8 @@ class VnpGatewayNatRuleArgs:
 
     @property
     @pulumi.getter(name="externalAddressSpaceMappings")
+    @_utilities.deprecated("""`external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.""")
     def external_address_space_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        warnings.warn("""`external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""external_address_space_mappings is deprecated: `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "external_address_space_mappings")
 
     @external_address_space_mappings.setter
@@ -114,10 +110,8 @@ class VnpGatewayNatRuleArgs:
 
     @property
     @pulumi.getter(name="internalAddressSpaceMappings")
+    @_utilities.deprecated("""`internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.""")
     def internal_address_space_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        warnings.warn("""`internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""internal_address_space_mappings is deprecated: `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "internal_address_space_mappings")
 
     @internal_address_space_mappings.setter
@@ -240,10 +234,8 @@ class _VnpGatewayNatRuleState:
 
     @property
     @pulumi.getter(name="externalAddressSpaceMappings")
+    @_utilities.deprecated("""`external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.""")
     def external_address_space_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        warnings.warn("""`external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""external_address_space_mappings is deprecated: `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "external_address_space_mappings")
 
     @external_address_space_mappings.setter
@@ -264,10 +256,8 @@ class _VnpGatewayNatRuleState:
 
     @property
     @pulumi.getter(name="internalAddressSpaceMappings")
+    @_utilities.deprecated("""`internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.""")
     def internal_address_space_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        warnings.warn("""`internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""internal_address_space_mappings is deprecated: `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "internal_address_space_mappings")
 
     @internal_address_space_mappings.setter
@@ -324,10 +314,8 @@ class _VnpGatewayNatRuleState:
 
     @property
     @pulumi.getter(name="resourceGroupName")
+    @_utilities.deprecated("""The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider""")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
-        warnings.warn("""The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider""", DeprecationWarning)
-        pulumi.log.warn("""resource_group_name is deprecated: The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider""")
-
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
@@ -584,10 +572,8 @@ class VnpGatewayNatRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="externalAddressSpaceMappings")
+    @_utilities.deprecated("""`external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.""")
     def external_address_space_mappings(self) -> pulumi.Output[Sequence[str]]:
-        warnings.warn("""`external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""external_address_space_mappings is deprecated: `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "external_address_space_mappings")
 
     @property
@@ -600,10 +586,8 @@ class VnpGatewayNatRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="internalAddressSpaceMappings")
+    @_utilities.deprecated("""`internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.""")
     def internal_address_space_mappings(self) -> pulumi.Output[Sequence[str]]:
-        warnings.warn("""`internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""internal_address_space_mappings is deprecated: `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "internal_address_space_mappings")
 
     @property
@@ -640,10 +624,8 @@ class VnpGatewayNatRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
+    @_utilities.deprecated("""The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider""")
     def resource_group_name(self) -> pulumi.Output[str]:
-        warnings.warn("""The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider""", DeprecationWarning)
-        pulumi.log.warn("""resource_group_name is deprecated: The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider""")
-
         return pulumi.get(self, "resource_group_name")
 
     @property

@@ -254,7 +254,7 @@ class AssignmentVirtualMachineScaleSet(pulumi.CustomResource):
                 max_unhealthy_upgraded_instance_percent=20,
                 pause_time_between_batches="PT0S",
             ),
-            opts=pulumi.ResourceOptions(depends_on=[example_rule]))
+            opts = pulumi.ResourceOptions(depends_on=[example_rule]))
         example_assignment_virtual_machine_scale_set = azure.maintenance.AssignmentVirtualMachineScaleSet("example",
             location=example.location,
             maintenance_configuration_id=example_configuration.id,
@@ -405,7 +405,7 @@ class AssignmentVirtualMachineScaleSet(pulumi.CustomResource):
                 max_unhealthy_upgraded_instance_percent=20,
                 pause_time_between_batches="PT0S",
             ),
-            opts=pulumi.ResourceOptions(depends_on=[example_rule]))
+            opts = pulumi.ResourceOptions(depends_on=[example_rule]))
         example_assignment_virtual_machine_scale_set = azure.maintenance.AssignmentVirtualMachineScaleSet("example",
             location=example.location,
             maintenance_configuration_id=example_configuration.id,

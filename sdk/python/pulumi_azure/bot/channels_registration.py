@@ -230,15 +230,13 @@ class ChannelsRegistrationArgs:
 
     @property
     @pulumi.getter(name="isolatedNetworkEnabled")
+    @_utilities.deprecated("""`isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""")
     def isolated_network_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Is the Bot Channels Registration in an isolated network?
 
         > **NOTE:** `isolated_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
         """
-        warnings.warn("""`isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""isolated_network_enabled is deprecated: `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "isolated_network_enabled")
 
     @isolated_network_enabled.setter
@@ -492,15 +490,13 @@ class _ChannelsRegistrationState:
 
     @property
     @pulumi.getter(name="isolatedNetworkEnabled")
+    @_utilities.deprecated("""`isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""")
     def isolated_network_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Is the Bot Channels Registration in an isolated network?
 
         > **NOTE:** `isolated_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
         """
-        warnings.warn("""`isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""isolated_network_enabled is deprecated: `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "isolated_network_enabled")
 
     @isolated_network_enabled.setter
@@ -938,15 +934,13 @@ class ChannelsRegistration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isolatedNetworkEnabled")
+    @_utilities.deprecated("""`isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""")
     def isolated_network_enabled(self) -> pulumi.Output[bool]:
         """
         Is the Bot Channels Registration in an isolated network?
 
         > **NOTE:** `isolated_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
         """
-        warnings.warn("""`isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""isolated_network_enabled is deprecated: `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "isolated_network_enabled")
 
     @property

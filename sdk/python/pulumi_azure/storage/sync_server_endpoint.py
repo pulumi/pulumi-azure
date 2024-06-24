@@ -381,7 +381,7 @@ class SyncServerEndpoint(pulumi.CustomResource):
             name="example-storage-sync-server-endpoint",
             storage_sync_group_id=example_sync_group.id,
             registered_server_id=example_sync.registered_servers[0],
-            opts=pulumi.ResourceOptions(depends_on=[example_sync_cloud_endpoint]))
+            opts = pulumi.ResourceOptions(depends_on=[example_sync_cloud_endpoint]))
         ```
 
         ## Import
@@ -458,7 +458,7 @@ class SyncServerEndpoint(pulumi.CustomResource):
             name="example-storage-sync-server-endpoint",
             storage_sync_group_id=example_sync_group.id,
             registered_server_id=example_sync.registered_servers[0],
-            opts=pulumi.ResourceOptions(depends_on=[example_sync_cloud_endpoint]))
+            opts = pulumi.ResourceOptions(depends_on=[example_sync_cloud_endpoint]))
         ```
 
         ## Import

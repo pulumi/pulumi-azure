@@ -409,7 +409,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
                 "verify",
                 "wrapKey",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[example_user]))
+            opts = pulumi.ResourceOptions(depends_on=[example_user]))
         example_disk_encryption_set = azure.compute.DiskEncryptionSet("example",
             name="des",
             resource_group_name=example.name,
@@ -486,7 +486,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
                 "verify",
                 "wrapKey",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[example_user]))
+            opts = pulumi.ResourceOptions(depends_on=[example_user]))
         example_disk_encryption_set = azure.compute.DiskEncryptionSet("example",
             name="des",
             resource_group_name=example.name,
@@ -599,7 +599,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
                 "verify",
                 "wrapKey",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[example_user]))
+            opts = pulumi.ResourceOptions(depends_on=[example_user]))
         example_disk_encryption_set = azure.compute.DiskEncryptionSet("example",
             name="des",
             resource_group_name=example.name,
@@ -676,7 +676,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
                 "verify",
                 "wrapKey",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[example_user]))
+            opts = pulumi.ResourceOptions(depends_on=[example_user]))
         example_disk_encryption_set = azure.compute.DiskEncryptionSet("example",
             name="des",
             resource_group_name=example.name,

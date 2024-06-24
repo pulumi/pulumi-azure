@@ -379,7 +379,7 @@ class FrontdoorRule(pulumi.CustomResource):
                     ],
                 )],
             ),
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example_frontdoor_origin_group,
                     example_frontdoor_origin,
                 ]))
@@ -656,7 +656,7 @@ class FrontdoorRule(pulumi.CustomResource):
                     ],
                 )],
             ),
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example_frontdoor_origin_group,
                     example_frontdoor_origin,
                 ]))

@@ -161,15 +161,13 @@ class ComputeInstanceArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""The `machinelearning.ComputeInstance` must be deployed to the same location as the associated `machinelearning.Workspace` resource, as the `location` fields must be the same the `location` field no longer has any effect and will be removed in version 4.0 of the AzureRM Provider""")
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         The Azure Region where the Machine Learning Compute Instance should exist.
 
         > **Note:** The `location` field is not supported for Machine Learning Compute Instances and has no effect so as such will be removed in v4.0 of the AzureRM provider. For more information, please see the product [documentation](https://learn.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?view=azureml-api-2&tabs=python).
         """
-        warnings.warn("""The `machinelearning.ComputeInstance` must be deployed to the same location as the associated `machinelearning.Workspace` resource, as the `location` fields must be the same the `location` field no longer has any effect and will be removed in version 4.0 of the AzureRM Provider""", DeprecationWarning)
-        pulumi.log.warn("""location is deprecated: The `machinelearning.ComputeInstance` must be deployed to the same location as the associated `machinelearning.Workspace` resource, as the `location` fields must be the same the `location` field no longer has any effect and will be removed in version 4.0 of the AzureRM Provider""")
-
         return pulumi.get(self, "location")
 
     @location.setter
@@ -363,15 +361,13 @@ class _ComputeInstanceState:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""The `machinelearning.ComputeInstance` must be deployed to the same location as the associated `machinelearning.Workspace` resource, as the `location` fields must be the same the `location` field no longer has any effect and will be removed in version 4.0 of the AzureRM Provider""")
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         The Azure Region where the Machine Learning Compute Instance should exist.
 
         > **Note:** The `location` field is not supported for Machine Learning Compute Instances and has no effect so as such will be removed in v4.0 of the AzureRM provider. For more information, please see the product [documentation](https://learn.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?view=azureml-api-2&tabs=python).
         """
-        warnings.warn("""The `machinelearning.ComputeInstance` must be deployed to the same location as the associated `machinelearning.Workspace` resource, as the `location` fields must be the same the `location` field no longer has any effect and will be removed in version 4.0 of the AzureRM Provider""", DeprecationWarning)
-        pulumi.log.warn("""location is deprecated: The `machinelearning.ComputeInstance` must be deployed to the same location as the associated `machinelearning.Workspace` resource, as the `location` fields must be the same the `location` field no longer has any effect and will be removed in version 4.0 of the AzureRM Provider""")
-
         return pulumi.get(self, "location")
 
     @location.setter
@@ -829,15 +825,13 @@ class ComputeInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""The `machinelearning.ComputeInstance` must be deployed to the same location as the associated `machinelearning.Workspace` resource, as the `location` fields must be the same the `location` field no longer has any effect and will be removed in version 4.0 of the AzureRM Provider""")
     def location(self) -> pulumi.Output[str]:
         """
         The Azure Region where the Machine Learning Compute Instance should exist.
 
         > **Note:** The `location` field is not supported for Machine Learning Compute Instances and has no effect so as such will be removed in v4.0 of the AzureRM provider. For more information, please see the product [documentation](https://learn.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?view=azureml-api-2&tabs=python).
         """
-        warnings.warn("""The `machinelearning.ComputeInstance` must be deployed to the same location as the associated `machinelearning.Workspace` resource, as the `location` fields must be the same the `location` field no longer has any effect and will be removed in version 4.0 of the AzureRM Provider""", DeprecationWarning)
-        pulumi.log.warn("""location is deprecated: The `machinelearning.ComputeInstance` must be deployed to the same location as the associated `machinelearning.Workspace` resource, as the `location` fields must be the same the `location` field no longer has any effect and will be removed in version 4.0 of the AzureRM Provider""")
-
         return pulumi.get(self, "location")
 
     @property

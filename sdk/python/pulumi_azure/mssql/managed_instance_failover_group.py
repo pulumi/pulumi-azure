@@ -314,7 +314,7 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
             tags={
                 "environment": "prod",
             },
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example_subnet_network_security_group_association,
                     example_subnet_route_table_association,
                 ]))
@@ -332,7 +332,7 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
             tags={
                 "environment": "prod",
             },
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example_subnet_network_security_group_association,
                     example_subnet_route_table_association,
                 ]))
@@ -422,7 +422,7 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
             tags={
                 "environment": "prod",
             },
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example_subnet_network_security_group_association,
                     example_subnet_route_table_association,
                 ]))
@@ -440,7 +440,7 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
             tags={
                 "environment": "prod",
             },
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example_subnet_network_security_group_association,
                     example_subnet_route_table_association,
                 ]))

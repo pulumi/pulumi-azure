@@ -4893,10 +4893,8 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""HDInsight interactive query clusters can no longer be configured through `autoscale.0.capacity`. Use `autoscale.0.recurrence` instead.""")
     def capacity(self) -> Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs']]:
-        warnings.warn("""HDInsight interactive query clusters can no longer be configured through `autoscale.0.capacity`. Use `autoscale.0.recurrence` instead.""", DeprecationWarning)
-        pulumi.log.warn("""capacity is deprecated: HDInsight interactive query clusters can no longer be configured through `autoscale.0.capacity`. Use `autoscale.0.recurrence` instead.""")
-
         return pulumi.get(self, "capacity")
 
     @capacity.setter

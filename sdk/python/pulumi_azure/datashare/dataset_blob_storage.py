@@ -295,7 +295,7 @@ class DatasetBlobStorage(pulumi.CustomResource):
                 subscription_id="00000000-0000-0000-0000-000000000000",
             ),
             file_path="myfile.txt",
-            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
+            opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
 
         ## Import
@@ -370,7 +370,7 @@ class DatasetBlobStorage(pulumi.CustomResource):
                 subscription_id="00000000-0000-0000-0000-000000000000",
             ),
             file_path="myfile.txt",
-            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
+            opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
 
         ## Import

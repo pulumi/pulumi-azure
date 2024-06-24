@@ -624,7 +624,7 @@ class ConfigurationStore(pulumi.CustomResource):
                 "verify",
                 "wrapKey",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     client,
                     server,
                 ]))
@@ -652,7 +652,7 @@ class ConfigurationStore(pulumi.CustomResource):
             tags={
                 "environment": "development",
             },
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     client,
                     server,
                 ]))
@@ -777,7 +777,7 @@ class ConfigurationStore(pulumi.CustomResource):
                 "verify",
                 "wrapKey",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     client,
                     server,
                 ]))
@@ -805,7 +805,7 @@ class ConfigurationStore(pulumi.CustomResource):
             tags={
                 "environment": "development",
             },
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     client,
                     server,
                 ]))

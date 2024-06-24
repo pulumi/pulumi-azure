@@ -81,10 +81,8 @@ class TableEntityArgs:
 
     @property
     @pulumi.getter(name="storageAccountName")
+    @_utilities.deprecated("""the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider""")
     def storage_account_name(self) -> Optional[pulumi.Input[str]]:
-        warnings.warn("""the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider""", DeprecationWarning)
-        pulumi.log.warn("""storage_account_name is deprecated: the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider""")
-
         return pulumi.get(self, "storage_account_name")
 
     @storage_account_name.setter
@@ -105,10 +103,8 @@ class TableEntityArgs:
 
     @property
     @pulumi.getter(name="tableName")
+    @_utilities.deprecated("""the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider""")
     def table_name(self) -> Optional[pulumi.Input[str]]:
-        warnings.warn("""the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider""", DeprecationWarning)
-        pulumi.log.warn("""table_name is deprecated: the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider""")
-
         return pulumi.get(self, "table_name")
 
     @table_name.setter
@@ -189,10 +185,8 @@ class _TableEntityState:
 
     @property
     @pulumi.getter(name="storageAccountName")
+    @_utilities.deprecated("""the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider""")
     def storage_account_name(self) -> Optional[pulumi.Input[str]]:
-        warnings.warn("""the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider""", DeprecationWarning)
-        pulumi.log.warn("""storage_account_name is deprecated: the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider""")
-
         return pulumi.get(self, "storage_account_name")
 
     @storage_account_name.setter
@@ -213,10 +207,8 @@ class _TableEntityState:
 
     @property
     @pulumi.getter(name="tableName")
+    @_utilities.deprecated("""the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider""")
     def table_name(self) -> Optional[pulumi.Input[str]]:
-        warnings.warn("""the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider""", DeprecationWarning)
-        pulumi.log.warn("""table_name is deprecated: the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider""")
-
         return pulumi.get(self, "table_name")
 
     @table_name.setter
@@ -433,10 +425,8 @@ class TableEntity(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountName")
+    @_utilities.deprecated("""the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider""")
     def storage_account_name(self) -> pulumi.Output[str]:
-        warnings.warn("""the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider""", DeprecationWarning)
-        pulumi.log.warn("""storage_account_name is deprecated: the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider""")
-
         return pulumi.get(self, "storage_account_name")
 
     @property
@@ -449,9 +439,7 @@ class TableEntity(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tableName")
+    @_utilities.deprecated("""the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider""")
     def table_name(self) -> pulumi.Output[str]:
-        warnings.warn("""the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider""", DeprecationWarning)
-        pulumi.log.warn("""table_name is deprecated: the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider""")
-
         return pulumi.get(self, "table_name")
 

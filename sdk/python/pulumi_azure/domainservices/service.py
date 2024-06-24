@@ -609,7 +609,7 @@ class Service(pulumi.CustomResource):
             tags={
                 "Environment": "prod",
             },
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example,
                     deploy_subnet_network_security_group_association,
                 ]))
@@ -758,7 +758,7 @@ class Service(pulumi.CustomResource):
             tags={
                 "Environment": "prod",
             },
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example,
                     deploy_subnet_network_security_group_association,
                 ]))

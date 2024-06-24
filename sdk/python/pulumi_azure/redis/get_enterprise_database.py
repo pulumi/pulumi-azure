@@ -97,10 +97,8 @@ class GetEnterpriseDatabaseResult:
 
     @property
     @pulumi.getter(name="resourceGroupName")
+    @_utilities.deprecated("""This field is no longer used and will be removed in the next major version of the Azure Provider""")
     def resource_group_name(self) -> str:
-        warnings.warn("""This field is no longer used and will be removed in the next major version of the Azure Provider""", DeprecationWarning)
-        pulumi.log.warn("""resource_group_name is deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider""")
-
         return pulumi.get(self, "resource_group_name")
 
     @property

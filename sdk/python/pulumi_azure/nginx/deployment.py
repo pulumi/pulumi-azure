@@ -150,10 +150,8 @@ class DeploymentArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.""")
     def configuration(self) -> Optional[pulumi.Input['DeploymentConfigurationArgs']]:
-        warnings.warn("""The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""configuration is deprecated: The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -419,10 +417,8 @@ class _DeploymentState:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.""")
     def configuration(self) -> Optional[pulumi.Input['DeploymentConfigurationArgs']]:
-        warnings.warn("""The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""configuration is deprecated: The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -957,10 +953,8 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.""")
     def configuration(self) -> pulumi.Output['outputs.DeploymentConfiguration']:
-        warnings.warn("""The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""configuration is deprecated: The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "configuration")
 
     @property

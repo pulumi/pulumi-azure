@@ -180,13 +180,11 @@ class EnterpriseDatabaseArgs:
 
     @property
     @pulumi.getter(name="resourceGroupName")
+    @_utilities.deprecated("""This field is no longer used and will be removed in the next major version of the Azure Provider""")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
         """
-        warnings.warn("""This field is no longer used and will be removed in the next major version of the Azure Provider""", DeprecationWarning)
-        pulumi.log.warn("""resource_group_name is deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider""")
-
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
@@ -382,13 +380,11 @@ class _EnterpriseDatabaseState:
 
     @property
     @pulumi.getter(name="resourceGroupName")
+    @_utilities.deprecated("""This field is no longer used and will be removed in the next major version of the Azure Provider""")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
         """
-        warnings.warn("""This field is no longer used and will be removed in the next major version of the Azure Provider""", DeprecationWarning)
-        pulumi.log.warn("""resource_group_name is deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider""")
-
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
@@ -737,13 +733,11 @@ class EnterpriseDatabase(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
+    @_utilities.deprecated("""This field is no longer used and will be removed in the next major version of the Azure Provider""")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
         """
-        warnings.warn("""This field is no longer used and will be removed in the next major version of the Azure Provider""", DeprecationWarning)
-        pulumi.log.warn("""resource_group_name is deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider""")
-
         return pulumi.get(self, "resource_group_name")
 
     @property

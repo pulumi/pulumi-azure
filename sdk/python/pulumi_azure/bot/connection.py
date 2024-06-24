@@ -168,15 +168,13 @@ class ConnectionArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.""")
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A mapping of tags to assign to the resource.
 
         > **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         """
-        warnings.warn("""This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.""", DeprecationWarning)
-        pulumi.log.warn("""tags is deprecated: This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.""")
-
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -346,15 +344,13 @@ class _ConnectionState:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.""")
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A mapping of tags to assign to the resource.
 
         > **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         """
-        warnings.warn("""This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.""", DeprecationWarning)
-        pulumi.log.warn("""tags is deprecated: This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.""")
-
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -659,14 +655,12 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.""")
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
 
         > **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         """
-        warnings.warn("""This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.""", DeprecationWarning)
-        pulumi.log.warn("""tags is deprecated: This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.""")
-
         return pulumi.get(self, "tags")
 

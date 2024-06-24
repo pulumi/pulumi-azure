@@ -147,10 +147,8 @@ class SubnetArgs:
 
     @property
     @pulumi.getter(name="enforcePrivateLinkEndpointNetworkPolicies")
+    @_utilities.deprecated("""`enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider""")
     def enforce_private_link_endpoint_network_policies(self) -> Optional[pulumi.Input[bool]]:
-        warnings.warn("""`enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
-        pulumi.log.warn("""enforce_private_link_endpoint_network_policies is deprecated: `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider""")
-
         return pulumi.get(self, "enforce_private_link_endpoint_network_policies")
 
     @enforce_private_link_endpoint_network_policies.setter
@@ -159,10 +157,8 @@ class SubnetArgs:
 
     @property
     @pulumi.getter(name="enforcePrivateLinkServiceNetworkPolicies")
+    @_utilities.deprecated("""`enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider""")
     def enforce_private_link_service_network_policies(self) -> Optional[pulumi.Input[bool]]:
-        warnings.warn("""`enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
-        pulumi.log.warn("""enforce_private_link_service_network_policies is deprecated: `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider""")
-
         return pulumi.get(self, "enforce_private_link_service_network_policies")
 
     @enforce_private_link_service_network_policies.setter
@@ -197,10 +193,8 @@ class SubnetArgs:
 
     @property
     @pulumi.getter(name="privateEndpointNetworkPoliciesEnabled")
+    @_utilities.deprecated("""`private_endpoint_network_policies_enabled` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider""")
     def private_endpoint_network_policies_enabled(self) -> Optional[pulumi.Input[bool]]:
-        warnings.warn("""`private_endpoint_network_policies_enabled` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
-        pulumi.log.warn("""private_endpoint_network_policies_enabled is deprecated: `private_endpoint_network_policies_enabled` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider""")
-
         return pulumi.get(self, "private_endpoint_network_policies_enabled")
 
     @private_endpoint_network_policies_enabled.setter
@@ -361,10 +355,8 @@ class _SubnetState:
 
     @property
     @pulumi.getter(name="enforcePrivateLinkEndpointNetworkPolicies")
+    @_utilities.deprecated("""`enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider""")
     def enforce_private_link_endpoint_network_policies(self) -> Optional[pulumi.Input[bool]]:
-        warnings.warn("""`enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
-        pulumi.log.warn("""enforce_private_link_endpoint_network_policies is deprecated: `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider""")
-
         return pulumi.get(self, "enforce_private_link_endpoint_network_policies")
 
     @enforce_private_link_endpoint_network_policies.setter
@@ -373,10 +365,8 @@ class _SubnetState:
 
     @property
     @pulumi.getter(name="enforcePrivateLinkServiceNetworkPolicies")
+    @_utilities.deprecated("""`enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider""")
     def enforce_private_link_service_network_policies(self) -> Optional[pulumi.Input[bool]]:
-        warnings.warn("""`enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
-        pulumi.log.warn("""enforce_private_link_service_network_policies is deprecated: `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider""")
-
         return pulumi.get(self, "enforce_private_link_service_network_policies")
 
     @enforce_private_link_service_network_policies.setter
@@ -411,10 +401,8 @@ class _SubnetState:
 
     @property
     @pulumi.getter(name="privateEndpointNetworkPoliciesEnabled")
+    @_utilities.deprecated("""`private_endpoint_network_policies_enabled` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider""")
     def private_endpoint_network_policies_enabled(self) -> Optional[pulumi.Input[bool]]:
-        warnings.warn("""`private_endpoint_network_policies_enabled` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
-        pulumi.log.warn("""private_endpoint_network_policies_enabled is deprecated: `private_endpoint_network_policies_enabled` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider""")
-
         return pulumi.get(self, "private_endpoint_network_policies_enabled")
 
     @private_endpoint_network_policies_enabled.setter
@@ -776,18 +764,14 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enforcePrivateLinkEndpointNetworkPolicies")
+    @_utilities.deprecated("""`enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider""")
     def enforce_private_link_endpoint_network_policies(self) -> pulumi.Output[bool]:
-        warnings.warn("""`enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
-        pulumi.log.warn("""enforce_private_link_endpoint_network_policies is deprecated: `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider""")
-
         return pulumi.get(self, "enforce_private_link_endpoint_network_policies")
 
     @property
     @pulumi.getter(name="enforcePrivateLinkServiceNetworkPolicies")
+    @_utilities.deprecated("""`enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider""")
     def enforce_private_link_service_network_policies(self) -> pulumi.Output[bool]:
-        warnings.warn("""`enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
-        pulumi.log.warn("""enforce_private_link_service_network_policies is deprecated: `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider""")
-
         return pulumi.get(self, "enforce_private_link_service_network_policies")
 
     @property
@@ -810,10 +794,8 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateEndpointNetworkPoliciesEnabled")
+    @_utilities.deprecated("""`private_endpoint_network_policies_enabled` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider""")
     def private_endpoint_network_policies_enabled(self) -> pulumi.Output[bool]:
-        warnings.warn("""`private_endpoint_network_policies_enabled` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
-        pulumi.log.warn("""private_endpoint_network_policies_enabled is deprecated: `private_endpoint_network_policies_enabled` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider""")
-
         return pulumi.get(self, "private_endpoint_network_policies_enabled")
 
     @property

@@ -490,7 +490,7 @@ class Cluster(pulumi.CustomResource):
                 client_id=example_application.client_id,
                 client_secret=example_service_principal_password.value,
             ),
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     role_network1,
                     role_network2,
                 ]))
@@ -609,7 +609,7 @@ class Cluster(pulumi.CustomResource):
                 client_id=example_application.client_id,
                 client_secret=example_service_principal_password.value,
             ),
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     role_network1,
                     role_network2,
                 ]))

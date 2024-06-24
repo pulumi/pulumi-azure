@@ -374,7 +374,7 @@ class ManagedStorageAccount(pulumi.CustomResource):
             storage_account_key="key1",
             regenerate_key_automatically=True,
             regeneration_period="P1D",
-            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
+            opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
 
         ## Import
@@ -508,7 +508,7 @@ class ManagedStorageAccount(pulumi.CustomResource):
             storage_account_key="key1",
             regenerate_key_automatically=True,
             regeneration_period="P1D",
-            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
+            opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
 
         ## Import

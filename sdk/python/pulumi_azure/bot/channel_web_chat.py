@@ -81,15 +81,13 @@ class ChannelWebChatArgs:
 
     @property
     @pulumi.getter(name="siteNames")
+    @_utilities.deprecated("""`site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.""")
     def site_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of Web Chat Site names.
 
         > **NOTE:** `site_names` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
         """
-        warnings.warn("""`site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""site_names is deprecated: `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "site_names")
 
     @site_names.setter
@@ -179,15 +177,13 @@ class _ChannelWebChatState:
 
     @property
     @pulumi.getter(name="siteNames")
+    @_utilities.deprecated("""`site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.""")
     def site_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of Web Chat Site names.
 
         > **NOTE:** `site_names` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
         """
-        warnings.warn("""`site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""site_names is deprecated: `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "site_names")
 
     @site_names.setter
@@ -411,15 +407,13 @@ class ChannelWebChat(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="siteNames")
+    @_utilities.deprecated("""`site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.""")
     def site_names(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of Web Chat Site names.
 
         > **NOTE:** `site_names` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
         """
-        warnings.warn("""`site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""site_names is deprecated: `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "site_names")
 
     @property

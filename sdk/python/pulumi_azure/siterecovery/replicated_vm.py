@@ -945,7 +945,7 @@ class ReplicatedVM(pulumi.CustomResource):
                 target_subnet_name=secondary_subnet.name,
                 recovery_public_ip_address_id=secondary_public_ip.id,
             )],
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     container_mapping,
                     network_mapping,
                 ]))
@@ -1151,7 +1151,7 @@ class ReplicatedVM(pulumi.CustomResource):
                 target_subnet_name=secondary_subnet.name,
                 recovery_public_ip_address_id=secondary_public_ip.id,
             )],
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     container_mapping,
                     network_mapping,
                 ]))

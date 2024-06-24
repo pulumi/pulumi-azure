@@ -154,15 +154,13 @@ class ReplicationRecoveryPlanArgs:
 
     @property
     @pulumi.getter(name="recoveryGroups")
+    @_utilities.deprecated("""the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.""")
     def recovery_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupArgs']]]]:
         """
         Three or more `recovery_group` block defined as below.
 
         > **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
         """
-        warnings.warn("""the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.""", DeprecationWarning)
-        pulumi.log.warn("""recovery_groups is deprecated: the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.""")
-
         return pulumi.get(self, "recovery_groups")
 
     @recovery_groups.setter
@@ -292,15 +290,13 @@ class _ReplicationRecoveryPlanState:
 
     @property
     @pulumi.getter(name="recoveryGroups")
+    @_utilities.deprecated("""the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.""")
     def recovery_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupArgs']]]]:
         """
         Three or more `recovery_group` block defined as below.
 
         > **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
         """
-        warnings.warn("""the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.""", DeprecationWarning)
-        pulumi.log.warn("""recovery_groups is deprecated: the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.""")
-
         return pulumi.get(self, "recovery_groups")
 
     @recovery_groups.setter
@@ -533,7 +529,7 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
                 target_subnet_name=secondary_subnet.name,
                 recovery_public_ip_address_id=secondary_public_ip.id,
             )],
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     container_mapping,
                     network_mapping,
                 ]))
@@ -743,7 +739,7 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
                 target_subnet_name=secondary_subnet.name,
                 recovery_public_ip_address_id=secondary_public_ip.id,
             )],
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     container_mapping,
                     network_mapping,
                 ]))
@@ -912,15 +908,13 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recoveryGroups")
+    @_utilities.deprecated("""the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.""")
     def recovery_groups(self) -> pulumi.Output[Sequence['outputs.ReplicationRecoveryPlanRecoveryGroup']]:
         """
         Three or more `recovery_group` block defined as below.
 
         > **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
         """
-        warnings.warn("""the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.""", DeprecationWarning)
-        pulumi.log.warn("""recovery_groups is deprecated: the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.""")
-
         return pulumi.get(self, "recovery_groups")
 
     @property

@@ -1034,7 +1034,7 @@ class FlexibleServer(pulumi.CustomResource):
             private_dns_zone_name=example_zone.name,
             virtual_network_id=example_virtual_network.id,
             resource_group_name=example.name,
-            opts=pulumi.ResourceOptions(depends_on=[example_subnet]))
+            opts = pulumi.ResourceOptions(depends_on=[example_subnet]))
         example_flexible_server = azure.postgresql.FlexibleServer("example",
             name="example-psqlflexibleserver",
             resource_group_name=example.name,
@@ -1049,7 +1049,7 @@ class FlexibleServer(pulumi.CustomResource):
             storage_mb=32768,
             storage_tier="P30",
             sku_name="GP_Standard_D4s_v3",
-            opts=pulumi.ResourceOptions(depends_on=[example_zone_virtual_network_link]))
+            opts = pulumi.ResourceOptions(depends_on=[example_zone_virtual_network_link]))
         ```
 
         ## `storage_tier` defaults based on `storage_mb`
@@ -1177,7 +1177,7 @@ class FlexibleServer(pulumi.CustomResource):
             private_dns_zone_name=example_zone.name,
             virtual_network_id=example_virtual_network.id,
             resource_group_name=example.name,
-            opts=pulumi.ResourceOptions(depends_on=[example_subnet]))
+            opts = pulumi.ResourceOptions(depends_on=[example_subnet]))
         example_flexible_server = azure.postgresql.FlexibleServer("example",
             name="example-psqlflexibleserver",
             resource_group_name=example.name,
@@ -1192,7 +1192,7 @@ class FlexibleServer(pulumi.CustomResource):
             storage_mb=32768,
             storage_tier="P30",
             sku_name="GP_Standard_D4s_v3",
-            opts=pulumi.ResourceOptions(depends_on=[example_zone_virtual_network_link]))
+            opts = pulumi.ResourceOptions(depends_on=[example_zone_virtual_network_link]))
         ```
 
         ## `storage_tier` defaults based on `storage_mb`
