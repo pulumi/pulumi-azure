@@ -136,10 +136,8 @@ class WorkspaceArgs:
 
     @property
     @pulumi.getter(name="aadAdmin")
+    @_utilities.deprecated("""The `aad_admin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""")
     def aad_admin(self) -> Optional[pulumi.Input['WorkspaceAadAdminArgs']]:
-        warnings.warn("""The `aad_admin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""aad_admin is deprecated: The `aad_admin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "aad_admin")
 
     @aad_admin.setter
@@ -316,10 +314,8 @@ class WorkspaceArgs:
 
     @property
     @pulumi.getter(name="sqlAadAdmin")
+    @_utilities.deprecated("""The `sql_aad_admin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""")
     def sql_aad_admin(self) -> Optional[pulumi.Input['WorkspaceSqlAadAdminArgs']]:
-        warnings.warn("""The `sql_aad_admin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""sql_aad_admin is deprecated: The `sql_aad_admin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "sql_aad_admin")
 
     @sql_aad_admin.setter
@@ -480,10 +476,8 @@ class _WorkspaceState:
 
     @property
     @pulumi.getter(name="aadAdmin")
+    @_utilities.deprecated("""The `aad_admin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""")
     def aad_admin(self) -> Optional[pulumi.Input['WorkspaceAadAdminArgs']]:
-        warnings.warn("""The `aad_admin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""aad_admin is deprecated: The `aad_admin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "aad_admin")
 
     @aad_admin.setter
@@ -684,10 +678,8 @@ class _WorkspaceState:
 
     @property
     @pulumi.getter(name="sqlAadAdmin")
+    @_utilities.deprecated("""The `sql_aad_admin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""")
     def sql_aad_admin(self) -> Optional[pulumi.Input['WorkspaceSqlAadAdminArgs']]:
-        warnings.warn("""The `sql_aad_admin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""sql_aad_admin is deprecated: The `sql_aad_admin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "sql_aad_admin")
 
     @sql_aad_admin.setter
@@ -869,7 +861,7 @@ class Workspace(pulumi.CustomResource):
                 "unwrapKey",
                 "wrapKey",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[deployer]))
+            opts = pulumi.ResourceOptions(depends_on=[deployer]))
         example_workspace = azure.synapse.Workspace("example",
             name="example",
             resource_group_name=example.name,
@@ -901,13 +893,13 @@ class Workspace(pulumi.CustomResource):
             synapse_workspace_id=example_workspace.id,
             active=True,
             customer_managed_key_name="enckey",
-            opts=pulumi.ResourceOptions(depends_on=[workspace_policy]))
+            opts = pulumi.ResourceOptions(depends_on=[workspace_policy]))
         example_workspace_aad_admin = azure.synapse.WorkspaceAadAdmin("example",
             synapse_workspace_id=example_workspace.id,
             login="AzureAD Admin",
             object_id="00000000-0000-0000-0000-000000000000",
             tenant_id="00000000-0000-0000-0000-000000000000",
-            opts=pulumi.ResourceOptions(depends_on=[example_workspace_key]))
+            opts = pulumi.ResourceOptions(depends_on=[example_workspace_key]))
         ```
 
         ## Import
@@ -1033,7 +1025,7 @@ class Workspace(pulumi.CustomResource):
                 "unwrapKey",
                 "wrapKey",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[deployer]))
+            opts = pulumi.ResourceOptions(depends_on=[deployer]))
         example_workspace = azure.synapse.Workspace("example",
             name="example",
             resource_group_name=example.name,
@@ -1065,13 +1057,13 @@ class Workspace(pulumi.CustomResource):
             synapse_workspace_id=example_workspace.id,
             active=True,
             customer_managed_key_name="enckey",
-            opts=pulumi.ResourceOptions(depends_on=[workspace_policy]))
+            opts = pulumi.ResourceOptions(depends_on=[workspace_policy]))
         example_workspace_aad_admin = azure.synapse.WorkspaceAadAdmin("example",
             synapse_workspace_id=example_workspace.id,
             login="AzureAD Admin",
             object_id="00000000-0000-0000-0000-000000000000",
             tenant_id="00000000-0000-0000-0000-000000000000",
-            opts=pulumi.ResourceOptions(depends_on=[example_workspace_key]))
+            opts = pulumi.ResourceOptions(depends_on=[example_workspace_key]))
         ```
 
         ## Import
@@ -1250,10 +1242,8 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="aadAdmin")
+    @_utilities.deprecated("""The `aad_admin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""")
     def aad_admin(self) -> pulumi.Output['outputs.WorkspaceAadAdmin']:
-        warnings.warn("""The `aad_admin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""aad_admin is deprecated: The `aad_admin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "aad_admin")
 
     @property
@@ -1386,10 +1376,8 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sqlAadAdmin")
+    @_utilities.deprecated("""The `sql_aad_admin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""")
     def sql_aad_admin(self) -> pulumi.Output['outputs.WorkspaceSqlAadAdmin']:
-        warnings.warn("""The `sql_aad_admin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""sql_aad_admin is deprecated: The `sql_aad_admin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "sql_aad_admin")
 
     @property

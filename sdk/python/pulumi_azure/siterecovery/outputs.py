@@ -475,10 +475,8 @@ class ReplicatedVMNetworkInterface(dict):
 
     @property
     @pulumi.getter(name="isPrimary")
+    @_utilities.deprecated("""this property is not used and will be removed in version 4.0 of the provider""")
     def is_primary(self) -> Optional[bool]:
-        warnings.warn("""this property is not used and will be removed in version 4.0 of the provider""", DeprecationWarning)
-        pulumi.log.warn("""is_primary is deprecated: this property is not used and will be removed in version 4.0 of the provider""")
-
         return pulumi.get(self, "is_primary")
 
     @property

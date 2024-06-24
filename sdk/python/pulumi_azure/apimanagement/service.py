@@ -324,10 +324,8 @@ class ServiceArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider""")
     def policy(self) -> Optional[pulumi.Input['ServicePolicyArgs']]:
-        warnings.warn("""The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
-        pulumi.log.warn("""policy is deprecated: The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider""")
-
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -818,10 +816,8 @@ class _ServiceState:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider""")
     def policy(self) -> Optional[pulumi.Input['ServicePolicyArgs']]:
-        warnings.warn("""The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
-        pulumi.log.warn("""policy is deprecated: The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider""")
-
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -1559,10 +1555,8 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider""")
     def policy(self) -> pulumi.Output['outputs.ServicePolicy']:
-        warnings.warn("""The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
-        pulumi.log.warn("""policy is deprecated: The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider""")
-
         return pulumi.get(self, "policy")
 
     @property

@@ -150,10 +150,8 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="connectionStrings")
+    @_utilities.deprecated("""This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider""")
     def connection_strings(self) -> Sequence[str]:
-        warnings.warn("""This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider""", DeprecationWarning)
-        pulumi.log.warn("""connection_strings is deprecated: This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider""")
-
         return pulumi.get(self, "connection_strings")
 
     @property
@@ -163,26 +161,20 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="enableAutomaticFailover")
+    @_utilities.deprecated("""This property has been renamed to `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM provider""")
     def enable_automatic_failover(self) -> bool:
-        warnings.warn("""This property has been renamed to `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM provider""", DeprecationWarning)
-        pulumi.log.warn("""enable_automatic_failover is deprecated: This property has been renamed to `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM provider""")
-
         return pulumi.get(self, "enable_automatic_failover")
 
     @property
     @pulumi.getter(name="enableFreeTier")
+    @_utilities.deprecated("""This property has been renamed to `free_tier_enabled` and will be removed in v4.0 of the AzureRM provider""")
     def enable_free_tier(self) -> bool:
-        warnings.warn("""This property has been renamed to `free_tier_enabled` and will be removed in v4.0 of the AzureRM provider""", DeprecationWarning)
-        pulumi.log.warn("""enable_free_tier is deprecated: This property has been renamed to `free_tier_enabled` and will be removed in v4.0 of the AzureRM provider""")
-
         return pulumi.get(self, "enable_free_tier")
 
     @property
     @pulumi.getter(name="enableMultipleWriteLocations")
+    @_utilities.deprecated("""This property has been renamed to `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM provider""")
     def enable_multiple_write_locations(self) -> bool:
-        warnings.warn("""This property has been renamed to `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM provider""", DeprecationWarning)
-        pulumi.log.warn("""enable_multiple_write_locations is deprecated: This property has been renamed to `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM provider""")
-
         return pulumi.get(self, "enable_multiple_write_locations")
 
     @property

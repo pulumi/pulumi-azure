@@ -140,15 +140,13 @@ class GroupPolicyRemediationArgs:
 
     @property
     @pulumi.getter(name="policyDefinitionId")
+    @_utilities.deprecated("""`policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""")
     def policy_definition_id(self) -> Optional[pulumi.Input[str]]:
         """
         The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 
         > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
         """
-        warnings.warn("""`policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""", DeprecationWarning)
-        pulumi.log.warn("""policy_definition_id is deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""")
-
         return pulumi.get(self, "policy_definition_id")
 
     @policy_definition_id.setter
@@ -181,15 +179,13 @@ class GroupPolicyRemediationArgs:
 
     @property
     @pulumi.getter(name="resourceDiscoveryMode")
+    @_utilities.deprecated("""`resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.""")
     def resource_discovery_mode(self) -> Optional[pulumi.Input[str]]:
         """
         The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
 
         > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider as evaluating compliance before remediation is only supported at subscription scope and below.
         """
-        warnings.warn("""`resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.""", DeprecationWarning)
-        pulumi.log.warn("""resource_discovery_mode is deprecated: `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.""")
-
         return pulumi.get(self, "resource_discovery_mode")
 
     @resource_discovery_mode.setter
@@ -328,15 +324,13 @@ class _GroupPolicyRemediationState:
 
     @property
     @pulumi.getter(name="policyDefinitionId")
+    @_utilities.deprecated("""`policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""")
     def policy_definition_id(self) -> Optional[pulumi.Input[str]]:
         """
         The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 
         > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
         """
-        warnings.warn("""`policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""", DeprecationWarning)
-        pulumi.log.warn("""policy_definition_id is deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""")
-
         return pulumi.get(self, "policy_definition_id")
 
     @policy_definition_id.setter
@@ -369,15 +363,13 @@ class _GroupPolicyRemediationState:
 
     @property
     @pulumi.getter(name="resourceDiscoveryMode")
+    @_utilities.deprecated("""`resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.""")
     def resource_discovery_mode(self) -> Optional[pulumi.Input[str]]:
         """
         The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
 
         > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider as evaluating compliance before remediation is only supported at subscription scope and below.
         """
-        warnings.warn("""`resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.""", DeprecationWarning)
-        pulumi.log.warn("""resource_discovery_mode is deprecated: `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.""")
-
         return pulumi.get(self, "resource_discovery_mode")
 
     @resource_discovery_mode.setter
@@ -650,15 +642,13 @@ class GroupPolicyRemediation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyDefinitionId")
+    @_utilities.deprecated("""`policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""")
     def policy_definition_id(self) -> pulumi.Output[Optional[str]]:
         """
         The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 
         > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
         """
-        warnings.warn("""`policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""", DeprecationWarning)
-        pulumi.log.warn("""policy_definition_id is deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""")
-
         return pulumi.get(self, "policy_definition_id")
 
     @property
@@ -679,14 +669,12 @@ class GroupPolicyRemediation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceDiscoveryMode")
+    @_utilities.deprecated("""`resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.""")
     def resource_discovery_mode(self) -> pulumi.Output[Optional[str]]:
         """
         The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
 
         > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider as evaluating compliance before remediation is only supported at subscription scope and below.
         """
-        warnings.warn("""`resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.""", DeprecationWarning)
-        pulumi.log.warn("""resource_discovery_mode is deprecated: `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.""")
-
         return pulumi.get(self, "resource_discovery_mode")
 

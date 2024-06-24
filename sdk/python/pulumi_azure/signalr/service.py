@@ -199,13 +199,11 @@ class ServiceArgs:
 
     @property
     @pulumi.getter(name="liveTraceEnabled")
+    @_utilities.deprecated("""`live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.""")
     def live_trace_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Specifies if Live Trace is enabled or not. Defaults to `false`.
         """
-        warnings.warn("""`live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.""", DeprecationWarning)
-        pulumi.log.warn("""live_trace_enabled is deprecated: `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.""")
-
         return pulumi.get(self, "live_trace_enabled")
 
     @live_trace_enabled.setter
@@ -557,13 +555,11 @@ class _ServiceState:
 
     @property
     @pulumi.getter(name="liveTraceEnabled")
+    @_utilities.deprecated("""`live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.""")
     def live_trace_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Specifies if Live Trace is enabled or not. Defaults to `false`.
         """
-        warnings.warn("""`live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.""", DeprecationWarning)
-        pulumi.log.warn("""live_trace_enabled is deprecated: `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.""")
-
         return pulumi.get(self, "live_trace_enabled")
 
     @live_trace_enabled.setter
@@ -1191,13 +1187,11 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="liveTraceEnabled")
+    @_utilities.deprecated("""`live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.""")
     def live_trace_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies if Live Trace is enabled or not. Defaults to `false`.
         """
-        warnings.warn("""`live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.""", DeprecationWarning)
-        pulumi.log.warn("""live_trace_enabled is deprecated: `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.""")
-
         return pulumi.get(self, "live_trace_enabled")
 
     @property

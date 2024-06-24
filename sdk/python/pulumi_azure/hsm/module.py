@@ -417,7 +417,7 @@ class Module(pulumi.CustomResource):
             tags={
                 "env": "Test",
             },
-            opts=pulumi.ResourceOptions(depends_on=[example_virtual_network_gateway]))
+            opts = pulumi.ResourceOptions(depends_on=[example_virtual_network_gateway]))
         ```
 
         ## Import
@@ -528,7 +528,7 @@ class Module(pulumi.CustomResource):
             tags={
                 "env": "Test",
             },
-            opts=pulumi.ResourceOptions(depends_on=[example_virtual_network_gateway]))
+            opts = pulumi.ResourceOptions(depends_on=[example_virtual_network_gateway]))
         ```
 
         ## Import

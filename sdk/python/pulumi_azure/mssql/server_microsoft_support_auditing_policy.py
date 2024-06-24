@@ -342,7 +342,7 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
             server_id=example_server.id,
             log_monitoring_enabled=False,
             storage_account_subscription_id=primary_azurerm_subscription["subscriptionId"],
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example_assignment,
                     example_account,
                 ]))
@@ -477,7 +477,7 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
             server_id=example_server.id,
             log_monitoring_enabled=False,
             storage_account_subscription_id=primary_azurerm_subscription["subscriptionId"],
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example_assignment,
                     example_account,
                 ]))

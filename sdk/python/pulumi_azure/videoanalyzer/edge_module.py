@@ -177,7 +177,7 @@ class EdgeModule(pulumi.CustomResource):
             tags={
                 "environment": "staging",
             },
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example_user_assigned_identity,
                     contributor,
                     reader,
@@ -255,7 +255,7 @@ class EdgeModule(pulumi.CustomResource):
             tags={
                 "environment": "staging",
             },
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example_user_assigned_identity,
                     contributor,
                     reader,

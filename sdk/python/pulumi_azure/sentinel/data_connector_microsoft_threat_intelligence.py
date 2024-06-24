@@ -62,15 +62,13 @@ class DataConnectorMicrosoftThreatIntelligenceArgs:
 
     @property
     @pulumi.getter(name="bingSafetyPhishingUrlLookbackDate")
+    @_utilities.deprecated("""This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.""")
     def bing_safety_phishing_url_lookback_date(self) -> Optional[pulumi.Input[str]]:
         """
         The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
 
         > **Note:** `bing_safety_phishing_url_lookback_date` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         """
-        warnings.warn("""This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""bing_safety_phishing_url_lookback_date is deprecated: This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "bing_safety_phishing_url_lookback_date")
 
     @bing_safety_phishing_url_lookback_date.setter
@@ -160,15 +158,13 @@ class _DataConnectorMicrosoftThreatIntelligenceState:
 
     @property
     @pulumi.getter(name="bingSafetyPhishingUrlLookbackDate")
+    @_utilities.deprecated("""This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.""")
     def bing_safety_phishing_url_lookback_date(self) -> Optional[pulumi.Input[str]]:
         """
         The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
 
         > **Note:** `bing_safety_phishing_url_lookback_date` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         """
-        warnings.warn("""This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""bing_safety_phishing_url_lookback_date is deprecated: This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "bing_safety_phishing_url_lookback_date")
 
     @bing_safety_phishing_url_lookback_date.setter
@@ -412,15 +408,13 @@ class DataConnectorMicrosoftThreatIntelligence(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bingSafetyPhishingUrlLookbackDate")
+    @_utilities.deprecated("""This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.""")
     def bing_safety_phishing_url_lookback_date(self) -> pulumi.Output[Optional[str]]:
         """
         The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
 
         > **Note:** `bing_safety_phishing_url_lookback_date` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         """
-        warnings.warn("""This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""bing_safety_phishing_url_lookback_date is deprecated: This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "bing_safety_phishing_url_lookback_date")
 
     @property

@@ -174,7 +174,7 @@ class ServerKey(pulumi.CustomResource):
                 "verify",
                 "wrapKey",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     client,
                     server,
                 ]))
@@ -279,7 +279,7 @@ class ServerKey(pulumi.CustomResource):
                 "verify",
                 "wrapKey",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     client,
                     server,
                 ]))

@@ -144,10 +144,8 @@ class GetTopicResult:
 
     @property
     @pulumi.getter(name="namespaceName")
+    @_utilities.deprecated("""`namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.""")
     def namespace_name(self) -> Optional[str]:
-        warnings.warn("""`namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""namespace_name is deprecated: `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "namespace_name")
 
     @property
@@ -160,10 +158,8 @@ class GetTopicResult:
 
     @property
     @pulumi.getter(name="resourceGroupName")
+    @_utilities.deprecated("""`resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.""")
     def resource_group_name(self) -> Optional[str]:
-        warnings.warn("""`resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""resource_group_name is deprecated: `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "resource_group_name")
 
     @property

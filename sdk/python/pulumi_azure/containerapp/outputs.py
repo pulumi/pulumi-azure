@@ -326,13 +326,11 @@ class AppIngress(dict):
 
     @property
     @pulumi.getter(name="customDomain")
+    @_utilities.deprecated("""This property is deprecated in favour of the new `containerapp.CustomDomain` resource and will become computed only in a future release.""")
     def custom_domain(self) -> Optional['outputs.AppIngressCustomDomain']:
         """
         One or more `custom_domain` block as detailed below.
         """
-        warnings.warn("""This property is deprecated in favour of the new `containerapp.CustomDomain` resource and will become computed only in a future release.""", DeprecationWarning)
-        pulumi.log.warn("""custom_domain is deprecated: This property is deprecated in favour of the new `containerapp.CustomDomain` resource and will become computed only in a future release.""")
-
         return pulumi.get(self, "custom_domain")
 
     @property

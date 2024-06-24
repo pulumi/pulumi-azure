@@ -32,13 +32,11 @@ class FrontdoorRouteDisableLinkToDefaultDomainArgs:
 
     @property
     @pulumi.getter(name="cdnFrontdoorCustomDomainIds")
+    @_utilities.deprecated("""the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value""")
     def cdn_frontdoor_custom_domain_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route.
         """
-        warnings.warn("""the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value""", DeprecationWarning)
-        pulumi.log.warn("""cdn_frontdoor_custom_domain_ids is deprecated: the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value""")
-
         return pulumi.get(self, "cdn_frontdoor_custom_domain_ids")
 
     @cdn_frontdoor_custom_domain_ids.setter
@@ -47,13 +45,11 @@ class FrontdoorRouteDisableLinkToDefaultDomainArgs:
 
     @property
     @pulumi.getter(name="cdnFrontdoorRouteId")
+    @_utilities.deprecated("""the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value""")
     def cdn_frontdoor_route_id(self) -> pulumi.Input[str]:
         """
         The resource ID of the Front Door Route where the Link To Default Domain property should be `disabled`. Changing this forces a new Front Door Route Disable Link To Default Domain to be created.
         """
-        warnings.warn("""the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value""", DeprecationWarning)
-        pulumi.log.warn("""cdn_frontdoor_route_id is deprecated: the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value""")
-
         return pulumi.get(self, "cdn_frontdoor_route_id")
 
     @cdn_frontdoor_route_id.setter
@@ -84,13 +80,11 @@ class _FrontdoorRouteDisableLinkToDefaultDomainState:
 
     @property
     @pulumi.getter(name="cdnFrontdoorCustomDomainIds")
+    @_utilities.deprecated("""the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value""")
     def cdn_frontdoor_custom_domain_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route.
         """
-        warnings.warn("""the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value""", DeprecationWarning)
-        pulumi.log.warn("""cdn_frontdoor_custom_domain_ids is deprecated: the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value""")
-
         return pulumi.get(self, "cdn_frontdoor_custom_domain_ids")
 
     @cdn_frontdoor_custom_domain_ids.setter
@@ -99,13 +93,11 @@ class _FrontdoorRouteDisableLinkToDefaultDomainState:
 
     @property
     @pulumi.getter(name="cdnFrontdoorRouteId")
+    @_utilities.deprecated("""the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value""")
     def cdn_frontdoor_route_id(self) -> Optional[pulumi.Input[str]]:
         """
         The resource ID of the Front Door Route where the Link To Default Domain property should be `disabled`. Changing this forces a new Front Door Route Disable Link To Default Domain to be created.
         """
-        warnings.warn("""the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value""", DeprecationWarning)
-        pulumi.log.warn("""cdn_frontdoor_route_id is deprecated: the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value""")
-
         return pulumi.get(self, "cdn_frontdoor_route_id")
 
     @cdn_frontdoor_route_id.setter
@@ -250,23 +242,19 @@ class FrontdoorRouteDisableLinkToDefaultDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cdnFrontdoorCustomDomainIds")
+    @_utilities.deprecated("""the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value""")
     def cdn_frontdoor_custom_domain_ids(self) -> pulumi.Output[Sequence[str]]:
         """
         The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route.
         """
-        warnings.warn("""the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value""", DeprecationWarning)
-        pulumi.log.warn("""cdn_frontdoor_custom_domain_ids is deprecated: the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value""")
-
         return pulumi.get(self, "cdn_frontdoor_custom_domain_ids")
 
     @property
     @pulumi.getter(name="cdnFrontdoorRouteId")
+    @_utilities.deprecated("""the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value""")
     def cdn_frontdoor_route_id(self) -> pulumi.Output[str]:
         """
         The resource ID of the Front Door Route where the Link To Default Domain property should be `disabled`. Changing this forces a new Front Door Route Disable Link To Default Domain to be created.
         """
-        warnings.warn("""the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value""", DeprecationWarning)
-        pulumi.log.warn("""cdn_frontdoor_route_id is deprecated: the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value""")
-
         return pulumi.get(self, "cdn_frontdoor_route_id")
 

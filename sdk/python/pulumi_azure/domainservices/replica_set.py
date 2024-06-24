@@ -295,7 +295,7 @@ class ReplicaSet(pulumi.CustomResource):
             tags={
                 "Environment": "prod",
             },
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example,
                     primary_subnet_network_security_group_association,
                 ]))
@@ -390,7 +390,7 @@ class ReplicaSet(pulumi.CustomResource):
             domain_service_id=example_service.id,
             location=replica.location,
             subnet_id=aadds_replica.id,
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     replica_subnet_network_security_group_association,
                     primary_replica,
                     replica_primary,
@@ -534,7 +534,7 @@ class ReplicaSet(pulumi.CustomResource):
             tags={
                 "Environment": "prod",
             },
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example,
                     primary_subnet_network_security_group_association,
                 ]))
@@ -629,7 +629,7 @@ class ReplicaSet(pulumi.CustomResource):
             domain_service_id=example_service.id,
             location=replica.location,
             subnet_id=aadds_replica.id,
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     replica_subnet_network_security_group_association,
                     primary_replica,
                     replica_primary,

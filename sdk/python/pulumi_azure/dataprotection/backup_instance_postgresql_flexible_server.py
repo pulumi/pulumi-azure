@@ -247,7 +247,7 @@ class BackupInstancePostgresqlFlexibleServer(pulumi.CustomResource):
                     data_store_type="VaultStore",
                 )],
             ),
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example_assignment,
                     example2,
                 ]))
@@ -333,7 +333,7 @@ class BackupInstancePostgresqlFlexibleServer(pulumi.CustomResource):
                     data_store_type="VaultStore",
                 )],
             ),
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example_assignment,
                     example2,
                 ]))

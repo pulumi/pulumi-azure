@@ -184,10 +184,8 @@ class NetworkInterfaceArgs:
 
     @property
     @pulumi.getter(name="enableAcceleratedNetworking")
+    @_utilities.deprecated("""The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
     def enable_accelerated_networking(self) -> Optional[pulumi.Input[bool]]:
-        warnings.warn("""The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""enable_accelerated_networking is deprecated: The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "enable_accelerated_networking")
 
     @enable_accelerated_networking.setter
@@ -196,10 +194,8 @@ class NetworkInterfaceArgs:
 
     @property
     @pulumi.getter(name="enableIpForwarding")
+    @_utilities.deprecated("""The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
     def enable_ip_forwarding(self) -> Optional[pulumi.Input[bool]]:
-        warnings.warn("""The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""enable_ip_forwarding is deprecated: The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "enable_ip_forwarding")
 
     @enable_ip_forwarding.setter
@@ -452,10 +448,8 @@ class _NetworkInterfaceState:
 
     @property
     @pulumi.getter(name="enableAcceleratedNetworking")
+    @_utilities.deprecated("""The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
     def enable_accelerated_networking(self) -> Optional[pulumi.Input[bool]]:
-        warnings.warn("""The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""enable_accelerated_networking is deprecated: The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "enable_accelerated_networking")
 
     @enable_accelerated_networking.setter
@@ -464,10 +458,8 @@ class _NetworkInterfaceState:
 
     @property
     @pulumi.getter(name="enableIpForwarding")
+    @_utilities.deprecated("""The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
     def enable_ip_forwarding(self) -> Optional[pulumi.Input[bool]]:
-        warnings.warn("""The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""enable_ip_forwarding is deprecated: The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "enable_ip_forwarding")
 
     @enable_ip_forwarding.setter
@@ -966,18 +958,14 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableAcceleratedNetworking")
+    @_utilities.deprecated("""The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
     def enable_accelerated_networking(self) -> pulumi.Output[bool]:
-        warnings.warn("""The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""enable_accelerated_networking is deprecated: The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "enable_accelerated_networking")
 
     @property
     @pulumi.getter(name="enableIpForwarding")
+    @_utilities.deprecated("""The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
     def enable_ip_forwarding(self) -> pulumi.Output[bool]:
-        warnings.warn("""The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""enable_ip_forwarding is deprecated: The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-
         return pulumi.get(self, "enable_ip_forwarding")
 
     @property

@@ -286,7 +286,7 @@ class Hub(pulumi.CustomResource):
                 ),
             ],
             anonymous_connections_enabled=True,
-            opts=pulumi.ResourceOptions(depends_on=[example_service]))
+            opts = pulumi.ResourceOptions(depends_on=[example_service]))
         ```
 
         ## Import
@@ -383,7 +383,7 @@ class Hub(pulumi.CustomResource):
                 ),
             ],
             anonymous_connections_enabled=True,
-            opts=pulumi.ResourceOptions(depends_on=[example_service]))
+            opts = pulumi.ResourceOptions(depends_on=[example_service]))
         ```
 
         ## Import

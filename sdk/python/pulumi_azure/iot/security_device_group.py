@@ -204,7 +204,7 @@ class SecurityDeviceGroup(pulumi.CustomResource):
                 max=30,
                 duration="PT5M",
             )],
-            opts=pulumi.ResourceOptions(depends_on=[example_security_solution]))
+            opts = pulumi.ResourceOptions(depends_on=[example_security_solution]))
         ```
 
         ## Import
@@ -266,7 +266,7 @@ class SecurityDeviceGroup(pulumi.CustomResource):
                 max=30,
                 duration="PT5M",
             )],
-            opts=pulumi.ResourceOptions(depends_on=[example_security_solution]))
+            opts = pulumi.ResourceOptions(depends_on=[example_security_solution]))
         ```
 
         ## Import

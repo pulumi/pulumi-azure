@@ -1580,10 +1580,8 @@ class AlertRuleScheduledIncidentConfiguration(dict):
 
     @property
     @pulumi.getter(name="createIncident")
+    @_utilities.deprecated("""The `create_incident` property has been superseded by the `create_incident_enabled` property and will be removed in v4.0 of the AzureRM Provider""")
     def create_incident(self) -> bool:
-        warnings.warn("""The `create_incident` property has been superseded by the `create_incident_enabled` property and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
-        pulumi.log.warn("""create_incident is deprecated: The `create_incident` property has been superseded by the `create_incident_enabled` property and will be removed in v4.0 of the AzureRM Provider""")
-
         return pulumi.get(self, "create_incident")
 
     @property
@@ -1668,26 +1666,20 @@ class AlertRuleScheduledIncidentConfigurationGrouping(dict):
 
     @property
     @pulumi.getter(name="groupByAlertDetails")
+    @_utilities.deprecated("""The `group_by_alert_details` property has been superseded by the `by_alert_details` property and will be removed in v4.0 of the AzureRM Provider""")
     def group_by_alert_details(self) -> Optional[Sequence[str]]:
-        warnings.warn("""The `group_by_alert_details` property has been superseded by the `by_alert_details` property and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
-        pulumi.log.warn("""group_by_alert_details is deprecated: The `group_by_alert_details` property has been superseded by the `by_alert_details` property and will be removed in v4.0 of the AzureRM Provider""")
-
         return pulumi.get(self, "group_by_alert_details")
 
     @property
     @pulumi.getter(name="groupByCustomDetails")
+    @_utilities.deprecated("""The `group_by_custom_details` property has been superseded by the `by_custom_details` property and will be removed in v4.0 of the AzureRM Provider""")
     def group_by_custom_details(self) -> Optional[Sequence[str]]:
-        warnings.warn("""The `group_by_custom_details` property has been superseded by the `by_custom_details` property and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
-        pulumi.log.warn("""group_by_custom_details is deprecated: The `group_by_custom_details` property has been superseded by the `by_custom_details` property and will be removed in v4.0 of the AzureRM Provider""")
-
         return pulumi.get(self, "group_by_custom_details")
 
     @property
     @pulumi.getter(name="groupByEntities")
+    @_utilities.deprecated("""The `group_by_entities` property has been superseded by the `by_entities` property and will be removed in v4.0 of the AzureRM Provider""")
     def group_by_entities(self) -> Optional[Sequence[str]]:
-        warnings.warn("""The `group_by_entities` property has been superseded by the `by_entities` property and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
-        pulumi.log.warn("""group_by_entities is deprecated: The `group_by_entities` property has been superseded by the `by_entities` property and will be removed in v4.0 of the AzureRM Provider""")
-
         return pulumi.get(self, "group_by_entities")
 
     @property

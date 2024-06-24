@@ -679,7 +679,7 @@ class Server(pulumi.CustomResource):
                 "unwrapKey",
                 "wrapKey",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[example_key_vault]))
+            opts = pulumi.ResourceOptions(depends_on=[example_key_vault]))
         example_server = azure.mssql.Server("example",
             name="example-resource",
             resource_group_name=example.name,
@@ -827,7 +827,7 @@ class Server(pulumi.CustomResource):
                 "unwrapKey",
                 "wrapKey",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[example_key_vault]))
+            opts = pulumi.ResourceOptions(depends_on=[example_key_vault]))
         example_server = azure.mssql.Server("example",
             name="example-resource",
             resource_group_name=example.name,

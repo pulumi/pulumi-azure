@@ -181,7 +181,7 @@ class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
                 "verify",
                 "wrapKey",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[terraform]))
+            opts = pulumi.ResourceOptions(depends_on=[terraform]))
         databricks = azure.keyvault.AccessPolicy("databricks",
             key_vault_id=example_key_vault.id,
             tenant_id=example_workspace.storage_account_identities[0].tenant_id,
@@ -197,11 +197,11 @@ class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
                 "Decrypt",
                 "Sign",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[example_workspace]))
+            opts = pulumi.ResourceOptions(depends_on=[example_workspace]))
         example_workspace_root_dbfs_customer_managed_key = azure.databricks.WorkspaceRootDbfsCustomerManagedKey("example",
             workspace_id=example_workspace.id,
             key_vault_key_id=example_key.id,
-            opts=pulumi.ResourceOptions(depends_on=[databricks]))
+            opts = pulumi.ResourceOptions(depends_on=[databricks]))
         ```
 
         ## Example HCL Configurations
@@ -288,7 +288,7 @@ class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
                 "verify",
                 "wrapKey",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[terraform]))
+            opts = pulumi.ResourceOptions(depends_on=[terraform]))
         databricks = azure.keyvault.AccessPolicy("databricks",
             key_vault_id=example_key_vault.id,
             tenant_id=example_workspace.storage_account_identities[0].tenant_id,
@@ -304,11 +304,11 @@ class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
                 "Decrypt",
                 "Sign",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[example_workspace]))
+            opts = pulumi.ResourceOptions(depends_on=[example_workspace]))
         example_workspace_root_dbfs_customer_managed_key = azure.databricks.WorkspaceRootDbfsCustomerManagedKey("example",
             workspace_id=example_workspace.id,
             key_vault_key_id=example_key.id,
-            opts=pulumi.ResourceOptions(depends_on=[databricks]))
+            opts = pulumi.ResourceOptions(depends_on=[databricks]))
         ```
 
         ## Example HCL Configurations
